@@ -17,9 +17,10 @@
   &::placeholder {
     color: rgba(#fff, 0.5);
   }
-  &:not(select) {
-    margin-bottom: 0.75rem;
-  }
+  margin-bottom: 0.75rem;
+  // &:not(select) {
+  //   margin-bottom: 0.75rem;
+  // }
   &:focus-visible,
   &:hover {
     border: 0.125rem solid $c-beta;

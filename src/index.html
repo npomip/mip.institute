@@ -29,15 +29,55 @@
             height="40px"
           />
           <div class="logo__line"></div>
-          <h1 class="logo__text">
+          <h2 class="logo__text">
             МОСКОВСКИЙ <br />
             ИНСТИТУТ <br />
             ПСИХОЛОГИИ <br />
-          </h1>
+          </h2>
         </div>
-        <a href="#!" class="phone">
-          <img src="/img/svgs/phone.svg" />
-        </a>
+        <nav class="controls">
+          <a href="#!" class="controls__phone">
+            <img src="/img/svgs/phone.svg" />
+          </a>
+          <div class="controls__hum">
+            <div class="hum__line"></div>
+            <div class="hum__line"></div>
+            <div class="hum__line"></div>
+          </div>
+          <input
+            type="checkbox"
+            class="controls__hum-checkbox"
+            name="hum-menu-checkbox"
+            id="hum-menu-checkbox"
+          />
+          <div class="controls__mobile-menu-screen">
+            <div class="container">
+              <div class="mobile-menu-screen__header">
+                <div class="logo">
+                  <img
+                    src="/img/logo.png"
+                    class="logo__img"
+                    width="33px"
+                    height="40px"
+                  />
+                  <div class="logo__line"></div>
+                  <h2 class="logo__text">
+                    МОСКОВСКИЙ <br />
+                    ИНСТИТУТ <br />
+                    ПСИХОЛОГИИ <br />
+                  </h2>
+                </div>
+                <nav class="controls">
+                  <div class="controls__hum">
+                    <div class="hum__line"></div>
+                    <div class="hum__line"></div>
+                    <div class="hum__line"></div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     </header>
 
@@ -46,53 +86,19 @@
 
       <section class="section-header">
         <div class="container">
-          <div class="discount">
-            <div class="discount__circle">
-              <p class="circle__text">
-                <span class="text__bigger">-30%</span>
-                до 20 февраля
-              </p>
-            </div>
-            <div class="discount__text-container">
-              <p class="text-container__text">+ 2 бонусных модуля</p>
-            </div>
-          </div>
           <div class="section-header__content">
-            <h2 class="content__title">
-              Станьте психологом с нуля или освойте новые навыки
-              <span class="c-beta">дистанционно</span> из своего города
-            </h2>
+            <h1 class="content__title">
+              Онлайн- <br />
+              институт <br />
+              психологии
+            </h1>
 
             <h3 class="content__subtitle">
-              Выберите направление и забронируйте за собой
-              <span class="fw-600">скидку 30%</span>, а также узнайте о сроках,
-              формате и стоимости обучения
+              Освойте востребованную профессию психолога или повысьте
+              квалификацию вместе с нами
             </h3>
 
-            <form class="form-main">
-              <div class="select-wrapper">
-                <span class="select-arrow-down"></span>
-                <select name="proarea" class="form-main__field" required>
-                  <option hidden disabled selected value>
-                    Выбрать направление
-                  </option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </div>
-
-              <input
-                type="tel"
-                placeholder="Введите номер"
-                class="form-main__field"
-                autocomplete="tel"
-                required
-              />
-              <button type="submit" class="btn form-main__submit">
-                Отправить
-              </button>
-            </form>
+            <div class="img-person-working"></div>
           </div>
         </div>
       </section>
@@ -102,7 +108,11 @@
           <ul class="perks">
             <li class="perks__perk">
               <img src="/img/svgs/check.svg" class="perk__icon" />
-              <p class="perk__text">23 самых востребованых направленя</p>
+              <p class="perk__text">23 самых востребованых направлений</p>
+            </li>
+            <li class="perks__perk">
+              <img src="/img/svgs/check.svg" class="perk__icon" />
+              <p>Есть гос. аккредитация и сертификаты</p>
             </li>
             <li class="perks__perk">
               <img src="/img/svgs/check.svg" class="perk__icon" />
@@ -114,82 +124,13 @@
             </li>
             <li class="perks__perk">
               <img src="/img/svgs/check.svg" class="perk__icon" />
-              <p>Выгодно: от 4000 р за курс</p>
+              <p>Дипломы котируются за рубежом</p>
             </li>
             <li class="perks__perk">
               <img src="/img/svgs/check.svg" class="perk__icon" />
-              <p>Все программы лицензированы</p>
-            </li>
-            <li class="perks__perk">
-              <img src="/img/svgs/check.svg" class="perk__icon" />
-              <p>
-                Программы как для состоявшихся специалистов, так и для
-                начинающих
-              </p>
+              <p>Спикеры практики и имеют ученые степени</p>
             </li>
           </ul>
-        </div>
-      </section>
-
-      <section class="section-discount">
-        <div class="container">
-          <div class="section-discount__content">
-            <h4 class="discount-banner">Скидка 30% до 20 февраля</h4>
-            <h5 class="discount-subanner">На все направления</h5>
-            <div class="content__block">
-              <div class="divider">
-                <div class="divider__circle">
-                  <img src="/img/svgs/plus.svg" alt="Плюс" />
-                </div>
-              </div>
-              <h6 class="block__subtitle">БОНУСНЫЙ МОДУЛЬ 1</h6>
-              <h5 class="block__title">
-                «Как психологу зарабатывать от 80 т. р. на частных
-                консультациях»
-              </h5>
-              <div class="block__price">
-                <h6 class="price__crossed">3900 ₽</h6>
-                <h5 class="price__discount">Бесплатно</h5>
-              </div>
-            </div>
-            <div class="content__block">
-              <div class="divider">
-                <div class="divider__circle">
-                  <img src="/img/svgs/plus.svg" alt="Плюс" />
-                </div>
-              </div>
-              <h6 class="block__subtitle">БОНУСНЫЙ МОДУЛЬ 2</h6>
-              <h5 class="block__title">«10 способов поиска клиентов»</h5>
-              <div class="block__price">
-                <h6 class="price__crossed">3900 ₽</h6>
-                <h5 class="price__discount">Бесплатно</h5>
-              </div>
-            </div>
-            <a id="js-learn-more" href="#!" class="btn btn-shadow">
-              <span class="btn__circle"></span>
-              Узнать подробнее</a
-            >
-            <!-- <div id="js-hidden-form" class="hidden-form">
-              <p class="hidden-form__text">
-                Узнайте подробнее, оставив заявку на бесплатную консультацию.
-              </p>
-              <p class="hidden-form__text">
-                Ваш менеджер свяжется с Вами и ответит на Ваши вопросы
-              </p>
-              <form class="form-main">
-                <input
-                  type="tel"
-                  placeholder="Введите номер"
-                  class="form-main__field"
-                  autocomplete="tel" 
-                  required
-                />
-                <button type="submit" class="btn form-main__submit">
-                  Отправить
-                </button>
-              </form>
-            </div> -->
-          </div>
         </div>
       </section>
 
@@ -369,8 +310,13 @@
           </ul>
         </div>
       </section>
+      <section class="section-programs">
+        <div class="container">
+          <h3 class="title">Наши программы</h3>
+        </div>
+      </section>
     </main>
-    <hr class="section-divider" />
+    <!-- <hr class="section-divider" /> -->
     <footer>
       <div class="container">
         <div class="footer__content">

@@ -6,6 +6,14 @@
 
 .steps__step {
   display: flex;
+  &:nth-child(6) {
+    & .step__icon {
+      min-width: 2rem;
+      min-height: 2rem;
+      max-width: 2rem;
+      max-height: 2rem;
+    }
+  }
 }
 
 .step__icon {

@@ -1,7 +1,6 @@
 import '../scss/main.scss'
 
 const btnsRipple = document.querySelectorAll('.btn')
-const learnMoreBtn = document.getElementById('js-learn-more')
 
 const hide = (el) => {
   el.classList.add('hiding')
@@ -59,8 +58,4 @@ const showPopUpForm = () => {
   popUpForm.addEventListener('click', closePopUpForm)
 }
 
-learnMoreBtn.addEventListener('click', showPopUpForm)
-
 addRipplesToBtns(btnsRipple)
-
-// learnMoreBtn.addEventListener('click', showHiddenForm)

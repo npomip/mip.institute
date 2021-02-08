@@ -1,0 +1,68 @@
+// Colors
+$c-alpha: #6f01c6;
+$c-beta: #f87e1b;
+$c-gamma: #b250ff;
+$c-delta: #7d00e0;
+$c-epsilon: #fbf4ff;
+$c-zeta: #afafaf;
+$c-eta: #a99bb0;
+$c-theta: #1a1a1a;
+$c-iota: #d9d9d9;
+$c-kappa: #808080;
+$c-lambda: #F5F5F5;
+$c-mu: #fff;
+$c-nu: #fff;
+$c-xi: #fff;
+$c-omicron: #fff;
+$c-pi: #fff;
+$c-rho: #fff;
+
+@mixin easeOut {
+  transition: all 0.4s ease-in-out;
+}
+
+// Set Text Color
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+
+// Media Query Mixins
+@mixin mediaSm {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media only screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media only screen and (min-width: 1171px) {
+    @content;
+  }
+}
+
+// @mixin orientPort {
+//   @media only screen and (orientation: portrait) {
+//     @content;
+//   }
+// }
+
+@mixin orientLand {
+  @media only screen and (orientation: landscape) {
+    @content;
+  }
+}

@@ -1,0 +1,5 @@
+<Limit ALL>
+Order allow,deny
+Allow from 95.161.
+Deny from all
+</Limit>

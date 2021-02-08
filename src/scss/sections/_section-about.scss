@@ -1,0 +1,24 @@
+.section-about__content {
+  padding: 3.125rem 1.25rem;
+  background-color: $c-alpha;
+  color: set-text-color($c-alpha);
+  border-radius: 3.125rem 0px;
+
+  & .content__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.625rem;
+  }
+}
+
+.content__info {
+  font-weight: 200;
+  line-height: 130%;
+}
+
+.content__big-info {
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 130%;
+  margin-bottom: 0;
+}

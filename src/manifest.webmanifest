@@ -1,0 +1,23 @@
+{
+  "short_name": "Rosucheba",
+  "name": "Дистанционное образование",
+  "description": "Высшее образование дистанционно без ЕНТ и ЕГЭ",
+  "icons": [{
+      "src": "./img/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./img/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0075FF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0075FF"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "ipe",
+  "version": "1.0.0",
+  "description": "Высшее образование дистанционно без ЕНТ и ЕГЭ",
+  "main": "index.html",
+  "homepage": "",
+  "scripts": {
+    "sass": "node-sass -w src/scss/ -o src/css/ --recursive",
+    "deploy": "gh-pages -d dist",
+    "start": "node server.js",
+    "dev": "rm -rf ./development && rm -rf ./.cache && parcel src/index.html --out-dir development -p 3000",
+    "build": "parcel build src/index.html --out-dir dist --public-url ./"
+  },
+  "author": "Novailoveyou",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-ip": "^1.0.4",
+    "geoip-lite": "^1.4.2",
+    "gh-pages": "^2.2.0",
+    "node-sass": "^4.14.1",
+    "nodemailer": "^6.4.14",
+    "nodemailer-mailgun-transport": "^2.0.1",
+    "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/runtime-corejs2": "^7.11.2",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.27.0"
+  }
+}

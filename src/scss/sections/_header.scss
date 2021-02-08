@@ -1,0 +1,45 @@
+header {
+  background-color: $c-alpha;
+  color: set-text-color($c-alpha);
+  height: 5.375rem;
+  display: flex;
+  align-items: center;
+
+  & .phone {
+    & img {
+      @include rotateNBack(1.5);
+    }
+    @include fadeIn(1.5);
+  }
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.logo__img {
+  margin-right: 0.875rem;
+}
+
+.logo__line {
+  background-color: $c-gamma;
+  min-height: 100%;
+  width: 0.0525rem;
+  height: 3.4375rem;
+  margin-right: 0.875rem;
+}
+
+.logo__text {
+  font-family: 'Geometria-bold';
+  font-size: 0.7rem;
+  line-height: 0.9rem;
+}

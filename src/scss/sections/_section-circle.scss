@@ -1,0 +1,85 @@
+.section-circle {
+  margin: 2.0625rem 0;
+  & .container {
+    max-width: 397px;
+  }
+}
+
+.section-circle__circle {
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  background-color: $c-beta;
+
+  &::after {
+    content: '';
+    background-image: url(../img/logo-circle.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    height: 6.5625rem;
+    width: 6.5625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #fff;
+  }
+}
+
+.circle__face {
+  position: absolute;
+  color: #fff;
+}
+
+.circle__face--top {
+  max-width: 116px;
+  top: 1.4rem;
+  left: 53%;
+  transform: translateX(-50%);
+}
+
+.circle__face--right {
+  max-width: 6.0625rem;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+}
+
+.circle__face--bottom {
+  max-width: 109px;
+  bottom: 2rem;
+  left: 53%;
+  transform: translateX(-50%);
+}
+
+.circle__face--left {
+  max-width: 97px;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+}
+
+.face__title {
+  margin: 0;
+  font-family: 'TT-Firs-neue', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+
+.face__subtitle {
+  margin: 0.1875rem 0 0 0;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 120%;
+}

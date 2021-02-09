@@ -14,7 +14,16 @@
 @import 'sections/section-about';
 @import 'sections/section-circle';
 @import 'sections/section-steps';
+@import 'sections/section-programs';
+@import 'sections/section-choose-program';
 @import 'sections/footer';
 @import 'sections/section-popup';
 
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+
 // @import 'mobile';
+
+.glide {
+  background-color: #333;
+  color: #fff;
+}

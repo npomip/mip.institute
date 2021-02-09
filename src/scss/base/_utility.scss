@@ -107,3 +107,16 @@
   border: none;
   background-color: $c-beta;
 }
+
+.leafangle {
+  padding: 3.125rem 1.25rem;
+  background-color: $c-alpha;
+  color: set-text-color($c-alpha);
+  border-radius: 3.125rem 0px;
+
+  & .content__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.625rem;
+  }
+}

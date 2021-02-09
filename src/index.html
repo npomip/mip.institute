@@ -13,6 +13,7 @@
     <meta name="author" content="Novailoveyou" />
     <link rel="shortcut icon" href="/img/favicon.ico" type="/image/x-icon" />
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <title>Московский Институт Психологии</title>
@@ -39,41 +40,43 @@
           <a href="#!" class="controls__phone">
             <img src="/img/svgs/phone.svg" />
           </a>
-          <div class="controls__hum">
-            <div class="hum__line"></div>
-            <div class="hum__line"></div>
-            <div class="hum__line"></div>
-          </div>
-          <input
-            type="checkbox"
-            class="controls__hum-checkbox"
-            name="hum-menu-checkbox"
-            id="hum-menu-checkbox"
-          />
-          <div class="controls__mobile-menu-screen">
-            <div class="container">
-              <div class="mobile-menu-screen__header">
-                <div class="logo">
-                  <img
-                    src="/img/logo.png"
-                    class="logo__img"
-                    width="33px"
-                    height="40px"
-                  />
-                  <div class="logo__line"></div>
-                  <h2 class="logo__text">
-                    МОСКОВСКИЙ <br />
-                    ИНСТИТУТ <br />
-                    ПСИХОЛОГИИ <br />
-                  </h2>
-                </div>
-                <nav class="controls">
-                  <div class="controls__hum">
-                    <div class="hum__line"></div>
-                    <div class="hum__line"></div>
-                    <div class="hum__line"></div>
+          <div class="controls__mob-menu">
+            <div class="controls__hum">
+              <div class="hum__line"></div>
+              <div class="hum__line"></div>
+              <div class="hum__line"></div>
+            </div>
+            <input
+              type="checkbox"
+              class="controls__hum-checkbox"
+              name="hum-menu-checkbox"
+              id="hum-menu-checkbox"
+            />
+            <div class="controls__mobile-menu-screen">
+              <div class="container">
+                <div class="mobile-menu-screen__header">
+                  <div class="logo">
+                    <img
+                      src="/img/logo.png"
+                      class="logo__img"
+                      width="33px"
+                      height="40px"
+                    />
+                    <div class="logo__line"></div>
+                    <h2 class="logo__text">
+                      МОСКОВСКИЙ <br />
+                      ИНСТИТУТ <br />
+                      ПСИХОЛОГИИ <br />
+                    </h2>
                   </div>
-                </nav>
+                  <nav class="controls">
+                    <div class="controls__hum">
+                      <div class="hum__line"></div>
+                      <div class="hum__line"></div>
+                      <div class="hum__line"></div>
+                    </div>
+                  </nav>
+                </div>
               </div>
             </div>
           </div>
@@ -201,7 +204,7 @@
 
       <section class="section-about">
         <div class="container">
-          <div class="section-about__content">
+          <div class="section-about__content leafangle">
             <h3 class="content__title">Об институте</h3>
             <p class="content__info">
               Московский Институт Психологии за современный подход в
@@ -313,8 +316,66 @@
       <section class="section-programs">
         <div class="container">
           <h3 class="title">Наши программы</h3>
+          <div class="section-programs__program">
+            <div class="program__headings">
+              <h4 class="headings__title">Курсы</h4>
+              <p class="headings__subtitle">
+                Короткие программы, чтобы изучить один конкретный навык
+              </p>
+            </div>
+
+            <div class="program__content">
+              <div class="content__program-cards">
+                <div class="content__program-card">
+                  <div class="program-card__card-body">
+                    <img class="card-body__img" src="./img/program-img.jpg" />
+                    <div class="card-body__card-content">
+                      <div class="card-content__info">
+                        <p class="info__tag">КУРС</p>
+                        <p class="info__dur">4 месяца</p>
+                      </div>
+                      <h5 class="card-content__title">
+                        Название обучающие программы
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="btn btn--invert">Смотреть все курсы</a>
+            </div>
+          </div>
         </div>
       </section>
+
+      <section class="section-choose-program">
+        <img src="/img/svgs/ellipse.svg" class="ellipse" />
+        <div class="container">
+          <div class="section-choose-program__content leafangle">
+            <h3 class="content__title">Подберите программу</h3>
+            <p class="content__info">
+              Ответьте на несколько вопросов и подберите программу обучения
+            </p>
+
+            <a href="#!" class="btn">Подобрать программу</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide">1</li>
+            <li class="glide__slide" style="background-color: red">2</li>
+            <li class="glide__slide">3</li>
+          </ul>
+        </div>
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+          <button class="glide__bullet" data-glide-dir="=0"></button>
+          <button class="glide__bullet" data-glide-dir="=1"></button>
+          <button class="glide__bullet" data-glide-dir="=2"></button>
+        </div>
+      </div>
     </main>
     <!-- <hr class="section-divider" /> -->
     <footer>

@@ -46,6 +46,12 @@
   }
 }
 
+.btn--invert {
+  background-color: transparent;
+  border: 1px solid $c-beta;
+  color: $c-beta;
+}
+
 .btn-shadow {
   box-shadow: 0px 0.625rem 0.9375rem rgba($c-beta, 0.2);
 }

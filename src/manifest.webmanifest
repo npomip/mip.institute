@@ -1,23 +1,24 @@
+  
 {
-  "short_name": "Rosucheba",
-  "name": "Дистанционное образование",
-  "description": "Высшее образование дистанционно без ЕНТ и ЕГЭ",
+  "short_name": "mip",
+  "name": "МИП | Московский Институт Психологии",
+  "description": "МИП — Станьте психологом с нуля или освойте новые навыки дистанционно из своего города",
   "icons": [{
-      "src": "./img/icons-192.png",
+      "src": "./assets/imgs/icons-192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "./img/icons-512.png",
+      "src": "./assets/imgs/icons-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
   "start_url": "/",
-  "background_color": "#0075FF",
+  "background_color": "#6F01C6",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#0075FF"
+  "theme_color": "#6F01C6"
 }

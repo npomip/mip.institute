@@ -3,24 +3,21 @@
   "version": "1.0.0",
   "description": "МИП — Станьте психологом с нуля или освойте новые навыки дистанционно из своего города",
   "main": "index.html",
-  "homepage": ".",
   "scripts": {
-    "sass": "node-sass -w src/scss/ -o src/css/ --recursive",
-    "deploy": "gh-pages -d dist",
     "start": "node app.js",
     "dev": "rm -rf ./development && rm -rf ./.cache && parcel src/index.html --out-dir development -p 3000",
     "build": "parcel build src/index.html --out-dir dist --public-url ./"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Novailoveyou/psycho-site.git"
+  },
   "author": "Novailoveyou",
   "license": "MIT",
-  "dependencies": {
-    "@glidejs/glide": "^3.4.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "gh-pages": "^2.2.0",
-    "node-sass": "^4.14.1",
-    "nodemon": "^2.0.6"
+  "bugs": {
+    "url": "https://github.com/Novailoveyou/psycho-site/issues"
   },
+  "homepage": "https://github.com/Novailoveyou/psycho-site#readme",
   "engines": {
     "node": "14.x",
     "npm": "7.x"
@@ -28,8 +25,11 @@
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "@babel/plugin-transform-runtime": "^7.12.15",
-    "@babel/runtime-corejs2": "^7.11.2",
+    "@babel/runtime-corejs2": "^7.12.13",
     "parcel-bundler": "^1.12.4",
-    "sass": "^1.27.0"
+    "sass": "^1.32.7"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }

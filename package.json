@@ -1,13 +1,13 @@
 {
-  "name": "ipe",
+  "name": "mip",
   "version": "1.0.0",
-  "description": "Высшее образование дистанционно без ЕНТ и ЕГЭ",
+  "description": "МИП — Станьте психологом с нуля или освойте новые навыки дистанционно из своего города",
   "main": "index.html",
-  "homepage": "",
+  "homepage": ".",
   "scripts": {
     "sass": "node-sass -w src/scss/ -o src/css/ --recursive",
     "deploy": "gh-pages -d dist",
-    "start": "node server.js",
+    "start": "node app.js",
     "dev": "rm -rf ./development && rm -rf ./.cache && parcel src/index.html --out-dir development -p 3000",
     "build": "parcel build src/index.html --out-dir dist --public-url ./"
   },
@@ -17,18 +17,13 @@
     "@glidejs/glide": "^3.4.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-ip": "^1.0.4",
-    "geoip-lite": "^1.4.2",
     "gh-pages": "^2.2.0",
-    "gl": "^4.9.0",
     "node-sass": "^4.14.1",
-    "nodemailer": "^6.4.14",
-    "nodemailer-mailgun-transport": "^2.0.1",
     "nodemon": "^2.0.6"
   },
   "engines": {
-    "node": "12.x",
-    "npm": "6.x"
+    "node": "14.x",
+    "npm": "7.x"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",

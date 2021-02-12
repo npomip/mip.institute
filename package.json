@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "rm -rf ./development && rm -rf ./.cache && parcel src/index.html --out-dir development -p 3000",
-    "build": "parcel build src/index.html --out-dir dist --public-url ./"
+    "build": "parcel build src/index.html --out-dir dist --public-url ./ && npx postcss dist/*.css --no-map --use autoprefixer -d dist/"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,11 @@
     "@babel/core": "^7.12.13",
     "@babel/plugin-transform-runtime": "^7.12.15",
     "@babel/runtime-corejs2": "^7.12.13",
+    "autoprefixer": "^10.2.4",
     "parcel-bundler": "^1.12.4",
-    "sass": "^1.32.7"
+    "postcss-modules": "^4.0.0",
+    "sass": "^1.32.7",
+    "postcss-cli": "^8.3.1"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"

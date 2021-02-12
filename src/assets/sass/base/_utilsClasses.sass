@@ -1,0 +1,15 @@
+.c-beta
+  color: $c-beta
+
+.mobile-only
+  display: block
+
+.desktop-only
+  display: none
+
+@include mediaMd
+  .mobile-only
+    display: none
+
+  .desktop-only
+    display: block

@@ -4,3 +4,7 @@
     @return #000
   @else
     @return #fff
+
+// Calculate rems from px
+@function px($px)
+  @return unquote(($px / 16) + 'rem') // root font size

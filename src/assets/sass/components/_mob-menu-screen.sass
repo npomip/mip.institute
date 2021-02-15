@@ -1,1 +1,18 @@
-
+.mob-menu-screen
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  // height: 100%
+  // border: 1px solid #000
+  overflow: hidden
+  @include dye(bg-color, $c-alpha)
+  @include dye(color, $c-nu)
+  & .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+  & .logo__line
+    width: px(1)
+    height: px(55)
+    @include dye(bg-color, $c-gamma)

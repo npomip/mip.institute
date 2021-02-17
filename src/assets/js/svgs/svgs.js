@@ -25,7 +25,7 @@ const populateSvgs = () => {
   insertSvgsTo(fb, 'sm-fb')
   insertSvgsTo(yt, 'sm-yt')
   insertSvgsTo(check, 'check-icon')
-  insertSvgsTo(pointerRight, 'pointer-right')
+  insertSvgsTo(pointerRight, 'pointer-right-icon')
   insertSvgsTo(play, 'play-icon')
   insertSvgsTo(whatsapp, 'sm-whatsapp')
   insertSvgsTo(telegram, 'sm-telegram')

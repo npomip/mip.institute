@@ -1,18 +1,60 @@
 .mob-menu-screen
-  position: absolute
+  position: fixed
   top: 0
   left: 0
-  width: 100%
-  // height: 100%
-  // border: 1px solid #000
-  overflow: hidden
+  height: 100%
   @include dye(bg-color, $c-alpha)
-  @include dye(color, $c-nu)
-  & .container
-    display: flex
-    justify-content: space-between
-    align-items: center
-  & .logo__line
-    width: px(1)
-    height: px(55)
-    @include dye(bg-color, $c-gamma)
+
+  & a:not(.logo)
+    @include dye(color, $c-nu)
+
+  & header
+    & .container
+      @include flex(space-between, center)
+
+  & .mob-nav__close
+    @include flex(center, center)
+    height: px(35)
+
+  & .links__link
+    @include flex()
+    & a
+      padding: px(15)
+      width: 100%
+    &:nth-child(1)
+      & a
+        @include flex(space-between)
+    & .pointer-right-icon
+      & path
+        @include dye(stroke, $c-nu)
+    &:not(:nth-last-child(1))
+      a
+        border-bottom: px(1) solid
+        @include dye(border-c, rgba($c-nu, 0.1))
+
+  & footer
+    position: absolute
+    bottom: 0
+
+  & .phone-number
+    @include flex()
+    margin-bottom: px(17)
+
+  & .phone-icon
+    margin-right: px(10)
+
+  & .callback
+    margin-bottom: px(41)
+
+  & .sm-icons
+    @include flex()
+  & .sm-icons__icon
+    @include flex(center, center)
+    padding: px(15)
+    border: px(1) solid
+    @include dye(border-c, $c-xi)
+    border-radius: px(4)
+    &:not(:nth-last-child(1))
+      margin-right: px(10)
+    & span
+      min-width: px(20)

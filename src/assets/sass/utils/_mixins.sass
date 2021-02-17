@@ -28,6 +28,13 @@
   @media only screen and (orientation: landscape)
     @content
 
+@mixin flex($justify-content: null, $align-items: null)
+  display: flex
+  @if $justify-content
+    justify-content: $justify-content
+  @if $align-items
+    align-items: $align-items
+
 // Set theme depended colors
 @mixin dye($prop, $color)
 
@@ -38,6 +45,14 @@
   @if $prop == 'bg-color'
     &
       background-color: $color
+
+  @if $prop == 'stroke'
+    &
+      stroke: $color
+
+  @if $prop == 'border-c'
+    &
+      border-color: $color
 
   // @media (prefers-color-scheme: dark)
   //   // &

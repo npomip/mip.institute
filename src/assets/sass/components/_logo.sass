@@ -1,8 +1,10 @@
 .logo
-  display: flex
-  justify-content: center
-  align-items: center
+  @include flex(center, center)
+  @include dye(color, $c-nu)
   & .logo__img
     margin-right: px(14)
   & .logo__line
     margin-right: px(14)
+    width: px(1)
+    height: px(55)
+    @include dye(bg-color, $c-gamma)

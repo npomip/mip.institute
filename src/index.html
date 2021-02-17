@@ -23,7 +23,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="header-main">
       <div class="container">
         <div class="header__top desktop-only">
           <div class="info">
@@ -32,13 +32,13 @@
             </a>
           </div>
           <div class="address">
-            <span class="address-icon"></span>
+            <span class="icon- address-icon"></span>
             <p class="address__text typo-upsilon">
               Москва, Дербеневская набережная 11
             </p>
           </div>
           <div class="phone-number">
-            <span class="phone-icon"></span>
+            <span class="icon- phone-icon"></span>
             <a
               href="tel:+7-495-648-62-26"
               class="phone-number__text typo-gamma"
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="header__bottom">
-          <div class="logo">
+          <a class="logo">
             <div class="logo__img">
               <img
                 src="./assets/imgs/logo.png"
@@ -68,10 +68,10 @@
                 ПСИХОЛОГИИ
               </h2>
             </div>
-          </div>
+          </a>
           <nav class="mob-nav mobile-only">
             <a href="#!" class="mob-nav__phone">
-              <span class="phone-icon"></span>
+              <span class="icon- phone-icon"></span>
             </a>
             <a href="#!" class="mob-nav__hum">
               <div class="hum__line"></div>
@@ -81,7 +81,7 @@
           </nav>
           <nav class="desktop-nav desktop-only">
             <a href="#!" class="desktop-nav__btn-lg">
-              <span class="two-lanes-icon">
+              <span class="icon- two-lanes-icon">
                 <span></span>
                 <span></span>
               </span>
@@ -104,9 +104,9 @@
     </header>
     <main>
       <section class="mob-menu-screen mobile-only">
-        <header>
+        <header class="header-mob-screen">
           <div class="container">
-            <div class="logo">
+            <a href="#!" class="btn- logo">
               <div class="logo__img">
                 <img
                   src="./assets/imgs/logo.png"
@@ -123,10 +123,10 @@
                   ПСИХОЛОГИИ
                 </h2>
               </div>
-            </div>
+            </a>
             <nav class="mob-nav mob-menu-screen__nav">
-              <a href="#!" class="mob-nav__close">
-                <span class="close-btn">
+              <a href="#!" class="btn- mob-nav__close">
+                <span class="icon- close-btn">
                   <span></span>
                   <span></span>
                 </span>
@@ -138,10 +138,21 @@
           <div class="container">
             <nav class="mob-menu-screen-nav">
               <ul class="mob-menu-screen-nav__links">
-                <li class="links__link typo-beta">Направления обучения</li>
-                <li class="links__link typo-beta">Вебинары</li>
-                <li class="links__link typo-beta">Отзывы</li>
-                <li class="links__link typo-beta">Об институте</li>
+                <li class="links__link typo-beta">
+                  <a href="#!" class="btn-">
+                    <span>Направления обучения</span>
+                    <span class="icon- pointer-right-icon"></span>
+                  </a>
+                </li>
+                <li class="links__link typo-beta">
+                  <a href="#!" class="btn-">Вебинары</a>
+                </li>
+                <li class="links__link typo-beta">
+                  <a href="#!" class="btn-">Отзывы</a>
+                </li>
+                <li class="links__link typo-beta">
+                  <a href="#!" class="btn-">Об институте</a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -149,27 +160,28 @@
         <footer>
           <div class="container">
             <div class="contact">
-              <div class="phone-number">
-                <span class="phone-icon"></span>
-                <a
-                  href="tel:+7-495-648-62-26"
-                  class="phone-number__text typo-gamma"
-                  >+7 (495) 648-62-26
-                </a>
-              </div>
+              <a
+                href="tel:+7-495-648-62-26"
+                class="btn- phone-number typo-gamma"
+              >
+                <span class="icon- phone-icon"></span>
+                <span class="phone-number__text">+7 (495) 648-62-26 </span>
+              </a>
               <div class="callback">
-                <a href="#!" class="btn typo-delta">Обратный звонок</a>
+                <a href="#!" class="btn- btn-alpha btn-ripples typo-delta"
+                  >Обратный звонок</a
+                >
               </div>
             </div>
             <div class="sm-icons">
-              <a href="#!" class="sm-icons__icon">
-                <span class="sm-vk"></span>
+              <a href="#!" class="btn- sm-icons__icon">
+                <span class="icon- sm-vk"></span>
               </a>
-              <a href="#!" class="sm-icons__icon">
-                <span class="sm-fb"></span>
+              <a href="#!" class="btn- sm-icons__icon">
+                <span class="icon- sm-fb"></span>
               </a>
-              <a href="#!" class="sm-icons__icon">
-                <span class="sm-yt"></span>
+              <a href="#!" class="btn- sm-icons__icon">
+                <span class="icon- sm-yt"></span>
               </a>
             </div>
           </div>
@@ -217,42 +229,42 @@
           <div class="content">
             <ul class="list-group typo-zeta">
               <li class="list-group__item">
-                <span class="item__icon check-icon"></span>
+                <span class="item__icon icon- check-icon"></span>
                 <div class="item__text">
                   <p class="text__p">23 самых востребованых направления</p>
                 </div>
               </li>
 
               <li class="list-group__item">
-                <span class="item__icon check-icon"></span>
+                <span class="item__icon icon- check-icon"></span>
                 <div class="item__text">
                   <p class="text__p">Есть гос. аккредитация и сертификаты</p>
                 </div>
               </li>
 
               <li class="list-group__item">
-                <span class="item__icon check-icon"></span>
+                <span class="item__icon icon- check-icon"></span>
                 <div class="item__text">
                   <p class="text__p">Помощь в трудоустройстве</p>
                 </div>
               </li>
 
               <li class="list-group__item">
-                <span class="item__icon check-icon"></span>
+                <span class="item__icon icon- check-icon"></span>
                 <div class="item__text">
                   <p class="text__p">Онлайн и оффлайн мероприятия</p>
                 </div>
               </li>
 
               <li class="list-group__item">
-                <span class="item__icon check-icon"></span>
+                <span class="item__icon icon- check-icon"></span>
                 <div class="item__text">
                   <p class="text__p">Дипломы котируются за рубежом</p>
                 </div>
               </li>
 
               <li class="list-group__item">
-                <span class="item__icon check-icon"></span>
+                <span class="item__icon icon- check-icon"></span>
                 <div class="item__text">
                   <p class="text__p">Спикеры практики и имеют ученые степени</p>
                 </div>
@@ -586,7 +598,8 @@
                     </div>
                     <div class="text__btn">
                       <a href="#!" class="btn">
-                        Читать историю <span class="pointer-right"></span>
+                        Читать историю
+                        <span class="icon- pointer-right-icon"></span>
                       </a>
                     </div>
                   </div>
@@ -615,7 +628,8 @@
                     </div>
                     <div class="text__btn">
                       <a href="#!" class="btn">
-                        Читать историю <span class="pointer-right"></span>
+                        Читать историю
+                        <span class="icon- pointer-right-icon"></span>
                       </a>
                     </div>
                   </div>
@@ -668,7 +682,7 @@
                   <div class="slide__link">
                     <a href="#!" class="btn">
                       Записаться
-                      <span class="pointer-right"></span>
+                      <span class="icon- pointer-right-icon"></span>
                     </a>
                   </div>
                 </li>
@@ -696,7 +710,7 @@
                   <div class="slide__link">
                     <a href="#!" class="btn">
                       Записаться
-                      <span class="pointer-right"></span>
+                      <span class="icon- pointer-right-icon"></span>
                     </a>
                   </div>
                 </li>
@@ -724,20 +738,20 @@
                   <div class="slide__link">
                     <a href="#!" class="btn">
                       Записаться
-                      <span class="pointer-right"></span>
+                      <span class="icon- pointer-right-icon"></span>
                     </a>
                   </div>
                 </li>
                 <li class="slides__slide desktop-only">
                   <a href="#!">
-                    <span class="play-icon"></span>
+                    <span class="icon- play-icon"></span>
                     <div class="slide__title">
                       <h3 class="typo-sigma">Расписание всех вебинаров</h3>
                     </div>
                     <div class="slide__link">
                       <p>
                         Смотреть все
-                        <span class="pointer-right"></span>
+                        <span class="icon- pointer-right-icon"></span>
                       </p>
                     </div>
                   </a>
@@ -751,7 +765,7 @@
               </div>
             </div>
             <div class="all-webinars">
-              <span class="play-icon"></span>
+              <span class="icon- play-icon"></span>
               <h3 class="typo-sigma">Расписание всех вебинаров</h3>
             </div>
           </div>
@@ -818,17 +832,17 @@
               <ul class="group__sm-icons">
                 <li class="sm-icons__icon">
                   <a href="#!">
-                    <span class="sm-vk"></span>
+                    <span class="icon- sm-vk"></span>
                   </a>
                 </li>
                 <li class="sm-icons__icon">
                   <a href="#!">
-                    <span class="sm-whatsapp"></span>
+                    <span class="icon- sm-whatsapp"></span>
                   </a>
                 </li>
                 <li class="sm-icons__icon">
                   <a href="#!">
-                    <span class="sm-telegram"></span>
+                    <span class="icon- sm-telegram"></span>
                   </a>
                 </li>
               </ul>

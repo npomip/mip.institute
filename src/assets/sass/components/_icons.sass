@@ -1,17 +1,15 @@
 .icon-
   @include flex(center, center)
 
-.two-lanes-icon
-  & span
-    display: block
+.mob-nav__hum
+  width: px(35)
+  & .hum__line
+    width: 100%
+    height: px(2)
+    border-radius: px(4)
     @include dye(bg-color, $c-nu)
-    &:nth-child(1)
-      width: px(20)
-      height: px(2)
-      margin-bottom: px(7)
-    &:nth-child(2)
-      width: px(10)
-      height: px(2)
+    &:not(:nth-last-child(1))
+      margin-bottom: px(9)
 
 .close-btn
   position: relative
@@ -32,3 +30,16 @@
       width: px(35)
       height: px(2)
       transform: rotate(-45deg)
+
+// Only used in desktop
+.two-lanes-icon
+  & span
+    display: block
+    @include dye(bg-color, $c-nu)
+    &:nth-child(1)
+      width: px(20)
+      height: px(2)
+      margin-bottom: px(7)
+    &:nth-child(2)
+      width: px(10)
+      height: px(2)

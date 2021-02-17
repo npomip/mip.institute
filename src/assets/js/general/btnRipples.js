@@ -4,7 +4,6 @@ const addRipplesToBtns = (selectedClass = null) => {
   if (selectedClass !== null) {
     selectedClass.forEach((btn) => {
       btn.addEventListener('click', function (e) {
-        console.log('test')
         const rect = e.target.getBoundingClientRect()
         const x = e.clientX - rect.left
         const y = e.clientY - rect.top

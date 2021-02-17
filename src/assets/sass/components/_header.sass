@@ -1,3 +1,12 @@
-.header-main
+.header-chief
   @include dye('color', $c-nu)
   @include dye('bg-color', $c-alpha)
+
+  .header__bottom
+    @include flex(space-between, center)
+
+  .mob-nav
+    @include flex()
+
+  .mob-nav__phone
+    margin-right: px(25)

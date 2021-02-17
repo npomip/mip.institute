@@ -23,7 +23,7 @@
   </head>
 
   <body>
-    <header class="header-main">
+    <header class="header-chief">
       <div class="container">
         <div class="header__top desktop-only">
           <div class="info">
@@ -47,11 +47,11 @@
             </a>
           </div>
           <div class="callback">
-            <a href="#!" class="btn typo-delta">Обратный звонок</a>
+            <a href="#!" class="typo-delta">Обратный звонок</a>
           </div>
         </div>
         <div class="header__bottom">
-          <a class="logo">
+          <a href="#!" class="btn- logo">
             <div class="logo__img">
               <img
                 src="./assets/imgs/logo.png"
@@ -70,10 +70,10 @@
             </div>
           </a>
           <nav class="mob-nav mobile-only">
-            <a href="#!" class="mob-nav__phone">
+            <a href="#!" class="btn- mob-nav__phone">
               <span class="icon- phone-icon"></span>
             </a>
-            <a href="#!" class="mob-nav__hum">
+            <a href="#!" id="js-hum-btn" class="btn- mob-nav__hum">
               <div class="hum__line"></div>
               <div class="hum__line"></div>
               <div class="hum__line"></div>
@@ -103,7 +103,10 @@
       </div>
     </header>
     <main>
-      <section class="mob-menu-screen mobile-only hidden">
+      <section
+        id="js-mob-menu-screen"
+        class="mob-menu-screen mobile-only hidden"
+      >
         <header class="header-mob-screen">
           <div class="container">
             <a href="#!" class="btn- logo">
@@ -125,7 +128,7 @@
               </div>
             </a>
             <nav class="mob-nav mob-menu-screen__nav">
-              <a href="#!" class="btn- mob-nav__close">
+              <a href="#!" id="js-close-menu-btn" class="btn- mob-nav__close">
                 <span class="icon- close-btn">
                   <span></span>
                   <span></span>

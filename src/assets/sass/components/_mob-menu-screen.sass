@@ -19,7 +19,7 @@
   & .links__link
     @include flex()
     & a
-      padding: px(15)
+      padding: px(15) px(15) px(15) 0
       width: 100%
     &:nth-child(1)
       & a
@@ -49,11 +49,6 @@
   & .sm-icons
     @include flex()
   & .sm-icons__icon
-    @include flex(center, center)
-    padding: px(15)
-    border: px(1) solid
-    @include dye(border-c, $c-xi)
-    border-radius: px(4)
     &:not(:nth-last-child(1))
       margin-right: px(10)
     & span

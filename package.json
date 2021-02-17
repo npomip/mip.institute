@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "rm -rf ./development && rm -rf ./.cache && parcel src/index.html --out-dir development -p 3000",
-    "build": "parcel build src/index.html --out-dir dist --public-url ./ && npx postcss dist/*.css --no-map --use autoprefixer -d dist/"
+    "build": "rm -rf ./dist && parcel build src/index.html --out-dir dist --public-url ./ && npx postcss dist/*.css --no-map --use autoprefixer -d dist/"
   },
   "repository": {
     "type": "git",

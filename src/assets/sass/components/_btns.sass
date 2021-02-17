@@ -8,6 +8,13 @@
   &:active
     transform: scale(0.98)
 
+.btn-sm
+  @include flex(center, center)
+  padding: px(15)
+  border: px(1) solid
+  @include dye(border-c, $c-xi)
+  border-radius: px(4)
+
 .btn-alpha
   @include flex(center)
   max-width: px(168)
@@ -23,8 +30,8 @@
   overflow: hidden
 
 .btn-ripples__circle
-  width: px(100)
-  height: px(100)
+  width: px(60)
+  height: px(60)
   position: absolute
   top: px(27)
   left: px(82)
@@ -34,3 +41,8 @@
   animation-duration: 0.5s
   animation-timing-function: ease-out
   @include dye(bg-color, $c-nu)
+
+.btn-sm
+  & .btn-ripples__circle
+    width: px(35)
+    height: px(35)

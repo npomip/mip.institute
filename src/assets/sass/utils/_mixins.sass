@@ -31,12 +31,14 @@
 @mixin transition($prop: transform, $del: 0.4s, $tf: ease-out)
   transition: $prop $del $tf
 
-@mixin flex($justify-content: null, $align-items: null)
+@mixin flex($justify-content: null, $align-items: null, $flex-direction: null)
   display: flex
   @if $justify-content
     justify-content: $justify-content
   @if $align-items
     align-items: $align-items
+  @if $flex-direction
+    flex-direction: $flex-direction
 
 // Set theme depended colors
 @mixin dye($prop, $color)

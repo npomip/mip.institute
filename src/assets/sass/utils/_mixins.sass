@@ -28,6 +28,9 @@
   @media only screen and (orientation: landscape)
     @content
 
+@mixin transition($prop: transform, $del: 0.4s, $tf: ease-out)
+  transition: $prop $del $tf
+
 @mixin flex($justify-content: null, $align-items: null)
   display: flex
   @if $justify-content

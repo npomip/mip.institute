@@ -1,5 +1,8 @@
 .hidden
-  display: none
+  &:not(.mob-menu-screen)
+    display: none
+  &.mob-menu-screen
+    transform: translateX(100%)
 
 .desktop-only
   display: none

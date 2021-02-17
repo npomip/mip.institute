@@ -8,6 +8,7 @@ import { pointerRight } from './icons/pointer-right'
 import { play } from './icons/play'
 import { whatsapp } from './icons/whatsapp'
 import { telegram } from './icons/telegram'
+import { ellipseMobile } from './icons/ellipse-mobile'
 
 const insertSvgsTo = (svg, elsClass) => {
   if (svg && elsClass) {
@@ -29,6 +30,7 @@ const populateSvgs = () => {
   insertSvgsTo(play, 'play-icon')
   insertSvgsTo(whatsapp, 'sm-whatsapp')
   insertSvgsTo(telegram, 'sm-telegram')
+  insertSvgsTo(ellipseMobile, 'ellipse-mobile')
 }
 
 populateSvgs()

@@ -35,4 +35,4 @@ var e=document.querySelectorAll(".btn-ripples"),t=function(){var e=arguments.len
 },{"../utils/errorHandler":"f8Kq"}],"A2T1":[function(require,module,exports) {
 "use strict";require("./assets/sass/app.sass");var s=require("./assets/js/svgs/svgs"),e=t(require("./assets/js/general/general")),r=t(require("./assets/js/general/btnRipples")),a=t(require("./assets/js/general/menu"));function t(s){return s&&s.__esModule?s:{default:s}}
 },{"./assets/sass/app.sass":"ZgA4","./assets/js/svgs/svgs":"ihBJ","./assets/js/general/general":"DOAq","./assets/js/general/btnRipples":"Tp9J","./assets/js/general/menu":"TBKM"}]},{},["A2T1"], null)
-//# sourceMappingURL=app.42342dab.js.map
+//# sourceMappingURL=app.61a02321.js.map

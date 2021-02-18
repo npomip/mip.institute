@@ -1,0 +1,32 @@
+.section-steps
+  & .steps
+    padding: 0
+    list-style: none
+    counter-reset: steps-counter
+
+  & .steps__step
+    counter-increment: steps-counter
+    @include flex()
+    margin-bottom: px(18)
+
+    &::before
+      content: counter(steps-counter) " "
+      min-width: px(24)
+      height: px(24)
+      margin-right: px(26)
+      @include flex(center, center)
+      text-align: center
+      border-radius: 50%
+      @include dye(bg-color, $c-beta)
+      @include dye(color, $c-nu)
+
+    &:nth-last-child(1)::before
+      min-width: px(36)
+      height: px(36)
+      margin-right: px(16)
+
+  & .step__text
+    & .text__heading
+      margin: 0
+    & .text__subtitle
+      margin: px(5) 0 0 0

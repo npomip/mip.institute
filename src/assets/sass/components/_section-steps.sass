@@ -1,6 +1,5 @@
 .section-steps
   & .steps
-    padding: 0
     list-style: none
     counter-reset: steps-counter
 
@@ -11,14 +10,15 @@
 
     &::before
       content: counter(steps-counter) " "
-      min-width: px(24)
-      height: px(24)
-      margin-right: px(26)
       @include flex(center, center)
-      text-align: center
       border-radius: 50%
       @include dye(bg-color, $c-beta)
       @include dye(color, $c-nu)
+
+    &:not(:nth-last-child(1))::before
+      min-width: px(24)
+      height: px(24)
+      margin-right: px(26)
 
     &:nth-last-child(1)::before
       min-width: px(36)

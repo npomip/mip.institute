@@ -1,0 +1,24 @@
+$breakpointsMin: (phone: null, tablet: 481px, laptop: 769px, desktop: 1201px)
+$breakpointsMax: (phone: 480px, tablet: 768px, laptop: 1200px, desktop: null)
+
+@mixin media($keys...)
+  @each $key in $keys
+    @if (map-get($breakpointsMin, $key) != null) and (map-get($breakpointsMax, $key) != null)
+      @media (min-width: map-get($breakpointsMin, $key)) and (max-width: map-get($breakpointsMax, $key))
+        @content
+    @else if (map-get($breakpointsMin, $key) != null) and (map-get($breakpointsMax, $key) == null)
+      @media (min-width: map-get($breakpointsMin, $key))
+        @content
+    @else if (map-get($breakpointsMin, $key) == null) and (map-get($breakpointsMax, $key) != null)
+      @media (max-width: map-get($breakpointsMax, $key))
+        @content
+
+// @mixin orientPort {
+//   @media only screen and (orientation: portrait) {
+//     @content;
+//   }
+// }
+
+// @mixin orientLand
+//   @media only screen and (orientation: landscape)
+//     @content

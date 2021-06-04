@@ -12,7 +12,9 @@ import 'nprogress/nprogress.css'
 
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { dev, gtmId } from '@/config/index'
+import { prod, gtmId } from '@/config/index'
+
+import '@/styles/app.sass'
 
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -45,7 +47,7 @@ function MyApp({ Component, pageProps, router }) {
     }
   }, [])
 
-  if (!dev) {
+  if (prod) {
     console.log = function () {}
   }
 

@@ -1,0 +1,33 @@
+// Set theme depended colors
+@mixin dye($prop, $color)
+
+  @if $prop == 'c'
+    &
+      color: $color
+
+  @if $prop == 'bgc'
+    &
+      background-color: $color
+
+  @if $prop == 'stroke'
+    &
+      stroke: $color
+
+  @if $prop == 'borderc'
+    &
+      border-color: $color
+
+  // @media (prefers-color-scheme: dark)
+  //   // &
+  //   //   color: grayscale($color)
+  //   // @if $color == $c-alpha
+  //   //   &
+  //   //     color: red
+
+  //   @if $prop == 'color'
+  //     &
+  //       color: grayscale($color)
+
+  //   @if $prop == 'bg-color'
+  //     &
+  //       background-color: grayscale($color)

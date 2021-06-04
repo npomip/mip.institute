@@ -1,25 +1,34 @@
-# Sass structure: The 7-1 Pattern
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Utils: 
-Holds Sass tools, helper files, variables, functions, mixins and other config files. These files are meant to be just helpers which don’t output any CSS when compiled.
+## Getting Started
 
-## Base: 
-Holds the boilerplate code for the project. Including standard styles such as resets and typographic rules, which are commonly used throughout the project.
+First, run the development server:
 
-## Components: 
-Holds all of styles for buttons, carousels, sliders, and similar page components (think widgets). The project should contain a lot of component files — as the whole site/app should be mostly composed of small modules.
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-## Layout: 
-Contains all styles involved with the layout of the project. Such as styles for the header, footer, navigation and the grid system.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Pages: 
-Any styles specific to individual pages will sit here. For example it’s not uncommon for the home page of the site to require page specific styles that no other page receives.
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Themes: 
-This is likely not used in many projects. It would hold files that create project specific themes. For example if sections of your site contain alternate color schemes.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-## Vendors: 
-Contains all third party code from external libraries and frameworks — such as Normalize, Bootstrap, jQueryUI, etc. However, there is often a need to override vendor code. If this is required, its good practice to create a new folder called vendors-extensions/ and then name any files after the vendors they overwrite. The filevendors-extensions/_bootstrap.scss would contain all your Bootstrap overrides — as editing the vendor files themselves, isn’t generally a good idea.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## app.scss
-This file should only contain imports.
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -12,13 +12,13 @@
 @font-face {
   font-display: swap;
   font-family: Geometria;
-  src: local(Stem), url(/assets/fonts/geometria/Geometria-Bold.eot);
-  src: local(Stem),
+  src: local(Geometria), url(/assets/fonts/geometria/Geometria-Bold.eot);
+  src: local(Geometria),
     url(/assets/fonts/geometria/Geometria-Bold.eot?iefix)
-      format(embedded-opentype),
-    url(/assets/fonts/geometria/Geometria-Bold.ttf) format(truetype),
-    url(/assets/fonts/geometria/Geometria-Bold.woff) format(woff),
-    url(/assets/fonts/geometria/Geometria-Bold.woff2) format(woff2);
+      format('embedded-opentype'),
+    url(/assets/fonts/geometria/Geometria-Bold.ttf) format('truetype'),
+    url(/assets/fonts/geometria/Geometria-Bold.woff) format('woff'),
+    url(/assets/fonts/geometria/Geometria-Bold.woff2) format('woff2');
   font-style: normal;
   font-weight: 700;
 }
@@ -37,13 +37,13 @@
 @font-face {
   font-display: swap;
   font-family: TTFirsNeue;
-  src: local(Stem), url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot);
-  src: local(Stem),
+  src: local(TTFirsNeue), url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot);
+  src: local(TTFirsNeue),
     url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot?iefix)
-      format(embedded-opentype),
-    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.ttf) format(truetype),
-    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.woff) format(woff),
-    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.woff2) format(woff2);
+      format('embedded-opentype'),
+    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.ttf) format('truetype'),
+    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.woff) format('woff'),
+    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.woff2) format('woff2');
   font-style: normal;
   font-weight: 500;
 }
@@ -62,10 +62,10 @@
   font-family: Stem;
   src: local(Stem), url(/assets/fonts/stem/Stem-SemiLight.eot);
   src: local(Stem),
-    url(/assets/fonts/stem/Stem-SemiLight.eot?iefix) format(embedded-opentype),
-    url(/assets/fonts/stem/Stem-SemiLight.ttf) format(truetype),
-    url(/assets/fonts/stem/Stem-SemiLight.woff) format(woff),
-    url(/assets/fonts/stem/Stem-SemiLight.woff2) format(woff2);
+    url(/assets/fonts/stem/Stem-SemiLight.eot?iefix) format('embedded-opentype'),
+    url(/assets/fonts/stem/Stem-SemiLight.ttf) format('truetype'),
+    url(/assets/fonts/stem/Stem-SemiLight.woff) format('woff'),
+    url(/assets/fonts/stem/Stem-SemiLight.woff2) format('woff2');
   font-style: normal;
   font-weight: 500;
 }

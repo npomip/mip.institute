@@ -1,8 +1,8 @@
-@mixin flex($jc: null, $ai: null, $fd: null)
+@mixin flex($fd: null, $jc: null, $ai: null)
   display: flex
+  @if $fd
+    flex-direction: $fd
   @if $jc
     justify-content: $jc
   @if $ai
     align-items: $ai
-  @if $fd
-    flex-direction: $fd

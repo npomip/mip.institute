@@ -5,12 +5,20 @@ import IconLogo from '@/components/icons/IconLogo'
 
 const Logo = () => {
   return (
-    <Link href='/'>
-      <a className={stls.container}>
-        <IconLogo />
-        <p className={stls.name}>Московский Институт Психологии</p>
-      </a>
-    </Link>
+    <div className={stls.container}>
+      <Link href='/'>
+        <a className={stls.logo}>
+          <div className={stls.icon}>
+            <IconLogo />
+          </div>
+          <p className={stls.title}>
+            Московский <br />
+            Институт <br />
+            Психологии
+          </p>
+        </a>
+      </Link>
+    </div>
   )
 }
 

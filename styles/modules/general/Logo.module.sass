@@ -1,2 +1,23 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/utils/funcs' as f
+
 .container
-  display: flex
+  display: inline-block
+
+.logo
+  @include m.flex($jc: center, $ai: center)
+  @include m.dye(c, c.$nu)
+
+.icon
+  position: relative
+  padding-right: f.px(28)
+  &::after
+    content: ''
+    position: absolute
+    width: f.px(1)
+    height: 100%
+    margin-left: f.px(14)
+    @include m.dye(bgc, c.$gamma)
+  & svg path
+    @include m.dye(fill, c.$nu)

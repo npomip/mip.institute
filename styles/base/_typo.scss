@@ -12,8 +12,9 @@
 @font-face {
   font-display: swap;
   font-family: Geometria;
-  src: url(/assets/fonts/geometria/Geometria-Bold.eot); // IE9 Compat Modes
-  src: url(/assets/fonts/geometria/Geometria-Bold.eot?iefix)
+  src: local(Stem), url(/assets/fonts/geometria/Geometria-Bold.eot);
+  src: local(Stem),
+    url(/assets/fonts/geometria/Geometria-Bold.eot?iefix)
       format(embedded-opentype),
     url(/assets/fonts/geometria/Geometria-Bold.ttf) format(truetype),
     url(/assets/fonts/geometria/Geometria-Bold.woff) format(woff),
@@ -36,8 +37,9 @@
 @font-face {
   font-display: swap;
   font-family: TTFirsNeue;
-  src: url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot); // IE9 Compat Modes
-  src: url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot?iefix)
+  src: local(Stem), url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot);
+  src: local(Stem),
+    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot?iefix)
       format(embedded-opentype),
     url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.ttf) format(truetype),
     url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.woff) format(woff),
@@ -58,9 +60,9 @@
 @font-face {
   font-display: swap;
   font-family: Stem;
-  src: url(/assets/fonts/stem/Stem-SemiLight.eot); // IE9 Compat Modes
-  src: url(/assets/fonts/stem/Stem-SemiLight.eot?iefix)
-      format(embedded-opentype),
+  src: local(Stem), url(/assets/fonts/stem/Stem-SemiLight.eot);
+  src: local(Stem),
+    url(/assets/fonts/stem/Stem-SemiLight.eot?iefix) format(embedded-opentype),
     url(/assets/fonts/stem/Stem-SemiLight.ttf) format(truetype),
     url(/assets/fonts/stem/Stem-SemiLight.woff) format(woff),
     url(/assets/fonts/stem/Stem-SemiLight.woff2) format(woff2);

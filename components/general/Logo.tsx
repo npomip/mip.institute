@@ -8,7 +8,7 @@ const Logo = () => {
     <Link href='/'>
       <a className={stls.container}>
         <IconLogo />
-        <p>Московский Институт Психологии</p>
+        <p className={stls.name}>Московский Институт Психологии</p>
       </a>
     </Link>
   )

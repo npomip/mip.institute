@@ -1,0 +1,69 @@
+// Geometria =======================================
+// 100 Thin
+// 200 Extra Light
+// 300 Light
+// 400 Normal
+// 500 Regular
+// 600 Medium
+// 700 Bold
+// 800 Extra Bold
+// 900 Heavy
+
+@font-face {
+  font-display: swap;
+  font-family: Geometria;
+  src: url(/assets/fonts/geometria/Geometria-Bold.eot); // IE9 Compat Modes
+  src: url(/assets/fonts/geometria/Geometria-Bold.eot?iefix)
+      format(embedded-opentype),
+    url(/assets/fonts/geometria/Geometria-Bold.ttf) format(truetype),
+    url(/assets/fonts/geometria/Geometria-Bold.woff) format(woff),
+    url(/assets/fonts/geometria/Geometria-Bold.woff2) format(woff2);
+  font-style: normal;
+  font-weight: 700;
+}
+
+// TTFirsNeue =======================================
+// 100 Thin
+// 200 Extra Light
+// 300 Light
+// 400 Normal
+// 500 Regular
+// 600 Medium
+// 700 Bold
+// 800 Extra Bold
+// 900 Black
+
+@font-face {
+  font-display: swap;
+  font-family: TTFirsNeue;
+  src: url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot); // IE9 Compat Modes
+  src: url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.eot?iefix)
+      format(embedded-opentype),
+    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.ttf) format(truetype),
+    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.woff) format(woff),
+    url(/assets/fonts/ttfirsneue/TTFirsNeue-Regular.woff2) format(woff2);
+  font-style: normal;
+  font-weight: 500;
+}
+
+// Stem =======================================
+// 100 Thin
+// 200 Extra Light
+// 300 Light
+// 500 Semi Light
+// 600 Medium
+// 700 Bold
+// 900 Regular
+
+@font-face {
+  font-display: swap;
+  font-family: Stem;
+  src: url(/assets/fonts/stem/Stem-SemiLight.eot); // IE9 Compat Modes
+  src: url(/assets/fonts/stem/Stem-SemiLight.eot?iefix)
+      format(embedded-opentype),
+    url(/assets/fonts/stem/Stem-SemiLight.ttf) format(truetype),
+    url(/assets/fonts/stem/Stem-SemiLight.woff) format(woff),
+    url(/assets/fonts/stem/Stem-SemiLight.woff2) format(woff2);
+  font-style: normal;
+  font-weight: 500;
+}

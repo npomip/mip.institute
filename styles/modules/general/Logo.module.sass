@@ -6,8 +6,12 @@
   display: inline-block
 
 .logo
+  margin: f.px(15)
   @include m.flex($jc: center, $ai: center)
   @include m.dye(c, c.$nu)
+
+.atHeader
+  margin-left: 0
 
 .icon
   position: relative
@@ -23,6 +27,7 @@
     @include m.dye(fill, c.$nu)
 
 .title
+  margin: 0
   font-family: Geometria
   font-size: f.px(11)
   line-height: f.px(14)

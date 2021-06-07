@@ -1,13 +1,17 @@
-import Link from 'next/link'
-
 import stls from '@/styles/modules/general/Logo.module.sass'
+import classNames from 'classnames'
+import Link from 'next/link'
 import IconLogo from '@/components/icons/IconLogo'
 
-const Logo = () => {
+const Logo = ({ atHeader = false }) => {
   return (
     <div className={stls.container}>
       <Link href='/'>
-        <a className={stls.logo}>
+        <a
+          className={classNames({
+            [stls.logo]: true,
+            [stls.atHeader]: atHeader
+          })}>
           <div className={stls.icon}>
             <IconLogo />
           </div>

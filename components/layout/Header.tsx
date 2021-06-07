@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className={stls.header}>
       <Wrapper>
-        <Logo />
+        <Logo atHeader />
       </Wrapper>
     </header>
   )

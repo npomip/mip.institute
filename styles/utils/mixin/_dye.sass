@@ -13,6 +13,10 @@
     &
       stroke: $color
 
+  @if $prop == 'fill'
+    &
+      fill: $color
+
   @if $prop == 'borderc'
     &
       border-color: $color
@@ -24,10 +28,22 @@
   //   //   &
   //   //     color: red
 
-  //   @if $prop == 'color'
+  //   @if $prop == 'c'
   //     &
   //       color: grayscale($color)
 
-  //   @if $prop == 'bg-color'
+  //   @if $prop == 'bgc'
   //     &
   //       background-color: grayscale($color)
+
+  //   @if $prop == 'stroke'
+  //     &
+  //       stroke: grayscale($color)
+
+  //   @if $prop == 'fill'
+  //     &
+  //       fill: $color
+
+  //   @if $prop == 'borderc'
+  //     &
+  //       border-color: grayscale($color)

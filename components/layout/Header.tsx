@@ -1,11 +1,12 @@
+import stls from '@/styles/modules/layout/Header.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Logo from '@/components/general/Logo'
 
 const Header = () => {
   return (
-    <header>
+    <header className={stls.header}>
       <Wrapper>
-        <Logo />
+        <Logo atHeader />
       </Wrapper>
     </header>
   )

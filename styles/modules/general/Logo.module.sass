@@ -1,39 +1,22 @@
+@use "sass:math"
 @use '@/styles/utils/mixin' as m
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/utils/funcs' as f
 
-// .container
-//   // display: inline-block
-
-.logo,
-.icon,
-.title
+.container
   display: inline-block
 
 .logo
   @include m.cushion(f.px(15, em))
+  @include m.flex($ai: center)
   @include m.dye(c, c.$nu)
+  white-space: nowrap
 
 .atHeader
   @include m.cushion($ml: 0, $pl: 0)
 
-.icon
-  width: f.px(33 + 28)
-  height: f.px(40)
-  padding-right: f.px(28, em)
-  position: relative
-  &::after
-    content: ''
-    width: f.px(1)
-    height: 100%
-    margin-left: f.px(14)
-    position: absolute
-    @include m.dye(bgc, c.$gamma)
-  & svg path
-    @include m.dye(fill, c.$nu)
-
 .title
-  margin: 0
+  @include m.cushion($m: 0)
   font-family: Geometria
   font-size: f.px(11)
   line-height: f.px(14)

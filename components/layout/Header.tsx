@@ -6,7 +6,9 @@ const Header = () => {
   return (
     <header className={stls.header}>
       <Wrapper>
-        <Logo atHeader />
+        <div className={stls.container}>
+          <Logo atHeader />
+        </div>
       </Wrapper>
     </header>
   )

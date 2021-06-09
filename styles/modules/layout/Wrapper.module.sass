@@ -1,5 +1,7 @@
 @use '@/styles/utils/funcs' as f
+@use '@/styles/utils/mixin' as m
 
 .container
   width: 100%
-  padding: 0 f.px(15)
+  @include m.cushion($plr: f.px(15, em))
+  overflow: hidden

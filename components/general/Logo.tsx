@@ -3,24 +3,26 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import IconLogo from '@/components/icons/IconLogo'
 
-const Logo = ({ atHeader = false }) => {
+const Logo = ({ atHeader = false, withTitle = true }) => {
   return (
-    <Link href='/'>
-      <a
-        className={classNames({
-          [stls.logo]: true,
-          [stls.atHeader]: atHeader
-        })}>
-        <div className={stls.icon}>
-          <IconLogo />
-        </div>
-        <p className={stls.title}>
-          Московский <br />
-          Институт <br />
-          Психологии
-        </p>
-      </a>
-    </Link>
+    <div className={stls.container}>
+      <Link href='/'>
+        <a
+          className={classNames({
+            [stls.logo]: true,
+            [stls.atHeader]: atHeader
+          })}>
+          <IconLogo withTitle={withTitle} />
+          {withTitle && (
+            <p className={stls.title}>
+              Московский <br />
+              Институт <br />
+              Психологии
+            </p>
+          )}
+        </a>
+      </Link>
+    </div>
   )
 }
 

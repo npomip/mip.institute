@@ -1,12 +1,40 @@
 @use "sass:math"
 @use '@/styles/utils/funcs' as f
 
-@mixin cushion($val: null, $ml: null, $pl: null)
-  @if $val
-    $halvedVal: math.div($val, 2)
+@mixin cushion($all: null, $m: null, $mtb: null, $mlr: null, $mt: null, $mr: null, $mb: null, $ml: null, $p: null, $ptb: null, $plr: null, $pt: null, $pr: null, $pb: null, $pl: null)
+  @if $all
+    $halvedVal: math.div($all, 2)
     margin: $halvedVal
     padding: $halvedVal
+  @if $m
+    margin: $m
+  @if $mtb
+    margin-top: $mtb
+    margin-bottom: $mtb
+  @if $mlr
+    margin-left: $mlr
+    margin-right: $mlr
+  @if $mt
+    margin-top: $mt
+  @if $mr
+    margin-right: $mr
+  @if $mb
+    margin-bottom: $mb
   @if $ml
     margin-left: $ml
+  @if $p
+    padding: $p
+  @if $ptb
+    padding-top: $ptb
+    padding-bottom: $ptb
+  @if $plr
+    padding-left: $plr
+    padding-right: $plr
+  @if $pt
+    padding-top: $pt
+  @if $pr
+    padding-right: $pr
+  @if $pb
+    padding-bottom: $pb
   @if $pl
     padding-left: $pl

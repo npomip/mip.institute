@@ -3,19 +3,24 @@
 @use '@/styles/utils/funcs' as f
 
 .container
-  display: inline-block
+  // display: inline-block
 
 .logo
-  margin: f.px(15)
-  @include m.flex($jc: center, $ai: center)
+  display: inline-block
+  // margin: f.px(15)
+  margin: 1em
+  @include m.cushion(f.px(40))
   @include m.dye(c, c.$nu)
 
 .atHeader
   margin-left: 0
 
 .icon
+  display: inline-block
+  width: f.px(33 + 28)
+  height: f.px(40)
+  padding-right: f.px(28, em)
   position: relative
-  padding-right: f.px(28)
   &::after
     content: ''
     position: absolute
@@ -28,6 +33,7 @@
 
 .title
   margin: 0
+  display: inline-block
   font-family: Geometria
   font-size: f.px(11)
   line-height: f.px(14)

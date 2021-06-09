@@ -1,4 +1,9 @@
 @use "sass:math"
 
-@function px($px)
-  @return unquote(math.div($px, 16) + 'rem') // root font size
+@function px($px, $unit: rem)
+  @if $unit == rem
+    @return math.div($px, 16) + 0rem
+  @else if $unit == em
+    @return math.div($px, 16) + 0em
+  @else
+    @error 'Only rems and em are supported'

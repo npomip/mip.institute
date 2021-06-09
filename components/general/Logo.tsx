@@ -5,24 +5,22 @@ import IconLogo from '@/components/icons/IconLogo'
 
 const Logo = ({ atHeader = false }) => {
   return (
-    <div className={stls.container}>
-      <Link href='/'>
-        <a
-          className={classNames({
-            [stls.logo]: true,
-            [stls.atHeader]: atHeader
-          })}>
-          <div className={stls.icon}>
-            <IconLogo />
-          </div>
-          <p className={stls.title}>
-            Московский <br />
-            Институт <br />
-            Психологии
-          </p>
-        </a>
-      </Link>
-    </div>
+    <Link href='/'>
+      <a
+        className={classNames({
+          [stls.logo]: true,
+          [stls.atHeader]: atHeader
+        })}>
+        <div className={stls.icon}>
+          <IconLogo />
+        </div>
+        <p className={stls.title}>
+          Московский <br />
+          Институт <br />
+          Психологии
+        </p>
+      </a>
+    </Link>
   )
 }
 

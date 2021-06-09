@@ -1,7 +1,12 @@
 @use "sass:math"
 @use '@/styles/utils/funcs' as f
 
-@mixin cushion($val)
-  $halvedVal: math.div($val, 2)
-  margin: $halvedVal
-  padding: $halvedVal
+@mixin cushion($val: null, $ml: null, $pl: null)
+  @if $val
+    $halvedVal: math.div($val, 2)
+    margin: $halvedVal
+    padding: $halvedVal
+  @if $ml
+    margin-left: $ml
+  @if $pl
+    padding-left: $pl

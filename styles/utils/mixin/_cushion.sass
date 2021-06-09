@@ -1,10 +1,6 @@
 @use "sass:math"
 @use '@/styles/utils/funcs' as f
 
-@mixin cushion($val) // $val should be a number like value + unit (ie 10rem, 10em etc)
-  $unit: $val * 0 // save $val unit as a type of number
-  $halvedVal: math.div(f.stripUnit($val), 2) // strip $val from it's units and divide it by 2
-  $output: $halvedVal + $unit // add units back on, type-of($output) == number and not as string, which is recommended way
-  // https://css-tricks.com/snippets/sass/correctly-adding-unit-number/
-  // @debug $output
-  @debug math.div($val, 2) // it turns out to be much easier than I thought
+@mixin cushion($val)
+  $halvedVal: math.div($val, 2)
+  @debug $halvedVal

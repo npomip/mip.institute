@@ -5,10 +5,9 @@ import Logo from '@/components/general/Logo'
 const Header = () => {
   return (
     <header className={stls.header}>
-      <Wrapper>
-        <div className={stls.container}>
-          <Logo atHeader />
-        </div>
+      <Wrapper flex>
+        <Logo atHeader />
+        <div className={stls.btns}></div>
       </Wrapper>
     </header>
   )

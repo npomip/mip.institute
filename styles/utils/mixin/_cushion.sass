@@ -6,6 +6,34 @@
     $halvedVal: math.div($all, 2)
     margin: $halvedVal
     padding: $halvedVal
+  @if $tb
+    $halvedVal: math.div($tb, 2)
+    margin-top: $halvedVal
+    margin-bottom: $halvedVal
+    padding-top: $halvedVal
+    padding-bottom: $halvedVal
+  @if $lr
+    $halvedVal: math.div($lr, 2)
+    margin-left: $halvedVal
+    margin-right: $halvedVal
+    padding-left: $halvedVal
+    padding-right: $halvedVal
+  @if $t
+    $halvedVal: math.div($t, 2)
+    margin-top: $halvedVal
+    padding-top: $halvedVal
+  @if $r
+    $halvedVal: math.div($r, 2)
+    margin-right: $halvedVal
+    padding-right: $halvedVal
+  @if $b
+    $halvedVal: math.div($b, 2)
+    margin-bottom: $halvedVal
+    padding-bottom: $halvedVal
+  @if $l
+    $halvedVal: math.div($l, 2)
+    margin-left: $halvedVal
+    padding-left: $halvedVal
   @if $m
     margin: $m
   @if $mtb

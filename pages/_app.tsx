@@ -19,7 +19,7 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
-import MenuState from '@/context/menu/MenuState'
+// import MenuState from '@/context/menu/MenuState'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
@@ -55,34 +55,34 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <>
-      <MenuState>
-        <DefaultSeo {...SEO} />
-        <Header />
-        <AnimatePresence>
-          <motion.div
-            key={router.route}
-            initial='initial'
-            animate='animate'
-            transition={{ ease: 'easeInOut', duration: 0.4 }}
-            exit='exit'
-            variants={{
-              initial: {
-                opacity: 0
-              },
-              animate: {
-                opacity: 1
-              },
-              exit: {
-                opacity: 0
-              }
-            }}>
-            <main>
-              <Component {...pageProps} />
-            </main>
-          </motion.div>
-        </AnimatePresence>
-        <Footer />
-      </MenuState>
+      {/* <MenuState> */}
+      <DefaultSeo {...SEO} />
+      <Header />
+      <AnimatePresence>
+        <motion.div
+          key={router.route}
+          initial='initial'
+          animate='animate'
+          transition={{ ease: 'easeInOut', duration: 0.4 }}
+          exit='exit'
+          variants={{
+            initial: {
+              opacity: 0
+            },
+            animate: {
+              opacity: 1
+            },
+            exit: {
+              opacity: 0
+            }
+          }}>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </motion.div>
+      </AnimatePresence>
+      <Footer />
+      {/* </MenuState> */}
     </>
   )
 }

@@ -3,7 +3,10 @@
 @use '@/styles/themes/default/colors' as c
 
 .header
-  @include m.cushion($ptb: f.px(4, em))
+  @include m.gap($ptb: f.px(4, em))
   @include m.dye(bgc, c.$alpha)
 
-.btns
+.container
+  @include m.flex($jc: space-between, $ai: center)
+
+// .btns

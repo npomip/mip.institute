@@ -1,7 +1,7 @@
 @use "sass:math"
 @use '@/styles/utils/funcs' as f
 
-@mixin cushion($all: null, $m: null, $mtb: null, $mlr: null, $mt: null, $mr: null, $mb: null, $ml: null, $p: null, $ptb: null, $plr: null, $pt: null, $pr: null, $pb: null, $pl: null)
+@mixin gap($all: null, $tb: null, $lr: null, $t: null, $r: null, $b: null, $l: null, $m: null, $mtb: null, $mlr: null, $mt: null, $mr: null, $mb: null, $ml: null, $p: null, $ptb: null, $plr: null, $pt: null, $pr: null, $pb: null, $pl: null)
   @if $all
     $halvedVal: math.div($all, 2)
     margin: $halvedVal

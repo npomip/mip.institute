@@ -1,18 +1,22 @@
-import { useContext } from 'react'
 import stls from '@/styles/modules/layout/Header.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Logo from '@/components/general/Logo'
-import MenuContext from '@/context/menu/menuContext'
+import IconPhone from '@/components/icons/IconPhone'
+// import MenuContext from '@/context/menu/menuContext'
 
 const Header = () => {
-  const menuContext = useContext(MenuContext)
+  // const menuContext = useContext(MenuContext)
 
-  const { menuTests } = menuContext
+  // const { menuTests } = menuContext
   return (
     <header className={stls.header}>
-      <Wrapper flex>
-        <Logo atHeader />
-        <div className={stls.btns}></div>
+      <Wrapper>
+        <div className={stls.container}>
+          <Logo atHeader />
+          <div className={stls.btns}>
+            <IconPhone />
+          </div>
+        </div>
       </Wrapper>
     </header>
   )

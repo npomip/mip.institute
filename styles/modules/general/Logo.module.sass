@@ -7,16 +7,16 @@
   display: inline-block
 
 .logo
-  @include m.cushion(f.px(15, em))
+  @include m.gap(f.px(15, em))
   @include m.flex($ai: center)
   @include m.dye(c, c.$nu)
   white-space: nowrap
 
 .atHeader
-  @include m.cushion($ml: 0, $pl: 0)
+  @include m.gap($ml: 0, $pl: 0)
 
 .title
-  @include m.cushion($m: 0)
+  @include m.gap($m: 0)
   font-family: Geometria
   font-size: f.px(11, em)
   line-height: 120%

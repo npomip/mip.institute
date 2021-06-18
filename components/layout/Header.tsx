@@ -1,7 +1,8 @@
 import stls from '@/styles/modules/layout/Header.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Logo from '@/components/general/Logo'
-import IconPhone from '@/components/icons/IconPhone'
+import BtnPhone from '@/components/btns/BtnPhone'
+import BtnHumburger from '@/components/btns/BtnHumburger'
 // import MenuContext from '@/context/menu/menuContext'
 
 const Header = () => {
@@ -14,7 +15,8 @@ const Header = () => {
         <div className={stls.container}>
           <Logo atHeader />
           <div className={stls.btns}>
-            <IconPhone />
+            <BtnPhone />
+            <BtnHumburger />
           </div>
         </div>
       </Wrapper>

@@ -16,17 +16,17 @@ $spaceRight: math.div($width, math.div($defaultWidth, $defaultSpaceRight))
 .withTitle
   position: relative
   // height: f.px($height)
-  & svg path
+  & path
     @include m.dye(fill, c.$nu)
 
 .standalone
   width: f.px($width, em)
-  @include m.cushion($m: f.px(10, em))
+  @include m.gap($m: f.px(10, em))
 
 .withTitle
   @include m.flex()
   width: f.px($width + $spaceRight, em)
-  @include m.cushion($pr: f.px($spaceRight, em))
+  @include m.gap($pr: f.px($spaceRight, em))
   &::after
     content: ''
     position: absolute

@@ -1,12 +1,8 @@
 import stls from '@/styles/modules/layout/Wrapper.module.sass'
 import classNames from 'classnames'
 
-const Wrapper = ({ children, flex = false }) => {
-  return (
-    <div className={classNames({ [stls.container]: true, [stls.flex]: flex })}>
-      {children}
-    </div>
-  )
+const Wrapper = ({ children }) => {
+  return <div className={stls.container}>{children}</div>
 }
 
 export default Wrapper

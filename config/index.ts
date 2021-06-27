@@ -11,6 +11,6 @@ const backRootUrl = dev
 
 const gtmId = ''
 
-const themeColor = '#ff3535'
+const themeColor = '#6f01c6'
 
 export { dev, prod, frontRootUrl, backRootUrl, gtmId, themeColor }

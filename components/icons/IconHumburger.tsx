@@ -1,4 +1,4 @@
-import stls from '@/styles/modules/icons/IconHumburger.module.sass'
+import stls from '@/styles/components/icons/IconHumburger.module.sass'
 
 const IconHumburger = () => {
   return (

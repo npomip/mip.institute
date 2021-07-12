@@ -19,12 +19,12 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
-import { GlobalContext } from '@/context/GlobalState'
+// import { GlobalContext } from '@/context/GlobalState'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
 
-  const context = useContext(GlobalContext)
+  // const context = useContext(GlobalContext)
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })

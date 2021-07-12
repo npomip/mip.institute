@@ -1,4 +1,4 @@
-import stls from '@/styles/modules/icons/IconLogo.module.sass'
+import stls from '@/styles/components/icons/IconLogo.module.sass'
 import classNames from 'classnames'
 
 const IconLogo = ({ withTitle = false }) => {

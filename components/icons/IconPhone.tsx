@@ -1,4 +1,4 @@
-import stls from '@/styles/modules/icons/IconPhone.module.sass'
+import stls from '@/styles/components/icons/IconPhone.module.sass'
 
 const IconPhone = () => {
   return (

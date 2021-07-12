@@ -1,4 +1,4 @@
-import stls from '@/styles/modules/layout/Header.module.sass'
+import stls from '@/styles/components/layout/Header.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Logo from '@/components/general/Logo'
 import BtnPhone from '@/components/btns/BtnPhone'

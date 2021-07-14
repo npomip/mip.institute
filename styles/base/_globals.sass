@@ -13,11 +13,14 @@
   box-sizing: inherit
 
 html, body
-  font-size: 1rem
+  @include m.media(phone)
+    font-size: 1rem
   // font-size: 3vmin
   // font-size: 30px
   // font-size: 1.5rem
   // font-size: 2vw
+  @include m.media(tablet)
+    font-size: 1.2rem
 
 html
   box-sizing: border-box
@@ -39,5 +42,7 @@ a, button, input, textarea, select
     outline-offset: f.px(4)
     @include m.dye(outline, c.$nu)
 
+section
+  overflow: hidden
 // body
 //   background-color: #333

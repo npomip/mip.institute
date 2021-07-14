@@ -1,7 +1,7 @@
 @use "sass:math"
 @use '@/styles/utils/funcs' as f
 
-@mixin gap($all: null, $tb: null, $lr: null, $t: null, $r: null, $b: null, $l: null, $m: null, $mtb: null, $mlr: null, $mt: null, $mr: null, $mb: null, $ml: null, $p: null, $ptb: null, $plr: null, $pt: null, $pr: null, $pb: null, $pl: null)
+@mixin gap($all: null, $tb: null, $lr: null, $t: null, $r: null, $b: null, $l: null, $m: null, $mtbr: null, $mtbl: null, $mtb: null, $mlr: null, $mt: null, $mr: null, $mb: null, $ml: null, $p: null, $ptbl: null, $ptbr: null, $ptb: null, $plr: null, $pt: null, $pr: null, $pb: null, $pl: null)
   @if $all
     $halvedVal: math.div($all, 2)
     margin: $halvedVal
@@ -36,6 +36,14 @@
     padding-left: $halvedVal
   @if $m
     margin: $m
+  @if $mtbl
+    margin-top: $mtbl
+    margin-bottom: $mtbl
+    margin-left: $mtbl
+  @if $mtbr
+    margin-top: $mtbr
+    margin-bottom: $mtbr
+    margin-right: $mtbr
   @if $mtb
     margin-top: $mtb
     margin-bottom: $mtb
@@ -52,6 +60,14 @@
     margin-left: $ml
   @if $p
     padding: $p
+  @if $ptbl
+    margin-top: $ptbl
+    margin-bottom: $ptbl
+    margin-left: $ptbl
+  @if $ptbr
+    margin-top: $ptbr
+    margin-bottom: $ptbr
+    margin-right: $ptbr
   @if $ptb
     padding-top: $ptb
     padding-bottom: $ptb

@@ -1,8 +1,10 @@
-import IconPhone from '@/components/icons/IconPhone'
+import stls from '@/styles/components/btns/BtnPhone.module.sass'
+import { IconPhone } from '@/components/icons'
+import { number } from '@/data/contact'
 
 const BtnPhone = () => {
   return (
-    <a href='tel:+7-777-777-77-77'>
+    <a href={number.href} className={stls.container}>
       <IconPhone />
     </a>
   )

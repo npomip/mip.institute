@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/Logo.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
-import IconLogo from '@/components/icons/IconLogo'
+import { IconLogo } from '@/components/icons'
 
 const Logo = ({ atHeader = false, withTitle = true }) => {
   return (

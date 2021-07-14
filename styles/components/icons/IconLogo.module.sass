@@ -24,7 +24,7 @@ $spaceRight: math.div($width, math.div($defaultWidth, $defaultSpaceRight))
   @include m.gap($m: f.px(10, em))
 
 .withTitle
-  @include m.flex()
+  @include m.flex
   width: f.px($width + $spaceRight, em)
   @include m.gap($pr: f.px($spaceRight, em))
   &::after

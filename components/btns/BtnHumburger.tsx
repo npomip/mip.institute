@@ -1,8 +1,8 @@
-import IconHumburger from '@/components/icons/IconHumburger'
-
+import stls from '@/styles/components/btns/BtnHumburger.module.sass'
+import { IconHumburger } from '@/components/icons'
 const BtnHumburger = () => {
   return (
-    <button>
+    <button className={stls.container}>
       <IconHumburger />
     </button>
   )

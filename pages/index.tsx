@@ -1,8 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Hero from '@/components/sections/Hero'
 
 const Home = ({ programs }) => {
-  return <></>
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }
 
 export async function getStaticProps() {

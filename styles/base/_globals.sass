@@ -4,6 +4,7 @@
 // :focus https://youtu.be/Mvu5OMGcdVA
 
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
 *,
@@ -29,11 +30,13 @@ svg
 
 a, button
   cursor: pointer
-  outline: 2px solid transparent
-  outline-offset: -2px
-  transition: outline-offset .25s ease
+
+a, button, input, textarea, select
+  outline: f.px(1) solid transparent
+  outline-offset: f.px(-1)
+  transition: outline-offset .25s ease-out, outline-color .25s ease-out
   &:focus-visible
-    outline-offset: 4px
+    outline-offset: f.px(4)
     @include m.dye(outline, c.$nu)
 
 // body

@@ -1,0 +1,55 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+
+.container
+  @include m.flex
+  @include m.gap($p: f.px(34, em) f.px(21, em) f.px(45, em) f.px(31, em))
+  flex: 0 0 f.px(270, em)
+  position: relative
+  border-radius: f.px(20, em)
+  background: url('../../../public/assets/imgs/general/schedule-fullscreen.jpg')
+  overflow: hidden
+  @include m.media(phone, tablet)
+    display: none
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 0
+    background-color: rgba(26, 26, 26, .56)
+    @include m.media(phone, tablet)
+      display: none
+  &.mobileLayout
+    display: none
+    @include m.media(phone, tablet)
+      flex: 1 0 100%
+      display: flex
+      @include m.gap($p: f.px(26, em) f.px(21, em))
+      background: url('../../../public/assets/imgs/general/schedule-mobile.jpg')
+      background-size: cover
+      background-repeat: no-repeat
+
+.content
+  @include m.flex($fd: column)
+  position: relative
+  z-index: 1
+  @include m.media(phone, tablet)
+    @include m.flex($fd: row, $ai: center)
+
+.circleContainer
+  @include m.gap($ml: auto)
+
+.title
+  @include m.gap($m: auto 0 68px 0)
+  font-size: 22px
+  font-weight: 500
+  color: #fff
+  @include m.media(phone, tablet)
+    @include m.gap($m: 0 0 0 f.px(27, em))
+
+.btnContainer
+  @include m.media(phone, tablet)
+    display: none

@@ -2,7 +2,13 @@ import stls from '@/styles/components/btns/BtnText.module.sass'
 import { IconMoreThan } from '@/components/icons'
 import classNames from 'classnames'
 
-const BtnText = ({ text = '', cbeta = true, cnu = false, dimmer = false }) => {
+const BtnText = ({
+  text = '',
+  cbeta = true,
+  cnu = false,
+  ctheta = false,
+  dimmer = false
+}) => {
   if (cnu === true) cbeta = false
   return (
     <button
@@ -10,10 +16,11 @@ const BtnText = ({ text = '', cbeta = true, cnu = false, dimmer = false }) => {
         [stls.container]: true,
         [stls.cbeta]: cbeta,
         [stls.cnu]: cnu,
+        [stls.ctheta]: ctheta,
         [stls.dimmer]: dimmer
       })}>
       <span className={stls.text}>{text}</span>{' '}
-      <IconMoreThan cbeta={cbeta} cnu={cnu} dimmer={dimmer} />
+      <IconMoreThan cbeta={cbeta} cnu={cnu} ctheta={ctheta} dimmer={dimmer} />
     </button>
   )
 }

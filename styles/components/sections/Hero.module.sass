@@ -4,6 +4,13 @@
 
 .container
   position: relative
+
+.bg
+  position: absolute
+  top: 0
+  right: 0
+  height: 94%
+  width: 100%
   @include m.dye(bg, c.$alpha)
 
 .title,
@@ -22,7 +29,10 @@
 
 .desc
   position: relative
-  max-width: 33ch
+  @include m.media(phone, tablet)
+    max-width: 33ch
+  @include m.media(laptop, desktop)
+    max-width: 35ch
   @include m.gap($mb: f.px(35))
   font-family: Stem
   font-weight: 300
@@ -34,6 +44,8 @@
   @include m.flex
   @include m.media(phone, tablet)
     min-height: f.px(129)
+  @include m.media(laptop, desktop)
+    max-height: f.px(56)
 
 .icon
   @include m.media(phone, tablet)
@@ -54,8 +66,15 @@
     transform: translateX(54%)
     z-index: 2
 
+.left
+  @include m.media(laptop, desktop)
+    min-width: 60%
+
 .img
   @include m.gap($mt: f.px(51))
+
+.prosList
+  transform: translateY(f.px(-25))
 
 .hiddenGem
   animation: rotating 6s linear infinite

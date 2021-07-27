@@ -5,8 +5,7 @@ import MenuContext from '@/context/menu/menuContext'
 import { IconHumburger } from '@/components/icons'
 
 const BtnHumburger = () => {
-  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
-    useContext(MenuContext)
+  const { toggleMenu } = useContext(MenuContext)
 
   return (
     <button className={stls.container} onClick={toggleMenu}>

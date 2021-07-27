@@ -3,14 +3,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import TwoColumns from '@/components/layout/TwoColumns'
 import { IconAtom } from '@/components/icons'
 import { ImgLadyStudying } from '@/components/imgs'
-import {
-  BtnAlpha,
-  BtnBeta,
-  BtnGamma,
-  BtnDelta,
-  BtnEpsilon,
-  BtnText
-} from '@/components/btns'
+import { BtnAlpha, BtnBeta } from '@/components/btns'
 
 const Hero = () => {
   let hiddenGemCount = 0
@@ -45,12 +38,6 @@ const Hero = () => {
             <div className={stls.btns}>
               <BtnAlpha text='Записаться на курс' />
               <BtnBeta text='Задать вопрос' />
-              <BtnGamma text='Подробнее' />
-              <BtnDelta text='Смотреть все курсы' />
-              <BtnEpsilon text='Обратный звонок' />
-              <BtnText text='Читать историю' />
-              <BtnText text='Читать историю' cnu dimmer />
-              <BtnText text='Читать историю' cnu />
             </div>
           </div>
           <ImgLadyStudying />

@@ -1,6 +1,7 @@
 import Router from 'next/router'
 
 import { useEffect, useState, useContext } from 'react'
+import MenuState from '@/context/menu/MenuState'
 
 import TagManager from 'react-gtm-module'
 
@@ -10,8 +11,6 @@ import SEO from '../seo.config'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import { motion, AnimatePresence } from 'framer-motion'
-
 import { prod, gtmId } from '@/config/index'
 
 import '@/styles/app.sass'
@@ -19,12 +18,8 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
-// import { GlobalContext } from '@/context/GlobalState'
-
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
-
-  // const context = useContext(GlobalContext)
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
@@ -59,29 +54,11 @@ function MyApp({ Component, pageProps, router }) {
     <>
       <DefaultSeo {...SEO} />
       <Header />
-      <AnimatePresence>
-        <motion.div
-          key={router.route}
-          initial='initial'
-          animate='animate'
-          transition={{ ease: 'easeInOut', duration: 0.4 }}
-          exit='exit'
-          variants={{
-            initial: {
-              opacity: 0
-            },
-            animate: {
-              opacity: 1
-            },
-            exit: {
-              opacity: 0
-            }
-          }}>
-          <main>
-            <Component {...pageProps} />
-          </main>
-        </motion.div>
-      </AnimatePresence>
+      <MenuState>
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </MenuState>
       <Footer />
     </>
   )

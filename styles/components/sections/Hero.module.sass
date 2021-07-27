@@ -13,7 +13,7 @@
 .title
   position: relative
   font-family: Stem
-  font-weight: 600
+  font-weight: 500
   font-size: f.px(42)
   line-height: 110%
   max-width: 10ch
@@ -27,7 +27,7 @@
 
 .btns
   @include m.flex($fd: column, $jc: space-between)
-  height: f.px(129, em)
+  min-height: f.px(129, em)
 
 .icon
   @include m.media(phone, tablet)

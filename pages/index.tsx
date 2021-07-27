@@ -6,7 +6,7 @@ import Reviews from '@/components/sections/Reviews'
 const Home = ({ programs }) => {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
       <Reviews />
     </>
   )

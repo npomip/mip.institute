@@ -5,7 +5,7 @@ import { OPEN_MENU, CLOSE_MENU, TOGGLE_MENU } from '@/context/types'
 
 const MenuState = props => {
   const initialState = {
-    isOpen: false
+    menuIsOpen: false
   }
 
   const [state, dispatch] = useReducer(menuReducer, initialState)

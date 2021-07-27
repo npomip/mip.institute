@@ -53,13 +53,13 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <Header />
       <MenuState>
+        <Header />
         <main>
           <Component {...pageProps} />
         </main>
+        <Footer />
       </MenuState>
-      <Footer />
     </>
   )
 }

@@ -25,6 +25,10 @@
   font-size: f.px(15)
   line-height: 120%
 
+.btns
+  @include m.flex($fd: column, $jc: space-between)
+  height: f.px(129, em)
+
 .icon
   @include m.media(phone, tablet)
     position: absolute

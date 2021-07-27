@@ -10,23 +10,10 @@
     max-width: 100%
   @include m.gap($ptb: f.px(16, em), $plr: f.px(50, em))
   border-radius: f.px(4, em)
-  @include m.dye(bg, c.$beta)
+  border: f.px(2) solid
+  @include m.dye(border, c.$nu)
   @include m.dye(c, c.$nu)
-
-  &::after
-    content: ''
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    opacity: 0
-    box-shadow: 0 0 f.px(20, em) f.px(5, em) rgba(c.$theta, 0.2)
   &:hover
     transform: scale(1.02)
-    &::after
-      opacity: 1
   &:focus
     transform: scale(0.98)
-    &::after
-      opacity: 0

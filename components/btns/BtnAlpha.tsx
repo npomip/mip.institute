@@ -1,7 +1,7 @@
 import stls from '@/styles/components/btns/BtnAlpha.module.sass'
 
-const BtnAlpha = () => {
-  return <button className={stls.container}>Записаться на курс</button>
+const BtnAlpha = ({ text = '' }) => {
+  return <button className={stls.container}>{text}</button>
 }
 
 export default BtnAlpha

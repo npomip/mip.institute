@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Hero from '@/components/sections/Hero'
+import Reviews from '@/components/sections/Reviews'
 
 const Home = ({ programs }) => {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+      <Reviews />
     </>
   )
 }

@@ -2,6 +2,13 @@
 @use '@/styles/utils/funcs' as f
 
 .container
-  @include m.flex
+  @include m.flex($jc: space-between)
   @include m.media(phone, tablet)
     @include m.flex($display: false, $fd: column)
+
+  &.scrollable
+    overflow-x: auto
+    @include m.gap($ptb: f.px(31, em))
+    @include m.media(phone, tablet)
+      @include m.flex($fd: row)
+      @include m.gap($ptb: f.px(22, em))

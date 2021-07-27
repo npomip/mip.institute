@@ -1,6 +1,10 @@
-
 import { createContext } from 'react'
 
-const menuContext = createContext({})
+const menuContext = createContext({
+  menuIsOpen: false,
+  openMenu: () => {},
+  closeMenu: () => {},
+  toggleMenu: () => {}
+})
 
 export default menuContext

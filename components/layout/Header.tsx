@@ -8,7 +8,6 @@ import BtnHumburger from '@/components/btns/BtnHumburger'
 const Header = () => {
   // const menuContext = useContext(MenuContext)
 
-  // const { menuTests } = menuContext
   return (
     <header className={stls.header}>
       <Wrapper>

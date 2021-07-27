@@ -12,6 +12,7 @@
 
 .title
   position: relative
+  @include m.gap($mtb: f.px(10))
   font-family: Stem
   font-weight: 500
   font-size: f.px(42)
@@ -20,14 +21,19 @@
   z-index: 1
 
 .desc
+  position: relative
+  max-width: 33ch
+  @include m.gap($mb: f.px(35))
   font-family: Stem
   font-weight: 300
   font-size: f.px(15)
   line-height: 120%
+  z-index: 1
 
 .btns
-  @include m.flex($fd: column, $jc: space-between)
-  min-height: f.px(129, em)
+  @include m.flex
+  @include m.media(phone, tablet)
+    min-height: f.px(129)
 
 .icon
   @include m.media(phone, tablet)
@@ -47,6 +53,9 @@
     right: 0
     transform: translateX(54%)
     z-index: 2
+
+.img
+  @include m.gap($mt: f.px(51))
 
 .hiddenGem
   animation: rotating 6s linear infinite

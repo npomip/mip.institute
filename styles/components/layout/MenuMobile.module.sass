@@ -20,11 +20,11 @@
 
 .row
   @include m.flex($jc: space-between, $ai: center)
-  @include m.gap($mb: f.px(71, em))
+  @include m.gap($mb: f.px(59, em))
 
 .navList
   @include m.gap($m: 0, $p: 0)
-  @include m.gap($mb: f.px(71, em))
+  @include m.gap($mb: f.px(59, em))
 
 .navItem
   @include m.flex
@@ -46,5 +46,9 @@
     @include m.dye(bg, rgba(c.$nu, .1))
 
 .cta
+  @include m.gap($mb: f.px(41))
   & > *:nth-child(1)
     @include m.gap($mb: f.px(9, em))
+
+.sm
+  @include m.flex

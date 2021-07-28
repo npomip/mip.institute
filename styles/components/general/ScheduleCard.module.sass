@@ -23,14 +23,14 @@
     @include m.media(phone, tablet)
       display: none
   &.mobileLayout
-    display: none
     @include m.media(phone, tablet)
-      flex: 1 0 100%
-      display: flex
-      @include m.gap($p: f.px(26, em) f.px(21, em))
+      @include m.flex($fb: 100%)
+      @include m.gap($ptb: f.px(26, em), $plr: f.px(21, em))
       background: url('../../../public/assets/imgs/general/schedule-mobile.jpg')
       background-size: cover
       background-repeat: no-repeat
+    @include m.media(laptop, desktop)
+      display: none
 
 .content
   @include m.flex($fd: column)

@@ -3,9 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.flex($fd: column)
-  @include m.gap($ptb: f.px(20, em), $plr: f.px(30, em))
-  flex: 0 0 f.px(270, em)
+  @include m.flex($fd: column, $fg: 0, $fs: 0, $fb: f.px(285))
+  @include m.gap($ptb: f.px(44, em), $plr: f.px(30, em))
   border-radius: f.px(20, em)
   @include m.media(phone, tablet, laptop)
     @include m.gap($mr: f.px(10, em))
@@ -24,20 +23,27 @@
   font-size: f.px(18)
   font-weight: 300
 
-.pLight
-  @include m.gap($mb: f.px(6, em))
+.weekdayP,
+.hostP
   font-size: f.px(13)
   @include m.dye(c, c.$kappa)
+
+.weekdayP
+  @include m.gap($mb: f.px(24, em))
+
+.host
+  width: f.px(206)
+  @include m.flex($jc: space-between)
+  @include m.gap($mb: f.px(20, em))
+
+.hostP
+  @include m.gap($mb: f.px(6, em))
 
 .date
   font-weight: 500
 
-.host
-  @include m.flex($jc: space-between)
-  @include m.gap($mt: f.px(25, em), $mb: f.px(20, em))
-
 .name
-  flex: 0 0 f.px(114, em)
+  @include m.flex($fd: column, $fg: 0, $fs: 0, $fb: f.px(114))
 
 .topic
   @include m.gap($m: 0)
@@ -46,7 +52,4 @@
   @include m.dye(c, c.$theta)
 
 .bottom
-  @include m.flex($fd: column, $jc: space-between)
-  flex: 0 0 f.px(140, em)
-  @include m.media(phone, tablet)
-    flex: 0 0 f.px(100, em)
+  @include m.flex($fd: column, $jc: space-between, $fg: 0, $fs: 0, $fb: f.px(100))

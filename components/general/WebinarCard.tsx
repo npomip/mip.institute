@@ -20,11 +20,11 @@ const WebinarCard = ({ webinarData }) => {
         </span>
         {time}
       </p>
-      <p className={stls.pLight}>{weekday}</p>
+      <p className={stls.weekdayP}>{weekday}</p>
       <div className={stls.host}>
         {photo}
         <div className={stls.name}>
-          <p className={stls.pLight}>Спикер:</p>
+          <p className={stls.hostP}>Спикер:</p>
           <p className={stls.p}>{name}</p>
         </div>
       </div>

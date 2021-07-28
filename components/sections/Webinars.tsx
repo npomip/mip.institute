@@ -3,9 +3,9 @@ import Wrapper from '@/components/layout/Wrapper'
 import TwoColumns from '@/components/layout/TwoColumns'
 import WebinarCard from '@/components/general/WebinarCard'
 import ScheduleCard from '@/components/general/ScheduleCard'
-import speaker1 from '@/public/assets/imgs/general/speaker-1.jpg'
-import speaker2 from '@/public/assets/imgs/general/speaker-2.jpg'
-import speaker3 from '@/public/assets/imgs/general/speaker-3.jpg'
+import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
+import ImgPortrait2 from '@/components/imgs/webinars/ImgPortrait2'
+import ImgPortrait3 from '@/components/imgs/webinars/ImgPortrait3'
 
 const webinarsList = [
   {
@@ -16,9 +16,9 @@ const webinarsList = [
       weekday: 'Понедельник'
     },
     name: 'Светлана Сергеева',
-    photo: speaker1,
+    photo: <ImgPortrait1 />,
     topic: 'Семейная психология',
-    bgColor: 'lightViolet'
+    bgColor: 'cepsilon'
   },
   {
     date: {
@@ -28,9 +28,9 @@ const webinarsList = [
       weekday: 'Вторник'
     },
     name: 'Селиванов Иван',
-    photo: speaker2,
+    photo: <ImgPortrait2 />,
     topic: 'Кризисный психолог',
-    bgColor: 'lightGreen',
+    bgColor: 'csigma',
     hex: '#F5FCFE'
   },
   {
@@ -41,9 +41,9 @@ const webinarsList = [
       weekday: 'Понедельник'
     },
     name: 'Сухарев Марк',
-    photo: speaker3,
+    photo: <ImgPortrait3 />,
     topic: 'Психоанализ и психологическое консультирование',
-    bgColor: 'lightOrange'
+    bgColor: 'cpi'
   }
 ]
 

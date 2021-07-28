@@ -1,6 +1,5 @@
 import stls from '@/styles/components/general/WebinarCard.module.sass'
 import classNames from 'classnames'
-import Image from 'next/image'
 import { BtnText } from '@/components/btns'
 
 const WebinarCard = ({ webinarData }) => {
@@ -13,24 +12,23 @@ const WebinarCard = ({ webinarData }) => {
   } = webinarData
 
   return (
-    <article className={classNames(stls.container, stls[bgColor])}>
-      <p className={stls.regularPara}>
-        <span className={stls.boldDate}>
+    <article
+      className={classNames({ [stls.container]: true, [stls[bgColor]]: true })}>
+      <p className={stls.p}>
+        <span className={stls.date}>
           {day} {month},&nbsp;
         </span>
         {time}
       </p>
-      <p className={stls.lightPara}>{weekday}</p>
-      <div className={stls.speakerInfo}>
-        <div className={stls.imageContainer}>
-          <Image src={photo} alt={name} placeholder={'blur'} />
-        </div>
-        <div className={stls.speakerNameContainer}>
-          <p className={stls.lightPara}>Спикер:</p>
-          <p className={stls.regularPara}>{name}</p>
+      <p className={stls.pLight}>{weekday}</p>
+      <div className={stls.host}>
+        {photo}
+        <div className={stls.name}>
+          <p className={stls.pLight}>Спикер:</p>
+          <p className={stls.p}>{name}</p>
         </div>
       </div>
-      <div className={stls.titleAndBtnContainer}>
+      <div className={stls.bottom}>
         <h3 className={stls.topic}>{topic}</h3>
         <BtnText text='Подробнее' ctheta />
       </div>

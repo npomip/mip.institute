@@ -49,8 +49,8 @@ const webinars = [
 
 const Webinars = () => {
   return (
-    <Wrapper>
-      <section className={stls.container}>
+    <section className={stls.container}>
+      <Wrapper>
         <h2 className={stls.title}>Ежедневные вебинары</h2>
         <p className={stls.desc}>
           С понедельника по четверг в институте проходят онлайн вебинары на
@@ -65,8 +65,8 @@ const Webinars = () => {
           </div>
           <ScheduleCard mobileLayout />
         </TwoColumns>
-      </section>
-    </Wrapper>
+      </Wrapper>
+    </section>
   )
 }
 

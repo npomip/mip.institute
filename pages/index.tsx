@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/Hero'
 import WhyBother from '@/components/sections/WhyBother'
+import About from '@/components/sections/About'
 import Reviews from '@/components/sections/Reviews'
 import Webinars from '@/components/sections/Webinars'
 
@@ -8,6 +9,7 @@ const Home = ({ programs }) => {
     <>
       <Hero />
       <WhyBother />
+      <About />
       {/* <Reviews />
       <Webinars /> */}
     </>

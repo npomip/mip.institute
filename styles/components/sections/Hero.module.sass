@@ -4,13 +4,13 @@
 
 .container
   position: relative
-  @include m.gap($pb: f.px(50))
+  @include m.gap($pb: f.px(35))
 
 .bg
   position: absolute
   top: 0
   right: 0
-  height: 89%
+  height: 91%
   width: 100%
   @include m.dye(bg, c.$alpha)
 
@@ -20,7 +20,7 @@
 
 .title
   position: relative
-  @include m.gap($mtb: f.px(10))
+  @include m.gap($mt: f.px(10), $mb: f.px(12))
   font-family: Stem
   font-weight: 500
   font-size: f.px(42)

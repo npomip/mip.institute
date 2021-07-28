@@ -4,12 +4,13 @@
 
 .container
   position: relative
+  @include m.gap($pb: f.px(50))
 
 .bg
   position: absolute
   top: 0
   right: 0
-  height: 94%
+  height: 89%
   width: 100%
   @include m.dye(bg, c.$alpha)
 

@@ -1,5 +1,6 @@
 import stls from '@/styles/components/sections/Webinars.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+import TwoColumns from '@/components/layout/TwoColumns'
 import WebinarCard from '@/components/general/WebinarCard'
 import ScheduleCard from '@/components/general/ScheduleCard'
 import speaker1 from '@/public/assets/imgs/general/speaker-1.jpg'
@@ -55,15 +56,15 @@ const Webinars = () => {
           С понедельника по четверг в институте проходят онлайн вебинары на
           самые актуальные темы и в удобном формате
         </p>
-        <div className={stls.cardsContainer}>
-          <div className={stls.webinarCardsContainer}>
+        <TwoColumns>
+          <div className={stls.cards}>
             {webinarsList.map((data, idx) => (
-              <WebinarCard key={data.bgColor + idx} webinarData={data} />
+              <WebinarCard key={data.topic + idx} webinarData={data} />
             ))}
             <ScheduleCard />
           </div>
           <ScheduleCard mobileLayout />
-        </div>
+        </TwoColumns>
       </section>
     </Wrapper>
   )

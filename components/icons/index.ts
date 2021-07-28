@@ -5,7 +5,7 @@ import IconHumburger from '@/components/icons/IconHumburger'
 import IconLogo from '@/components/icons/IconLogo'
 import IconPhone from '@/components/icons/IconPhone'
 import IconMoreThan from '@/components/icons/IconMoreThan'
-import IconVideo from '@/components/icons/IconVideo'
+import IconPlayer from '@/components/icons/IconPlayer'
 
 export {
   IconAtom,
@@ -15,5 +15,5 @@ export {
   IconLogo,
   IconPhone,
   IconMoreThan,
-  IconVideo
+  IconPlayer
 }

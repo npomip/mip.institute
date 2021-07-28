@@ -1,6 +1,6 @@
-import stls from '@/styles/components/icons/IconVideo.module.sass'
+import stls from '@/styles/components/icons/IconPlayer.module.sass'
 
-const IconVideo = ({ fill = 'white' }) => {
+const IconPlayer = ({ fill = 'white' }) => {
   return (
     <div className={stls.container}>
       <svg
@@ -18,4 +18,4 @@ const IconVideo = ({ fill = 'white' }) => {
   )
 }
 
-export default IconVideo
+export default IconPlayer

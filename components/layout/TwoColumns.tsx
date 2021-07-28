@@ -1,9 +1,13 @@
 import stls from '@/styles/components/layout/TwoColumns.module.sass'
 import classNames from 'classnames'
 
-const TwoColumns = ({ slider = false, children }) => {
+const TwoColumns = ({ children, slidable = false }) => {
   return (
-    <div className={classNames(stls.container, { [stls.scrollable]: slider })}>
+    <div
+      className={classNames({
+        [stls.container]: true,
+        [stls.slidable]: slidable
+      })}>
       {children}
     </div>
   )

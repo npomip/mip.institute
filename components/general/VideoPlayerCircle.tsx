@@ -1,10 +1,10 @@
 import stls from '@/styles/components/general/VideoPlayerCircle.module.sass'
-import { IconVideo } from '@/components/icons'
+import { IconPlayer } from '@/components/icons'
 
 const VideoPlayerCircle = () => {
   return (
     <button className={stls.container}>
-      <IconVideo />
+      <IconPlayer />
     </button>
   )
 }

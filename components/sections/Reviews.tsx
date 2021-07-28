@@ -33,17 +33,19 @@ const Reviews = () => {
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
-        <TwoColumns slider>
-          {studentsReviews.map((review, idx) => (
-            <ReviewCard
-              key={review.name + idx}
-              title={review.title}
-              photo={review.photo}
-              name={review.name}
-              occupation={review.occupation}
-            />
-          ))}
-        </TwoColumns>
+        <div className={stls.content}>
+          <TwoColumns slidable>
+            {studentsReviews.map((review, idx) => (
+              <ReviewCard
+                key={review.name + idx}
+                title={review.title}
+                photo={review.photo}
+                name={review.name}
+                occupation={review.occupation}
+              />
+            ))}
+          </TwoColumns>
+        </div>
       </Wrapper>
     </section>
   )

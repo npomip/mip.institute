@@ -1,15 +1,15 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($mb: f.px(100, em))
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(75, em))
+  @include m.gap($mb: f.px(75, em))
 
 .title
   @include m.gap($mb: 0)
-  font-size: 44px
+  font-size: f.px(26)
   font-weight: 500
-  color: #1a1a1a
-  @include m.media(phone, tablet)
-    font-size: 26px
+  @include m.dye(c, c.$theta)
+
+.content
+  @include m.gap($ptb: f.px(22, em))

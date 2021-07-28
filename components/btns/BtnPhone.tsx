@@ -11,7 +11,7 @@ const BtnPhone = ({ withNumber = false }) => {
         [stls.container]: true,
         [stls.withNumber]: withNumber
       })}>
-      <IconPhone /> {withNumber && number.val}
+      <IconPhone small={withNumber} /> {withNumber && number.val}
     </a>
   )
 }

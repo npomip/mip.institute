@@ -8,7 +8,7 @@ import { BtnClose, BtnPhone, BtnEpsilon } from '@/components/btns'
 import { IconMoreThan } from '@/components/icons'
 import classNames from 'classnames'
 
-const Menu = () => {
+const MenuMobile = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
     useContext(MenuContext)
 
@@ -37,7 +37,7 @@ const Menu = () => {
                 <Link href={item.href}>
                   <a>
                     <span>{item.text}</span>
-                    {item.withIcon && <IconMoreThan cnu />}
+                    {item.withIcon && <IconMoreThan small cnu />}
                   </a>
                 </Link>
               </li>
@@ -54,4 +54,4 @@ const Menu = () => {
   )
 }
 
-export default Menu
+export default MenuMobile

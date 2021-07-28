@@ -2,6 +2,7 @@ import stls from '@/styles/components/icons/IconMoreThan.module.sass'
 import classNames from 'classnames'
 
 const IconMoreThan = ({
+  small = false,
   cbeta = true,
   cnu = false,
   ctheta = false,
@@ -12,6 +13,7 @@ const IconMoreThan = ({
     <div
       className={classNames({
         [stls.container]: true,
+        [stls.small]: small,
         [stls.cbeta]: cbeta,
         [stls.cnu]: cnu,
         [stls.ctheta]: ctheta,

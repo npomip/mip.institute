@@ -7,6 +7,9 @@
   @include m.flex
   // @include m.gap($m: f.px(10, em))
 
+  &.small
+    @include m.sizeIcon($size: 0.8, $w: 6, $h: 9)
+
   &.cbeta
     & path
       @include m.dye(stroke, c.$beta)

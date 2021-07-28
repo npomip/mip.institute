@@ -7,7 +7,7 @@ import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
 import ImgPortrait2 from '@/components/imgs/webinars/ImgPortrait2'
 import ImgPortrait3 from '@/components/imgs/webinars/ImgPortrait3'
 
-const webinarsList = [
+const webinars = [
   {
     date: {
       day: '28',
@@ -58,7 +58,7 @@ const Webinars = () => {
         </p>
         <TwoColumns>
           <div className={stls.cards}>
-            {webinarsList.map((data, idx) => (
+            {webinars.map((data, idx) => (
               <WebinarCard key={data.topic + idx} webinarData={data} />
             ))}
             <ScheduleCard />

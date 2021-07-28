@@ -22,12 +22,6 @@
   @include m.flex($jc: space-between, $ai: center)
   @include m.gap($mb: f.px(71, em))
 
-.btns
-  min-width: f.px(84, em)
-  width: 24%
-  max-width: f.px(98, em)
-  @include m.flex($jc: space-between, $ai: center)
-
 .navList
   @include m.gap($m: 0, $p: 0)
   @include m.gap($mb: f.px(71, em))
@@ -50,3 +44,7 @@
     width: 100%
     height: f.px(1)
     @include m.dye(bg, rgba(c.$nu, .1))
+
+.cta
+  & > *:nth-child(1)
+    @include m.gap($mb: f.px(9, em))

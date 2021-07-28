@@ -2,13 +2,12 @@
 @use '@/styles/utils/funcs' as f
 
 .container
-  @include m.flex
-  @include m.gap($p: f.px(34, em) f.px(21, em) f.px(45, em) f.px(31, em))
-  flex: 0 0 f.px(270, em)
+  @include m.gap($pt: f.px(34, em), $pr: f.px(21, em), $pb: f.px(45, em), $pl: f.px(31, em))
   position: relative
   border-radius: f.px(20, em)
-  background: url('../../../public/assets/imgs/general/schedule-fullscreen.jpg')
   overflow: hidden
+  @include m.media(laptop, desktop)
+    @include m.flex($fg: 0, $fs: 0, $fb: f.px(285, em))
   @include m.media(phone, tablet)
     display: none
   &::after
@@ -20,15 +19,10 @@
     left: 0
     z-index: 0
     background-color: rgba(26, 26, 26, .56)
-    @include m.media(phone, tablet)
-      display: none
   &.mobileLayout
     @include m.media(phone, tablet)
-      @include m.flex($fb: 100%)
+      @include m.flex($fg: 1)
       @include m.gap($ptb: f.px(26, em), $plr: f.px(21, em))
-      background: url('../../../public/assets/imgs/general/schedule-mobile.jpg')
-      background-size: cover
-      background-repeat: no-repeat
     @include m.media(laptop, desktop)
       display: none
 
@@ -43,12 +37,13 @@
   @include m.gap($ml: auto)
 
 .title
-  @include m.gap($m: auto 0 68px 0)
-  font-size: 22px
+  font-size: f.px(22)
   font-weight: 500
   color: #fff
+  @include m.media(laptop, desktop)
+    @include m.gap($mt: auto, $mlr: 0, $mb: f.px(68))
   @include m.media(phone, tablet)
-    @include m.gap($m: 0 0 0 f.px(27, em))
+    @include m.gap($mtb: 0, $ml: f.px(27, em))
 
 .btnContainer
   @include m.media(phone, tablet)

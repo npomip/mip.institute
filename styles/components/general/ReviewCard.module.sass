@@ -2,37 +2,27 @@
 @use '@/styles/utils/funcs' as f
 
 .container
-  @include m.flex
-  flex: 0 0 f.px(569, em)
-  @include m.gap($ptb: f.px(40, em), $plr: f.px(22, em), $mr: f.px(10, em))
+  @include m.flex($fg: 0, $fs: 0, $fb: f.px(569))
+  @include m.gap($mr: f.px(10, em), $ptb: f.px(40, em), $plr: f.px(22, em))
   border-radius: f.px(10, em)
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
   @include m.media(phone, tablet)
+    @include m.flex($fb: 100%)
     @include m.gap($ptb: f.px(40, em), $plr: f.px(18, em))
-    flex: 0 0 100%
 
 .imageContainer
-  flex: 0 0 f.px(110, em)
+  @include m.flex($display: false, $fg: 0, $fs: 0, $fb: f.px(80))
   @include m.gap($mr: f.px(35, em))
-  @include m.media(phone, tablet)
-    flex: 0 0 f.px(80, em)
 
 .reviewMainInfo
-  @include m.flex($fd: column)
-  flex: 1 0 f.px(375, em)
-  @include m.media(phone, tablet)
-    flex: 1
+  @include m.flex($fd: column, $fg: 1)
 
 .title
-  @include m.gap($mt: 0)
+  @include m.gap($mt: 0, $mb: f.px(10, em))
   font-weight: 500
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10, em))
 
 .reviewerInfo
-  @include m.gap($mb: f.px(20, em))
-  @include m.media(phone)
-    @include m.gap($mb: f.px(10, em))
+  @include m.gap($mb: f.px(10, em))
 
 .name,
 .occupation
@@ -41,8 +31,7 @@
 .name
   font-size: f.px(18)
   font-weight: 300
-  @include m.media(phone)
-    @include m.gap($mb: f.px(5, em))
+  @include m.gap($mb: f.px(5, em))
 
 .occupation
   font-size: f.px(13)

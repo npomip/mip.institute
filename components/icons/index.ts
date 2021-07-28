@@ -7,6 +7,7 @@ import IconFb from '@/components/icons/IconFb'
 import IconHighIncome from '@/components/icons/IconHighIncome'
 import IconHumburger from '@/components/icons/IconHumburger'
 import IconLogo from '@/components/icons/IconLogo'
+import IconLogoAlt from '@/components/icons/IconLogoAlt'
 import IconPhone from '@/components/icons/IconPhone'
 import IconMoreThan from '@/components/icons/IconMoreThan'
 import IconPlayer from '@/components/icons/IconPlayer'
@@ -24,6 +25,7 @@ export {
   IconHighIncome,
   IconHumburger,
   IconLogo,
+  IconLogoAlt,
   IconPhone,
   IconMoreThan,
   IconPlayer,

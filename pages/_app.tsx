@@ -1,6 +1,7 @@
 import Router from 'next/router'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import MenuState from '@/context/menu/MenuState'
 
 import TagManager from 'react-gtm-module'
 
@@ -9,8 +10,6 @@ import SEO from '../seo.config'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-
-import { motion, AnimatePresence } from 'framer-motion'
 
 import { prod, gtmId } from '@/config/index'
 
@@ -54,31 +53,13 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <Header />
-      <AnimatePresence>
-        <motion.div
-          key={router.route}
-          initial='initial'
-          animate='animate'
-          transition={{ ease: 'easeInOut', duration: 0.4 }}
-          exit='exit'
-          variants={{
-            initial: {
-              opacity: 0
-            },
-            animate: {
-              opacity: 1
-            },
-            exit: {
-              opacity: 0
-            }
-          }}>
-          <main>
-            <Component {...pageProps} />
-          </main>
-        </motion.div>
-      </AnimatePresence>
-      <Footer />
+      <MenuState>
+        <Header />
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+      </MenuState>
     </>
   )
 }

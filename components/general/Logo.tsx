@@ -1,9 +1,9 @@
-import stls from '@/styles/modules/general/Logo.module.sass'
+import stls from '@/styles/components/general/Logo.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
-import IconLogo from '@/components/icons/IconLogo'
+import { IconLogo } from '@/components/icons'
 
-const Logo = ({ atHeader = false }) => {
+const Logo = ({ atHeader = false, withTitle = true }) => {
   return (
     <div className={stls.container}>
       <Link href='/'>
@@ -12,14 +12,14 @@ const Logo = ({ atHeader = false }) => {
             [stls.logo]: true,
             [stls.atHeader]: atHeader
           })}>
-          <div className={stls.icon}>
-            <IconLogo />
-          </div>
-          <p className={stls.title}>
-            Московский <br />
-            Институт <br />
-            Психологии
-          </p>
+          <IconLogo withTitle={withTitle} />
+          {withTitle && (
+            <p className={stls.title}>
+              Московский <br />
+              Институт <br />
+              Психологии
+            </p>
+          )}
         </a>
       </Link>
     </div>

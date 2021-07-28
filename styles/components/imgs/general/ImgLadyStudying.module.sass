@@ -1,0 +1,11 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+
+.container
+
+.img
+  @include m.media(phone, tablet)
+    border-top-left-radius: f.px(50, em)
+  @include m.media(laptop, desktop)
+    border-top-left-radius: f.px(100, em)
+    border-bottom-left-radius: f.px(3, em)

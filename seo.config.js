@@ -2,15 +2,15 @@ export default {
   openGraph: {
     type: 'website',
     locale: 'ru',
-    url: 'https://mip.institute',
-    site_name: 'Moscow Business Academy'
+    url: process.env.PROD_ROOT_FRONT_URL,
+    site_name: 'MIP'
   },
   // twitter: {
   //   handle: '@handle',
   //   site: '@site',
   //   cardType: 'summary_large_image',
   // },
-  defaultTitle: 'Московский Институт Психологии',
-  description: 'Московский Институт Психологии',
-  canonical: 'https://mip.institute'
+  defaultTitle: 'MIP',
+  description: 'MIP',
+  canonical: process.env.PROD_ROOT_FRONT_URL
 }

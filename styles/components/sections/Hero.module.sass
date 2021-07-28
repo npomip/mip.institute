@@ -1,0 +1,91 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: relative
+  @include m.gap($pb: f.px(50))
+
+.bg
+  position: absolute
+  top: 0
+  right: 0
+  height: 89%
+  width: 100%
+  @include m.dye(bg, c.$alpha)
+
+.title,
+.desc
+  @include m.dye(c, c.$nu)
+
+.title
+  position: relative
+  @include m.gap($mtb: f.px(10))
+  font-family: Stem
+  font-weight: 500
+  font-size: f.px(42)
+  line-height: 110%
+  max-width: 10ch
+  z-index: 1
+
+.desc
+  position: relative
+  @include m.media(phone, tablet)
+    max-width: 33ch
+  @include m.media(laptop, desktop)
+    max-width: 35ch
+  @include m.gap($mb: f.px(35))
+  font-family: Stem
+  font-weight: 300
+  font-size: f.px(15)
+  line-height: 120%
+  z-index: 1
+
+.btns
+  @include m.flex
+  @include m.media(phone, tablet)
+    min-height: f.px(129)
+  @include m.media(laptop, desktop)
+    max-height: f.px(56)
+
+.icon
+  @include m.media(phone, tablet)
+    position: absolute
+    top: 0
+    right: 0
+    transform: translateX(54%)
+  @include m.media(laptop, desktop)
+    display: none
+
+.iconDesktop
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    position: absolute
+    top: 0
+    right: 0
+    transform: translateX(54%)
+    z-index: 2
+
+.left
+  @include m.media(laptop, desktop)
+    min-width: 60%
+
+.img
+  @include m.gap($mt: f.px(51))
+
+.prosList
+  transform: translateY(f.px(-25))
+
+.hiddenGem
+  animation: rotating 6s linear infinite
+
+@keyframes rotating
+  0%
+    transform: translateX(54%) rotate(0deg)
+
+  50%
+    transform: translateX(0%) rotate(180deg)
+
+  100%
+    transform: translateX(54%) rotate(360deg)

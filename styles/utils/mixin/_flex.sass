@@ -1,5 +1,6 @@
-@mixin flex($fd: null, $jc: null, $ai: null)
-  display: flex
+@mixin flex($display: true, $fd: null, $jc: null, $ai: null)
+  @if $display
+    display: flex
   @if $fd
     flex-direction: $fd
   @if $jc

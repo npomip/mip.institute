@@ -1,8 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Hero from '@/components/sections/Hero'
+import WhyBother from '@/components/sections/WhyBother'
+import Reviews from '@/components/sections/Reviews'
+import Webinars from '@/components/sections/Webinars'
 
 const Home = ({ programs }) => {
-  return <></>
+  return (
+    <>
+      <Hero />
+      <WhyBother />
+      {/* <Reviews />
+      <Webinars /> */}
+    </>
+  )
 }
 
 export async function getStaticProps() {

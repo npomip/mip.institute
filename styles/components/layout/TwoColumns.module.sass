@@ -9,6 +9,7 @@
     @include m.flex($display: false, $fd: column)
 
   &.slidable
+    @include m.gap($mtb: f.px(-40), $ptb: f.px(40))
     overflow-x: auto
     @include m.media(phone, tablet)
       @include m.flex($display: false, $fd: row)

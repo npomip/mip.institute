@@ -1,4 +1,5 @@
 import stls from '@/styles/components/general/WebinarCard.module.sass'
+import truncate from 'truncate'
 import classNames from 'classnames'
 import { BtnText } from '@/components/btns'
 
@@ -28,10 +29,10 @@ const WebinarCard = ({ webinarData }) => {
           <p className={stls.p}>{name}</p>
         </div>
       </div>
-      <div className={stls.bottom}>
-        <h3 className={stls.topic}>{topic}</h3>
-        <BtnText text='Подробнее' ctheta />
-      </div>
+      <h3 className={stls.topic} title={topic}>
+        {truncate(topic, 19)}
+      </h3>
+      <BtnText text='Подробнее' ctheta />
     </article>
   )
 }

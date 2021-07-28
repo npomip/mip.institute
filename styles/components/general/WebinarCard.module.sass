@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  position: relative
   @include m.flex($fd: column, $fg: 0, $fs: 0, $fb: f.px(285))
   @include m.gap($ptb: f.px(44, em), $plr: f.px(30, em))
   border-radius: f.px(20, em)
@@ -17,6 +18,11 @@
 
   &.cepsilon
     @include m.dye(bg, c.$epsilon)
+
+  button
+    position: absolute
+    bottom: f.px(44, em)
+    left: f.px(30, em)
 
 .p
   @include m.gap($mb: f.px(8, em))
@@ -46,10 +52,7 @@
   @include m.flex($fd: column, $fg: 0, $fs: 0, $fb: f.px(114))
 
 .topic
-  @include m.gap($m: 0)
+  @include m.gap($mb: f.px(23, em))
   font-size: f.px(22)
   font-weight: 500
   @include m.dye(c, c.$theta)
-
-.bottom
-  @include m.flex($fd: column, $jc: space-between, $fg: 0, $fs: 0, $fb: f.px(100))

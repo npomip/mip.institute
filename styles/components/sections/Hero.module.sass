@@ -75,7 +75,10 @@
   @include m.gap($mt: f.px(51))
 
 .prosList
-  transform: translateY(f.px(-25))
+  @include m.media(phone, tablet)
+    transform: translateY(f.px(-25))
+  @include m.media(laptop, desktop)
+    transform: translate(-100%, 20%)
 
 .hiddenGem
   animation: rotating 6s linear infinite

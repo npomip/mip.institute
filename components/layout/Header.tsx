@@ -3,15 +3,14 @@ import Wrapper from '@/components/layout/Wrapper'
 import Logo from '@/components/general/Logo'
 import BtnPhone from '@/components/btns/BtnPhone'
 import BtnHumburger from '@/components/btns/BtnHumburger'
-// import MenuContext from '@/context/menu/menuContext'
+import MenuMobile from '@/components/layout/MenuMobile'
 
 const Header = () => {
-  // const menuContext = useContext(MenuContext)
-
   return (
-    <header className={stls.header}>
+    <header className={stls.container}>
+      <MenuMobile />
       <Wrapper>
-        <div className={stls.container}>
+        <div className={stls.row}>
           <Logo atHeader />
           <div className={stls.btns}>
             <BtnPhone />

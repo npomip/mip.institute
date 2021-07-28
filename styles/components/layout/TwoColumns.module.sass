@@ -3,6 +3,8 @@
 
 .container
   @include m.flex($jc: space-between)
+  width: 100%
+  min-height: 100%
   @include m.media(phone, tablet)
     @include m.flex($display: false, $fd: column)
 

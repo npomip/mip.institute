@@ -1,0 +1,35 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+
+.container
+  @include m.gap($mb: f.px(135, em))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(70, em))
+
+.title
+  @include m.gap($mb: f.px(1, em))
+  font-size: 44px
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: 26px
+
+.desc
+  @include m.gap($mb: f.px(31, em))
+  font-size: 18px
+  font-weight: 265
+  color: #808080
+  @include m.media(phone, tablet)
+    font-size: 15px
+
+.cardsContainer
+  @include m.flex
+  overflow-x: auto
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+
+.webinarCardsContainer
+  @include m.flex($jc: space-between)
+  @include m.gap($mr: f.px(30, em))
+  @include m.media(phone, tablet)
+    @include m.gap($mr: 0, $mb: f.px(46, em))
+    overflow-x: auto

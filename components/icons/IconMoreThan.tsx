@@ -1,7 +1,12 @@
 import stls from '@/styles/components/icons/IconMoreThan.module.sass'
 import classNames from 'classnames'
 
-const IconMoreThan = ({ cbeta = true, cnu = false, dimmer = false }) => {
+const IconMoreThan = ({
+  cbeta = true,
+  cnu = false,
+  ctheta = false,
+  dimmer = false
+}) => {
   if (cnu === true) cbeta = false
   return (
     <div
@@ -9,6 +14,7 @@ const IconMoreThan = ({ cbeta = true, cnu = false, dimmer = false }) => {
         [stls.container]: true,
         [stls.cbeta]: cbeta,
         [stls.cnu]: cnu,
+        [stls.ctheta]: ctheta,
         [stls.dimmer]: dimmer
       })}>
       <title>Далее</title>

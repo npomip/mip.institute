@@ -28,17 +28,16 @@
   max-width: f.px(24)
   max-height: f.px(24)
   border-radius: 50%
+  font-family: TTFirsNeue
   font-size: f.px(14)
   @include m.dye(bg, c.$beta)
   @include m.dye(c, c.$nu)
 
 .number
   @include m.flex($jc: center, $ai: center)
-  min-width: f.px(9)
-  max-height: f.px(9)
 
 .subtitle
-  @include m.gap($mb: f.px(5))
+  @include m.gap($mb: f.px(5, em))
   font-size: f.px(20)
   font-weight: 500
   @include m.dye(c, c.$theta)

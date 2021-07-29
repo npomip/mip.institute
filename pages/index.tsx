@@ -2,6 +2,8 @@ import Hero from '@/components/sections/Hero'
 import WhyBother from '@/components/sections/WhyBother'
 import About from '@/components/sections/About'
 import HowProcessGoes from '@/components/sections/HowProcessGoes'
+import Programs from '@/components/sections/Programs'
+import ChooseProgram from '@/components/sections/ChooseProgram'
 import Reviews from '@/components/sections/Reviews'
 import Webinars from '@/components/sections/Webinars'
 
@@ -12,6 +14,8 @@ const Home = ({ programs }) => {
       <WhyBother />
       <About />
       <HowProcessGoes />
+      <Programs />
+      <ChooseProgram />
       <Reviews />
       <Webinars />
     </>

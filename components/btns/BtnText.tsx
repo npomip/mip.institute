@@ -9,7 +9,7 @@ const BtnText = ({
   ctheta = false,
   dimmer = false
 }) => {
-  if (cnu === true) cbeta = false
+  if (cnu === true || ctheta === true) cbeta = false
   return (
     <button
       className={classNames({

@@ -12,7 +12,9 @@ import IconPhone from '@/components/icons/IconPhone'
 import IconMoreThan from '@/components/icons/IconMoreThan'
 import IconPlayer from '@/components/icons/IconPlayer'
 import IconRemoteWork from '@/components/icons/IconRemoteWork'
+import IconTelegram from '@/components/icons/IconTelegram'
 import IconVk from '@/components/icons/IconVk'
+import IconWhatsapp from '@/components/icons/IconWhatsapp'
 import IconYt from '@/components/icons/IconYt'
 
 export {
@@ -30,6 +32,8 @@ export {
   IconMoreThan,
   IconPlayer,
   IconRemoteWork,
+  IconTelegram,
   IconVk,
+  IconWhatsapp,
   IconYt
 }

@@ -1,9 +1,11 @@
 import stls from '@/styles/components/btns/BtnFb.module.sass'
 import { IconFb } from '@/components/icons'
+import classNames from 'classnames'
 
-const BtnFb = () => {
+const BtnFb = ({ dark = false }) => {
   return (
-    <button className={stls.container}>
+    <button
+      className={classNames({ [stls.container]: true, [stls.dark]: dark })}>
       <IconFb />
     </button>
   )

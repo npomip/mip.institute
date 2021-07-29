@@ -3,11 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.dye(bg, c.$tau)
-  @include m.dye(c, c.$upsilon)
-
-.number
-  @include m.dye(c, c.$upsilon)
-
-.sm
+  @include m.sizeIcon($w: 16, $h: 14)
   @include m.flex
+  // @include m.gap($m: f.px(10, em))
+
+  // & path
+  //   @include m.dye(stroke, c.$beta)

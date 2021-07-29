@@ -7,8 +7,10 @@ import BtnFb from '@/components/btns/BtnFb'
 import BtnGamma from '@/components/btns/BtnGamma'
 import BtnHumburger from '@/components/btns/BtnHumburger'
 import BtnPhone from '@/components/btns/BtnPhone'
+import BtnTelegram from '@/components/btns/BtnTelegram'
 import BtnText from '@/components/btns/BtnText'
 import BtnVk from '@/components/btns/BtnVk'
+import BtnWhatsapp from '@/components/btns/BtnWhatsapp'
 import BtnYt from '@/components/btns/BtnYt'
 
 export {
@@ -21,7 +23,9 @@ export {
   BtnGamma,
   BtnHumburger,
   BtnPhone,
+  BtnTelegram,
   BtnText,
   BtnVk,
+  BtnWhatsapp,
   BtnYt
 }

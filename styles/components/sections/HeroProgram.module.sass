@@ -1,0 +1,31 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$alpha)
+  @include m.dye(c, c.$nu)
+
+.title
+  @include m.gap($mb: f.px(39))
+  font-size: f.px(36)
+  font-weight: 500
+  line-height: 110%
+
+.pic
+  position: relative
+  @include m.gap($mb: f.px(17))
+
+.discount
+  position: absolute
+  top: f.px(-20)
+  left: 0
+  z-index: 1
+
+.img
+  border-radius: f.px(100) 0
+  overflow: hidden
+
+.btns
+  & > *:nth-child(1)
+    @include m.gap($mb: f.px(17))

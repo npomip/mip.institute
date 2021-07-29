@@ -1,13 +1,13 @@
-import stls from '@/styles/components/imgs/programs/courses/ImgCourse1.module.sass'
+import stls from '@/styles/components/imgs/programs/courses/ImgCourse2.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/programs/courses/course-1.jpg'
+import pic from '@/public/assets/imgs/programs/courses/course-2.jpg'
 
-const ImgCourse1 = ({ width = 0, height = 0 }) => {
+const ImgCourse2 = ({ width = 0, height = 0 }) => {
   return (
     <div className={stls.container}>
       <Image
         src={pic}
-        alt='Курс 1'
+        alt='Курс 2'
         className={stls.img}
         width={width !== 0 && width}
         height={height !== 0 && height}
@@ -17,4 +17,4 @@ const ImgCourse1 = ({ width = 0, height = 0 }) => {
   )
 }
 
-export default ImgCourse1
+export default ImgCourse2

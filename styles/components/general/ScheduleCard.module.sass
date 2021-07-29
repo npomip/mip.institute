@@ -1,5 +1,6 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
 
 .container
   @include m.gap($pt: f.px(34, em), $pr: f.px(21, em), $pb: f.px(45, em), $pl: f.px(31, em))
@@ -26,6 +27,20 @@
     @include m.media(laptop, desktop)
       display: none
 
+.backgroundImage
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  div
+    height: 100%
+
+.iconContainer
+  @include m.flex($ai: center, $jc: center)
+  @include m.gap($p: f.px(23, em))
+  border-radius: 50%
+  @include m.dye(bg, c.$beta)
+
 .content
   @include m.flex($fd: column)
   position: relative
@@ -41,7 +56,7 @@
   font-weight: 500
   color: #fff
   @include m.media(laptop, desktop)
-    @include m.gap($mt: auto, $mlr: 0, $mb: f.px(68))
+    @include m.gap($mt: auto, $mlr: 0)
   @include m.media(phone, tablet)
     @include m.gap($mtb: 0, $ml: f.px(27, em))
 

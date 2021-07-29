@@ -1,8 +1,8 @@
-import stls from '@/styles/components/imgs/webinars/AllWebinars.module.sass'
+import stls from '@/styles/components/imgs/webinars/ImgAllWebinars.module.sass'
 import Image from 'next/image'
 import pic from '@/public/assets/imgs/webinars/all-webinars.jpg'
 
-const ImgPortrait1 = ({ width = 0, height = 0, mobileLayout }) => {
+const ImgAllWebinars = ({ width = 0, height = 0 }) => {
   return (
     <div className={stls.container}>
       <Image
@@ -18,4 +18,4 @@ const ImgPortrait1 = ({ width = 0, height = 0, mobileLayout }) => {
   )
 }
 
-export default ImgPortrait1
+export default ImgAllWebinars

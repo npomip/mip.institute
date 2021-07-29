@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Reviews.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import ReviewCard from '@/components/cards/ReviewCard'
+import CardReview from '@/components/cards/CardReview'
 import maleStudent from '@/public/assets/imgs/general/male-student.jpg'
 import femaleStudent from '@/public/assets/imgs/general/female-student.jpg'
 import TwoColumns from '@/components/layout/TwoColumns'
@@ -28,7 +28,7 @@ const Reviews = () => {
         <div className={stls.content}>
           <TwoColumns slidable>
             {studentsReviews.map((review, idx) => (
-              <ReviewCard
+              <CardReview
                 key={review.name + idx}
                 title={review.title}
                 photo={review.photo}

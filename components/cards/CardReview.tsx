@@ -1,9 +1,9 @@
-import stls from '@/styles/components/general/ReviewCard.module.sass'
+import stls from '@/styles/components/cards/CardReview.module.sass'
 import truncate from 'truncate'
 import Image from 'next/image'
 import { BtnText } from '@/components/btns'
 
-const ReviewCard = ({ title, photo, name, occupation }) => {
+const CardReview = ({ title, photo, name, occupation }) => {
   return (
     <article className={stls.container}>
       <div className={stls.img}>
@@ -23,4 +23,4 @@ const ReviewCard = ({ title, photo, name, occupation }) => {
   )
 }
 
-export default ReviewCard
+export default CardReview

@@ -1,9 +1,9 @@
-import stls from '@/styles/components/general/WebinarCard.module.sass'
+import stls from '@/styles/components/cards/CardWebinar.module.sass'
 import truncate from 'truncate'
 import classNames from 'classnames'
 import { BtnText } from '@/components/btns'
 
-const WebinarCard = ({ webinarData }) => {
+const CardWebinar = ({ webinarData }) => {
   const {
     date: { day, month, time, weekday },
     name,
@@ -37,4 +37,4 @@ const WebinarCard = ({ webinarData }) => {
   )
 }
 
-export default WebinarCard
+export default CardWebinar

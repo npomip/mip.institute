@@ -54,7 +54,7 @@
 .title
   font-size: f.px(22)
   font-weight: 500
-  color: #fff
+  @include m.dye(c, c.$nu)
   @include m.media(laptop, desktop)
     @include m.gap($mt: auto, $mlr: 0)
   @include m.media(phone, tablet)

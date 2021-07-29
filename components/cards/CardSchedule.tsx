@@ -1,11 +1,11 @@
-import stls from '@/styles/components/general/ScheduleCard.module.sass'
+import stls from '@/styles/components/cards/CardSchedule.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
 import ImgAllWebinars from '@/components/imgs/webinars/ImgAllWebinars'
 import CtaText from '@/components/general/CtaText'
 import { IconPlayer } from '@/components/icons'
 
-const ScheduleCard = ({ mobileLayout = false }) => {
+const CardSchedule = ({ mobileLayout = false }) => {
   return (
     <Link href='/'>
       <a>
@@ -34,4 +34,4 @@ const ScheduleCard = ({ mobileLayout = false }) => {
   )
 }
 
-export default ScheduleCard
+export default CardSchedule

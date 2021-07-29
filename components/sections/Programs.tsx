@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Programs.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { BtnAlpha } from '@/components/btns'
+import { BtnDelta } from '@/components/btns'
 import { ImgCourse1 } from '@/components/imgs'
 
 const Programs = () => {
@@ -90,6 +90,7 @@ const Programs = () => {
                 </li>
               ))}
             </ul>
+            <BtnDelta text={'Смотреть все курсы'} />
           </div>
         </div>
       </Wrapper>

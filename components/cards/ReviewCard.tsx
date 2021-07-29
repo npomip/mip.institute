@@ -6,14 +6,14 @@ import { BtnText } from '@/components/btns'
 const ReviewCard = ({ title, photo, name, occupation }) => {
   return (
     <article className={stls.container}>
-      <div className={stls.imageContainer}>
+      <div className={stls.img}>
         <Image src={photo} alt={name} placeholder={'blur'} />
       </div>
-      <div className={stls.reviewMainInfo}>
+      <div className={stls.content}>
         <h3 className={stls.title} title={title}>
           {truncate(title, 65)}
         </h3>
-        <div className={stls.reviewerInfo}>
+        <div className={stls.text}>
           <p className={stls.name}>{name}</p>
           <p className={stls.occupation}>{occupation}</p>
         </div>

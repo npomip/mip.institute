@@ -5,6 +5,9 @@
 .container
   @include m.flex($ai: center)
   max-width: max-content
+  &:hover
+    transform: scale(1.02)
+    text-decoration: underline
   &.cbeta
     @include m.dye(c, c.$beta)
   &.cnu
@@ -13,9 +16,6 @@
     @include m.dye(c, c.$theta)
   &.dimmer
     opacity: 0.4
-  &:hover
-    transform: scale(1.02)
-    text-decoration: underline
-  &:focus
-    transform: scale(0.98)
-    text-decoration: underline
+
+.text
+  @include m.gap($pr: f.px(10, em))

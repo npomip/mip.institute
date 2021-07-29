@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Reviews.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import ReviewCard from '@/components/general/ReviewCard'
+import ReviewCard from '@/components/cards/ReviewCard'
 import maleStudent from '@/public/assets/imgs/general/male-student.jpg'
 import femaleStudent from '@/public/assets/imgs/general/female-student.jpg'
 import TwoColumns from '@/components/layout/TwoColumns'

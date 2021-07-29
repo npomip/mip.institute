@@ -42,7 +42,7 @@ const MenuMobile = () => {
             {links.map((item, idx) => (
               <li key={item.text + idx} className={stls.navItem}>
                 <Link href={item.href}>
-                  <a>
+                  <a onClick={closeMenu}>
                     <span>{item.text}</span>
                     {item.withIcon && <IconMoreThan small cnu />}
                   </a>

@@ -9,3 +9,7 @@
   border-radius: f.px(4)
   &.mlzero
     @include m.gap($ml: 0)
+  &.dark
+    @include m.dye(border, rgba(c.$nu, .1))
+    &:focus
+      @include m.dye(bg, rgba(c.$nu, .1))

@@ -7,3 +7,7 @@
   border: f.px(1) solid
   @include m.dye(border, c.$xi)
   border-radius: f.px(4)
+  &.dark
+    @include m.dye(border, rgba(c.$nu, .1))
+    &:focus
+      @include m.dye(bg, rgba(c.$nu, .1))

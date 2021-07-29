@@ -12,8 +12,8 @@ const Home = ({ programs }) => {
       <WhyBother />
       <About />
       <HowProcessGoes />
-      {/* <Reviews />
-      <Webinars /> */}
+      <Reviews />
+      <Webinars />
     </>
   )
 }

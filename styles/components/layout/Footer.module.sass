@@ -3,11 +3,37 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.gap($pt: f.px(50))
   @include m.dye(bg, c.$tau)
   @include m.dye(c, c.$upsilon)
 
+.numbers
+  @include m.flex($fd: column)
+  @include m.gap($mb: f.px(25))
+  & > *:nth-child(1)
+    @include m.gap($mb: f.px(9, em))
+
 .number
+  font-size: f.px(22)
+  font-weight: 300
   @include m.dye(c, c.$upsilon)
 
 .sm
   @include m.flex
+  @include m.gap($mb: f.px(25))
+
+.btn
+  @include m.gap($mb: f.px(37))
+
+.bottom
+  border-top: f.px(1) solid
+  @include m.dye(border, c.$phi)
+  @include m.gap($ptb: f.px(40))
+  & > *
+    @include m.flex($fw: wrap)
+
+.copy,
+.docLink
+  @include m.gap($mb: f.px(17), $mr: f.px(64))
+  font-size: f.px(13)
+  @include m.dye(c, c.$kappa)

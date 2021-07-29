@@ -1,4 +1,4 @@
-@mixin flex($display: true, $fd: null, $jc: null, $ai: null, $fg: null, $fs: null, $fb: null)
+@mixin flex($display: true, $fd: null, $jc: null, $ai: null, $fw: null, $fg: null, $fs: null, $fb: null)
   @if $display
     display: flex
   @if $fd
@@ -7,6 +7,8 @@
     justify-content: $jc
   @if $ai
     align-items: $ai
+  @if $fw
+    flex-wrap: $fw
   @if $fg
     flex-grow: $fg
   @if $fs

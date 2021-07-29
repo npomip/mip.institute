@@ -7,8 +7,8 @@ import { IconPlayer } from '@/components/icons'
 
 const ScheduleCard = ({ mobileLayout = false }) => {
   return (
-    <Link href='#'>
-      <a href='#'>
+    <Link href='/'>
+      <a>
         <article
           className={classNames({
             [stls.container]: true,

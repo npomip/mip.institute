@@ -11,11 +11,13 @@
 
 .list
   @include m.flex($fd: column)
-  @include m.gap($p: 0)
+  @include m.gap($m: 0, $p: 0)
 
 .item
   @include m.flex
   @include m.gap($mb: f.px(18))
+  &:nth-last-child(1)
+    @include m.gap($mb: 0)
   &:nth-last-child(1) .counter
     font-size: f.px(20)
     @include m.gap($mr: f.px(14), $p: f.px(16))

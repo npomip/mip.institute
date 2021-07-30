@@ -4,10 +4,12 @@ import ProgramLabel from '@/components/program/ProgramLabel'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ImgCourse2 } from '@/components/imgs'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
+import ProgramInfo from '@/components/program/ProgramInfo'
 
 const HeroProgram = () => {
   return (
     <section className={stls.container}>
+      <div className={stls.bg}></div>
       <Wrapper>
         <ProgramLabel />
         <h1 className={stls.title}>
@@ -25,6 +27,7 @@ const HeroProgram = () => {
           <BtnAlpha text={'Записаться на курс'} />
           <BtnBeta text={'Задать вопрос'} />
         </div>
+        <ProgramInfo />
       </Wrapper>
     </section>
   )

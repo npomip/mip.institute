@@ -1,8 +1,10 @@
 import stls from '@/styles/components/icons/IconCircleCheck.module.sass'
+import classNames from 'classnames'
 
-const IconCircleCheck = () => {
+const IconCircleCheck = ({ calpha = false }) => {
   return (
-    <div className={stls.container}>
+    <div
+      className={classNames({ [stls.container]: true, [stls.calpha]: calpha })}>
       <svg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Галочка</title>
         <path

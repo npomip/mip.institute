@@ -1,9 +1,13 @@
 import HeroProgram from '@/components/sections/HeroProgram'
+import Desc from '@/components/sections/Desc'
+import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
 
 const Home = ({ programs }) => {
   return (
     <>
       <HeroProgram />
+      <Desc />
+      <WhatWillYouLearn />
     </>
   )
 }

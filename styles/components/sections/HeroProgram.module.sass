@@ -3,14 +3,24 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  position: relative
+  @include m.gap($pb: f.px(35))
+
+.bg
+  position: absolute
+  top: 0
+  right: 0
+  height: 94%
+  width: 100%
   @include m.dye(bg, c.$alpha)
-  @include m.dye(c, c.$nu)
+  z-index: -1
 
 .title
   @include m.gap($mb: f.px(39))
   font-size: f.px(36)
   font-weight: 500
   line-height: 110%
+  @include m.dye(c, c.$nu)
 
 .pic
   position: relative
@@ -27,5 +37,6 @@
   overflow: hidden
 
 .btns
+  @include m.gap($mb: f.px(17))
   & > *:nth-child(1)
     @include m.gap($mb: f.px(17))

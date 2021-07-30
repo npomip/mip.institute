@@ -1,0 +1,12 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.p
+  font-size: f.px(15)
+  font-weight: 300
+  &:nth-last-child(1)
+    @include m.gap($mb: f.px(0))
+
+.highlight
+  font-weight: 500

@@ -7,5 +7,13 @@
   @include m.flex
   // @include m.gap($m: f.px(10, em))
 
+  &.calpha
+    border-radius: 50%
+    @include m.dye(bg, c.$nu)
+    & path
+      @include m.dye(stroke, c.$alpha)
+    & rect
+      @include m.dye(stroke, c.$nu)
+
   // & path, & rect
   //   @include m.dye(stroke, c.$beta)

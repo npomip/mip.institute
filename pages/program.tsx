@@ -1,6 +1,8 @@
 import HeroProgram from '@/components/sections/HeroProgram'
 import Desc from '@/components/sections/Desc'
 import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
+import WhoIsFor from '@/components/sections/WhoIsFor'
+import YourDiploma from '@/components/sections/YourDiploma'
 
 const Home = ({ programs }) => {
   return (
@@ -8,6 +10,8 @@ const Home = ({ programs }) => {
       <HeroProgram />
       <Desc />
       <WhatWillYouLearn />
+      <WhoIsFor />
+      <YourDiploma />
     </>
   )
 }

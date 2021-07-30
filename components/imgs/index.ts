@@ -1,3 +1,4 @@
+import ImgDiploma1 from '@/components/imgs/diplomas/ImgDiploma1'
 import ImgLadyStudying from '@/components/imgs/general/ImgLadyStudying'
 import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
 import ImgPortrait2 from '@/components/imgs/webinars/ImgPortrait2'
@@ -6,6 +7,7 @@ import ImgCourse1 from '@/components/imgs/programs/courses/ImgCourse1'
 import ImgCourse2 from '@/components/imgs/programs/courses/ImgCourse2'
 
 export {
+  ImgDiploma1,
   ImgLadyStudying,
   ImgPortrait1,
   ImgPortrait2,

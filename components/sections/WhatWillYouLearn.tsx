@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { IconCircleCheck } from '../icons'
+import { IconCircleCheck } from '@/components/icons'
 
 const WhatWillYouLearn = () => {
   const list = [

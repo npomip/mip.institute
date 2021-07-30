@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($mb: f.px(10), $pt: f.px(50))
+  @include m.gap($mb: f.px(50), $pt: f.px(40), $pb: f.px(40))
   @include m.dye(bg, c.$pi)
 
 .title
@@ -22,12 +22,16 @@
 
 .item
   @include m.flex($fd: column, $jc: center, $ai: center)
+  @include m.gap($mb: f.px(43))
+  &:nth-last-child(1)
+    @include m.gap($mb: f.px(0))
 
 .icon
-  @include m.gap($mb: f.px(22))
+  @include m.gap($mb: f.px(17))
 
 .p
   max-width: 23ch
   text-align: center
   font-size: f.px(15)
   line-height: 130%
+  @include m.gap($mb: 0)

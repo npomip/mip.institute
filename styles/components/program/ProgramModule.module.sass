@@ -5,6 +5,8 @@
 .container
   @include m.flex($fd: column, $jc: center)
   @include m.gap($mb: f.px(10))
+  &:nth-last-child(1)
+    @include m.gap($mb: 0)
 
 .isOpen
   & .topic
@@ -31,7 +33,7 @@
     @include m.gap($mb: f.px(8), $ml: f.px(60))
 
 .list
-  @include m.gap($pl: f.px(82))
+  @include m.gap($mtb: f.px(0), $pl: f.px(82))
   list-style-type: '•'
 
 .item

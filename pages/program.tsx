@@ -5,6 +5,7 @@ import WhoIsFor from '@/components/sections/WhoIsFor'
 import YourDiploma from '@/components/sections/YourDiploma'
 import BriefProgramContents from '@/components/sections/BriefProgramContents'
 import FullProgram from '@/components/sections/FullProgram'
+import YourResume from '@/components/sections/YourResume'
 
 const Home = ({ programs }) => {
   return (
@@ -16,6 +17,7 @@ const Home = ({ programs }) => {
       <YourDiploma />
       <BriefProgramContents />
       <FullProgram />
+      <YourResume />
     </>
   )
 }

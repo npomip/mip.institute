@@ -9,9 +9,11 @@ import IconHighIncome from '@/components/icons/IconHighIncome'
 import IconHumburger from '@/components/icons/IconHumburger'
 import IconLogo from '@/components/icons/IconLogo'
 import IconLogoAlt from '@/components/icons/IconLogoAlt'
+import IconMinus from '@/components/icons/IconMinus'
 import IconPhone from '@/components/icons/IconPhone'
 import IconMoreThan from '@/components/icons/IconMoreThan'
 import IconPlayer from '@/components/icons/IconPlayer'
+import IconPlus from '@/components/icons/IconPlus'
 import IconRemoteWork from '@/components/icons/IconRemoteWork'
 import IconTelegram from '@/components/icons/IconTelegram'
 import IconToTheMoon from '@/components/icons/IconToTheMoon'
@@ -31,9 +33,11 @@ export {
   IconHumburger,
   IconLogo,
   IconLogoAlt,
+  IconMinus,
   IconPhone,
   IconMoreThan,
   IconPlayer,
+  IconPlus,
   IconRemoteWork,
   IconTelegram,
   IconToTheMoon,

@@ -6,6 +6,7 @@ import YourDiploma from '@/components/sections/YourDiploma'
 import BriefProgramContents from '@/components/sections/BriefProgramContents'
 import FullProgram from '@/components/sections/FullProgram'
 import YourResume from '@/components/sections/YourResume'
+import Cta from '@/components/sections/Cta'
 
 const Home = ({ programs }) => {
   return (
@@ -18,6 +19,11 @@ const Home = ({ programs }) => {
       <BriefProgramContents />
       <FullProgram />
       <YourResume />
+      <Cta
+        title={'Начните обучаться со скидкой'}
+        desc={'Забронируйте программу по спеццене — со скидкой 30%'}
+        btn={'Забронировать'}
+      />
     </>
   )
 }

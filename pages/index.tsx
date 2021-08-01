@@ -3,7 +3,7 @@ import WhyBother from '@/components/sections/WhyBother'
 import About from '@/components/sections/About'
 import HowProcessGoes from '@/components/sections/HowProcessGoes'
 import Programs from '@/components/sections/Programs'
-import ChooseProgram from '@/components/sections/ChooseProgram'
+import Cta from '@/components/sections/Cta'
 import Reviews from '@/components/sections/Reviews'
 import Webinars from '@/components/sections/Webinars'
 
@@ -15,7 +15,11 @@ const Home = ({ programs }) => {
       <About />
       <HowProcessGoes />
       <Programs />
-      <ChooseProgram />
+      <Cta
+        title={'Подберите программу'}
+        desc={'Ответьте на несколько вопросов и подберите программу обучения'}
+        btn={'Подобрать программу'}
+      />
       <Reviews />
       <Webinars />
     </>

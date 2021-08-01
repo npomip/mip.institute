@@ -8,3 +8,42 @@
   font-size: f.px(26)
   font-weight: 500
   @include m.dye(c, c.$theta)
+
+.content
+  @include m.gap($ptb: f.px(30), $plr: f.px(26))
+  border-radius: f.px(10)
+  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+  @include m.dye(bg, c.$nu)
+
+.top
+  @include m.flex
+
+.img
+  max-height: f.px(72)
+  @include m.gap($mr: f.px(20))
+  border-radius: 50%
+  overflow: hidden
+
+.heading
+  @include m.gap($mb: f.px(13))
+
+.p
+  @include m.gap($mb: f.px(5))
+  font-size: f.px(13)
+  @include m.dye(c, c.$kappa)
+
+.h3
+  @include m.gap($mb: 0)
+  font-size: f.px(20)
+  font-weight: 300
+
+.list
+  @include m.gap($p: 0)
+  list-style-type: '•'
+
+.item
+  @include m.gap($pl: f.px(12))
+
+.itemText
+  font-size: f.px(15)
+  font-weight: 300

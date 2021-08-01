@@ -4,7 +4,7 @@ const IconHumburger = () => {
   return (
     <div className={stls.container}>
       <svg viewBox='0 0 35 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Меню иконка</title>
+        <title>Меню</title>
         <line
           x1='1'
           y1='1'

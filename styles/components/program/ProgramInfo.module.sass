@@ -1,0 +1,29 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex($fw: wrap, $jc: space-between)
+  @include m.gap($ptb: f.px(28), $plr: 10%)
+  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+  border-radius: f.px(20)
+  @include m.dye(bg, c.$nu)
+  & > *:nth-child(1),
+  & > *:nth-child(2)
+    @include m.gap($mb: 7%)
+  & > *:nth-child(odd)
+    @include m.gap($mr: 5%)
+
+.group
+  @include m.flex($display: false, $fg: 1, $fs: 1, $fb: 45%)
+
+.key
+  max-width: 13ch
+  @include m.gap($mb: f.px(5))
+  font-size: f.px(15)
+  font-weight: 300
+
+.val
+  max-width: 12ch
+  @include m.gap($mb: 0)
+  font-weight: 500

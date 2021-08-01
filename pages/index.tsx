@@ -1,5 +1,9 @@
 import Hero from '@/components/sections/Hero'
 import WhyBother from '@/components/sections/WhyBother'
+import About from '@/components/sections/About'
+import HowProcessGoes from '@/components/sections/HowProcessGoes'
+import Programs from '@/components/sections/Programs'
+import Cta from '@/components/sections/Cta'
 import Reviews from '@/components/sections/Reviews'
 import Webinars from '@/components/sections/Webinars'
 
@@ -8,8 +12,16 @@ const Home = ({ programs }) => {
     <>
       <Hero />
       <WhyBother />
-      {/* <Reviews />
-      <Webinars /> */}
+      <About />
+      <HowProcessGoes />
+      <Programs />
+      <Cta
+        title={'Подберите программу'}
+        desc={'Ответьте на несколько вопросов и подберите программу обучения'}
+        btn={'Подобрать программу'}
+      />
+      <Reviews />
+      <Webinars />
     </>
   )
 }

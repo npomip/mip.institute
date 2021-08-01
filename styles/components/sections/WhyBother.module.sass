@@ -2,9 +2,31 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-
 .title
+  @include m.gap($mb: f.px(30))
+  max-width: 18ch
   font-size: f.px(26)
   font-weight: 500
+  @include m.dye(c, c.$theta)
+
+.reason
+  @include m.flex
+  @include m.gap($mb: f.px(15))
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: f.px(15))
+
+.icon
+  @include m.gap($mr: f.px(23))
+
+.subTitle
+  @include m.gap($mb: f.px(9))
+  font-size: f.px(20)
+  font-weight: 500
+  @include m.dye(c, c.$theta)
+
+.p
+  @include m.gap($mb: f.px(0))
+  max-width: 27ch
+  font-size: f.px(15)
+  font-weight: 300
   @include m.dye(c, c.$theta)

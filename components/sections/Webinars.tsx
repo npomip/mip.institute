@@ -1,8 +1,8 @@
 import stls from '@/styles/components/sections/Webinars.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import TwoColumns from '@/components/layout/TwoColumns'
-import WebinarCard from '@/components/general/WebinarCard'
-import ScheduleCard from '@/components/general/ScheduleCard'
+import CardWebinar from '@/components/cards/CardWebinar'
+import CardSchedule from '@/components/cards/CardSchedule'
 import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
 import ImgPortrait2 from '@/components/imgs/webinars/ImgPortrait2'
 import ImgPortrait3 from '@/components/imgs/webinars/ImgPortrait3'
@@ -49,8 +49,8 @@ const webinars = [
 
 const Webinars = () => {
   return (
-    <Wrapper>
-      <section className={stls.container}>
+    <section className={stls.container}>
+      <Wrapper>
         <h2 className={stls.title}>Ежедневные вебинары</h2>
         <p className={stls.desc}>
           С понедельника по четверг в институте проходят онлайн вебинары на
@@ -59,14 +59,14 @@ const Webinars = () => {
         <TwoColumns>
           <div className={stls.cards}>
             {webinars.map((data, idx) => (
-              <WebinarCard key={data.topic + idx} webinarData={data} />
+              <CardWebinar key={data.topic + idx} webinarData={data} />
             ))}
-            <ScheduleCard />
+            <CardSchedule />
           </div>
-          <ScheduleCard mobileLayout />
+          <CardSchedule mobileLayout />
         </TwoColumns>
-      </section>
-    </Wrapper>
+      </Wrapper>
+    </section>
   )
 }
 

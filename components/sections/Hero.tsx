@@ -45,14 +45,12 @@ const Hero = () => {
             </div>
           </div>
           <div className={stls.right}>
-            <TwoColumns>
-              <div className={stls.img}>
-                <ImgLadyStudying />
-              </div>
-              <div className={stls.prosList}>
-                <ProsList />
-              </div>
-            </TwoColumns>
+            <div className={stls.img}>
+              <ImgLadyStudying />
+            </div>
+            <div className={stls.prosList}>
+              <ProsList />
+            </div>
           </div>
         </TwoColumns>
       </Wrapper>

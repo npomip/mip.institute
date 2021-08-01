@@ -1,0 +1,43 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex($fd: column, $jc: center)
+  @include m.gap($mb: f.px(10))
+  &:nth-last-child(1)
+    @include m.gap($mb: 0)
+
+.isOpen
+  & .topic
+    display: block
+
+.title
+  @include m.flex($ai: center)
+  @include m.gap($mb: f.px(10))
+  cursor: pointer
+
+.icon
+  @include m.gap($mr: f.px(20))
+
+.p
+  @include m.gap($mb: 0)
+  font-size: f.px(15)
+  font-weight: 300
+
+.bold
+  font-weight: 500
+
+.topic
+  display: none
+  & > .p
+    @include m.gap($mb: f.px(8), $ml: f.px(60))
+
+.list
+  @include m.gap($mtb: f.px(0), $pl: f.px(82))
+  list-style-type: '•'
+
+.item
+  @include m.gap($mb: f.px(8))
+  & > .p
+    @include m.gap($pl: f.px(12))

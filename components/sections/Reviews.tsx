@@ -1,27 +1,19 @@
 import stls from '@/styles/components/sections/Reviews.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import ReviewCard from '@/components/general/ReviewCard'
+import CardReview from '@/components/cards/CardReview'
 import maleStudent from '@/public/assets/imgs/general/male-student.jpg'
 import femaleStudent from '@/public/assets/imgs/general/female-student.jpg'
 import TwoColumns from '@/components/layout/TwoColumns'
 
 const studentsReviews = [
   {
-    title: (
-      <>
-        Как Иван выучился на Психолога и&nbsp;зарабатывает от 100 т.р. в месяц
-      </>
-    ),
+    title: 'Как Иван выучился на Психолога и зарабатывает от 100 т.р. в месяц',
     name: 'Иван Иванов',
     occupation: 'Студент факультета семейной психологии',
     photo: maleStudent
   },
   {
-    title: (
-      <>
-        Как Иван выучился на Психолога и&nbsp;зарабатывает от 100 т.р. в месяц
-      </>
-    ),
+    title: 'Как Иван выучился на Психолога и зарабатывает от 100 т.р. в месяц',
     name: 'Иван Иванов',
     occupation: 'Студент факультета семейной психологии',
     photo: femaleStudent
@@ -36,7 +28,7 @@ const Reviews = () => {
         <div className={stls.content}>
           <TwoColumns slidable>
             {studentsReviews.map((review, idx) => (
-              <ReviewCard
+              <CardReview
                 key={review.name + idx}
                 title={review.title}
                 photo={review.photo}

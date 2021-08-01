@@ -1,5 +1,5 @@
 import stls from '@/styles/components/btns/BtnText.module.sass'
-import { IconMoreThan } from '@/components/icons'
+import CtaText from '@/components/general/CtaText'
 import classNames from 'classnames'
 
 const BtnText = ({
@@ -9,7 +9,7 @@ const BtnText = ({
   ctheta = false,
   dimmer = false
 }) => {
-  if (cnu === true) cbeta = false
+  if (cnu === true || ctheta === true) cbeta = false
   return (
     <button
       className={classNames({
@@ -19,8 +19,13 @@ const BtnText = ({
         [stls.ctheta]: ctheta,
         [stls.dimmer]: dimmer
       })}>
-      <span className={stls.text}>{text}</span>{' '}
-      <IconMoreThan cbeta={cbeta} cnu={cnu} ctheta={ctheta} dimmer={dimmer} />
+      <CtaText
+        text={text}
+        cbeta={cbeta}
+        cnu={cnu}
+        ctheta={ctheta}
+        dimmer={dimmer}
+      />
     </button>
   )
 }

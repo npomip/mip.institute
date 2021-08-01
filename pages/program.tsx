@@ -7,6 +7,7 @@ import BriefProgramContents from '@/components/sections/BriefProgramContents'
 import FullProgram from '@/components/sections/FullProgram'
 import YourResume from '@/components/sections/YourResume'
 import Cta from '@/components/sections/Cta'
+import YourFutureJob from '@/components/sections/YourFutureJob'
 
 const Home = ({ programs }) => {
   return (
@@ -24,6 +25,7 @@ const Home = ({ programs }) => {
         desc={'Забронируйте программу по спеццене — со скидкой 30%'}
         btn={'Забронировать'}
       />
+      <YourFutureJob />
     </>
   )
 }

@@ -3,7 +3,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import CardReview from '@/components/cards/CardReview'
 import maleStudent from '@/public/assets/imgs/general/male-student.jpg'
 import femaleStudent from '@/public/assets/imgs/general/female-student.jpg'
-import TwoColumns from '@/components/layout/TwoColumns'
+import SwiperContainer from '@/components/general/SwiperContainer'
 
 const studentsReviews = [
   {
@@ -20,23 +20,23 @@ const studentsReviews = [
   }
 ]
 
+const reviewsSlides = studentsReviews.map((review, idx) => (
+  <CardReview
+    key={review.name + idx}
+    title={review.title}
+    photo={review.photo}
+    name={review.name}
+    occupation={review.occupation}
+  />
+))
+
 const Reviews = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <TwoColumns slidable>
-            {studentsReviews.map((review, idx) => (
-              <CardReview
-                key={review.name + idx}
-                title={review.title}
-                photo={review.photo}
-                name={review.name}
-                occupation={review.occupation}
-              />
-            ))}
-          </TwoColumns>
+          <SwiperContainer slides={reviewsSlides} />
         </div>
       </Wrapper>
     </section>

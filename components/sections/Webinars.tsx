@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/Webinars.module.sass'
+import { useMediaQuery } from 'react-responsive'
 import Wrapper from '@/components/layout/Wrapper'
-import TwoColumns from '@/components/layout/TwoColumns'
+import SwiperContainer from '@/components/general/SwiperContainer'
 import CardWebinar from '@/components/cards/CardWebinar'
 import CardSchedule from '@/components/cards/CardSchedule'
 import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
@@ -47,7 +48,15 @@ const webinars = [
   }
 ]
 
+const webinarsSlides = webinars.map((data, idx) => (
+  <CardWebinar key={data.topic + idx} webinarData={data} />
+))
+
 const Webinars = () => {
+  const isMobileLayout = useMediaQuery({ query: '(max-width: 768px)' })
+
+  if (!isMobileLayout) webinarsSlides.push(<CardSchedule />)
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -56,15 +65,10 @@ const Webinars = () => {
           С понедельника по четверг в институте проходят онлайн вебинары на
           самые актуальные темы и в удобном формате
         </p>
-        <TwoColumns>
-          <div className={stls.cards}>
-            {webinars.map((data, idx) => (
-              <CardWebinar key={data.topic + idx} webinarData={data} />
-            ))}
-            <CardSchedule />
-          </div>
-          <CardSchedule mobileLayout />
-        </TwoColumns>
+        <div className={stls.cards}>
+          <SwiperContainer slides={webinarsSlides} desktopSlidesNum={4} />
+        </div>
+        {isMobileLayout && <CardSchedule mobileLayout />}
       </Wrapper>
     </section>
   )

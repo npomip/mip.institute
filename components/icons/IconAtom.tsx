@@ -5,13 +5,14 @@ const IconAtom = ({
   small = false,
   regular = false,
   large = false,
-  light = false,
-  soft = false
+  responsive = false,
+  cnu = false,
+  crho = false,
+  calpha = false,
+  barelyVisible = false,
+  slightlyVisible = false,
+  widthDots = false
 }) => {
-  // defaults
-  if (!small || !large) regular = true
-  if (!light) soft = true
-
   return (
     <div
       className={classNames({
@@ -19,8 +20,12 @@ const IconAtom = ({
         [stls.small]: small,
         [stls.regular]: regular,
         [stls.large]: large,
-        [stls.light]: light,
-        [stls.soft]: soft
+        [stls.responsive]: responsive,
+        [stls.cnu]: cnu,
+        [stls.crho]: crho,
+        [stls.calpha]: calpha,
+        [stls.barelyVisible]: barelyVisible,
+        [stls.slightlyVisible]: slightlyVisible
       })}>
       <svg viewBox='0 0 216 174' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Атом</title>
@@ -35,6 +40,13 @@ const IconAtom = ({
             d='M194.536 36.6766C197.353 41.556 197.7 47.6052 195.838 54.4196C193.976 61.2365 189.912 68.7801 183.97 76.588C172.086 92.2019 152.754 108.791 128.781 122.632C104.808 136.472 80.7752 144.92 61.3115 147.405C51.5785 148.647 43.0135 148.395 36.1787 146.599C29.3465 144.804 24.2812 141.479 21.464 136.6C18.6469 131.72 18.2999 125.671 20.1616 118.857C22.0239 112.04 26.088 104.496 32.0303 96.6882C43.9137 81.0743 63.2463 64.485 87.2189 50.6443C111.192 36.8037 135.225 28.3558 154.688 25.8715C164.421 24.6292 172.986 24.8815 179.821 26.6771C186.653 28.472 191.719 31.7971 194.536 36.6766Z'
             stroke='white'
           />
+          {widthDots && (
+            <>
+              <circle cx='205' cy='132' r='11' fill='#F87E1B' />
+              <circle cx='21' cy='130' r='10' fill='#6F01C6' />
+              <circle cx='40' cy='87' r='3' fill='#F87E1B' />
+            </>
+          )}
         </g>
       </svg>
     </div>

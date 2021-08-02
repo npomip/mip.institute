@@ -16,6 +16,9 @@ import ImgRosSeti from '@/components/imgs/corporateClients/ImgRosSeti'
 import ImgRZHD from '@/components/imgs/corporateClients/ImgRZHD'
 import ImgMinistryOfLabor from '@/components/imgs/corporateClients/ImgMinistryOfLabor'
 import ImgSberbankLeasing from '@/components/imgs/corporateClients/ImgSberbankLeasing'
+import ImgDecoration1 from '@/components/imgs/yourfuturejob/ImgDecoration1'
+import ImgDecoration2 from '@/components/imgs/yourfuturejob/ImgDecoration2'
+import ImgDecoration3 from '@/components/imgs/yourfuturejob/ImgDecoration3'
 
 export {
   ImgDiploma1,
@@ -35,5 +38,8 @@ export {
   ImgRosSeti,
   ImgRZHD,
   ImgMinistryOfLabor,
-  ImgSberbankLeasing
+  ImgSberbankLeasing,
+  ImgDecoration1,
+  ImgDecoration2,
+  ImgDecoration3
 }

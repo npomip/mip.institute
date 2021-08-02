@@ -11,9 +11,20 @@
     @include m.sizeIcon($w: 216, $h: 174)
   &.large
     @include m.sizeIcon($size: 1.9, $w: 216, $h: 174)
-  &.soft
+  &.responsive
+    width: 100%
+  &.crho
     & path
       @include m.dye(stroke, c.$rho)
-  &.light
+  &.cnu
     & path
-      @include m.dye(stroke, rgba(c.$nu, .2))
+      @include m.dye(stroke, c.$nu)
+  &.calpha
+    & path
+      @include m.dye(stroke, c.$alpha)
+  &.barelyVisible
+    & path
+      opacity: .1
+  &.slightlyVisible
+    & path
+      opacity: .2

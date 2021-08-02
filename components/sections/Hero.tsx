@@ -25,10 +25,10 @@ const Hero = () => {
       <div className={stls.bg}></div>
       <Wrapper>
         <div className={stls.icon} onClick={e => hiddenGem(e)}>
-          <IconAtom />
+          <IconAtom regular crho />
         </div>
         <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
-          <IconAtom light large />
+          <IconAtom large cnu slightlyVisible />
         </div>
         <TwoColumns>
           <div className={stls.left}>

@@ -5,9 +5,67 @@
 .container
 
 .title
+  @include m.gap($mb: f.px(20))
   font-size: f.px(26)
   font-weight: 500
 
 .p
+  @include m.gap($mb: f.px(10))
   font-size: f.px(15)
   font-weight: 300
+
+.list
+  @include m.gap($mtbr: f.px(0), $ml: f.px(12), $p: 0)
+  list-style-type: '•'
+
+.item
+  & > .p
+    @include m.gap($ml: f.px(12))
+
+.bottom
+  position: relative
+  // @include m.gap($pt: f.px(50), $pb: f.px(20))
+
+.decoration
+  // position: absolute
+  // top: 0
+
+.atom
+
+.smallDot
+  // position: absolute
+  // top: 50%
+  // left: f.px(51)
+  // transform: translateY(-50%)
+  // width: f.px(9)
+  // height: f.px(9)
+  // @include m.dye(bg, c.$beta)
+  // border-radius: 50%
+
+.mediumDot
+
+.largeDot
+
+.imgTopLeft
+  position: absolute
+  top: 0
+  left: 0
+
+.imgTopRight
+  position: absolute
+  top: 0
+  right: 0
+
+.imgMiddle
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  max-width: f.px(177)
+  border-radius: f.px(48) 0
+  overflow: hidden
+
+.imgBottomRight
+  position: absolute
+  bottom: 0
+  right: 0

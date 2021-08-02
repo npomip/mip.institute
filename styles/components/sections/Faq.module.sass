@@ -1,0 +1,19 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($ptb: f.px(50))
+
+.title
+  font-size: f.px(26)
+  font-weight: 500
+  @include m.dye(c, c.$theta)
+
+.list
+  @include m.gap($mb: f.px(20), $p: 0)
+
+.p
+  @include m.gap($mb: f.px(20))
+  font-size: f.px(15)
+  font-weight: 300

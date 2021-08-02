@@ -12,6 +12,7 @@ import BtnText from '@/components/btns/BtnText'
 import BtnVk from '@/components/btns/BtnVk'
 import BtnWhatsapp from '@/components/btns/BtnWhatsapp'
 import BtnYt from '@/components/btns/BtnYt'
+import BtnZeta from '@/components/btns/BtnZeta'
 
 export {
   BtnAlpha,
@@ -27,5 +28,6 @@ export {
   BtnText,
   BtnVk,
   BtnWhatsapp,
-  BtnYt
+  BtnYt,
+  BtnZeta
 }

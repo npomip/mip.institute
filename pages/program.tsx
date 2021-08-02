@@ -9,6 +9,7 @@ import YourResume from '@/components/sections/YourResume'
 import Cta from '@/components/sections/Cta'
 import YourFutureJob from '@/components/sections/YourFutureJob'
 import StudyCost from '@/components/sections/StudyCost'
+import Faq from '@/components/sections/Faq'
 
 const Home = ({ programs }) => {
   return (
@@ -28,6 +29,7 @@ const Home = ({ programs }) => {
       />
       <YourFutureJob />
       <StudyCost />
+      <Faq />
     </>
   )
 }

@@ -6,10 +6,13 @@
   @include m.dye(c, c.$theta)
 
 .title
+  @include m.gap($mb: f.px(10, em))
   font-size: f.px(26)
 
 .desc
   font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(60, em))
 
 .bold
   font-weight: 700

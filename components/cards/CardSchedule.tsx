@@ -8,7 +8,7 @@ import { IconPlayer } from '@/components/icons'
 const CardSchedule = ({ mobileLayout = false }) => {
   return (
     <Link href='/'>
-      <a>
+      <a className={stls.linkContainer}>
         <article
           className={classNames({
             [stls.container]: true,

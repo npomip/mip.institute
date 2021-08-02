@@ -61,7 +61,12 @@ const Teachers = () => {
           <span className={stls.bold}>с опытом от 7 до 25 лет</span>
         </p>
         <div className={stls.teachers}>
-          <SwiperContainer slides={teachersSlides} />
+          <SwiperContainer
+            slides={teachersSlides}
+            mobileSlidesNum={1.75}
+            alwaysDisabledOnDesktop
+            isMultiRow
+          />
         </div>
         <div className={stls.btnContainer}>
           <BtnDelta text={'Узнать всех'} />

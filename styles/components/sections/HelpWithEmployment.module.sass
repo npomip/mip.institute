@@ -3,8 +3,21 @@
 @use '@/styles/themes/default/colors' as c
   
 .container
-  @include m.gap($pt: f.px(16, em), $pb: f.px(50, em))
   background-color: c.$epsilon
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(16, em), $pb: f.px(50, em))
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(95, em), $plr: f.px(136, em))
+
+.title
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20, em))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(40, em))
+
+.desktopTitle
+  @include m.media(phone, tablet)
+    display: none
 
 .list
   @include m.gap($mb: f.px(20, em), $p: 0)
@@ -14,10 +27,18 @@
 .item
   @include m.flex($ai: flex-start)
   @include m.gap($mb: f.px(10))
-  @include m.media(phone, tablet, laptop)
+  @include m.media(phone, tablet)
     @include m.flex($fb: 100%)
-  @include m.media(desktop)
-    @include m.flex($fb: 50%)
+  @include m.media(laptop, desktop)
+    @include m.flex($fb: 45%)
+    @include m.gap($mb: f.px(30, em))
+    &:not(:nth-child(2n))
+      @include m.gap($mr: f.px(30, em))
   div
-    @include m.flex($fg: 0, $fs: 0, $fb: f.px(20))
-    @include m.gap($mr: f.px(15))
+    @include m.media(phone, tablet)
+      @include m.flex($fg: 0, $fs: 0, $fb: f.px(20))
+      @include m.gap($mr: f.px(15))
+    @include m.media(laptop, desktop)
+      @include m.flex($fg: 0, $fs: 0, $fb: f.px(37))
+      @include m.gap($mr: f.px(30))
+    

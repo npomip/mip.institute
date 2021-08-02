@@ -9,9 +9,12 @@
   font-size: f.px(22, em)
 
 .clients
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  gap: f.px(8, em)
+  @include m.media(phone, tablet)
+    display: grid
+    gap: f.px(8, em)
+    grid-template-columns: repeat(3, 1fr)
+  @include m.media(laptop, desktop)
+    @include m.flex()
 
 .client
   @include m.flex($jc: center, $ai: center)
@@ -19,4 +22,7 @@
   @include m.gap($ptb: f.px(10, em), $plr: f.px(15, em))
   background-color: c.$nu
   &:not(:nth-child(3n))
-    @include m.gap($mr: f.px(12, em))
+    @include m.media(phone, tablet)
+      @include m.gap($mr: f.px(12, em))
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: f.px(8, em))

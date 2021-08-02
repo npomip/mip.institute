@@ -37,7 +37,7 @@ const Reviews = () => {
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <SwiperContainer slides={reviewsSlides} />
+          <SwiperContainer slides={reviewsSlides} laptopSlidesNum={1} />
         </div>
       </Wrapper>
     </section>

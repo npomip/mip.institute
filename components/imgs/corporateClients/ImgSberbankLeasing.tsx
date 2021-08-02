@@ -1,6 +1,6 @@
 import stls from '@/styles/components/imgs/corporateClients/ImgSberBankLeasing.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/corporateClients/sberBankLeasing.jpg'
+import pic from '@/public/assets/imgs/corporateClients/sberbankLeasing.jpg'
 
 const ImgSberbankLeasing = ({ name, width = 0, height = 0 }) => {
   return (

@@ -38,7 +38,7 @@ const YourFutureJob = () => {
           <div className={stls.bottom}>
             <div className={stls.decoration}>
               <div className={stls.atom}>
-                <IconAtom widthDots responsive calpha barelyVisible />
+                <IconAtom withCircles responsive calpha barelyVisible />
               </div>
               <div className={stls.smallDot}></div>
               <div className={stls.mediumDot}></div>

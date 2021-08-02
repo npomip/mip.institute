@@ -3,3 +3,11 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  & > *
+    @include m.flex
+
+.leaf
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(33))
+
+.circle

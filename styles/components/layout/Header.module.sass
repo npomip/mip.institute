@@ -6,11 +6,29 @@
   @include m.gap($pt: f.px(4, em), $pb: f.px(12, em))
   @include m.dye(bg, c.$alpha)
 
+.top
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    @include m.flex
+    @include m.gap($ptb: f.px(32))
+
 .row
   @include m.flex($jc: space-between, $ai: center)
 
 .btns
-  min-width: f.px(84, em)
-  width: 24%
-  max-width: f.px(98, em)
-  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(laptop, desktop)
+    display: none
+  @include m.media(phone, tablet)
+    min-width: f.px(84, em)
+    width: 24%
+    max-width: f.px(98, em)
+    @include m.flex($jc: space-between, $ai: center)
+
+.linkInfo
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    max-width: 22ch
+    font-size: f.px(13)
+    @include m.dye(c, rgba(c.$nu, .5))

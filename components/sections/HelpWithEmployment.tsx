@@ -16,7 +16,10 @@ const HelpWithEmployment = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Помощь в трудоустройстве</h2>
+        <h2 className={stls.title}>
+          Помощь в трудоустройстве{' '}
+          <span className={stls.desktopTitle}>и поиске клиентов</span>
+        </h2>
         <ul className={stls.list}>
           {list.map((measure, idx) => (
             <li key={measure + idx} className={stls.item}>

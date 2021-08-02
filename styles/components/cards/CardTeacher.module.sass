@@ -4,6 +4,7 @@
   
 .container
   @include m.flex()
+  height: 100%
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
 
@@ -12,6 +13,10 @@
     @include m.gap($mb: f.px(18, em))
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(38, em))
+
+.infoContainer
+  height: 100%
+  @include m.flex($fd: column)
 
 .name
   width: 15ch
@@ -25,4 +30,5 @@
   font-weight: 300
 
 .achievements
+  @include m.gap($mt: auto, $mb: 0)
   font-size: f.px(11)

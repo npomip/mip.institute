@@ -4,13 +4,19 @@
 
 .container
   position: relative
-  @include m.gap($pb: f.px(35))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(35))
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(55))
 
 .bg
   position: absolute
   top: 0
   right: 0
-  height: 91%
+  @include m.media(phone, tablet)
+    height: 91%
+  @include m.media(laptop, desktop)
+    height: 91%
   width: 100%
   @include m.dye(bg, c.$alpha)
 
@@ -92,9 +98,8 @@
     transform: translateY(f.px(-25))
   @include m.media(laptop, desktop)
     position: absolute
-    top: f.px(300)
+    bottom: 0
     left: 0
-    min-width: f.px(613)
     width: 80%
     max-width: f.px(700)
     // transform: translate(-100%, 20%)

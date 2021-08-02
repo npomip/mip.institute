@@ -10,6 +10,7 @@ const Header = () => {
     <header className={stls.container}>
       <MenuMobile />
       <Wrapper>
+        <div className={stls.row}></div>
         <div className={stls.row}>
           <Logo atHeader />
           <div className={stls.btns}>

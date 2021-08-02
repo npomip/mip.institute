@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/ProsList.module.sass'
 import { IconCircleCheck } from '@/components/icons'
 
 const ProsList = () => {
-  const prosList = [
+  const list = [
     '6 самых востребованых направлений',
     'Есть гос. аккредитация и сертификаты',
     'Помощь в трудоустройстве',
@@ -14,7 +14,7 @@ const ProsList = () => {
   return (
     <div className={stls.container}>
       <ul className={stls.list}>
-        {prosList.map((item, idx) => (
+        {list.map((item, idx) => (
           <li key={item + idx} className={stls.item}>
             <div className={stls.icon}>
               <IconCircleCheck />

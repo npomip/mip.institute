@@ -20,12 +20,15 @@
 
 .title
   position: relative
+  @include m.media(phone, tablet)
+    max-width: 10ch
+  @include m.media(laptop, desktop)
+    max-width: 13ch
   @include m.gap($mb: f.px(12))
   font-family: Stem
   font-weight: 500
   font-size: f.px(42)
   line-height: 110%
-  max-width: 10ch
   z-index: 1
 
 .desc
@@ -42,11 +45,17 @@
   z-index: 1
 
 .btns
-  @include m.flex
   @include m.media(phone, tablet)
-    min-height: f.px(129)
+    @include m.flex($fd: column)
   @include m.media(laptop, desktop)
-    max-height: f.px(56)
+    @include m.flex
+
+.btn
+  &:nth-child(1)
+    @include m.media(phone, tablet)
+      @include m.gap($mb: f.px(17))
+    @include m.media(laptop, desktop)
+      @include m.gap($mr: f.px(24))
 
 .icon
   @include m.media(phone, tablet)
@@ -69,7 +78,11 @@
 
 .left
   @include m.media(laptop, desktop)
-    min-width: 60%
+    min-width: f.px(430)
+
+.right
+  @include m.media(laptop, desktop)
+    padding-bottom: f.px(230)
 
 .img
   @include m.gap($mt: f.px(51))
@@ -78,7 +91,13 @@
   @include m.media(phone, tablet)
     transform: translateY(f.px(-25))
   @include m.media(laptop, desktop)
-    transform: translate(-100%, 20%)
+    position: absolute
+    top: f.px(300)
+    left: 0
+    min-width: f.px(613)
+    width: 80%
+    max-width: f.px(700)
+    // transform: translate(-100%, 20%)
 
 .hiddenGem
   animation: rotating 6s linear infinite

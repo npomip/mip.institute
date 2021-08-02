@@ -9,13 +9,28 @@
   @include m.dye(bg, c.$nu)
 
 .list
-  @include m.flex($fd: column)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap, $jc: space-evenly)
   @include m.gap($p: 0, $m: 0)
 
 .item
-  @include m.flex($ai: center)
+  @include m.media(phone, tablet)
+    @include m.flex($ai: center)
+  @include m.media(laptop, desktop)
+    @include m.flex($fb: 30%, $fd: column)
   @include m.gap($mb: f.px(8))
   font-size: f.px(15)
 
 .icon
-  @include m.gap($mr: f.px(11))
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(11))
+  @include m.media(laptop, desktop)
+    width: max-content
+    max-width: f.px(32)
+    @include m.gap($mb: f.px(18))
+
+.text
+  @include m.media(laptop, desktop)
+    max-width: 11ch

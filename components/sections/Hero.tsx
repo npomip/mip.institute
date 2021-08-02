@@ -38,10 +38,12 @@ const Hero = () => {
               квалификацию вместе с нами
             </h2>
             <div className={stls.btns}>
-              <TwoColumns>
+              <div className={stls.btn}>
                 <BtnAlpha text='Записаться на курс' />
+              </div>
+              <div className={stls.btn}>
                 <BtnBeta text='Задать вопрос' />
-              </TwoColumns>
+              </div>
             </div>
           </div>
           <div className={stls.right}>

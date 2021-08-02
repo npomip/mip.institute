@@ -1,5 +1,6 @@
 import stls from '@/styles/components/sections/YourFutureJob.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+
 const YourFutureJob = () => {
   const list = [
     'История психологии',

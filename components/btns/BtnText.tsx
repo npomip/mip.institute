@@ -7,7 +7,8 @@ const BtnText = ({
   cbeta = true,
   cnu = false,
   ctheta = false,
-  dimmer = false
+  dimmer = false,
+  arrowBottom = false
 }) => {
   if (cnu === true || ctheta === true) cbeta = false
   return (
@@ -25,6 +26,7 @@ const BtnText = ({
         cnu={cnu}
         ctheta={ctheta}
         dimmer={dimmer}
+        arrowBottom={arrowBottom}
       />
     </button>
   )

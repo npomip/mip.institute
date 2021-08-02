@@ -8,6 +8,7 @@ import FullProgram from '@/components/sections/FullProgram'
 import YourResume from '@/components/sections/YourResume'
 import Cta from '@/components/sections/Cta'
 import YourFutureJob from '@/components/sections/YourFutureJob'
+import StudyCost from '@/components/sections/StudyCost'
 
 const Home = ({ programs }) => {
   return (
@@ -26,6 +27,7 @@ const Home = ({ programs }) => {
         btn={'Забронировать'}
       />
       <YourFutureJob />
+      <StudyCost />
     </>
   )
 }

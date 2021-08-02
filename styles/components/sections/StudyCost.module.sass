@@ -1,0 +1,44 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($ptb: f.px(50))
+  @include m.dye(bg, c.$epsilon)
+
+.title
+  @include m.gap($mb: f.px(20))
+  font-size: f.px(26)
+  font-weight: 500
+
+.content
+  @include m.gap($ptb: f.px(26), $plr: f.px(19))
+  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+  border-radius: f.px(25) 0 0 0
+  @include m.dye(bg, c.$nu)
+
+.heading
+  @include m.flex($jc: space-between)
+  position: relative
+
+.subtitle
+  max-width: 70%
+  @include m.gap($mb: f.px(18))
+  font-size: f.px(16)
+  font-weight: 500
+
+.discount
+  position: absolute
+  top: 0
+  right: 0
+  transform: translate(10%, -20%)
+
+.cost
+  @include m.gap($mb: f.px(10))
+
+.btns
+  @include m.flex($jc: center, $ai: center)
+
+.btn
+  &:nth-child(1)
+    @include m.gap($mr: f.px(27))

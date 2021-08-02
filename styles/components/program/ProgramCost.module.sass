@@ -1,0 +1,31 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+
+.discount
+  @include m.gap($mr: f.px(16))
+  font-size: f.px(32)
+  line-height: 110%
+
+.regular
+  position: relative
+  font-size: f.px(24)
+  line-height: f.px(32)
+  @include m.dye(c, c.$psi)
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%) rotate(-10deg)
+    width: 100%
+    height: f.px(1)
+    @include m.dye(bg, c.$psi)
+
+.bold
+  font-weight: 500
+
+.light
+  font-weight: 300

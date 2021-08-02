@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.gap($ptb: f.px(50))
 
 .title
   @include m.gap($mb: f.px(20))
@@ -15,7 +16,7 @@
   font-weight: 300
 
 .list
-  @include m.gap($mtbr: f.px(0), $ml: f.px(12), $p: 0)
+  @include m.gap($mt: f.px(0), $mr: f.px(0), $mb: f.px(20), $ml: f.px(12), $p: 0)
   list-style-type: '•'
 
 .item

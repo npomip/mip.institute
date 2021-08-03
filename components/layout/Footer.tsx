@@ -27,7 +27,9 @@ const Footer = () => {
       </Wrapper>
       <div className={stls.bottom}>
         <Wrapper>
-          <p className={stls.copy}>&copy; PSYCHOLOGY, 2020</p>
+          <p className={stls.copy}>
+            &copy; Московский Институт Психологии, {new Date().getFullYear()}
+          </p>
           <Link href='/'>
             <a className={stls.docLink}>Договор оферты</a>
           </Link>

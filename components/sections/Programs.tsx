@@ -2,13 +2,13 @@ import stls from '@/styles/components/sections/Programs.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Courses from '@/components/programs/Courses'
 
-const Programs = () => {
+const Programs = ({ titleless = false }) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Наши программы</h2>
+        {!titleless && <h2 className={stls.title}>Наши программы</h2>}
         <div className={stls.programs}>
-          <Courses />
+          <Courses titleless={titleless} />
         </div>
       </Wrapper>
     </section>

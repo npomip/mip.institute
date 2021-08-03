@@ -52,6 +52,16 @@ const Teachers = () => {
     />
   ))
 
+  const mobileSwiperOptions = {
+    slidesNum: 1.75,
+    spaceBetween: 40
+  }
+
+  const tabletSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 40
+  }
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -63,7 +73,8 @@ const Teachers = () => {
         <div className={stls.teachers}>
           <SwiperContainer
             slides={teachersSlides}
-            mobileSlidesNum={1.75}
+            mobileOptions={mobileSwiperOptions}
+            tabletOptions={tabletSwiperOptions}
             alwaysDisabledOnDesktop
             isMultiRow
           />

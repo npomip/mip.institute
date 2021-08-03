@@ -57,6 +57,26 @@ const Webinars = () => {
 
   if (!isMobileLayout) webinarsSlides.push(<CardSchedule />)
 
+  const mobileSwiperOptions = {
+    slidesNum: 1.2,
+    spaceBetween: 10
+  }
+
+  const tabletSwiperOptions = {
+    slidesNum: 1.6,
+    spaceBetween: 10
+  }
+
+  const laptopSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 30
+  }
+
+  const desktopSwiperOptions = {
+    slidesNum: 4,
+    spaceBetween: 30
+  }
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -66,7 +86,13 @@ const Webinars = () => {
           самые актуальные темы и в удобном формате
         </p>
         <div className={stls.cards}>
-          <SwiperContainer slides={webinarsSlides} desktopSlidesNum={4} />
+          <SwiperContainer
+            slides={webinarsSlides}
+            mobileOptions={mobileSwiperOptions}
+            tabletOptions={tabletSwiperOptions}
+            laptopOptions={laptopSwiperOptions}
+            desktopOptions={desktopSwiperOptions}
+          />
         </div>
         {isMobileLayout && <CardSchedule mobileLayout />}
       </Wrapper>

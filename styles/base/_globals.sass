@@ -57,12 +57,15 @@ section
     @include m.gap($pb: f.px(50))
   @include m.media(laptop, desktop)
     @include m.gap($pb: f.px(115))
-  overflow: hidden
+    overflow: hidden
 // body
 //   background-color: #333
 
 .swiper-container
   overflow: visible
+
+.swiper-wrapper
+  width: max-content
 
 .swiper-slide
   height: auto

@@ -32,12 +32,13 @@ const Reviews = () => {
       occupation={review.occupation}
     />
   ))
+
   return (
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <SwiperContainer slides={reviewsSlides} laptopSlidesNum={1} />
+          <SwiperContainer slides={reviewsSlides} />
         </div>
       </Wrapper>
     </section>

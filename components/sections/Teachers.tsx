@@ -11,13 +11,6 @@ import {
 } from '@/components/imgs'
 
 const Teachers = () => {
-  const mobileSwiperOptions = {
-    slidesNum: 1.75,
-    spaceBetween: 40
-  }
-
-  const tabletSwiperOptions = mobileSwiperOptions
-
   const teachers = [
     {
       name: 'Иванов Иван Иванович',
@@ -58,6 +51,16 @@ const Teachers = () => {
       achievements={teacher.achievements}
     />
   ))
+
+  const mobileSwiperOptions = {
+    slidesNum: 1.75,
+    spaceBetween: 40
+  }
+
+  const tabletSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 40
+  }
 
   return (
     <section className={stls.container}>

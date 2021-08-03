@@ -59,8 +59,6 @@ const SwiperContainer = ({
 
     const { slidesNum } = swiperOptions[currentLayoutKey]
 
-    console.log(swiperOptions[currentLayoutKey])
-
     return slidesNum
   }
 

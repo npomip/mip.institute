@@ -8,7 +8,7 @@ const BtnHumburger = () => {
   const { toggleMenu } = useContext(MenuContext)
 
   return (
-    <button className={stls.container} onClick={toggleMenu}>
+    <button className={stls.container} onClick={toggleMenu} aria-label='Меню'>
       <IconHumburger />
     </button>
   )

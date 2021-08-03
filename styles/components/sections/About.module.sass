@@ -4,7 +4,8 @@
 
 .container
   & > *
-    @include m.flex
+    @include m.media(laptop, desktop)
+      @include m.flex
 
 .leaf
   @include m.media(phone, tablet)

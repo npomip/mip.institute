@@ -5,7 +5,8 @@ import classNames from 'classnames'
 const BtnFb = ({ dark = false }) => {
   return (
     <button
-      className={classNames({ [stls.container]: true, [stls.dark]: dark })}>
+      className={classNames({ [stls.container]: true, [stls.dark]: dark })}
+      aria-label='Facebook'>
       <IconFb />
     </button>
   )

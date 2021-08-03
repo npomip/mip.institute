@@ -10,25 +10,47 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+    @include m.gap($ptb: f.px(8))
+
+.topleft
+  @include m.flex($ai: center)
+
+.linkInfo
+  @include m.media(laptop, desktop)
+    max-width: 22ch
+    @include m.gap($mr: 5%)
+    font-size: f.px(13)
+    @include m.dye(c, rgba(c.$nu, .5))
+
+.location
+  @include m.media(laptop, desktop)
     @include m.flex
-    @include m.gap($ptb: f.px(32))
+
+.icon
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: f.px(10))
+
+.p
+  @include m.gap($mb: 0)
+  font-weight: 300
+  @include m.dye(c, c.$nu)
+
+.topright
+  @include m.flex
+
+.phone
+  @include m.gap($mr: 5%)
 
 .row
   @include m.flex($jc: space-between, $ai: center)
 
 .btns
-  @include m.media(laptop, desktop)
-    display: none
   @include m.media(phone, tablet)
     min-width: f.px(84, em)
     width: 24%
     max-width: f.px(98, em)
     @include m.flex($jc: space-between, $ai: center)
-
-.linkInfo
-  @include m.media(phone, tablet)
-    display: none
   @include m.media(laptop, desktop)
-    max-width: 22ch
-    font-size: f.px(13)
-    @include m.dye(c, rgba(c.$nu, .5))
+    display: none
+

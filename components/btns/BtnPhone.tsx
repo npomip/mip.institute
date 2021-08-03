@@ -10,7 +10,8 @@ const BtnPhone = ({ withNumber = false }) => {
       className={classNames({
         [stls.container]: true,
         [stls.withNumber]: withNumber
-      })}>
+      })}
+      aria-label='Позвонить'>
       <IconPhone small={withNumber} /> {withNumber && number.val}
     </a>
   )

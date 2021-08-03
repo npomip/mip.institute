@@ -8,7 +8,7 @@ const BtnClose = () => {
   const { closeMenu } = useContext(MenuContext)
 
   return (
-    <button className={stls.container} onClick={closeMenu}>
+    <button className={stls.container} onClick={closeMenu} aria-label='Закрыть'>
       <IconClose />
     </button>
   )

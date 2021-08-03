@@ -6,8 +6,6 @@ import Programs from '@/components/sections/Programs'
 import Cta from '@/components/sections/Cta'
 import Reviews from '@/components/sections/Reviews'
 import Webinars from '@/components/sections/Webinars'
-import Teachers from '@/components/sections/Teachers'
-import YourDiploma from '@/components/sections/YourDiploma'
 
 const Home = ({ programs }) => {
   return (
@@ -24,8 +22,6 @@ const Home = ({ programs }) => {
       />
       <Reviews />
       <Webinars />
-      <Teachers />
-      <YourDiploma />
     </>
   )
 }

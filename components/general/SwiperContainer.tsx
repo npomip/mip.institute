@@ -8,68 +8,88 @@ SwiperCore.use([Navigation, Pagination])
 
 const SwiperContainer = ({
   slides,
-  mobileSlidesNum = 1,
-  laptopSlidesNum = 2,
-  desktopSlidesNum = 2,
+  mobileOptions = { slidesNum: 1, spaceBetween: 10 },
+  tabletOptions = { slidesNum: 1, spaceBetween: 10 },
+  laptopOptions = { slidesNum: 2, spaceBetween: 50 },
+  desktopOptions = { slidesNum: 2, spaceBetween: 50 },
   alwaysDisabledOnDesktop = false,
   isMultiRow = false
 }) => {
-  const isMobileLayout = useMediaQuery({ query: '(max-width: 768px)' })
+  const isMobileLayout = useMediaQuery({ query: '(max-width: 480px)' })
+  const isTabletLayout = useMediaQuery({
+    query: '(min-width: 481px) and (max-width: 768px)'
+  })
   const isLaptopLayout = useMediaQuery({
     query: '(min-width: 768px) and (max-width: 1200px)'
   })
+  const isDesktopLayout = useMediaQuery({ query: '(min-width: 1201px)' })
+
+  const layouts = [
+    { mobile: isMobileLayout },
+    { tablet: isTabletLayout },
+    { laptop: isLaptopLayout },
+    { desktop: isDesktopLayout }
+  ]
+
+  const getCurrentLayoutKey = () => {
+    const currentLayout = layouts.find(layout => {
+      const firstKey = Object.keys(layout)[0]
+
+      if (layout[firstKey]) return layout
+    })
+
+    if (!currentLayout) return null
+
+    const currentLayoutKey = Object.keys(currentLayout)[0]
+
+    return currentLayoutKey
+  }
+
+  const swiperOptions = {
+    mobile: mobileOptions,
+    tablet: tabletOptions,
+    laptop: laptopOptions,
+    desktop: desktopOptions
+  }
 
   const assignNumOfSlidesPerView = () => {
-    const layoutOptions = [
-      {
-        name: 'mobile',
-        isApplicable: isMobileLayout,
-        slidesNum: mobileSlidesNum
-      },
-      {
-        name: 'laptop',
-        isApplicable: isLaptopLayout,
-        slidesNum: laptopSlidesNum
-      },
-      {
-        name: 'desktop',
-        isApplicable: !isMobileLayout && !isLaptopLayout,
-        slidesNum: desktopSlidesNum
-      }
-    ]
+    const currentLayoutKey = getCurrentLayoutKey()
 
-    return layoutOptions.find(layoutOption => layoutOption.isApplicable)
-      .slidesNum
+    if (!currentLayoutKey) return 0
+
+    const { slidesNum } = swiperOptions[currentLayoutKey]
+
+    console.log(swiperOptions[currentLayoutKey])
+
+    return slidesNum
   }
 
   const checkIfSwiperEnabled = () => {
-    if (isMobileLayout) return true
-
-    if (alwaysDisabledOnDesktop && !isMobileLayout) return false
+    if (alwaysDisabledOnDesktop && (isLaptopLayout || isDesktopLayout))
+      return false
 
     const slidesPerView = assignNumOfSlidesPerView()
 
     return !(slidesPerView === slides.length)
   }
 
+  const getSpaceBetween = () => {
+    const currentLayoutKey = getCurrentLayoutKey()
+
+    if (!currentLayoutKey) return 10
+
+    return swiperOptions[currentLayoutKey].spaceBetween
+  }
+
   return (
     <Swiper
       enabled={checkIfSwiperEnabled()}
-      spaceBetween={50}
-      slidesPerView={mobileSlidesNum}
-      slidesPerColumn={isMultiRow && !isMobileLayout ? 2 : 1}
+      spaceBetween={getSpaceBetween()}
+      slidesPerView={assignNumOfSlidesPerView()}
+      slidesPerColumn={
+        isMultiRow && (isLaptopLayout || isDesktopLayout) ? 2 : 1
+      }
       slidesPerColumnFill={!isMobileLayout ? 'row' : 'column'}
-      breakpoints={{
-        0: {
-          slidesPerView: mobileSlidesNum
-        },
-        768: {
-          slidesPerView: laptopSlidesNum
-        },
-        1200: {
-          slidesPerView: desktopSlidesNum
-        }
-      }}
       pagination={{ clickable: true, dynamicBullets: true }}>
       {slides.map((slide, idx) => (
         <SwiperSlide key={`slide-${idx}`}>{slide}</SwiperSlide>

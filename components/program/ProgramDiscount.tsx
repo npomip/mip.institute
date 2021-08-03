@@ -1,6 +1,5 @@
 import stls from '@/styles/components/program/ProgramDiscount.module.sass'
-import discount from '@/data/price/discount'
-import until from '@/data/price/until'
+import { discount, until } from '@/data/price'
 import classNames from 'classnames'
 
 const ProgramDiscount = ({ small = null }) => {

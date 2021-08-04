@@ -7,7 +7,7 @@ import BtnHumburger from '@/components/btns/BtnHumburger'
 import MenuMobile from '@/components/layout/MenuMobile'
 import { city, street } from '@/data/location'
 import { IconLocation } from '@/components/icons'
-import { BtnEpsilon } from '../btns'
+import { BtnEpsilon, BtnFields } from '@/components/btns'
 
 const Header = () => {
   return (
@@ -34,6 +34,9 @@ const Header = () => {
             <div className={stls.phone}>
               <BtnPhone withNumber />
             </div>
+            <div className={stls.phoneNoNum}>
+              <BtnPhone />
+            </div>
             <BtnEpsilon text='Обратный звонок' />
           </div>
         </div>
@@ -43,6 +46,16 @@ const Header = () => {
             <BtnPhone />
             <BtnHumburger />
           </div>
+          <BtnFields />
+          <Link href='/'>
+            <a className={stls.link}>Вебинары</a>
+          </Link>
+          <Link href='/'>
+            <a className={stls.link}>Отзывы студентов</a>
+          </Link>
+          <Link href='/'>
+            <a className={stls.link}>Об институте</a>
+          </Link>
         </div>
       </Wrapper>
     </header>

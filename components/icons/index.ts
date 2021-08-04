@@ -11,6 +11,7 @@ import IconHumburger from '@/components/icons/IconHumburger'
 import IconLocation from '@/components/icons/IconLocation'
 import IconLogo from '@/components/icons/IconLogo'
 import IconLogoAlt from '@/components/icons/IconLogoAlt'
+import IconMenu from '@/components/icons/IconMenu'
 import IconMinus from '@/components/icons/IconMinus'
 import IconPhone from '@/components/icons/IconPhone'
 import IconMoreThan from '@/components/icons/IconMoreThan'
@@ -38,6 +39,7 @@ export {
   IconLocation,
   IconLogo,
   IconLogoAlt,
+  IconMenu,
   IconMinus,
   IconPhone,
   IconMoreThan,

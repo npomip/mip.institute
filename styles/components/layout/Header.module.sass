@@ -3,7 +3,10 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pt: f.px(4, em), $pb: f.px(12, em))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(4, em), $pb: f.px(12, em))
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(12, em))
   @include m.dye(bg, c.$alpha)
 
 .top
@@ -11,21 +14,23 @@
     display: none
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between)
-    @include m.gap($ptb: f.px(8))
+    @include m.gap($ptb: f.px(24))
 
 .topleft
-  @include m.flex($ai: center)
+  @include m.media(laptop, desktop)
+    @include m.flex($ai: center)
+    @include m.gap($mr: f.px(20, em))
 
 .linkInfo
   @include m.media(laptop, desktop)
-    max-width: 22ch
-    @include m.gap($mr: 5%)
+    max-width: 27ch
+    @include m.gap($mr: f.px(10, em))
     font-size: f.px(13)
     @include m.dye(c, rgba(c.$nu, .5))
 
 .location
   @include m.media(laptop, desktop)
-    @include m.flex
+    @include m.flex($jc: center, $ai: center)
 
 .icon
   @include m.media(laptop, desktop)
@@ -39,8 +44,20 @@
 .topright
   @include m.flex
 
+.phone,
+.phoneNoNum
+  @include m.gap($mr: f.px(30))
+
+
 .phone
-  @include m.gap($mr: 5%)
+  display: block
+  @media screen and ( max-width: 910px )    
+    display: none
+
+.phoneNoNum
+  display: none
+  @media screen and ( max-width: 910px )    
+    display: block
 
 .row
   @include m.flex($jc: space-between, $ai: center)
@@ -54,3 +71,5 @@
   @include m.media(laptop, desktop)
     display: none
 
+.link
+  @include m.dye(c, c.$nu)

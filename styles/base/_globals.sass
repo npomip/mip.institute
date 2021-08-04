@@ -41,16 +41,19 @@ svg
 a, button
   cursor: pointer
 
-a, button, div
-  -webkit-tap-highlight-color: transparent
-
-a, button, input, textarea, select
+a, button
   outline: f.px(1) solid transparent
   outline-offset: f.px(-1)
   transition: outline-offset .25s ease-out, outline-color .25s ease-out
   &:focus-visible
     outline-offset: f.px(4)
     @include m.dye(outline, c.$nu)
+
+input
+  border: f.px(2) solid transparent
+  &:focus-visible
+    border: f.px(2) solid 
+    @include m.dye(border, c.$beta)
 
 section
   @include m.media(phone, tablet)

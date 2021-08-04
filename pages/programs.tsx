@@ -1,6 +1,7 @@
 import HeroPrograms from '@/components/sections/HeroPrograms'
 import FilterSearch from '@/components/sections/FilterSearch'
 import Programs from '@/components/sections/Programs'
+import ContactForm from '@/components/sections/ContactForm'
 
 const Home = ({ programs }) => {
   return (
@@ -8,6 +9,7 @@ const Home = ({ programs }) => {
       <HeroPrograms />
       <FilterSearch />
       <Programs titleless />
+      <ContactForm />
     </>
   )
 }

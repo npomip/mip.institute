@@ -48,7 +48,6 @@
 .phoneNoNum
   @include m.gap($mr: f.px(30))
 
-
 .phone
   display: block
   @media screen and ( max-width: 910px )    
@@ -72,4 +71,31 @@
     display: none
 
 .link
-  @include m.dye(c, c.$nu)
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    position: relative
+    font-size: f.px(18)
+    font-weight: 300
+    @include m.dye(c, c.$nu) 
+    &::before,
+    &::after
+      content: '',
+      position: absolute
+      bottom: f.px(-10)
+      width: 0
+      height: f.px(5)
+      margin: f.px(5) 0 0
+      transition: all 0.2s ease-in-out
+      transition-duration: 0.75s
+      opacity: 0
+      background-color: red
+    &::before 
+      left: 50%
+    &::after
+      right: 50%
+    &:hover
+      &::before,
+      &::after
+        width: 50%
+        

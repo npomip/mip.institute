@@ -5,7 +5,8 @@ import classNames from 'classnames'
 const BtnYt = ({ dark = false }) => {
   return (
     <button
-      className={classNames({ [stls.container]: true, [stls.dark]: dark })}>
+      className={classNames({ [stls.container]: true, [stls.dark]: dark })}
+      aria-label='YouTube'>
       <IconYt />
     </button>
   )

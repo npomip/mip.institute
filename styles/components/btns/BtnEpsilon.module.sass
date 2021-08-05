@@ -5,7 +5,10 @@
 .container
   position: relative
   display: inline-block
-  @include m.gap($ptb: f.px(16, em), $plr: f.px(29, em))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(16, em), $plr: 10%)
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(29, em))
   border-radius: f.px(2, em)
   font-size: f.px(13)
   @include m.dye(bg, rgba(c.$omicron, .4))

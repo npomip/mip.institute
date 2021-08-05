@@ -9,7 +9,8 @@ const BtnVk = ({ mlzero = false, dark = false }) => {
         [stls.container]: true,
         [stls.mlzero]: mlzero,
         [stls.dark]: dark
-      })}>
+      })}
+      aria-label='VK'>
       <IconVk />
     </button>
   )

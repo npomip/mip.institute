@@ -7,6 +7,11 @@ import BriefProgramContents from '@/components/sections/BriefProgramContents'
 import FullProgram from '@/components/sections/FullProgram'
 import YourResume from '@/components/sections/YourResume'
 import Cta from '@/components/sections/Cta'
+import Teachers from '@/components/sections/Teachers'
+import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
+import YourFutureJob from '@/components/sections/YourFutureJob'
+import StudyCost from '@/components/sections/StudyCost'
+import Faq from '@/components/sections/Faq'
 
 const Home = ({ programs }) => {
   return (
@@ -24,6 +29,11 @@ const Home = ({ programs }) => {
         desc={'Забронируйте программу по спеццене — со скидкой 30%'}
         btn={'Забронировать'}
       />
+      <Teachers />
+      <HelpWithEmployment />
+      <YourFutureJob />
+      <StudyCost />
+      <Faq />
     </>
   )
 }

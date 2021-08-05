@@ -8,7 +8,13 @@
   @include m.media(phone, tablet)
     min-width: 100%
     max-width: 100%
-  @include m.gap($ptb: f.px(16, em), $plr: f.px(50, em))
+    @include m.gap($ptb: f.px(16, em), $plr: 10%)
+  @include m.media(laptop)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(19))
+  @include m.media(desktop)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(29))
+  border: f.px(2) solid
+  @include m.dye(border, c.$alpha)
   border-radius: f.px(4, em)
   font-size: f.px(18)
   font-weight: 500

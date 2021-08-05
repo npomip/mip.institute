@@ -13,6 +13,7 @@
   box-sizing: inherit
 
 html, body
+  overflow-x: hidden
   @include m.media(phone)
     font-size: 1rem
   // font-size: 3vmin
@@ -22,9 +23,9 @@ html, body
   @include m.media(tablet)
     font-size: 1.2rem
   @include m.media(laptop)
-    font-size: 1.3rem
+    font-size: 0.9rem
   @include m.media(desktop)
-    font-size: 1.4rem
+    font-size: 1rem
 
 html
   box-sizing: border-box
@@ -40,9 +41,8 @@ svg
 
 a, button
   cursor: pointer
-  -webkit-tap-highlight-color: transparent
 
-a, button, input, textarea, select
+a, button
   outline: f.px(1) solid transparent
   outline-offset: f.px(-1)
   transition: outline-offset .25s ease-out, outline-color .25s ease-out
@@ -50,8 +50,32 @@ a, button, input, textarea, select
     outline-offset: f.px(4)
     @include m.dye(outline, c.$nu)
 
+input
+  border: f.px(2) solid transparent
+  &:focus-visible
+    border: f.px(2) solid 
+    @include m.dye(border, c.$beta)
+
 section
-  @include m.gap($pb: f.px(50))
-  overflow: hidden
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(115))
+    overflow: hidden
 // body
 //   background-color: #333
+
+.swiper-container
+  overflow: visible
+
+.swiper-wrapper
+  width: max-content
+
+.swiper-slide
+  height: auto
+
+.swiper-container-horizontal > .swiper-pagination-bullets
+  bottom: f.px(-20)
+
+.swiper-pagination-bullet-active
+  background-color: c.$beta

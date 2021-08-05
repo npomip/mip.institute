@@ -16,6 +16,9 @@
     @include m.dye(c, c.$theta)
   &.dimmer
     opacity: 0.4
+  &.arrowBottom
+    & .icon
+      transform: rotate(90deg)
 
 .text
   @include m.gap($pr: f.px(10, em))

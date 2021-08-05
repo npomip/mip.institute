@@ -8,7 +8,8 @@ const BtnTelegram = ({ dark = false }) => {
       className={classNames({
         [stls.container]: true,
         [stls.dark]: dark
-      })}>
+      })}
+      aria-label='Telegram'>
       <IconTelegram />
     </button>
   )

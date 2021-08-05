@@ -8,7 +8,8 @@ const BtnWhatsapp = ({ dark = false }) => {
       className={classNames({
         [stls.container]: true,
         [stls.dark]: dark
-      })}>
+      })}
+      aria-label='Whatsapp'>
       <IconWhatsapp />
     </button>
   )

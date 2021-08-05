@@ -5,6 +5,8 @@
 .container
   @include m.gap($pt: f.px(34, em), $pr: f.px(21, em), $pb: f.px(45, em), $pl: f.px(31, em))
   position: relative
+  height: 100%
+  box-sizing: border-box
   border-radius: f.px(20, em)
   overflow: hidden
   @include m.media(laptop, desktop)
@@ -27,6 +29,10 @@
     @include m.media(laptop, desktop)
       display: none
 
+.linkContainer
+  display: block
+  height: 100%
+
 .img
   position: absolute
   top: 0
@@ -42,7 +48,7 @@
   @include m.dye(bg, c.$beta)
 
 .content
-  @include m.flex($fd: column)
+  @include m.flex($fd: column, $jc: space-between)
   position: relative
   z-index: 1
   @include m.media(phone, tablet)

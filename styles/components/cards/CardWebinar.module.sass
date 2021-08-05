@@ -4,11 +4,13 @@
 
 .container
   position: relative
-  @include m.flex($fd: column, $fg: 0, $fs: 0, $fb: f.px(285))
+  @include m.flex($fd: column, $fg: 0, $fs: 0)
   @include m.gap($ptb: f.px(44, em), $plr: f.px(30, em))
   border-radius: f.px(20, em)
-  @include m.media(phone, tablet, laptop)
-    @include m.gap($mr: f.px(10, em))
+  @include m.media(phone, tablet)
+    @include m.flex($fb: f.px(285))
+  @include m.media(laptop, desktop)
+    @include m.flex($fb: f.px(270))
 
   &.cpi
     @include m.dye(bg, c.$pi)

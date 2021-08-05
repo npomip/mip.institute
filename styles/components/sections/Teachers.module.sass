@@ -1,0 +1,40 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+  
+.container
+  @include m.dye(c, c.$theta)
+
+.title
+  @include m.gap($mb: f.px(10, em))
+  font-size: f.px(26)
+
+.desc
+  font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(60, em))
+
+.bold
+  font-weight: 700
+
+.teachers
+  position: relative
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(50, em))
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      z-index: 100
+      height: f.px(127)
+      pointer-events: none
+      background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)
+      transform: rotate(180deg)
+
+.btnContainer
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    text-align: center

@@ -25,10 +25,7 @@ const Hero = () => {
       <div className={stls.bg}></div>
       <Wrapper>
         <div className={stls.icon} onClick={e => hiddenGem(e)}>
-          <IconAtom />
-        </div>
-        <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
-          <IconAtom light large />
+          <IconAtom regular crho />
         </div>
         <TwoColumns>
           <div className={stls.left}>
@@ -38,13 +35,18 @@ const Hero = () => {
               квалификацию вместе с нами
             </h2>
             <div className={stls.btns}>
-              <TwoColumns>
+              <div className={stls.btn}>
                 <BtnAlpha text='Записаться на курс' />
+              </div>
+              <div className={stls.btn}>
                 <BtnBeta text='Задать вопрос' />
-              </TwoColumns>
+              </div>
             </div>
           </div>
           <div className={stls.right}>
+            <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
+              <IconAtom large cnu slightlyVisible />
+            </div>
             <div className={stls.img}>
               <ImgLadyStudying />
             </div>

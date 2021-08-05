@@ -7,8 +7,12 @@ const About = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <AboutLeaf />
-        <ProsCircle />
+        <div className={stls.leaf}>
+          <AboutLeaf />
+        </div>
+        <div className={stls.circle}>
+          <ProsCircle />
+        </div>
       </Wrapper>
     </section>
   )

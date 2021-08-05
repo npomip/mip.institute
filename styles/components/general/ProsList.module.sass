@@ -3,19 +3,47 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($ptb: f.px(20), $plr: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $plr: 6%)
+    border-radius: f.px(25, em) 0 0 0
+  @include m.media(laptop, desktop)
+    min-width: f.px(700)
+    @include m.gap($pt: f.px(48), $pb: f.px(64), $pl: f.px(58), $pr: f.px(88))
+    border-radius: f.px(50, em) 0 0 0
   box-shadow: 0 f.px(7) f.px(100) rgba(0, 0, 0, .09)
-  border-radius: f.px(25, em) 0 0 0
   @include m.dye(bg, c.$nu)
 
 .list
-  @include m.flex($fd: column)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap, $jc: space-between)
   @include m.gap($p: 0, $m: 0)
 
 .item
-  @include m.flex($ai: center)
-  @include m.gap($mb: f.px(8))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    @include m.flex($ai: center)
+    @include m.gap($mb: f.px(8))
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.flex($fb: 30%, $fd: column)
+    @include m.gap($mr: f.px(22))
+    font-size: f.px(18)
+    &:nth-child(-n+3)
+      @include m.gap($mb: f.px(25))
+    &:nth-child(3n)
+      @include m.gap($mr: 0)  
 
 .icon
-  @include m.gap($mr: f.px(11))
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(11))
+  @include m.media(laptop, desktop)
+    width: max-content
+    max-width: f.px(37)
+    @include m.gap($mb: f.px(15))
+    & > *
+      width: 100%
+
+.text
+  @include m.media(laptop, desktop)
+    max-width: 13ch

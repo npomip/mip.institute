@@ -4,13 +4,20 @@
 
 .container
   position: relative
-  @include m.gap($pb: f.px(35))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(35))
+  @include m.media(laptop, desktop)
+    overflow: visible
+    @include m.gap($pb: f.px(55))
 
 .bg
   position: absolute
   top: 0
   right: 0
-  height: 91%
+  @include m.media(phone, tablet)
+    height: 91%
+  @include m.media(laptop, desktop)
+    height: 91%
   width: 100%
   @include m.dye(bg, c.$alpha)
 
@@ -20,12 +27,14 @@
 
 .title
   position: relative
-  @include m.gap($mb: f.px(12))
-  font-family: Stem
+  @include m.media(phone, tablet)
+    max-width: 10ch
+  @include m.media(laptop, desktop)
+    max-width: 13ch
+  @include m.gap($mb: f.px(37))
+  font-size: f.px(64)
   font-weight: 500
-  font-size: f.px(42)
   line-height: 110%
-  max-width: 10ch
   z-index: 1
 
 .desc
@@ -34,19 +43,28 @@
     max-width: 33ch
   @include m.media(laptop, desktop)
     max-width: 35ch
-  @include m.gap($mb: f.px(35))
+  @include m.gap($mb: f.px(30))
   font-family: Stem
   font-weight: 300
-  font-size: f.px(15)
-  line-height: 120%
+  font-size: f.px(20)
+  line-height: 130%
   z-index: 1
 
 .btns
-  @include m.flex
   @include m.media(phone, tablet)
-    min-height: f.px(129)
+    @include m.flex($fd: column)
   @include m.media(laptop, desktop)
-    max-height: f.px(56)
+    @include m.flex
+
+.btn
+  @include m.flex($fb: 45%)
+  & > *
+    width: 100%
+  &:nth-child(1)
+    @include m.media(phone, tablet)
+      @include m.gap($mb: f.px(17))
+    @include m.media(laptop, desktop)
+      @include m.gap($mr: f.px(24))
 
 .icon
   @include m.media(phone, tablet)
@@ -62,23 +80,37 @@
     display: none
   @include m.media(laptop, desktop)
     position: absolute
-    top: 0
-    right: 0
-    transform: translateX(54%)
+    bottom: f.px(60)
+    right: f.px(150)
     z-index: 2
+      
 
 .left
   @include m.media(laptop, desktop)
-    min-width: 60%
+    min-width: f.px(570)
+
+.right
+  @include m.media(laptop, desktop)
+    position: relative
+    @include m.gap($pb: f.px(345))
 
 .img
-  @include m.gap($mt: f.px(51))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(51))
+  @include m.media(laptop, desktop)
+    position: absolute
+    top: f.px(-66)
+    z-index: 1
+  @include m.media(desktop)
+    right: f.px(-39)
+  @include m.media(laptop)
+    right: f.px(-119)
 
 .prosList
   @include m.media(phone, tablet)
     transform: translateY(f.px(-25))
   @include m.media(laptop, desktop)
-    transform: translate(-100%, 20%)
+    transform: translate(-81%, f.px(370))
 
 .hiddenGem
   animation: rotating 6s linear infinite

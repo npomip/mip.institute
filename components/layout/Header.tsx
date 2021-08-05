@@ -46,12 +46,16 @@ const Header = () => {
             <BtnPhone />
             <BtnHumburger />
           </div>
-          <BtnFields />
+          <div className={stls.btnFields}>
+            <BtnFields />
+          </div>
           <Link href='/'>
             <a className={stls.link}>Вебинары</a>
           </Link>
           <Link href='/'>
-            <a className={stls.link}>Отзывы студентов</a>
+            <a className={stls.link}>
+              Отзывы <span className={stls.linkReviewLong}>студентов</span>
+            </a>
           </Link>
           <Link href='/'>
             <a className={stls.link}>Об институте</a>

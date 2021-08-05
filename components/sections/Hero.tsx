@@ -27,9 +27,6 @@ const Hero = () => {
         <div className={stls.icon} onClick={e => hiddenGem(e)}>
           <IconAtom regular crho />
         </div>
-        <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
-          <IconAtom large cnu slightlyVisible />
-        </div>
         <TwoColumns>
           <div className={stls.left}>
             <h1 className={stls.title}>Онлайн-институт психологии</h1>
@@ -47,6 +44,9 @@ const Hero = () => {
             </div>
           </div>
           <div className={stls.right}>
+            <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
+              <IconAtom large cnu slightlyVisible />
+            </div>
             <div className={stls.img}>
               <ImgLadyStudying />
             </div>

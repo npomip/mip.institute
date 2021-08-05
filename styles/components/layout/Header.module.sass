@@ -6,7 +6,7 @@
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(4, em), $pb: f.px(12, em))
   @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(12, em))
+    @include m.gap($pb: f.px(97, em))
   @include m.dye(bg, c.$alpha)
 
 .top
@@ -70,6 +70,10 @@
   @include m.media(laptop, desktop)
     display: none
 
+.btnFields
+  @include m.media(phone, tablet)
+    display: none
+
 .link
   @include m.media(phone, tablet)
     display: none
@@ -78,24 +82,35 @@
     font-size: f.px(18)
     font-weight: 300
     @include m.dye(c, c.$nu) 
+    outline: none
     &::before,
     &::after
       content: '',
       position: absolute
       bottom: f.px(-10)
       width: 0
-      height: f.px(5)
-      margin: f.px(5) 0 0
+      height: f.px(2)
+      @include m.gap($mt: f.px(3))
       transition: all 0.2s ease-in-out
-      transition-duration: 0.75s
       opacity: 0
       background-color: red
+      @include m.dye(bg, rgba(c.$nu, .9))
     &::before 
       left: 50%
+      border-top-right-radius: f.px(40)
+      border-bottom-right-radius: f.px(40)
     &::after
       right: 50%
-    &:hover
+      border-top-left-radius: f.px(40)
+      border-bottom-left-radius: f.px(40)
+    &:hover,
+    &:focus
       &::before,
       &::after
         width: 50%
+        opacity: 1
+
+.linkReviewLong
+  @media screen and ( max-width: 860px )
+    display: none
         

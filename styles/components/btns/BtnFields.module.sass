@@ -11,6 +11,10 @@
   font-size: f.px(18)
   font-weight: 300
   @include m.dye(c, c.$nu)
+  &:hover
+    transform: scale(1.02)
+  &:focus
+    transform: scale(0.98)
 
 .icon
   @include m.gap($mr: f.px(16))

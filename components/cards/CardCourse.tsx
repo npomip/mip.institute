@@ -7,7 +7,7 @@ const CardCourse = ({ course = null }) => {
       <div className={stls.img}>
         <ImgCourse1 />
       </div>
-      <div>
+      <div className={stls.right}>
         <div className={stls.info}>
           <span className={stls.type}>{course.typeLabel}</span>
           <span className={stls.dur}>{course.durLabel}</span>

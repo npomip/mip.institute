@@ -82,10 +82,7 @@
     position: absolute
     bottom: f.px(60)
     right: f.px(150)
-    // transform: translateX(54%)
     z-index: 2
-    // @media screen and ( max-width: 990px )
-    //   top: 0
       
 
 .left
@@ -108,21 +105,12 @@
     right: f.px(-39)
   @include m.media(laptop)
     right: f.px(-119)
-  // @media screen and ( max-width: 990px )
-  //   display: none
 
 .prosList
   @include m.media(phone, tablet)
     transform: translateY(f.px(-25))
   @include m.media(laptop, desktop)
     transform: translate(-81%, f.px(370))
-
-    // position: absolute
-    // bottom: 0
-    // left: 0
-    // width: 80%
-    // max-width: f.px(700)
-    // transform: translate(-100%, 20%)
 
 .hiddenGem
   animation: rotating 6s linear infinite

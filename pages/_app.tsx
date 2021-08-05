@@ -27,6 +27,8 @@ function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
+    console.log(document.referrer)
+
     NProgress.configure({
       showSpinner: false
     })

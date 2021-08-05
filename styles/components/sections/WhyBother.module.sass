@@ -24,6 +24,7 @@
   @include m.gap($mb: f.px(15))
   @include m.media(laptop, desktop)
     @include m.flex($ai: center)
+    max-width: 50%
     @include m.gap($mr: f.px(15))
 
 .icon
@@ -43,6 +44,9 @@
   @include m.media(laptop, desktop)
     max-width: 14ch
     font-size: f.px(28)
+    overflow-wrap: break-word
+  @media screen and ( max-width: 900px )
+    max-width: 10ch
   font-weight: 500
   @include m.dye(c, c.$theta)
 

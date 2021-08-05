@@ -36,6 +36,7 @@
   @include m.gap($m: 0, $p: 0)
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
     max-width: f.px(630)
+    @include m.gap($ml: f.px(40))
 
 .item
   @include m.flex
@@ -60,9 +61,15 @@
       @include m.media(phone, tablet)
         @include m.gap($mr: f.px(14), $p: f.px(16))
       @include m.media(laptop, desktop)
-        @include m.gap($mr: f.px(55), $p: f.px(16))
-      max-width: f.px(36)
-      max-height: f.px(36)
+        @include m.gap($mr: f.px(12), $p: f.px(16))
+        min-width: f.px(87)
+        max-width: f.px(87)
+        min-height: f.px(87)
+        max-height: f.px(87)
+        transform: translateX(f.px(-27))
+        font-size: f.px(48)
+    & .subtitle
+      @include m.gap($pt: f.px(14))
 
 .counter
   @include m.flex($jc: center, $ai: center)

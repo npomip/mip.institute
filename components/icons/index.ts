@@ -1,4 +1,5 @@
 import IconAtom from '@/components/icons/IconAtom'
+import IconBgCircle from '@/components/icons/IconBgCircle'
 import IconCircleCheck from '@/components/icons/IconCircleCheck'
 import IconClose from '@/components/icons/IconClose'
 import IconCompassion from '@/components/icons/IconCompassion'
@@ -26,6 +27,7 @@ import IconWhatsapp from '@/components/icons/IconWhatsapp'
 import IconYt from '@/components/icons/IconYt'
 
 export {
+  IconBgCircle,
   IconAtom,
   IconCircleCheck,
   IconClose,

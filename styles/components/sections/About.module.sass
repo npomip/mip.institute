@@ -10,5 +10,10 @@
 .leaf
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(33))
+  @include m.media(laptop, desktop)
+    width: 50%
+    max-width: f.px(570)
+    @include m.gap($mr: f.px(30))
 
 .circle
+  @include m.flex($display: false, $fb: 50%)

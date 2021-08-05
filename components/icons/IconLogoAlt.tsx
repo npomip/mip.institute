@@ -1,8 +1,13 @@
 import stls from '@/styles/components/icons/IconLogoAlt.module.sass'
+import classNames from 'classnames'
 
-const IconLogoAlt = () => {
+const IconLogoAlt = ({ responsive = null }) => {
   return (
-    <div className={stls.container}>
+    <div
+      className={classNames({
+        [stls.container]: true,
+        [stls.responsive]: responsive
+      })}>
       <svg viewBox='0 0 72 67' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Московский Институт Психологии</title>
         <g clipPath='url(#clip0)'>

@@ -19,6 +19,7 @@ import ImgSberbankLeasing from '@/components/imgs/corporateClients/ImgSberbankLe
 import ImgDecoration1 from '@/components/imgs/yourfuturejob/ImgDecoration1'
 import ImgDecoration2 from '@/components/imgs/yourfuturejob/ImgDecoration2'
 import ImgDecoration3 from '@/components/imgs/yourfuturejob/ImgDecoration3'
+import ImgCta1 from '@/components/imgs/cta/ImgCta1'
 
 export {
   ImgDiploma1,
@@ -41,5 +42,6 @@ export {
   ImgSberbankLeasing,
   ImgDecoration1,
   ImgDecoration2,
-  ImgDecoration3
+  ImgDecoration3,
+  ImgCta1
 }

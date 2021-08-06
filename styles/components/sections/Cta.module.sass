@@ -3,18 +3,72 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($plr: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(15))
+  @include m.media(laptop, desktop)
+    @include m.gap($plr: f.px(15))
+    overflow: visible
   & > *
     @include m.gap($ptb: f.px(50), $plr: f.px(25))
-    border-radius: f.px(50) 0
+    @include m.media(phone, tablet)
+      border-radius: f.px(50) 0
+    @include m.media(laptop, desktop)
+      position: relative
+      @include m.flex($ai: flex-start)
+      border-radius: f.px(100) 0
     @include m.dye(bg, c.$alpha)
     @include m.dye(c, c.$nu)
+    @media screen and (max-width: 920px)
+      @include m.flex($jc: space-evenly)
+  
+
+.img
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop)
+    position: absolute
+    top: f.px(-48)
+    left: f.px(-50)
+  @include m.media(desktop)
+    position: absolute
+    top: f.px(-65)
+    left: f.px(-50)
+  @media screen and (max-width: 920px)
+    display: none
+
+.text
+  @include m.media(laptop, desktop)
+    @include m.gap($ml: f.px(310))
+  @media screen and (max-width: 920px)
+    @include m.gap($ml: f.px(40))
 
 .title
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(26)
+  @include m.media(laptop)
+    max-width: 10ch
+    @include m.gap($mb: f.px(20), $mr: f.px(84))
+    font-size: f.px(44)
+  @include m.media(desktop)
+    @include m.gap($mb: f.px(20), $mr: f.px(70))
+    font-size: f.px(44)
   font-weight: 500
+  @media screen and (max-width: 920px)
+    max-width: 20ch
+    @include m.gap($mr: 0)
 
 .p
-  font-size: f.px(18)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(18)
+  @include m.media(laptop)
+    max-width: 28ch
+    @include m.gap($mb: 0)
+    font-size: f.px(20)
+  @include m.media(desktop)
+    max-width: 34ch
+    @include m.gap($mb: 0)
+    font-size: f.px(20)
   font-weight: 300
   line-height: 130%

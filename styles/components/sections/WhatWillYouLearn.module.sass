@@ -3,19 +3,51 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pt: f.px(50))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(100), $pb: f.px(70))
   @include m.dye(bg, c.$epsilon)
 
 .title
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
 
 .list
   @include m.gap($p: 0)
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap)
 
 .item
-  @include m.flex
-
+  @include m.media(phone, tablet)
+    @include m.flex
+  @include m.media(laptop, desktop)
+    @include m.flex($fb: 31%)
+    @include m.gap($mr: 3%, $mb: f.px(30))
+    &:nth-child(3n)
+      @include m.gap($mr: 0)
+  
 .icon
-  @include m.gap($mr: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(15))
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: f.px(30))
+    & > *
+      width: 100%
+      min-width: f.px(37)
+      max-width: f.px(37)
+
+.p
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    font-weight: 300
+  @include m.media(laptop, desktop)
+    max-width: 22ch
+    @include m.gap($mb: 0)
+    font-size: f.px(20)
+    font-weight: 300

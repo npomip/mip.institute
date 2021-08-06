@@ -1,10 +1,14 @@
 import stls from '@/styles/components/sections/Desc.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+import { IconAtom } from '@/components/icons'
 
 const Desc = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
+        <div className={stls.icon}>
+          <IconAtom calpha barelyVisible />
+        </div>
         <p className={stls.p}>
           <span className={stls.highlight}>Арт-терапия</span> – это
           психологическая помощь клиенту посредством различных видов искусства.

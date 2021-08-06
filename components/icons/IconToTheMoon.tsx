@@ -3,7 +3,7 @@ import stls from '@/styles/components/icons/IconToTheMoon.module.sass'
 const IconToTheMoon = () => {
   return (
     <div className={stls.container}>
-      <svg viewBox='0 0 97 110' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg viewBox='0 0 110 110' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>На луну!</title>
         <path
           d='M21.9555 73.6498C20.2119 71.4483 19.471 70.3775 17.8773 68.0647C17.3621 67.3168 16.8566 66.2826 17.4232 65.5726C17.7744 65.1326 18.395 65.0375 18.9552 64.9924C22.5485 64.7004 27.7811 65.5886 31.2116 66.6961L21.9555 73.6498Z'

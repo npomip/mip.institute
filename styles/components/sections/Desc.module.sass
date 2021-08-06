@@ -2,8 +2,28 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.media(laptop, desktop)
+    position: relative
+    @include m.gap($pb: f.px(98))
+    overflow: visible
+
+.icon
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    width: 50%
+    max-width: f.px(700)
+    position: absolute
+    top: f.px(-60)
+    right: f.px(-150)
+
 .p
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    max-width: 45ch
+    font-size: f.px(20)
   font-weight: 300
   &:nth-last-child(1)
     @include m.gap($mb: f.px(0))

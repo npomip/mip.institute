@@ -3,31 +3,53 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($mb: f.px(50), $pt: f.px(40), $pb: f.px(40))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(50), $pt: f.px(40), $pb: f.px(40))
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(97))
   @include m.dye(bg, c.$pi)
 
 .title
   @include m.gap($mb: f.px(10))
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    font-size: f.px(44)
   font-weight: 500
 
 .subtitle
-  @include m.gap($mb: f.px(40))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(40))
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(53))
+    font-size: f.px(20)
   font-weight: 300
   line-height: 130%
 
 .list
   @include m.gap($p: 0)
+  @include m.media(laptop, desktop)
+    @include m.flex
 
 .item
-  @include m.flex($fd: column, $jc: center, $ai: center)
-  @include m.gap($mb: f.px(43))
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: center, $ai: center)
+    @include m.gap($mb: f.px(43))
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column, $ai: center, $fb: 33%)
   &:nth-last-child(1)
     @include m.gap($mb: f.px(0))
 
 .icon
   @include m.gap($mb: f.px(17))
+  @include m.media(laptop, desktop)
+    min-width: f.px(180)
+    min-height: f.px(180)
+    max-width: f.px(180)
+    max-height: f.px(180)
+    & > *
+      max-width: 100%
 
 .p
   max-width: 23ch

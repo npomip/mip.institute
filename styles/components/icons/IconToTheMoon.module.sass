@@ -5,6 +5,8 @@
 .container
   @include m.sizeIcon($w: 97, $h: 110)
   @include m.flex
+  @include m.media(laptop, desktop)
+    @include m.sizeIcon($size: 2, $w: 97, $h: 110)
   // @include m.gap($m: f.px(10, em))
 
   // & path

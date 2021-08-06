@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 const Courses = ({ titleless = false }) => {
   return (
-    <div className={stls.courses}>
+    <div className={stls.container}>
       <hgroup>
         {!titleless ? (
           <h3 className={stls.title}>Курсы</h3>
@@ -24,12 +24,14 @@ const Courses = ({ titleless = false }) => {
           Короткие программы, чтобы изучить один конкретный навык
         </p>
       </hgroup>
-      <div>
+      <div className={stls.courses}>
         {courses.map((course, idx) => (
           <CardCourse key={course.title + idx} course={course} />
         ))}
       </div>
-      <BtnDelta text={'Смотреть все курсы'} />
+      <div className={stls.btn}>
+        <BtnDelta text={'Смотреть все курсы'} />
+      </div>
     </div>
   )
 }

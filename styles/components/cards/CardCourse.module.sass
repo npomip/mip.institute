@@ -3,21 +3,35 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.flex
-  @include m.gap($mb: f.px(10), $ptb: f.px(20), $plr: f.px(15))
-  border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    @include m.flex
+    @include m.gap($mb: f.px(10), $ptb: f.px(20), $plr: f.px(15))
+    border-radius: f.px(10)
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column, $fb: 22%)
+    max-width: f.px(270)
+    border-radius: f.px(20)
+    overflow: hidden
+    @include m.gap($mb: f.px(30), $mr: 3%)
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   @include m.dye(bg, c.$nu)
 
 .img
-  min-width: f.px(139)
-  max-width: f.px(139)
-  @include m.gap($mr: f.px(23))
-  border-radius: f.px(5)
+  @include m.media(phone, tablet)
+    min-width: f.px(139)
+    max-width: f.px(139)
+    @include m.gap($mr: f.px(23))
+    border-radius: f.px(5)
+  @include m.media(laptop, desktop)
+    min-width: 100%
+    max-width: 100%
+    border-radius: f.px(20) f.px(20) 0 0
   overflow: hidden
 
 .right
   width: 100%
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(20), $pb: f.px(37), $plr: f.px(23))
 
 .info
   @include m.flex($jc: space-between, $ai: center)
@@ -26,15 +40,26 @@
 .type
   @include m.gap($ptb: f.px(4), $plr: f.px(17))
   border-radius: f.px(23)
-  font-size: f.px(11)
+  @include m.media(phone, tablet)
+    font-size: f.px(11)
+  @include m.media(laptop, desktop)
+    font-size: f.px(13)
   text-transform: uppercase
   @include m.dye(bg, c.$mu)
   @include m.dye(c, c.$kappa)
 
 .dur
-  font-size: f.px(11)
+  @include m.media(phone, tablet)
+    font-size: f.px(11)
+  @include m.media(laptop, desktop)
+    font-size: f.px(13)
 
 .title
   @include m.gap($mb: 0)
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
   font-weight: 400
+  overflow-wrap: break-word
+

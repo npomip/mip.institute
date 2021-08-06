@@ -2,9 +2,16 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+
+
 .title
-  @include m.gap($mb: f.px(5, em))
-  font-size: f.px(24)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(5, em))
+    font-size: f.px(24)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(36)
   font-weight: 400
   @include m.dye(c, c.$theta)
 
@@ -12,8 +19,21 @@
   font-weight: 500
 
 .subTitle
-  @include m.gap($mb: f.px(20, em))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20, em))
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(30))
+    font-size: f.px(18)
   font-weight: 300
   @include m.dye(c, c.$kappa)
 
+.courses
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap, $jc: space-between)
+
+.btn
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: center)
+    & > *
+      @include m.gap($plr: 6%)

@@ -10,17 +10,21 @@
     @include m.gap($plr: f.px(15))
     overflow: visible
   & > *
-    @include m.gap($ptb: f.px(50), $plr: f.px(25))
     @include m.media(phone, tablet)
+      @include m.gap($ptb: f.px(50), $plr: f.px(25))
       border-radius: f.px(50) 0
     @include m.media(laptop, desktop)
       position: relative
       @include m.flex($ai: flex-start)
       border-radius: f.px(100) 0
+    @include m.media(laptop)
+      @include m.gap($ptb: f.px(50), $plr: f.px(50))
+    @include m.media(desktop)
+      @include m.gap($ptb: f.px(50), $plr: f.px(100))
     @include m.dye(bg, c.$alpha)
     @include m.dye(c, c.$nu)
     @media screen and (min-width: bp.$tablet) and (max-width: 920px)
-      @include m.flex($jc: space-evenly)
+      @include m.flex($jc: space-between)
   
 
 .img
@@ -37,17 +41,21 @@
     display: none
 
 .text
-  @include m.media(laptop, desktop)
-    @include m.gap($ml: f.px(310))
+  @include m.media(laptop)
+    @include m.flex($display: false, $fb: 60%)
+    @include m.gap($ml: 30%)
+  @include m.media(desktop)
+    @include m.flex($display: false, $fb: 50%)
+    @include m.gap($ml: 20%)
   @media screen and (min-width: bp.$tablet) and (max-width: 920px)
-    @include m.gap($ml: f.px(40))
+    @include m.gap($ml: f.px(0))
 
 .title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(10))
     font-size: f.px(26)
   @include m.media(laptop)
-    max-width: 10ch
+    max-width: 9ch
     @include m.gap($mb: f.px(20), $mr: f.px(84))
     font-size: f.px(44)
   @include m.media(desktop)
@@ -55,12 +63,12 @@
     font-size: f.px(44)
   font-weight: 500
   @media screen and (min-width: bp.$tablet) and (max-width: 920px)
-    max-width: 20ch
+    max-width: 15ch
     @include m.gap($mr: 0)
 
 .p
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
+    @include m.gap($mb: f.px(37))
     font-size: f.px(18)
   @include m.media(laptop)
     max-width: 28ch
@@ -72,3 +80,13 @@
     font-size: f.px(20)
   font-weight: 300
   line-height: 130%
+
+.btn
+  @include m.media(laptop, desktop)
+    & > *
+      width: 100%
+  @include m.media(laptop)
+    @include m.flex($display: false, $fb: 40%)
+  @include m.media(desktop)
+    @include m.flex($display: false, $fb: 30%)
+  

@@ -14,7 +14,9 @@ const Cta = ({ title = null, desc = null, btn = null }) => {
           <h2 className={stls.title}>{title}</h2>
           <p className={stls.p}>{desc}</p>
         </div>
-        <BtnAlpha text={btn} />
+        <div className={stls.btn}>
+          <BtnAlpha text={btn} />
+        </div>
       </Wrapper>
     </section>
   )

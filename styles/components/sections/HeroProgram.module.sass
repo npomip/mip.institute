@@ -44,7 +44,10 @@
 .discount
   position: absolute
   top: f.px(-20)
-  left: 0
+  @include m.media(phone, tablet)
+    left: 0
+  @include m.media(laptop, desktop)
+    left: f.px(-30)
   z-index: 1
 
 .img

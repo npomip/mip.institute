@@ -3,12 +3,20 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.flex($fd: column, $ai: center)
-  min-width: f.px(108)
-  max-width: f.px(108)
-  min-height: f.px(108)
-  max-height: f.px(108)
-  @include m.gap($pt: f.px(24))
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: center)
+    min-width: f.px(108)
+    max-width: f.px(108)
+    min-height: f.px(108)
+    max-height: f.px(108)
+    @include m.gap($pt: f.px(24))
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column, $ai: center, $jc: center)
+    min-width: f.px(153)
+    max-width: f.px(153)
+    min-height: f.px(153)
+    max-height: f.px(153)
+    @include m.gap($pb: f.px(15))
   border-radius: 50%
   transform: rotate(10deg)
   @include m.dye(bg, c.$beta)
@@ -26,12 +34,18 @@
 
 .discount
   @include m.gap($mb: 0)
-  font-size: f.px(33)
+  @include m.media(phone, tablet)
+    font-size: f.px(33)
+  @include m.media(laptop, desktop)
+    font-size: f.px(47)
   font-weight: 500
 
 .until
   @include m.gap($mb: 0)
-  font-size: f.px(11)
+  @include m.media(phone, tablet)
+    font-size: f.px(11)
+  @include m.media(laptop, desktop)
+    font-size: f.px(16)
   font-weight: 500
   &.small
     font-size: f.px(8)

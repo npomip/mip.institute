@@ -19,6 +19,10 @@
   @include m.media(laptop, desktop)
     @include m.flex
 
+.heading
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: 8%)
+
 .title
   @include m.gap($mb: f.px(39))
   @include m.media(phone, tablet)
@@ -32,7 +36,10 @@
 
 .pic
   position: relative
-  @include m.gap($mb: f.px(17))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(17))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(87))
 
 .discount
   position: absolute
@@ -43,6 +50,20 @@
 .img
   border-radius: f.px(100) 0
   overflow: hidden
+  @include m.media(phone, tablet)
+    max-width: 670px
+    margin: 0 auto
+  @include m.media(laptop, desktop)
+    position: relative
+    width: f.px(460)
+    height: f.px(460)
+    & > *
+      position: absolute
+      top: 0
+      left: 0
+      width: f.px(676)
+      height: f.px(460)
+      transform: translate(-16%, f.px(1))
 
 .btnsMobile
   @include m.media(phone, tablet)
@@ -56,5 +77,8 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
+    @include m.flex
+    & > *
+      width: 100%
     & > *:nth-child(1)
       @include m.gap($mr: f.px(30))

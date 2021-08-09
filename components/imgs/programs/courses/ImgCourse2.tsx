@@ -2,7 +2,7 @@ import stls from '@/styles/components/imgs/programs/courses/ImgCourse2.module.sa
 import Image from 'next/image'
 import pic from '@/public/assets/imgs/programs/courses/course-2.jpg'
 
-const ImgCourse2 = ({ width = 0, height = 0 }) => {
+const ImgCourse2 = ({ width = 676, height = 0 }) => {
   return (
     <div className={stls.container}>
       <Image

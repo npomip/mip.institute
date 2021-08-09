@@ -12,18 +12,26 @@ const HeroProgram = () => {
       <div className={stls.bg}></div>
       <Wrapper>
         <ProgramLabel />
-        <h1 className={stls.title}>
-          Психоанализ и психологическое консультирование
-        </h1>
-        <div className={stls.pic}>
-          <div className={stls.discount}>
-            <ProgramDiscount />
+        <div className={stls.top}>
+          <div className={stls.heading}>
+            <h1 className={stls.title}>
+              Психоанализ и психологическое консультирование
+            </h1>
+            <div className={stls.btnsDesktop}>
+              <BtnAlpha text={'Записаться на курс'} />
+              <BtnBeta text={'Задать вопрос'} />
+            </div>
           </div>
-          <div className={stls.img}>
-            <ImgCourse2 />
+          <div className={stls.pic}>
+            <div className={stls.discount}>
+              <ProgramDiscount />
+            </div>
+            <div className={stls.img}>
+              <ImgCourse2 />
+            </div>
           </div>
         </div>
-        <div className={stls.btns}>
+        <div className={stls.btnsMobile}>
           <BtnAlpha text={'Записаться на курс'} />
           <BtnBeta text={'Задать вопрос'} />
         </div>

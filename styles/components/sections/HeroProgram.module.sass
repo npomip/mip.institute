@@ -15,6 +15,10 @@
   @include m.dye(bg, c.$alpha)
   z-index: -1
 
+.top
+  @include m.media(laptop, desktop)
+    @include m.flex
+
 .title
   @include m.gap($mb: f.px(39))
   @include m.media(phone, tablet)
@@ -40,7 +44,17 @@
   border-radius: f.px(100) 0
   overflow: hidden
 
-.btns
-  @include m.gap($mb: f.px(17))
-  & > *:nth-child(1)
+.btnsMobile
+  @include m.media(phone, tablet)
     @include m.gap($mb: f.px(17))
+    & > *:nth-child(1)
+      @include m.gap($mb: f.px(17))
+  @include m.media(laptop, desktop)
+    display: none
+
+.btnsDesktop
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    & > *:nth-child(1)
+      @include m.gap($mr: f.px(30))

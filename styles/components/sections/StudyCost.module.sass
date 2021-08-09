@@ -37,8 +37,12 @@
   @include m.gap($mb: f.px(10))
 
 .btns
-  @include m.flex($jc: center, $ai: center)
+  @include m.flex($jc: space-evenly, $ai: center)
 
 .btn
   &:nth-child(1)
-    @include m.gap($mr: f.px(27))
+    @include m.flex($jc: center, $fb: 55%)
+    @include m.gap($mr: 5%)
+  &:nth-last-child(1)
+    @include m.flex($jc: center, $fb: 40%)
+    

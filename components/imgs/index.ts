@@ -20,6 +20,7 @@ import ImgDecoration1 from '@/components/imgs/yourfuturejob/ImgDecoration1'
 import ImgDecoration2 from '@/components/imgs/yourfuturejob/ImgDecoration2'
 import ImgDecoration3 from '@/components/imgs/yourfuturejob/ImgDecoration3'
 import ImgCta1 from '@/components/imgs/cta/ImgCta1'
+import ImgFullProgram1 from '@/components/imgs/fullprogram/ImgFullProgram1'
 
 export {
   ImgDiploma1,
@@ -43,5 +44,6 @@ export {
   ImgDecoration1,
   ImgDecoration2,
   ImgDecoration3,
-  ImgCta1
+  ImgCta1,
+  ImgFullProgram1
 }

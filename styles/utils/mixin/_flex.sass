@@ -1,4 +1,4 @@
-@mixin flex($display: true, $fd: null, $jc: null, $ai: null, $fw: null, $fg: null, $fs: null, $fb: null)
+@mixin flex($display: true, $fd: null, $jc: null, $ai: null, $fw: null, $fg: null, $fs: null, $fb: null, $as: null)
   @if $display
     display: flex
   @if $fd
@@ -15,3 +15,5 @@
     flex-shrink: $fs
   @if $fb
     flex-basis: $fb
+  @if $as
+    align-self: $as

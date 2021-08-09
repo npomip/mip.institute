@@ -11,7 +11,7 @@ const ProgramModule = ({ title, topics }) => {
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
       <div className={stls.title} onClick={() => setOpen(!isOpen)}>
         <div className={stls.icon}>{isOpen ? <IconMinus /> : <IconPlus />}</div>
-        <p className={classNames({ [stls.p]: true, [stls.bold]: isOpen })}>
+        <p className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>
           {title}
         </p>
       </div>

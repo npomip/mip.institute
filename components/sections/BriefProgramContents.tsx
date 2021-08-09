@@ -7,16 +7,18 @@ const BriefProgramContents = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.heading}>
-          <h2 className={stls.title}>Краткая программа курса</h2>
-          <p className={stls.p}>
-            Практики, которым мы учим, и методология, на которой строится курс,
-            проверены не только практическим опытом преподавателей, но и
-            строгими научными исследованиями.
-          </p>
-        </div>
-        <div className={stls.qty}>
-          <ProgramModulesQty />
+        <div className={stls.top}>
+          <div className={stls.heading}>
+            <h2 className={stls.title}>Краткая программа курса</h2>
+            <p className={stls.p}>
+              Практики, которым мы учим, и методология, на которой строится
+              курс, проверены не только практическим опытом преподавателей, но и
+              строгими научными исследованиями
+            </p>
+          </div>
+          <div className={stls.qty}>
+            <ProgramModulesQty />
+          </div>
         </div>
         <ProgramModules />
       </Wrapper>

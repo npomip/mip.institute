@@ -2,17 +2,44 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.media(laptop, desktop)
+    & > *
+      @include m.gap($p: f.px(100))
+      border-radius: f.px(100) f.px(5) 0 0
+      box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+
+.top
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+
+.heading
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 65%)
+    @include m.gap($mr: 8%, $mb: f.px(40))
+
 .title
-  @include m.gap($mb: f.px(10))
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(12))
+    font-size: f.px(40)
   font-weight: 500
   @include m.dye(c, c.$theta)
 
 .p
-  @include m.gap($mb: f.px(23))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(23))
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(0))
+    font-size: f.px(20)
   font-weight: 300
   @include m.dye(c, c.$theta)
 
 .qty
-  @include m.gap($mb: f.px(17))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(17))
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 25%)

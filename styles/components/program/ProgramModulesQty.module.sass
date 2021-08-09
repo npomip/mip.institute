@@ -10,15 +10,24 @@
 
 .qty
   @include m.flex($ai: center)
-  min-height: f.px(59)
-  @include m.gap($mb: 0, $mr: f.px(22), $p: f.px(11))
   border-radius: 50%
   font-family: TTFirsNeue
-  font-size: f.px(28)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0, $mr: f.px(22), $p: f.px(11))
+    min-height: f.px(59)
+    font-size: f.px(28)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: 0, $p: f.px(11))
+    min-height: f.px(87)
+    font-size: f.px(48)
   @include m.dye(bg, c.$beta)
   @include m.dye(c, c.$nu)
 
 .text
   @include m.gap($mb: 0)
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(20), $plr: f.px(30))
+    font-size: f.px(18)
   font-weight: 300

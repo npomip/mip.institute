@@ -14,15 +14,29 @@
 
 .title
   @include m.flex($ai: center)
-  @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(15))
   cursor: pointer
 
 .icon
   @include m.gap($mr: f.px(20))
 
+.pTitle
+  @include m.gap($mb: 0)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(22)
+  font-weight: 300
+
 .p
   @include m.gap($mb: 0)
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
   font-weight: 300
 
 .bold
@@ -31,13 +45,29 @@
 .topic
   display: none
   & > .p
-    @include m.gap($mb: f.px(8), $ml: f.px(60))
+    @include m.media(phone, tablet)
+      @include m.gap($mb: f.px(8), $ml: f.px(60))
+    @include m.media(laptop, desktop)
+      @include m.gap($mb: f.px(10), $ml: f.px(60))
 
 .list
   @include m.gap($mtb: f.px(0), $pl: f.px(82))
   list-style-type: '•'
 
 .item
-  @include m.gap($mb: f.px(8))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(8))
+  @include m.media(laptop, desktop)
+    @include m.flex($ai: center)
+    @include m.gap($mb: f.px(12))
+    font-size: f.px(18)
+    &::before
+      content: '•'
+      font-size: f.px(35)
+      line-height: 10%
+
   & > .p
-    @include m.gap($pl: f.px(12))
+    @include m.media(phone, tablet)
+      @include m.gap($pl: f.px(12))
+    @include m.media(laptop, desktop)
+      @include m.gap($pl: f.px(16))

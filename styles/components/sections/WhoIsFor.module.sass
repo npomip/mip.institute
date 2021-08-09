@@ -42,18 +42,23 @@
     @include m.gap($mb: f.px(0))
 
 .icon
-  @include m.gap($mb: f.px(17))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(17))
   @include m.media(laptop, desktop)
     min-width: f.px(180)
     min-height: f.px(180)
     max-width: f.px(180)
     max-height: f.px(180)
+    @include m.gap($mb: f.px(30))
     & > *
       max-width: 100%
 
 .p
   max-width: 23ch
   text-align: center
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
   line-height: 130%
   @include m.gap($mb: 0)

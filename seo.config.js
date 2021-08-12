@@ -14,7 +14,9 @@ const seo = {
   description: 'MIP',
   canonical: process.env.PROD_ROOT_FRONT_URL,
   dangerouslySetAllPagesToNoIndex: true,
-  dangerouslySetAllPagesToNoFollow: true
+  dangerouslySetAllPagesToNoFollow: true,
+  noindex: true,
+  nofollow: true
 }
 
 export default seo

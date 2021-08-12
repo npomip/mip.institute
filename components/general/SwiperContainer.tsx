@@ -10,7 +10,7 @@ const SwiperContainer = ({
   slides,
   mobileOptions = { slidesNum: 1, spaceBetween: 10 },
   tabletOptions = { slidesNum: 1, spaceBetween: 10 },
-  laptopOptions = { slidesNum: 2, spaceBetween: 50 },
+  laptopOptions = { slidesNum: 2, spaceBetween: 10 },
   desktopOptions = { slidesNum: 2, spaceBetween: 50 },
   alwaysDisabledOnDesktop = false,
   isMultiRow = false

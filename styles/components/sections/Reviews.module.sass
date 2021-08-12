@@ -7,9 +7,15 @@
 
 .title
   @include m.gap($mb: 0)
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
 
 .content
-  @include m.gap($ptb: f.px(22, em))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(22, em))
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(31, em))

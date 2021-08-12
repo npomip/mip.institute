@@ -1,4 +1,4 @@
-export default {
+const seo = {
   openGraph: {
     type: 'website',
     locale: 'ru',
@@ -12,5 +12,8 @@ export default {
   // },
   defaultTitle: 'MIP',
   description: 'MIP',
-  canonical: process.env.PROD_ROOT_FRONT_URL
+  canonical: process.env.PROD_ROOT_FRONT_URL,
+  dangerouslySetAllPagesToNoIndex: true
 }
+
+export default seo

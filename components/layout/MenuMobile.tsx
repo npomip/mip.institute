@@ -20,10 +20,10 @@ const MenuMobile = () => {
     useContext(MenuContext)
 
   const links = [
-    { text: 'Направления обучения', href: '/', withIcon: true },
-    { text: 'Вебинары', href: '/', withIcon: false },
-    { text: 'Отзывы', href: '/', withIcon: false },
-    { text: 'Об институте', href: '/', withIcon: false }
+    { text: 'Направления обучения', href: '/programs', withIcon: true },
+    { text: 'Вебинары', href: '/webinars', withIcon: false },
+    { text: 'Отзывы', href: '/reviews', withIcon: false },
+    { text: 'Об институте', href: '/about', withIcon: false }
   ]
 
   return (

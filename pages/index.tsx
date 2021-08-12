@@ -7,7 +7,7 @@ import Cta from '@/components/sections/Cta'
 import Reviews from '@/components/sections/Reviews'
 import Webinars from '@/components/sections/Webinars'
 
-const Home = ({ programs }) => {
+const HomePage = ({ programs }) => {
   return (
     <>
       <Hero />
@@ -38,4 +38,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Home
+export default HomePage

@@ -7,13 +7,20 @@
 
 .title
   @include m.gap($mb: f.px(10, em))
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    font-size: f.px(44)
   font-weight: 500
 
 .desc
   width: 85%
-  @include m.gap($mb: f.px(20, em))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20, em))
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(31, em))
+    font-size: f.px(18)
   font-weight: 300
   @include m.dye(c, c.$kappa)
 

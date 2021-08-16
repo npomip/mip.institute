@@ -15,14 +15,9 @@ import parse from 'html-react-parser'
 const HomePage = ({ programs }) => {
   const desc = programs[1].description
   const lis = getListItemsInnerHtml(desc)
-  // console.log(lis)
 
   return (
     <>
-      {/* <div
-        dangerouslySetInnerHTML={{
-          __html: programs.map(program => program.description).join('')
-        }}></div> */}
       <div>{programs.map(program => parse(program.description))}</div>
       <Hero />
       <WhyBother />

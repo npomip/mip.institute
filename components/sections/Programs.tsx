@@ -2,7 +2,8 @@ import stls from '@/styles/components/sections/Programs.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Courses from '@/components/programs/Courses'
 
-const Programs = ({ titleless = false }) => {
+const Programs = ({ titleless = false, programs = [] }) => {
+  // console.log(programs)
   return (
     <section className={stls.container}>
       <Wrapper>

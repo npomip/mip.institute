@@ -2,6 +2,7 @@ import Router from 'next/router'
 
 import { useEffect, useState, useContext } from 'react'
 import MenuState from '@/context/menu/MenuState'
+import ProgramsState from '@/context/programs/ProgramsState'
 
 import TagManager from 'react-gtm-module'
 
@@ -27,7 +28,7 @@ function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
-    console.log(document.referrer)
+    // console.log(document.referrer)
 
     NProgress.configure({
       showSpinner: false
@@ -58,13 +59,15 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <MenuState>
-        <Header />
-        <main>
-          <Component {...pageProps} />
-        </main>
-        <Footer />
-      </MenuState>
+      <ProgramsState>
+        <MenuState>
+          <Header />
+          <main>
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </MenuState>
+      </ProgramsState>
     </>
   )
 }

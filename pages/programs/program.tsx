@@ -1,25 +1,27 @@
-import HeroProgram from '@/components/sections/HeroProgram'
-import Desc from '@/components/sections/Desc'
-import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
-import WhoIsFor from '@/components/sections/WhoIsFor'
-import YourDiploma from '@/components/sections/YourDiploma'
-import BriefProgramContents from '@/components/sections/BriefProgramContents'
-import FullProgram from '@/components/sections/FullProgram'
-import YourResume from '@/components/sections/YourResume'
-import Cta from '@/components/sections/Cta'
-import Teachers from '@/components/sections/Teachers'
-import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
-import YourFutureJob from '@/components/sections/YourFutureJob'
-import StudyCost from '@/components/sections/StudyCost'
-import Faq from '@/components/sections/Faq'
+import {
+  HeroProgram,
+  Desc,
+  WhatYouWillLearn,
+  ForWhom,
+  YourDiploma,
+  BriefProgramContents,
+  FullProgram,
+  YourResume,
+  Cta,
+  Teachers,
+  HelpWithEmployment,
+  YourFutureJob,
+  StudyCost,
+  Faq
+} from '@/components/sections'
 
 const Home = ({ programs }) => {
   return (
     <>
       <HeroProgram />
       <Desc />
-      <WhatWillYouLearn />
-      <WhoIsFor />
+      <WhatYouWillLearn />
+      <ForWhom />
       <YourDiploma />
       <BriefProgramContents />
       <FullProgram />

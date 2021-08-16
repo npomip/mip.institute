@@ -16,8 +16,8 @@ import Reviews from '@/components/sections/Reviews'
 import StudyCost from '@/components/sections/StudyCost'
 import Teachers from '@/components/sections/Teachers'
 import Webinars from '@/components/sections/Webinars'
-import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
-import WhoIsFor from '@/components/sections/WhoIsFor'
+import WhatYouWillLearn from '@/components/sections/WhatYouWillLearn'
+import ForWhom from '@/components/sections/ForWhom'
 import WhyBother from '@/components/sections/WhyBother'
 import YourDiploma from '@/components/sections/YourDiploma'
 import YourFutureJob from '@/components/sections/YourFutureJob'
@@ -42,8 +42,8 @@ export {
   StudyCost,
   Teachers,
   Webinars,
-  WhatWillYouLearn,
-  WhoIsFor,
+  WhatYouWillLearn,
+  ForWhom,
   WhyBother,
   YourDiploma,
   YourFutureJob,

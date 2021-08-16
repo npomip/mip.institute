@@ -1,10 +1,9 @@
 import stls from '@/styles/components/programs/Courses.module.sass'
 import CardCourse from '@/components/cards/CardCourse'
 import { BtnDelta } from '@/components/btns'
-import { courses } from '@/data/programs'
 import classNames from 'classnames'
 
-const Courses = ({ titleless = false }) => {
+const Courses = ({ titleless = false, courses = [] }) => {
   return (
     <div className={stls.container}>
       <hgroup>

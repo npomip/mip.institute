@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/WhoIsFor.module.sass'
+import stls from '@/styles/components/sections/ForWhom.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import {
   IconGettingup,
@@ -6,7 +6,7 @@ import {
   IconToTheMoon
 } from '@/components/icons'
 
-const WhoIsFor = () => {
+const ForWhom = () => {
   const list = [
     'Применять полученные знания в своей жизни',
     'Начать путь в освоении новой профессии',
@@ -40,4 +40,4 @@ const WhoIsFor = () => {
   )
 }
 
-export default WhoIsFor
+export default ForWhom

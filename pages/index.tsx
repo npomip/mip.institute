@@ -13,12 +13,12 @@ import { getListItemsInnerHtml, convertMdToHtml } from '@/helpers/index'
 import parse from 'html-react-parser'
 
 const HomePage = ({ programs }) => {
-  const desc = programs[1].description
-  const lis = getListItemsInnerHtml(desc)
+  // const desc = programs[1].description
+  // const lis = getListItemsInnerHtml(desc)
 
   return (
     <>
-      <div>{programs.map(program => parse(program.description))}</div>
+      {/* <div>{programs.map(program => parse(program.description))}</div> */}
       <Hero />
       <WhyBother />
       <About />
@@ -45,6 +45,7 @@ export async function getStaticProps(context) {
     props: {
       programs
     }
+    // revalidate: 60 * 60 * 24 // a single day
   }
 }
 

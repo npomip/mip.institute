@@ -9,8 +9,10 @@ const backRootUrl = dev
   ? process.env.DEV_ROOT_BACK_URL
   : process.env.PROD_ROOT_BACK_URL
 
+const programsUrl = '/programs'
+
 const gtmId = ''
 
 const themeColor = '#6f01c6'
 
-export { dev, prod, frontRootUrl, backRootUrl, gtmId, themeColor }
+export { dev, prod, frontRootUrl, backRootUrl, programsUrl, gtmId, themeColor }

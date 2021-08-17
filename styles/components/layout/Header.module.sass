@@ -1,6 +1,7 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+@use '@/styles/layout/onHover' as onHover
 
 .container
   @include m.media(phone, tablet)
@@ -50,6 +51,11 @@
   display: block
   @media screen and ( max-width: 910px )    
     display: none
+  @include m.media(laptop, desktop)
+    & > *
+      outline: none
+      @include onHover.highlightWithBottomLine($bottom: f.px(-4))
+      @include onHover.rotateChild($deg: 35deg)
 
 .phoneNoNum
   display: none
@@ -76,37 +82,11 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    position: relative
     font-size: f.px(18)
     font-weight: 300
     @include m.dye(c, c.$nu) 
     outline: none
-    &::before,
-    &::after
-      content: '',
-      position: absolute
-      bottom: f.px(-10)
-      width: 0
-      height: f.px(2)
-      @include m.gap($mt: f.px(3))
-      transition: all 0.2s ease-in-out
-      opacity: 0
-      background-color: red
-      @include m.dye(bg, rgba(c.$nu, .9))
-    &::before 
-      left: 50%
-      border-top-right-radius: f.px(40)
-      border-bottom-right-radius: f.px(40)
-    &::after
-      right: 50%
-      border-top-left-radius: f.px(40)
-      border-bottom-left-radius: f.px(40)
-    &:hover,
-    &:focus
-      &::before,
-      &::after
-        width: 50%
-        opacity: 1
+    @include onHover.highlightWithBottomLine($bottom: f.px(-10))
 
 .linkReviewLong
   @media screen and ( max-width: 860px )

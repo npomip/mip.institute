@@ -5,8 +5,13 @@ import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ImgCourse2 } from '@/components/imgs'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import ProgramInfo from '@/components/program/ProgramInfo'
+import ProgramContext from '@/context/program/programContext'
+import { useContext } from 'react'
 
 const HeroProgram = () => {
+  const {
+    program: { title }
+  } = useContext(ProgramContext)
   return (
     <section className={stls.container}>
       <div className={stls.bg}></div>
@@ -14,9 +19,7 @@ const HeroProgram = () => {
         <ProgramLabel />
         <div className={stls.top}>
           <div className={stls.heading}>
-            <h1 className={stls.title}>
-              Психоанализ и психологическое консультирование
-            </h1>
+            <h1 className={stls.title}>{title}</h1>
             <div className={stls.btnsDesktop}>
               <BtnAlpha text={'Записаться на курс'} />
               <BtnBeta text={'Задать вопрос'} />

@@ -1,8 +1,8 @@
-import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
+import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { IconCircleCheck } from '@/components/icons'
 
-const WhatWillYouLearn = () => {
+const WhatYouWillLearn = () => {
   const list = [
     'Рекомендации по составлению резюме и портфолио',
     'Подготовка к собеседованию в компаниях-партнёрах',
@@ -31,4 +31,4 @@ const WhatWillYouLearn = () => {
   )
 }
 
-export default WhatWillYouLearn
+export default WhatYouWillLearn

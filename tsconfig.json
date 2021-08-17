@@ -7,7 +7,8 @@
       "@/config/*": ["config/*"],
       "@/data/*": ["data/*"],
       "@/context/*": ["context/*"],
-      "@/public/*": ["public/*"]
+      "@/public/*": ["public/*"],
+      "@/helpers/*": ["helpers/*"]
     },
     "target": "es5",
     "lib": [

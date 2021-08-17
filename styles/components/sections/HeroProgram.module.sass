@@ -17,7 +17,7 @@
 
 .top
   @include m.media(laptop, desktop)
-    @include m.flex
+    @include m.flex($jc: space-between)
 
 .heading
   @include m.media(laptop, desktop)
@@ -28,6 +28,7 @@
   @include m.media(phone, tablet)
     font-size: f.px(36)
   @include m.media(laptop, desktop)
+    min-width: 12ch
     max-width: 15ch
     font-size: f.px(64)
   font-weight: 500

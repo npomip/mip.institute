@@ -1,20 +1,29 @@
-import Hero from '@/components/sections/Hero'
-import WhyBother from '@/components/sections/WhyBother'
-import About from '@/components/sections/About'
-import HowProcessGoes from '@/components/sections/HowProcessGoes'
-import Programs from '@/components/sections/Programs'
-import Cta from '@/components/sections/Cta'
-import Reviews from '@/components/sections/Reviews'
-import Webinars from '@/components/sections/Webinars'
+import {
+  Hero,
+  WhyBother,
+  About,
+  HowProcessGoes,
+  Programs,
+  Cta,
+  Reviews,
+  Webinars
+} from '@/components/sections'
+import { backRootUrl, programsUrl } from '@/config/index'
+import { getListItemsInnerHtml, convertMdToHtml } from '@/helpers/index'
+import parse from 'html-react-parser'
 
 const HomePage = ({ programs }) => {
+  // const desc = programs[1].description
+  // const lis = getListItemsInnerHtml(desc)
+
   return (
     <>
+      {/* <div>{programs.map(program => parse(program.description))}</div> */}
       <Hero />
       <WhyBother />
       <About />
       <HowProcessGoes />
-      <Programs />
+      <Programs withTitle withBtn programs={programs} />
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
@@ -26,15 +35,17 @@ const HomePage = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  // const res = await fetch(`${server}${apiProgramsReqUrl}`)
-  // const { data } = await res.json()
-  const data = ''
+export async function getStaticProps(context) {
+  const res = await fetch(`${backRootUrl}${programsUrl}`)
+  const data = await res.json()
+
+  const programs = convertMdToHtml({ arr: data, param: 'description' })
 
   return {
     props: {
-      programs: data
+      programs
     }
+    // revalidate: 60 * 60 * 24 // a single day
   }
 }
 

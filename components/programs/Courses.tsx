@@ -1,23 +1,23 @@
 import stls from '@/styles/components/programs/Courses.module.sass'
 import CardCourse from '@/components/cards/CardCourse'
 import { BtnDelta } from '@/components/btns'
-import { courses } from '@/data/programs'
 import classNames from 'classnames'
+import { routeCourses } from '@/data/routes'
 
-const Courses = ({ titleless = false }) => {
+const Courses = ({ biggerTitle = false, withBtn = false, courses = [] }) => {
   return (
     <div className={stls.container}>
       <hgroup>
-        {!titleless ? (
-          <h3 className={stls.title}>Курсы</h3>
-        ) : (
+        {biggerTitle ? (
           <h2
             className={classNames({
               [stls.title]: true,
-              [stls.bold]: titleless
+              [stls.bold]: true
             })}>
             Курсы
           </h2>
+        ) : (
+          <h3 className={stls.title}>Курсы</h3>
         )}
 
         <p className={stls.subTitle}>
@@ -29,9 +29,11 @@ const Courses = ({ titleless = false }) => {
           <CardCourse key={course.title + idx} course={course} />
         ))}
       </div>
-      <div className={stls.btn}>
-        <BtnDelta text={'Смотреть все курсы'} />
-      </div>
+      {withBtn && (
+        <div className={stls.btn}>
+          <BtnDelta text={'Смотреть все курсы'} href={routeCourses} />
+        </div>
+      )}
     </div>
   )
 }

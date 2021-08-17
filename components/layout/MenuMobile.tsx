@@ -14,16 +14,22 @@ import {
 } from '@/components/btns'
 import { IconMoreThan } from '@/components/icons'
 import classNames from 'classnames'
+import {
+  routePrograms,
+  routeWebinars,
+  routeReviews,
+  routeAbout
+} from '@/data/routes'
 
 const MenuMobile = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
     useContext(MenuContext)
 
   const links = [
-    { text: 'Направления обучения', href: '/programs', withIcon: true },
-    { text: 'Вебинары', href: '/webinars', withIcon: false },
-    { text: 'Отзывы', href: '/reviews', withIcon: false },
-    { text: 'Об институте', href: '/about', withIcon: false }
+    { text: 'Направления обучения', href: routePrograms, withIcon: true },
+    { text: 'Вебинары', href: routeWebinars, withIcon: false },
+    { text: 'Отзывы', href: routeReviews, withIcon: false },
+    { text: 'Об институте', href: routeAbout, withIcon: false }
   ]
 
   return (

@@ -4,10 +4,11 @@ import Link from 'next/link'
 import ImgAllWebinars from '@/components/imgs/webinars/ImgAllWebinars'
 import CtaText from '@/components/general/CtaText'
 import { IconPlayer } from '@/components/icons'
+import { routeWebinars } from '@/data/routes'
 
 const CardSchedule = ({ mobileLayout = false }) => {
   return (
-    <Link href='/'>
+    <Link href={routeWebinars}>
       <a className={stls.linkContainer}>
         <article
           className={classNames({

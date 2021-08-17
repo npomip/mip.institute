@@ -15,7 +15,7 @@ import {
   Faq
 } from '@/components/sections'
 
-const Home = ({ programs }) => {
+const PagesProgram = ({ program }) => {
   return (
     <>
       <HeroProgram />
@@ -40,16 +40,4 @@ const Home = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  // const res = await fetch(`${server}${apiProgramsReqUrl}`)
-  // const { data } = await res.json()
-  const data = ''
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
-
-export default Home
+export default PagesProgram

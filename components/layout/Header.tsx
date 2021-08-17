@@ -8,6 +8,7 @@ import MenuMobile from '@/components/layout/MenuMobile'
 import { city, street } from '@/data/location'
 import { IconLocation } from '@/components/icons'
 import { BtnEpsilon, BtnFields } from '@/components/btns'
+import { routeWebinars, routeReviews, routeAbout } from '@/data/routes'
 
 const Header = () => {
   return (
@@ -49,15 +50,15 @@ const Header = () => {
           <div className={stls.btnFields}>
             <BtnFields />
           </div>
-          <Link href='/webinars'>
+          <Link href={routeWebinars}>
             <a className={stls.link}>Вебинары</a>
           </Link>
-          <Link href='/reviews'>
+          <Link href={routeReviews}>
             <a className={stls.link}>
               Отзывы <span className={stls.linkReviewLong}>студентов</span>
             </a>
           </Link>
-          <Link href='/about'>
+          <Link href={routeAbout}>
             <a className={stls.link}>Об институте</a>
           </Link>
         </div>

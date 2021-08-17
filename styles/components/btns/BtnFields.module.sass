@@ -13,8 +13,16 @@
   @include m.dye(c, c.$nu)
   &:hover
     transform: scale(1.02)
+    // & > .icon svg line
+    //   &:nth-child(1)
+    //     x: 10
+    //   &:nth-last-child(1)
+    //     x: 10
   &:focus
     transform: scale(0.98)
+
+  // &:focus-within
+  //   & > .icon
 
 .icon
   @include m.gap($mr: f.px(16))

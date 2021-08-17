@@ -3,6 +3,7 @@ import Router from 'next/router'
 import { useEffect, useState, useContext } from 'react'
 import MenuState from '@/context/menu/MenuState'
 import ProgramsState from '@/context/programs/ProgramsState'
+import ProgramState from '@/context/program/ProgramState'
 
 import TagManager from 'react-gtm-module'
 
@@ -60,13 +61,15 @@ function MyApp({ Component, pageProps, router }) {
     <>
       <DefaultSeo {...SEO} />
       <ProgramsState>
-        <MenuState>
-          <Header />
-          <main>
-            <Component {...pageProps} />
-          </main>
-          <Footer />
-        </MenuState>
+        <ProgramState>
+          <MenuState>
+            <Header />
+            <main>
+              <Component {...pageProps} />
+            </main>
+            <Footer />
+          </MenuState>
+        </ProgramState>
       </ProgramsState>
     </>
   )

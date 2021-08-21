@@ -10,7 +10,7 @@ const ProfessionsPage = ({ programs }) => {
 }
 
 export async function getStaticProps(context) {
-  const programs = await fetchPrograms({ only: 'professions' })
+  const programs = await fetchPrograms({ ofType: 'profession' })
 
   return {
     props: {

@@ -28,7 +28,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   const program = courses.filter(courses => courses.slug === slug)[0]
 
-  program.description = convertMdToHtml({ param: program.description })
+  program.description = convertMdToHtml({ params: [program.description] })
 
   return {
     props: {

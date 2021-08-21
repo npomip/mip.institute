@@ -10,7 +10,7 @@ const CoursesPage = ({ programs }) => {
 }
 
 export async function getStaticProps(context) {
-  const programs = await fetchPrograms({ only: 'courses' })
+  const programs = await fetchPrograms({ ofType: 'course' })
 
   return {
     props: {

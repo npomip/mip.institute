@@ -1,12 +1,16 @@
 import marked from 'marked'
 
-const convertMdToHtml = ({ arr = [], param = null }) => {
+const convertMdToHtml = ({ arr = [], params = null }) => {
   let output = null
   if (arr.length === 0) {
-    output = marked(param)
+    params.forEach(param => {
+      output = marked(param)
+    })
   } else {
     output = arr.map(item => {
-      item[param] = marked(item[param])
+      params.forEach(param => {
+        item[param] = marked(item[param])
+      })
       return item
     })
   }

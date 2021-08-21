@@ -1,7 +1,5 @@
 import { PagesPrograms } from '@/components/pages'
-import { backRootUrl, programsUrl } from '@/config/index'
-import { getListItemsInnerHtml, convertMdToHtml } from '@/helpers/index'
-import parse from 'html-react-parser'
+import { fetchPrograms } from '@/helpers/index'
 
 const ProfessionsPage = ({ programs }) => {
   return (
@@ -12,14 +10,7 @@ const ProfessionsPage = ({ programs }) => {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
-  const data = await res.json()
-
-  const professions = data.filter(
-    program => program.type && program.type.toLowerCase() === 'profession'
-  )
-
-  const programs = convertMdToHtml({ arr: professions, param: 'description' })
+  const programs = await fetchPrograms({ only: 'professions' })
 
   return {
     props: {

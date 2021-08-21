@@ -11,11 +11,13 @@ const Programs = ({ withTitle = false, withBtn = false, programs = [] }) => {
       <Wrapper>
         {withTitle && <h2 className={stls.title}>Наши программы</h2>}
         <div className={stls.programs}>
-          <Courses
-            biggerTitle={!withTitle}
-            withBtn={withBtn}
-            courses={courses}
-          />
+          {courses.length > 0 && (
+            <Courses
+              biggerTitle={!withTitle}
+              withBtn={withBtn}
+              courses={courses}
+            />
+          )}
         </div>
       </Wrapper>
     </section>

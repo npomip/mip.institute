@@ -1,7 +1,5 @@
 import { PagesPrograms } from '@/components/pages'
-import { backRootUrl, programsUrl } from '@/config/index'
-import { getListItemsInnerHtml, convertMdToHtml } from '@/helpers/index'
-import parse from 'html-react-parser'
+import { fetchPrograms } from '@/helpers/index'
 
 const ProgramsPage = ({ programs }) => {
   return (
@@ -12,10 +10,7 @@ const ProgramsPage = ({ programs }) => {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
-  const data = await res.json()
-
-  const programs = convertMdToHtml({ arr: data, param: 'description' })
+  const programs = await fetchPrograms()
 
   return {
     props: {

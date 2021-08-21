@@ -1,4 +1,5 @@
 import Reviews from '@/components/sections/Reviews'
+import { fetchPrograms } from '@/helpers/index'
 
 const ReviewsPage = ({ programs }) => {
   return (
@@ -9,13 +10,12 @@ const ReviewsPage = ({ programs }) => {
 }
 
 export async function getStaticProps() {
-  // const res = await fetch(`${server}${apiProgramsReqUrl}`)
-  // const { data } = await res.json()
-  const data = ''
+  // const programs = await fetchPrograms()
+  const programs = []
 
   return {
     props: {
-      programs: data
+      programs
     }
   }
 }

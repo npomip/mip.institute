@@ -1,11 +1,23 @@
 import stls from '@/styles/components/program/ProgramInfo.module.sass'
+import ProgramContext from '@/context/program/programContext'
+import { useContext } from 'react'
+import { getCasedRuYearString, getCasedRuMonthString } from '@/helpers/index'
 
 const ProgramInfo = () => {
+  const {
+    program: { studyHours, studyFormLabel, studyMounthsDuration }
+  } = useContext(ProgramContext)
+
   const vals = [
     { key: 'Зачисление', val: 'каждый месяц' },
-    { key: 'Количество часов', val: '1024 ч' },
-    { key: 'Форма обучения', val: 'очно-заочная' },
-    { key: 'Срок обучения', val: '3 года 6 месяцев' }
+    { key: 'Количество часов', val: `${studyHours} ч` },
+    { key: 'Форма обучения', val: `${studyFormLabel}` },
+    {
+      key: 'Срок обучения',
+      val: `${getCasedRuYearString(
+        studyMounthsDuration
+      )} ${getCasedRuMonthString(studyMounthsDuration)}`
+    }
   ]
 
   return (

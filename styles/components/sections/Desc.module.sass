@@ -18,15 +18,15 @@
     top: f.px(-60)
     right: f.px(-150)
 
-.p
-  @include m.media(phone, tablet)
+.content
+  & p
+    @include m.media(phone, tablet)
     font-size: f.px(15)
-  @include m.media(laptop, desktop)
-    max-width: 45ch
-    font-size: f.px(20)
-  font-weight: 300
-  &:nth-last-child(1)
-    @include m.gap($mb: f.px(0))
-
-.highlight
-  font-weight: 500
+    @include m.media(laptop, desktop)
+      max-width: 45ch
+      font-size: f.px(20)
+    font-weight: 300
+    &:nth-last-child(1)
+      @include m.gap($mb: f.px(0))  
+    & strong
+      font-weight: 500

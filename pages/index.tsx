@@ -9,7 +9,11 @@ import {
   Webinars
 } from '@/components/sections'
 import { backRootUrl, programsUrl } from '@/config/index'
-import { getListItemsInnerHtml, convertMdToHtml } from '@/helpers/index'
+import {
+  getListItemsInnerHtml,
+  convertMdToHtml,
+  fetchPrograms
+} from '@/helpers/index'
 import parse from 'html-react-parser'
 
 const HomePage = ({ programs }) => {
@@ -36,10 +40,7 @@ const HomePage = ({ programs }) => {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
-  const data = await res.json()
-
-  const programs = convertMdToHtml({ arr: data, param: 'description' })
+  const programs = await fetchPrograms()
 
   return {
     props: {

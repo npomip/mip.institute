@@ -1,8 +1,17 @@
 import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { IconCircleCheck } from '@/components/icons'
+import ProgramContext from '@/context/program/programContext'
+import { useContext } from 'react'
+import parse from 'html-react-parser'
 
 const WhatYouWillLearn = () => {
+  const {
+    program: { WhatYouWillLearn: whatYouWillLearn }
+  } = useContext(ProgramContext)
+
+  console.log(whatYouWillLearn)
+
   const list = [
     'Рекомендации по составлению резюме и портфолио',
     'Подготовка к собеседованию в компаниях-партнёрах',

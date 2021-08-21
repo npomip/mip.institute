@@ -1,6 +1,6 @@
 import { PagesProgram } from '@/components/pages'
 import { backRootUrl, programsUrl } from '@/config/index'
-import { getListItemsInnerHtml, convertMdToHtml } from '@/helpers/index'
+import { fetchProgram, fetchProgramsPaths } from '@/helpers/index'
 import ProgramContext from '@/context/program/programContext'
 import { useContext, useEffect } from 'react'
 
@@ -19,16 +19,7 @@ const CoursePage = ({ program }) => {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
-  const data = await res.json()
-
-  const courses = data.filter(
-    program => program.type && program.type.toLowerCase() === 'course'
-  )
-
-  const program = courses.filter(courses => courses.slug === slug)[0]
-
-  program.description = convertMdToHtml({ params: [program.description] })
+  const program = await fetchProgram({ ofType: 'course', slug })
 
   return {
     props: {
@@ -39,16 +30,7 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
-  const data = await res.json()
-
-  const courses = data.filter(
-    program => program.type && program.type.toLowerCase() === 'course'
-  )
-
-  const paths = courses.map(course => ({
-    params: { slug: course.slug }
-  }))
+  const paths = await fetchProgramsPaths({ ofType: 'course' })
 
   return {
     paths,

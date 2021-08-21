@@ -5,16 +5,17 @@ type ProgramsType = {
   ofType: 'course' | 'profession'
 }
 
-const fetchPrograms = async ({ ofType }: ProgramsType = { ofType: null }) => {
+const fetchProgramsPaths = async ({ ofType }: ProgramsType) => {
   const res = await fetch(`${backRootUrl}${programsUrl}`)
   const data = await res.json()
 
-  const programs = convertMdToHtml({
-    arr: ofType ? filterProgramsByType({ programs: data, type: ofType }) : data,
-    params: ['description']
-  })
+  const programs = filterProgramsByType({ programs: data, type: ofType })
 
-  return programs
+  const paths = programs.map(program => ({
+    params: { slug: program.slug }
+  }))
+
+  return paths
 }
 
-export default fetchPrograms
+export default fetchProgramsPaths

@@ -2,7 +2,7 @@ type ProgramTypeKey = 'course' | 'profession' | ''
 
 type FilterProgramsProp = {
   // programs: [{ [key: string]: any; type: ProgramTypeKey }]
-  programs: [{ type: ProgramTypeKey }]
+  programs: [{ [key: string]: any; type: ProgramTypeKey }]
   type: 'course' | 'profession'
 }
 

@@ -7,6 +7,7 @@ import getCasedRuMonthString from '@/helpers/getCasedRuMonthString'
 import getCasedRuYearString from '@/helpers/getCasedRuYearString'
 import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
 import getParagraphInnerHtml from '@/helpers/getParagraphInnerHtml'
+import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 
 export {
   convertMdToHtml,
@@ -17,5 +18,6 @@ export {
   getCasedRuMonthString,
   getCasedRuYearString,
   getListItemsInnerHtml,
-  getParagraphInnerHtml
+  getParagraphInnerHtml,
+  toNumberWithSpaces
 }

@@ -7,20 +7,16 @@ import {
   ImgDecoration3
 } from '@/components/imgs'
 import { IconAtom } from '@/components/icons'
+import ProgramContext from '@/context/program/programContext'
+import { useContext } from 'react'
+import { getListItemsInnerHtml } from '@/helpers/index'
 
 const YourFutureJob = () => {
-  const list = [
-    'История психологии',
-    'Общая психология ',
-    'Возрастная психология и психология развития',
-    'Социальная психология',
-    'Психодиагностика',
-    'Педагогическая психология',
-    'Психотерапия',
-    'История психологии',
-    'Общая психология',
-    'Возрастная психология и психология развити'
-  ]
+  const {
+    program: { jobTitles }
+  } = useContext(ProgramContext)
+
+  const list = getListItemsInnerHtml(jobTitles)
 
   return (
     <section className={stls.container}>
@@ -29,11 +25,12 @@ const YourFutureJob = () => {
         <div className={stls.content}>
           <p className={stls.subtitle}>В результате обучения вы:</p>
           <ul className={stls.list}>
-            {list.map((item, idx) => (
-              <li key={item + idx} className={stls.item}>
-                <p className={stls.p}>{item}</p>
-              </li>
-            ))}
+            {list &&
+              list[0].map((item, idx) => (
+                <li key={item + idx} className={stls.item}>
+                  <p className={stls.p}>{item}</p>
+                </li>
+              ))}
           </ul>
           <div className={stls.bottom}>
             <div className={stls.decoration}>

@@ -1,19 +1,16 @@
 import stls from '@/styles/components/sections/YourResume.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { ImgResume1 } from '@/components/imgs'
+import ProgramContext from '@/context/program/programContext'
+import { useContext } from 'react'
+import { getListItemsInnerHtml, toNumberWithSpaces } from '@/helpers/index'
 
 const YourResume = () => {
-  const list = [
-    'Базовые психологические знания и практический опыт',
-    'Опыт для дальнейшего профессионального самоопределения и формирования',
-    'Базовые психологические знания и практический опыт',
-    'Опыт для дальнейшего профессионального самоопределения и формирования',
-    'Базовые психологические знания и практический опыт',
-    'Базовые психологические знания и практический опыт',
-    'Опыт для дальнейшего профессионального самоопределения и формирования',
-    'Базовые психологические знания и практический опыт',
-    'Опыт для дальнейшего профессионального самоопределения и формирования'
-  ]
+  const {
+    program: { resumeTitle, entrySalary, resumeSkills }
+  } = useContext(ProgramContext)
+
+  const list = getListItemsInnerHtml(resumeSkills)
 
   return (
     <section className={stls.container}>
@@ -27,20 +24,21 @@ const YourResume = () => {
             <div className={stls.headings}>
               <div className={stls.heading}>
                 <p className={stls.p}>Форма обучения:</p>
-                <h3 className={stls.h3}>Семейный психолог</h3>
+                <h3 className={stls.h3}>{resumeTitle}</h3>
               </div>
               <div className={stls.heading}>
                 <p className={stls.p}>Зарплата от:</p>
-                <h3 className={stls.h3}>80 000 р</h3>
+                <h3 className={stls.h3}>{toNumberWithSpaces(entrySalary)} р</h3>
               </div>
             </div>
           </div>
           <ul className={stls.list}>
-            {list.map((item, idx) => (
-              <li key={item + idx} className={stls.item}>
-                <p className={stls.itemText}>{item}</p>
-              </li>
-            ))}
+            {list &&
+              list[0].map((item, idx) => (
+                <li key={item + idx} className={stls.item}>
+                  <p className={stls.itemText}>{item}</p>
+                </li>
+              ))}
           </ul>
         </div>
       </Wrapper>

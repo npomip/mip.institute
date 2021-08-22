@@ -12,7 +12,7 @@ const ProgramModulesQty = () => {
 
   return (
     <div className={stls.container}>
-      <p className={stls.qty}>{titles.length}</p>
+      <p className={stls.qty}>{titles && titles.length}</p>
       <p className={stls.text}>Тематических модулей</p>
     </div>
   )

@@ -17,7 +17,7 @@ import {
 import { discount } from '@/data/price'
 
 const PagesProgram = ({ program }) => {
-  console.log(program)
+  // console.log(program)
   return (
     <>
       <HeroProgram />

@@ -1,5 +1,4 @@
 import { PagesProgram } from '@/components/pages'
-import { backRootUrl, programsUrl } from '@/config/index'
 import { fetchProgram, fetchProgramsPaths } from '@/helpers/index'
 import ProgramContext from '@/context/program/programContext'
 import { useContext, useEffect } from 'react'

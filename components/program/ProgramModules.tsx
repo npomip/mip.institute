@@ -2,15 +2,15 @@ import stls from '@/styles/components/program/ProgramModules.module.sass'
 import ProgramModule from '@/components/program/ProgramModule'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
-import { getListItemsInnerHtml } from '@/helpers/index'
+import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
 
 const ProgramModules = () => {
   const {
     program: { shortContents }
   } = useContext(ProgramContext)
 
-  const list1 = getListItemsInnerHtml(shortContents)
-  console.log(list1)
+  const topics = getListItemsInnerHtml(shortContents)
+  const titles = getParagraphInnerHtml(shortContents)
 
   const list = [
     {

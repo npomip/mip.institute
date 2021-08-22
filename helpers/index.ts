@@ -6,6 +6,7 @@ import filterProgramsByType from '@/helpers/filterProgramsByType'
 import getCasedRuMonthString from '@/helpers/getCasedRuMonthString'
 import getCasedRuYearString from '@/helpers/getCasedRuYearString'
 import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
+import getParagraphInnerHtml from '@/helpers/getParagraphInnerHtml'
 
 export {
   convertMdToHtml,
@@ -15,5 +16,6 @@ export {
   filterProgramsByType,
   getCasedRuMonthString,
   getCasedRuYearString,
-  getListItemsInnerHtml
+  getListItemsInnerHtml,
+  getParagraphInnerHtml
 }

@@ -25,7 +25,7 @@ const ForWhom = () => {
         </p>
         <ul className={stls.list}>
           {list &&
-            list.map((item, idx) => (
+            list[0].map((item, idx) => (
               <li key={item + idx} className={stls.item}>
                 <div className={stls.icon}>
                   {idx === 0 ? (

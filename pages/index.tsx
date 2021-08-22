@@ -8,17 +8,11 @@ import {
   Reviews,
   Webinars
 } from '@/components/sections'
-import { backRootUrl, programsUrl } from '@/config/index'
-import {
-  getListItemsInnerHtml,
-  convertMdToHtml,
-  fetchPrograms
-} from '@/helpers/index'
+import { convertMdToHtml, fetchPrograms } from '@/helpers/index'
 import parse from 'html-react-parser'
 
 const HomePage = ({ programs }) => {
   // const desc = programs[1].description
-  // const lis = getListItemsInnerHtml(desc)
 
   return (
     <>

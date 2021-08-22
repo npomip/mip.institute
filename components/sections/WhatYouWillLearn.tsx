@@ -18,7 +18,7 @@ const WhatYouWillLearn = () => {
         <h2 className={stls.title}>Чему вы научитесь</h2>
         <ul className={stls.list}>
           {list &&
-            list.map((item, idx) => (
+            list[0].map((item, idx) => (
               <li key={item + idx} className={stls.item}>
                 <div className={stls.icon}>
                   <IconCircleCheck calpha />

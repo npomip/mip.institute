@@ -14,7 +14,7 @@ const fetchProgram = async ({ ofType, slug }: ProgramsType) => {
 
   const program = convertMdToHtml({
     arr: programs.filter(program => program.slug === slug),
-    params: ['description']
+    params: ['description', 'WhatYouWillLearn']
   })[0]
 
   return program

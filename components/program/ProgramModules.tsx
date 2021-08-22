@@ -12,6 +12,8 @@ const ProgramModules = () => {
   const topics = getListItemsInnerHtml(shortContents)
   const titles = getParagraphInnerHtml(shortContents)
 
+  console.log(titles)
+
   const list = [
     {
       title: 'Специальная психология и дефектология',

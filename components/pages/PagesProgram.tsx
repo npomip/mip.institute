@@ -16,6 +16,7 @@ import {
 } from '@/components/sections'
 
 const PagesProgram = ({ program }) => {
+  console.log(program)
   return (
     <>
       <HeroProgram />

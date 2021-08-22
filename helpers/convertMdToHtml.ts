@@ -13,7 +13,7 @@ const convertMdToHtml = ({ arr = [], params = null }) => {
       arr.map(item => {
         params &&
           params.forEach(param => {
-            item[param] = marked(item[param])
+            item[param] && (item[param] = marked(item[param]))
           })
         return item
       })

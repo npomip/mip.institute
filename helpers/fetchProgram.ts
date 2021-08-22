@@ -13,7 +13,7 @@ const fetchProgram = async ({ ofType, slug }: ProgramsType) => {
   const programs = filterProgramsByType({ programs: data, type: ofType })
 
   const program = convertMdToHtml({
-    arr: programs.filter(program => program.slug === slug),
+    arr: programs && programs.filter(program => program.slug === slug),
     params: [
       'description',
       'WhatYouWillLearn',

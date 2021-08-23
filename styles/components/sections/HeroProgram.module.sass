@@ -4,13 +4,19 @@
 
 .container
   position: relative
-  @include m.gap($pt: f.px(84), $pb: f.px(35))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(84), $pb: f.px(35))
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(84), $pb: f.px(35))
 
 .bg
   position: absolute
   top: 0
   right: 0
-  height: 94%
+  @include m.media(phone, tablet)
+    height: 94%
+  @include m.media(laptop, desktop)
+    height: 85%
   width: 100%
   @include m.dye(bg, c.$alpha)
   z-index: -1

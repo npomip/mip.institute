@@ -3,10 +3,11 @@
 @use '@/styles/themes/default/colors' as c
   
 .container
-  
 
 .title
-  font-size: f.px(22, em)
+  @include m.gap($mb: f.px(20))
+  font-size: f.px(22)
+  font-weight: 500
 
 .clients
   @include m.media(phone, tablet)

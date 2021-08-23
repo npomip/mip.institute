@@ -5,22 +5,28 @@
 .container
   background-color: c.$epsilon
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(16, em), $pb: f.px(50, em))
+    @include m.gap($ptb: f.px(50))
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(95, em), $plr: f.px(136, em))
+    @include m.gap($ptb: f.px(95), $plr: f.px(131))
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20, em))
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(26)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(40, em))
+    @include m.gap($mb: f.px(40))
+    font-size: f.px(44)
+  font-weight: 500
 
-.desktopTitle
+.titleDesktop
   @include m.media(phone, tablet)
     display: none
 
 .list
-  @include m.gap($mb: f.px(20, em), $p: 0)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20), $p: 0)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(50), $p: 0)
   list-style: none
   @include m.flex($fw: wrap, $ai: center)
 
@@ -31,7 +37,7 @@
     @include m.flex($fb: 100%)
   @include m.media(laptop, desktop)
     @include m.flex($fb: 45%)
-    @include m.gap($mb: f.px(30, em))
+    @include m.gap($mb: f.px(30))
     &:not(:nth-child(2n))
       @include m.gap($mr: f.px(30, em))
   div
@@ -41,4 +47,9 @@
     @include m.media(laptop, desktop)
       @include m.flex($fg: 0, $fs: 0, $fb: f.px(37))
       @include m.gap($mr: f.px(30))
-    
+
+.text
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)

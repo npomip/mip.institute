@@ -6,7 +6,7 @@ import {
   ImgRZHD,
   ImgMinistryOfLabor,
   ImgSberbankLeasing
-} from '../imgs'
+} from '@/components/imgs'
 
 const clientsList = [
   {

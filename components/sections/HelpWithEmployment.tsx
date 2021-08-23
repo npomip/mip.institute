@@ -18,13 +18,13 @@ const HelpWithEmployment = () => {
       <Wrapper>
         <h2 className={stls.title}>
           Помощь в трудоустройстве{' '}
-          <span className={stls.desktopTitle}>и поиске клиентов</span>
+          <span className={stls.titleDesktop}>и поиске клиентов</span>
         </h2>
         <ul className={stls.list}>
           {list.map((measure, idx) => (
             <li key={measure + idx} className={stls.item}>
               <IconCircleCheck calpha />
-              {measure}
+              <span className={stls.text}>{measure}</span>
             </li>
           ))}
         </ul>

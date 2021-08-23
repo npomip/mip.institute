@@ -11,10 +11,15 @@
 .portrait
   border-radius: 50%
   overflow: hidden
+  min-width: 160px
+  max-width: 160px
+  min-height: 160px
+  max-height: 160px
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(18, em))
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(38, em))
+    
 
 .content
   height: 100%

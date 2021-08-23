@@ -17,23 +17,25 @@ const Teachers = () => {
     program: { teachers }
   } = useContext(ProgramContext)
 
-  console.log(teachers)
+  const list =
+    teachers &&
+    teachers.map(item => {
+      item.portrait = <ImgTeacher1 name='Иванов Иван Иванович' />
+      // item.formats.thumbnail.url
+      return item
+    })
 
-  const list = teachers.map(item => {
-    item.portrait = <ImgTeacher1 name='Иванов Иван Иванович' />
-    // item.formats.thumbnail.url
-    return item
-  })
-
-  const teachersSlides = list.map((teacher, idx) => (
-    <CardTeacher
-      key={teacher.name + idx}
-      portrait={teacher.portrait}
-      name={teacher.name}
-      specialization={teacher.specialization}
-      achievements={teacher.achievements}
-    />
-  ))
+  const teachersSlides =
+    list &&
+    list.map((teacher, idx) => (
+      <CardTeacher
+        key={teacher.name + idx}
+        portrait={teacher.portrait}
+        name={teacher.name}
+        specialization={teacher.specialization}
+        achievements={teacher.achievements}
+      />
+    ))
 
   const mobileSwiperOptions = {
     slidesNum: 1.75,

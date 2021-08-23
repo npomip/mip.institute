@@ -68,7 +68,7 @@ const SwiperContainer = ({
 
     const slidesPerView = assignNumOfSlidesPerView()
 
-    return !(slidesPerView === slides.length)
+    return !(slidesPerView === slides && slides.length)
   }
 
   const getSpaceBetween = () => {
@@ -88,10 +88,12 @@ const SwiperContainer = ({
         isMultiRow && (isLaptopLayout || isDesktopLayout) ? 2 : 1
       }
       slidesPerColumnFill={!isMobileLayout ? 'row' : 'column'}
-      pagination={{ clickable: true, dynamicBullets: true }}>
-      {slides.map((slide, idx) => (
-        <SwiperSlide key={`slide-${idx}`}>{slide}</SwiperSlide>
-      ))}
+      pagination={{ clickable: true, dynamicBullets: true }}
+      className={stls.container}>
+      {slides &&
+        slides.map((slide, idx) => (
+          <SwiperSlide key={`slide-${idx}`}>{slide}</SwiperSlide>
+        ))}
     </Swiper>
   )
 }

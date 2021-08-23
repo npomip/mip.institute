@@ -57,6 +57,7 @@ const Teachers = () => {
         </p>
         <div className={stls.teachers}>
           <SwiperContainer
+            teachers
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}
             tabletOptions={tabletSwiperOptions}

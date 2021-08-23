@@ -3,10 +3,12 @@ import { useMediaQuery } from 'react-responsive'
 
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import classNames from 'classnames'
 
 SwiperCore.use([Navigation, Pagination])
 
 const SwiperContainer = ({
+  teachers = false,
   slides,
   mobileOptions = { slidesNum: 1, spaceBetween: 10 },
   tabletOptions = { slidesNum: 1, spaceBetween: 10 },
@@ -89,7 +91,10 @@ const SwiperContainer = ({
       }
       slidesPerColumnFill={!isMobileLayout ? 'row' : 'column'}
       pagination={{ clickable: true, dynamicBullets: true }}
-      className={stls.container}>
+      className={classNames({
+        [stls.container]: true,
+        [stls.teachers]: teachers
+      })}>
       {slides &&
         slides.map((slide, idx) => (
           <SwiperSlide key={`slide-${idx}`}>{slide}</SwiperSlide>

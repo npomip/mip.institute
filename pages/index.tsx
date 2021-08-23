@@ -8,15 +8,19 @@ import {
   Reviews,
   Webinars
 } from '@/components/sections'
-import { convertMdToHtml, fetchPrograms } from '@/helpers/index'
-import parse from 'html-react-parser'
+import { fetchPrograms } from '@/helpers/index'
+import ProgramsContext from '@/context/programs/programsContext'
+import { useContext, useEffect } from 'react'
 
 const HomePage = ({ programs }) => {
-  // const desc = programs[1].description
+  const { setPrograms } = useContext(ProgramsContext)
+
+  useEffect(() => {
+    setPrograms(programs)
+  }, [])
 
   return (
     <>
-      {/* <div>{programs.map(program => parse(program.description))}</div> */}
       <Hero />
       <WhyBother />
       <About />

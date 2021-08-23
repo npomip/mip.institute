@@ -2,6 +2,10 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(50))
+
 .title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(30))

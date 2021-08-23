@@ -10,3 +10,14 @@
       transform: translate3d(0px, 0px, 0px) !important
       & > *
         flex-basis: 45%
+  @include m.media(tablet, laptop, desktop)
+    &.diplomas 
+      & > *:nth-last-child(1)
+        & > *
+          min-width: 168px
+          max-width: 168px
+          transform: translate3d(0px, 0px, 0px) !important
+  @include m.media(laptop, desktop)
+    &.diplomas *:nth-last-child(1)
+      & > *
+        @include m.gap($mr: f.px(10))

@@ -2,16 +2,22 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.mobileTitle
-  font-size: f.px(26)
+.container
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(100))
+
+.title
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    max-width: 11ch
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
-  @include m.media(desktop)
-    display: none
-
-.desktopTitle
-  @include m.media(phone, tablet, laptop)
-    display: none
 
 .subtitleContainer
   position: relative
@@ -21,7 +27,13 @@
     @include m.flex($display: false, $fb: 50%)
 
 .subtitle
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb: f.px(20))
+  @include m.media(laptop, desktop)
+    max-width: 33ch
+    @include m.gap($mb: f.px(24))
+    font-size: f.px(20)
   font-weight: 300
   @include m.dye(c, c.$theta)
 

@@ -9,6 +9,7 @@ SwiperCore.use([Navigation, Pagination])
 
 const SwiperContainer = ({
   teachers = false,
+  diplomas = false,
   slides,
   mobileOptions = { slidesNum: 1, spaceBetween: 10 },
   tabletOptions = { slidesNum: 1, spaceBetween: 10 },
@@ -93,7 +94,8 @@ const SwiperContainer = ({
       pagination={{ clickable: true, dynamicBullets: true }}
       className={classNames({
         [stls.container]: true,
-        [stls.teachers]: teachers
+        [stls.teachers]: teachers,
+        [stls.diplomas]: diplomas
       })}>
       {slides &&
         slides.map((slide, idx) => (

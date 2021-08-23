@@ -2,9 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  @include m.gap($mb: f.px(30))
-
 .title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(5, em))
@@ -28,7 +25,7 @@
   font-weight: 300
   @include m.dye(c, c.$kappa)
 
-.courses
+.professions
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(30))
   @include m.media(laptop, desktop)

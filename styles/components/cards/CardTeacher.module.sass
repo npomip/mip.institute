@@ -8,13 +8,15 @@
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
 
-.photoContainer
+.portrait
+  border-radius: 50%
+  overflow: hidden
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(18, em))
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(38, em))
 
-.infoContainer
+.content
   height: 100%
   @include m.flex($fd: column)
 

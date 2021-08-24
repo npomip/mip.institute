@@ -2,7 +2,7 @@ import stls from '@/styles/components/btns/BtnFields.module.sass'
 import { IconMenu } from '@/components/icons'
 import { BtnField } from '@/components/btns'
 import ProgramsContext from '@/context/programs/programsContext'
-import { useContext, useEffect } from 'react'
+import { Fragment, useContext, useEffect } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { routePrograms } from '@/data/routes'
@@ -30,9 +30,16 @@ const BtnFields = () => {
           [stls.isShown]: fieldsTooltipIsOpen
         })}>
         {studyFields.map(({ label, slug }, idx) => (
-          <li key={slug + idx} className={stls.studyField}>
-            <BtnField href={`${routePrograms}/${slug}`}>{label}</BtnField>
-          </li>
+          <Fragment key={slug + idx}>
+            {idx === 0 && (
+              <li className={stls.studyField}>
+                <BtnField href={`${routePrograms}`}>Все направления</BtnField>
+              </li>
+            )}
+            <li className={stls.studyField}>
+              <BtnField href={`${routePrograms}/${slug}`}>{label}</BtnField>
+            </li>
+          </Fragment>
         ))}
       </ul>
     </div>

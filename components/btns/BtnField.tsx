@@ -4,11 +4,12 @@ import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { useContext } from 'react'
 
 const BtnField = ({ href, children }) => {
-  const { fieldsTooltipIsOpen, closeFieldsTooltip } =
-    useContext(FieldsTooltipContext)
+  const { closeFieldsTooltip } = useContext(FieldsTooltipContext)
   return (
     <Link href={href}>
-      <a onClick={closeFieldsTooltip}>{children}</a>
+      <a className={stls.link} onClick={closeFieldsTooltip}>
+        {children}
+      </a>
     </Link>
   )
 }

@@ -1,3 +1,4 @@
+import closeFieldsTooltipOnOuterClick from '@/helpers/closeFieldsTooltipOnOuterClick'
 import convertMdToHtml from '@/helpers/convertMdToHtml'
 import fetchPrograms from '@/helpers/fetchPrograms'
 import fetchProgramsPaths from '@/helpers/fetchProgramsPaths'
@@ -15,6 +16,7 @@ import removeDuplicates from '@/helpers/removeDuplicates'
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 
 export {
+  closeFieldsTooltipOnOuterClick,
   getStudyFields,
   convertMdToHtml,
   fetchPrograms,

@@ -2,17 +2,22 @@ import stls from '@/styles/components/btns/BtnFields.module.sass'
 import { IconMenu } from '@/components/icons'
 import { BtnField } from '@/components/btns'
 import ProgramsContext from '@/context/programs/programsContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { routePrograms } from '@/data/routes'
+import { closeFieldsTooltipOnOuterClick } from '@/helpers/index'
 
 const BtnFields = () => {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
     useContext(FieldsTooltipContext)
   const { studyFields } = useContext(ProgramsContext)
+
+  useEffect(() => {
+    closeFieldsTooltipOnOuterClick(closeFieldsTooltip)
+  }, [])
   return (
-    <div className={stls.container}>
+    <div id='btnFieldsContainer' className={stls.container}>
       <button className={stls.btn} onClick={toggleFieldsTooltip}>
         <div className={stls.icon}>
           <IconMenu />

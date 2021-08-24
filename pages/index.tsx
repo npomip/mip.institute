@@ -25,7 +25,7 @@ const HomePage = ({ programs }) => {
       <WhyBother />
       <About />
       <HowProcessGoes />
-      <Programs withTitle withBtn programs={programs} />
+      <Programs withTitle withBtn />
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}

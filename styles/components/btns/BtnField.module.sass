@@ -2,9 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  position: relative
-
 .btn
   @include m.flex($ai: center)
   @include m.gap($ptb: f.px(14), $plr: f.px(30))
@@ -23,7 +20,7 @@
     //   &:nth-last-child(1)
     //     x: 10
   &:focus
-    transform: scale(1)
+    transform: scale(0.98)
 
   // &:focus-within
   //   & > .icon
@@ -32,31 +29,6 @@
   @include m.gap($mr: f.px(16))
 
 .tooltip
-  position: absolute
-  left: 0
-  bottom: 0
-  transform: translateY(122%)
-  display: none
-  width: 200%
-  @include m.gap($mtb: 0, $pt: f.px(37), $plr: f.px(37), $pb: f.px(37 - 12))
   box-shadow: 0 f.px(7) f.px(50) rgba(c.$chi, .2)
   border-radius: f.px(9)
-  @include m.dye(bg, c.$nu)  
-  z-index: 2
-  &.isShown
-    @include m.flex($fw: wrap)
-  &::before
-    content: ''
-    position: absolute
-    top: f.px(2)
-    left: f.px(15)
-    @include m.dye(bg, c.$nu)  
-    width: 1em
-    height: 1em
-    border-radius: 25%
-    transform: rotate(58deg) skewX(30deg) translate(15%, -50%)
-
-
-.studyField
-  @include m.flex
-  @include m.gap($mr: f.px(12), $mb: f.px(12))
+  @include m.dye(bg, c.$nu)

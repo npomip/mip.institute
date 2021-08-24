@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from 'react'
 import MenuState from '@/context/menu/MenuState'
 import ProgramsState from '@/context/programs/ProgramsState'
 import ProgramState from '@/context/program/ProgramState'
+import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 
 import TagManager from 'react-gtm-module'
 
@@ -63,11 +64,13 @@ function MyApp({ Component, pageProps, router }) {
       <ProgramsState>
         <ProgramState>
           <MenuState>
-            <Header />
-            <main>
-              <Component {...pageProps} />
-            </main>
-            <Footer />
+            <FieldsTooltipState>
+              <Header />
+              <main>
+                <Component {...pageProps} />
+              </main>
+              <Footer />
+            </FieldsTooltipState>
           </MenuState>
         </ProgramState>
       </ProgramsState>

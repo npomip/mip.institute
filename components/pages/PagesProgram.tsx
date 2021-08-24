@@ -16,8 +16,7 @@ import {
 } from '@/components/sections'
 import { discount } from '@/data/price'
 
-const PagesProgram = ({ program }) => {
-  console.log(program)
+const PagesProgram = () => {
   return (
     <>
       <HeroProgram />

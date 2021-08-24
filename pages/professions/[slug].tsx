@@ -1,27 +1,36 @@
 import { PagesProgram } from '@/components/pages'
-import { fetchProgram, fetchProgramsPaths } from '@/helpers/index'
+import { fetchPrograms, getProgram, fetchProgramsPaths } from '@/helpers/index'
+import ProgramsContext from '@/context/programs/programsContext'
 import ProgramContext from '@/context/program/programContext'
 import { useContext, useEffect } from 'react'
 
-const ProfessionPage = ({ program }) => {
+const ProfessionPage = ({ programs, program }) => {
+  const { setPrograms } = useContext(ProgramsContext)
   const { setProgram } = useContext(ProgramContext)
 
   useEffect(() => {
+    setPrograms(programs)
     setProgram(program)
   }, [])
 
   return (
     <>
-      <PagesProgram program={program} />
+      <PagesProgram />
     </>
   )
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const program = await fetchProgram({ ofType: 'profession', slug })
+  const programs = await fetchPrograms()
+  const program = getProgram({
+    data: programs,
+    ofType: 'profession',
+    slug
+  })
 
   return {
     props: {
+      programs,
       program
     }
     // revalidate: 60 * 60 * 24 // a single day

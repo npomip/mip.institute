@@ -5,12 +5,16 @@ import {
   ContactForm
 } from '@/components/sections'
 
-const PagesPrograms = ({ programs }) => {
+type PagesProgramsType = {
+  ofType?: 'course' | 'profession'
+}
+
+const PagesPrograms = ({ ofType }: PagesProgramsType) => {
   return (
     <>
       <HeroPrograms />
       <FilterSearch />
-      <Programs programs={programs} />
+      <Programs ofType={ofType} />
       <ContactForm />
     </>
   )

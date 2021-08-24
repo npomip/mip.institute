@@ -2,28 +2,50 @@ import stls from '@/styles/components/sections/Programs.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
+import ProgramsContext from '@/context/programs/programsContext'
+import { useContext } from 'react'
 
-const Programs = ({ withTitle = false, withBtn = false, programs = [] }) => {
-  const courses = programs.filter(
-    program => program.type && program.type.toLowerCase() === 'course'
-  )
+type ProgramsType = {
+  ofType?: 'course' | 'profession'
+  withTitle?: boolean
+  withBtn?: boolean
+}
 
-  const professions = programs.filter(
-    program => program.type && program.type.toLowerCase() === 'profession'
-  )
+const Programs = ({
+  ofType,
+  withTitle = false,
+  withBtn = false
+}: ProgramsType) => {
+  const { courses, professions } = useContext(ProgramsContext)
   return (
     <section className={stls.container}>
       <Wrapper>
         {withTitle && <h2 className={stls.title}>Наши программы</h2>}
         <div className={stls.programs}>
-          {courses && courses.length > 0 && (
+          {ofType === 'course' && courses && courses.length > 0 && (
             <Courses
               biggerTitle={!withTitle}
               withBtn={withBtn}
               courses={courses}
             />
           )}
-          {professions && professions.length > 0 && (
+          {ofType === 'profession' && professions && professions.length > 0 && (
+            <Professions
+              biggerTitle={!withTitle}
+              withBtn={withBtn}
+              professions={professions}
+            />
+          )}
+
+          {!ofType && courses && courses.length > 0 && (
+            <Courses
+              biggerTitle={!withTitle}
+              withBtn={withBtn}
+              courses={courses}
+            />
+          )}
+
+          {!ofType && professions && professions.length > 0 && (
             <Professions
               biggerTitle={!withTitle}
               withBtn={withBtn}

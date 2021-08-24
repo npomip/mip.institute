@@ -1,16 +1,24 @@
 import { PagesPrograms } from '@/components/pages'
 import { fetchPrograms } from '@/helpers/index'
+import ProgramsContext from '@/context/programs/programsContext'
+import { useContext, useEffect } from 'react'
 
 const CoursesPage = ({ programs }) => {
+  const { setPrograms } = useContext(ProgramsContext)
+
+  useEffect(() => {
+    setPrograms(programs)
+  }, [])
+
   return (
     <>
-      <PagesPrograms programs={programs} />
+      <PagesPrograms ofType='course' />
     </>
   )
 }
 
 export async function getStaticProps(context) {
-  const programs = await fetchPrograms({ ofType: 'course' })
+  const programs = await fetchPrograms()
 
   return {
     props: {

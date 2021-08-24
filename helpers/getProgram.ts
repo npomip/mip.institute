@@ -1,15 +1,14 @@
-import { backRootUrl, programsUrl } from '@/config/index'
 import { convertMdToHtml, filterProgramsByType } from '@/helpers/index'
 
-type ProgramsType = {
+type getProgramKey = 'course' | 'profession' | ''
+
+type getProgramType = {
+  data: [{ [key: string]: any; type: getProgramKey }]
   ofType: 'course' | 'profession'
   slug: string
 }
 
-const fetchProgram = async ({ ofType, slug }: ProgramsType) => {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
-  const data = await res.json()
-
+const getProgram = ({ data, ofType, slug }: getProgramType) => {
   const programs = filterProgramsByType({ programs: data, type: ofType })
 
   const program = convertMdToHtml({
@@ -27,4 +26,4 @@ const fetchProgram = async ({ ofType, slug }: ProgramsType) => {
   return program
 }
 
-export default fetchProgram
+export default getProgram

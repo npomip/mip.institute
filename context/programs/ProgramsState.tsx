@@ -5,7 +5,10 @@ import { SET_PROGRAMS } from '@/context/types'
 
 const ProgramsState = props => {
   const initialState = {
-    programs: []
+    programs: [],
+    courses: [],
+    professions: [],
+    studyFields: []
   }
 
   const [state, dispatch] = useReducer(programsReducer, initialState)
@@ -18,6 +21,9 @@ const ProgramsState = props => {
     <ProgramsContext.Provider
       value={{
         programs: state.programs,
+        courses: state.courses,
+        professions: state.professions,
+        studyFields: state.studyFields,
         setPrograms
       }}>
       {props.children}

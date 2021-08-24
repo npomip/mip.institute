@@ -1,6 +1,6 @@
 import { OPEN_MENU, CLOSE_MENU, TOGGLE_MENU } from '@/context/types'
 
-const contactReducer = (state, action) => {
+const menuReducer = (state, action) => {
   switch (action.type) {
     case OPEN_MENU:
       return {
@@ -22,4 +22,4 @@ const contactReducer = (state, action) => {
   }
 }
 
-export default contactReducer
+export default menuReducer

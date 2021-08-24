@@ -13,10 +13,13 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 
 const HomePage = ({ programs }) => {
-  const { setPrograms } = useContext(ProgramsContext)
+  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
+    useContext(ProgramsContext)
 
   useEffect(() => {
     setPrograms(programs)
+    setCurProgramsType(null)
+    setCurProgramsStudyFieldSlug(null)
   }, [])
 
   return (

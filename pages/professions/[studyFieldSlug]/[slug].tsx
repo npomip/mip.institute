@@ -4,13 +4,16 @@ import ProgramsContext from '@/context/programs/programsContext'
 import ProgramContext from '@/context/program/programContext'
 import { useContext, useEffect } from 'react'
 
-const CoursePage = ({ programs, program }) => {
-  const { setPrograms } = useContext(ProgramsContext)
+const ProfessionPage = ({ programs, program, studyFieldSlug }) => {
+  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
+    useContext(ProgramsContext)
   const { setProgram } = useContext(ProgramContext)
 
   useEffect(() => {
     setPrograms(programs)
     setProgram(program)
+    setCurProgramsType('profession')
+    setCurProgramsStudyFieldSlug(studyFieldSlug)
   }, [])
 
   return (
@@ -22,19 +25,26 @@ const CoursePage = ({ programs, program }) => {
 
 export async function getStaticProps({ params: { slug } }) {
   const programs = await fetchPrograms()
-  const program = getProgram({ data: programs, ofType: 'course', slug })
+  const program = getProgram({
+    data: programs,
+    ofType: 'profession',
+    slug
+  })
+
+  const studyFieldSlug = program.studyFieldSlug
 
   return {
     props: {
       programs,
-      program
+      program,
+      studyFieldSlug: studyFieldSlug || 'studyFieldSlug'
     }
     // revalidate: 60 * 60 * 24 // a single day
   }
 }
 
 export async function getStaticPaths() {
-  const paths = await fetchProgramsPaths({ ofType: 'course' })
+  const paths = await fetchProgramsPaths({ ofType: 'profession' })
 
   return {
     paths,
@@ -42,4 +52,4 @@ export async function getStaticPaths() {
   }
 }
 
-export default CoursePage
+export default ProfessionPage

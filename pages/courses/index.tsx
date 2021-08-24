@@ -4,10 +4,13 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 
 const CoursesPage = ({ programs }) => {
-  const { setPrograms } = useContext(ProgramsContext)
+  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
+    useContext(ProgramsContext)
 
   useEffect(() => {
     setPrograms(programs)
+    setCurProgramsType('course')
+    setCurProgramsStudyFieldSlug(null)
   }, [])
 
   return (

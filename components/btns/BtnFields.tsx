@@ -1,11 +1,11 @@
 import stls from '@/styles/components/btns/BtnFields.module.sass'
 import { IconMenu } from '@/components/icons'
 import { BtnField } from '@/components/btns'
-import { useState } from 'react'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
+import { routePrograms } from '@/data/routes'
 
 const BtnFields = () => {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
@@ -24,9 +24,9 @@ const BtnFields = () => {
           [stls.tooltip]: true,
           [stls.isShown]: fieldsTooltipIsOpen
         })}>
-        {studyFields.map((studyField, idx) => (
-          <li key={studyField + idx} className={stls.studyField}>
-            <BtnField>{studyField}</BtnField>
+        {studyFields.map(({ label, slug }, idx) => (
+          <li key={slug + idx} className={stls.studyField}>
+            <BtnField href={`${routePrograms}/${slug}`}>{label}</BtnField>
           </li>
         ))}
       </ul>

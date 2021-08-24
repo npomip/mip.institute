@@ -5,17 +5,22 @@ type ProgramsType = {
   ofType: 'course' | 'profession'
 }
 
-const fetchProgramsPaths = async ({ ofType }: ProgramsType) => {
+const fetchProgramsPaths = async (
+  { ofType }: ProgramsType = { ofType: null }
+) => {
   const res = await fetch(`${backRootUrl}${programsUrl}`)
   const data = await res.json()
 
-  const programs = filterProgramsByType({ programs: data, type: ofType })
+  let programs
+
+  if (ofType) {
+    programs = filterProgramsByType({ programs: data, type: ofType })
+  } else {
+    programs = data
+  }
 
   const paths = programs.map(program => ({
-    params: {
-      slug: program.slug,
-      studyFieldSlug: program.studyFieldSlug || 'studyfield'
-    }
+    params: { studyFieldSlug: program.studyFieldSlug || 'studyfield' }
   }))
 
   return paths

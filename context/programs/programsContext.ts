@@ -5,7 +5,11 @@ const programsContext = createContext({
   courses: [],
   professions: [],
   studyFields: [],
-  setPrograms: programs => {}
+  curProgramsType: null,
+  curProgramsStudyFieldSlug: null,
+  setPrograms: programs => {},
+  setCurProgramsType: programType => {},
+  setCurProgramsStudyFieldSlug: slug => {}
 })
 
 export default programsContext

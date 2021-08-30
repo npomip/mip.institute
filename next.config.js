@@ -1,7 +1,8 @@
+const withPWA = require('next-pwa')
 const { createSecureHeaders } = require('next-secure-headers')
 // const dev = process.env.NODE_ENV === 'development'
 
-module.exports = {
+module.exports = withPWA({
   poweredByHeader: false,
   i18n: {
     locales: ['ru', 'kz', 'uz'],
@@ -87,4 +88,4 @@ module.exports = {
   //     }
   //   ]
   // }
-}
+})

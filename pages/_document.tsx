@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { themeColor } from '@/config/index'
+import MetaFonts from '@/components/meta/MetaFonts'
+import MetaManifest from '@/components/meta/MetaManifest'
 
 class MyDocument extends Document {
   // static async getInitialProps(ctx) {
@@ -13,6 +15,8 @@ class MyDocument extends Document {
         <Head>
           <meta charSet='UTF-8' />
           <meta name='theme-color' content={themeColor} />
+          <MetaFonts />
+          <MetaManifest />
         </Head>
         <body>
           <Main />

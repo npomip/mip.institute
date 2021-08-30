@@ -1,5 +1,9 @@
 import { PagesPrograms } from '@/components/pages'
-import { fetchPrograms, fetchStudyFieldsPaths } from '@/helpers/index'
+import {
+  fetchPrograms,
+  fetchStudyFieldsPaths,
+  filterProgramsByStudyField
+} from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 
@@ -22,11 +26,15 @@ const ProfessionsStudyFieldPage = ({ programs, studyFieldSlug }) => {
 
 export async function getStaticProps({ params: { studyFieldSlug } }) {
   const programs = await fetchPrograms({ ofType: 'profession' })
+  // const programs = await filterProgramsByStudyField({
+  //   programs: data,
+  //   studyFieldSlug
+  // })
 
   return {
     props: {
       programs,
-      studyFieldSlug: studyFieldSlug || 'studyFieldSlug'
+      studyFieldSlug
     },
     revalidate: 60
     // revalidate: 60 * 60 * 24 // a single day

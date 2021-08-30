@@ -1,5 +1,9 @@
 import { PagesPrograms } from '@/components/pages'
-import { fetchPrograms, fetchStudyFieldsPaths } from '@/helpers/index'
+import {
+  fetchPrograms,
+  fetchStudyFieldsPaths,
+  filterProgramsByStudyField
+} from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 
@@ -22,6 +26,10 @@ const ProgramsStudyFieldPage = ({ programs, studyFieldSlug }) => {
 
 export async function getStaticProps({ params: { studyFieldSlug } }) {
   const programs = await fetchPrograms()
+  // const programs = await filterProgramsByStudyField({
+  //   programs: data,
+  //   studyFieldSlug
+  // })
 
   return {
     props: {

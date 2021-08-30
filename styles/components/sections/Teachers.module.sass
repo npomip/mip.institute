@@ -3,19 +3,28 @@
 @use '@/styles/themes/default/colors' as c
   
 .container
-  @include m.dye(c, c.$theta)
 
 .title
-  @include m.gap($mb: f.px(10, em))
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(11))
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(12))
+    font-size: f.px(44)
+  font-weight: 500
+  @include m.dye(c, c.$theta)
 
 .desc
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb: f.px(14))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(60, em))
+    @include m.gap($mb: f.px(60))
+    font-size: f.px(20)
+  @include m.dye(c, c.$theta)
 
-.bold
-  font-weight: 700
+.highlight
+  font-weight: 500
 
 .teachers
   position: relative

@@ -3,6 +3,7 @@ import convertMdToHtml from '@/helpers/convertMdToHtml'
 import fetchPrograms from '@/helpers/fetchPrograms'
 import fetchProgramsPaths from '@/helpers/fetchProgramsPaths'
 import fetchStudyFieldsPaths from '@/helpers/fetchStudyFieldsPaths'
+import filterProgramsByStudyField from '@/helpers/filterProgramsByStudyField'
 import filterProgramsByType from '@/helpers/filterProgramsByType'
 import getCasedRuMonthString from '@/helpers/getCasedRuMonthString'
 import getCasedRuYearString from '@/helpers/getCasedRuYearString'
@@ -22,6 +23,7 @@ export {
   fetchPrograms,
   fetchProgramsPaths,
   fetchStudyFieldsPaths,
+  filterProgramsByStudyField,
   filterProgramsByType,
   getCasedRuMonthString,
   getCasedRuYearString,

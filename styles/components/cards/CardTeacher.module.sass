@@ -28,14 +28,24 @@
 .name
   width: 15ch
   @include m.gap($mb: f.px(5, em))
-  font-size: f.px(18)
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    font-size: f.px(22)
   font-weight: 500
 
 .specialization
   @include m.gap($mb: f.px(11, em))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
   font-weight: 300
 
 .achievements
   @include m.gap($mt: auto, $mb: 0)
-  font-size: f.px(11)
+  @include m.media(phone, tablet)
+    font-size: f.px(11)
+  @include m.media(laptop, desktop)
+    font-size: f.px(13)
+  @include m.dye(c, c.$kappa)

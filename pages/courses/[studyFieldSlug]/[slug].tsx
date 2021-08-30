@@ -33,7 +33,7 @@ export async function getStaticProps({ params: { slug } }) {
     props: {
       programs,
       program,
-      studyFieldSlug: studyFieldSlug || 'studyFieldSlug'
+      studyFieldSlug
     },
     revalidate: 60
     // revalidate: 60 * 60 * 24 // a single day

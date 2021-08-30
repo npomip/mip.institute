@@ -1,5 +1,9 @@
 import { PagesPrograms } from '@/components/pages'
-import { fetchPrograms, fetchStudyFieldsPaths } from '@/helpers/index'
+import {
+  fetchPrograms,
+  fetchStudyFieldsPaths,
+  filterProgramsByStudyField
+} from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 
@@ -26,7 +30,7 @@ export async function getStaticProps({ params: { studyFieldSlug } }) {
   return {
     props: {
       programs,
-      studyFieldSlug: studyFieldSlug || 'studyFieldSlug'
+      studyFieldSlug
     },
     revalidate: 60
     // revalidate: 60 * 60 * 24 // a single day

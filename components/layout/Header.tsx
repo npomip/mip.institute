@@ -9,8 +9,18 @@ import { city, street } from '@/data/location'
 import { IconLocation } from '@/components/icons'
 import { BtnEpsilon, BtnFields } from '@/components/btns'
 import { routeWebinars, routeReviews, routeAbout } from '@/data/routes'
+import MenuContext from '@/context/menu/menuContext'
+import { useEffect, useContext } from 'react'
+import { handleSwipedEvt } from '@/helpers/index'
 
 const Header = () => {
+  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
+    useContext(MenuContext)
+
+  useEffect(() => {
+    handleSwipedEvt({ menuIsOpen, closeMenu })
+  }, [menuIsOpen, closeMenu])
+
   return (
     <header className={stls.container}>
       <MenuMobile />

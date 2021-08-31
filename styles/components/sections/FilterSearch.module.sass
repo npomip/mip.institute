@@ -3,9 +3,13 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pt: f.px(20), $pb: f.px(31))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(20), $pb: f.px(31))
+  @include m.media(laptop, desktop)
+    display: none
 
 .btns
-  @include m.flex($jc: space-between)
-  & > *
-    @include m.flex($display: false, $fb: 48%)
+  @include m.media(phone, tablet)
+    @include m.flex($jc: space-between)
+    & > *
+      @include m.flex($display: false, $fb: 48%)

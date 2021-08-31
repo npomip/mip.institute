@@ -1,6 +1,7 @@
 import Router from 'next/router'
 
 import { useEffect, useState, useContext } from 'react'
+import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
 import ProgramsState from '@/context/programs/ProgramsState'
 import ProgramState from '@/context/program/ProgramState'
@@ -74,6 +75,7 @@ function MyApp({ Component, pageProps, router }) {
           </MenuState>
         </ProgramState>
       </ProgramsState>
+      <Script src='/assets/js/vendors/swiped-events.min.js' />
     </>
   )
 }

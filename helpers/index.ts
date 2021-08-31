@@ -13,6 +13,7 @@ import getProgram from '@/helpers/getProgram'
 import getStudyFields from '@/helpers/getStudyFields'
 import getStudyFieldsLabels from '@/helpers/getStudyFieldsLabels'
 import getStudyFieldsSlugs from '@/helpers/getStudyFieldsSlugs'
+import handleSwipedEvt from '@/helpers/handleSwipedEvt'
 import removeDuplicates from '@/helpers/removeDuplicates'
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 
@@ -32,6 +33,7 @@ export {
   getProgram,
   getStudyFieldsLabels,
   getStudyFieldsSlugs,
+  handleSwipedEvt,
   removeDuplicates,
   toNumberWithSpaces
 }

@@ -8,6 +8,15 @@
   @include m.dye(c, c.$nu)
 
 .title
-  font-size: f.px(36)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(9))
+    font-size: f.px(36)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(21))
+    font-size: f.px(64)
   font-weight: 500
   line-height: 110%
+
+.btn
+  @include m.media(laptop, desktop)
+    display: none

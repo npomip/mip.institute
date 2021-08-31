@@ -24,8 +24,7 @@ const Professions = ({
           <h3 className={stls.title}>Профессии</h3>
         )}
         <p className={stls.subTitle}>
-          Полные программы, диплом которых считаются альтернативой второму
-          высшему
+          Длинные программы для полного погружения в направление
         </p>
       </hgroup>
       <div className={stls.professions}>

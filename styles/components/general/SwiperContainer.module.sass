@@ -3,13 +3,30 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.media(laptop, desktop)
+  @include m.media(phone, tablet)
     &.teachers > *
-      // @include m.dye(bg, black)
+      & > *
+        flex-basis: 35%
+        max-width: f.px(168)
+  @include m.media(laptop)
+    &.teachers > *
       max-width: 100%
       transform: translate3d(0px, 0px, 0px) !important
       & > *
         flex-basis: 45%
+        margin-top: f.px(10) !important
+        margin-bottom: f.px(30)
+        &:nth-child(odd)
+          margin-right: f.px(50) !important
+  @include m.media(desktop)
+    &.teachers > *
+      max-width: 100%
+      transform: translate3d(0px, 0px, 0px) !important
+      & > *
+        flex-basis: 50%
+        max-width: f.px(530)
+        margin-top: f.px(10) !important
+        margin-bottom: f.px(30)
   @include m.media(tablet, laptop, desktop)
     &.diplomas 
       & > *:nth-last-child(1)

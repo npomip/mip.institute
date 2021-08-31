@@ -4,7 +4,10 @@
 
 .container
   position: relative
-  @include m.gap($ptb: f.px(50))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(95))
   overflow: visible
 
 .title
@@ -12,7 +15,7 @@
     @include m.gap($mb: f.px(20))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(26))
+    @include m.gap($mb: f.px(30))
     font-size: f.px(44)
   font-weight: 500
 
@@ -55,7 +58,7 @@
     width: 50%
     max-width: f.px(700)
     position: absolute
-    top: f.px(-10)
+    top: f.px(95)
     right: f.px(-150)
 
 .decoration

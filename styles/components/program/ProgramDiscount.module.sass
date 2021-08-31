@@ -22,15 +22,26 @@
   @include m.dye(bg, c.$beta)
   @include m.dye(c, c.$nu)
   &.small
-    min-width: f.px(73)
-    max-width: f.px(73)
-    min-height: f.px(73)
-    max-height: f.px(73)
-    @include m.gap($pt: f.px(17))
-    & .discount
-      font-size: f.px(23)
-    & .until
-      font-size: f.px(8)
+    @include m.media(phone, tablet)
+      min-width: f.px(73)
+      max-width: f.px(73)
+      min-height: f.px(73)
+      max-height: f.px(73)
+      @include m.gap($pt: f.px(17))
+      & .discount
+        font-size: f.px(23)
+      & .until
+        font-size: f.px(8)
+    @include m.media(laptop, desktop)
+      min-width: f.px(122)
+      max-width: f.px(122)
+      min-height: f.px(122)
+      max-height: f.px(122)
+      @include m.gap($pt: f.px(6))
+      & .discount
+        font-size: f.px(38)
+      & .until
+        font-size: f.px(13)
 
 .discount
   @include m.gap($mb: 0)
@@ -47,5 +58,3 @@
   @include m.media(laptop, desktop)
     font-size: f.px(16)
   font-weight: 500
-  &.small
-    font-size: f.px(8)

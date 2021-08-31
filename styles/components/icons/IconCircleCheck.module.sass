@@ -15,5 +15,13 @@
     & rect
       @include m.dye(stroke, c.$nu)
 
+  &.inverse
+    border-radius: 50%
+    @include m.dye(bg, c.$beta)
+    & path
+      @include m.dye(stroke, c.$nu)
+    & rect
+      @include m.dye(stroke, c.$beta)
+
   // & path, & rect
   //   @include m.dye(stroke, c.$beta)

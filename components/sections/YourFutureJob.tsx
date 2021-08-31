@@ -23,35 +23,37 @@ const YourFutureJob = () => {
       <Wrapper>
         <h2 className={stls.title}>Кем сможете работать</h2>
         <div className={stls.content}>
-          <p className={stls.subtitle}>В результате обучения вы:</p>
-          <ul className={stls.list}>
-            {list &&
-              list[0].map((item, idx) => (
-                <li key={item + idx} className={stls.item}>
-                  <p className={stls.p}>{item}</p>
-                </li>
-              ))}
-          </ul>
+          <div>
+            <p className={stls.subtitle}>В результате обучения вы:</p>
+            <ul className={stls.list}>
+              {list &&
+                list[0].map((item, idx) => (
+                  <li key={item + idx} className={stls.item}>
+                    <p className={stls.p}>{item}</p>
+                  </li>
+                ))}
+            </ul>
+          </div>
           <div className={stls.bottom}>
+            <div className={stls.icon}>
+              <IconAtom calpha barelyVisible />
+            </div>
             <div className={stls.decoration}>
               <div className={stls.atom}>
                 <IconAtom withCircles responsive calpha barelyVisible />
               </div>
-              <div className={stls.smallDot}></div>
-              <div className={stls.mediumDot}></div>
-              <div className={stls.largeDot}></div>
-            </div>
-            <div className={stls.imgTopLeft}>
-              <ImgDecoration1 />
-            </div>
-            <div className={stls.imgTopRight}>
-              <ImgDecoration2 />
-            </div>
-            <div className={stls.imgMiddle}>
-              <ImgCourse2 />
-            </div>
-            <div className={stls.imgBottomRight}>
-              <ImgDecoration3 />
+              <div className={stls.imgTopLeft}>
+                <ImgDecoration1 />
+              </div>
+              <div className={stls.imgTopRight}>
+                <ImgDecoration2 />
+              </div>
+              <div className={stls.imgMiddle}>
+                <ImgCourse2 />
+              </div>
+              <div className={stls.imgBottomRight}>
+                <ImgDecoration3 />
+              </div>
             </div>
           </div>
         </div>

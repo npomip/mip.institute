@@ -3,70 +3,97 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  position: relative
   @include m.gap($ptb: f.px(50))
+  overflow: visible
 
 .title
-  @include m.gap($mb: f.px(20))
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(26))
+    font-size: f.px(44)
   font-weight: 500
 
+.content
+  @include m.media(laptop, desktop)
+    @include m.flex
+    & > *:nth-child(1)
+      @include m.gap($mr: f.px(100))
+
+.subtitle
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(16))
+    font-size: f.px(20)
+
 .p
-  @include m.gap($mb: f.px(10))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb: f.px(10))
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(12))
   font-weight: 300
 
 .list
-  @include m.gap($mt: f.px(0), $mr: f.px(0), $mb: f.px(20), $ml: f.px(12), $p: 0)
+  @include m.gap($mt: f.px(0), $mr: f.px(0), $mb: f.px(30), $ml: f.px(12), $p: 0)
   list-style-type: '•'
 
 .item
   & > .p
     @include m.gap($ml: f.px(12))
 
-.bottom
-  position: relative
-  // @include m.gap($pt: f.px(50), $pb: f.px(20))
+
+.icon
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    width: 50%
+    max-width: f.px(700)
+    position: absolute
+    top: f.px(-10)
+    right: f.px(-150)
 
 .decoration
-  // position: absolute
-  // top: 0
-
-.atom
-
-.smallDot
-  // position: absolute
-  // top: 50%
-  // left: f.px(51)
-  // transform: translateY(-50%)
-  // width: f.px(9)
-  // height: f.px(9)
-  // @include m.dye(bg, c.$beta)
-  // border-radius: 50%
-
-.mediumDot
-
-.largeDot
+  @include m.media(phone, tablet)
+    position: relative
+    max-width: f.px(400)
+    @include m.gap($ml: auto, $mr: auto)
+  @include m.media(laptop, desktop)
+    display: none
 
 .imgTopLeft
-  position: absolute
-  top: 0
-  left: 0
+  @include m.media(phone, tablet)
+    position: absolute
+    top: 11%
+    left: 2%
 
 .imgTopRight
-  position: absolute
-  top: 0
-  right: 0
+  @include m.media(phone, tablet)
+    position: absolute
+    top: 11%
+    right: 2%
 
 .imgMiddle
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  max-width: f.px(177)
-  border-radius: f.px(48) 0
-  overflow: hidden
+  @include m.media(phone, tablet)
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: f.px(177)
+    border-radius: f.px(48) 0
+    overflow: hidden
 
 .imgBottomRight
-  position: absolute
-  bottom: 0
-  right: 0
+  @include m.media(phone)
+    position: absolute
+    bottom: 7%
+    right: 1%
+  @include m.media(tablet)
+    position: absolute
+    bottom: 12%
+    right: 3%

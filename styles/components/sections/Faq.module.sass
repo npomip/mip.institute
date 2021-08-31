@@ -5,8 +5,17 @@
 .container
   @include m.gap($ptb: f.px(50))
   @include m.media(laptop, desktop)
+    @include m.gap($mlr: 1%)
     & > *
       @include m.flex
+
+.heading
+  @include m.media(laptop)
+    @include m.flex($display: false, $fb: 55%)
+    @include m.gap($mr: 8%)
+  @include m.media(desktop)
+    @include m.flex($display: false, $fb: 45%)
+    @include m.gap($mr: 8%)
 
 .title
   @include m.media(phone, tablet)
@@ -30,9 +39,10 @@
   @include m.gap($mb: f.px(20), $p: 0)
 
 .p
-  @include m.gap($mb: f.px(20))
   @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(50))
     font-size: f.px(18)
   font-weight: 300

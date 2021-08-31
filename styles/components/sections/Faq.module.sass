@@ -4,16 +4,35 @@
 
 .container
   @include m.gap($ptb: f.px(50))
+  @include m.media(laptop, desktop)
+    & > *
+      @include m.flex
 
 .title
-  font-size: f.px(26)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
+
+.phonetablet
+  @include m.media(laptop, desktop)
+    display: none
+
+.laptopdesktop
+  @include m.media(phone, tablet)
+    display: none
 
 .list
   @include m.gap($mb: f.px(20), $p: 0)
 
 .p
   @include m.gap($mb: f.px(20))
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
   font-weight: 300

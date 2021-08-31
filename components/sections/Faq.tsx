@@ -30,7 +30,18 @@ const Faq = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Часто задаваемые вопросы</h2>
+        <div className={stls.heading}>
+          {' '}
+          <h2 className={stls.title}>Часто задаваемые вопросы</h2>
+          <div className={stls.laptopdesktop}>
+            <p className={stls.p}>
+              У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам в течение
+              5 минут!
+            </p>
+            <BtnZeta text={'Задать вопрос'} />
+          </div>
+        </div>
+
         <div className={stls.content}>
           <ul className={stls.list}>
             {list.map(({ question, answer }, idx) => (
@@ -41,12 +52,16 @@ const Faq = () => {
               />
             ))}
           </ul>
-          <p className={stls.p}>
-            У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам в течение 5
-            минут!
-          </p>
+          <div className={stls.phonetablet}>
+            <p className={stls.p}>
+              У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам в течение
+              5 минут!
+            </p>
+          </div>
         </div>
-        <BtnZeta text={'Задать вопрос'} />
+        <div className={stls.phonetablet}>
+          <BtnZeta text={'Задать вопрос'} />
+        </div>
       </Wrapper>
     </section>
   )

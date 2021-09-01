@@ -17,6 +17,13 @@
   @include m.media(phone, tablet)
     display: none
 
+.underheading
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20, em))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(30))
+
 .title
   @include m.media(phone, tablet)
     font-size: f.px(24)
@@ -31,10 +38,10 @@
 
 .subTitle
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20, em))
+    @include m.gap($mb: 0)
     font-size: f.px(15)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30))
+    @include m.gap($mb: 0)
     font-size: f.px(18)
   font-weight: 300
   @include m.dye(c, c.$kappa)

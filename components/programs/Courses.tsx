@@ -21,9 +21,6 @@ const Courses = ({ biggerTitle = false, withBtn = false, courses = [] }) => {
             <div className={stls.phonetablet}>
               <ProgramsQty qty={courses.length} ofType='course' />
             </div>
-            <div className={stls.laptopdesktop}>
-              <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
-            </div>
           </div>
         ) : (
           <div className={stls.heading}>
@@ -31,15 +28,17 @@ const Courses = ({ biggerTitle = false, withBtn = false, courses = [] }) => {
             <div className={stls.phonetablet}>
               <ProgramsQty qty={courses.length} ofType='course' />
             </div>
-            <div className={stls.laptopdesktop}>
-              <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
-            </div>
           </div>
         )}
 
-        <p className={stls.subTitle}>
-          Короткие программы, чтобы изучить один конкретный навык
-        </p>
+        <div className={stls.underheading}>
+          <p className={stls.subTitle}>
+            Короткие программы, чтобы изучить один конкретный навык
+          </p>
+          <div className={stls.laptopdesktop}>
+            <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
+          </div>
+        </div>
       </hgroup>
 
       <div className={stls.courses}>

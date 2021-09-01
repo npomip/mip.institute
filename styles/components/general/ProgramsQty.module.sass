@@ -8,13 +8,20 @@
 
 .qty
   @include m.flex($jc: center, $ai: center)
-  min-width: f.px(28)
-  max-width: f.px(28)
-  min-height: f.px(28)
-  max-height: f.px(28)
+  @include m.media(phone, tablet)
+    min-width: f.px(28)
+    max-width: f.px(28)
+    min-height: f.px(28)
+    max-height: f.px(28)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    min-width: f.px(32)
+    max-width: f.px(32)
+    min-height: f.px(32)
+    max-height: f.px(32)
+    font-size: f.px(18)
   @include m.gap($mr: f.px(5))
   border-radius: 50%
-  font-size: f.px(15)
   font-weight: 300
   &.bgbeta
     @include m.dye(bg, c.$beta)
@@ -23,6 +30,9 @@
   @include m.dye(c, c.$nu)
 
 .text
-  font-size: f.px(15)
-  font-weight: 300
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    font-weight: 300
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
   @include m.dye(c, c.$theta)

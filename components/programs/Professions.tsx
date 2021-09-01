@@ -25,13 +25,6 @@ const Professions = ({
             <div className={stls.phonetablet}>
               <ProgramsQty qty={professions.length} ofType='profession' />
             </div>
-            <div className={stls.laptopdesktop}>
-              <ProgramsQty
-                qty={professions.length}
-                ofType='profession'
-                dye='bgalpha'
-              />
-            </div>
           </div>
         ) : (
           <div className={stls.heading}>
@@ -39,18 +32,20 @@ const Professions = ({
             <div className={stls.phonetablet}>
               <ProgramsQty qty={professions.length} ofType='profession' />
             </div>
-            <div className={stls.laptopdesktop}>
-              <ProgramsQty
-                qty={professions.length}
-                ofType='profession'
-                dye='bgalpha'
-              />
-            </div>
           </div>
         )}
-        <p className={stls.subTitle}>
-          Длинные программы для полного погружения в направление
-        </p>
+        <div className={stls.underheading}>
+          <p className={stls.subTitle}>
+            Длинные программы для полного погружения в направление
+          </p>
+          <div className={stls.laptopdesktop}>
+            <ProgramsQty
+              qty={professions.length}
+              ofType='profession'
+              dye='bgalpha'
+            />
+          </div>
+        </div>
       </hgroup>
       <div className={stls.professions}>
         {professions.map((profession, idx) => (

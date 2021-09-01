@@ -14,13 +14,13 @@ const Faq = () => {
   const topics = getListItemsInnerHtml(questions)
   const titles = getParagraphInnerHtml(questions)
 
-  console.log(topics)
-  console.log(titles)
-
-  const list = titles.map((title, idx) => ({
-    question: title,
-    answer: topics[idx]
-  }))
+  const list =
+    titles &&
+    topics &&
+    titles.map((title, idx) => ({
+      question: title,
+      answer: topics[idx]
+    }))
 
   return (
     <section className={stls.container}>
@@ -39,13 +39,14 @@ const Faq = () => {
 
         <div className={stls.content}>
           <ul className={stls.list}>
-            {list.map(({ question, answer }, idx) => (
-              <FaqAnswer
-                key={question + idx}
-                question={question}
-                answer={answer}
-              />
-            ))}
+            {list &&
+              list.map(({ question, answer }, idx) => (
+                <FaqAnswer
+                  key={question + idx}
+                  question={question}
+                  answer={answer}
+                />
+              ))}
           </ul>
           <div className={stls.phonetablet}>
             <p className={stls.p}>

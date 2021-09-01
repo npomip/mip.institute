@@ -39,8 +39,7 @@ export async function getStaticProps({ params: { slug } }) {
       program,
       studyFieldSlug
     },
-    revalidate: 60 * 60
-    // revalidate: 60 * 60 * 24 // a single day
+    revalidate: 60 * 60 * 24 // a single day
   }
 }
 

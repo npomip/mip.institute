@@ -5,7 +5,19 @@ import classNames from 'classnames'
 import { routeCourses } from '@/data/routes'
 import ProgramsQty from '@/components/general/ProgramsQty'
 
-const Courses = ({ biggerTitle = false, withBtn = false, courses = [] }) => {
+type CoursesType = {
+  biggerTitle?: boolean
+  withBtn?: boolean
+  courses: any[]
+  withQty?: boolean
+}
+
+const Courses = ({
+  biggerTitle = false,
+  withBtn = false,
+  courses = [],
+  withQty = false
+}: CoursesType) => {
   return (
     <div className={stls.container}>
       <hgroup>
@@ -18,16 +30,20 @@ const Courses = ({ biggerTitle = false, withBtn = false, courses = [] }) => {
               })}>
               Курсы
             </h2>
-            <div className={stls.phonetablet}>
-              <ProgramsQty qty={courses.length} ofType='course' />
-            </div>
+            {withQty && (
+              <div className={stls.phonetablet}>
+                <ProgramsQty qty={courses.length} ofType='course' />
+              </div>
+            )}
           </div>
         ) : (
           <div className={stls.heading}>
             <h3 className={stls.title}>Курсы</h3>
-            <div className={stls.phonetablet}>
-              <ProgramsQty qty={courses.length} ofType='course' />
-            </div>
+            {withQty && (
+              <div className={stls.phonetablet}>
+                <ProgramsQty qty={courses.length} ofType='course' />
+              </div>
+            )}
           </div>
         )}
 
@@ -35,9 +51,11 @@ const Courses = ({ biggerTitle = false, withBtn = false, courses = [] }) => {
           <p className={stls.subTitle}>
             Короткие программы, чтобы изучить один конкретный навык
           </p>
-          <div className={stls.laptopdesktop}>
-            <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
-          </div>
+          {withQty && (
+            <div className={stls.laptopdesktop}>
+              <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
+            </div>
+          )}
         </div>
       </hgroup>
 

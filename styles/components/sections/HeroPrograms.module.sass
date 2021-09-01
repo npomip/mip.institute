@@ -6,16 +6,21 @@
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(40), $pb: f.px(20))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(62), $pt: f.px(48), $pb: f.px(40))
+    @include m.gap($mb: f.px(62), $pt: f.px(48), $pb: f.px(41))
+    // pb 61
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$nu)
+
+.heading
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between, $ai: center)
 
 .title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(9))
     font-size: f.px(36)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(21))
+    @include m.gap($mb: 0)
     font-size: f.px(64)
   font-weight: 500
   line-height: 110%

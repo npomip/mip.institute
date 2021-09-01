@@ -14,7 +14,7 @@ const PagesPrograms = ({ ofType }: PagesProgramsType) => {
     <>
       <HeroPrograms />
       <FilterSearch />
-      <Programs ofType={ofType} />
+      <Programs ofType={ofType} withQty />
       <ContactForm />
     </>
   )

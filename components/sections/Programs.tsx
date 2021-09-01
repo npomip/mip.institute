@@ -9,12 +9,14 @@ type ProgramsType = {
   ofType?: 'course' | 'profession'
   withTitle?: boolean
   withBtn?: boolean
+  withQty?: boolean
 }
 
 const Programs = ({
   ofType,
   withTitle = false,
-  withBtn = false
+  withBtn = false,
+  withQty = false
 }: ProgramsType) => {
   const { courses, professions } = useContext(ProgramsContext)
   return (
@@ -28,6 +30,7 @@ const Programs = ({
                 biggerTitle={!withTitle}
                 withBtn={withBtn}
                 courses={courses}
+                withQty={withQty}
               />
             </div>
           )}
@@ -37,6 +40,7 @@ const Programs = ({
                 biggerTitle={!withTitle}
                 withBtn={withBtn}
                 professions={professions}
+                withQty={withQty}
               />
             </div>
           )}
@@ -47,6 +51,7 @@ const Programs = ({
                 biggerTitle={!withTitle}
                 withBtn={withBtn}
                 courses={courses}
+                withQty={withQty}
               />
             </div>
           )}
@@ -57,6 +62,7 @@ const Programs = ({
                 biggerTitle={!withTitle}
                 withBtn={withBtn}
                 professions={professions}
+                withQty={withQty}
               />
             </div>
           )}

@@ -5,10 +5,18 @@ import classNames from 'classnames'
 import { routeProfessions } from '@/data/routes'
 import ProgramsQty from '@/components/general/ProgramsQty'
 
+type ProfessionsType = {
+  biggerTitle?: boolean
+  withBtn?: boolean
+  courses: any[]
+  withQty?: boolean
+}
+
 const Professions = ({
   biggerTitle = false,
   withBtn = false,
-  professions = []
+  professions = [],
+  withQty = false
 }) => {
   return (
     <div className={stls.container}>
@@ -22,29 +30,35 @@ const Professions = ({
               })}>
               Профессии
             </h2>
-            <div className={stls.phonetablet}>
-              <ProgramsQty qty={professions.length} ofType='profession' />
-            </div>
+            {withQty && (
+              <div className={stls.phonetablet}>
+                <ProgramsQty qty={professions.length} ofType='profession' />
+              </div>
+            )}
           </div>
         ) : (
           <div className={stls.heading}>
             <h3 className={stls.title}>Профессии</h3>
-            <div className={stls.phonetablet}>
-              <ProgramsQty qty={professions.length} ofType='profession' />
-            </div>
+            {withQty && (
+              <div className={stls.phonetablet}>
+                <ProgramsQty qty={professions.length} ofType='profession' />
+              </div>
+            )}
           </div>
         )}
         <div className={stls.underheading}>
           <p className={stls.subTitle}>
             Длинные программы для полного погружения в направление
           </p>
-          <div className={stls.laptopdesktop}>
-            <ProgramsQty
-              qty={professions.length}
-              ofType='profession'
-              dye='bgalpha'
-            />
-          </div>
+          {withQty && (
+            <div className={stls.laptopdesktop}>
+              <ProgramsQty
+                qty={professions.length}
+                ofType='profession'
+                dye='bgalpha'
+              />
+            </div>
+          )}
         </div>
       </hgroup>
       <div className={stls.professions}>

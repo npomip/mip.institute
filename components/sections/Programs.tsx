@@ -23,34 +23,42 @@ const Programs = ({
         {withTitle && <h2 className={stls.title}>Наши программы</h2>}
         <div className={stls.programs}>
           {ofType === 'course' && courses && courses.length > 0 && (
-            <Courses
-              biggerTitle={!withTitle}
-              withBtn={withBtn}
-              courses={courses}
-            />
+            <div className={stls.courses}>
+              <Courses
+                biggerTitle={!withTitle}
+                withBtn={withBtn}
+                courses={courses}
+              />
+            </div>
           )}
           {ofType === 'profession' && professions && professions.length > 0 && (
-            <Professions
-              biggerTitle={!withTitle}
-              withBtn={withBtn}
-              professions={professions}
-            />
+            <div className={stls.professions}>
+              <Professions
+                biggerTitle={!withTitle}
+                withBtn={withBtn}
+                professions={professions}
+              />
+            </div>
           )}
 
           {!ofType && courses && courses.length > 0 && (
-            <Courses
-              biggerTitle={!withTitle}
-              withBtn={withBtn}
-              courses={courses}
-            />
+            <div className={stls.courses}>
+              <Courses
+                biggerTitle={!withTitle}
+                withBtn={withBtn}
+                courses={courses}
+              />
+            </div>
           )}
 
           {!ofType && professions && professions.length > 0 && (
-            <Professions
-              biggerTitle={!withTitle}
-              withBtn={withBtn}
-              professions={professions}
-            />
+            <div className={stls.professions}>
+              <Professions
+                biggerTitle={!withTitle}
+                withBtn={withBtn}
+                professions={professions}
+              />
+            </div>
           )}
         </div>
       </Wrapper>

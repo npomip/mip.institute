@@ -3,6 +3,7 @@ import CardProfession from '@/components/cards/CardProfession'
 import { BtnDelta } from '@/components/btns'
 import classNames from 'classnames'
 import { routeProfessions } from '@/data/routes'
+import ProgramsQty from '@/components/general/ProgramsQty'
 
 const Professions = ({
   biggerTitle = false,
@@ -13,15 +14,21 @@ const Professions = ({
     <div className={stls.container}>
       <hgroup>
         {biggerTitle ? (
-          <h2
-            className={classNames({
-              [stls.title]: true,
-              [stls.bold]: true
-            })}>
-            Профессии
-          </h2>
+          <div className={stls.heading}>
+            <h2
+              className={classNames({
+                [stls.title]: true,
+                [stls.bold]: true
+              })}>
+              Профессии
+            </h2>
+            <ProgramsQty qty={professions.length} ofType='profession' />
+          </div>
         ) : (
-          <h3 className={stls.title}>Профессии</h3>
+          <div className={stls.heading}>
+            <h3 className={stls.title}>Профессии</h3>
+            <ProgramsQty qty={professions.length} ofType='profession' />
+          </div>
         )}
         <p className={stls.subTitle}>
           Длинные программы для полного погружения в направление

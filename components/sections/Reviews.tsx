@@ -4,8 +4,13 @@ import CardReview from '@/components/cards/CardReview'
 import maleStudent from '@/public/assets/imgs/general/male-student.jpg'
 import femaleStudent from '@/public/assets/imgs/general/female-student.jpg'
 import SwiperContainer from '@/components/general/SwiperContainer'
+import classNames from 'classnames'
 
-const Reviews = () => {
+type ReviewsType = {
+  standalone?: boolean
+}
+
+const Reviews = ({ standalone = false }: ReviewsType) => {
   const studentsReviews = [
     {
       title:
@@ -34,7 +39,11 @@ const Reviews = () => {
   ))
 
   return (
-    <section className={stls.container}>
+    <section
+      className={classNames({
+        [stls.container]: true,
+        [stls.standalone]: standalone
+      })}>
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>

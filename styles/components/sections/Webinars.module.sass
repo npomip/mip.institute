@@ -5,6 +5,14 @@
 .container
   @include m.gap($mb: f.px(70, em))
 
+.standalone
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(38))
+    @include m.gap($pb: f.px(20))
+  @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(56))
+    @include m.gap($pb: f.px(32))
+
 .title
   @include m.gap($mb: f.px(10, em))
   @include m.media(phone, tablet)

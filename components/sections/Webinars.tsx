@@ -7,8 +7,13 @@ import CardSchedule from '@/components/cards/CardSchedule'
 import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
 import ImgPortrait2 from '@/components/imgs/webinars/ImgPortrait2'
 import ImgPortrait3 from '@/components/imgs/webinars/ImgPortrait3'
+import classNames from 'classnames'
 
-const Webinars = () => {
+type WebinarsType = {
+  standalone?: boolean
+}
+
+const Webinars = ({ standalone = false }: WebinarsType) => {
   const webinars = [
     {
       date: {
@@ -78,7 +83,11 @@ const Webinars = () => {
   }
 
   return (
-    <section className={stls.container}>
+    <section
+      className={classNames({
+        [stls.container]: true,
+        [stls.standalone]: standalone
+      })}>
       <Wrapper>
         <h2 className={stls.title}>Ежедневные вебинары</h2>
         <p className={stls.desc}>

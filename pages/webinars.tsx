@@ -15,7 +15,7 @@ const WebinarsPage = ({ programs }) => {
 
   return (
     <>
-      <Webinars />
+      <Webinars standalone />
     </>
   )
 }

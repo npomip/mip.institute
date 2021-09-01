@@ -1,4 +1,4 @@
-const getCasedRuYearString = months => {
+const getCasedRuYearString = (months: number) => {
   const num = months % 12
 
   if (num === 1) return `${num} месяц`

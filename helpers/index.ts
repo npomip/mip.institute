@@ -7,6 +7,8 @@ import filterProgramsByStudyField from '@/helpers/filterProgramsByStudyField'
 import filterProgramsByType from '@/helpers/filterProgramsByType'
 import getCasedRuMonthString from '@/helpers/getCasedRuMonthString'
 import getCasedRuYearString from '@/helpers/getCasedRuYearString'
+import getCasesRuCourseString from '@/helpers/getCasesRuCourseString'
+import getCasesRuProfessionString from '@/helpers/getCasesRuProfessionString'
 import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
 import getParagraphInnerHtml from '@/helpers/getParagraphInnerHtml'
 import getProgram from '@/helpers/getProgram'
@@ -28,6 +30,8 @@ export {
   filterProgramsByType,
   getCasedRuMonthString,
   getCasedRuYearString,
+  getCasesRuCourseString,
+  getCasesRuProfessionString,
   getListItemsInnerHtml,
   getParagraphInnerHtml,
   getProgram,

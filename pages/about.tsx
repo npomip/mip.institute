@@ -15,7 +15,7 @@ const AboutPage = ({ programs }) => {
 
   return (
     <>
-      <About />
+      <About standalone />
     </>
   )
 }

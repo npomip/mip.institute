@@ -15,7 +15,7 @@ const ReviewsPage = ({ programs }) => {
 
   return (
     <>
-      <Reviews />
+      <Reviews standalone />
     </>
   )
 }

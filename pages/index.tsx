@@ -46,8 +46,8 @@ export async function getStaticProps(context) {
   return {
     props: {
       programs
-    },
-    revalidate: 60 * 60 * 24 // a single day
+    }
+    // revalidate: 60 * 60 * 24 // a single day
   }
 }
 

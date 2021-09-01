@@ -38,8 +38,8 @@ export async function getStaticProps({ params: { slug } }) {
       programs,
       program,
       studyFieldSlug
-    },
-    revalidate: 60 * 60 * 24 // a single day
+    }
+    // revalidate: 60 * 60 * 24 // a single day
   }
 }
 

@@ -3,16 +3,24 @@ import {
   getCasesRuCourseString,
   getCasesRuProfessionString
 } from '@/helpers/index'
+import classNames from 'classnames'
 
 type ProgramsQtuType = {
   qty: number
   ofType: 'profession' | 'course'
+  dye?: string
 }
 
-const ProgramsQty = ({ qty = 0, ofType = 'course' }: ProgramsQtuType) => {
+const ProgramsQty = ({
+  qty = 0,
+  ofType = 'course',
+  dye = 'bgbeta'
+}: ProgramsQtuType) => {
   return (
     <div className={stls.container}>
-      <div className={stls.qty}>{qty}</div>{' '}
+      <div className={classNames({ [stls.qty]: true, [stls[dye]]: true })}>
+        {qty}
+      </div>{' '}
       <span className={stls.text}>
         {ofType === 'profession'
           ? getCasesRuProfessionString(qty)

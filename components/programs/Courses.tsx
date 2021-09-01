@@ -18,12 +18,22 @@ const Courses = ({ biggerTitle = false, withBtn = false, courses = [] }) => {
               })}>
               Курсы
             </h2>
-            <ProgramsQty qty={courses.length} ofType='course' />
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={courses.length} ofType='course' />
+            </div>
+            <div className={stls.laptopdesktop}>
+              <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
+            </div>
           </div>
         ) : (
           <div className={stls.heading}>
             <h3 className={stls.title}>Курсы</h3>
-            <ProgramsQty qty={courses.length} ofType='course' />
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={courses.length} ofType='course' />
+            </div>
+            <div className={stls.laptopdesktop}>
+              <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
+            </div>
           </div>
         )}
 

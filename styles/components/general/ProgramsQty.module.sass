@@ -16,7 +16,10 @@
   border-radius: 50%
   font-size: f.px(15)
   font-weight: 300
-  @include m.dye(bg, c.$beta)
+  &.bgbeta
+    @include m.dye(bg, c.$beta)
+  &.bgalpha
+    @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$nu)
 
 .text

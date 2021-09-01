@@ -22,12 +22,30 @@ const Professions = ({
               })}>
               Профессии
             </h2>
-            <ProgramsQty qty={professions.length} ofType='profession' />
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={professions.length} ofType='profession' />
+            </div>
+            <div className={stls.laptopdesktop}>
+              <ProgramsQty
+                qty={professions.length}
+                ofType='profession'
+                dye='bgalpha'
+              />
+            </div>
           </div>
         ) : (
           <div className={stls.heading}>
             <h3 className={stls.title}>Профессии</h3>
-            <ProgramsQty qty={professions.length} ofType='profession' />
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={professions.length} ofType='profession' />
+            </div>
+            <div className={stls.laptopdesktop}>
+              <ProgramsQty
+                qty={professions.length}
+                ofType='profession'
+                dye='bgalpha'
+              />
+            </div>
           </div>
         )}
         <p className={stls.subTitle}>

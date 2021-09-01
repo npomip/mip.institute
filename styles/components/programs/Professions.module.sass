@@ -9,6 +9,14 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(10))
 
+.phonetablet
+  @include m.media(laptop, desktop)
+    display: none
+
+.laptopdesktop
+  @include m.media(phone, tablet)
+    display: none
+
 .title
   @include m.media(phone, tablet)
     font-size: f.px(24)

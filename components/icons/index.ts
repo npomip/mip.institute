@@ -24,6 +24,7 @@ import IconPlayer from '@/components/icons/IconPlayer'
 import IconPlus from '@/components/icons/IconPlus'
 import IconRemoteWork from '@/components/icons/IconRemoteWork'
 import IconSearch from '@/components/icons/IconSearch'
+import IconSearchAlt from '@/components/icons/IconSearchAlt'
 import IconTelegram from '@/components/icons/IconTelegram'
 import IconToTheMoon from '@/components/icons/IconToTheMoon'
 import IconVk from '@/components/icons/IconVk'
@@ -57,6 +58,7 @@ export {
   IconPlus,
   IconRemoteWork,
   IconSearch,
+  IconSearchAlt,
   IconTelegram,
   IconToTheMoon,
   IconVk,

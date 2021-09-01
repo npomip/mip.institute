@@ -19,7 +19,8 @@ const getProgram = ({ data, ofType, slug }: getProgramType) => {
       'ForWhom',
       'shortContents',
       'resumeSkills',
-      'jobTitles'
+      'jobTitles',
+      'questions'
     ]
   })[0]
 

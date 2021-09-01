@@ -2,30 +2,25 @@ import stls from '@/styles/components/sections/Faq.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { BtnZeta } from '@/components/btns'
 import FaqAnswer from '@/components/general/FaqAnswer'
+import ProgramContext from '@/context/program/programContext'
+import { useContext } from 'react'
+import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
 
 const Faq = () => {
-  const list = [
-    {
-      question: 'Как проходит обучение в группах?',
-      answer: 'Ответ'
-    },
-    {
-      question: 'Какой график обучения? Получится  ли совмещать его с работой?',
-      answer: 'Ответ'
-    },
-    {
-      question: 'Специальная психология и дефектология',
-      answer: 'Ответ'
-    },
-    {
-      question: 'Как проходит обучение в группах?',
-      answer: 'Ответ'
-    },
-    {
-      question: 'Специальная психология и дефектология',
-      answer: 'Ответ'
-    }
-  ]
+  const {
+    program: { questions }
+  } = useContext(ProgramContext)
+
+  const topics = getListItemsInnerHtml(questions)
+  const titles = getParagraphInnerHtml(questions)
+
+  console.log(topics)
+  console.log(titles)
+
+  const list = titles.map((title, idx) => ({
+    question: title,
+    answer: topics[idx]
+  }))
 
   return (
     <section className={stls.container}>

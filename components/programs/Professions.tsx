@@ -10,13 +10,15 @@ type ProfessionsType = {
   withBtn?: boolean
   courses: any[]
   withQty?: boolean
+  threerow?: boolean
 }
 
 const Professions = ({
   biggerTitle = false,
   withBtn = false,
   professions = [],
-  withQty = false
+  withQty = false,
+  threerow = false
 }) => {
   return (
     <div className={stls.container}>
@@ -61,11 +63,16 @@ const Professions = ({
           )}
         </div>
       </hgroup>
-      <div className={stls.professions}>
+      <div
+        className={classNames({
+          [stls.professions]: true,
+          [stls.threerow]: threerow
+        })}>
         {professions.map((profession, idx) => (
           <CardProfession
             key={profession.title + idx}
             profession={profession}
+            threerow={threerow}
           />
         ))}
       </div>

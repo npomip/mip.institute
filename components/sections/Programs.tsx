@@ -2,70 +2,91 @@ import stls from '@/styles/components/sections/Programs.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
+import ProgramsFilters from '@/components/layout/ProgramsFilters'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext } from 'react'
+import classNames from 'classnames'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
   withTitle?: boolean
   withBtn?: boolean
   withQty?: boolean
+  threerow?: boolean
+  withFilters?: boolean
 }
 
 const Programs = ({
   ofType,
   withTitle = false,
   withBtn = false,
-  withQty = false
+  withQty = false,
+  threerow = false,
+  withFilters = false
 }: ProgramsType) => {
   const { courses, professions } = useContext(ProgramsContext)
   return (
-    <section className={stls.container}>
+    <section
+      className={classNames({
+        [stls.container]: true,
+        [stls.withFilters]: withFilters
+      })}>
       <Wrapper>
-        {withTitle && <h2 className={stls.title}>Наши программы</h2>}
-        <div className={stls.programs}>
-          {ofType === 'course' && courses && courses.length > 0 && (
-            <div className={stls.courses}>
-              <Courses
-                biggerTitle={!withTitle}
-                withBtn={withBtn}
-                courses={courses}
-                withQty={withQty}
-              />
-            </div>
-          )}
-          {ofType === 'profession' && professions && professions.length > 0 && (
-            <div className={stls.professions}>
-              <Professions
-                biggerTitle={!withTitle}
-                withBtn={withBtn}
-                professions={professions}
-                withQty={withQty}
-              />
-            </div>
-          )}
+        {withFilters && (
+          <div className={stls.filters}>
+            <ProgramsFilters />
+          </div>
+        )}
+        <div className={stls.content}>
+          {withTitle && <h2 className={stls.title}>Наши программы</h2>}
+          <div className={stls.programs}>
+            {ofType === 'course' && courses && courses.length > 0 && (
+              <div className={stls.courses}>
+                <Courses
+                  biggerTitle={!withTitle}
+                  withBtn={withBtn}
+                  courses={courses}
+                  withQty={withQty}
+                  threerow={threerow}
+                />
+              </div>
+            )}
+            {ofType === 'profession' && professions && professions.length > 0 && (
+              <div className={stls.professions}>
+                <Professions
+                  biggerTitle={!withTitle}
+                  withBtn={withBtn}
+                  professions={professions}
+                  withQty={withQty}
+                  threerow={threerow}
+                />
+              </div>
+            )}
 
-          {!ofType && courses && courses.length > 0 && (
-            <div className={stls.courses}>
-              <Courses
-                biggerTitle={!withTitle}
-                withBtn={withBtn}
-                courses={courses}
-                withQty={withQty}
-              />
-            </div>
-          )}
+            {!ofType && courses && courses.length > 0 && (
+              <div className={stls.courses}>
+                <Courses
+                  biggerTitle={!withTitle}
+                  withBtn={withBtn}
+                  courses={courses}
+                  withQty={withQty}
+                  threerow={threerow}
+                />
+              </div>
+            )}
 
-          {!ofType && professions && professions.length > 0 && (
-            <div className={stls.professions}>
-              <Professions
-                biggerTitle={!withTitle}
-                withBtn={withBtn}
-                professions={professions}
-                withQty={withQty}
-              />
-            </div>
-          )}
+            {!ofType && professions && professions.length > 0 && (
+              <div className={stls.professions}>
+                <Professions
+                  biggerTitle={!withTitle}
+                  withBtn={withBtn}
+                  professions={professions}
+                  withQty={withQty}
+                  threerow={threerow}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </Wrapper>
     </section>

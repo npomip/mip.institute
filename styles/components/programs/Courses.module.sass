@@ -1,6 +1,7 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+@use '@/styles/layout/programs/programs'
 
 .container
   @include m.media(phone, tablet)
@@ -9,57 +10,28 @@
     @include m.gap($mb: f.px(50))
 
 .heading
-  @include m.flex($jc: space-between, $ai: center)
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(9))
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(5))
+  @include programs.heading
 
 .phonetablet
-  @include m.media(laptop, desktop)
-    display: none
+  @include programs.phonetablet
 
 .laptopdesktop
-  @include m.media(phone, tablet)
-    display: none
+  @include programs.laptopdesktop
 
 .underheading
-  @include m.flex($jc: space-between, $ai: center)
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20, em))
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30))
+  @include programs.underheading
 
 .title
-  @include m.media(phone, tablet)
-    font-size: f.px(24)
-  @include m.media(laptop, desktop)
-    font-size: f.px(36)
-  @include m.gap($mb: 0)
-  font-weight: 400
-  @include m.dye(c, c.$theta)
+  @include programs.title
 
 .bold
-  font-weight: 500
+  @include programs.bold
 
 .subTitle
-  @include m.media(phone, tablet)
-    @include m.gap($mb: 0)
-    font-size: f.px(15)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: 0)
-    font-size: f.px(18)
-  font-weight: 300
-  @include m.dye(c, c.$kappa)
+  @include programs.subTitle
 
 .courses
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
-  @include m.media(laptop, desktop)
-    @include m.flex($fw: wrap)
+  @include programs.programs
 
 .btn
-  @include m.media(laptop, desktop)
-    @include m.flex($jc: center)
-    & > *
-      @include m.gap($plr: 6%)
+  @include programs.btn

@@ -2,6 +2,17 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.media(laptop, desktop)
+    &.withFilters
+      & > *
+        @include m.flex
+      & .filters
+        @include m.flex($display: false, $fb: 22%)
+        @include m.gap($mr: 3%)
+      & .content
+        @include m.flex($display: false, $fb: 75%)
+
 .title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(10, em))

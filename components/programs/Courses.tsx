@@ -10,13 +10,15 @@ type CoursesType = {
   withBtn?: boolean
   courses: any[]
   withQty?: boolean
+  threerow?: boolean
 }
 
 const Courses = ({
   biggerTitle = false,
   withBtn = false,
   courses = [],
-  withQty = false
+  withQty = false,
+  threerow = false
 }: CoursesType) => {
   return (
     <div className={stls.container}>
@@ -59,9 +61,17 @@ const Courses = ({
         </div>
       </hgroup>
 
-      <div className={stls.courses}>
+      <div
+        className={classNames({
+          [stls.courses]: true,
+          [stls.threerow]: threerow
+        })}>
         {courses.map((course, idx) => (
-          <CardCourse key={course.title + idx} course={course} />
+          <CardCourse
+            key={course.title + idx}
+            course={course}
+            threerow={threerow}
+          />
         ))}
       </div>
       {withBtn && (

@@ -3,14 +3,20 @@ import { ImgCourse1 } from '@/components/imgs'
 import Link from 'next/link'
 import { routeCourses } from '@/data/routes'
 import { getCasedRuMonthString } from '@/helpers/index'
+import classNames from 'classnames'
 
-const CardCourse = ({ course = null }) => {
+const CardCourse = ({ course = null, threerow = false }) => {
   return (
     <Link
       href={`${routeCourses}/${course.studyFieldSlug || 'studyfield'}/${
         course.slug
       }`}>
-      <a className={stls.container}>
+      <a
+        className={classNames({
+          [stls.container]: true,
+          [stls.threerow]: threerow,
+          [stls.fourrow]: !threerow
+        })}>
         <div className={stls.img}>
           <ImgCourse1 />
         </div>

@@ -8,7 +8,8 @@ const ProgramCost = () => {
   const {
     program: { price, discount }
   } = useContext(ProgramContext)
-  const rprice = +price + (price * (discount ? discount : discountStatic)) / 100
+  const rprice =
+    +price + (+price * (discount ? discount : discountStatic)) / 100
 
   return (
     <div className={stls.container}>

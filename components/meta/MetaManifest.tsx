@@ -20,10 +20,10 @@ const MetaManifest = () => {
       <meta name='msapplication-tap-highlight' content='no' />
       <meta name='theme-color' content={themeColor} />
 
-      <link
+      {/* <link
         rel='apple-touch-icon'
         href='/assets/imgs/icons/apple-icon-180.png'
-      />
+      /> */}
       {/* <link
         rel='apple-touch-icon'
         sizes='152x152'
@@ -60,7 +60,7 @@ const MetaManifest = () => {
       /> */}
       {/* <link rel='shortcut icon' href='/favicon.ico' /> */}
 
-      <link
+      {/* <link
         rel='apple-touch-startup-image'
         href='/assets/imgs/icons/apple-splash-2048-2732.jpg'
         sizes='2048x2732'
@@ -94,7 +94,7 @@ const MetaManifest = () => {
         rel='apple-touch-startup-image'
         href='/assets/imgs/icons/apple-splash-640-1136.jpg'
         sizes='640x1136'
-      />
+      /> */}
 
       {/* <meta name='twitter:card' content='summary' />
       <meta name='twitter:url' content='https://yourdomain.com' />

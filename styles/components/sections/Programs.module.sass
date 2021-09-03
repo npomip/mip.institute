@@ -7,9 +7,6 @@
     &.withFilters
       & > *
         @include m.flex
-      & .filters
-        @include m.flex($display: false, $fb: 22%)
-        @include m.gap($mr: 3%)
       & .content
         @include m.flex($display: false, $fb: 75%)
 
@@ -22,3 +19,7 @@
     font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
+
+.filters
+  @include m.flex($display: false, $fb: 22%)
+  @include m.gap($mr: 3%)

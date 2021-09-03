@@ -6,6 +6,7 @@ const SearchDesktop = () => {
     <div className={stls.container}>
       <input
         type='text'
+        id='search'
         name='search'
         placeholder='Поиск программы'
         className={stls.input}

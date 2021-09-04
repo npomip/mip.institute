@@ -21,5 +21,8 @@
   @include m.dye(c, c.$theta)
 
 .filters
-  @include m.flex($display: false, $fb: 22%)
-  @include m.gap($mr: 3%)
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 22%)
+    @include m.gap($mr: 3%)

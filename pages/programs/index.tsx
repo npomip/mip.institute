@@ -11,7 +11,7 @@ const ProgramsPage = ({ programs }) => {
     setPrograms(programs)
     setCurProgramsType(null)
     setCurProgramsStudyFieldSlug(null)
-  }, [])
+  }, [programs])
 
   return (
     <>

@@ -2,7 +2,7 @@ type FilterProgramsByStudyFieldKey = string
 
 type FilterProgramsByStudyFieldProp = {
   // programs: [{ [key: string]: any; type: FilterProgramsByStudyFieldKey }]
-  programs: [{ [key: string]: any; type: FilterProgramsByStudyFieldKey }]
+  programs: { [key: string]: any; type: FilterProgramsByStudyFieldKey }[]
   studyFieldSlug: string
 }
 

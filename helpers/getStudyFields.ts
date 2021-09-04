@@ -6,7 +6,7 @@ type getStudyFieldsType = {
   studyFieldSlug: string
 }[]
 
-const getStudyFields = (programs: getStudyFieldsType) => {
+const getStudyFields = (programs: any[]) => {
   const labels = getStudyFieldsLabels(programs)
   const slugs = getStudyFieldsSlugs(programs)
 

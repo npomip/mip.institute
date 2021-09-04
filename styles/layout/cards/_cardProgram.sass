@@ -7,9 +7,16 @@
     @include m.flex
     @include m.gap($mb: f.px(10), $ptb: f.px(20), $plr: f.px(15))
     border-radius: f.px(10)
+  @include m.media(laptop)
+    &.threerow
+      @include m.gap($mr: 3.5%)
+  @include m.media(desktop)
+    &.threerow
+      @include m.gap($mr: 3.84%)
   @include m.media(laptop, desktop)
     &.fourrow
       @include m.flex($fd: column, $fb: 23%)
+      @include m.gap($mr: 2.66%)
       &:nth-child(4n)
         @include m.gap($mr: 0)
     &.threerow
@@ -17,7 +24,7 @@
       &:nth-child(3n)
         @include m.gap($mr: 0)
     max-width: f.px(270)
-    @include m.gap($mb: f.px(30), $mr: 2%)
+    @include m.gap($mb: f.px(30))
     border-radius: f.px(20)
     overflow: hidden
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)

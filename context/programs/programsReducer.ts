@@ -16,12 +16,20 @@ const programsReducer = (state, action) => {
 
       const studyFields = getStudyFields(programs)
 
+      console.log(programs)
+
+      const studyFieldsProfessions = getStudyFields(professions)
+
+      const studyFieldsCourses = getStudyFields(courses)
+
       return {
         ...state,
         programs,
         courses,
         professions,
-        studyFields
+        studyFields,
+        studyFieldsProfessions,
+        studyFieldsCourses
       }
     case SET_CUR_PROGRAMS_TYPE:
       return {

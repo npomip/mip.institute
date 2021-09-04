@@ -13,6 +13,8 @@ const ProgramsState = props => {
     courses: [],
     professions: [],
     studyFields: [],
+    studyFieldsCourses: [],
+    studyFieldsProfessions: [],
     curProgramsType: null,
     curProgramsStudyFieldSlug: null
   }
@@ -41,6 +43,8 @@ const ProgramsState = props => {
         courses: state.courses,
         professions: state.professions,
         studyFields: state.studyFields,
+        studyFieldsProfessions: state.studyFieldsProfessions,
+        studyFieldsCourses: state.studyFieldsCourses,
         curProgramsType: state.curProgramsType,
         curProgramsStudyFieldSlug: state.curProgramsStudyFieldSlug,
         setPrograms,

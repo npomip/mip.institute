@@ -14,7 +14,7 @@ const ProfessionPage = ({ programs, program, studyFieldSlug }) => {
     setProgram(program)
     setCurProgramsType('profession')
     setCurProgramsStudyFieldSlug(studyFieldSlug)
-  }, [])
+  }, [programs, program])
 
   return (
     <>

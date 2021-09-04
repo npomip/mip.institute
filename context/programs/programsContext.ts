@@ -5,6 +5,8 @@ const programsContext = createContext({
   courses: [],
   professions: [],
   studyFields: [],
+  studyFieldsProfessions: [],
+  studyFieldsCourses: [],
   curProgramsType: null,
   curProgramsStudyFieldSlug: null,
   setPrograms: programs => {},

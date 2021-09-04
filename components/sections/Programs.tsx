@@ -4,8 +4,11 @@ import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
 import ProgramsFilters from '@/components/layout/ProgramsFilters'
 import ProgramsContext from '@/context/programs/programsContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
+import { filterProgramsByStudyField } from '@/helpers/index'
+import { routeCourses, routeProfessions } from '@/data/routes'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
@@ -24,7 +27,39 @@ const Programs = ({
   threerow = false,
   withFilters = false
 }: ProgramsType) => {
-  const { courses, professions } = useContext(ProgramsContext)
+  const { courses, professions, curProgramsStudyFieldSlug } =
+    useContext(ProgramsContext)
+
+  const router = useRouter()
+
+  const coursesFiltered =
+    curProgramsStudyFieldSlug &&
+    filterProgramsByStudyField({
+      programs: courses,
+      studyFieldSlug: curProgramsStudyFieldSlug
+    })
+
+  const professionsFiltered =
+    curProgramsStudyFieldSlug &&
+    filterProgramsByStudyField({
+      programs: professions,
+      studyFieldSlug: curProgramsStudyFieldSlug
+    })
+
+  const data = {
+    courses: curProgramsStudyFieldSlug ? coursesFiltered : courses,
+    professions: curProgramsStudyFieldSlug ? professionsFiltered : professions
+  }
+
+  useEffect(() => {
+    ofType === 'course' &&
+      data.courses.length === 0 &&
+      router.replace(routeCourses)
+    ofType === 'profession' &&
+      data.professions.length === 0 &&
+      router.replace(routeProfessions)
+  }, [])
+
   return (
     <section
       className={classNames({
@@ -34,53 +69,55 @@ const Programs = ({
       <Wrapper>
         {withFilters && (
           <div className={stls.filters}>
-            <ProgramsFilters />
+            <ProgramsFilters ofType={ofType} />
           </div>
         )}
         <div className={stls.content}>
           {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
-            {ofType === 'course' && courses && courses.length > 0 && (
+            {ofType === 'course' && data.courses && data.courses.length > 0 && (
               <div className={stls.courses}>
                 <Courses
                   biggerTitle={!withTitle}
                   withBtn={withBtn}
-                  courses={courses}
+                  courses={data.courses}
                   withQty={withQty}
                   threerow={threerow}
                 />
               </div>
             )}
-            {ofType === 'profession' && professions && professions.length > 0 && (
-              <div className={stls.professions}>
-                <Professions
+            {ofType === 'profession' &&
+              data.professions &&
+              data.professions.length > 0 && (
+                <div className={stls.professions}>
+                  <Professions
+                    biggerTitle={!withTitle}
+                    withBtn={withBtn}
+                    professions={data.professions}
+                    withQty={withQty}
+                    threerow={threerow}
+                  />
+                </div>
+              )}
+
+            {!ofType && data.courses && data.courses.length > 0 && (
+              <div className={stls.courses}>
+                <Courses
                   biggerTitle={!withTitle}
                   withBtn={withBtn}
-                  professions={professions}
+                  courses={data.courses}
                   withQty={withQty}
                   threerow={threerow}
                 />
               </div>
             )}
 
-            {!ofType && courses && courses.length > 0 && (
-              <div className={stls.courses}>
-                <Courses
-                  biggerTitle={!withTitle}
-                  withBtn={withBtn}
-                  courses={courses}
-                  withQty={withQty}
-                  threerow={threerow}
-                />
-              </div>
-            )}
-
-            {!ofType && professions && professions.length > 0 && (
+            {!ofType && data.professions && data.professions.length > 0 && (
               <div className={stls.professions}>
                 <Professions
                   biggerTitle={!withTitle}
                   withBtn={withBtn}
-                  professions={professions}
+                  professions={data.professions}
                   withQty={withQty}
                   threerow={threerow}
                 />

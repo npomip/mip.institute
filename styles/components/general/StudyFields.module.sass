@@ -4,8 +4,13 @@
 
 .container
   @include m.gap($m: 0, $p: 0)
-  @include m.flex($fw: wrap)
+  &.tooltip
+    @include m.flex($fw: wrap)
+    & .studyField
+      @include m.gap($mb: f.px(12), $mr: f.px(12))
+  &.aside
+    & .studyField
+      @include m.gap($mb: f.px(10))
 
 .studyField
   @include m.flex
-  @include m.gap($mr: f.px(12), $mb: f.px(12))

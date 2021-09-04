@@ -15,17 +15,17 @@ const ProfessionsStudyFieldPage = ({ programs, studyFieldSlug }) => {
     setPrograms(programs)
     setCurProgramsType('profession')
     setCurProgramsStudyFieldSlug(studyFieldSlug)
-  }, [])
+  }, [programs, studyFieldSlug])
 
   return (
     <>
-      <PagesPrograms />
+      <PagesPrograms ofType='profession' />
     </>
   )
 }
 
 export async function getStaticProps({ params: { studyFieldSlug } }) {
-  const programs = await fetchPrograms({ ofType: 'profession' })
+  const programs = await fetchPrograms()
   // const programs = await filterProgramsByStudyField({
   //   programs: data,
   //   studyFieldSlug
@@ -41,7 +41,7 @@ export async function getStaticProps({ params: { studyFieldSlug } }) {
 }
 
 export async function getStaticPaths() {
-  const paths = await fetchStudyFieldsPaths({ ofType: 'profession' })
+  const paths = await fetchStudyFieldsPaths()
 
   return {
     paths,

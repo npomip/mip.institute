@@ -2,16 +2,28 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.link
+.container
   @include m.flex($ai: center)
   @include m.gap($ptb: f.px(14), $plr: f.px(18))
-  border: f.px(2) solid
-  @include m.dye(border, rgba(c.$chi, .2))
   border-radius: f.px(40)
-  font-size: f.px(18)
-  font-weight: 300
   text-align: center
-  @include m.dye(c, c.$chi)
+  &.tooltip
+    border: f.px(2) solid
+    @include m.dye(border, rgba(c.$chi, .2))
+    font-size: f.px(18)
+    font-weight: 300
+    @include m.dye(c, c.$chi)
+  &.aside
+    line-height: f.px(20)
+    @include m.dye(bg, c.$epsilon)
+    @include m.dye(c, c.$chi)
+    &.active
+      @include m.dye(bg, c.$beta)
+      @include m.dye(c, c.$nu)
+      &:hover,
+      &:focus
+        transform: scale(1)
+      
   &:hover
     transform: scale(1.02)
     // & > .icon svg line

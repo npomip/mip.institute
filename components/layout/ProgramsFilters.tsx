@@ -1,18 +1,22 @@
-import stls from '@/styles/components/programs/ProgramsFilters.module.sass'
+import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext } from 'react'
 import StudyFields from '@/components/general/StudyFields'
+import ProgramType from '@/components/general/ProgramType'
 
-type ProgramsFiltersType = {}
+type ProgramsFiltersType = {
+  ofType?: 'profession' | 'course' | null
+}
 
-const ProgramsFilters = () => {
+const ProgramsFilters = ({ ofType = null }: ProgramsFiltersType) => {
   const { studyFields } = useContext(ProgramsContext)
 
-  console.log(studyFields)
-
   return (
-    <div>
-      <StudyFields />
+    <div className={stls.container}>
+      <StudyFields aside ofType={ofType} />
+      <div className={stls.divider}></div>
+      <ProgramType />
+      <div className={stls.divider}></div>
     </div>
   )
 }

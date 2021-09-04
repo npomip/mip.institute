@@ -16,7 +16,7 @@ const ProgramsFilters = ({ ofType = null }: ProgramsFiltersType) => {
       <StudyFields aside ofType={ofType} />
       <div className={stls.divider}></div>
       <ProgramType />
-      <div className={stls.divider}></div>
+      {/* <div className={stls.divider}></div> */}
     </div>
   )
 }

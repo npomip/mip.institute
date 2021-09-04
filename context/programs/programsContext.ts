@@ -9,6 +9,9 @@ const programsContext = createContext({
   studyFieldsCourses: [],
   curProgramsType: null,
   curProgramsStudyFieldSlug: null,
+  searchTerm: null,
+  filteredPrograms: [],
+  setSearchTerm: (programs, term) => {},
   setPrograms: programs => {},
   setCurProgramsType: programType => {},
   setCurProgramsStudyFieldSlug: slug => {}

@@ -27,8 +27,13 @@ const Programs = ({
   threerow = false,
   withFilters = false
 }: ProgramsType) => {
-  const { courses, professions, curProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
+  const {
+    courses,
+    professions,
+    curProgramsStudyFieldSlug,
+    filteredPrograms,
+    searchTerm
+  } = useContext(ProgramsContext)
 
   const router = useRouter()
 
@@ -60,6 +65,25 @@ const Programs = ({
       router.replace(routeProfessions)
   }, [])
 
+  const filteredProgramsIds = filteredPrograms.map(item => item.id)
+
+  const filteredData = {
+    courses: data.courses.filter(item => {
+      let include = false
+      filteredProgramsIds.forEach(id => {
+        if (item.id === id) include = true
+      })
+      if (include) return item
+    }),
+    professions: data.professions.filter(item => {
+      let include = false
+      filteredProgramsIds.forEach(id => {
+        if (item.id === id) include = true
+      })
+      if (include) return item
+    })
+  }
+
   return (
     <section
       className={classNames({
@@ -75,54 +99,76 @@ const Programs = ({
         <div className={stls.content}>
           {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
-            {ofType === 'course' && data.courses && data.courses.length > 0 && (
-              <div className={stls.courses}>
-                <Courses
-                  biggerTitle={!withTitle}
-                  withBtn={withBtn}
-                  courses={data.courses}
-                  withQty={withQty}
-                  threerow={threerow}
-                />
-              </div>
-            )}
+            {ofType === 'course' &&
+              (searchTerm
+                ? filteredData.courses && filteredData.courses.length > 0
+                : data.courses && data.courses.length > 0) && (
+                <div className={stls.courses}>
+                  <Courses
+                    biggerTitle={!withTitle}
+                    withBtn={withBtn}
+                    courses={searchTerm ? filteredData.courses : data.courses}
+                    withQty={withQty}
+                    threerow={threerow}
+                  />
+                </div>
+              )}
             {ofType === 'profession' &&
-              data.professions &&
-              data.professions.length > 0 && (
+              (searchTerm
+                ? filteredData.professions &&
+                  filteredData.professions.length > 0
+                : data.professions && data.professions.length > 0) && (
                 <div className={stls.professions}>
                   <Professions
                     biggerTitle={!withTitle}
                     withBtn={withBtn}
-                    professions={data.professions}
+                    professions={
+                      searchTerm ? filteredData.professions : data.professions
+                    }
                     withQty={withQty}
                     threerow={threerow}
                   />
                 </div>
               )}
 
-            {!ofType && data.courses && data.courses.length > 0 && (
-              <div className={stls.courses}>
-                <Courses
-                  biggerTitle={!withTitle}
-                  withBtn={withBtn}
-                  courses={data.courses}
-                  withQty={withQty}
-                  threerow={threerow}
-                />
-              </div>
-            )}
+            {!ofType &&
+              (searchTerm
+                ? filteredData.courses && filteredData.courses.length > 0
+                : data.courses && data.courses.length > 0) && (
+                <div className={stls.courses}>
+                  <Courses
+                    biggerTitle={!withTitle}
+                    withBtn={withBtn}
+                    courses={searchTerm ? filteredData.courses : data.courses}
+                    withQty={withQty}
+                    threerow={threerow}
+                  />
+                </div>
+              )}
 
-            {!ofType && data.professions && data.professions.length > 0 && (
-              <div className={stls.professions}>
-                <Professions
-                  biggerTitle={!withTitle}
-                  withBtn={withBtn}
-                  professions={data.professions}
-                  withQty={withQty}
-                  threerow={threerow}
-                />
-              </div>
-            )}
+            {!ofType &&
+              (searchTerm
+                ? filteredData.professions &&
+                  filteredData.professions.length > 0
+                : data.professions && data.professions.length > 0) && (
+                <div className={stls.professions}>
+                  <Professions
+                    biggerTitle={!withTitle}
+                    withBtn={withBtn}
+                    professions={
+                      searchTerm ? filteredData.professions : data.professions
+                    }
+                    withQty={withQty}
+                    threerow={threerow}
+                  />
+                </div>
+              )}
+
+            {searchTerm &&
+              filteredData.courses.length === 0 &&
+              filteredData.professions.length === 0 && (
+                <>Кажется, что по вашему запросы ничего не нашлось</>
+              )}
           </div>
         </div>
       </Wrapper>

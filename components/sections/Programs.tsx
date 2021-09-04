@@ -167,7 +167,7 @@ const Programs = ({
             {searchTerm &&
               filteredData.courses.length === 0 &&
               filteredData.professions.length === 0 && (
-                <>Кажется, что по вашему запросы ничего не нашлось</>
+                <>Кажется, что по вашему запросу ничего не нашлось</>
               )}
           </div>
         </div>

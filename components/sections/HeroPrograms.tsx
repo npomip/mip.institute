@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/HeroPrograms.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { BtnProgramFields } from '@/components/btns'
+import { BtnProgramsField } from '@/components/btns'
 import { useEffect, useContext } from 'react'
 import SearchDesktop from '@/components/general/SearchDesktop'
 
@@ -13,7 +13,7 @@ const HeroPrograms = () => {
           <SearchDesktop />
         </div>
         <div className={stls.btn}>
-          <BtnProgramFields />
+          <BtnProgramsField />
         </div>
       </Wrapper>
     </section>

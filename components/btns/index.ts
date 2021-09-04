@@ -11,7 +11,7 @@ import BtnFilter from '@/components/btns/BtnFilter'
 import BtnGamma from '@/components/btns/BtnGamma'
 import BtnHumburger from '@/components/btns/BtnHumburger'
 import BtnPhone from '@/components/btns/BtnPhone'
-import BtnProgramFields from '@/components/btns/BtnProgramFields'
+import BtnProgramsField from '@/components/btns/BtnProgramsField'
 import BtnSearch from '@/components/btns/BtnSearch'
 import BtnTelegram from '@/components/btns/BtnTelegram'
 import BtnText from '@/components/btns/BtnText'
@@ -34,7 +34,7 @@ export {
   BtnGamma,
   BtnHumburger,
   BtnPhone,
-  BtnProgramFields,
+  BtnProgramsField,
   BtnSearch,
   BtnTelegram,
   BtnText,

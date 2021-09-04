@@ -1,7 +1,7 @@
-import stls from '@/styles/components/btns/BtnProgramFields.module.sass'
+import stls from '@/styles/components/btns/BtnProgramsField.module.sass'
 import { IconMoreThan } from '@/components/icons'
 
-const BtnProgramFields = () => {
+const BtnProgramsField = () => {
   return (
     <button className={stls.container}>
       <span>Все направления</span>
@@ -10,4 +10,4 @@ const BtnProgramFields = () => {
   )
 }
 
-export default BtnProgramFields
+export default BtnProgramsField

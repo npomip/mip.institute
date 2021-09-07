@@ -20,7 +20,7 @@ const PagesProgram = () => {
   return (
     <>
       <HeroProgram />
-      <Desc />
+      {/* <Desc /> */}
       <WhatYouWillLearn />
       <ForWhom />
       <YourDiploma />

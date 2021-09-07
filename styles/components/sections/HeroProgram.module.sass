@@ -3,50 +3,76 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  position: relative
-  @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(84), $pb: f.px(35))
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(52), $pb: f.px(98))
-
-.bg
-  position: absolute
-  top: 0
-  right: 0
-  @include m.media(phone, tablet)
-    height: 94%
-  @include m.media(laptop, desktop)
-    height: 79%
-  width: 100%
+  overflow: visible
+  & > *
+    position: relative
   @include m.dye(bg, c.$alpha)
-  z-index: -1
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(84), $pb: f.px(170))
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(52), $pb: f.px(116))
 
 .top
   @include m.media(laptop, desktop)
-    @include m.flex($jc: space-between)
+    @include m.flex($jc: space-between, $ai: center)
 
 .heading
   @include m.media(laptop, desktop)
     @include m.gap($mr: 8%)
+    @include m.flex($fd: column, $jc: center, $ai: center)
+
+.label
+  @include m.media(laptop, desktop)
+    @include m.flex($as: start)
 
 .title
-  @include m.gap($mb: f.px(39))
   @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(36))
     font-size: f.px(36)
   @include m.media(laptop, desktop)
     min-width: 12ch
     max-width: 15ch
+    @include m.gap($mb: f.px(29))
     font-size: f.px(64)
   font-weight: 500
   line-height: 110%
   @include m.dye(c, c.$nu)
 
+.descriptionDesktop
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(39))
+    @include m.dye(c, c.$nu)
+    & p
+      max-width: 45ch
+      font-size: f.px(20)
+      font-weight: 300
+      &:nth-last-child(1)
+        @include m.gap($mb: f.px(0))  
+      & strong
+        font-weight: 500
+
+.descriptionMobile
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    @include m.dye(c, c.$nu)
+    & p
+      font-size: f.px(15)
+      font-weight: 300
+      &:nth-last-child(1)
+        @include m.gap($mb: f.px(0))  
+      & strong
+        font-weight: 500
+  @include m.media(laptop, desktop)
+    display: none
+
 .pic
   position: relative
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(17))
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(87))
+    @include m.gap($mb: f.px(30))
+  // @include m.media(laptop, desktop)
+  //   @include m.gap($mb: f.px(87))
 
 .discount
   position: absolute
@@ -84,11 +110,20 @@
     display: none
 
 .btnsDesktop
+  // @include m.gap($mb: f.px(39))
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.flex
+    @include m.flex($as: start)
+    width: 100%
     & > *
       width: 100%
     & > *:nth-child(1)
       @include m.gap($mr: f.px(30))
+
+.info
+  position: absolute
+  bottom: f.px(-210)
+  left: 50%
+  transform: translateX(-50%)
+  width: calc(100% - #{f.px(30)})

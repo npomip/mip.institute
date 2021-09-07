@@ -7,19 +7,24 @@ import { BtnAlpha, BtnBeta } from '@/components/btns'
 import ProgramInfo from '@/components/program/ProgramInfo'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
+import parse from 'html-react-parser'
 
 const HeroProgram = () => {
   const {
-    program: { title }
+    program: { title, description }
   } = useContext(ProgramContext)
   return (
     <section className={stls.container}>
-      <div className={stls.bg}></div>
       <Wrapper>
-        <ProgramLabel />
         <div className={stls.top}>
           <div className={stls.heading}>
+            <div className={stls.label}>
+              <ProgramLabel />
+            </div>
             <h1 className={stls.title}>{title}</h1>
+            <div className={stls.descriptionDesktop}>
+              {description && parse(description)}
+            </div>
             <div className={stls.btnsDesktop}>
               <BtnAlpha text={'Записаться на курс'} />
               <BtnBeta text={'Задать вопрос'} />
@@ -33,12 +38,17 @@ const HeroProgram = () => {
               <ImgCourse2 />
             </div>
           </div>
+          <div className={stls.descriptionMobile}>
+            {description && parse(description)}
+          </div>
         </div>
         <div className={stls.btnsMobile}>
           <BtnAlpha text={'Записаться на курс'} />
           <BtnBeta text={'Задать вопрос'} />
         </div>
-        <ProgramInfo />
+        <div className={stls.info}>
+          <ProgramInfo />
+        </div>
       </Wrapper>
     </section>
   )

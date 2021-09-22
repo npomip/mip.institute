@@ -6,9 +6,10 @@ import { BtnAlpha } from '@/components/btns'
 type FormValues = {
   name: string
   phone: string
+  question: string
 }
 
-const FormAlpha = () => {
+const FormAlpha = ({ cta = 'Подобрать программу', question = false }) => {
   const {
     register,
     handleSubmit,
@@ -26,7 +27,7 @@ const FormAlpha = () => {
           <input
             type='text'
             aria-label='Ваше имя'
-            placeholder='Введите имя'
+            placeholder='Ваше имя'
             {...register('name', {
               maxLength: {
                 value: 32,
@@ -40,7 +41,7 @@ const FormAlpha = () => {
           <input
             type='tel'
             aria-label='Ваш номер телефона'
-            placeholder='Телефон'
+            placeholder='Ваш телефон'
             {...register('phone', {
               required: `*Номер телефона обязателен`,
               minLength: {
@@ -51,8 +52,26 @@ const FormAlpha = () => {
           />
           <p className={stls.err}>{errors.phone && errors.phone.message}</p>
         </div>
+        {question && (
+          <div className={stls.inpt}>
+            <textarea
+              aria-label='Задайте Ваш вопрос'
+              placeholder='Задайте Ваш вопрос'
+              {...register('question', {
+                required: `*Номер телефона обязателен`,
+                minLength: {
+                  value: 5,
+                  message: `*Минимум 5 цифр`
+                }
+              })}></textarea>
+            <p className={stls.err}>
+              {errors.question && errors.question.message}
+            </p>
+          </div>
+        )}
+
         <div className={stls.btn}>
-          <BtnAlpha text={'Подобрать программу'} />
+          <BtnAlpha text={cta} />
         </div>
       </div>
     </form>

@@ -1,12 +1,18 @@
 import stls from '@/styles/components/popups/PopupCta.module.sass'
+import { FormAlpha } from '@/components/forms'
 import { BtnClose } from '@/components/btns'
 
-const PopupCta = ({ title, desc, cta, close }) => {
+const PopupCta = ({ title, desc, cta, close, question = false }) => {
   return (
     <div className={stls.container}>
-      <BtnClose onClick={close} />
+      <div className={stls.close}>
+        <BtnClose onClick={close} />
+      </div>
       <h3 className={stls.title}>{title}</h3>
       <p className={stls.desc}>{desc}</p>
+      <div className={stls.form}>
+        <FormAlpha cta={cta} question={question} />
+      </div>
     </div>
   )
 }

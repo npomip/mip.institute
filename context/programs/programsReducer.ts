@@ -17,8 +17,6 @@ const programsReducer = (state, action) => {
 
       const studyFields = getStudyFields(programs)
 
-      console.log(programs)
-
       const studyFieldsProfessions = getStudyFields(professions)
 
       const studyFieldsCourses = getStudyFields(courses)

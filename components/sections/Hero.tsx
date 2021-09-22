@@ -1,10 +1,13 @@
 import stls from '@/styles/components/sections/Hero.module.sass'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
 import Wrapper from '@/components/layout/Wrapper'
 import TwoColumns from '@/components/layout/TwoColumns'
 import ProsList from '@/components/general/ProsList'
 import { IconAtom } from '@/components/icons'
 import { ImgLadyStudying } from '@/components/imgs'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
+import { PopupCta } from '@/components/popups'
 
 const Hero = () => {
   let hiddenGemCount = 0
@@ -39,7 +42,23 @@ const Hero = () => {
                 <BtnAlpha text='Записаться на курс' />
               </div>
               <div className={stls.btn}>
-                <BtnBeta text='Задать вопрос' />
+                <Popup
+                  trigger={
+                    <div>
+                      <BtnBeta text='Задать вопрос' />
+                    </div>
+                  }
+                  modal
+                  nested>
+                  {close => (
+                    <PopupCta
+                      title='Задать вопрос'
+                      desc='У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам в течение 5 минут!'
+                      cta='Перезвонить мне'
+                      close={close}
+                    />
+                  )}
+                </Popup>
               </div>
             </div>
           </div>

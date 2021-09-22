@@ -62,6 +62,8 @@
   @include m.flex($fb: 45%)
   & > *
     width: 100%
+    & > *
+      width: 100%
   &:nth-child(1)
     @include m.media(phone, tablet)
       @include m.gap($mb: f.px(17))

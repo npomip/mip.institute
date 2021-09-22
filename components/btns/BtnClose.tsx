@@ -4,11 +4,14 @@ import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import { IconClose } from '@/components/icons'
 
-const BtnClose = () => {
+const BtnClose = ({ onClick = null }) => {
   const { closeMenu } = useContext(MenuContext)
 
   return (
-    <button className={stls.container} onClick={closeMenu} aria-label='Закрыть'>
+    <button
+      className={stls.container}
+      onClick={onClick ? onClick : closeMenu}
+      aria-label='Закрыть'>
       <IconClose />
     </button>
   )

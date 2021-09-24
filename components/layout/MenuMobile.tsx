@@ -4,14 +4,8 @@ import Link from 'next/link'
 import MenuContext from '@/context/menu/menuContext'
 import Wrapper from '@/components/layout/Wrapper'
 import Logo from '@/components/general/Logo'
-import {
-  BtnClose,
-  BtnPhone,
-  BtnEpsilon,
-  BtnVk,
-  BtnFb,
-  BtnYt
-} from '@/components/btns'
+import { BtnClose, BtnPhone, BtnVk, BtnFb, BtnYt } from '@/components/btns'
+import PopupTrigger from '@/components/general/PopupTrigger'
 import { IconMoreThan } from '@/components/icons'
 import classNames from 'classnames'
 import {
@@ -59,7 +53,7 @@ const MenuMobile = () => {
         </nav>
         <div className={stls.cta}>
           <BtnPhone withNumber />
-          <BtnEpsilon text={'Обратный звонок'} />
+          <PopupTrigger btnEpsilon callback />
         </div>
         <div className={stls.sm}>
           <BtnVk mlzero />

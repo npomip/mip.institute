@@ -7,11 +7,12 @@ import BtnHumburger from '@/components/btns/BtnHumburger'
 import MenuMobile from '@/components/layout/MenuMobile'
 import { city, street } from '@/data/location'
 import { IconLocation } from '@/components/icons'
-import { BtnEpsilon, BtnFields } from '@/components/btns'
+import { BtnFields } from '@/components/btns'
 import { routeWebinars, routeReviews, routeAbout } from '@/data/routes'
 import MenuContext from '@/context/menu/menuContext'
 import { useEffect, useContext } from 'react'
 import { handleSwipedEvt } from '@/helpers/index'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const Header = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -48,7 +49,7 @@ const Header = () => {
             <div className={stls.phoneNoNum}>
               <BtnPhone />
             </div>
-            <BtnEpsilon text='Обратный звонок' />
+            <PopupTrigger btnEpsilon callback />
           </div>
         </div>
         <div className={stls.row}>

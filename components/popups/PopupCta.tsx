@@ -11,7 +11,7 @@ const PopupCta = ({ title, desc, cta, close, question = false }) => {
       <h3 className={stls.title}>{title}</h3>
       <p className={stls.desc}>{desc}</p>
       <div className={stls.form}>
-        <FormAlpha cta={cta} question={question} />
+        <FormAlpha cta={cta} question={question} popup={true} />
       </div>
     </div>
   )

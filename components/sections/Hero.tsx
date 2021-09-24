@@ -5,7 +5,6 @@ import TwoColumns from '@/components/layout/TwoColumns'
 import ProsList from '@/components/general/ProsList'
 import { IconAtom } from '@/components/icons'
 import { ImgLadyStudying } from '@/components/imgs'
-import { BtnAlpha } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 
 const Hero = () => {
@@ -38,7 +37,7 @@ const Hero = () => {
             </h2>
             <div className={stls.btns}>
               <div className={stls.btn}>
-                <BtnAlpha text='Записаться на курс' />
+                <PopupTrigger btnAlpha ctaAlpha />
               </div>
               <div className={stls.btn}>
                 <PopupTrigger btnBeta question />

@@ -1,4 +1,5 @@
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import onSubmit from '@/components/funcs/onSubmit'
 import { BtnAlpha } from '@/components/btns'
@@ -10,13 +11,22 @@ type FormValues = {
   question: string
 }
 
-const FormAlpha = ({ cta = 'Подобрать программу', question = false }) => {
+const FormAlpha = ({
+  cta = 'Подобрать программу',
+  question = false,
+  popup = false
+}) => {
   const {
     register,
     handleSubmit,
     reset,
+    setFocus,
     formState: { errors }
   } = useForm<FormValues>()
+
+  useEffect(() => {
+    popup && setFocus('name')
+  }, [setFocus, popup])
 
   return (
     <form

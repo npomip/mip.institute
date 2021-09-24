@@ -2,6 +2,7 @@ import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import { useForm } from 'react-hook-form'
 import onSubmit from '@/components/funcs/onSubmit'
 import { BtnAlpha } from '@/components/btns'
+import classNames from 'classnames'
 
 type FormValues = {
   name: string
@@ -23,7 +24,7 @@ const FormAlpha = ({ cta = 'Подобрать программу', question = f
       className={stls.container}
       onSubmit={handleSubmit(onSubmit)}>
       <div className={stls.group}>
-        <div className={stls.inpt}>
+        <div className={classNames(stls.inpt, stls.name)}>
           <input
             type='text'
             aria-label='Ваше имя'
@@ -37,7 +38,7 @@ const FormAlpha = ({ cta = 'Подобрать программу', question = f
           />
           <p className={stls.err}>{errors.name && errors.name.message}</p>
         </div>
-        <div className={stls.inpt}>
+        <div className={classNames(stls.inpt, stls.phone)}>
           <input
             type='tel'
             aria-label='Ваш номер телефона'
@@ -53,7 +54,7 @@ const FormAlpha = ({ cta = 'Подобрать программу', question = f
           <p className={stls.err}>{errors.phone && errors.phone.message}</p>
         </div>
         {question && (
-          <div className={stls.inpt}>
+          <div className={classNames(stls.inpt, stls.question)}>
             <textarea
               aria-label='Задайте Ваш вопрос'
               placeholder='Задайте Ваш вопрос'

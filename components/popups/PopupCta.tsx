@@ -6,7 +6,7 @@ const PopupCta = ({ title, desc, cta, close, question = false }) => {
   return (
     <div className={stls.container}>
       <div className={stls.close}>
-        <BtnClose onClick={close} />
+        <BtnClose onClick={close} iconCloseCircle />
       </div>
       <h3 className={stls.title}>{title}</h3>
       <p className={stls.desc}>{desc}</p>

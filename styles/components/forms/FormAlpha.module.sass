@@ -2,14 +2,36 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.group
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap, $jc: space-between)
+
 .inpt
-  & input
+  & input,
+  & textarea
     width: 100%
     @include m.gap($ptb: f.px(17), $plr: f.px(20))
     border-radius: f.px(4)
     font-weight: 300
     &::placeholder
       @include m.dye(c, c.$kappa)
+  & textarea
+    outline: none
+
+.name,
+.phone
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 48%)
+
+.question
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 100%)
+
+.btn
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 50%)
+    & > *
+      width: 100%
 
 .err
   @include m.gap($mt: f.px(5))

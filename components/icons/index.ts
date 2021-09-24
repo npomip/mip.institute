@@ -4,6 +4,7 @@ import IconCalendar from '@/components/icons/IconCalendar'
 import IconCircleCheck from '@/components/icons/IconCircleCheck'
 import IconClock from '@/components/icons/IconClock'
 import IconClose from '@/components/icons/IconClose'
+import IconCloseCircle from '@/components/icons/IconCloseCircle'
 import IconCompassion from '@/components/icons/IconCompassion'
 import IconDemand from '@/components/icons/IconDemand'
 import IconFb from '@/components/icons/IconFb'
@@ -38,6 +39,7 @@ export {
   IconCircleCheck,
   IconClock,
   IconClose,
+  IconCloseCircle,
   IconCompassion,
   IconDemand,
   IconFb,

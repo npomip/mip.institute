@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/FullProgram.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { BtnAlpha } from '@/components/btns'
 import { ImgFullProgram1 } from '@/components/imgs'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const FullProgram = () => {
   return (
@@ -19,7 +20,7 @@ const FullProgram = () => {
             </p>
           </div>
           <div className={stls.btn}>
-            <BtnAlpha text={'Оставить заявку'} />
+            <PopupTrigger btn='alpha' cta='submitApplication' />
           </div>
         </div>
       </Wrapper>

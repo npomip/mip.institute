@@ -53,7 +53,7 @@ const MenuMobile = () => {
         </nav>
         <div className={stls.cta}>
           <BtnPhone withNumber />
-          <PopupTrigger btnEpsilon callback />
+          <PopupTrigger btn='epsilon' cta='callMeBack' />
         </div>
         <div className={stls.sm}>
           <BtnVk mlzero />

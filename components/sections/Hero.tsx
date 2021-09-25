@@ -37,10 +37,10 @@ const Hero = () => {
             </h2>
             <div className={stls.btns}>
               <div className={stls.btn}>
-                <PopupTrigger btnAlpha ctaAlpha />
+                <PopupTrigger btn='alpha' cta='signUpForCourse' />
               </div>
               <div className={stls.btn}>
-                <PopupTrigger btnBeta question />
+                <PopupTrigger btn='beta' cta='askQuestion' />
               </div>
             </div>
           </div>

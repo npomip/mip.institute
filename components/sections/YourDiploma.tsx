@@ -3,6 +3,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import { BtnAlpha } from '@/components/btns'
 import { ImgDiploma1 } from '@/components/imgs'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const YourDiploma = () => {
   const diplomaSlides = [
@@ -36,7 +37,7 @@ const YourDiploma = () => {
               </p>
 
               <div className={stls.desktopBtnContainer}>
-                <BtnAlpha text={'Узнать об институте'} />
+                <PopupTrigger btn='alpha' cta='learnAboutUs' />
               </div>
             </div>
           </div>
@@ -51,7 +52,7 @@ const YourDiploma = () => {
             />
           </div>
           <div className={stls.mobileBtnContainer}>
-            <BtnAlpha text={'Узнать об институте'} />
+            <PopupTrigger btn='alpha' cta='learnAboutUs' />
           </div>
         </div>
       </Wrapper>

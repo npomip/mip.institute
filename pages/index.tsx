@@ -32,7 +32,7 @@ const HomePage = ({ programs }) => {
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
-        btn={'Подобрать программу'}
+        cta='chooseProgram'
       />
       <Reviews />
       <Webinars />

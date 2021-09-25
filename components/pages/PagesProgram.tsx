@@ -32,7 +32,7 @@ const PagesProgram = () => {
         desc={`Забронируйте программу по спеццене — со скидкой ${discount.substring(
           1
         )}`}
-        btn={'Забронировать'}
+        cta='reserve'
       />
       <Teachers />
       <HelpWithEmployment />

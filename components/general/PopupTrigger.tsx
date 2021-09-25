@@ -1,78 +1,185 @@
 import stls from '@/styles/components/general/PopupTrigger.module.sass'
 import Popup from 'reactjs-popup'
 import { PopupCta } from '@/components/popups'
-import { BtnAlpha, BtnBeta, BtnEpsilon } from '@/components/btns'
+import {
+  BtnAlpha,
+  BtnBeta,
+  BtnGamma,
+  BtnDelta,
+  BtnEpsilon,
+  BtnZeta,
+  BtnEta
+} from '@/components/btns'
 
-const PopupTrigger = ({
-  btnAlpha = false,
-  btnBeta = false,
-  btnEpsilon = false,
-  text = false,
-  question = false,
-  callback = false,
-  ctaAlpha = false
-}) => {
+type PopupTriggerType = {
+  btn: 'alpha' | 'beta' | 'gamma' | 'delta' | 'epsilon' | 'zeta' | 'eta'
+  cta:
+    | 'askQuestion'
+    | 'callMeBack'
+    | 'signUpForCourse'
+    | 'signUpForProfession'
+    | 'signUp'
+    | 'chooseProgram'
+    | 'learnAboutUs'
+    | 'submitApplication'
+    | 'reserve'
+    | 'learnAboutTeachers'
+}
+
+const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
+  const question = cta === 'askQuestion'
+
   const strs = {
-    trigger: text
-      ? text.toString()
-      : question
-      ? 'Задать вопрос'
-      : callback
-      ? 'Обратный звонок'
-      : ctaAlpha
-      ? 'Записаться на курс'
-      : '',
-    title: text
-      ? text.toString()
-      : question
-      ? 'Задать вопрос'
-      : callback
-      ? 'Обратный звонок'
-      : ctaAlpha
-      ? 'Записаться на курс'
-      : '',
-    desc: question ? (
-      <>
-        У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} />{' '}
-        И мы перезвоним Вам в течение 5 минут!
-      </>
-    ) : callback ? (
-      <>
-        У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} />{' '}
-        И мы перезвоним Вам в течение 5 минут!
-      </>
-    ) : ctaAlpha ? (
-      <>
-        У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} />{' '}
-        И мы перезвоним Вам в течение 5 минут!
-      </>
-    ) : (
-      <>
-        У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} />{' '}
-        И мы перезвоним Вам в течение 5 минут!
-      </>
-    ),
-    cta: text
-      ? text.toString()
-      : question
-      ? 'Перезвоните мне'
-      : callback
-      ? 'Перезвоните мне'
-      : ctaAlpha
-      ? 'Записаться на курс'
-      : ''
+    trigger:
+      cta === 'askQuestion'
+        ? 'Задать вопрос'
+        : cta === 'callMeBack'
+        ? 'Обратный звонок'
+        : cta === 'signUpForCourse'
+        ? 'Записаться на курс'
+        : cta === 'signUpForProfession'
+        ? 'Записаться на профессию'
+        : cta === 'signUp'
+        ? 'Записаться'
+        : cta === 'chooseProgram'
+        ? 'Подобрать программу'
+        : cta === 'learnAboutUs'
+        ? 'Узнать об институте'
+        : cta === 'submitApplication'
+        ? 'Оставить заявку'
+        : cta === 'reserve'
+        ? 'Забронировать'
+        : cta === 'learnAboutTeachers'
+        ? 'Узнать всех'
+        : '',
+    title:
+      cta === 'askQuestion'
+        ? 'Задать вопрос'
+        : cta === 'callMeBack'
+        ? 'Обратный звонок'
+        : cta === 'signUpForCourse'
+        ? 'Записаться на курс'
+        : cta === 'signUpForProfession'
+        ? 'Записаться на профессию'
+        : cta === 'signUp'
+        ? 'Записаться'
+        : cta === 'chooseProgram'
+        ? 'Подобрать программу'
+        : cta === 'learnAboutUs'
+        ? 'Узнать об институте'
+        : cta === 'submitApplication'
+        ? 'Оставить заявку'
+        : cta === 'reserve'
+        ? 'Забронировать'
+        : cta === 'learnAboutTeachers'
+        ? 'Узнать всех'
+        : '',
+    desc:
+      cta === 'askQuestion' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'callMeBack' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'signUpForCourse' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'signUpForProfession' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'signUp' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'chooseProgram' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'learnAboutUs' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'submitApplication' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'reserve' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : cta === 'learnAboutTeachers' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
+      ) : (
+        ''
+      ),
+    cta:
+      cta === 'askQuestion'
+        ? 'Задать вопрос'
+        : cta === 'callMeBack'
+        ? 'Обратный звонок'
+        : cta === 'signUpForCourse'
+        ? 'Записаться на курс'
+        : cta === 'signUpForProfession'
+        ? 'Записаться на профессию'
+        : cta === 'signUp'
+        ? 'Записаться'
+        : cta === 'chooseProgram'
+        ? 'Подобрать программу'
+        : cta === 'learnAboutUs'
+        ? 'Узнать об институте'
+        : cta === 'submitApplication'
+        ? 'Оставить заявку'
+        : cta === 'reserve'
+        ? 'Забронировать'
+        : cta === 'learnAboutTeachers'
+        ? 'Узнать всех'
+        : ''
   }
 
   return (
     <Popup
       trigger={
         <div>
-          {btnAlpha ? (
+          {btn === 'alpha' ? (
             <BtnAlpha text={strs.trigger} />
-          ) : btnBeta ? (
+          ) : btn === 'beta' ? (
             <BtnBeta text={strs.trigger} />
-          ) : btnEpsilon ? (
+          ) : btn === 'gamma' ? (
+            <BtnGamma text={strs.trigger} />
+          ) : btn === 'delta' ? (
+            <BtnDelta text={strs.trigger} />
+          ) : btn === 'epsilon' ? (
             <BtnEpsilon text={strs.trigger} />
+          ) : btn === 'zeta' ? (
+            <BtnZeta text={strs.trigger} />
+          ) : btn === 'eta' ? (
+            <BtnEta text={strs.trigger} />
           ) : (
             ''
           )}

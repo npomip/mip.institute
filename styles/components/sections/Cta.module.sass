@@ -85,6 +85,8 @@
   @include m.media(laptop, desktop)
     & > *
       width: 100%
+      & > *
+        width: 100%
   @include m.media(laptop)
     @include m.flex($display: false, $fb: 40%)
   @include m.media(desktop)

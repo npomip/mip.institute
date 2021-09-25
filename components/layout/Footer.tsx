@@ -2,7 +2,8 @@ import stls from '@/styles/components/layout/Footer.module.sass'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
 import { number } from '@/data/contact'
-import { BtnVk, BtnWhatsapp, BtnTelegram, BtnBeta } from '@/components/btns'
+import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const Footer = () => {
   return (
@@ -22,7 +23,7 @@ const Footer = () => {
           <BtnTelegram dark />
         </div>
         <div className={stls.btn}>
-          <BtnBeta text={'Задать вопрос'} />
+          <PopupTrigger btn='beta' cta='askQuestion' />
         </div>
       </Wrapper>
       <div className={stls.bottom}>

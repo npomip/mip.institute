@@ -8,6 +8,7 @@ import { useContext } from 'react'
 import { getCasedRuYearString, getCasedRuMonthString } from '@/helpers/index'
 import classNames from 'classnames'
 import { IconCircleCheck } from '@/components/icons'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const StudyCost = () => {
   const {
@@ -70,21 +71,18 @@ const StudyCost = () => {
             <div className={stls.btns}>
               <div
                 className={classNames({
-                  [stls.btn]: true,
                   [stls.btncta]: true
                 })}>
-                <BtnGamma text={'Записаться'} />
+                <PopupTrigger btn='gamma' cta='signUp' />
               </div>
               <div
                 className={classNames({
-                  [stls.btn]: true,
                   [stls.btnquestion]: true
                 })}>
-                <BtnEta text={'Задать вопрос'} />
+                <PopupTrigger btn='eta' cta='askQuestion' />
               </div>
               <div
                 className={classNames({
-                  [stls.btn]: true,
                   [stls.btnmore]: true
                 })}>
                 <BtnText text={'Подробнее'} arrowBottom />

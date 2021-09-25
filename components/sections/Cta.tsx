@@ -3,7 +3,24 @@ import Wrapper from '@/components/layout/Wrapper'
 import { ImgCta1 } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
 
-const Cta = ({ title = null, desc = null, btn = null }) => {
+type CtaType = {
+  title: string
+  desc: string
+  cta:
+    | 'askQuestion'
+    | 'callMeBack'
+    | 'signUpForCourse'
+    | 'signUpForProfession'
+    | 'signUp'
+    | 'chooseProgram'
+    | 'learnAboutUs'
+    | 'submitApplication'
+    | 'reserve'
+    | 'learnAboutTeachers'
+  question?: boolean
+}
+
+const Cta = ({ title = null, desc = null, cta }: CtaType) => {
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -15,7 +32,7 @@ const Cta = ({ title = null, desc = null, btn = null }) => {
           <p className={stls.p}>{desc}</p>
         </div>
         <div className={stls.btn}>
-          <PopupTrigger btnAlpha text={btn} />
+          <PopupTrigger btn='alpha' cta={cta} />
         </div>
       </Wrapper>
     </section>

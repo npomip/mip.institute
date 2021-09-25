@@ -5,6 +5,7 @@ import FaqAnswer from '@/components/general/FaqAnswer'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
 import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
+import PopupTrigger from '../general/PopupTrigger'
 
 const Faq = () => {
   const {
@@ -33,7 +34,7 @@ const Faq = () => {
               У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам в
               течение 5 минут!
             </p>
-            <BtnZeta text={'Задать вопрос'} />
+            <PopupTrigger btn='zeta' cta='askQuestion' />
           </div>
         </div>
 
@@ -56,7 +57,7 @@ const Faq = () => {
           </div>
         </div>
         <div className={stls.phonetablet}>
-          <BtnZeta text={'Задать вопрос'} />
+          <PopupTrigger btn='zeta' cta='askQuestion' />
         </div>
       </Wrapper>
     </section>

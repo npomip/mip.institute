@@ -69,10 +69,9 @@ const FormAlpha = ({
               aria-label='Задайте Ваш вопрос'
               placeholder='Задайте Ваш вопрос'
               {...register('question', {
-                required: `*Номер телефона обязателен`,
-                minLength: {
-                  value: 5,
-                  message: `*Минимум 5 цифр`
+                maxLength: {
+                  value: 320,
+                  message: `*Максимальная длинна вопроса 320 символов`
                 }
               })}></textarea>
             <p className={stls.err}>

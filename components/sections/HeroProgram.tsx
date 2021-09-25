@@ -3,16 +3,19 @@ import Wrapper from '@/components/layout/Wrapper'
 import ProgramLabel from '@/components/program/ProgramLabel'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ImgCourse2 } from '@/components/imgs'
-import { BtnAlpha, BtnBeta } from '@/components/btns'
 import ProgramInfo from '@/components/program/ProgramInfo'
 import ProgramContext from '@/context/program/programContext'
+import ProgramsContext from '@/context/programs/programsContext'
 import { useContext } from 'react'
 import parse from 'html-react-parser'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const HeroProgram = () => {
   const {
     program: { title, description }
   } = useContext(ProgramContext)
+
+  const { curProgramsType } = useContext(ProgramsContext)
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -26,8 +29,17 @@ const HeroProgram = () => {
               {description && parse(description)}
             </div>
             <div className={stls.btnsDesktop}>
-              <BtnAlpha text={'Записаться на курс'} />
-              <BtnBeta text={'Задать вопрос'} />
+              <PopupTrigger
+                btn='alpha'
+                cta={
+                  curProgramsType === 'course'
+                    ? 'signUpForCourse'
+                    : curProgramsType === 'profession'
+                    ? 'signUpForProfession'
+                    : 'signUp'
+                }
+              />
+              <PopupTrigger btn='beta' cta='askQuestion' />
             </div>
           </div>
           <div className={stls.pic}>
@@ -43,8 +55,17 @@ const HeroProgram = () => {
           </div>
         </div>
         <div className={stls.btnsMobile}>
-          <BtnAlpha text={'Записаться на курс'} />
-          <BtnBeta text={'Задать вопрос'} />
+          <PopupTrigger
+            btn='alpha'
+            cta={
+              curProgramsType === 'course'
+                ? 'signUpForCourse'
+                : curProgramsType === 'profession'
+                ? 'signUpForProfession'
+                : 'signUp'
+            }
+          />
+          <PopupTrigger btn='beta' cta='askQuestion' />
         </div>
         <div className={stls.info}>
           <ProgramInfo />

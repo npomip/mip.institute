@@ -9,6 +9,8 @@ const ProgramCost = () => {
     program: { price, discount }
   } = useContext(ProgramContext)
   const rprice =
+    price &&
+    discount &&
     +price + (+price * (discount ? discount : discountStatic)) / 100
 
   return (

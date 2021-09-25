@@ -11,6 +11,7 @@ import {
 } from '@/components/imgs'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const Teachers = () => {
   const {
@@ -66,7 +67,7 @@ const Teachers = () => {
           />
         </div>
         <div className={stls.btnContainer}>
-          <BtnDelta text={'Узнать всех'} />
+          <PopupTrigger btn='delta' cta='learnAboutTeachers' />
         </div>
       </Wrapper>
     </section>

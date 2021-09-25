@@ -137,14 +137,28 @@
   @include m.media(phone, tablet)
     @include m.flex($jc: center, $fb: 55%)
     @include m.gap($mr: 5%)
-  @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
-    @include m.gap($mb: f.px(10))
+    & > *
+      width: 100%
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(10))
+  @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
+    @include m.gap($mb: f.px(10), $mr: 0)
+    & > *
+      width: 100%
+      & > *
+        width: 100%
 
 .btnquestion
   @include m.media(phone, tablet)
     display: none
+  @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
+    & > *
+      width: 100%
+      & > *
+        width: 100%
+  @include m.media(laptop, desktop)
+    & > * > *
+      @include m.gap($plr: f.px(28))
 
 .btnmore
   @include m.media(phone, tablet)

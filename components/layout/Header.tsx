@@ -49,7 +49,7 @@ const Header = () => {
             <div className={stls.phoneNoNum}>
               <BtnPhone />
             </div>
-            <PopupTrigger btnEpsilon callback />
+            <PopupTrigger btn='epsilon' cta='callMeBack' />
           </div>
         </div>
         <div className={stls.row}>

@@ -10,21 +10,21 @@
     "generateicons": "npx pwa-asset-generator ./public/assets/imgs/general/icon.png ./public/assets/imgs/icons -p \"0\" -b \"#6f01c6\""
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "classnames": "^2.3.1",
-    "html-react-parser": "^1.2.8",
-    "marked": "^3.0.2",
+    "html-react-parser": "^1.4.0",
+    "marked": "^3.0.7",
     "moment": "^2.29.1",
-    "next": "^11.1.0",
+    "next": "^11.1.2",
     "next-pwa": "^5.3.1",
     "next-secure-headers": "^2.2.0",
-    "next-seo": "^4.25.1",
-    "nodemailer": "^6.6.1",
+    "next-seo": "^4.28.1",
+    "nodemailer": "^6.6.5",
     "nprogress": "^0.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-gtm-module": "^2.0.11",
-    "react-hook-form": "^7.14.0",
+    "react-hook-form": "^7.17.2",
     "react-responsive": "^8.2.0",
     "react-transition-group": "^4.4.2",
     "reactjs-popup": "^2.0.4",
@@ -34,12 +34,12 @@
   },
   "devDependencies": {
     "@types/node": "^15.14.9",
-    "@types/react": "^17.0.19",
+    "@types/react": "^17.0.27",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^7.28.0",
-    "eslint-config-next": "^11.1.0",
-    "next-sitemap": "^1.6.164",
-    "sass": "^1.38.2",
-    "typescript": "^4.4.2"
+    "eslint-config-next": "^11.1.2",
+    "next-sitemap": "^1.6.179",
+    "sass": "^1.42.1",
+    "typescript": "^4.4.3"
   }
 }

@@ -16,7 +16,7 @@ const gtmId = ''
 const themeColor = '#6f01c6'
 
 const revalidate = {
-  default: 60 * 60,
+  default: 60,
   day: 60 * 60 * 24,
   hour: 60 * 60,
   minute: 60,

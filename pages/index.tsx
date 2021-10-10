@@ -8,6 +8,7 @@ import {
   Reviews,
   Webinars
 } from '@/components/sections'
+import { revalidate } from '@/config/index'
 import { fetchPrograms } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
@@ -46,8 +47,8 @@ export async function getStaticProps(context) {
   return {
     props: {
       programs
-    }
-    // revalidate: 60 * 60 * 24 // a single day
+    },
+    revalidate: revalidate.default
   }
 }
 

@@ -2,6 +2,7 @@ import { PagesProgram } from '@/components/pages'
 import { fetchPrograms, getProgram, fetchProgramsPaths } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import ProgramContext from '@/context/program/programContext'
+import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
 
 const CoursePage = ({ programs, program, studyFieldSlug }) => {
@@ -34,8 +35,8 @@ export async function getStaticProps({ params: { slug } }) {
       programs,
       program,
       studyFieldSlug
-    }
-    // revalidate: 60 * 60 * 24 // a single day
+    },
+    revalidate: revalidate.default
   }
 }
 

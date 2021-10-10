@@ -1,6 +1,7 @@
 import Reviews from '@/components/sections/Reviews'
 import { fetchPrograms } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
+import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
 
 const ReviewsPage = ({ programs }) => {
@@ -26,8 +27,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs
-    }
-    // revalidate: 60 * 60 * 24 // a single day
+    },
+    revalidate: revalidate.default
   }
 }
 

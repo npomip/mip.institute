@@ -15,4 +15,21 @@ const gtmId = ''
 
 const themeColor = '#6f01c6'
 
-export { dev, prod, frontRootUrl, backRootUrl, programsUrl, gtmId, themeColor }
+const revalidate = {
+  default: 60 * 60,
+  day: 60 * 60 * 24,
+  hour: 60 * 60,
+  minute: 60,
+  secound: 1
+}
+
+export {
+  dev,
+  prod,
+  frontRootUrl,
+  backRootUrl,
+  programsUrl,
+  gtmId,
+  themeColor,
+  revalidate
+}

@@ -5,6 +5,7 @@ import {
   filterProgramsByStudyField
 } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
+import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
 
 const ProgramsStudyFieldPage = ({ programs, studyFieldSlug }) => {
@@ -35,8 +36,8 @@ export async function getStaticProps({ params: { studyFieldSlug } }) {
     props: {
       programs,
       studyFieldSlug
-    }
-    // revalidate: 60 * 60 * 24 // a single day
+    },
+    revalidate: revalidate.default
   }
 }
 

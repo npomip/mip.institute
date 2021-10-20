@@ -15,6 +15,7 @@ import {
 import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import FooterBottom from '@/components/general/FooterBottom'
+import { FormAlpha } from '@/components/forms'
 
 const Footer = () => {
   const { studyFields } = useContext(ProgramsContext)
@@ -123,7 +124,14 @@ const Footer = () => {
             <FooterBottom />
           </div>
         </div>
-        <div className={stls.right}>right</div>
+        <div className={stls.right}>
+          <div className={stls.formTitles}>
+            <p className={stls.formTitle}>Остались вопросы?</p>
+            <p className={stls.formTitle}>Свяжитесь с нами!</p>
+          </div>
+
+          <FormAlpha cta={'Связаться'} atFooter agreement />
+        </div>
       </Wrapper>
       <div className={stls.footerBottom}>
         <FooterBottom />

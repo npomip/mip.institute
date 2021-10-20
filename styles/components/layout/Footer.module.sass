@@ -3,14 +3,15 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pt: f.px(50))
   @include m.dye(bg, c.$tau)
   @include m.dye(c, c.$upsilon)
   & > *
     display: flex
 
 .left
+  @include m.gap($pt: f.px(50))
   @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 70%)
     @include m.gap($pr: f.px(113))
 
 .top
@@ -53,6 +54,7 @@
     display: none
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(33))
+    font-size: f.px(13)
 
 .sm
   @include m.flex
@@ -69,6 +71,22 @@
     display: none
   @include m.media(laptop, desktop)
     @include m.gap($pt: f.px(67))
+
+.right
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 30%)
+    @include m.gap($p: f.px(50))
+    @include m.dye(bg, c.$gamma-2)
+
+.formTitles
+  @include m.gap($mb: f.px(17))
+  
+.formTitle
+  @include m.gap($mb: f.px(5))
+  font-size: f.px(22)
+  font-weight: 500
 
 .footerBottom
   @include m.media(laptop, desktop)

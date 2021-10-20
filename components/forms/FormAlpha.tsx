@@ -2,7 +2,7 @@ import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import onSubmit from '@/components/funcs/onSubmit'
-import { BtnAlpha } from '@/components/btns'
+import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 
 type FormValues = {
@@ -14,7 +14,9 @@ type FormValues = {
 const FormAlpha = ({
   cta = 'Подобрать программу',
   question = false,
-  popup = false
+  popup = false,
+  atFooter = false,
+  agreement = false
 }) => {
   const {
     register,
@@ -31,7 +33,10 @@ const FormAlpha = ({
   return (
     <form
       method='post'
-      className={stls.container}
+      className={classNames({
+        [stls.containet]: true,
+        [stls.atFooter]: atFooter
+      })}
       onSubmit={handleSubmit(onSubmit)}>
       <div className={stls.group}>
         <div className={classNames(stls.inpt, stls.name)}>
@@ -81,8 +86,15 @@ const FormAlpha = ({
         )}
 
         <div className={stls.btn}>
-          <BtnAlpha text={cta} />
+          {atFooter ? <BtnBeta text={cta} /> : <BtnAlpha text={cta} />}
         </div>
+
+        {agreement && (
+          <p className={stls.agreement}>
+            Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
+            персональных данных
+          </p>
+        )}
       </div>
     </form>
   )

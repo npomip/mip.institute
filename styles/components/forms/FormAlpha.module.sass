@@ -6,6 +6,26 @@
   @include m.media(laptop, desktop)
     @include m.flex($fw: wrap, $jc: space-between)
 
+.atFooter
+  & .name,
+  & .phone,
+  & .btn
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 100%)
+  & .name,
+  & .phone
+    & input
+      @include m.media(laptop, desktop)
+        font-size: f.px(16)
+        border: f.px(1) solid
+        @include m.dye(border, c.$phi)
+        border-radius: f.px(4)
+        background-color: transparent
+        @include m.dye(c, c.$nu)
+        &::placeholder
+          @include m.dye(c, c.$psi)
+
+
 .inpt
   & input,
   & textarea
@@ -32,6 +52,11 @@
     @include m.flex($display: false, $fb: 48%)
     & > *
       width: 100%
+
+.agreement
+  @include m.gap($mt: f.px(30))
+  font-size: f.px(13)
+  @include m.dye(c, c.$kappa)
 
 .err
   @include m.gap($mt: f.px(5))

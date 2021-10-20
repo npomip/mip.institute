@@ -4,9 +4,9 @@
 
 .container
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(50))
+    @include m.gap($mb: f.px(50), $ptb: f.px(50))
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(97))
+    @include m.gap($mb: f.px(97), $ptb: f.px(97))
   @include m.dye(bg, c.$pi)
 
 .title

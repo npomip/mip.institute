@@ -1,6 +1,7 @@
 import {
   HeroProgram,
   Desc,
+  HowProcessGoes,
   WhatYouWillLearn,
   ForWhom,
   YourDiploma,
@@ -23,6 +24,7 @@ const PagesProgram = () => {
       {/* <Desc /> */}
       <WhatYouWillLearn />
       <ForWhom />
+      <HowProcessGoes />
       <YourDiploma />
       <BriefProgramContents />
       <FullProgram />

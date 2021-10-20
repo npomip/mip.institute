@@ -18,7 +18,7 @@ const ProgramModule = ({ title, topics }) => {
       <div className={stls.topic}>
         <p className={stls.p}>В результате обучения вы:</p>
         <ul className={stls.list}>
-          {topics.map((topic, idx) => (
+          {topics && topics.map((topic, idx) => (
             <li key={topic + idx} className={stls.item}>
               <p className={stls.p}>{topic}</p>
             </li>

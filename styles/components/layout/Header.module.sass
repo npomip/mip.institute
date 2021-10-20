@@ -51,7 +51,7 @@
 
 .phone
   display: block
-  @media screen and ( max-width: 910px )    
+  @media screen and ( max-width: 920px )    
     display: none
   @include m.media(laptop, desktop)
     & > *
@@ -61,8 +61,8 @@
 
 .phoneNoNum
   display: none
-  @media screen and ( max-width: 910px )    
-    display: block
+  @media screen and ( max-width: 920px )    
+    @include m.flex($jc: center, $ai: center)
 
 .row
   @include m.flex($jc: space-between, $ai: center)
@@ -93,4 +93,3 @@
 .linkReviewLong
   @media screen and ( max-width: 860px )
     display: none
-        

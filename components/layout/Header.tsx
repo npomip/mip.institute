@@ -8,7 +8,7 @@ import MenuMobile from '@/components/layout/MenuMobile'
 import { city, street } from '@/data/location'
 import { IconLocation } from '@/components/icons'
 import { BtnFields } from '@/components/btns'
-import { routeWebinars, routeReviews, routeAbout } from '@/data/routes'
+import { routeWebinars, routeReviews, routeLegal } from '@/data/routes'
 import MenuContext from '@/context/menu/menuContext'
 import { useEffect, useContext } from 'react'
 import { handleSwipedEvt } from '@/helpers/index'
@@ -69,7 +69,7 @@ const Header = () => {
               Отзывы <span className={stls.linkReviewLong}>студентов</span>
             </a>
           </Link>
-          <Link href={routeAbout}>
+          <Link href={routeLegal}>
             <a className={stls.link}>Об институте</a>
           </Link>
         </div>

@@ -1,5 +1,6 @@
 const routeHome = '/'
 const routeAbout = '/about'
+const routeLegal = '/legal'
 const routeReviews = '/reviews'
 const routeWebinars = '/webinars'
 const routePrograms = '/programs'
@@ -9,6 +10,7 @@ const routeProfessions = '/professions'
 export {
   routeHome,
   routeAbout,
+  routeLegal,
   routeReviews,
   routeWebinars,
   routePrograms,

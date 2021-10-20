@@ -36,7 +36,7 @@ const HomePage = ({ programs }) => {
         cta='chooseProgram'
       />
       <Reviews />
-      <Webinars />
+      {/* <Webinars /> */}
     </>
   )
 }

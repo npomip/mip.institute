@@ -8,7 +8,12 @@ import MenuMobile from '@/components/layout/MenuMobile'
 import { city, street } from '@/data/location'
 import { IconLocation } from '@/components/icons'
 import { BtnFields } from '@/components/btns'
-import { routeWebinars, routeReviews, routeAbout, routeLegal } from '@/data/routes'
+import {
+  routeContact,
+  routeReviews,
+  routeAbout,
+  routeLegal
+} from '@/data/routes'
 import MenuContext from '@/context/menu/menuContext'
 import { useEffect, useContext } from 'react'
 import { handleSwipedEvt } from '@/helpers/index'
@@ -61,16 +66,16 @@ const Header = () => {
           <div className={stls.btnFields}>
             <BtnFields />
           </div>
-          <Link href={routeWebinars}>
-            <a className={stls.link}>Вебинары</a>
+          <Link href={routeAbout}>
+            <a className={stls.link}>Об институте</a>
           </Link>
           <Link href={routeReviews}>
             <a className={stls.link}>
               Отзывы <span className={stls.linkReviewLong}>студентов</span>
             </a>
           </Link>
-          <Link href={routeAbout}>
-            <a className={stls.link}>Об институте</a>
+          <Link href={routeContact}>
+            <a className={stls.link}>Контакты</a>
           </Link>
         </div>
       </Wrapper>

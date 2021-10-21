@@ -3,6 +3,7 @@ const routeAbout = '/about'
 const routeLegal = '/legal'
 const routeReviews = '/reviews'
 const routeWebinars = '/webinars'
+const routeContact = '/contact'
 const routePrograms = '/programs'
 const routeCourses = '/courses'
 const routeProfessions = '/professions'
@@ -13,6 +14,7 @@ export {
   routeLegal,
   routeReviews,
   routeWebinars,
+  routeContact,
   routePrograms,
   routeCourses,
   routeProfessions

@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  position: relative
   @include m.dye(bg, c.$tau)
   @include m.dye(c, c.$upsilon)
   & > *
@@ -76,6 +77,8 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
+    position: relative
+    z-index: 2
     @include m.flex($display: false, $fb: 30%)
     @include m.gap($p: f.px(50))
     @include m.dye(bg, c.$gamma-2)
@@ -91,3 +94,14 @@
 .footerBottom
   @include m.media(laptop, desktop)
     display: none
+
+.bgRight
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    position: absolute
+    top: 0
+    right: 0
+    width: 30%
+    height: 100%
+    @include m.dye(bg, c.$gamma-2)

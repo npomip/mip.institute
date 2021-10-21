@@ -10,6 +10,7 @@
     @include m.flex($fw: wrap)
 
 .copy,
+.agreeLink,
 .docLink
   @include m.gap($mb: f.px(17), $mr: f.px(64))
   font-size: f.px(13)
@@ -17,3 +18,6 @@
 
 .copy
   line-height: 130%
+
+.docLink
+  @include m.gap($mr: 0)

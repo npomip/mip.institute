@@ -23,7 +23,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Форма обучения:',
-      val: `${studyFormLabel}`,
+      val: studyFormLabel === 'Заочная' ? 'Дистанционно' : studyFormLabel,
       icon: <IconGraduateHat />
     },
     {

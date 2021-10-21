@@ -23,7 +23,7 @@ const YourResume = () => {
             </div>
             <div className={stls.headings}>
               <div className={stls.heading}>
-                <p className={stls.p}>Форма обучения:</p>
+                <p className={stls.p}>Профессия:</p>
                 <h3 className={stls.h3}>{resumeTitle}</h3>
               </div>
               <div className={stls.heading}>

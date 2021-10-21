@@ -10,7 +10,7 @@ const FooterBottom = () => {
           &copy; Московский Институт Психологии, {new Date().getFullYear()}
         </p>
         <Link href='/'>
-          <a className={stls.docLink}>Договор оферты</a>
+          <a className={stls.agreeLink}>Договор оферты</a>
         </Link>
         <Link href='/'>
           <a className={stls.docLink}>Политика конфиденциальности</a>

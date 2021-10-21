@@ -29,10 +29,10 @@ const Footer = () => {
       val: 'Профессии',
       href: routeProfessions
     },
-    // {
-    //   val: 'Вебинары',
-    //   href: routeWebinars
-    // },
+    {
+      val: 'Вебинары',
+      href: routeWebinars
+    },
     {
       val: 'Отзывы',
       href: routeReviews
@@ -136,6 +136,7 @@ const Footer = () => {
       <div className={stls.footerBottom}>
         <FooterBottom />
       </div>
+      <div className={stls.bgRight}></div>
     </footer>
   )
 }

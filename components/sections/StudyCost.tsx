@@ -23,7 +23,7 @@ const StudyCost = () => {
     // },
     {
       key: 'Форма обучения:',
-      val: `${studyFormLabel}`
+      val: studyFormLabel === 'Заочная' ? 'Дистанционно' : studyFormLabel
     },
     {
       key: 'Срок обучения:',

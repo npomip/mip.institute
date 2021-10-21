@@ -13,6 +13,9 @@ const programsUrl = '/programs'
 
 const gtmId = ''
 
+const base64pixel =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
+
 const themeColor = '#6f01c6'
 
 const revalidate = {
@@ -30,6 +33,7 @@ export {
   backRootUrl,
   programsUrl,
   gtmId,
+  base64pixel,
   themeColor,
   revalidate
 }

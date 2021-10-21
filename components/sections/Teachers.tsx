@@ -4,6 +4,7 @@ import SwiperContainer from '@/components/general/SwiperContainer'
 import CardTeacher from '@/components/cards/CardTeacher'
 import BtnDelta from '@/components/btns/BtnDelta'
 import {
+  ImgTeacher,
   ImgTeacher1,
   ImgTeacher2,
   ImgTeacher3,
@@ -18,12 +19,21 @@ const Teachers = () => {
     program: { teachers }
   } = useContext(ProgramContext)
 
+  console.log(teachers)
   const list =
     teachers &&
-    teachers.map(item => {
-      item.portrait = <ImgTeacher1 name='Иванов Иван Иванович' />
+    teachers.map(teacher => {
+      teacher.image = (
+        <ImgTeacher
+          src={teacher.portrait.formats.thumbnail.url}
+          alt={teacher.name}
+          width={teacher.portrait.formats.thumbnail.width}
+          height={teacher.portrait.formats.thumbnail.height}
+        />
+      )
+      // <ImgTeacher1 name='Иванов Иван Иванович' />
       // item.formats.thumbnail.url
-      return item
+      return teacher
     })
 
   const teachersSlides =
@@ -31,7 +41,7 @@ const Teachers = () => {
     list.map((teacher, idx) => (
       <CardTeacher
         key={teacher.name + idx}
-        portrait={teacher.portrait}
+        portrait={teacher.image}
         name={teacher.name}
         specialization={teacher.specialization}
         achievements={teacher.achievements}

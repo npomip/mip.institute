@@ -8,9 +8,14 @@ import classNames from 'classnames'
 type StudyFieldsType = {
   aside?: boolean
   ofType?: 'course' | 'profession' | null
+  close?: any
 }
 
-const StudyFields = ({ aside = false, ofType = null }: StudyFieldsType) => {
+const StudyFields = ({
+  aside = false,
+  ofType = null,
+  close = null
+}: StudyFieldsType) => {
   const {
     studyFields,
     studyFieldsCourses,
@@ -35,7 +40,7 @@ const StudyFields = ({ aside = false, ofType = null }: StudyFieldsType) => {
       {list.map(({ label, slug }, idx) => (
         <Fragment key={slug + idx}>
           {idx === 0 && (
-            <li className={stls.studyField}>
+            <li className={stls.studyField} onClick={close && close}>
               <BtnField
                 href={
                   aside
@@ -51,7 +56,7 @@ const StudyFields = ({ aside = false, ofType = null }: StudyFieldsType) => {
               </BtnField>
             </li>
           )}
-          <li className={stls.studyField}>
+          <li className={stls.studyField} onClick={close && close}>
             <BtnField
               href={`${
                 aside

@@ -1,0 +1,21 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(phone, tablet)
+    position: fixed
+    z-index: 2
+    top: 0
+    left: 0
+    @include m.gap($p: f.px(30))
+    height: 100%
+    width: 100%
+    @include m.dye(bg, c.$nu)
+    @include m.dye(c, c.$theta)
+
+.close
+  @include m.media(phone, tablet)
+    position: absolute
+    top: f.px(10)
+    right: f.px(3)

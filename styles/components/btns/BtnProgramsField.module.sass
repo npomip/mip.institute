@@ -2,7 +2,7 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
+.btn
   position: relative
   @include m.flex($jc: space-between, $ai: center)
   @include m.media(phone, tablet)
@@ -36,3 +36,9 @@
     transform: scale(0.98)
     // &::after
     //   opacity: 0
+
+.popup
+  display: none
+  @include m.media(phone, tablet)
+    &.isOpen
+      display: block

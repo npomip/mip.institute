@@ -23,11 +23,7 @@ const LegalPage = ({ programs }) => {
     setCurProgramsStudyFieldSlug(null)
   }, [])
 
-  return (
-    <>
-      Legal Page
-    </>
-  )
+  return <>Legal Page</>
 }
 
 export async function getStaticProps(context) {

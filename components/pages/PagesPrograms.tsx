@@ -12,7 +12,7 @@ type PagesProgramsType = {
 const PagesPrograms = ({ ofType }: PagesProgramsType) => {
   return (
     <>
-      <HeroPrograms />
+      <HeroPrograms ofType={ofType} />
       <FilterSearch />
       <Programs ofType={ofType} withQty threerow withFilters />
       <ContactForm />

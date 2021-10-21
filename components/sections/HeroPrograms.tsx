@@ -1,10 +1,9 @@
 import stls from '@/styles/components/sections/HeroPrograms.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { BtnProgramsField } from '@/components/btns'
-import { useEffect, useContext } from 'react'
 import SearchDesktop from '@/components/general/SearchDesktop'
 
-const HeroPrograms = () => {
+const HeroPrograms = ({ ofType = null }) => {
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -13,7 +12,7 @@ const HeroPrograms = () => {
           <SearchDesktop />
         </div>
         <div className={stls.btn}>
-          <BtnProgramsField />
+          <BtnProgramsField ofType={ofType} />
         </div>
       </Wrapper>
     </section>

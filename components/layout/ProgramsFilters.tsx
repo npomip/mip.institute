@@ -4,14 +4,15 @@ import ProgramType from '@/components/general/ProgramType'
 
 type ProgramsFiltersType = {
   ofType?: 'profession' | 'course' | null
+  close?: any
 }
 
-const ProgramsFilters = ({ ofType = null }: ProgramsFiltersType) => {
+const ProgramsFilters = ({ ofType = null, close }: ProgramsFiltersType) => {
   return (
     <div className={stls.container}>
-      <StudyFields aside ofType={ofType} />
+      <StudyFields aside ofType={ofType} close={close} />
       <div className={stls.divider}></div>
-      <ProgramType />
+      <ProgramType close={close} />
     </div>
   )
 }

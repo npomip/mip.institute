@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { routeProfessions, routeCourses, routePrograms } from '@/data/routes'
 
-const ProgramType = () => {
+const ProgramType = ({ close = null }) => {
   const { curProgramsType, curProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -16,7 +16,7 @@ const ProgramType = () => {
       <p className={stls.p}>Тип обучения:</p>
 
       <Link href={`${routePrograms}/${slug}`}>
-        <a className={stls.item}>
+        <a className={stls.item} onClick={close && close}>
           <div
             className={classNames({
               [stls.circle]: true,
@@ -27,7 +27,7 @@ const ProgramType = () => {
       </Link>
 
       <Link href={`${routeProfessions}/${slug}`}>
-        <a className={stls.item}>
+        <a className={stls.item} onClick={close && close}>
           <div
             className={classNames({
               [stls.circle]: true,
@@ -38,7 +38,7 @@ const ProgramType = () => {
       </Link>
 
       <Link href={`${routeCourses}/${slug}`}>
-        <a className={stls.item}>
+        <a className={stls.item} onClick={close && close}>
           <div
             className={classNames({
               [stls.circle]: true,

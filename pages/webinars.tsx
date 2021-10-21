@@ -10,7 +10,7 @@ const WebinarsPage = ({ programs }) => {
 
   useEffect(() => {
     setPrograms(programs)
-    setCurProgramsType('profession')
+    setCurProgramsType(null)
     setCurProgramsStudyFieldSlug(null)
   }, [])
 

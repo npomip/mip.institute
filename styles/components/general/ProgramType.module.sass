@@ -3,14 +3,18 @@
 @use '@/styles/themes/default/colors' as c
 
 .p
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(23))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(10))
-    font-size: f.px(18)
-    font-weight: 500
+  font-size: f.px(18)
+  font-weight: 500
 
 .item
+  @include m.flex
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(23))
   @include m.media(laptop, desktop)
-    @include m.flex
     @include m.gap($mb: f.px(10))
 
 .circle
@@ -34,7 +38,6 @@
       @include m.dye(bg, c.$nu)
 
 .text
-  @include m.media(laptop, desktop)
-    font-size: f.px(18)
-    font-weight: 300
-    @include m.dye(c, c.$chi)
+  font-size: f.px(18)
+  font-weight: 300
+  @include m.dye(c, c.$chi)

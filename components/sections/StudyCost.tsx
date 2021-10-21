@@ -12,7 +12,13 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 
 const StudyCost = () => {
   const {
-    program: { title, studyHours, studyFormLabel, studyMounthsDuration }
+    program: {
+      title,
+      studyHours,
+      studyForm,
+      studyFormLabel,
+      studyMounthsDuration
+    }
   } = useContext(ProgramContext)
 
   const info = [
@@ -23,7 +29,7 @@ const StudyCost = () => {
     // },
     {
       key: 'Форма обучения:',
-      val: studyFormLabel === 'Заочная' ? 'Дистанционно' : studyFormLabel
+      val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel
     },
     {
       key: 'Срок обучения:',

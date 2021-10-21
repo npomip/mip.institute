@@ -11,7 +11,7 @@ import {
 
 const ProgramInfo = () => {
   const {
-    program: { studyHours, studyFormLabel, studyMounthsDuration }
+    program: { studyHours, studyForm, studyFormLabel, studyMounthsDuration }
   } = useContext(ProgramContext)
 
   const vals = [
@@ -23,7 +23,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Форма обучения:',
-      val: studyFormLabel === 'Заочная' ? 'Дистанционно' : studyFormLabel,
+      val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel,
       icon: <IconGraduateHat />
     },
     {

@@ -4,6 +4,7 @@ import ContactForm from '@/components/sections/ContactForm'
 import Contacts from '@/components/sections/Contacts'
 import Cta from '@/components/sections/Cta'
 import Desc from '@/components/sections/Desc'
+import Diplomas from '@/components/sections/Diplomas'
 import Faq from '@/components/sections/Faq'
 import FilterSearch from '@/components/sections/FilterSearch'
 import ForWhom from '@/components/sections/ForWhom'
@@ -36,6 +37,7 @@ export {
   Contacts,
   Cta,
   Desc,
+  Diplomas,
   Faq,
   FilterSearch,
   ForWhom,

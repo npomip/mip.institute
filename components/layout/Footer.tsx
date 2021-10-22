@@ -10,7 +10,11 @@ import {
   routeCourses,
   routeProfessions,
   routeWebinars,
-  routeReviews
+  routeReviews,
+  routeContact,
+  routeLegal,
+  routeAbout,
+  routeHome
 } from '@/data/routes'
 import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
@@ -36,6 +40,22 @@ const Footer = () => {
     {
       val: 'Отзывы',
       href: routeReviews
+    },
+    {
+      val: 'Главная',
+      href: routeHome
+    },
+    {
+      val: 'Об институте',
+      href: routeAbout
+    },
+    {
+      val: 'Сведения об образовательной организации',
+      href: routeLegal
+    },
+    {
+      val: 'Контакты',
+      href: routeContact
     }
   ]
 

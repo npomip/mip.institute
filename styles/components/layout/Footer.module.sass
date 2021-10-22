@@ -24,7 +24,12 @@
     display: none
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $fw: wrap)
-    @include m.gap($p: 0)
+    @include m.gap($m: 0, $p: 0)
+
+.staticLinks
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 20%)
+
 
 .linkItem
   @include m.media(laptop, desktop)

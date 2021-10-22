@@ -4,6 +4,7 @@ import { fetchPrograms } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import PageTitle from '@/components/layout/PageTitle'
+import Contacts from '@/components/sections/Contacts'
 
 const LegalPage = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -18,6 +19,7 @@ const LegalPage = ({ programs }) => {
   return (
     <>
       <PageTitle>Контакты</PageTitle>
+      <Contacts />
     </>
   )
 }

@@ -14,7 +14,8 @@ import {
   routeContact,
   routeLegal,
   routeAbout,
-  routeHome
+  routeHome,
+  routePayment
 } from '@/data/routes'
 import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
@@ -56,6 +57,10 @@ const Footer = () => {
     {
       val: 'Контакты',
       href: routeContact
+    },
+    {
+      val: 'Оплата',
+      href: routePayment
     }
   ]
 

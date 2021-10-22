@@ -1,5 +1,6 @@
 import ImgDiploma1 from '@/components/imgs/diplomas/ImgDiploma1'
 import ImgLadyStudying from '@/components/imgs/general/ImgLadyStudying'
+import ImgOnlinePayment from '@/components/imgs/payment/ImgOnlinePayment'
 import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
 import ImgPortrait2 from '@/components/imgs/webinars/ImgPortrait2'
 import ImgPortrait3 from '@/components/imgs/webinars/ImgPortrait3'
@@ -26,6 +27,7 @@ import ImgFullProgram1 from '@/components/imgs/fullprogram/ImgFullProgram1'
 export {
   ImgDiploma1,
   ImgLadyStudying,
+  ImgOnlinePayment,
   ImgPortrait1,
   ImgPortrait2,
   ImgPortrait3,

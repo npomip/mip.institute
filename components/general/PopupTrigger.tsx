@@ -24,6 +24,7 @@ type PopupTriggerType = {
     | 'submitApplication'
     | 'reserve'
     | 'learnAboutTeachers'
+    | 'help'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
@@ -51,6 +52,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Забронировать'
         : cta === 'learnAboutTeachers'
         ? 'Узнать всех'
+        : cta === 'help'
+        ? 'Помощь'
         : '',
     title:
       cta === 'askQuestion'
@@ -73,6 +76,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Забронировать'
         : cta === 'learnAboutTeachers'
         ? 'Узнать всех'
+        : cta === 'help'
+        ? 'Помощь'
         : '',
     desc:
       cta === 'askQuestion' ? (
@@ -135,6 +140,11 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
           минут!
         </>
+      ) : cta === 'help' ? (
+        <>
+          Оставьте заявку, мы свяжемся с Вами в рабочие часы и ответим на Ваши
+          вопросы
+        </>
       ) : (
         ''
       ),
@@ -159,6 +169,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Забронировать'
         : cta === 'learnAboutTeachers'
         ? 'Узнать всех'
+        : cta === 'help'
+        ? 'Оставить заявку'
         : ''
   }
 

@@ -7,6 +7,7 @@ const routeContact = '/contact'
 const routePrograms = '/programs'
 const routeCourses = '/courses'
 const routeProfessions = '/professions'
+const routePayment = '/payment'
 
 export {
   routeHome,
@@ -17,5 +18,6 @@ export {
   routeContact,
   routePrograms,
   routeCourses,
-  routeProfessions
+  routeProfessions,
+  routePayment
 }

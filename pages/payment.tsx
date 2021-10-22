@@ -1,12 +1,16 @@
-import stls from '@/styles/pages/Contact.module.sass'
+import stls from '@/styles/pages/Payment.module.sass'
 import { revalidate } from '@/config/index'
 import { fetchPrograms } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import PageTitle from '@/components/layout/PageTitle'
-import { Contacts } from '@/components/sections'
+import {
+  PaymentBtns,
+  PaymentDebitCard,
+  PaymentInfo
+} from '@/components/sections'
 
-const LegalPage = ({ programs }) => {
+const PaymentPage = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -18,8 +22,10 @@ const LegalPage = ({ programs }) => {
 
   return (
     <>
-      <PageTitle>Контакты</PageTitle>
-      <Contacts />
+      <PageTitle>Оплата</PageTitle>
+      <PaymentDebitCard />
+      <PaymentInfo />
+      <PaymentBtns />
     </>
   )
 }
@@ -35,4 +41,4 @@ export async function getStaticProps(context) {
   }
 }
 
-export default LegalPage
+export default PaymentPage

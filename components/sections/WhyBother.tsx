@@ -58,7 +58,7 @@ const WhyBother = () => {
             <div className={stls.text}>
               <h3 className={stls.subTitle}>Высокий доход</h3>
               <p className={stls.p}>
-                Средняя зарплата наших выпускников 80000 т.р.
+                Средняя зарплата наших выпускников 90000 т.р.
               </p>
             </div>
           </div>

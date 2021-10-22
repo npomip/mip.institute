@@ -7,6 +7,7 @@ import IconClose from '@/components/icons/IconClose'
 import IconCloseCircle from '@/components/icons/IconCloseCircle'
 import IconCompassion from '@/components/icons/IconCompassion'
 import IconDemand from '@/components/icons/IconDemand'
+import IconDoc from '@/components/icons/IconDoc'
 import IconFb from '@/components/icons/IconFb'
 import IconFilter from '@/components/icons/IconFilter'
 import IconGettingup from '@/components/icons/IconGettingup'
@@ -42,6 +43,7 @@ export {
   IconCloseCircle,
   IconCompassion,
   IconDemand,
+  IconDoc,
   IconFb,
   IconFilter,
   IconGettingup,

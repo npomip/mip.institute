@@ -4,6 +4,7 @@ import { fetchPrograms } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import PageTitle from '@/components/layout/PageTitle'
+import { LegalDocs, LegalInfo } from '@/components/sections'
 
 const LegalPage = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -20,6 +21,8 @@ const LegalPage = ({ programs }) => {
       <PageTitle>
         Сведения <br className={stls.linebrake} /> об организации
       </PageTitle>
+      <LegalInfo />
+      <LegalDocs />
     </>
   )
 }

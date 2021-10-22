@@ -30,13 +30,14 @@ const Contacts = () => {
       <Wrapper>
         <div className={stls.cards}>
           {cards.map(({ city, street, numbers, email }) => (
-            <CardContact
-              key={`${city} ${street}`}
-              city={city}
-              street={street}
-              numbers={numbers}
-              email={email}
-            />
+            <div key={`${city} ${street}`} className={stls.card}>
+              <CardContact
+                city={city}
+                street={street}
+                numbers={numbers}
+                email={email}
+              />
+            </div>
           ))}
         </div>
       </Wrapper>

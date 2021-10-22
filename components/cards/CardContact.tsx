@@ -22,15 +22,20 @@ const CardContact = ({ city, street, numbers, email }: CardContactType) => {
         <p className={stls.street}>{street}</p>
       </div>
       <div className={classNames({ [stls.row]: true, [stls.numbers]: true })}>
-        {numbers.map(number => (
-          <p key={number.val}>
-            <a href={number.href}>{number.val}</a>
+        {numbers.map((number, idx) => (
+          <p key={number.val} className={stls.number}>
+            <a href={number.href} className={stls.link}>
+              {number.val}
+            </a>
+            {idx + 1 < numbers.length && ','}
           </p>
         ))}
       </div>
       <div className={stls.row}>
         <p className={stls.email}>
-          <a href={email.href}>{email.val}</a>
+          <a href={email.href} className={stls.link}>
+            {email.val}
+          </a>
         </p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 const number = {
-  href: 'tel:+7-495-648-62-26',
-  val: '+7 (495) 648-62-26'
+  href: 'tel:+7-499-110-86-32',
+  val: '+7 (199) 110-86-32'
 }
 
 export default number

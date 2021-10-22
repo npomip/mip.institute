@@ -1,8 +1,11 @@
 import stls from '@/styles/components/sections/PaymentDebitCard.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { ImgOnlinePayment } from '@/components/imgs'
+import { IconCircleCheck } from '../icons'
 
 const PaymentDebitCard = () => {
+  const list = ['VISA International', 'Mastercard Worldwide', 'JCB', 'МИР']
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -11,14 +14,19 @@ const PaymentDebitCard = () => {
           <p className={stls.p}>
             Для проведения оплаты обучения, с помощью банковской карты, ниже на
             этой странице необходимо нажать кнопку Оплата банковской картой.
-            Оплата происходит через <strong>ПАО СБЕРБАНК</strong> с
+            Оплата происходит через{' '}
+            <strong className={stls.strong}>ПАО СБЕРБАНК</strong> с
             использованием банковских карт следующих платёжных систем:
           </p>
           <ul className={stls.list}>
-            <li className={stls.item}>VISA International</li>
-            <li className={stls.item}>Mastercard Worldwide</li>
-            <li className={stls.item}>JCB</li>
-            <li className={stls.item}>МИР</li>
+            {list.map(item => (
+              <li key={item} className={stls.item}>
+                <div className={stls.icon}>
+                  <IconCircleCheck inverse />
+                </div>
+                <span className={stls.text}>{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={stls.right}>

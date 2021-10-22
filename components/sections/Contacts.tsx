@@ -8,14 +8,14 @@ import {
   numberAlmatyAlt
 } from '@/data/contact'
 import { email, emailAlmaty } from '@/data/email'
-import CardContact from '../cards/CardContact'
+import CardContact from '@/components/cards/CardContact'
 
 const Contacts = () => {
   const cards = [
     {
       city,
       street,
-      numbers: [number, numberAlt],
+      numbers: [number],
       email
     },
     {

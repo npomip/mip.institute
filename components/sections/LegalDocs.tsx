@@ -47,11 +47,11 @@ const LegalDocs = () => {
           <ul className={stls.listLeft}>
             {listLeft.map(item => (
               <li key={item.val} className={stls.itemLeft}>
-                <div className={stls.icon}>
-                  <IconDoc />
-                </div>
                 <a href='#' className={stls.link}>
-                  {item.val}
+                  <div className={stls.icon}>
+                    <IconDoc />
+                  </div>
+                  <span className={stls.text}>{item.val}</span>
                 </a>
               </li>
             ))}

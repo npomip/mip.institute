@@ -2,7 +2,7 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
+.containery
   @include m.media(laptop, desktop)
     @include m.gap($pb: f.px(100))
 
@@ -27,8 +27,26 @@
 
 .itemLeft,
 .itemRight
-  @include m.flex($fd: column)
+  @include m.flex
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
+    @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(36))
+    @include m.gap($mb: f.px(24))
+
+.link
+  @include m.flex($ai: center)
+  @include m.dye(c, c.$theta)
+  &:focus,
+  &:hover
+    text-decoration: underline
+
+.icon
+  @include m.gap($mr: f.px(16))
+
+.text
+  font-weight: 300
+  line-height: 130%
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    font-size: f.px(15)

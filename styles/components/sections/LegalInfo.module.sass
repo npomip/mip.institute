@@ -3,10 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.media(phone, tablet)
-    @include m.gap($mtb: f.px(50))
   @include m.media(laptop, desktop)
-    @include m.gap($mtb: f.px(100))
+    @include m.gap($pb: f.px(100))
 
 .content
   @include m.media(laptop, desktop)
@@ -42,7 +40,7 @@
     @include m.gap($mb: f.px(10))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(24))
+    @include m.gap($mb: f.px(20))
     font-size: f.px(18)
   @include m.dye(c, c.$theta)
 

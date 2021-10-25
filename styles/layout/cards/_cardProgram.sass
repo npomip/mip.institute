@@ -5,7 +5,7 @@
 @mixin container
   @include m.media(phone, tablet)
     @include m.flex
-    @include m.gap($mb: f.px(10), $ptb: f.px(20), $plr: f.px(15))
+    @include m.gap($mb: f.px(10), $ptb: f.px(34), $plr: f.px(15))
     border-radius: f.px(10)
   @include m.media(laptop)
     &.threerow
@@ -24,7 +24,8 @@
       &:nth-child(3n)
         @include m.gap($mr: 0)
     max-width: f.px(270)
-    @include m.gap($mb: f.px(30))
+    min-height: f.px(240)
+    @include m.gap($mb: f.px(30), $ptb: f.px(34))
     border-radius: f.px(20)
     overflow: hidden
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
@@ -49,31 +50,57 @@
     @include m.gap($pt: f.px(20), $pb: f.px(37), $plr: f.px(23))
 
 @mixin info
-  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(phone, tablet, desktop)
+    @include m.flex($jc: space-between, $ai: center)
+  @include m.media(laptop)
+    @include m.flex($jc: space-between, $ai: flex-start, $fd: column)
   @include m.gap($mb: f.px(20))
 
-@mixin type
+
+@mixin type($calpha: false, $cbeta: false)
   @include m.gap($ptb: f.px(4), $plr: f.px(17))
+  font-weight: 500
+  font-size: f.px(13)
   border-radius: f.px(23)
-  @include m.media(phone, tablet)
-    font-size: f.px(11)
-  @include m.media(laptop, desktop)
-    font-size: f.px(13)
+  @include m.media(laptop)
+    @include m.gap($mb: f.px(20))
+  // @include m.media(phone, tablet)
+  //   font-size: f.px(11)
+  // @include m.media(laptop, desktop)
+  //   font-size: f.px(13)
   text-transform: uppercase
   @include m.dye(bg, c.$mu)
   @include m.dye(c, c.$kappa)
+  @if ($calpha == true)
+    @include m.dye(bg, c.$alpha)
+    @include m.dye(c, c.$kappa)
+  @if ($cbeta == true)
+    @include m.dye(bg, c.$beta)
+    @include m.dye(c, c.$kappa)
 
 @mixin dur
-  @include m.media(phone, tablet)
-    font-size: f.px(11)
-  @include m.media(laptop, desktop)
-    font-size: f.px(13)
+  @include m.flex
+  font-size: f.px(11)
+  font-weight: 500
+  line-height: 120%
+  letter-spacing: f.px(0.64, em)
+  text-transform: uppercase
+  @include m.dye(c, rgba(c.$theta, .5))
+  // @include m.media(phone, tablet)
+  //   font-size: f.px(11)
+  // @include m.media(laptop, desktop)
+  //   font-size: f.px(13)
+
+@mixin icon
+  @include m.gap($mr: f.px(8))
 
 @mixin title
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(43))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(53))
     font-size: f.px(18)
   font-weight: 400
   overflow-wrap: break-word

@@ -17,9 +17,9 @@ const CardCourse = ({ course = null, threerow = false }) => {
           [stls.threerow]: threerow,
           [stls.fourrow]: !threerow
         })}>
-        <div className={stls.img}>
+        {/* <div className={stls.img}>
           <ImgCourse1 />
-        </div>
+        </div> */}
         <div className={stls.right}>
           <div className={stls.info}>
             <span className={stls.type}>{course.typeLabel}</span>

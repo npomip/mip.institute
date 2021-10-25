@@ -8,5 +8,8 @@
   // width: 100%
   // @include m.gap($m: f.px(10, em))
 
-  // & path
-  //   @include m.dye(stroke, c.$beta)
+  &.theta
+    & path
+      @include m.dye(fill, c.$theta)
+  &.halfopacity
+    opacity: .5

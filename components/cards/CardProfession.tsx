@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { routeProfessions } from '@/data/routes'
 import { getCasedRuMonthString } from '@/helpers/index'
 import classNames from 'classnames'
+import { IconCalendar } from '../icons'
 
 const CardProfession = ({ profession = null, threerow = false }) => {
   return (
@@ -17,15 +18,18 @@ const CardProfession = ({ profession = null, threerow = false }) => {
           [stls.threerow]: threerow,
           [stls.fourrow]: !threerow
         })}>
-        <div className={stls.img}>
+        {/* <div className={stls.img}>
           <ImgCourse1 />
-        </div>
+        </div> */}
         <div className={stls.right}>
           <div className={stls.info}>
             <span className={stls.type}>{profession.typeLabel}</span>
-            <span className={stls.dur}>
+            <div className={stls.dur}>
+              <div className={stls.icon}>
+                <IconCalendar theta halfopacity />
+              </div>
               {getCasedRuMonthString(profession.studyMounthsDuration)}
-            </span>
+            </div>
           </div>
           <h4 className={stls.title}>{profession.title}</h4>
         </div>

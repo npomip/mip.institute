@@ -72,7 +72,7 @@ const StudyCost = () => {
               </div>
             </div>
             <div className={stls.cost}>
-              <ProgramCost />
+              <ProgramCost withPerMonth />
             </div>
             <div className={stls.btns}>
               <div

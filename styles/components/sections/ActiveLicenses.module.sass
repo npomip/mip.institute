@@ -3,69 +3,43 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.flex($fd: column, $jc: center)
-  @include m.gap($mb: f.px(40))
-  &:nth-last-child(1)
-    @include m.gap($mb: 0)
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(100))
 
-.isOpen
-  & .diplomas
-    display: block
+.content
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+
+.left
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center)
+    @include m.gap($mb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: 5%)
+    @include m.flex($display: false, $fb: 25%)
 
 .title
-  @include m.flex($ai: center)
-  // @include m.media(phone, tablet)
-  //   @include m.gap($mb: f.px(10))
-  // @include m.media(laptop, desktop)
-  //   @include m.gap($mb: f.px(15))
-  cursor: pointer
-  &:focus-visible
-    & .pTitle
-      font-weight: 500
-
-.icon
-  @include m.gap($mr: f.px(20))
-
-.pTitle
-  @include m.gap($mb: 0)
+  font-weight: 500
   @include m.media(phone, tablet)
-    font-size: f.px(15)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(26)
   @include m.media(laptop, desktop)
-    font-size: f.px(22)
-  font-weight: 300
+    @include m.gap($mb: f.px(40))
+    font-size: f.px(44)
+  @include m.dye(c, c.$theta)
 
 .p
-  @include m.gap($mb: 0)
-  @include m.media(phone, tablet)
-    font-size: f.px(15)
-  @include m.media(laptop, desktop)
-    font-size: f.px(18)
   font-weight: 300
-
-.bold
-  font-weight: 500
-
-.diplomas
-  display: none
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(10))
+    @include m.gap($mb: f.px(40))
+    font-size: f.px(16)
   @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(34))
-
-.list
-  @include m.gap($mtb: f.px(0), $pl: 0)
-
-.item
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(8))
-  @include m.media(laptop, desktop)
-    @include m.flex($ai: center)
-    @include m.gap($mb: f.px(12))
-    font-size: f.px(18)
-
-  & > .p
-    @include m.media(phone, tablet)
-      @include m.gap($pl: f.px(12))
+    max-width: 55ch
+    @include m.gap($mb: f.px(60))
+    font-size: f.px(20)
+  @include m.dye(c, c.$theta)
 
 .trigger
   &:hover,
@@ -100,3 +74,7 @@
     @include m.gap($ml: f.px(13))
   @include m.media(laptop, desktop)
     @include m.gap($ml: f.px(16))
+
+.right
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 70%)

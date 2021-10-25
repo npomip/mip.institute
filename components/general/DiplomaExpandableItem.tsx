@@ -27,7 +27,9 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }) => {
                     <button className={stls.trigger}>
                       <div className={stls.img}>{diploma.image}</div>
                       <div className={stls.label}>
-                        <IconDoc />
+                        <div className={stls.labelIcon}>
+                          <IconDoc />
+                        </div>
                         <span className={stls.diplomaTitle}>
                           {diploma.title}
                         </span>

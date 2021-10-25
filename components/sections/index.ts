@@ -1,5 +1,7 @@
 import About from '@/components/sections/About'
+import ActiveLicenses from '@/components/sections/ActiveLicenses'
 import BriefProgramContents from '@/components/sections/BriefProgramContents'
+import CheckLicense from '@/components/sections/CheckLicense'
 import ContactForm from '@/components/sections/ContactForm'
 import Contacts from '@/components/sections/Contacts'
 import Cta from '@/components/sections/Cta'
@@ -32,7 +34,9 @@ import YourResume from '@/components/sections/YourResume'
 
 export {
   About,
+  ActiveLicenses,
   BriefProgramContents,
+  CheckLicense,
   ContactForm,
   Contacts,
   Cta,

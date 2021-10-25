@@ -15,7 +15,8 @@ import {
   routeLegal,
   routeAbout,
   routeHome,
-  routePayment
+  routePayment,
+  routeTeachers
 } from '@/data/routes'
 import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
@@ -37,6 +38,10 @@ const Footer = () => {
     {
       val: 'Вебинары',
       href: routeWebinars
+    },
+    {
+      val: 'Наставники',
+      href: routeTeachers
     },
     {
       val: 'Отзывы',

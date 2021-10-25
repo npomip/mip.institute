@@ -12,7 +12,9 @@ import {
   routeContact,
   routeReviews,
   routeAbout,
-  routeLegal
+  routeLegal,
+  routeWebinars,
+  routeTeachers
 } from '@/data/routes'
 import MenuContext from '@/context/menu/menuContext'
 import { useEffect, useContext } from 'react'
@@ -26,6 +28,21 @@ const Header = () => {
   useEffect(() => {
     handleSwipedEvt({ menuIsOpen, closeMenu })
   }, [menuIsOpen, closeMenu])
+
+  const list = [
+    {
+      href: routeWebinars,
+      val: 'Вебинары'
+    },
+    {
+      href: routeTeachers,
+      val: 'Наставники'
+    },
+    {
+      href: routeContact,
+      val: 'Контакты'
+    }
+  ]
 
   return (
     <header className={stls.container}>
@@ -66,17 +83,11 @@ const Header = () => {
           <div className={stls.btnFields}>
             <BtnFields />
           </div>
-          <Link href={routeAbout}>
-            <a className={stls.link}>Об институте</a>
-          </Link>
-          <Link href={routeReviews}>
-            <a className={stls.link}>
-              Отзывы <span className={stls.linkReviewLong}>студентов</span>
-            </a>
-          </Link>
-          <Link href={routeContact}>
-            <a className={stls.link}>Контакты</a>
-          </Link>
+          {list.map(item => (
+            <Link key={item.href + item.val} href={item.href}>
+              <a className={stls.link}>{item.val}</a>
+            </Link>
+          ))}
         </div>
       </Wrapper>
     </header>

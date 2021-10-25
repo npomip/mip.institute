@@ -18,6 +18,7 @@ import HeroPrograms from '@/components/sections/HeroPrograms'
 import HowProcessGoes from '@/components/sections/HowProcessGoes'
 import LegalDocs from '@/components/sections/LegalDocs'
 import LegalInfo from '@/components/sections/LegalInfo'
+import MeetYourTeachers from '@/components/sections/MeetYourTeachers'
 import PaymentBtns from '@/components/sections/PaymentBtns'
 import PaymentDebitCard from '@/components/sections/PaymentDebitCard'
 import PaymentInfo from '@/components/sections/PaymentInfo'
@@ -53,6 +54,7 @@ export {
   HowProcessGoes,
   LegalDocs,
   LegalInfo,
+  MeetYourTeachers,
   PaymentBtns,
   PaymentDebitCard,
   PaymentInfo,

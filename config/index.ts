@@ -8,6 +8,7 @@ const backRootUrl = dev
   : process.env.PROD_ROOT_BACK_URL
 
 const programsUrl = '/programs'
+const teachersUrl = '/teachers'
 
 const gtmId = ''
 
@@ -30,6 +31,7 @@ export {
   frontRootUrl,
   backRootUrl,
   programsUrl,
+  teachersUrl,
   gtmId,
   base64pixel,
   themeColor,

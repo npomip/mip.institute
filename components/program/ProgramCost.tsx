@@ -13,8 +13,8 @@ const ProgramCost = ({ withPerMonth = false }) => {
     discount &&
     +price + (+price * (discount ? discount : discountStatic)) / 100
 
-  const perMonthPrice = +price && price / 12
-  const perMonthRPrice = rprice && rprice / 12
+  const perMonthPrice = Math.round(+price && price / 12)
+  const perMonthRPrice = Math.round(rprice && rprice / 12)
 
   return (
     <div className={stls.container}>

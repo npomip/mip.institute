@@ -21,7 +21,7 @@ const Contacts = () => {
     {
       city: cityAlmaty,
       street: streetAlmaty,
-      numbers: [numberAlmaty, numberAlmatyAlt],
+      numbers: [numberAlmaty],
       email: emailAlmaty
     }
   ]

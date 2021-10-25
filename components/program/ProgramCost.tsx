@@ -20,7 +20,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
     <div className={stls.container}>
       {withPerMonth && (
         <div className={stls.content}>
-          <p className={stls.label}>Беспроцентная рассрочка</p>
+          <p className={stls.label}>Беспроцентная рассрочка на 12 месяцев</p>
           <span className={stls.discount}>
             <span className={stls.bold}>
               {toNumberWithSpaces(perMonthPrice)}

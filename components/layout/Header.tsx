@@ -36,7 +36,7 @@ const Header = () => {
     },
     {
       href: routeTeachers,
-      val: 'Наставники'
+      val: 'Преподаватели'
     },
     {
       href: routeContact,

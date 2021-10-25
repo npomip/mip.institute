@@ -25,6 +25,7 @@ type PopupTriggerType = {
     | 'reserve'
     | 'learnAboutTeachers'
     | 'help'
+    | 'getFullList'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
@@ -54,6 +55,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Узнать всех'
         : cta === 'help'
         ? 'Помощь'
+        : cta === 'getFullList'
+        ? 'Запросить полный список'
         : '',
     title:
       cta === 'askQuestion'
@@ -78,6 +81,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Узнать всех'
         : cta === 'help'
         ? 'Помощь'
+        : cta === 'getFullList'
+        ? 'Запросить полный список'
         : '',
     desc:
       cta === 'askQuestion' ? (
@@ -145,6 +150,11 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           Оставьте заявку, мы свяжемся с Вами в рабочие часы, ответим на Ваши
           вопросы и решим проблему
         </>
+      ) : cta === 'getFullList' ? (
+        <>
+          Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
+          полный список преподавателей
+        </>
       ) : (
         ''
       ),
@@ -170,6 +180,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         : cta === 'learnAboutTeachers'
         ? 'Узнать всех'
         : cta === 'help'
+        ? 'Оставить заявку'
+        : cta === 'getFullList'
         ? 'Оставить заявку'
         : ''
   }

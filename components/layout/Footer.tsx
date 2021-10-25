@@ -40,7 +40,7 @@ const Footer = () => {
       href: routeWebinars
     },
     {
-      val: 'Наставники',
+      val: 'Преподаватели',
       href: routeTeachers
     },
     {

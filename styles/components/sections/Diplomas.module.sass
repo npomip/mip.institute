@@ -18,3 +18,18 @@
     @include m.gap($mb: f.px(60))
     font-size: f.px(44)
   @include m.dye(c, c.$theta)
+
+.p
+  font-weight: 300
+  line-height: 130%
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(17))
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    max-width: 49ch
+    @include m.gap($mb: f.px(47))
+    font-size: f.px(20)
+  @include m.dye(c, c.$theta)
+
+.list
+  @include m.gap($p: 0)

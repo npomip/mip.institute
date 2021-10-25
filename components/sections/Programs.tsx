@@ -99,20 +99,6 @@ const Programs = ({
         <div className={stls.content}>
           {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
-            {ofType === 'course' &&
-              (searchTerm
-                ? filteredData.courses && filteredData.courses.length > 0
-                : data.courses && data.courses.length > 0) && (
-                <div className={stls.courses}>
-                  <Courses
-                    biggerTitle={!withTitle}
-                    withBtn={withBtn}
-                    courses={searchTerm ? filteredData.courses : data.courses}
-                    withQty={withQty}
-                    threerow={threerow}
-                  />
-                </div>
-              )}
             {ofType === 'profession' &&
               (searchTerm
                 ? filteredData.professions &&
@@ -130,8 +116,7 @@ const Programs = ({
                   />
                 </div>
               )}
-
-            {!ofType &&
+            {ofType === 'course' &&
               (searchTerm
                 ? filteredData.courses && filteredData.courses.length > 0
                 : data.courses && data.courses.length > 0) && (
@@ -145,7 +130,6 @@ const Programs = ({
                   />
                 </div>
               )}
-
             {!ofType &&
               (searchTerm
                 ? filteredData.professions &&
@@ -158,6 +142,20 @@ const Programs = ({
                     professions={
                       searchTerm ? filteredData.professions : data.professions
                     }
+                    withQty={withQty}
+                    threerow={threerow}
+                  />
+                </div>
+              )}
+            {!ofType &&
+              (searchTerm
+                ? filteredData.courses && filteredData.courses.length > 0
+                : data.courses && data.courses.length > 0) && (
+                <div className={stls.courses}>
+                  <Courses
+                    biggerTitle={!withTitle}
+                    withBtn={withBtn}
+                    courses={searchTerm ? filteredData.courses : data.courses}
                     withQty={withQty}
                     threerow={threerow}
                   />

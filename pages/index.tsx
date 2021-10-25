@@ -26,10 +26,10 @@ const HomePage = ({ programs }) => {
   return (
     <>
       <Hero />
+      <Programs withTitle withBtn />
       <WhyBother />
       <About />
       <HowProcessGoes />
-      <Programs withTitle withBtn />
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}

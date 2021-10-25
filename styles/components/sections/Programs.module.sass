@@ -4,6 +4,7 @@
 
 .container
   @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(111))
     &.withFilters
       & > *
         @include m.flex

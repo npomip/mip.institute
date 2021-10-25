@@ -3,6 +3,12 @@
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/layout/programs/programs'
 
+.container
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(30))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(50))
+
 .heading
   @include programs.heading
 

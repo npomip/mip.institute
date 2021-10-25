@@ -8,6 +8,7 @@ import {
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
 import { getListItemsInnerHtml } from '@/helpers/index'
+import parse from 'html-react-parser'
 
 const ForWhom = () => {
   const {
@@ -36,7 +37,7 @@ const ForWhom = () => {
                     <IconGettingup />
                   )}
                 </div>
-                <p className={stls.p}>{item}</p>
+                <p className={stls.p}>{parse(item)}</p>
               </li>
             ))}
         </ul>

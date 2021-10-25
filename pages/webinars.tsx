@@ -3,6 +3,7 @@ import { fetchPrograms } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
+import { WebinarsAlt } from '@/components/sections'
 
 const WebinarsPage = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -17,6 +18,7 @@ const WebinarsPage = ({ programs }) => {
   return (
     <>
       <Webinars standalone />
+      <WebinarsAlt />
     </>
   )
 }

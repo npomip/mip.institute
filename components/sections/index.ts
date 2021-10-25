@@ -27,6 +27,7 @@ import Reviews from '@/components/sections/Reviews'
 import StudyCost from '@/components/sections/StudyCost'
 import Teachers from '@/components/sections/Teachers'
 import Webinars from '@/components/sections/Webinars'
+import WebinarsAlt from '@/components/sections/WebinarsAlt'
 import WhatYouWillLearn from '@/components/sections/WhatYouWillLearn'
 import WhyBother from '@/components/sections/WhyBother'
 import YourDiploma from '@/components/sections/YourDiploma'
@@ -63,6 +64,7 @@ export {
   StudyCost,
   Teachers,
   Webinars,
+  WebinarsAlt,
   WhatYouWillLearn,
   WhyBother,
   YourDiploma,

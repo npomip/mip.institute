@@ -17,7 +17,11 @@ import {
 } from '@/components/sections'
 import { discount } from '@/data/price'
 
-const PagesProgram = () => {
+type PagesProgramType = {
+  ofType: 'course' | 'profession'
+}
+
+const PagesProgram = ({ ofType = null }: PagesProgramType) => {
   return (
     <>
       <HeroProgram />
@@ -28,7 +32,7 @@ const PagesProgram = () => {
       <YourDiploma />
       <BriefProgramContents />
       <FullProgram />
-      <YourResume />
+      {ofType !== 'course' && <YourResume />}
       <Cta
         title={'Начните обучаться со скидкой'}
         desc={`Забронируйте программу по спеццене — со скидкой ${discount.substring(
@@ -38,7 +42,7 @@ const PagesProgram = () => {
       />
       <Teachers />
       {/* <HelpWithEmployment /> */}
-      <YourFutureJob />
+      {ofType !== 'course' && <YourFutureJob />}
       <StudyCost />
       <Faq />
     </>

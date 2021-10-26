@@ -19,7 +19,7 @@ const CoursePage = ({ programs, program, studyFieldSlug }) => {
 
   return (
     <>
-      <PagesProgram />
+      <PagesProgram ofType={'course'}/>
     </>
   )
 }

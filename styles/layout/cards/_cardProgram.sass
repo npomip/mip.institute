@@ -3,9 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 @mixin container
+  @include m.gap($mb: f.px(30), $ptb: f.px(40), $plr: f.px(30))
   @include m.media(phone, tablet)
     @include m.flex
-    @include m.gap($mb: f.px(10), $ptb: f.px(34), $plr: f.px(15))
     border-radius: f.px(10)
   @include m.media(laptop)
     &.threerow
@@ -25,52 +25,21 @@
         @include m.gap($mr: 0)
     max-width: f.px(270)
     min-height: f.px(240)
-    @include m.gap($mb: f.px(30), $ptb: f.px(34))
     border-radius: f.px(20)
     overflow: hidden
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, c.$omega)
   @include m.dye(c, c.$chi)
 
-@mixin img
-  @include m.media(phone, tablet)
-    min-width: f.px(139)
-    max-width: f.px(139)
-    @include m.gap($mr: f.px(23))
-    border-radius: f.px(5)
-  @include m.media(laptop, desktop)
-    min-width: 100%
-    max-width: 100%
-    border-radius: f.px(20) f.px(20) 0 0
-  overflow: hidden
-
-@mixin right
-  width: 100%
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(20), $pb: f.px(37), $plr: f.px(23))
-
-@mixin info
-  @include m.media(phone, tablet, desktop)
-    @include m.flex($jc: space-between, $ai: center)
-  @include m.media(laptop)
-    @include m.flex($jc: space-between, $ai: flex-start, $fd: column)
-  @include m.gap($mb: f.px(20))
-
-
 @mixin type($calpha: false, $cbeta: false)
+  max-width: max-content
   @include m.gap($ptb: f.px(4), $plr: f.px(17))
-  font-weight: 500
+  font-weight: 300
   font-size: f.px(13)
   border-radius: f.px(23)
-  @include m.media(laptop)
-    @include m.gap($mb: f.px(20))
-  // @include m.media(phone, tablet)
-  //   font-size: f.px(11)
-  // @include m.media(laptop, desktop)
-  //   font-size: f.px(13)
-  // text-transform: uppercase
-  @include m.dye(bg, c.$mu)
-  @include m.dye(c, c.$kappa)
+  border: f.px(1) solid
+  @include m.dye(border, c.$iota)
+  @include m.dye(c, c.$theta)
   @if ($calpha == true)
     @include m.dye(bg, c.$alpha)
     @include m.dye(c, c.$kappa)
@@ -78,29 +47,19 @@
     @include m.dye(bg, c.$beta)
     @include m.dye(c, c.$kappa)
 
-@mixin dur
-  @include m.flex
-  font-size: f.px(11)
-  font-weight: 500
-  line-height: 120%
-  letter-spacing: f.px(0.64, em)
-  text-transform: uppercase
-  @include m.dye(c, rgba(c.$theta, .5))
-  // @include m.media(phone, tablet)
-  //   font-size: f.px(11)
-  // @include m.media(laptop, desktop)
-  //   font-size: f.px(13)
-
-@mixin icon
-  @include m.gap($mr: f.px(8))
-
 @mixin title
   @include m.gap($mb: 0)
+  @include m.gap($mtb: f.px(27))
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(43))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(53))
     font-size: f.px(18)
   font-weight: 400
   overflow-wrap: break-word
+
+@mixin dur
+  @include m.flex
+  font-size: f.px(13)
+  font-weight: 500
+  line-height: 120%
+  @include m.dye(c, c.$kappa)

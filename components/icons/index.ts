@@ -32,6 +32,7 @@ import IconToTheMoon from '@/components/icons/IconToTheMoon'
 import IconVk from '@/components/icons/IconVk'
 import IconWhatsapp from '@/components/icons/IconWhatsapp'
 import IconYt from '@/components/icons/IconYt'
+import IconArrowRight from '@/components/icons/IconArrowRight'
 
 export {
   IconBgCircle,
@@ -67,5 +68,6 @@ export {
   IconToTheMoon,
   IconVk,
   IconWhatsapp,
-  IconYt
+  IconYt,
+  IconArrowRight
 }

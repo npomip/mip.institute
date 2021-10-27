@@ -33,12 +33,18 @@ const ProgramInfo = () => {
     },
     {
       key: 'Срок обучения:',
-      val: `${getCasedRuYearString(
-        studyMounthsDuration
-      )} ${getCasedRuMonthString(studyMounthsDuration)}`,
+      val: `${
+        studyMounthsDuration === '12'
+          ? `${getCasedRuMonthString(studyMounthsDuration)}`
+          : `${getCasedRuYearString(
+              studyMounthsDuration
+            )} ${getCasedRuMonthString(studyMounthsDuration)}`
+      }`,
       icon: <IconCalendar />
     }
   ]
+
+  console.log(studyMounthsDuration)
 
   return (
     <div className={stls.container}>

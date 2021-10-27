@@ -1,6 +1,7 @@
 import { getThreeLettersRuMonths, getRuDaysOfWeek } from '@/helpers/index'
 import stls from '@/styles/components/cards/CardWebinarAlt.module.sass'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import { IconBell } from '@/components/icons'
+import CtaText from '@/components/general/CtaText'
 
 type CardWebinarAltType = {
   date: Date
@@ -16,7 +17,10 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
   const daysOfWeek = getRuDaysOfWeek()
 
   return (
-    <div className={stls.container}>
+    <button className={stls.container}>
+      <div className={stls.bell}>
+        <IconBell />
+      </div>
       <div className={stls.when}>
         <span className={stls.date}>
           {newDate.getDate()} {monhts[newDate.getMonth()]}.,{' '}
@@ -31,11 +35,11 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
           <p className={stls.name}>{name}</p>
           <h2 className={stls.title}>{title}</h2>
           <div className={stls.link}>
-            <PopupTrigger btn='text' cta='learnMore' />
+            <CtaText text={'Подробнее'} ctheta />
           </div>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
 

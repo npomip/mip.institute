@@ -3,11 +3,35 @@
 @use '@/styles/themes/default/colors' as c
   
 .container
+  position: relative
   width: 100%
   @include m.gap($p: f.px(30))
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
   border-radius: f.px(20)
+  text-align: left
   @include m.dye(bg, c.$nu)
+  cursor: pointer
+  transition: background-color .2s ease-in-out
+  &:focus-visible,
+  &:hover
+    @include m.dye(bg, c.$pi)
+    & .bell
+      opacity: 1
+    & .title
+      @include m.dye(c, c.$alpha)
+    & .link
+      text-decoration: underline
+
+.bell
+  position: absolute
+  top: f.px(30)
+  right: f.px(30)
+  max-width: max-content
+  @include m.gap($p: f.px(15))
+  border-radius: 50%
+  @include m.dye(bg, c.$alpha)
+  opacity: .2
+  transition: opacity .2s ease-in-out
 
 .when
   @include m.flex($fd: column)
@@ -27,7 +51,6 @@
 
 .speaker
   @include m.flex
-  @include m.gap($mb: f.px(20))
 
 .img
   min-width: f.px(70)
@@ -39,6 +62,7 @@
   border-radius: 50%
 
 .right
+  @include m.flex($fd: column)
   font-size: f.px(18)
   font-weight: 300
   @include m.dye(c, c.$theta)
@@ -53,4 +77,14 @@
   @include m.gap($mb: f.px(56))
   font-size: f.px(22)
   font-weight: 500
+  overflow-wrap: break-word
   @include m.dye(c, c.$theta)
+  transition: color .2s ease-in-out
+
+.link
+  position: absolute
+  bottom: f.px(30)
+  @include m.gap($mt: auto, $mb: 0)
+  font-size: f.px(16)
+  @include m.dye(c, c.$theta)
+  transition: text-decoration .2s ease-in-out

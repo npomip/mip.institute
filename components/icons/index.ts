@@ -1,4 +1,5 @@
 import IconAtom from '@/components/icons/IconAtom'
+import IconBell from '@/components/icons/IconBell'
 import IconBgCircle from '@/components/icons/IconBgCircle'
 import IconCalendar from '@/components/icons/IconCalendar'
 import IconCircleCheck from '@/components/icons/IconCircleCheck'
@@ -37,6 +38,7 @@ import IconArrowRight from '@/components/icons/IconArrowRight'
 export {
   IconBgCircle,
   IconAtom,
+  IconBell,
   IconCalendar,
   IconCircleCheck,
   IconClock,

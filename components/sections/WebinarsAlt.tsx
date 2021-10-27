@@ -12,7 +12,6 @@ type WebinarsAltType = {
 }
 
 const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
-  console.log(webinars)
   return (
     <section className={stls.container}>
       <Wrapper>

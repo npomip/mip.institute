@@ -44,8 +44,6 @@ const ProgramInfo = () => {
     }
   ]
 
-  console.log(studyMounthsDuration)
-
   return (
     <div className={stls.container}>
       {vals.map(({ key, val, icon }, idx) => (

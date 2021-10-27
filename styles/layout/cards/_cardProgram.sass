@@ -6,7 +6,7 @@
   position: relative
   @include m.gap($mb: f.px(30), $ptb: f.px(40), $plr: f.px(30))
   @include m.media(phone, tablet)
-    @include m.flex
+    @include m.flex($fd: column)
     border-radius: f.px(10)
   @include m.media(laptop)
     &.threerow

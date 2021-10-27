@@ -19,7 +19,6 @@ const Teachers = () => {
     program: { teachers }
   } = useContext(ProgramContext)
 
-  console.log(teachers)
   const list =
     teachers &&
     teachers.map(teacher => {

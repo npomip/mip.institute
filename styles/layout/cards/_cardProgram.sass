@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 @mixin container
+  position: relative
   @include m.gap($mb: f.px(30), $ptb: f.px(40), $plr: f.px(30))
   @include m.media(phone, tablet)
     @include m.flex
@@ -30,6 +31,14 @@
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   @include m.dye(bg, c.$omega)
   @include m.dye(c, c.$chi)
+  transition: background-color .2s ease-in-out
+  &:hover,
+  &:focus
+    @include m.dye(bg, c.$nu)
+    & .arrowRight
+      @include m.dye(bg, c.$alpha)
+    & .title
+      @include m.dye(c, c.$alpha)
 
 @mixin type($calpha: false, $cbeta: false)
   max-width: max-content
@@ -54,8 +63,9 @@
     font-size: f.px(15)
   @include m.media(laptop, desktop)
     font-size: f.px(18)
-  font-weight: 400
+  font-weight: 500
   overflow-wrap: break-word
+  transition: color .2s ease-in-out
 
 @mixin dur
   @include m.flex
@@ -63,3 +73,14 @@
   font-weight: 500
   line-height: 120%
   @include m.dye(c, c.$kappa)
+
+@mixin arrowRight
+  position: absolute
+  bottom: 0
+  right: 0
+  @include m.flex($jc: center)
+  width: f.px(45)
+  height: f.px(45)
+  border-radius: f.px(20) 0
+  @include m.dye(bg, c.$zeta-2)
+  transition: background-color .2s ease-in-out

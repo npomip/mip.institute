@@ -2,10 +2,9 @@ import stls from '@/styles/components/sections/MeetYourTeachers.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { ImgTeacher } from '@/components/imgs'
 import parse from 'html-react-parser'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const MeetYourTeachers = ({ teachers }) => {
-  console.log(teachers)
   return (
     <section className={stls.container}>
       <Wrapper>

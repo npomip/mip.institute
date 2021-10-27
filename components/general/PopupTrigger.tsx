@@ -8,11 +8,20 @@ import {
   BtnDelta,
   BtnEpsilon,
   BtnZeta,
-  BtnEta
+  BtnEta,
+  BtnText
 } from '@/components/btns'
 
 type PopupTriggerType = {
-  btn: 'alpha' | 'beta' | 'gamma' | 'delta' | 'epsilon' | 'zeta' | 'eta'
+  btn:
+    | 'alpha'
+    | 'beta'
+    | 'gamma'
+    | 'delta'
+    | 'epsilon'
+    | 'zeta'
+    | 'eta'
+    | 'text'
   cta:
     | 'askQuestion'
     | 'callMeBack'
@@ -26,6 +35,8 @@ type PopupTriggerType = {
     | 'learnAboutTeachers'
     | 'help'
     | 'getFullList'
+    | 'seeAllWebinars'
+    | 'learnMore'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
@@ -57,6 +68,10 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Помощь'
         : cta === 'getFullList'
         ? 'Запросить полный список'
+        : cta === 'seeAllWebinars'
+        ? 'Смотреть все вебинары'
+        : cta === 'learnMore'
+        ? 'Подробнее'
         : '',
     title:
       cta === 'askQuestion'
@@ -83,6 +98,10 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Помощь'
         : cta === 'getFullList'
         ? 'Запросить полный список'
+        : cta === 'seeAllWebinars'
+        ? 'Смотреть все вебинары'
+        : cta === 'learnMore'
+        ? 'Узнать подробнее'
         : '',
     desc:
       cta === 'askQuestion' ? (
@@ -155,6 +174,16 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
           полный список преподавателей
         </>
+      ) : cta === 'seeAllWebinars' ? (
+        <>
+          Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
+          полный список вебинаров
+        </>
+      ) : cta === 'learnMore' ? (
+        <>
+          Оставьте заявку, мы свяжемся с Вами в рабочие часы и расскажем
+          подробнее о вебинаре
+        </>
       ) : (
         ''
       ),
@@ -183,6 +212,10 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Оставить заявку'
         : cta === 'getFullList'
         ? 'Оставить заявку'
+        : cta === 'seeAllWebinars'
+        ? 'Оставить заявку'
+        : cta === 'learnMore'
+        ? 'Узнать подробнее'
         : ''
   }
 
@@ -204,6 +237,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
             <BtnZeta text={strs.trigger} />
           ) : btn === 'eta' ? (
             <BtnEta text={strs.trigger} />
+          ) : btn === 'text' ? (
+            <BtnText text={strs.trigger} ctheta />
           ) : (
             ''
           )}

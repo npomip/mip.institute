@@ -31,8 +31,7 @@ const Faq = () => {
           <h2 className={stls.title}>Часто задаваемые вопросы</h2>
           <div className={stls.laptopdesktop}>
             <p className={stls.p}>
-              У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам в
-              течение 5 минут!
+              У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам!
             </p>
             <PopupTrigger btn='zeta' cta='askQuestion' />
           </div>
@@ -51,8 +50,7 @@ const Faq = () => {
           </ul>
           <div className={stls.phonetablet}>
             <p className={stls.p}>
-              У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам в течение
-              5 минут!
+              У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам!
             </p>
           </div>
         </div>

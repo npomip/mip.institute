@@ -1,11 +1,10 @@
-import Webinars from '@/components/sections/Webinars'
-import { fetchPrograms } from '@/helpers/index'
+import { fetchPrograms, fetchWebinars } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
 import { WebinarsAlt } from '@/components/sections'
 
-const WebinarsPage = ({ programs }) => {
+const WebinarsPage = ({ programs, webinars }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -17,18 +16,19 @@ const WebinarsPage = ({ programs }) => {
 
   return (
     <>
-      <Webinars standalone />
-      <WebinarsAlt />
+      <WebinarsAlt webinars={webinars} />
     </>
   )
 }
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
+  const webinars = await fetchWebinars()
 
   return {
     props: {
-      programs
+      programs,
+      webinars
     },
     revalidate: revalidate.default
   }

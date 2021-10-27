@@ -5,6 +5,7 @@ import fetchProgramsPaths from '@/helpers/fetchProgramsPaths'
 import fetchStudyFieldsPaths from '@/helpers/fetchStudyFieldsPaths'
 import fetchReviews from '@/helpers/fetchReviews'
 import fetchTeachers from '@/helpers/fetchTeachers'
+import fetchWebinars from '@/helpers/fetchWebinars'
 import filterProgramsByStudyField from '@/helpers/filterProgramsByStudyField'
 import filterProgramsByType from '@/helpers/filterProgramsByType'
 import getCasedRuMonthString from '@/helpers/getCasedRuMonthString'
@@ -14,9 +15,11 @@ import getCasesRuProfessionString from '@/helpers/getCasesRuProfessionString'
 import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
 import getParagraphInnerHtml from '@/helpers/getParagraphInnerHtml'
 import getProgram from '@/helpers/getProgram'
+import getRuDaysOfWeek from '@/helpers/getRuDaysOfWeek'
 import getStudyFields from '@/helpers/getStudyFields'
 import getStudyFieldsLabels from '@/helpers/getStudyFieldsLabels'
 import getStudyFieldsSlugs from '@/helpers/getStudyFieldsSlugs'
+import getThreeLettersRuMonths from '@/helpers/getThreeLettersRuMonths'
 import handleSwipedEvt from '@/helpers/handleSwipedEvt'
 import removeDuplicates from '@/helpers/removeDuplicates'
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
@@ -30,6 +33,7 @@ export {
   fetchStudyFieldsPaths,
   fetchReviews,
   fetchTeachers,
+  fetchWebinars,
   filterProgramsByStudyField,
   filterProgramsByType,
   getCasedRuMonthString,
@@ -39,8 +43,10 @@ export {
   getListItemsInnerHtml,
   getParagraphInnerHtml,
   getProgram,
+  getRuDaysOfWeek,
   getStudyFieldsLabels,
   getStudyFieldsSlugs,
+  getThreeLettersRuMonths,
   handleSwipedEvt,
   removeDuplicates,
   toNumberWithSpaces

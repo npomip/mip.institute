@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
-import { BtnAlpha } from '@/components/btns'
 import { ImgDiploma1 } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
 

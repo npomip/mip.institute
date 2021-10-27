@@ -4,6 +4,7 @@
 
 @mixin container
   position: relative
+  @include m.flex($fd: column)
   @include m.gap($mb: f.px(30), $ptb: f.px(40), $plr: f.px(30))
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
@@ -69,6 +70,7 @@
 
 @mixin dur
   @include m.flex
+  @include m.gap($mt: auto)
   font-size: f.px(13)
   font-weight: 500
   line-height: 120%

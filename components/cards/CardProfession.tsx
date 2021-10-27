@@ -18,7 +18,6 @@ const CardProfession = ({ profession = null, threerow = false }) => {
           [stls.fourrow]: !threerow
         })}>
         <span className={stls.type}>{profession.typeLabel}</span>
-        {console.log(profession.studyMounthsDuration)}
         <h4 className={stls.title}>{profession.title}</h4>
         {profession.studyMounthsDuration && (
           <div className={stls.dur}>

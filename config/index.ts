@@ -13,7 +13,7 @@ const teachersUrl = '/teachers'
 const reviewsUrl = '/reviews'
 const webinarsUrl = '/webinars'
 
-const gtmId = ''
+const gtmId = 'GTM-WQ3ZKKT'
 
 const base64pixel =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='

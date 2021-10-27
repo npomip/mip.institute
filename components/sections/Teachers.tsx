@@ -24,14 +24,14 @@ const Teachers = () => {
     teachers.map(teacher => {
       teacher.image = (
         <ImgTeacher
-          src={teacher.portrait.formats.thumbnail.url}
+          src={teacher.portrait.formats.small.url}
           alt={teacher.name}
-          width={teacher.portrait.formats.thumbnail.width}
-          height={teacher.portrait.formats.thumbnail.height}
+          width={teacher.portrait.formats.small.width}
+          height={teacher.portrait.formats.small.height}
         />
       )
       // <ImgTeacher1 name='Иванов Иван Иванович' />
-      // item.formats.thumbnail.url
+      // item.formats.small.url
       return teacher
     })
 

@@ -1,27 +1,42 @@
 import stls from '@/styles/components/sections/Faq.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { BtnZeta } from '@/components/btns'
 import FaqAnswer from '@/components/general/FaqAnswer'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
 import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/components/general/PopupTrigger'
+import parse from 'html-react-parser'
+import { convertMdToHtml } from '@/helpers/index'
+import marked from 'marked'
 
 const Faq = () => {
   const {
-    program: { questions }
+    program: { questions, qnas }
   } = useContext(ProgramContext)
 
-  const topics = getListItemsInnerHtml(questions)
-  const titles = getParagraphInnerHtml(questions)
+  // const topics = getListItemsInnerHtml(questions)
+  // const titles = getParagraphInnerHtml(questions)
+
+  // const list =
+  //   titles &&
+  //   topics &&
+  //   titles.map((title, idx) => ({
+  //     question: title,
+  //     answer: topics[idx]
+  //   }))
+
+  // console.log(list)
+
+  console.log(qnas)
 
   const list =
-    titles &&
-    topics &&
-    titles.map((title, idx) => ({
-      question: title,
-      answer: topics[idx]
+    qnas &&
+    qnas.map((qna, idx) => ({
+      question: qna.question,
+      answer: marked(qna.answer)
     }))
+
+  console.log(list)
 
   return (
     <section className={stls.container}>

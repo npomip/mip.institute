@@ -2,10 +2,12 @@ import stls from '@/styles/components/general/FaqAnswer.module.sass'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { IconMinus, IconPlus } from '@/components/icons'
+import parse from 'html-react-parser'
 
 const FaqAnswer = ({ question = null, answer = null }) => {
   const [isOpen, setOpen] = useState(false)
 
+  console.log(answer)
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
@@ -15,7 +17,7 @@ const FaqAnswer = ({ question = null, answer = null }) => {
           {question}
         </p>
       </div>
-      <div className={stls.answer}>{answer}</div>
+      <div className={stls.answer}>{parse(answer)}</div>
     </li>
   )
 }

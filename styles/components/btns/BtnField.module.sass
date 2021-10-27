@@ -15,9 +15,12 @@
     @include m.dye(c, c.$chi)
   &.aside
     line-height: f.px(20)
-    @include m.dye(bg, c.$epsilon)
+    border: 1px solid
+    @include m.dye(border, c.$beta-2)
+    @include m.dye(bg, c.$nu)
     @include m.dye(c, c.$chi)
     &.active
+      border: 0
       @include m.dye(bg, c.$beta)
       @include m.dye(c, c.$nu)
       &:hover,

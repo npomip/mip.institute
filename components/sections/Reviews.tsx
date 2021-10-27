@@ -1,8 +1,6 @@
 import stls from '@/styles/components/sections/Reviews.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import CardReview from '@/components/cards/CardReview'
-import maleStudent from '@/public/assets/imgs/general/male-student.jpg'
-import femaleStudent from '@/public/assets/imgs/general/female-student.jpg'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import classNames from 'classnames'
 import { ImgReview } from '@/components/imgs'
@@ -13,27 +11,21 @@ type ReviewsType = {
 }
 
 const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
-  const studentsReviews = reviews.map(review => ({
-    title: review.title,
-    name: review.name,
-    occupation: review.profession,
-    photo: (
-      <ImgReview
-        src={review.picture[0].formats.small.url}
-        alt={review.name}
-        width={review.picture[0].formats.small.width}
-        height={review.picture[0].formats.small.height}
-      />
-    )
-  }))
-
-  const reviewsSlides = studentsReviews.map((review, idx) => (
+  const slides = reviews.map((review, idx) => (
     <CardReview
-      key={review.name + idx}
+      key={review.title + idx}
       title={review.title}
-      photo={review.photo}
+      photo={
+        <ImgReview
+          src={review.picture[0].formats.small.url}
+          alt={review.name}
+          width={review.picture[0].formats.small.width}
+          height={review.picture[0].formats.small.height}
+        />
+      }
       name={review.name}
-      occupation={review.occupation}
+      occupation={review.profession}
+      story={review.story}
     />
   ))
 
@@ -46,7 +38,7 @@ const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <SwiperContainer slides={reviewsSlides} />
+          <SwiperContainer slides={slides} />
         </div>
       </Wrapper>
     </section>

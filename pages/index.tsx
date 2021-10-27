@@ -9,11 +9,11 @@ import {
   Webinars
 } from '@/components/sections'
 import { revalidate } from '@/config/index'
-import { fetchPrograms } from '@/helpers/index'
+import { fetchPrograms, fetchReviews } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 
-const HomePage = ({ programs }) => {
+const HomePage = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -35,7 +35,7 @@ const HomePage = ({ programs }) => {
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
-      <Reviews />
+      <Reviews reviews={reviews}/>
       {/* <Webinars /> */}
     </>
   )
@@ -43,10 +43,12 @@ const HomePage = ({ programs }) => {
 
 export async function getStaticProps(context) {
   const programs = await fetchPrograms()
+  const reviews = await fetchReviews()
 
   return {
     props: {
-      programs
+      programs,
+      reviews
     },
     revalidate: revalidate.default
   }

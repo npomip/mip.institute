@@ -2,13 +2,11 @@ import Reviews from '@/components/sections/Reviews'
 import { fetchPrograms, fetchReviews } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { revalidate } from '@/config/index'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 const ReviewsPage = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
-
-  console.log(reviews)
 
   useEffect(() => {
     setPrograms(programs)

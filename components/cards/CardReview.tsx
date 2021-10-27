@@ -1,8 +1,10 @@
 import stls from '@/styles/components/cards/CardReview.module.sass'
 import truncate from 'truncate'
+import Popup from 'reactjs-popup'
 import { BtnText } from '@/components/btns'
+import { PopupReview } from '../popups'
 
-const CardReview = ({ title, photo, name, occupation }) => {
+const CardReview = ({ title, photo, name, occupation, story }) => {
   return (
     <article className={stls.container}>
       <div className={stls.img}>{photo}</div>
@@ -14,7 +16,25 @@ const CardReview = ({ title, photo, name, occupation }) => {
           <p className={stls.name}>{name}</p>
           <p className={stls.occupation}>{occupation}</p>
         </div>
-        <BtnText text='Читать историю' />
+        <Popup
+          trigger={
+            <div>
+              <BtnText text='Читать историю' />
+            </div>
+          }
+          modal
+          nested>
+          {close => (
+            <PopupReview
+              title={title}
+              photo={photo}
+              name={name}
+              occupation={occupation}
+              story={story}
+              close={close}
+            />
+          )}
+        </Popup>
       </div>
     </article>
   )

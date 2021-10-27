@@ -10,6 +10,7 @@
     "generateicons": "npx pwa-asset-generator ./public/assets/imgs/general/icon.png ./public/assets/imgs/icons -p \"0\" -b \"#6f01c6\""
   },
   "dependencies": {
+    "@maxmind/geoip2-node": "^3.2.0",
     "axios": "^0.21.4",
     "classnames": "^2.3.1",
     "html-react-parser": "^1.4.0",

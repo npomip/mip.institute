@@ -10,6 +10,9 @@ type CardWebinarAltType = {
   title: string
 }
 
+// leadmip@ipo.msk.ru
+// hK8-p2T-FFs-TK8
+
 const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
   const newDate = new Date(date)
 

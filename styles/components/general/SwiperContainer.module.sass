@@ -3,6 +3,14 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  &.diplomas
+    & > *
+      & > *
+        min-width: f.px(400)
+        max-width: f.px(400)
+        border: f.px(1) solid
+        @include m.dye(border, rgba(c.$kappa, .2))
+        transform: translate3d(0px, 0px, 0px) !important
   @include m.media(phone, tablet)
     &.teachers > *
       & > *
@@ -27,14 +35,3 @@
         max-width: f.px(530)
         margin-top: f.px(10) !important
         margin-bottom: f.px(30)
-  @include m.media(tablet, laptop, desktop)
-    &.diplomas 
-      & > *:nth-last-child(1)
-        & > *
-          min-width: 168px
-          max-width: 168px
-          transform: translate3d(0px, 0px, 0px) !important
-  @include m.media(laptop, desktop)
-    &.diplomas *:nth-last-child(1)
-      & > *
-        @include m.gap($mr: f.px(10))

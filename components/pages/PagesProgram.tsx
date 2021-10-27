@@ -29,7 +29,7 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
       <WhatYouWillLearn />
       <ForWhom />
       <HowProcessGoes />
-      <YourDiploma />
+      <YourDiploma ofType={ofType} />
       <BriefProgramContents />
       <FullProgram />
       {ofType !== 'course' && <YourResume />}

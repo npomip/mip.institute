@@ -1,15 +1,19 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
-import { ImgDiploma1 } from '@/components/imgs'
+import { ImgCertificate, ImgDiploma } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
 
-const YourDiploma = () => {
-  const diplomaSlides = [
-    <ImgDiploma1 key={'diploma-1'} />,
-    <ImgDiploma1 key={'diploma-2'} />,
-    <ImgDiploma1 key={'diploma-3'} />
-  ]
+type YourDiplomaType = {
+  ofType: 'course' | 'profession'
+}
+
+const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
+  const slides = []
+
+  ofType === 'profession' && slides.push(<ImgDiploma key='diploma' />)
+
+  ofType === 'course' && slides.push(<ImgCertificate key='certificate' />)
 
   const mobileSwiperOptions = {
     slidesNum: 2,
@@ -26,7 +30,7 @@ const YourDiploma = () => {
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.content}>
-          <div>
+          <div className={stls.left}>
             <h2 className={stls.title}>Ваши будущие дипломы</h2>
             <div className={stls.subtitleContainer}>
               <p className={stls.subtitle}>
@@ -43,7 +47,7 @@ const YourDiploma = () => {
           <div className={stls.swiper}>
             <SwiperContainer
               diplomas
-              slides={diplomaSlides}
+              slides={slides}
               mobileOptions={mobileSwiperOptions}
               tabletOptions={tabletSwiperOptions}
               laptopOptions={laptopSwiperOptions}

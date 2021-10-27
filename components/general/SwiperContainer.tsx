@@ -1,9 +1,11 @@
 import stls from '@/styles/components/general/SwiperContainer.module.sass'
 import { useMediaQuery } from 'react-responsive'
+import Popup from 'reactjs-popup'
 
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import classNames from 'classnames'
+import { PopupImage } from '../popups'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -99,7 +101,15 @@ const SwiperContainer = ({
       })}>
       {slides &&
         slides.map((slide, idx) => (
-          <SwiperSlide key={`slide-${idx}`}>{slide}</SwiperSlide>
+          <SwiperSlide key={`slide-${idx}`}>
+            {diplomas ? (
+              <Popup trigger={<div>{slide}</div>} modal nested>
+                {close => <PopupImage image={slide} close={close} />}
+              </Popup>
+            ) : (
+              slide
+            )}
+          </SwiperSlide>
         ))}
     </Swiper>
   )

@@ -38,27 +38,28 @@
   @include m.dye(c, c.$theta)
 
 .content
-  @include m.media(desktop)
+  @include m.media(laptop, desktop)
     @include m.flex
+
+.left
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: f.px(30))
 
 .swiper
   position: relative
   z-index: 1
+  overflow: hidden
   @include m.media(phone)
-    @include m.gap($pb: f.px(50, em))
+    @include m.gap($pb: f.px(50))
   @include m.media(tablet, laptop)
-    @include m.gap($mb: f.px(20, em))
-  @include m.media(laptop)
-    div
-      width: max-content !important
-      @include m.gap($ml: 0)
-  @include m.media(desktop)
-    @include m.flex($fg: 1)
+    @include m.gap($mb: f.px(20))
+  @include m.media(laptop, desktop)
+    max-width: 50%
 
 .desktopBtnContainer
-  @include m.media(phone, tablet, laptop)
+  @include m.media(phone, tablet)
     display: none
 
 .mobileBtnContainer
-  @include m.media(desktop)
+  @include m.media(laptop, desktop)
     display: none

@@ -1,12 +1,14 @@
 import Reviews from '@/components/sections/Reviews'
-import { fetchPrograms } from '@/helpers/index'
+import { fetchPrograms, fetchReviews } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
 
-const ReviewsPage = ({ programs }) => {
+const ReviewsPage = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
+
+  console.log(reviews)
 
   useEffect(() => {
     setPrograms(programs)
@@ -16,17 +18,19 @@ const ReviewsPage = ({ programs }) => {
 
   return (
     <>
-      <Reviews standalone />
+      <Reviews standalone reviews={reviews} />
     </>
   )
 }
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
+  const reviews = await fetchReviews()
 
   return {
     props: {
-      programs
+      programs,
+      reviews
     },
     revalidate: revalidate.default
   }

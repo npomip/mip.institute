@@ -7,8 +7,11 @@ const backRootUrl = dev
   ? process.env.DEV_ROOT_BACK_URL
   : process.env.PROD_ROOT_BACK_URL
 
+// These urls are used to hit api routes
 const programsUrl = '/programs'
 const teachersUrl = '/teachers'
+const reviewsUrl = '/reviews'
+const webinarsUrl = '/webinars'
 
 const gtmId = ''
 
@@ -32,6 +35,8 @@ export {
   backRootUrl,
   programsUrl,
   teachersUrl,
+  reviewsUrl,
+  webinarsUrl,
   gtmId,
   base64pixel,
   themeColor,

@@ -3,6 +3,7 @@ import convertMdToHtml from '@/helpers/convertMdToHtml'
 import fetchPrograms from '@/helpers/fetchPrograms'
 import fetchProgramsPaths from '@/helpers/fetchProgramsPaths'
 import fetchStudyFieldsPaths from '@/helpers/fetchStudyFieldsPaths'
+import fetchReviews from '@/helpers/fetchReviews'
 import fetchTeachers from '@/helpers/fetchTeachers'
 import filterProgramsByStudyField from '@/helpers/filterProgramsByStudyField'
 import filterProgramsByType from '@/helpers/filterProgramsByType'
@@ -27,6 +28,7 @@ export {
   fetchPrograms,
   fetchProgramsPaths,
   fetchStudyFieldsPaths,
+  fetchReviews,
   fetchTeachers,
   filterProgramsByStudyField,
   filterProgramsByType,

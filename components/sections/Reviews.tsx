@@ -5,28 +5,27 @@ import maleStudent from '@/public/assets/imgs/general/male-student.jpg'
 import femaleStudent from '@/public/assets/imgs/general/female-student.jpg'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import classNames from 'classnames'
+import { ImgReview } from '@/components/imgs'
 
 type ReviewsType = {
   standalone?: boolean
+  reviews: any
 }
 
-const Reviews = ({ standalone = false }: ReviewsType) => {
-  const studentsReviews = [
-    {
-      title:
-        'Как Иван выучился на Психолога и зарабатывает от 100 т.р. в месяц',
-      name: 'Иван Иванов',
-      occupation: 'Студент факультета семейной психологии',
-      photo: maleStudent
-    },
-    {
-      title:
-        'Как Иван выучился на Психолога и зарабатывает от 100 т.р. в месяц',
-      name: 'Иван Иванов',
-      occupation: 'Студент факультета семейной психологии',
-      photo: femaleStudent
-    }
-  ]
+const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
+  const studentsReviews = reviews.map(review => ({
+    title: review.title,
+    name: review.name,
+    occupation: review.profession,
+    photo: (
+      <ImgReview
+        src={review.picture[0].formats.small.url}
+        alt={review.name}
+        width={review.picture[0].formats.small.width}
+        height={review.picture[0].formats.small.height}
+      />
+    )
+  }))
 
   const reviewsSlides = studentsReviews.map((review, idx) => (
     <CardReview

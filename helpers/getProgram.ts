@@ -10,7 +10,7 @@ type getProgramType = {
 
 const getProgram = ({ data, ofType, slug }: getProgramType) => {
   const programs = filterProgramsByType({ programs: data, type: ofType })
-
+  console.log(programs)
   const program = convertMdToHtml({
     arr: programs && programs.filter(program => program.slug === slug),
     params: [
@@ -24,6 +24,7 @@ const getProgram = ({ data, ofType, slug }: getProgramType) => {
     ]
   })[0]
 
+  console.log(program)
   return program
 }
 

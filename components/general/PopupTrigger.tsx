@@ -154,9 +154,9 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         </>
       ) : cta === 'reserve' ? (
         <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
+          {/* У Вас есть вопросы? Оставьте заявку!{' '}
           <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          минут! */}
         </>
       ) : cta === 'learnAboutTeachers' ? (
         <>

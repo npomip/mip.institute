@@ -9,6 +9,7 @@ import { getCasedRuYearString, getCasedRuMonthString } from '@/helpers/index'
 import classNames from 'classnames'
 import { IconCircleCheck } from '@/components/icons'
 import PopupTrigger from '@/components/general/PopupTrigger'
+import ProgramAdmission from '@/components/program/ProgramAdmission'
 
 const StudyCost = () => {
   const {
@@ -22,7 +23,7 @@ const StudyCost = () => {
   } = useContext(ProgramContext)
 
   const info = [
-    { key: 'Зачисление:', val: 'каждый месяц' },
+    { key: 'Зачисление:', val: <ProgramAdmission /> },
     // {
     //   key: 'Количество часов:',
     //   val: `${studyHours} ч`

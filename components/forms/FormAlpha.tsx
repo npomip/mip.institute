@@ -1,7 +1,8 @@
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
-import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import onSubmit from '@/components/funcs/onSubmit'
+import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 
@@ -9,6 +10,7 @@ type FormValues = {
   name: string
   phone: string
   question: string
+  leadPage: string
 }
 
 const FormAlpha = ({
@@ -26,9 +28,28 @@ const FormAlpha = ({
     formState: { errors }
   } = useForm<FormValues>()
 
+  const [isDisabled, setIsDisabled] = useState(false)
+
   useEffect(() => {
     popup && setFocus('name')
   }, [setFocus, popup])
+
+  const router = useRouter()
+
+  const onSubmit = async data => {
+    setIsDisabled(true)
+    // handle loader
+    // handle data
+    // handle utms
+    data.leadPage = router.asPath
+    console.log(data)
+    const req = await hitContactRoute(data)
+    if (req === 200) {
+      console.log('Success')
+    } else {
+      console.log('err')
+    }
+  }
 
   return (
     <form
@@ -37,13 +58,14 @@ const FormAlpha = ({
         [stls.containet]: true,
         [stls.atFooter]: atFooter
       })}
-      onSubmit={handleSubmit(onSubmit)}>
+      onSubmit={handleSubmit(data => onSubmit(data))}>
       <div className={stls.group}>
         <div className={classNames(stls.inpt, stls.name)}>
           <input
             type='text'
             aria-label='Ваше имя'
             placeholder='Ваше имя'
+            disabled={isDisabled}
             {...register('name', {
               maxLength: {
                 value: 32,
@@ -58,6 +80,7 @@ const FormAlpha = ({
             type='tel'
             aria-label='Ваш номер телефона'
             placeholder='Ваш телефон'
+            disabled={isDisabled}
             {...register('phone', {
               required: `*Номер телефона обязателен`,
               minLength: {
@@ -73,6 +96,7 @@ const FormAlpha = ({
             <textarea
               aria-label='Задайте Ваш вопрос'
               placeholder='Задайте Ваш вопрос'
+              disabled={isDisabled}
               {...register('question', {
                 maxLength: {
                   value: 320,
@@ -86,7 +110,11 @@ const FormAlpha = ({
         )}
 
         <div className={stls.btn}>
-          {atFooter ? <BtnBeta text={cta} /> : <BtnAlpha text={cta} />}
+          {atFooter ? (
+            <BtnBeta text={cta} isDisabled={isDisabled} />
+          ) : (
+            <BtnAlpha text={cta} isDisabled={isDisabled} />
+          )}
         </div>
 
         {agreement && (

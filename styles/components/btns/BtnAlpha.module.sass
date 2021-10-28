@@ -39,3 +39,16 @@
     transform: scale(0.98)
     &::after
       opacity: 0
+
+.isDisabled
+  font-weight: 400
+  cursor: not-allowed
+  @include m.dye(bg, c.$theta-2)
+  @include m.dye(border, c.$iota)
+  @include m.dye(c, c.$iota-2)
+  &:hover
+    transform: scale(1)
+    &::after
+      opacity: 0
+  &:focus
+    transform: scale(1)

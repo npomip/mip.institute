@@ -1,7 +1,7 @@
 import stls from '@/styles/components/btns/BtnAlpha.module.sass'
 import classNames from 'classnames'
 
-const BtnAlpha = ({ text = '', isDisabled }) => {
+const BtnAlpha = ({ text = '', isDisabled = false }) => {
   return (
     <button
       className={classNames({

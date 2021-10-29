@@ -1,8 +1,11 @@
+import companyName from '@/data/companyName'
+import { frontRootUrl } from '@/config/index'
+
 const seo = {
   openGraph: {
     type: 'website',
     locale: 'ru',
-    url: process.env.PROD_ROOT_FRONT_URL,
+    url: frontRootUrl,
     site_name: 'MIP'
   },
   // twitter: {
@@ -10,13 +13,14 @@ const seo = {
   //   site: '@site',
   //   cardType: 'summary_large_image',
   // },
-  defaultTitle: 'MIP',
-  description: 'MIP',
-  canonical: process.env.PROD_ROOT_FRONT_URL,
-  dangerouslySetAllPagesToNoIndex: true,
-  dangerouslySetAllPagesToNoFollow: true,
-  noindex: true,
-  nofollow: true
+  defaultTitle: companyName,
+  description:
+    'Освойте востребованную профессию психолога или повысьте квалификацию вместе с нами',
+  canonical: frontRootUrl
+  // dangerouslySetAllPagesToNoIndex: true,
+  // dangerouslySetAllPagesToNoFollow: true
+  // noindex: true,
+  // nofollow: true
 }
 
 export default seo

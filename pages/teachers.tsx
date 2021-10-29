@@ -18,8 +18,6 @@ const TeachersPage = ({ programs, teachers }) => {
     setCurProgramsStudyFieldSlug(null)
   }, [])
 
-  console.log(teachers)
-
   return (
     <>
       <NextSeo

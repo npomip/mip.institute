@@ -1,5 +1,5 @@
-import companyName from '@/data/companyName'
-import { frontRootUrl } from '@/config/index'
+import companyName from './data/companyName'
+import { frontRootUrl } from './config/index'
 
 const seo = {
   openGraph: {

@@ -1,4 +1,4 @@
-import { frontRootUrl } from '@/config/index'
+import { frontRootUrl } from './config/index'
 
 module.exports = {
   siteUrl: frontRootUrl,

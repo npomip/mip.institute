@@ -51,11 +51,12 @@
 
 .answer
   display: none
-  & > .p
+  & > p
     @include m.gap($mb: f.px(8), $ml: f.px(60))
   @include m.media(laptop, desktop)
     // @include m.gap($ml: f.px(55))
-    font-size: f.px(21)
+    & p
+      font-size: f.px(21)
 
 .list
   @include m.gap($mtb: f.px(0), $pl: f.px(82))

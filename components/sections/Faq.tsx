@@ -27,7 +27,7 @@ const Faq = () => {
 
   // console.log(list)
 
-  console.log(qnas)
+  // console.log(qnas)
 
   const list =
     qnas &&

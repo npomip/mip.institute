@@ -1,3 +1,11 @@
+import { fetchPrograms, fetchReviews } from '@/helpers/index'
+import ProgramsContext from '@/context/programs/programsContext'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
+import { useContext, useEffect } from 'react'
+import { frontRootUrl, revalidate } from '@/config/index'
+import { routeHome } from '@/data/routes'
+import companyName from '@/data/companyName'
 import {
   Hero,
   WhyBother,
@@ -8,10 +16,6 @@ import {
   Reviews,
   Webinars
 } from '@/components/sections'
-import { revalidate } from '@/config/index'
-import { fetchPrograms, fetchReviews } from '@/helpers/index'
-import ProgramsContext from '@/context/programs/programsContext'
-import { useContext, useEffect } from 'react'
 
 const HomePage = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -25,6 +29,15 @@ const HomePage = ({ programs, reviews }) => {
 
   return (
     <>
+      <NextSeo
+        title={`${companyName} | Онлайн-институт психологии | Освойте востребованную профессию психолога или повысьте квалификацию вместе с нами
+        `}
+        description={truncate(
+          `✅ Самые востребованные направления; ✅ Есть гос. аккредитация и сертификаты; ✅ Помощь в трудоустройстве; ✅ Онлайн обучение; ✅ Дипломы котируются по всему миру; ✅ Спикеры практики и имеют ученые степени`,
+          120
+        )}
+        canonical={`${frontRootUrl}${routeHome}`}
+      />
       <Hero />
       <Programs withTitle withBtn />
       <WhyBother />

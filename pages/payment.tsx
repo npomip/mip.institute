@@ -1,8 +1,12 @@
 import stls from '@/styles/pages/Payment.module.sass'
-import { revalidate } from '@/config/index'
-import { fetchPrograms } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
+import { frontRootUrl, revalidate } from '@/config/index'
+import { routePayment } from '@/data/routes'
+import companyName from '@/data/companyName'
+import { fetchPrograms } from '@/helpers/index'
 import PageTitle from '@/components/layout/PageTitle'
 import {
   PaymentBtns,
@@ -22,6 +26,14 @@ const PaymentPage = ({ programs }) => {
 
   return (
     <>
+      <NextSeo
+        title={`Оплата | ${companyName}`}
+        description={truncate(
+          `VISA International, Mastercard Worldwide, JCB, МИР`,
+          120
+        )}
+        canonical={`${frontRootUrl}${routePayment}`}
+      />
       <PageTitle>Оплата</PageTitle>
       <PaymentDebitCard />
       <PaymentInfo />

@@ -11,7 +11,7 @@ const PopupThankyou = ({ close }) => {
       <p className={stls.desc}>
         Мы свяжемся с Вами в рабочие часы в ближайшее время
       </p>
-      <p className={stls.thanks}>Спасибо!</p>
+      <p className={stls.thanks}>Спасибо! 🎉 🎉</p>
     </div>
   )
 }

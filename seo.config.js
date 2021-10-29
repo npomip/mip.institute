@@ -1,11 +1,8 @@
-import companyName from './data/companyName'
-import { frontRootUrl } from './config/index'
-
 const seo = {
   openGraph: {
     type: 'website',
     locale: 'ru',
-    url: frontRootUrl,
+    url: 'https://mip.institute',
     site_name: 'MIP'
   },
   // twitter: {
@@ -13,10 +10,10 @@ const seo = {
   //   site: '@site',
   //   cardType: 'summary_large_image',
   // },
-  defaultTitle: companyName,
+  defaultTitle: 'Московский Институт Психологии',
   description:
     'Освойте востребованную профессию психолога или повысьте квалификацию вместе с нами',
-  canonical: frontRootUrl
+  canonical: 'https://mip.institute'
   // dangerouslySetAllPagesToNoIndex: true,
   // dangerouslySetAllPagesToNoFollow: true
   // noindex: true,

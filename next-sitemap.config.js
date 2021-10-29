@@ -1,7 +1,5 @@
-import { frontRootUrl } from './config/index'
-
 module.exports = {
-  siteUrl: frontRootUrl,
+  siteUrl: 'https://mip.institute',
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,

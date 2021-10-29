@@ -46,6 +46,12 @@ const FormAlpha = ({
     // handle data
     // handle utms
     data.leadPage = router.asPath
+    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    data.utms = utms
+    sessionStorage.removeItem('utms')
+    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    data.referer = referer
+    sessionStorage.removeItem('referer')
     console.log(data)
     const req = await hitContactRoute(data)
     if (req === 200) {

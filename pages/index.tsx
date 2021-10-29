@@ -35,7 +35,7 @@ const HomePage = ({ programs, reviews }) => {
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
-      <Reviews reviews={reviews}/>
+      <Reviews reviews={reviews} />
       {/* <Webinars /> */}
     </>
   )

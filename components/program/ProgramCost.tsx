@@ -36,7 +36,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
         </div>
       )}
       <div className={stls.content}>
-        <p className={stls.label}>Одноразовый платёж</p>
+        <p className={stls.label}>Единоразовый платёж</p>
         <span className={stls.discount}>
           <span className={stls.bold}>{toNumberWithSpaces(price)}</span>{' '}
           <span className={stls.light}>&#8381;</span>

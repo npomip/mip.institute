@@ -9,13 +9,13 @@ import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 
 import TagManager from 'react-gtm-module'
 
-import { DefaultSeo } from 'next-seo'
+import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import { prod, gtmId } from '@/config/index'
+import { prod, gtmId, frontRootUrl } from '@/config/index'
 
 import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
@@ -32,6 +32,31 @@ function MyApp({ Component, pageProps, router }) {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
     // console.log(document.referrer)
+
+    const utms = JSON.parse(sessionStorage.getItem('utms')) || {}
+    let utmsAreEmpty = false
+
+    for (const key in utms) {
+      if (utms.hasOwnProperty(key)) {
+        utmsAreEmpty = true
+        break
+      }
+    }
+
+    if (!utmsAreEmpty) {
+      const urlUtmsArr = router.asPath.split('?')[1]
+
+      urlUtmsArr &&
+        urlUtmsArr.split('&').forEach(utm => {
+          utms[utm.split('=')[0]] = utm.split('=')[1]
+        })
+      sessionStorage.setItem('utms', JSON.stringify(utms))
+    }
+
+    const referer = sessionStorage.getItem('referrer')
+    if (!referer) {
+      sessionStorage.setItem('referer', JSON.stringify(document.referrer))
+    }
 
     NProgress.configure({
       showSpinner: false
@@ -62,6 +87,10 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <DefaultSeo {...SEO} />
+      <LogoJsonLd
+        logo={`${frontRootUrl}/assets/imgs/icons/manifest-icon-512.png`}
+        url={frontRootUrl}
+      />
       <ProgramsState>
         <ProgramState>
           <MenuState>

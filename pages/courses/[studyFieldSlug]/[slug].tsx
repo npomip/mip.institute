@@ -1,9 +1,13 @@
-import { PagesProgram } from '@/components/pages'
-import { fetchPrograms, getProgram, fetchProgramsPaths } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import ProgramContext from '@/context/program/programContext'
-import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
+import { fetchPrograms, getProgram, fetchProgramsPaths } from '@/helpers/index'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
+import { frontRootUrl, revalidate } from '@/config/index'
+import { routeCourses } from '@/data/routes'
+import companyName from '@/data/companyName'
+import { PagesProgram } from '@/components/pages'
 
 const CoursePage = ({ programs, program, studyFieldSlug }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -19,7 +23,12 @@ const CoursePage = ({ programs, program, studyFieldSlug }) => {
 
   return (
     <>
-      <PagesProgram ofType={'course'}/>
+      <NextSeo
+        title={`${program.title} | Курс | ${companyName}`}
+        description={truncate(program.description, 120)}
+        canonical={`${frontRootUrl}${routeCourses}/${studyFieldSlug}/${program.slug}`}
+      />
+      <PagesProgram ofType={'course'} />
     </>
   )
 }

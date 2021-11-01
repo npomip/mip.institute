@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://mip.institute',
+  siteUrl: 'https://mip.institute',
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,
@@ -24,8 +24,8 @@ module.exports = {
     policies: [
       {
         userAgent: '*',
-        // allow: '/'
-        disallow: '/'
+        allow: '/'
+        // disallow: '/'
       }
     ]
   }

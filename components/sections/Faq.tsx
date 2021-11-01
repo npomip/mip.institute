@@ -25,10 +25,6 @@ const Faq = () => {
   //     answer: topics[idx]
   //   }))
 
-  // console.log(list)
-
-  console.log(qnas)
-
   const list =
     qnas &&
     qnas.map((qna, idx) => ({

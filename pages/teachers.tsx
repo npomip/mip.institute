@@ -1,8 +1,12 @@
 import { fetchPrograms, fetchTeachers } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
-import { MeetYourTeachers } from '@/components/sections'
-import { revalidate } from '@/config/index'
 import { useContext, useEffect } from 'react'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
+import { frontRootUrl, revalidate } from '@/config/index'
+import { routeTeachers } from '@/data/routes'
+import companyName from '@/data/companyName'
+import { MeetYourTeachers } from '@/components/sections'
 
 const TeachersPage = ({ programs, teachers }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -16,6 +20,14 @@ const TeachersPage = ({ programs, teachers }) => {
 
   return (
     <>
+      <NextSeo
+        title={`Преподаватели | ${companyName}`}
+        description={truncate(
+          `${teachers[0].name}, ${teachers[0].achievements} | ${teachers[1].name}, ${teachers[1].achievements}`,
+          120
+        )}
+        canonical={`${frontRootUrl}${routeTeachers}`}
+      />
       <MeetYourTeachers teachers={teachers} />
     </>
   )

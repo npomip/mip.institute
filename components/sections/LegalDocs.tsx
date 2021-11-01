@@ -45,8 +45,8 @@ const LegalDocs = () => {
         <h2 className={stls.title}>Нормативные документы</h2>
         <div className={stls.content}>
           <ul className={stls.listLeft}>
-            {listLeft.map(item => (
-              <li key={item.val} className={stls.itemLeft}>
+            {listLeft.map((item, idx) => (
+              <li key={item.val + idx} className={stls.itemLeft}>
                 <a href='#' className={stls.link}>
                   <div className={stls.icon}>
                     <IconDoc />
@@ -57,8 +57,8 @@ const LegalDocs = () => {
             ))}
           </ul>
           <ul className={stls.listRight}>
-            {listRight.map(item => (
-              <li key={item.val} className={stls.itemRight}>
+            {listRight.map((item, idx) => (
+              <li key={item.val + idx} className={stls.itemRight}>
                 <a href='#' className={stls.link}>
                   <div className={stls.icon}>
                     <IconDoc />

@@ -9,21 +9,16 @@
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
     border-radius: f.px(10)
-  @include m.media(laptop)
-    &.threerow
-      @include m.gap($mr: 3.5%)
-  @include m.media(desktop)
-    &.threerow
-      @include m.gap($mr: 3.84%)
   @include m.media(laptop, desktop)
+    &.threerow
+      @include m.flex($fd: column, $fb: 31%)
+      @include m.gap($mr: 3.5%)
+      &:nth-child(3n)
+        @include m.gap($mr: 0)
     &.fourrow
       @include m.flex($fd: column, $fb: 23%)
       @include m.gap($mr: 2.66%)
       &:nth-child(4n)
-        @include m.gap($mr: 0)
-    &.threerow
-      @include m.flex($fd: column, $fb: 31%)
-      &:nth-child(3n)
         @include m.gap($mr: 0)
     max-width: f.px(270)
     min-height: f.px(240)

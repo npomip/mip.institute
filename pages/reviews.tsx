@@ -1,8 +1,12 @@
-import Reviews from '@/components/sections/Reviews'
 import { fetchPrograms, fetchReviews } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
-import { revalidate } from '@/config/index'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
+import { frontRootUrl, revalidate } from '@/config/index'
+import { routeReviews } from '@/data/routes'
+import companyName from '@/data/companyName'
+import Reviews from '@/components/sections/Reviews'
 
 const ReviewsPage = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -16,6 +20,18 @@ const ReviewsPage = ({ programs, reviews }) => {
 
   return (
     <>
+      <NextSeo
+        title={`Отзывы и статьи наших студентов | ${companyName}`}
+        description={truncate(
+          `${reviews[reviews.length - 1].title}, ${
+            reviews[reviews.length - 1].name
+          } | ${reviews[reviews.length - 2].title}, ${
+            reviews[reviews.length - 2].name
+          }`,
+          120
+        )}
+        canonical={`${frontRootUrl}${routeReviews}`}
+      />
       <Reviews standalone reviews={reviews} />
     </>
   )

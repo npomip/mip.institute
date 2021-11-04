@@ -31,10 +31,11 @@
   position: relative
   @include m.media(phone, tablet)
     max-width: 10ch
+    @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
     max-width: 13ch
-  @include m.gap($mb: f.px(37))
-  font-size: f.px(64)
+    @include m.gap($mb: f.px(37))
+  font-size: f.px(42)
   font-weight: 500
   line-height: 110%
   z-index: 1
@@ -43,12 +44,14 @@
   position: relative
   @include m.media(phone, tablet)
     max-width: 33ch
+    @include m.gap($mb: f.px(35))
+    font-size: f.px(15)
   @include m.media(laptop, desktop)
     max-width: 35ch
+    font-size: f.px(20)
   @include m.gap($mb: f.px(30))
   font-family: Stem
   font-weight: 300
-  font-size: f.px(20)
   line-height: 130%
   z-index: 1
 

@@ -58,7 +58,8 @@ const MetaManifest = () => {
         href='/assets/imgs/icons/safari-pinned-tab.svg'
         color='#5bbad5'
       /> */}
-      {/* <link rel='shortcut icon' href='/favicon.ico' /> */}
+      <link rel='icon' href='/favicon.ico' />
+      <link rel='shortcut icon' href='/favicon.ico' />
 
       {/* <link
         rel='apple-touch-startup-image'

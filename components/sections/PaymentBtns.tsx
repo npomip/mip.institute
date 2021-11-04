@@ -9,7 +9,11 @@ const PaymentBtns = () => {
       <Wrapper>
         <div className={stls.btns}>
           <div className={stls.btn}>
-            <BtnAlpha text='Оплата банковской картой' />
+            <BtnAlpha
+              text='Оплата банковской картой'
+              href='https://3dsec.sberbank.ru/shortlink/RFx8VJxs'
+              target='_blank'
+            />
           </div>
           <div className={stls.btn}>
             <PopupTrigger btn='delta' cta='help' />

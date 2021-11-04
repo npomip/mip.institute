@@ -1,16 +1,35 @@
 import stls from '@/styles/components/btns/BtnAlpha.module.sass'
 import classNames from 'classnames'
 
-const BtnAlpha = ({ text = '', isDisabled = false }) => {
+const BtnAlpha = ({
+  text = '',
+  isDisabled = false,
+  href = null,
+  target = null
+}) => {
   return (
-    <button
-      className={classNames({
-        [stls.container]: true,
-        [stls.isDisabled]: isDisabled
-      })}
-      disabled={isDisabled}>
-      {text}
-    </button>
+    <>
+      {href ? (
+        <a
+          className={classNames({
+            [stls.container]: true
+          })}
+          href={href}
+          target={target}
+          rel={target && 'noopener noreferrer'}>
+          {text}
+        </a>
+      ) : (
+        <button
+          className={classNames({
+            [stls.container]: true,
+            [stls.isDisabled]: isDisabled
+          })}
+          disabled={isDisabled}>
+          {text}
+        </button>
+      )}
+    </>
   )
 }
 

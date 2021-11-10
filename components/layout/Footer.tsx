@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import ProgramsContext from '@/context/programs/programsContext'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
-import { number } from '@/data/contact'
+import { number, numberAlt } from '@/data/contact'
 import { city, street } from '@/data/location'
 import {
   routeCourses,
@@ -133,8 +133,8 @@ const Footer = () => {
                 <a href={number.href} className={stls.number}>
                   {number.val}
                 </a>
-                <a href={number.href} className={stls.number}>
-                  {number.val}
+                <a href={numberAlt.href} className={stls.number}>
+                  {numberAlt.val}
                 </a>
               </div>
               <div className={stls.address}>

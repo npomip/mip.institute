@@ -29,7 +29,7 @@
     "react-responsive": "^8.2.0",
     "react-transition-group": "^4.4.2",
     "reactjs-popup": "^2.0.4",
-    "swiper": "^6.8.4",
+    "swiper": "^7.2.0",
     "truncate": "^2.1.0",
     "uuid": "^8.3.2"
   },

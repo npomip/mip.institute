@@ -17,9 +17,9 @@ import 'nprogress/nprogress.css'
 
 import { prod, gtmId, frontRootUrl } from '@/config/index'
 
-import 'swiper/swiper.scss'
-import 'swiper/components/navigation/navigation.scss'
-import 'swiper/components/pagination/pagination.scss'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import '@/styles/app.sass'
 
 import Header from '@/components/layout/Header'

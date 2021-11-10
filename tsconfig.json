@@ -2,13 +2,27 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"],
-      "@/config/*": ["config/*"],
-      "@/data/*": ["data/*"],
-      "@/context/*": ["context/*"],
-      "@/public/*": ["public/*"],
-      "@/helpers/*": ["helpers/*"]
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/config/*": [
+        "config/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/context/*": [
+        "context/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/helpers/*": [
+        "helpers/*"
+      ]
     },
     "target": "es5",
     "lib": [
@@ -27,12 +41,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"],
+    "**/*.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]

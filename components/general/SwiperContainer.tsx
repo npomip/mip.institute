@@ -1,8 +1,7 @@
 import stls from '@/styles/components/general/SwiperContainer.module.sass'
 import { useMediaQuery } from 'react-responsive'
 import Popup from 'reactjs-popup'
-
-import SwiperCore, { Navigation, Pagination } from 'swiper'
+import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import classNames from 'classnames'
 import { PopupImage } from '../popups'
@@ -89,10 +88,11 @@ const SwiperContainer = ({
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}
       slidesPerView={assignNumOfSlidesPerView()}
-      slidesPerColumn={
-        isMultiRow && (isLaptopLayout || isDesktopLayout) ? 2 : 1
-      }
-      slidesPerColumnFill={!isMobileLayout ? 'row' : 'column'}
+      modules={[Grid]}
+      grid={{
+        rows: isMultiRow && (isLaptopLayout || isDesktopLayout) ? 2 : 1,
+        fill: !isMobileLayout ? 'row' : 'column'
+      }}
       pagination={{ clickable: true, dynamicBullets: true }}
       className={classNames({
         [stls.container]: true,

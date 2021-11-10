@@ -28,6 +28,10 @@ const LegalInfo = () => {
           Фактический адрес: {zipcode}, {city}, <br /> {streetAlt}
         </>
       )
+    },
+    {
+      title: 'ИНН организации:',
+      content: '9725041321'
     }
   ]
   const listRight = [

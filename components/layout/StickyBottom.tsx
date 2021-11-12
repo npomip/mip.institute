@@ -37,18 +37,22 @@ const StickyBottom = () => {
         [stls.isClosed]: isClosed
       })}>
       <Wrapper>
-        <div className={stls.icon}>
+        <div className={stls.shape}>
           <IconWavyShape />
         </div>
         <p className={stls.discount}>
-          <span className={stls.highlight}>Скидка {discount}</span> на все
-          программы {until}!
+          <span className={stls.highlight}>Скидка {discount}</span>{' '}
+          <br className={stls.smallMobileOnly} /> на все программы{' '}
+          <br className={stls.mobileOnly} /> {until}!
         </p>
         <div className={stls.btns}>
           <PopupTrigger btn='theta' cta='learnAboutUs' />
           <div className={stls.btn2}>
             <PopupTrigger btn='alpha' cta='consultMe' />
           </div>
+        </div>
+        <div className={stls.btnMobile}>
+          <PopupTrigger btn='theta' cta='learnMore' />
         </div>
       </Wrapper>
       <button className={stls.close} onClick={() => setIsClosed(true)}>

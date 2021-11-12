@@ -27,12 +27,19 @@
   &.isClosed
     transform: translateY(100%)
 
-.icon
+.shape
   position: absolute
-  top: 50%
+  @include m.media(phone)
+    top: 40%
+    left: f.px(-440)
+  @include m.media(tablet)
+    top: 10%
+    left: f.px(-560)
   @include m.media(laptop)
+    top: 50%
     left: -8%
   @include m.media(desktop)
+    top: 50%
     left: -10%
   width: 100%
   height: 100%
@@ -47,6 +54,7 @@
   position: relative
   @include m.media(phone, tablet)
     font-size: f.px(14)
+    @include m.gap($mr: f.px(15))
   @include m.media(laptop, desktop)
     font-size: f.px(22)
   font-weight: 300
@@ -57,14 +65,37 @@
   font-weight: 500
 
 .btns
-  @include m.flex
-  & > *:nth-child(1)
-    @media screen and (min-width: 971px)
-      @include m.gap($mr: f.px(25))
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    @include m.flex
+    & > *:nth-child(1)
+      @media screen and (min-width: 971px)
+        @include m.gap($mr: f.px(25))
 
 .btn2
   @media screen and (max-width: 970px)
     display: none
 
+.btnMobile
+  @include m.media(phone, tablet)
+    & > *
+      min-width: f.px(109)
+      & > *
+        font-size: f.px(14)
+  @include m.media(laptop, desktop)
+    display: none
+
 .close
-  @include m.gap($ml: f.px(10), $mr: f.px(14))
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    @include m.gap($ml: f.px(10), $mr: f.px(14))
+
+.mobileOnly
+  @include m.media(laptop, desktop)
+    display: none
+
+.smallMobileOnly
+  @media screen and (min-width: 390px)
+    display: none

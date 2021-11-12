@@ -6,7 +6,6 @@ import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import { IconArrowRight } from '@/components/icons'
 
 const CardCourse = ({ course = null, threerow = false }) => {
-  console.log(course)
   return (
     <Link
       href={`${routeCourses}/${course.studyFieldSlug || 'studyfield'}/${

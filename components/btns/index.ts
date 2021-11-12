@@ -15,6 +15,7 @@ import BtnProgramsField from '@/components/btns/BtnProgramsField'
 import BtnSearch from '@/components/btns/BtnSearch'
 import BtnTelegram from '@/components/btns/BtnTelegram'
 import BtnText from '@/components/btns/BtnText'
+import BtnTheta from '@/components/btns/BtnTheta'
 import BtnVk from '@/components/btns/BtnVk'
 import BtnWhatsapp from '@/components/btns/BtnWhatsapp'
 import BtnYt from '@/components/btns/BtnYt'
@@ -38,6 +39,7 @@ export {
   BtnSearch,
   BtnTelegram,
   BtnText,
+  BtnTheta,
   BtnVk,
   BtnWhatsapp,
   BtnYt,

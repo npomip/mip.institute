@@ -9,7 +9,8 @@ import {
   BtnEpsilon,
   BtnZeta,
   BtnEta,
-  BtnText
+  BtnText,
+  BtnTheta
 } from '@/components/btns'
 
 type PopupTriggerType = {
@@ -21,6 +22,7 @@ type PopupTriggerType = {
     | 'epsilon'
     | 'zeta'
     | 'eta'
+    | 'theta'
     | 'text'
   cta:
     | 'askQuestion'
@@ -37,6 +39,7 @@ type PopupTriggerType = {
     | 'getFullList'
     | 'seeAllWebinars'
     | 'learnMore'
+    | 'consultMe'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
@@ -72,6 +75,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Смотреть все вебинары'
         : cta === 'learnMore'
         ? 'Подробнее'
+        : cta === 'consultMe'
+        ? 'Хочу консультацию'
         : '',
     title:
       cta === 'askQuestion'
@@ -102,6 +107,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Смотреть все вебинары'
         : cta === 'learnMore'
         ? 'Узнать подробнее'
+        : cta === 'consultMe'
+        ? 'Хочу консультацию'
         : '',
     desc:
       cta === 'askQuestion' ? (
@@ -184,6 +191,12 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           Оставьте заявку, мы свяжемся с Вами в рабочие часы и расскажем
           подробнее о вебинаре
         </>
+      ) : cta === 'consultMe' ? (
+        <>
+          У Вас есть вопросы? Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
       ) : (
         ''
       ),
@@ -216,6 +229,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Оставить заявку'
         : cta === 'learnMore'
         ? 'Узнать подробнее'
+        : cta === 'consultMe'
+        ? 'Получить консультацию'
         : ''
   }
 
@@ -237,6 +252,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
             <BtnZeta text={strs.trigger} />
           ) : btn === 'eta' ? (
             <BtnEta text={strs.trigger} />
+          ) : btn === 'theta' ? (
+            <BtnTheta text={strs.trigger} />
           ) : btn === 'text' ? (
             <BtnText text={strs.trigger} ctheta />
           ) : (

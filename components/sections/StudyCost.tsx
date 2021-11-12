@@ -5,11 +5,11 @@ import ProgramCost from '@/components/program/ProgramCost'
 import { BtnEta, BtnGamma, BtnText } from '@/components/btns'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
-import { getCasedRuYearString, getCasedRuMonthString } from '@/helpers/index'
 import classNames from 'classnames'
 import { IconCircleCheck } from '@/components/icons'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
+import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 
 const StudyCost = () => {
   const {
@@ -34,9 +34,7 @@ const StudyCost = () => {
     },
     {
       key: 'Срок обучения:',
-      val: `${getCasedRuYearString(
-        studyMounthsDuration
-      )} ${getCasedRuMonthString(studyMounthsDuration)}`
+      val: <ProgramStudyDuration studyMounthsDuration={studyMounthsDuration} />
     }
   ]
 

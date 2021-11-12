@@ -1,8 +1,8 @@
 import stls from '@/styles/components/program/ProgramInfo.module.sass'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
-import { getCasedRuYearString, getCasedRuMonthString } from '@/helpers/index'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
+import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import {
   IconCalendar,
   IconGraduateHat,
@@ -33,13 +33,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Срок обучения:',
-      val: `${
-        studyMounthsDuration === '12'
-          ? `${getCasedRuMonthString(studyMounthsDuration)}`
-          : `${getCasedRuYearString(
-              studyMounthsDuration
-            )} ${getCasedRuMonthString(studyMounthsDuration)}`
-      }`,
+      val: <ProgramStudyDuration studyMounthsDuration={studyMounthsDuration} />,
       icon: <IconCalendar />
     }
   ]

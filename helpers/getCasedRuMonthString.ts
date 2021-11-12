@@ -1,13 +1,15 @@
-const getCasedRuYearString = (months: number) => {
-  const num = months % 12
+type TypeGetCasedRuMonthString = {
+  months: number
+}
 
-  if (num === 1) return `${months} Месяц`
+const getCasedRuMonthString = ({ months }: TypeGetCasedRuMonthString) => {
+  if (+months === 1) return `${months} Месяц`
 
-  if (num > 1 && num < 5) return `${months} Месяца`
+  if (+months > 1 && +months < 5) return `${months} Месяца`
 
-  if (num === 0 || num >= 5) return `${months} Месяцев`
+  if (+months >= 5) return `${months} Месяцев`
 
   return ''
 }
 
-export default getCasedRuYearString
+export default getCasedRuMonthString

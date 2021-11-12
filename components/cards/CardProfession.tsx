@@ -1,8 +1,8 @@
 import stls from '@/styles/components/cards/CardProfession.module.sass'
 import Link from 'next/link'
 import { routeProfessions } from '@/data/routes'
-import { getCasedRuMonthString } from '@/helpers/index'
 import classNames from 'classnames'
+import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import { IconArrowRight } from '@/components/icons'
 
 const CardProfession = ({ profession = null, threerow = false }) => {
@@ -21,7 +21,10 @@ const CardProfession = ({ profession = null, threerow = false }) => {
         <h4 className={stls.title}>{profession.title}</h4>
         {profession.studyMounthsDuration && (
           <div className={stls.dur}>
-            {getCasedRuMonthString(profession.studyMounthsDuration)}
+            <ProgramStudyDuration
+              studyMounthsDuration={profession.studyMounthsDuration}
+              monthsOnly
+            />
           </div>
         )}
         <div className={stls.arrowRight}>

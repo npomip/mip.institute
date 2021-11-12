@@ -1,11 +1,13 @@
-const getCasedRuYearString = (months: number) => {
-  const num = Math.floor(Number(months) / 12)
+type TypeGetCasedRuYearString = {
+  years: number
+}
 
-  if (num === 1) return `${num} год`
+const getCasedRuYearString = ({ years }: TypeGetCasedRuYearString) => {
+  if (years === 1) return `${years} год`
 
-  if (num > 1 && num < 5) return `${num} года`
+  if (years > 1 && years < 5) return `${years} года`
 
-  if (num >= 5) return `${num} лет`
+  if (years >= 5) return `${years} лет`
 
   return ''
 }

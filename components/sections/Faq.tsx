@@ -32,8 +32,6 @@ const Faq = () => {
       answer: marked(qna.answer)
     }))
 
-  console.log(list)
-
   return (
     <section className={stls.container}>
       <Wrapper>

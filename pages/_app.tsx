@@ -24,6 +24,7 @@ import '@/styles/app.sass'
 
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import StickyBottom from '@/components/layout/StickyBottom'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
@@ -99,6 +100,7 @@ function MyApp({ Component, pageProps, router }) {
               <main>
                 <Component {...pageProps} />
               </main>
+              {/* <StickyBottom /> */}
               <Footer />
             </FieldsTooltipState>
           </MenuState>

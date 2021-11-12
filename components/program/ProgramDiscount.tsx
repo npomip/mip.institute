@@ -4,18 +4,35 @@ import classNames from 'classnames'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
 
-const ProgramDiscount = ({ small = null }) => {
+type TypeProgramDiscount = {
+  small?: boolean
+  textOnly?: boolean
+}
+
+const ProgramDiscount = ({
+  small = null,
+  textOnly = null
+}: TypeProgramDiscount) => {
   const {
     program: { discount }
   } = useContext(ProgramContext)
+
+  const elDiscount = <>{discount ? `-${discount}%` : discountStatic}</>
   return (
-    <div
-      className={classNames({ [stls.container]: true, [stls.small]: small })}>
-      <p className={stls.discount}>
-        {discount ? `-${discount}%` : discountStatic}
-      </p>
-      <p className={stls.until}>{until}</p>
-    </div>
+    <>
+      {textOnly ? (
+        elDiscount
+      ) : (
+        <div
+          className={classNames({
+            [stls.container]: true,
+            [stls.small]: small
+          })}>
+          <p className={stls.discount}>{elDiscount}</p>
+          <p className={stls.until}>{until}</p>
+        </div>
+      )}
+    </>
   )
 }
 

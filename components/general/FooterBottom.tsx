@@ -10,12 +10,20 @@ const FooterBottom = () => {
         <p className={stls.copy}>
           &copy; Московский Институт Психологии, {new Date().getFullYear()}
         </p>
-        <Link href={routePoliciesTerms}>
-          <a className={stls.agreeLink}>Договор оферты</a>
-        </Link>
-        <Link href={routePoliciesPrivacy}>
-          <a className={stls.docLink}>Политика конфиденциальности</a>
-        </Link>
+        <a
+          href={routePoliciesTerms}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={stls.agreeLink}>
+          Договор оферты
+        </a>
+        <a
+          href={routePoliciesPrivacy}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={stls.docLink}>
+          Политика конфиденциальности
+        </a>
       </Wrapper>
     </div>
   )

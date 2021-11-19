@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/FooterBottom.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Link from 'next/link'
-import { routePoliciesPrivacy } from '@/data/routes'
+import { routePoliciesTerms, routePoliciesPrivacy } from '@/data/routes'
 
 const FooterBottom = () => {
   return (
@@ -10,7 +10,7 @@ const FooterBottom = () => {
         <p className={stls.copy}>
           &copy; Московский Институт Психологии, {new Date().getFullYear()}
         </p>
-        <Link href='/'>
+        <Link href={routePoliciesTerms}>
           <a className={stls.agreeLink}>Договор оферты</a>
         </Link>
         <Link href={routePoliciesPrivacy}>

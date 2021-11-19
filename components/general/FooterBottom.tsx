@@ -1,6 +1,7 @@
 import stls from '@/styles/components/general/FooterBottom.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Link from 'next/link'
+import { routePoliciesPrivacy } from '@/data/routes'
 
 const FooterBottom = () => {
   return (
@@ -12,7 +13,7 @@ const FooterBottom = () => {
         <Link href='/'>
           <a className={stls.agreeLink}>Договор оферты</a>
         </Link>
-        <Link href='/'>
+        <Link href={routePoliciesPrivacy}>
           <a className={stls.docLink}>Политика конфиденциальности</a>
         </Link>
       </Wrapper>

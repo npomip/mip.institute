@@ -9,6 +9,7 @@ const routePrograms = '/programs'
 const routeCourses = '/courses'
 const routeProfessions = '/professions'
 const routePayment = '/payment'
+const routePoliciesPrivacy = '/policies/privacy.pdf'
 
 export {
   routeHome,
@@ -21,5 +22,6 @@ export {
   routePrograms,
   routeCourses,
   routeProfessions,
-  routePayment
+  routePayment,
+  routePoliciesPrivacy
 }

@@ -22,7 +22,9 @@ module.exports = withPWA({
     return [
       {
         source: '/:path*',
-        headers: createSecureHeaders()
+        headers: createSecureHeaders({
+          frameGuard: 'sameorigin'
+        })
         // headers: createSecureHeaders({
         //   contentSecurityPolicy: {
         //     directives: {

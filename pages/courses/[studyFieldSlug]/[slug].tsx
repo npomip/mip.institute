@@ -4,7 +4,8 @@ import { useContext, useEffect } from 'react'
 import {
   fetchPrograms,
   getProgram,
-  handleGetStaticPathsPrograms
+  handleGetStaticPathsPrograms,
+  handleGetStaticProps
 } from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -37,19 +38,13 @@ const CoursePage = ({ programs, program, studyFieldSlug }) => {
   )
 }
 
-export async function getStaticProps({ params: { slug, studyFieldSlug } }) {
-  const programs = await fetchPrograms()
-  const program = getProgram({ data: programs, ofType: 'course', slug })
-
-  return {
-    props: {
-      programs,
-      program,
-      studyFieldSlug
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async ({ params: { slug, studyFieldSlug } }) =>
+  await handleGetStaticProps({
+    page: '/programs',
+    studyFieldSlug,
+    slug,
+    type: 'course'
+  })
 
 export const getStaticPaths = async () =>
   await handleGetStaticPathsPrograms({ type: '/course' })

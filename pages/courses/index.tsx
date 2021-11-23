@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react'
 import { fetchPrograms } from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeCourses } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { PagesPrograms } from '@/components/pages'
@@ -26,7 +26,7 @@ const CoursesPage = ({ programs }) => {
           `Курсы - короткие программы, чтобы изучить один конкретный навык`,
           120
         )}
-        canonical={`${frontRootUrl}${routeCourses}`}
+        canonical={`${routesFront.root}${routeCourses}`}
       />
       <PagesPrograms ofType='course' />
     </>

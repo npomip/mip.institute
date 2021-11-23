@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react'
 import { fetchPrograms, getProgram, fetchProgramsPaths } from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeProfessions } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { PagesProgram } from '@/components/pages'
@@ -26,7 +26,7 @@ const ProfessionPage = ({ programs, program, studyFieldSlug }) => {
       <NextSeo
         title={`${program.title} | Профессия | ${companyName}`}
         description={truncate(program.description, 120)}
-        canonical={`${frontRootUrl}${routeProfessions}/${studyFieldSlug}/${program.slug}`}
+        canonical={`${routesFront.root}${routeProfessions}/${studyFieldSlug}/${program.slug}`}
       />
       <PagesProgram ofType={'profession'} />
     </>

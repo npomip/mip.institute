@@ -4,7 +4,7 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeAbout } from '@/data/routes'
 import companyName from '@/data/companyName'
 
@@ -26,7 +26,7 @@ const AboutPage = ({ programs }) => {
           `Московский Институт Психологии за современный подход в образовании. Мы постоянно берем обратную связь от работодателей и каждый месяц адаптируем учебные программы. Это в 12 раз быстрее обновления программы обучения в государственном ВУЗе!`,
           120
         )}
-        canonical={`${frontRootUrl}${routeAbout}`}
+        canonical={`${routesFront.root}${routeAbout}`}
       />
       <About standalone />
     </>

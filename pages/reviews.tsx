@@ -3,7 +3,7 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeReviews } from '@/data/routes'
 import companyName from '@/data/companyName'
 import Reviews from '@/components/sections/Reviews'
@@ -30,7 +30,7 @@ const ReviewsPage = ({ programs, reviews }) => {
           }`,
           120
         )}
-        canonical={`${frontRootUrl}${routeReviews}`}
+        canonical={`${routesFront.root}${routeReviews}`}
       />
       <Reviews standalone reviews={reviews} />
     </>

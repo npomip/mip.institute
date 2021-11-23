@@ -4,7 +4,7 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeContact } from '@/data/routes'
 import companyName from '@/data/companyName'
 import PageTitle from '@/components/layout/PageTitle'
@@ -31,7 +31,7 @@ const LegalPage = ({ programs }) => {
           `${city}, ${street}, ${number}, ${numberAlt}, ${email}`,
           120
         )}
-        canonical={`${frontRootUrl}${routeContact}`}
+        canonical={`${routesFront.root}${routeContact}`}
       />
       <PageTitle>Контакты</PageTitle>
       <Contacts />

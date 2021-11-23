@@ -7,7 +7,7 @@ import {
 } from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routePrograms } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { PagesPrograms } from '@/components/pages'
@@ -38,7 +38,7 @@ const ProgramsStudyFieldPage = ({ programs, studyFieldSlug }) => {
           `Профессии - длинные программы для полного погружения в направление. Курсы - короткие программы, чтобы изучить один конкретный навык`,
           120
         )}
-        canonical={`${frontRootUrl}${routePrograms}/${studyFieldSlug}`}
+        canonical={`${routesFront.root}${routePrograms}/${studyFieldSlug}`}
       />
       <PagesPrograms />
     </>

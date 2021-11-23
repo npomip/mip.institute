@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react'
 import { fetchPrograms } from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeProfessions } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { PagesPrograms } from '@/components/pages'
@@ -26,7 +26,7 @@ const ProfessionsPage = ({ programs }) => {
           `Профессии - длинные программы для полного погружения в направление`,
           120
         )}
-        canonical={`${frontRootUrl}${routeProfessions}`}
+        canonical={`${routesFront.root}${routeProfessions}`}
       />
       <PagesPrograms ofType='profession' />
     </>

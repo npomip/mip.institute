@@ -15,7 +15,7 @@ import SEO from '../seo.config'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import { prod, gtmId, frontRootUrl } from '@/config/index'
+import { prod, gtmId, routesFront } from '@/config/index'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -89,8 +89,8 @@ function MyApp({ Component, pageProps, router }) {
     <>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
-        logo={`${frontRootUrl}/assets/imgs/icons/manifest-icon-512.png`}
-        url={frontRootUrl}
+        logo={`${routesFront.root}/assets/imgs/icons/manifest-icon-512.png`}
+        url={routesFront.root}
       />
       <ProgramsState>
         <ProgramState>

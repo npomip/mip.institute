@@ -3,7 +3,7 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeLegal } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { fetchPrograms } from '@/helpers/index'
@@ -34,7 +34,7 @@ const LegalPage = ({ programs }) => {
         и сертификаты, основные сведения и нормативные документы`,
           120
         )}
-        canonical={`${frontRootUrl}${routeLegal}`}
+        canonical={`${routesFront.root}${routeLegal}`}
       />
       <PageTitle>
         Сведения <br className={stls.linebrake} /> об организации

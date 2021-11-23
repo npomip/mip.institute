@@ -1,9 +1,9 @@
-import { fetchPrograms, fetchReviews } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useContext, useEffect } from 'react'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeHome } from '@/data/routes'
 import companyName from '@/data/companyName'
 import {
@@ -36,7 +36,7 @@ const HomePage = ({ programs, reviews }) => {
           `✅ Самые востребованные направления; ✅ Есть гос. аккредитация и сертификаты; ✅ Помощь в трудоустройстве; ✅ Онлайн обучение; ✅ Дипломы котируются по всему миру; ✅ Спикеры практики и имеют ученые степени`,
           120
         )}
-        canonical={`${frontRootUrl}${routeHome}`}
+        canonical={`${routesFront.root}${routeHome}`}
       />
       <Hero />
       <Programs withTitle withBtn />
@@ -54,17 +54,7 @@ const HomePage = ({ programs, reviews }) => {
   )
 }
 
-export async function getStaticProps(context) {
-  const programs = await fetchPrograms()
-  const reviews = await fetchReviews()
-
-  return {
-    props: {
-      programs,
-      reviews
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () =>
+  await handleGetStaticProps({ query: 'index' })
 
 export default HomePage

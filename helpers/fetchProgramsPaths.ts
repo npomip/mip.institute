@@ -1,4 +1,4 @@
-import { backRootUrl, programsUrl } from '@/config/index'
+import { routesBack } from '@/config/index'
 import { filterProgramsByType } from '@/helpers/index'
 
 type ProgramsType = {
@@ -6,7 +6,7 @@ type ProgramsType = {
 }
 
 const fetchProgramsPaths = async ({ ofType }: ProgramsType) => {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
+  const res = await fetch(`${routesBack.root}${routesBack.programs}`)
   const data = await res.json()
 
   const programs = filterProgramsByType({ programs: data, type: ofType })

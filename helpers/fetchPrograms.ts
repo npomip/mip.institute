@@ -1,4 +1,4 @@
-import { backRootUrl, programsUrl } from '@/config/index'
+import { routesBack } from '@/config/index'
 import { convertMdToHtml, filterProgramsByType } from '@/helpers/index'
 
 type ProgramsType = {
@@ -6,7 +6,7 @@ type ProgramsType = {
 }
 
 const fetchPrograms = async ({ ofType }: ProgramsType = { ofType: null }) => {
-  const res = await fetch(`${backRootUrl}${programsUrl}`)
+  const res = await fetch(`${routesBack.root}${routesBack.programs}`)
   const data = await res.json()
 
   const programs = convertMdToHtml({

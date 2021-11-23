@@ -3,7 +3,7 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routePayment } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { fetchPrograms } from '@/helpers/index'
@@ -32,7 +32,7 @@ const PaymentPage = ({ programs }) => {
           `VISA International, Mastercard Worldwide, JCB, МИР`,
           120
         )}
-        canonical={`${frontRootUrl}${routePayment}`}
+        canonical={`${routesFront.root}${routePayment}`}
       />
       <PageTitle>Оплата</PageTitle>
       <PaymentDebitCard />

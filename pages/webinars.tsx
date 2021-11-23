@@ -3,7 +3,7 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { frontRootUrl, revalidate } from '@/config/index'
+import { routesFront, revalidate } from '@/config/index'
 import { routeWebinars } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { WebinarsAlt } from '@/components/sections'
@@ -30,7 +30,7 @@ const WebinarsPage = ({ programs, webinars }) => {
           }`,
           120
         )}
-        canonical={`${frontRootUrl}${routeWebinars}`}
+        canonical={`${routesFront.root}${routeWebinars}`}
       />
       <WebinarsAlt webinars={webinars} />
     </>

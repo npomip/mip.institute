@@ -20,6 +20,8 @@ import getStudyFields from '@/helpers/getStudyFields'
 import getStudyFieldsLabels from '@/helpers/getStudyFieldsLabels'
 import getStudyFieldsSlugs from '@/helpers/getStudyFieldsSlugs'
 import getThreeLettersRuMonths from '@/helpers/getThreeLettersRuMonths'
+import handleGetStaticPathsPrograms from '@/helpers/handleGetStaticPathsPrograms'
+import handleGetStaticPathsStudyFields from '@/helpers/handleGetStaticPathsStudyFields'
 import handleGetStaticProps from '@/helpers/handleGetStaticProps'
 import handleSwipedEvt from '@/helpers/handleSwipedEvt'
 import removeDuplicates from '@/helpers/removeDuplicates'
@@ -48,6 +50,8 @@ export {
   getStudyFieldsLabels,
   getStudyFieldsSlugs,
   getThreeLettersRuMonths,
+  handleGetStaticPathsPrograms,
+  handleGetStaticPathsStudyFields,
   handleGetStaticProps,
   handleSwipedEvt,
   removeDuplicates,

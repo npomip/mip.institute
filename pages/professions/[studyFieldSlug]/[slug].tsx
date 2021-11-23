@@ -1,7 +1,11 @@
 import ProgramsContext from '@/context/programs/programsContext'
 import ProgramContext from '@/context/program/programContext'
 import { useContext, useEffect } from 'react'
-import { fetchPrograms, getProgram, fetchProgramsPaths } from '@/helpers/index'
+import {
+  fetchPrograms,
+  getProgram,
+  handleGetStaticPathsPrograms
+} from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routesFront, revalidate } from '@/config/index'
@@ -33,15 +37,13 @@ const ProfessionPage = ({ programs, program, studyFieldSlug }) => {
   )
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug, studyFieldSlug } }) {
   const programs = await fetchPrograms()
   const program = getProgram({
     data: programs,
     ofType: 'profession',
     slug
   })
-
-  const studyFieldSlug = program.studyFieldSlug
 
   return {
     props: {
@@ -53,13 +55,7 @@ export async function getStaticProps({ params: { slug } }) {
   }
 }
 
-export async function getStaticPaths() {
-  const paths = await fetchProgramsPaths({ ofType: 'profession' })
-
-  return {
-    paths,
-    fallback: 'blocking'
-  }
-}
+export const getStaticPaths = async () =>
+  await handleGetStaticPathsPrograms({ type: '/profession' })
 
 export default ProfessionPage

@@ -3,7 +3,7 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useContext, useEffect } from 'react'
-import { routesFront, revalidate } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { routeHome } from '@/data/routes'
 import companyName from '@/data/companyName'
 import {
@@ -55,6 +55,6 @@ const HomePage = ({ programs, reviews }) => {
 }
 
 export const getStaticProps = async () =>
-  await handleGetStaticProps({ query: 'index' })
+  await handleGetStaticProps({ page: '/index' })
 
 export default HomePage

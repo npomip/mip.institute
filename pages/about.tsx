@@ -1,10 +1,10 @@
 import About from '@/components/sections/About'
-import { fetchPrograms } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, revalidate } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { routeAbout } from '@/data/routes'
 import companyName from '@/data/companyName'
 
@@ -33,15 +33,7 @@ const AboutPage = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-
-  return {
-    props: {
-      programs
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () =>
+  await handleGetStaticProps({ page: '/about' })
 
 export default AboutPage

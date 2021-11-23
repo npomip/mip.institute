@@ -1,9 +1,9 @@
-import { fetchPrograms, fetchReviews } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, revalidate } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { routeReviews } from '@/data/routes'
 import companyName from '@/data/companyName'
 import Reviews from '@/components/sections/Reviews'
@@ -37,17 +37,7 @@ const ReviewsPage = ({ programs, reviews }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const reviews = await fetchReviews()
-
-  return {
-    props: {
-      programs,
-      reviews
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () =>
+  await handleGetStaticProps({ page: '/reviews' })
 
 export default ReviewsPage

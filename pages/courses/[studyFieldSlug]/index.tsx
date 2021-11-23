@@ -1,13 +1,12 @@
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import {
-  fetchPrograms,
-  fetchStudyFieldsPaths,
-  filterProgramsByStudyField
+  handleGetStaticPathsStudyFields,
+  handleGetStaticProps
 } from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, revalidate } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { routeCourses } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { PagesPrograms } from '@/components/pages'
@@ -45,25 +44,10 @@ const CoursesStudyFieldPage = ({ programs, studyFieldSlug }) => {
   )
 }
 
-export async function getStaticProps({ params: { studyFieldSlug } }) {
-  const programs = await fetchPrograms()
+export const getStaticProps = async ({ params: { studyFieldSlug } }) =>
+  await handleGetStaticProps({ page: '/programs', studyFieldSlug })
 
-  return {
-    props: {
-      programs,
-      studyFieldSlug
-    },
-    revalidate: revalidate.default
-  }
-}
-
-export async function getStaticPaths() {
-  const paths = await fetchStudyFieldsPaths()
-
-  return {
-    paths,
-    fallback: 'blocking'
-  }
-}
+export const getStaticPaths = async () =>
+  await handleGetStaticPathsStudyFields({ type: '/course' })
 
 export default CoursesStudyFieldPage

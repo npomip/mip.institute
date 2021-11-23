@@ -1,15 +1,32 @@
 import axios from 'axios'
 import { routesBack, revalidate } from '@/config/index'
 
-const handleGetStaticProps = async ({ query }) => {
+type TypeHandleGetStaticProps = {
+  page:
+    | '/about'
+    | '/contact'
+    | '/index'
+    | '/legal'
+    | '/payment'
+    | '/reviews'
+    | '/teachers'
+    | '/webinars'
+    | '/programs'
+  studyFieldSlug?: string
+  slug?: string
+}
+
+const handleGetStaticProps = async ({
+  page,
+  studyFieldSlug = null,
+  slug = null
+}: TypeHandleGetStaticProps) => {
   const res = await axios.get(
-    `${routesBack.root}${routesBack.getStaticProps}/${query}`
+    `${routesBack.root}${routesBack.getStaticProps}${page}`
   )
 
-  const props = res.data
-
   return {
-    props,
+    props: { ...res.data, studyFieldSlug },
     revalidate: revalidate.default
   }
 }

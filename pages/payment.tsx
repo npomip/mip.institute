@@ -3,10 +3,10 @@ import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, revalidate } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { routePayment } from '@/data/routes'
 import companyName from '@/data/companyName'
-import { fetchPrograms } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import PageTitle from '@/components/layout/PageTitle'
 import {
   PaymentBtns,
@@ -42,15 +42,7 @@ const PaymentPage = ({ programs }) => {
   )
 }
 
-export async function getStaticProps(context) {
-  const programs = await fetchPrograms()
-
-  return {
-    props: {
-      programs
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () =>
+  await handleGetStaticProps({ page: '/payment' })
 
 export default PaymentPage

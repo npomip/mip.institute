@@ -1,9 +1,9 @@
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
-import { fetchPrograms } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, revalidate } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { routeCourses } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { PagesPrograms } from '@/components/pages'
@@ -33,15 +33,7 @@ const CoursesPage = ({ programs }) => {
   )
 }
 
-export async function getStaticProps(context) {
-  const programs = await fetchPrograms()
-
-  return {
-    props: {
-      programs
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () =>
+  await handleGetStaticProps({ page: '/programs' })
 
 export default CoursesPage

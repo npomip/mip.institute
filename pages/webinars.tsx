@@ -1,9 +1,9 @@
-import { fetchPrograms, fetchWebinars } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, revalidate } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { routeWebinars } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { WebinarsAlt } from '@/components/sections'
@@ -37,17 +37,7 @@ const WebinarsPage = ({ programs, webinars }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const webinars = await fetchWebinars()
-
-  return {
-    props: {
-      programs,
-      webinars
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () =>
+  await handleGetStaticProps({ page: '/webinars' })
 
 export default WebinarsPage

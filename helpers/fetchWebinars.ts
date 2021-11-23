@@ -1,5 +1,5 @@
-import { routesBack, webinarsUrl } from '@/config/index'
-import { convertMdToHtml } from '@/helpers/index'
+import { routesBack } from '@/config/index'
+// import { convertMdToHtml } from '@/helpers/index'
 
 const fetchWebinars = async () => {
   const res = await fetch(`${routesBack.root}${routesBack.webinars}`)

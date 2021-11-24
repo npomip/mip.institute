@@ -8,6 +8,8 @@ import { routeWebinars } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { WebinarsAlt } from '@/components/sections'
 
+//
+
 const WebinarsPage = ({ programs, webinars }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)

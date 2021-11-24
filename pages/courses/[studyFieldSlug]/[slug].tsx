@@ -26,8 +26,6 @@ const CoursePage = ({ programs, program, studyFieldSlug }) => {
     setCurProgramsStudyFieldSlug(studyFieldSlug)
   }, [programs, program, studyFieldSlug])
 
-  //
-
   return (
     <>
       <NextSeo

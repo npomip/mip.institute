@@ -1,7 +1,9 @@
 import { dev } from '@/config/index'
 
 const routesBack = {
-  root: dev ? 'http://localhost:1337' : '',
+  root: dev
+    ? 'http://localhost:1337'
+    : 'https://api-mip-institute.herokuapp.com/',
   home: '/',
   programs: '/programs', // /programs || /programs/:id
   teachers: '/teachers',

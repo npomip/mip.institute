@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/LegalInfo.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { zipcode, city, streetAlt } from '@/data/location'
+import { zipcode, city, streetAlt, office } from '@/data/location'
 import { number } from '@/data/contact'
 import { email } from '@/data/email'
 
@@ -23,9 +23,10 @@ const LegalInfo = () => {
       title: 'Информация о месте нахождения образовательной организации:',
       content: (
         <>
-          Юридический адрес: 115114, Москва, <br /> набережная Дербеневская,
-          д.11 <br />
-          Фактический адрес: {zipcode}, {city}, <br /> {streetAlt}
+          Юридический адрес: 115114, г. Москва, <br /> набережная Дербеневская,
+          д.11, пом.13 <br />
+          Фактический адрес: {zipcode}, г. {city}, <br /> {streetAlt}, оф.{' '}
+          {office}
         </>
       )
     },

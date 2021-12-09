@@ -1,7 +1,12 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
-import { ImgCertificate, ImgDiploma } from '@/components/imgs'
+import {
+  ImgCertificate,
+  ImgDiploma,
+  ImgDiplomaAlt,
+  ImgSupplement
+} from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
 
 type YourDiplomaType = {
@@ -11,7 +16,12 @@ type YourDiplomaType = {
 const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
   const slides = []
 
-  ofType === 'profession' && slides.push(<ImgDiploma key='diploma' />)
+  ofType === 'profession' &&
+    slides.push(
+      <ImgDiploma key='diploma' />
+      // <ImgDiplomaAlt key='diploma-alt' />
+      // <ImgSupplement key='supplement' />
+    )
 
   ofType === 'course' && slides.push(<ImgCertificate key='certificate' />)
 
@@ -19,12 +29,10 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
     slidesNum: 2,
     spaceBetween: 10
   }
-  const tabletSwiperOptions = {
+  const tabletLaptopDesktopSwiperOptions = {
     slidesNum: 3,
     spaceBetween: 30
   }
-  const laptopSwiperOptions = tabletSwiperOptions
-  const desktopSwiperOptions = tabletSwiperOptions
 
   return (
     <section className={stls.container}>
@@ -49,9 +57,9 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
               diplomas
               slides={slides}
               mobileOptions={mobileSwiperOptions}
-              tabletOptions={tabletSwiperOptions}
-              laptopOptions={laptopSwiperOptions}
-              desktopOptions={desktopSwiperOptions}
+              tabletOptions={tabletLaptopDesktopSwiperOptions}
+              laptopOptions={tabletLaptopDesktopSwiperOptions}
+              desktopOptions={tabletLaptopDesktopSwiperOptions}
             />
           </div>
           <div className={stls.mobileBtnContainer}>

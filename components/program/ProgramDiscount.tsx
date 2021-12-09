@@ -1,5 +1,5 @@
 import stls from '@/styles/components/program/ProgramDiscount.module.sass'
-import { discount as discountStatic, until } from '@/data/price'
+import { discountNum, until } from '@/data/price'
 import classNames from 'classnames'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
@@ -17,7 +17,7 @@ const ProgramDiscount = ({
     program: { discount }
   } = useContext(ProgramContext)
 
-  const elDiscount = <>{discount ? `-${discount}%` : discountStatic}</>
+  const elDiscount = <>{discount ? `-${discount}%` : discountNum}</>
   return (
     <>
       {textOnly ? (

@@ -100,8 +100,10 @@ html #nprogress .spinner-icon
 
 div.popup-content
   width: 100%
+  max-width: max-content
   @include m.media(laptop, desktop)
     max-width: f.px(708)
+    max-width: max-content
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(15))
   border: none

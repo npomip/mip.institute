@@ -53,14 +53,16 @@
     @include m.gap($mt: f.px(34))
 
 .list
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap)
   @include m.gap($mtb: f.px(0), $pl: 0)
 
 .item
+  @include m.flex($ai: center, $jc: center)
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(8))
+    @include m.gap($mb: f.px(25))
   @include m.media(laptop, desktop)
-    @include m.flex($ai: center)
-    @include m.gap($mb: f.px(12))
+    @include m.gap($mb: f.px(40), $mr: f.px(40))
     font-size: f.px(18)
 
   & > .p
@@ -68,6 +70,7 @@
       @include m.gap($pl: f.px(12))
 
 .trigger
+  @include m.flex($fd: column, $ai: center, $jc: center)
   &:hover,
   &:focus
     & .diplomaTitle

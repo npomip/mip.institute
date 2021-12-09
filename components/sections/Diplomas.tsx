@@ -1,7 +1,12 @@
 import stls from '@/styles/components/sections/Diplomas.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import DiplomaExpandableItem from '@/components/general/DiplomaExpandableItem'
-import { ImgDiploma, ImgCertificate } from '@/components/imgs'
+import {
+  ImgDiploma,
+  ImgDiplomaAlt,
+  ImgSupplement,
+  ImgCertificate
+} from '@/components/imgs'
 
 const Diplomas = () => {
   const list = [
@@ -11,7 +16,9 @@ const Diplomas = () => {
         {
           image: <ImgDiploma />,
           title: 'Диплом института'
-        }
+        },
+        { image: <ImgDiplomaAlt />, title: 'Диплом установленного образца' },
+        { image: <ImgSupplement />, title: 'Саплемент' }
       ]
     },
     {

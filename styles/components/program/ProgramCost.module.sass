@@ -24,6 +24,8 @@
     @include m.gap($mr: f.px(16))
     font-size: f.px(32)
     line-height: 110%
+  @include m.media(laptop)
+    display: block
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(23))
     font-size: f.px(60)

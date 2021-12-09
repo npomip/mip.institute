@@ -36,6 +36,7 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }) => {
                       </div>
                     </button>
                   }
+                  className='DiplomaExpandableItem__popup'
                   modal
                   nested>
                   {close => <PopupImage image={diploma.image} close={close} />}

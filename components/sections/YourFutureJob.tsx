@@ -18,6 +18,8 @@ const YourFutureJob = () => {
 
   const list = getListItemsInnerHtml(jobTitles)
 
+  if (!jobTitles || (jobTitles && jobTitles.length === 0)) return <></>
+
   return (
     <section className={stls.container}>
       <Wrapper>

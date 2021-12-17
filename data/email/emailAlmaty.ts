@@ -1,6 +1,6 @@
 const emailAlmaty = {
-  href: 'mailto: almaty@moscow.mba',
-  val: 'almaty@moscow.mba'
+  href: 'mailto: almaty@mip.institute',
+  val: 'almaty@mip.institute'
 }
 
 export default emailAlmaty

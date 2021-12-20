@@ -16,22 +16,23 @@ const ProgramAdmission = () => {
     'ноября',
     'декабря'
   ]
-  return (
-    <>
-      {currentDay < 20 ? '20' : '5'}{' '}
-      {(() => {
-        let output
-        if (currentDay < 20) {
-          output = months[currentMonth]
-        } else {
-          currentMonth === 11
-            ? (output = months[0])
-            : (output = months[currentMonth + 1])
-        }
-        return output
-      })()}
-    </>
-  )
+  return <>28 декабря</>
+  // return (
+  //   <>
+  //     {currentDay < 20 ? '20' : '5'}{' '}
+  //     {(() => {
+  //       let output
+  //       if (currentDay < 20) {
+  //         output = months[currentMonth]
+  //       } else {
+  //         currentMonth === 11
+  //           ? (output = months[0])
+  //           : (output = months[currentMonth + 1])
+  //       }
+  //       return output
+  //     })()}
+  //   </>
+  // )
 }
 
 export default ProgramAdmission

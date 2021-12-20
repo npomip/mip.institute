@@ -16,15 +16,17 @@ const months = [
   'декабря'
 ]
 
-let output
-if (currentDay < 20) {
-  output = months[currentMonth]
-} else {
-  currentMonth === 11
-    ? (output = months[0])
-    : (output = months[currentMonth + 1])
-}
+const until = '28 декабря'
 
-const until = currentDay < 20 ? 'до 20 ' + output : 'до 5 ' + output
+// let output
+// if (currentDay < 20) {
+//   output = months[currentMonth]
+// } else {
+//   currentMonth === 11
+//     ? (output = months[0])
+//     : (output = months[currentMonth + 1])
+// }
+
+// const until = currentDay < 20 ? 'до 20 ' + output : 'до 5 ' + output
 
 export default until

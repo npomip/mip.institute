@@ -26,13 +26,13 @@ const ProgramCost = ({ withPerMonth = false }) => {
             <span className={stls.bold}>
               {toNumberWithSpaces(perMonthPrice)}
             </span>{' '}
-            <span className={stls.light}>&#8381;</span>
+            <span className={stls.light}>&#8381;/мес</span>
           </span>
           <span className={stls.regular}>
             <span className={stls.bold}>
               {toNumberWithSpaces(perMonthRPrice)}
             </span>{' '}
-            <span className={stls.light}>&#8381;</span>
+            <span className={stls.light}>&#8381;/мес</span>
           </span>
         </div>
       )}

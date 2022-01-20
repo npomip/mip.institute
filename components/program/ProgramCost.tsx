@@ -36,7 +36,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
           </span>
         </div>
       )}
-      <div className={stls.content}>
+      {/* <div className={stls.content}>
         <p className={stls.label}>Единоразовый платёж</p>
         <span className={stls.discount}>
           <span className={stls.bold}>{toNumberWithSpaces(price)}</span>{' '}
@@ -46,7 +46,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
           <span className={stls.bold}>{toNumberWithSpaces(rprice)}</span>{' '}
           <span className={stls.light}>&#8381;</span>
         </span>
-      </div>
+      </div> */}
     </div>
   )
 }

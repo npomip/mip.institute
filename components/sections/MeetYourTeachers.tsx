@@ -15,10 +15,22 @@ const MeetYourTeachers = ({ teachers }) => {
               <li key={teacher.name} className={stls.teacher}>
                 <div className={stls.img}>
                   <ImgTeacher
-                    src={teacher.portrait.formats.small.url}
-                    alt={teacher.name}
-                    width={teacher.portrait.formats.small.width}
-                    height={teacher.portrait.formats.small.height}
+                    src={
+                      teacher.portrait?.formats?.small?.url ||
+                      teacher.portrait?.formats?.thumbnail?.url ||
+                      teacher.portrait?.url
+                    }
+                    alt={teacher?.name}
+                    width={
+                      teacher.portrait?.formats?.small?.width ||
+                      teacher.portrait?.formats?.thumbnail?.width ||
+                      teacher.portrait?.width
+                    }
+                    height={
+                      teacher.portrait?.formats?.small?.height ||
+                      teacher.portrait?.formats?.thumbnail?.height ||
+                      teacher.portrait?.height
+                    }
                   />
                 </div>
                 <div>

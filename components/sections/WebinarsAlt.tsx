@@ -28,10 +28,19 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                         name={webinar.name}
                         picture={
                           <ImgWebinar
-                            src={webinar.picture.formats.thumbnail.url}
+                            src={
+                              webinar.picture?.formats?.thumbnail?.url ||
+                              webinar.picture?.url
+                            }
                             alt={webinar.title}
-                            width={webinar.picture.formats.thumbnail.width}
-                            height={webinar.picture.formats.thumbnail.height}
+                            width={
+                              webinar.picture?.formats?.thumbnail?.width ||
+                              webinar.picture?.width
+                            }
+                            height={
+                              webinar.picture?.formats?.thumbnail?.height ||
+                              webinar.picture?.height
+                            }
                           />
                         }
                         title={webinar.title}

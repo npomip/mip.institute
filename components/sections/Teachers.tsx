@@ -34,8 +34,6 @@ const Teachers = () => {
           }
         />
       )
-      // <ImgTeacher1 name='Иванов Иван Иванович' />
-      // item.formats.small.url
       return teacher
     })
 

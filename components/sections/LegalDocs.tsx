@@ -1,42 +1,23 @@
 import stls from '@/styles/components/sections/LegalDocs.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+import { routesFront } from '@/config/index'
 import { IconDoc } from '@/components/icons'
 
 const LegalDocs = () => {
   const listLeft = [
     {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в'
+      href: `${routesFront.docs}/svidetelstvo-o-gosudarstvennoj-registracii-nano-mip.pdf`,
+      val: 'Свидетельство о государственной регистрации НАНО МИП'
     },
     {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в организации дополнительного профессионального образования'
-    },
-    {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в организации дополнительного профессионального образования'
-    },
-    {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в'
-    },
-    {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в организации дополнительного профессионального образования'
+      href: `${routesFront.docs}/svidetelstvo-o-postanovke-na-uchet-nano-mip.pdf`,
+      val: 'Свидетельство о постановке на учет НАНО МИП'
     }
   ]
   const listRight = [
     {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в'
-    },
-    {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в организации дополнительного профессионального образования'
-    },
-    {
-      href: '',
-      val: 'Положение о порядке оказания платных образовательных услуг в организации дополнительного профессионального образования'
+      href: `${routesFront.docs}/ustav-obrazovatelnoj-organizacii-nano-mip.pdf`,
+      val: 'Устав образовательной  организации НАНО МИП'
     }
   ]
   return (
@@ -47,7 +28,11 @@ const LegalDocs = () => {
           <ul className={stls.listLeft}>
             {listLeft.map((item, idx) => (
               <li key={item.val + idx} className={stls.itemLeft}>
-                <a href='#' className={stls.link}>
+                <a
+                  href={item.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={stls.link}>
                   <div className={stls.icon}>
                     <IconDoc />
                   </div>
@@ -59,7 +44,11 @@ const LegalDocs = () => {
           <ul className={stls.listRight}>
             {listRight.map((item, idx) => (
               <li key={item.val + idx} className={stls.itemRight}>
-                <a href='#' className={stls.link}>
+                <a
+                  href={item.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={stls.link}>
                   <div className={stls.icon}>
                     <IconDoc />
                   </div>

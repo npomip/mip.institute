@@ -39,7 +39,7 @@ const HomePage = ({ programs, reviews }) => {
         canonical={`${routesFront.root}${routeHome}`}
       />
       <Hero />
-      <Programs withTitle withBtn />
+      <Programs withTitle withBtn max={8} />
       <WhyBother />
       <About />
       <HowProcessGoes />

@@ -5,6 +5,14 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routesFront } from '@/config/index'
 import { routeLegal } from '@/data/routes'
+import {
+  dataDocsConstituentLeft,
+  dataDocsConstituentRight,
+  dataDocsGeneralLeft,
+  dataDocsGeneralRight,
+  dataDocsRegulationsLeft,
+  dataDocsRegulationsRight
+} from '@/data/index'
 import companyName from '@/data/companyName'
 import { handleGetStaticProps } from '@/helpers/index'
 import PageTitle from '@/components/layout/PageTitle'
@@ -42,7 +50,21 @@ const LegalPage = ({ programs }) => {
       <ActiveLicenses />
       <Diplomas />
       <LegalInfo />
-      <LegalDocs />
+      <LegalDocs
+        title='Учредительные документы'
+        listLeft={dataDocsConstituentLeft}
+        listRight={dataDocsConstituentRight}
+      />
+      <LegalDocs
+        title='Нормативные документы'
+        listLeft={dataDocsRegulationsLeft}
+        listRight={dataDocsRegulationsRight}
+      />
+      <LegalDocs
+        title='Документы, приказы, положения'
+        listLeft={dataDocsGeneralLeft}
+        listRight={dataDocsGeneralRight}
+      />
     </>
   )
 }

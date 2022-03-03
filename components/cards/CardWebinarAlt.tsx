@@ -27,7 +27,10 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
       <div className={stls.when}>
         <span className={stls.date}>
           {newDate.getDate()} {monhts[newDate.getMonth()]}.,{' '}
-          {newDate.getUTCHours() + 3}:{newDate.getMinutes()}{' '}
+          {newDate.getUTCHours() + 3}:
+          {newDate.getMinutes() < 10
+            ? `0${newDate.getMinutes()}`
+            : newDate.getMinutes()}{' '}
         </span>
         <span className={stls.dayOfWeek}>{daysOfWeek[newDate.getDay()]}</span>
       </div>

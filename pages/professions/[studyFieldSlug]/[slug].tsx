@@ -46,24 +46,6 @@ export const getStaticProps = async ({ params: { slug, studyFieldSlug } }) =>
     type: 'profession'
   })
 
-// export async function getStaticProps({ params: { slug, studyFieldSlug } }) {
-//   const programs = await fetchPrograms()
-//   const program = getProgram({
-//     data: programs,
-//     ofType: 'profession',
-//     slug
-//   })
-
-//   return {
-//     props: {
-//       programs,
-//       program,
-//       studyFieldSlug
-//     },
-//     revalidate: revalidate.default
-//   }
-// }
-
 export const getStaticPaths = async () =>
   await handleGetStaticPathsPrograms({ type: '/profession' })
 

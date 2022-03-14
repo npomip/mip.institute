@@ -1,59 +1,18 @@
-import closeFieldsTooltipOnOuterClick from '@/helpers/closeFieldsTooltipOnOuterClick'
-import convertMdToHtml from '@/helpers/convertMdToHtml'
-import fetchPrograms from '@/helpers/fetchPrograms'
-import fetchProgramsPaths from '@/helpers/fetchProgramsPaths'
-import fetchStudyFieldsPaths from '@/helpers/fetchStudyFieldsPaths'
-import fetchReviews from '@/helpers/fetchReviews'
-import fetchTeachers from '@/helpers/fetchTeachers'
-import fetchWebinars from '@/helpers/fetchWebinars'
-import filterProgramsByStudyField from '@/helpers/filterProgramsByStudyField'
-import filterProgramsByType from '@/helpers/filterProgramsByType'
-import getCasedRuMonthString from '@/helpers/getCasedRuMonthString'
-import getCasedRuYearString from '@/helpers/getCasedRuYearString'
-import getCasesRuCourseString from '@/helpers/getCasesRuCourseString'
-import getCasesRuProfessionString from '@/helpers/getCasesRuProfessionString'
-import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
-import getParagraphInnerHtml from '@/helpers/getParagraphInnerHtml'
-import getProgram from '@/helpers/getProgram'
-import getRuDaysOfWeek from '@/helpers/getRuDaysOfWeek'
-import getStudyFields from '@/helpers/getStudyFields'
-import getStudyFieldsLabels from '@/helpers/getStudyFieldsLabels'
-import getStudyFieldsSlugs from '@/helpers/getStudyFieldsSlugs'
-import getThreeLettersRuMonths from '@/helpers/getThreeLettersRuMonths'
-import handleGetStaticPathsPrograms from '@/helpers/handleGetStaticPathsPrograms'
-import handleGetStaticPathsStudyFields from '@/helpers/handleGetStaticPathsStudyFields'
-import handleGetStaticProps from '@/helpers/handleGetStaticProps'
-import handleSwipedEvt from '@/helpers/handleSwipedEvt'
-import removeDuplicates from '@/helpers/removeDuplicates'
-import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
-
-export {
-  closeFieldsTooltipOnOuterClick,
-  getStudyFields,
-  convertMdToHtml,
-  fetchPrograms,
-  fetchProgramsPaths,
-  fetchStudyFieldsPaths,
-  fetchReviews,
-  fetchTeachers,
-  fetchWebinars,
-  filterProgramsByStudyField,
-  filterProgramsByType,
-  getCasedRuMonthString,
-  getCasedRuYearString,
-  getCasesRuCourseString,
-  getCasesRuProfessionString,
-  getListItemsInnerHtml,
-  getParagraphInnerHtml,
-  getProgram,
-  getRuDaysOfWeek,
-  getStudyFieldsLabels,
-  getStudyFieldsSlugs,
-  getThreeLettersRuMonths,
-  handleGetStaticPathsPrograms,
-  handleGetStaticPathsStudyFields,
-  handleGetStaticProps,
-  handleSwipedEvt,
-  removeDuplicates,
-  toNumberWithSpaces
-}
+export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'
+export { default as convertMdToHtml } from '@/helpers/convertMdToHtml'
+export { default as filterProgramsByStudyField } from '@/helpers/filterProgramsByStudyField'
+export { default as filterProgramsByType } from '@/helpers/filterProgramsByType'
+export { default as getCasedRuMonthString } from '@/helpers/getCasedRuMonthString'
+export { default as getCasedRuYearString } from '@/helpers/getCasedRuYearString'
+export { default as getCasesRuCourseString } from '@/helpers/getCasesRuCourseString'
+export { default as getCasesRuProfessionString } from '@/helpers/getCasesRuProfessionString'
+export { default as getListItemsInnerHtml } from '@/helpers/getListItemsInnerHtml'
+export { default as getParagraphInnerHtml } from '@/helpers/getParagraphInnerHtml'
+export { default as getRuDaysOfWeek } from '@/helpers/getRuDaysOfWeek'
+export { default as getStudyFields } from '@/helpers/getStudyFields'
+export { default as getStudyFieldsLabels } from '@/helpers/getStudyFieldsLabels'
+export { default as getStudyFieldsSlugs } from '@/helpers/getStudyFieldsSlugs'
+export { default as getThreeLettersRuMonths } from '@/helpers/getThreeLettersRuMonths'
+export { default as handleSwipedEvt } from '@/helpers/handleSwipedEvt'
+export { default as removeDuplicates } from '@/helpers/removeDuplicates'
+export { default as toNumberWithSpaces } from '@/helpers/toNumberWithSpaces'

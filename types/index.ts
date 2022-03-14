@@ -45,8 +45,10 @@ export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/
 export type { default as TypePageHomeProps } from '@/types/page/home/props/TypePageHomeProps'
 export type { default as TypePageHomePropsQuery } from '@/types/page/home/query/TypePageHomePropsQuery'
 
-// ./page/home
+// ./page/program
+export type { default as TypePageProgramPaths } from '@/types/page/program/paths/TypePageProgramPaths'
 export type { default as TypePageProgramProps } from '@/types/page/program/props/TypePageProgramProps'
+export type { default as TypePageProgramPathsQuery } from '@/types/page/program/query/TypePageProgramPathsQuery'
 export type { default as TypePageProgramPropsQuery } from '@/types/page/program/query/TypePageProgramPropsQuery'
 
 // ./page/programs

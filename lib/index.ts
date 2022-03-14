@@ -1,4 +1,5 @@
 // getStaticPaths
+export { default as getStaticPathsPageProgram } from '@/lib/getStaticPaths/getStaticPathsPageProgram'
 export { default as getStaticPathsPagePrograms } from '@/lib/getStaticPaths/getStaticPathsPagePrograms'
 
 // getStaticProps

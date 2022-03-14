@@ -45,6 +45,10 @@ export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/
 export type { default as TypePageHomeProps } from '@/types/page/home/TypePageHomeProps'
 export type { default as TypePageHomePropsQuery } from '@/types/page/home/TypePageHomePropsQuery'
 
+// ./page/programs
+export type { default as TypePageProgramsProps } from '@/types/page/programs/TypePageProgramsProps'
+export type { default as TypePageProgramsPropsQuery } from '@/types/page/programs/TypePageProgramsPropsQuery'
+
 // ./page/reviews
 export type { default as TypePageReviewsProps } from '@/types/page/reviews/TypePageReviewsProps'
 export type { default as TypePageReviewsPropsQuery } from '@/types/page/reviews/TypePageReviewsPropsQuery'

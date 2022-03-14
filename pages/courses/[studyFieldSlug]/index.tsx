@@ -1,17 +1,20 @@
-import ProgramsContext from '@/context/programs/programsContext'
+import { GetStaticProps, NextPage } from 'next'
+import { TypePageProgramsProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import {
-  handleGetStaticPathsStudyFields,
-  handleGetStaticProps
-} from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront } from '@/config/index'
 import { routeCourses } from '@/data/routes'
 import companyName from '@/data/companyName'
+import { routesFront } from '@/config/index'
+import { handleGetStaticPathsStudyFields } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
 import { PagesPrograms } from '@/components/pages'
+import ProgramsContext from '@/context/programs/programsContext'
 
-const CoursesStudyFieldPage = ({ programs, studyFieldSlug }) => {
+const CoursesStudyFieldPage: NextPage<TypePageProgramsProps> = ({
+  programs,
+  studyFieldSlug
+}) => {
   const {
     setPrograms,
     setCurProgramsType,
@@ -44,10 +47,10 @@ const CoursesStudyFieldPage = ({ programs, studyFieldSlug }) => {
   )
 }
 
-export const getStaticProps = async ({ params: { studyFieldSlug } }) =>
-  await handleGetStaticProps({ page: '/programs', studyFieldSlug })
-
 export const getStaticPaths = async () =>
   await handleGetStaticPathsStudyFields({ type: '/course' })
+
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ context, page: routesFront.programs })
 
 export default CoursesStudyFieldPage

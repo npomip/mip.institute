@@ -4,6 +4,7 @@ import { dev } from '@/config/index'
 const routesFront: TypeGeneralRoutesFront = {
   root: dev ? 'http://localhost:3000' : 'https://mip.institute',
   home: '/',
+  programs: '/programs',
   webinars: '/webinars',
   teachers: '/teachers',
   about: '/about',

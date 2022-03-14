@@ -25,17 +25,23 @@ const handleGetStaticProps = async ({
 }> => {
   try {
     switch (page) {
+      case routesFront.about:
+        return await getStaticPropsDefault({ context })
+
+      case routesFront.contact:
+        return await getStaticPropsDefault({ context })
+
       case routesFront.home:
         return await getStaticPropsPageHome({ context })
-
-      case routesFront.reviews:
-        return await getStaticPropsPageReviews({ context })
 
       case routesFront.legal:
         return await getStaticPropsDefault({ context })
 
       case routesFront.payment:
         return await getStaticPropsDefault({ context })
+
+      case routesFront.reviews:
+        return await getStaticPropsPageReviews({ context })
 
       default:
         return {

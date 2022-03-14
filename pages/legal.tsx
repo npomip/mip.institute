@@ -15,7 +15,7 @@ import {
 } from '@/data/index'
 import companyName from '@/data/companyName'
 import { routesFront } from '@/config/index'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import PageTitle from '@/components/layout/PageTitle'
 import {

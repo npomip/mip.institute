@@ -6,7 +6,7 @@ import truncate from 'truncate'
 import { routeReviews } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { routesFront } from '@/config/index'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Reviews from '@/components/sections/Reviews'
 

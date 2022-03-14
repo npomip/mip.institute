@@ -1,19 +1,21 @@
 import stls from '@/styles/pages/Contact.module.sass'
-import { handleGetStaticProps } from '@/helpers/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { GetStaticProps, NextPage } from 'next'
+import { TypePageDefaultProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront } from '@/config/index'
 import { routeContact } from '@/data/routes'
 import companyName from '@/data/companyName'
-import PageTitle from '@/components/layout/PageTitle'
-import { Contacts } from '@/components/sections'
 import { city, street } from '@/data/location'
 import { number, numberAlt } from '@/data/contact'
 import { email, emailAlmaty } from '@/data/email'
+import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/lib/index'
+import ProgramsContext from '@/context/programs/programsContext'
+import PageTitle from '@/components/layout/PageTitle'
+import { Contacts } from '@/components/sections'
 
-const LegalPage = ({ programs }) => {
+const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -39,7 +41,7 @@ const LegalPage = ({ programs }) => {
   )
 }
 
-export const getStaticProps = async () =>
-  await handleGetStaticProps({ page: '/contact' })
+export const getStaticProps: GetStaticProps = async () =>
+  await handleGetStaticProps({ page: routesFront.contact })
 
 export default LegalPage

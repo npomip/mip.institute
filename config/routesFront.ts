@@ -1,6 +1,7 @@
+import { TypeGeneralRoutesFront } from '@/types/index'
 import { dev } from '@/config/index'
 
-const routesFront = {
+const routesFront: TypeGeneralRoutesFront = {
   root: dev ? 'http://localhost:3000' : 'https://mip.institute',
   home: '/',
   docs: '/docs',

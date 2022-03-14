@@ -3,12 +3,13 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"],
       "@/config/*": ["config/*"],
-      "@/data/*": ["data/*"],
       "@/context/*": ["context/*"],
-      "@/public/*": ["public/*"],
+      "@/data/*": ["data/*"],
       "@/helpers/*": ["helpers/*"],
+      "@/lib/*": ["lib/*"],
+      "@/public/*": ["public/*"],
+      "@/styles/*": ["styles/*"],
       "@/types/*": ["types/*"]
     },
     "target": "es5",

@@ -5,6 +5,7 @@ const routesBack = {
     ? 'http://localhost:1337'
     : 'https://api-mip-institute.herokuapp.com',
   home: '/',
+  graphql: '/graphql',
   programs: '/programs', // /programs || /programs/:id
   teachers: '/teachers',
   reviews: '/reviews',

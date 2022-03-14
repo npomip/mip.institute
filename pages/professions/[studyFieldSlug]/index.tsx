@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { TypePageProgramsProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
@@ -6,8 +6,7 @@ import truncate from 'truncate'
 import { routeProfessions } from '@/data/routes'
 import companyName from '@/data/companyName'
 import { routesFront } from '@/config/index'
-import { handleGetStaticPathsStudyFields } from '@/helpers/index'
-import { handleGetStaticProps } from '@/lib/index'
+import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { PagesPrograms } from '@/components/pages'
 
@@ -47,8 +46,8 @@ const ProfessionsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
   )
 }
 
-export const getStaticPaths = async () =>
-  await handleGetStaticPathsStudyFields({ type: '/profession' })
+export const getStaticPaths: GetStaticPaths = async () =>
+  await handleGetStaticPaths({ page: routesFront.programs, type: 'Profession' })
 
 export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({ context, page: routesFront.programs })

@@ -1,41 +1,24 @@
-import {
-  TypeRoutesFront,
-  TypePageProgramsPaths,
-  TypePageStudyFieldPaths,
-  TypePageProgramPaths
-} from '@/types/index'
+import { TypeGeneralRoutesFront, TypePageProgramsPaths } from '@/types/index'
 import { gql } from '@apollo/client'
-import apolloClient from 'apolloClient'
+import apolloClient from '@/lib/apolloClient'
 import { routesFront, routesBack, revalidate } from '@/config/index'
-import {
-  getStaticPathsPagePrograms,
-  getStaticPathsPageStudyField,
-  getStaticPathsPageProgram
-} from '@/lib/index'
+import { getStaticPathsPagePrograms } from '@/lib/index'
 
 type TypeHandleGetStaticPathsProps = {
-  page: TypeRoutesFront[keyof TypeRoutesFront]
+  page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
+  type?: 'Course' | 'Profession'
 }
 
 const handleGetStaticPaths = async ({
-  page
+  page,
+  type
 }: TypeHandleGetStaticPathsProps): Promise<{
-  paths:
-    | TypePageProgramsPaths
-    | TypePageStudyFieldPaths
-    | TypePageProgramPaths
-    | []
+  paths: TypePageProgramsPaths | []
   fallback: boolean | 'blocking'
 }> => {
   switch (page) {
     case routesFront.programs:
-      return await getStaticPathsPagePrograms()
-
-    case routesFront.programsCategoryStudyField:
-      return await getStaticPathsPageStudyField()
-
-    case routesFront.programsCategoryStudyFieldProgram:
-      return await getStaticPathsPageProgram()
+      return await getStaticPathsPagePrograms({ type })
 
     default:
       return {

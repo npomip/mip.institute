@@ -50,7 +50,9 @@ export type { default as TypePageProgramProps } from '@/types/page/program/props
 export type { default as TypePageProgramPropsQuery } from '@/types/page/program/query/TypePageProgramPropsQuery'
 
 // ./page/programs
+export type { default as TypePageProgramsPaths } from '@/types/page/programs/paths/TypePageProgramsPaths'
 export type { default as TypePageProgramsProps } from '@/types/page/programs/props/TypePageProgramsProps'
+export type { default as TypePageProgramsPathsQuery } from '@/types/page/programs/query/TypePageProgramsPathsQuery'
 export type { default as TypePageProgramsPropsQuery } from '@/types/page/programs/query/TypePageProgramsPropsQuery'
 
 // ./page/reviews

@@ -1,14 +1,19 @@
-import { handleGetStaticProps } from '@/helpers/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { GetStaticProps, NextPage } from 'next'
+import { TypePageWebinarsProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront } from '@/config/index'
 import { routeWebinars } from '@/data/routes'
 import companyName from '@/data/companyName'
+import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/lib/index'
 import { WebinarsAlt } from '@/components/sections'
+import ProgramsContext from '@/context/programs/programsContext'
 
-const WebinarsPage = ({ programs, webinars }) => {
+const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
+  programs,
+  webinars
+}) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -37,7 +42,7 @@ const WebinarsPage = ({ programs, webinars }) => {
   )
 }
 
-export const getStaticProps = async () =>
-  await handleGetStaticProps({ page: '/webinars' })
+export const getStaticProps: GetStaticProps = async () =>
+  await handleGetStaticProps({ page: routesFront.webinars })
 
 export default WebinarsPage

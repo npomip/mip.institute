@@ -18,7 +18,7 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
         <h1 className={stls.title}>Вебинары</h1>
         <ul className={stls.webinars}>
           {webinars &&
-            webinars
+            [...webinars]
               .sort(
                 (a, b) =>
                   new Date(b.date).getTime() - new Date(a.date).getTime()

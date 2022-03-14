@@ -31,6 +31,12 @@ export type { default as TypeLibTeacher } from '@/types/lib/teacher/TypeLibTeach
 // lib/teachers
 export type { default as TypeLibTeachers } from '@/types/lib/teachers/TypeLibTeachers'
 
+// lib/webinar
+export type { default as TypeLibWebinar } from '@/types/lib/webinar/TypeLibWebinar'
+
+// lib/webinars
+export type { default as TypeLibWebinars } from '@/types/lib/webinars/TypeLibWebinars'
+
 // ./page/default
 export type { default as TypePageDefaultProps } from '@/types/page/default/TypePageDefaultProps'
 export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/TypePageDefaultPropsQuery'
@@ -46,3 +52,7 @@ export type { default as TypePageReviewsPropsQuery } from '@/types/page/reviews/
 // ./page/teachers
 export type { default as TypePageTeachersProps } from '@/types/page/teachers/TypePageTeachersProps'
 export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/TypePageTeachersPropsQuery'
+
+// ./page/webinars
+export type { default as TypePageWebinarsProps } from '@/types/page/webinars/TypePageWebinarsProps'
+export type { default as TypePageWebinarsPropsQuery } from '@/types/page/webinars/TypePageWebinarsPropsQuery'

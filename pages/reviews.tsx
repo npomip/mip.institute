@@ -1,14 +1,16 @@
-import { handleGetStaticProps } from '@/helpers/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { GetStaticProps, NextPage } from 'next'
+import { TypePageDefaultProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront } from '@/config/index'
 import { routeReviews } from '@/data/routes'
 import companyName from '@/data/companyName'
+import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
+import ProgramsContext from '@/context/programs/programsContext'
 import Reviews from '@/components/sections/Reviews'
 
-const ReviewsPage = ({ programs, reviews }) => {
+const ReviewsPage: NextPage<TypePageDefaultProps> = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -37,7 +39,7 @@ const ReviewsPage = ({ programs, reviews }) => {
   )
 }
 
-export const getStaticProps = async () =>
-  await handleGetStaticProps({ page: '/reviews' })
+export const getStaticProps: GetStaticProps = async () =>
+  await handleGetStaticProps({ page: routesFront.reviews })
 
 export default ReviewsPage

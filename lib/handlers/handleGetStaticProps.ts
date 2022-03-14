@@ -21,6 +21,9 @@ const handleGetStaticProps = async ({
     case routesFront.home:
       return await getStaticPropsDefault({ context })
 
+    case routesFront.reviews:
+      return await getStaticPropsDefault({ context })
+
     default:
       return {
         props: {},

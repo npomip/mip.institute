@@ -25,6 +25,12 @@ export type { default as TypeLibReview } from '@/types/lib/review/TypeLibReview'
 // lib/reviews
 export type { default as TypeLibReviews } from '@/types/lib/reviews/TypeLibReviews'
 
+// lib/teacher
+export type { default as TypeLibTeacher } from '@/types/lib/teacher/TypeLibTeacher'
+
+// lib/teachers
+export type { default as TypeLibTeachers } from '@/types/lib/teachers/TypeLibTeachers'
+
 // ./page/default
 export type { default as TypePageDefaultProps } from '@/types/page/default/TypePageDefaultProps'
 export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/TypePageDefaultPropsQuery'
@@ -36,3 +42,7 @@ export type { default as TypePageHomePropsQuery } from '@/types/page/home/TypePa
 // ./page/reviews
 export type { default as TypePageReviewsProps } from '@/types/page/reviews/TypePageReviewsProps'
 export type { default as TypePageReviewsPropsQuery } from '@/types/page/reviews/TypePageReviewsPropsQuery'
+
+// ./page/teachers
+export type { default as TypePageTeachersProps } from '@/types/page/teachers/TypePageTeachersProps'
+export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/TypePageTeachersPropsQuery'

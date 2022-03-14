@@ -1,14 +1,19 @@
-import { handleGetStaticProps } from '@/helpers/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { GetStaticProps, NextPage } from 'next'
+import { TypePageTeachersProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront } from '@/config/index'
 import { routeTeachers } from '@/data/routes'
 import companyName from '@/data/companyName'
+import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/lib/index'
+import ProgramsContext from '@/context/programs/programsContext'
 import { MeetYourTeachers } from '@/components/sections'
 
-const TeachersPage = ({ programs, teachers }) => {
+const TeachersPage: NextPage<TypePageTeachersProps> = ({
+  programs,
+  teachers
+}) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 
@@ -33,7 +38,7 @@ const TeachersPage = ({ programs, teachers }) => {
   )
 }
 
-export const getStaticProps = async () =>
-  await handleGetStaticProps({ page: '/teachers' })
+export const getStaticProps: GetStaticProps = async () =>
+  await handleGetStaticProps({ page: routesFront.teachers })
 
 export default TeachersPage

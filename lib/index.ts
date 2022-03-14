@@ -4,6 +4,7 @@ export { default as getStaticPathsPagePrograms } from '@/lib/getStaticPaths/getS
 export { default as getStaticPathsPageStudyField } from '@/lib/getStaticPaths/getStaticPathsPageStudyField'
 
 // getStaticProps
+export { default as getStaticPropsDefault } from '@/lib/getStaticProps/getStaticPropsDefault'
 export { default as getStaticPropsPageHome } from '@/lib/getStaticProps/getStaticPropsPageHome'
 export { default as getStaticPropsPageReviews } from '@/lib/getStaticProps/getStaticPropsPageReviews'
 

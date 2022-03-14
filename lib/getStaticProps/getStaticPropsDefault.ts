@@ -1,37 +1,25 @@
 import {
   TypeGeneralGetStaticPropsContext,
-  TypePageReviewsProps,
-  TypePageReviewsPropsQuery
+  TypePageDefaultProps,
+  TypePageDefaultPropsQuery
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
 
-const getStaticPropsPageReviews = async ({
+const getStaticPropsDefault = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
-  props: TypePageReviewsProps
+  props: TypePageDefaultProps
   revalidate: number
 }> => {
-  const res = await apolloClient.query<TypePageReviewsPropsQuery>({
+  const res = await apolloClient.query<TypePageDefaultPropsQuery>({
     query: gql`
-      query GetStaticPropsPageReviews {
+      query GetStaticPropsDefault {
         programs {
           id
           studyField
           studyFieldSlug
-        }
-        reviews {
-          id
-          name
-          profession
-          title
-          story
-          picture {
-            url
-            width
-            height
-          }
         }
       }
     `
@@ -43,4 +31,4 @@ const getStaticPropsPageReviews = async ({
   }
 }
 
-export default getStaticPropsPageReviews
+export default getStaticPropsDefault

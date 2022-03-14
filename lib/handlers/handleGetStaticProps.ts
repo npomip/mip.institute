@@ -1,10 +1,16 @@
 import {
   TypeGeneralRoutesFront,
+  TypePageDefaultProps,
   TypePageHomeProps,
-  TypeGeneralGetStaticPropsContext
+  TypeGeneralGetStaticPropsContext,
+  TypePageReviewsProps
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
-import { getStaticPropsPageHome, getStaticPropsPageReviews } from '@/lib/index'
+import {
+  getStaticPropsPageHome,
+  getStaticPropsPageReviews,
+  getStaticPropsDefault
+} from '@/lib/index'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -14,21 +20,35 @@ const handleGetStaticProps = async ({
   page,
   context
 }: TypeHandleGetStaticPropsProps): Promise<{
-  props: TypePageHomeProps | {}
+  props: TypePageDefaultProps | TypePageHomeProps | TypePageReviewsProps | {}
   revalidate: number
 }> => {
-  switch (page) {
-    case routesFront.home:
-      return await getStaticPropsPageHome({ context })
+  try {
+    switch (page) {
+      case routesFront.home:
+        return await getStaticPropsPageHome({ context })
 
-    case routesFront.reviews:
-      return await getStaticPropsPageReviews({ context })
+      case routesFront.reviews:
+        return await getStaticPropsPageReviews({ context })
 
-    default:
-      return {
-        props: {},
-        revalidate: revalidate.default
-      }
+      case routesFront.legal:
+        return await getStaticPropsDefault({ context })
+
+      case routesFront.payment:
+        return await getStaticPropsDefault({ context })
+
+      default:
+        return {
+          props: {},
+          revalidate: revalidate.default
+        }
+    }
+  } catch (err) {
+    console.log(err)
+    return {
+      props: {},
+      revalidate: revalidate.default
+    }
   }
 }
 

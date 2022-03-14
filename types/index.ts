@@ -25,6 +25,10 @@ export type { default as TypeLibReview } from '@/types/lib/review/TypeLibReview'
 // lib/reviews
 export type { default as TypeLibReviews } from '@/types/lib/reviews/TypeLibReviews'
 
-// page
-export type { default as TypePageDefaultProps } from '@/types/page/TypePageDefaultProps'
-export type { default as TypePageDefaultPropsQuery } from '@/types/page/TypePageDefaultPropsQuery'
+// ./page/home
+export type { default as TypePageHomeProps } from '@/types/page/home/TypePageHomeProps'
+export type { default as TypePageHomePropsQuery } from '@/types/page/home/TypePageHomePropsQuery'
+
+// ./page/reviews
+export type { default as TypePageReviewsProps } from '@/types/page/reviews/TypePageReviewsProps'
+export type { default as TypePageReviewsPropsQuery } from '@/types/page/reviews/TypePageReviewsPropsQuery'

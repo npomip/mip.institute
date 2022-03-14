@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
+import { TypePageHomeProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -20,7 +20,7 @@ import {
   Webinars
 } from '@/components/sections'
 
-const HomePage: NextPage<TypePageDefaultProps> = ({ programs, reviews }) => {
+const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
 

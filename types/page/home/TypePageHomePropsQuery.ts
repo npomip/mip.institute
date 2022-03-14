@@ -1,8 +1,8 @@
 import { TypeLibPrograms, TypeLibReviews } from '@/types/index'
 
-type TypePageDefaultPropsQuery = {
+type TypePageHomePropsQuery = {
   readonly programs: TypeLibPrograms | null
   readonly reviews: TypeLibReviews | null
 }
 
-export default TypePageDefaultPropsQuery
+export default TypePageHomePropsQuery

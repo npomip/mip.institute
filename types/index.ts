@@ -38,29 +38,29 @@ export type { default as TypeLibWebinar } from '@/types/lib/webinar/TypeLibWebin
 export type { default as TypeLibWebinars } from '@/types/lib/webinars/TypeLibWebinars'
 
 // ./page/default
-export type { default as TypePageDefaultProps } from '@/types/page/default/TypePageDefaultProps'
-export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/TypePageDefaultPropsQuery'
+export type { default as TypePageDefaultProps } from '@/types/page/default/props/TypePageDefaultProps'
+export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/query/TypePageDefaultPropsQuery'
 
 // ./page/home
-export type { default as TypePageHomeProps } from '@/types/page/home/TypePageHomeProps'
-export type { default as TypePageHomePropsQuery } from '@/types/page/home/TypePageHomePropsQuery'
+export type { default as TypePageHomeProps } from '@/types/page/home/props/TypePageHomeProps'
+export type { default as TypePageHomePropsQuery } from '@/types/page/home/query/TypePageHomePropsQuery'
 
 // ./page/home
-export type { default as TypePageProgramProps } from '@/types/page/program/TypePageProgramProps'
-export type { default as TypePageProgramPropsQuery } from '@/types/page/program/TypePageProgramPropsQuery'
+export type { default as TypePageProgramProps } from '@/types/page/program/props/TypePageProgramProps'
+export type { default as TypePageProgramPropsQuery } from '@/types/page/program/query/TypePageProgramPropsQuery'
 
 // ./page/programs
-export type { default as TypePageProgramsProps } from '@/types/page/programs/TypePageProgramsProps'
-export type { default as TypePageProgramsPropsQuery } from '@/types/page/programs/TypePageProgramsPropsQuery'
+export type { default as TypePageProgramsProps } from '@/types/page/programs/props/TypePageProgramsProps'
+export type { default as TypePageProgramsPropsQuery } from '@/types/page/programs/query/TypePageProgramsPropsQuery'
 
 // ./page/reviews
-export type { default as TypePageReviewsProps } from '@/types/page/reviews/TypePageReviewsProps'
-export type { default as TypePageReviewsPropsQuery } from '@/types/page/reviews/TypePageReviewsPropsQuery'
+export type { default as TypePageReviewsProps } from '@/types/page/reviews/props/TypePageReviewsProps'
+export type { default as TypePageReviewsPropsQuery } from '@/types/page/reviews/query/TypePageReviewsPropsQuery'
 
 // ./page/teachers
-export type { default as TypePageTeachersProps } from '@/types/page/teachers/TypePageTeachersProps'
-export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/TypePageTeachersPropsQuery'
+export type { default as TypePageTeachersProps } from '@/types/page/teachers/props/TypePageTeachersProps'
+export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/query/TypePageTeachersPropsQuery'
 
 // ./page/webinars
-export type { default as TypePageWebinarsProps } from '@/types/page/webinars/TypePageWebinarsProps'
-export type { default as TypePageWebinarsPropsQuery } from '@/types/page/webinars/TypePageWebinarsPropsQuery'
+export type { default as TypePageWebinarsProps } from '@/types/page/webinars/props/TypePageWebinarsProps'
+export type { default as TypePageWebinarsPropsQuery } from '@/types/page/webinars/query/TypePageWebinarsPropsQuery'

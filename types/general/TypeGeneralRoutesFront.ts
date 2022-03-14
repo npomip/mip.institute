@@ -2,6 +2,7 @@ type TypeGeneralRoutesFront = {
   root: 'http://localhost:3000' | 'https://mip.institute'
   home: '/'
   programs: '/programs'
+  program: '/programs/studyField/slug'
   webinars: '/webinars'
   teachers: '/teachers'
   about: '/about'

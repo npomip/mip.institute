@@ -1,20 +1,22 @@
-import ProgramsContext from '@/context/programs/programsContext'
-import ProgramContext from '@/context/program/programContext'
+import { GetStaticProps, NextPage } from 'next'
+import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import {
-  fetchPrograms,
-  getProgram,
-  handleGetStaticProps,
-  handleGetStaticPathsPrograms
-} from '@/helpers/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, revalidate } from '@/config/index'
 import { routeProfessions } from '@/data/routes'
 import companyName from '@/data/companyName'
+import { routesFront, revalidate } from '@/config/index'
+import { handleGetStaticPathsPrograms } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
+import ProgramsContext from '@/context/programs/programsContext'
+import ProgramContext from '@/context/program/programContext'
 import { PagesProgram } from '@/components/pages'
 
-const ProfessionPage = ({ programs, program, studyFieldSlug }) => {
+const ProfessionPage: NextPage<TypePageProgramProps> = ({
+  programs,
+  program,
+  studyFieldSlug
+}) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
     useContext(ProgramsContext)
   const { setProgram } = useContext(ProgramContext)
@@ -38,15 +40,14 @@ const ProfessionPage = ({ programs, program, studyFieldSlug }) => {
   )
 }
 
-export const getStaticProps = async ({ params: { slug, studyFieldSlug } }) =>
-  await handleGetStaticProps({
-    page: '/programs',
-    studyFieldSlug,
-    slug,
-    type: 'profession'
-  })
-
 export const getStaticPaths = async () =>
   await handleGetStaticPathsPrograms({ type: '/profession' })
+
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({
+    context,
+    page: routesFront.program,
+    type: 'Profession'
+  })
 
 export default ProfessionPage

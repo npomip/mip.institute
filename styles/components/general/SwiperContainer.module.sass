@@ -4,14 +4,17 @@
 
 .container
   &.diplomas
+    max-height: f.px(400)
+    margin-bottom: f.px(60)
+    overflow: visible
+    & > *:nth-child(1)
+      bottom: f.px(-40)
     & > *
       & > *
-        min-width: f.px(400)
-        max-width: f.px(400)
-        border: f.px(1) solid
-        @include m.dye(border, rgba(c.$kappa, .2))
+        // min-width: f.px(400)
+        // max-width: f.px(400)
         cursor: pointer
-        transform: translate3d(0px, 0px, 0px) !important
+        // transform: translate3d(0px, 0px, 0px) !important
   @include m.media(phone, tablet)
     &.teachers > *
       & > *

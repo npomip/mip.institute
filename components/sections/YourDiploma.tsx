@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
+import cn from 'classnames'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import {
@@ -18,19 +19,30 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
 
   ofType === 'profession' &&
     slides.push(
-      <ImgDiploma key='diploma' />
-      // <ImgDiplomaAlt key='diploma-alt' />
-      // <ImgSupplement key='supplement' />
+      <div className={stls.diploma}>
+        <ImgDiploma key='diploma' />
+      </div>,
+      <div className={stls.diploma}>
+        <ImgDiplomaAlt key='diploma-alt' />,
+      </div>,
+      <div className={cn(stls.diploma, stls.supplement)}>
+        <ImgSupplement key='supplement' />
+      </div>
     )
 
-  ofType === 'course' && slides.push(<ImgCertificate key='certificate' />)
+  ofType === 'course' &&
+    slides.push(
+      <div className={stls.diploma}>
+        <ImgCertificate key='certificate' />
+      </div>
+    )
 
   const mobileSwiperOptions = {
-    slidesNum: 2,
+    slidesNum: 1,
     spaceBetween: 10
   }
   const tabletLaptopDesktopSwiperOptions = {
-    slidesNum: 3,
+    slidesNum: 1,
     spaceBetween: 30
   }
 

@@ -49,12 +49,23 @@
   position: relative
   z-index: 1
   overflow: hidden
-  @include m.media(phone)
-    @include m.gap($pb: f.px(50))
-  @include m.media(tablet, laptop)
-    @include m.gap($mb: f.px(20))
+  // @include m.media(phone)
+  //   @include m.gap($pb: f.px(50))
+  // @include m.media(tablet, laptop)
+  //   @include m.gap($mb: f.px(20))
   @include m.media(laptop, desktop)
     max-width: 50%
+
+.diploma
+  & > *
+    display: flex
+    max-width: max-content
+    border: f.px(1) solid
+    @include m.dye(border, rgba(c.$kappa, .2))
+
+.supplement
+  & > *
+    max-width: f.px(291)
 
 .desktopBtnContainer
   @include m.media(phone, tablet)

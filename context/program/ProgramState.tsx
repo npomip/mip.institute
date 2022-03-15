@@ -2,6 +2,7 @@ import { useReducer } from 'react'
 import ProgramContext from '@/context/program/programContext'
 import programReducer from '@/context/program/programReducer'
 import { SET_PROGRAM } from '@/context/types'
+import { convertMdToHtml } from '@/helpers/index'
 
 const ProgramState = props => {
   const initialState = {
@@ -11,7 +12,21 @@ const ProgramState = props => {
   const [state, dispatch] = useReducer(programReducer, initialState)
 
   const setProgram = (program = []) => {
-    dispatch({ type: SET_PROGRAM, payload: program })
+    const programPayload =
+      convertMdToHtml({
+        arr: [{ ...program }],
+        params: [
+          'description',
+          'WhatYouWillLearn',
+          'ForWhom',
+          'shortContents',
+          'resumeSkills',
+          'jobTitles',
+          'questions'
+        ]
+      })?.[0] || null
+
+    dispatch({ type: SET_PROGRAM, payload: programPayload })
   }
 
   return (

@@ -6,7 +6,6 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
-import { convertMdToHtml } from '@/helpers/index'
 
 const getStaticPropsPageProgram = async ({
   context,
@@ -93,19 +92,7 @@ const getStaticPropsPageProgram = async ({
     props: {
       ...res?.data,
       studyFieldSlug,
-      program:
-        convertMdToHtml({
-          arr: [{ ...res?.data?.program?.[0] }],
-          params: [
-            'description',
-            'WhatYouWillLearn',
-            'ForWhom',
-            'shortContents',
-            'resumeSkills',
-            'jobTitles',
-            'questions'
-          ]
-        })?.[0] || null
+      program: res?.data?.program?.[0] || null
     },
     revalidate: revalidate.default
   }

@@ -1,7 +1,7 @@
-import stls from '@/styles/components/btns/BtnAlpha.module.sass'
+import stls from '@/styles/components/btns/BtnIota.module.sass'
 import classNames from 'classnames'
 
-const BtnAlpha = ({ text, isDisabled = false, href = null, target = null }) => {
+const BtnIota = ({ text, isDisabled = false, href = null, target = null }) => {
   return (
     <>
       {href ? (
@@ -28,4 +28,4 @@ const BtnAlpha = ({ text, isDisabled = false, href = null, target = null }) => {
   )
 }
 
-export default BtnAlpha
+export default BtnIota

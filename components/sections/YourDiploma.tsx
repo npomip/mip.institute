@@ -1,5 +1,6 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
 import cn from 'classnames'
+import Popup from 'reactjs-popup'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import {
@@ -9,6 +10,10 @@ import {
   ImgSupplement
 } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
+import { PopupImage } from '@/components/popups'
+import ImgLicence from '@/components/imgs/legal/ImgLicence'
+import { BtnAlpha, BtnIota } from '@/components/btns'
+import externalUrls from '@/config/externalUrls'
 
 type YourDiplomaType = {
   ofType: 'course' | 'profession'
@@ -59,8 +64,33 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
                 профессиональным сообществом!
               </p>
 
-              <div className={stls.desktopBtnContainer}>
-                <PopupTrigger btn='alpha' cta='learnAboutUs' />
+              <div className={stls.btn}>
+                <BtnAlpha
+                  text={
+                    <>
+                      Уведомление о предоставлении <br /> лицензии №041221{' '}
+                    </>
+                  }
+                  href={externalUrls.license}
+                  target='_blank'
+                />
+                {/* <Popup
+                  trigger={
+                    <BtnIota
+                      text={
+                        <>
+                          Уведомление о предоставлении <br /> лицензии{' '}
+                          <span className={stls.highlight}>№041221</span>{' '}
+                        </>
+                      }
+                      href={externalUrls.license}
+                      target='_blank'
+                    />
+                  }
+                  modal
+                  nested>
+                  {close => <PopupImage image={<ImgLicence />} close={close} />}
+                </Popup> */}
               </div>
             </div>
           </div>
@@ -73,9 +103,6 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
               laptopOptions={tabletLaptopDesktopSwiperOptions}
               desktopOptions={tabletLaptopDesktopSwiperOptions}
             />
-          </div>
-          <div className={stls.mobileBtnContainer}>
-            <PopupTrigger btn='alpha' cta='learnAboutUs' />
           </div>
         </div>
       </Wrapper>

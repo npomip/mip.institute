@@ -67,10 +67,5 @@
   & > *
     max-width: f.px(291)
 
-.desktopBtnContainer
-  @include m.media(phone, tablet)
-    display: none
-
-.mobileBtnContainer
-  @include m.media(laptop, desktop)
-    display: none
+.highlight
+  @include m.dye(c, c.$beta)

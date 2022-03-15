@@ -3,14 +3,17 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  overflow: visible
   & > *
     position: relative
-  @include m.dye(bg, c.$alpha)
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(16), $pb: f.px(170))
+    z-index: 1
+    overflow: hidden
+    padding-top: f.px(16)
   @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(52), $pb: f.px(116))
+    overflow: visible
+    padding-top: f.px(52)
+  padding-bottom: 0
+  @include m.dye(bg, c.$alpha)
 
 .top
   @include m.media(laptop, desktop)
@@ -124,8 +127,22 @@
       @include m.gap($mr: f.px(30))
 
 .info
-  position: absolute
-  bottom: f.px(-210)
-  left: 50%
-  transform: translateX(-50%)
-  width: calc(100% - #{f.px(30)})
+  @include m.media(phone, tablet)
+    position: relative
+    z-index: 1
+    margin-top: f.px(50)
+    &::before
+      content: ''
+      position: absolute
+      z-index: -1
+      bottom: 0
+      left: 50%
+      transform: translateX(-50%)
+      width: 110%
+      height: 80%
+      @include m.dye(bg, c.$epsilon)
+  @include m.media(laptop, desktop)
+    // margin-top: f.px(100)
+    transform: translateY(f.px(59))
+
+

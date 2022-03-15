@@ -65,15 +65,24 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
               </p>
 
               <div className={stls.btn}>
-                <BtnAlpha
-                  text={
-                    <>
-                      Уведомление о предоставлении <br /> лицензии №041221{' '}
-                    </>
-                  }
-                  href={externalUrls.license}
-                  target='_blank'
-                />
+                <Popup
+                  trigger={open => (
+                    <div>
+                      <BtnAlpha
+                        text={
+                          <>
+                            Уведомление о предоставлении <br /> лицензии №041221{' '}
+                          </>
+                        }
+                      />
+                    </div>
+                  )}
+                  modal
+                  lockScroll
+                  nested
+                  closeOnDocumentClick>
+                  {close => <PopupImage image={<ImgLicence />} close={close} />}
+                </Popup>
                 {/* <Popup
                   trigger={
                     <BtnIota

@@ -1,5 +1,6 @@
 import {
   HeroProgram,
+  Opportunities,
   Desc,
   HowProcessGoes,
   WhatYouWillLearn,
@@ -25,6 +26,7 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
   return (
     <>
       <HeroProgram />
+      {/* <Opportunities /> */}
       {/* <Desc /> */}
       <WhatYouWillLearn />
       <ForWhom />

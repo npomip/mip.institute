@@ -2,72 +2,59 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-$containerDesktopPtb: f.px(56)
-
 .container
-  @include m.flex($fw: wrap, $jc: space-between)
-  @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(28), $plr: 10%)
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  margin: 0
+  padding: 0
   @include m.media(laptop, desktop)
-    // @include m.gap($ptb: $containerDesktopPtb, $plr: 5%)
-    @include m.gap($ptb: $containerDesktopPtb)
+    padding-left: 2.8%
+    padding-right: 2.8%
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   border-radius: f.px(20)
   @include m.dye(bg, c.$nu)
   
-.group
+.item
+  display: flex
   @include m.media(phone, tablet)
-    @include m.flex($display: false, $fg: 1, $fs: 1, $fb: 45%)
-    &:nth-child(1),
-    &:nth-child(2)
-      @include m.gap($mb: 7%)
-    &:nth-child(odd)
-      @include m.gap($mr: 5%)
+    flex-basis: 100%
+    margin-right: f.px(30)
+    margin-left: f.px(30)
+    padding-top: f.px(28)
+    padding-bottom: f.px(28)
+    border-bottom: f.px(1) solid
+    @include m.dye(border, rgba(c.$theta, .1))
+  @include m.media(laptop)
+    flex-basis: 18%
+  @include m.media(desktop)
+    flex-basis: 20%
   @include m.media(laptop, desktop)
-    position: relative
-    @include m.flex($jc: center, $fg: 1, $fs: 1, $fb: 22%)
-    &:nth-child(1)
-      order: 3
-    &:nth-child(2)
-      order: 4
-      & .divider
-        display: none
-    &:nth-child(3)
-      order: 2
-    &:nth-child(4)
-      order: 1
-
+    flex-direction: column
+    padding-top: f.px(33)
+    padding-bottom: f.px(28)
+    padding-right: 2.4%
+    & + .item
+      padding-left: 2.4%
+      border-left: f.px(1) solid
+      @include m.dye(border, rgba(c.$theta, .1))
 
 .icon
   @include m.media(phone, tablet)
-    display: none
+    margin-right: f.px(12)
   @include m.media(laptop, desktop)
     max-width: f.px(24)
-    @include m.gap($mr: f.px(25))
+    margin-bottom: f.px(12)
 
 .key
+  max-width: 18ch
+  margin-bottom: f.px(10)
   @include m.media(phone, tablet)
-    max-width: 13ch
-    @include m.gap($mb: f.px(5))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
-    max-width: 14ch
-    @include m.gap($mb: f.px(7))
     font-size: f.px(14)
-  font-weight: 300
-
-.divider
-  @include m.media(phone, tablet)
-    display: none
-  @include m.media(laptop, desktop)
-    position: absolute
-    right: 0
-    top: 0
-    width: f.px(1)
-    height: calc(100% + #{$containerDesktopPtb * 2})
-    transform: translateY(-$containerDesktopPtb)
-    @include m.gap($ml: 25%)
-    @include m.dye(bg, rgba(c.$chi, .1))
+  font-weight: 500
+  @include m.dye(c, c.$kappa)
 
 .val
   max-width: 12ch

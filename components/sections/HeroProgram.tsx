@@ -16,62 +16,65 @@ const HeroProgram = () => {
   } = useContext(ProgramContext)
 
   const { curProgramsType } = useContext(ProgramsContext)
+
   return (
-    <section className={stls.container}>
-      <Wrapper>
-        <div className={stls.top}>
-          <div className={stls.heading}>
-            <div className={stls.label}>
-              <ProgramLabel />
+    <>
+      <section className={stls.container}>
+        <Wrapper>
+          <div className={stls.top}>
+            <div className={stls.heading}>
+              <div className={stls.label}>
+                <ProgramLabel />
+              </div>
+              <h1 className={stls.title}>{title}</h1>
+              <div className={stls.descriptionDesktop}>
+                {description && parse(description)}
+              </div>
+              <div className={stls.btnsDesktop}>
+                <PopupTrigger
+                  btn='alpha'
+                  cta={
+                    curProgramsType === 'course'
+                      ? 'signUpForCourse'
+                      : curProgramsType === 'profession'
+                      ? 'signUpForProfession'
+                      : 'signUp'
+                  }
+                />
+                <PopupTrigger btn='beta' cta='askQuestion' />
+              </div>
             </div>
-            <h1 className={stls.title}>{title}</h1>
-            <div className={stls.descriptionDesktop}>
+            <div className={stls.pic}>
+              <div className={stls.discount}>
+                <ProgramDiscount />
+              </div>
+              <div className={stls.img}>
+                <ImgCourse2 />
+              </div>
+            </div>
+            <div className={stls.descriptionMobile}>
               {description && parse(description)}
             </div>
-            <div className={stls.btnsDesktop}>
-              <PopupTrigger
-                btn='alpha'
-                cta={
-                  curProgramsType === 'course'
-                    ? 'signUpForCourse'
-                    : curProgramsType === 'profession'
-                    ? 'signUpForProfession'
-                    : 'signUp'
-                }
-              />
-              <PopupTrigger btn='beta' cta='askQuestion' />
-            </div>
           </div>
-          <div className={stls.pic}>
-            <div className={stls.discount}>
-              <ProgramDiscount />
-            </div>
-            <div className={stls.img}>
-              <ImgCourse2 />
-            </div>
+          <div className={stls.btnsMobile}>
+            <PopupTrigger
+              btn='alpha'
+              cta={
+                curProgramsType === 'course'
+                  ? 'signUpForCourse'
+                  : curProgramsType === 'profession'
+                  ? 'signUpForProfession'
+                  : 'signUp'
+              }
+            />
+            <PopupTrigger btn='beta' cta='askQuestion' />
           </div>
-          <div className={stls.descriptionMobile}>
-            {description && parse(description)}
+          <div className={stls.info}>
+            <ProgramInfo />
           </div>
-        </div>
-        <div className={stls.btnsMobile}>
-          <PopupTrigger
-            btn='alpha'
-            cta={
-              curProgramsType === 'course'
-                ? 'signUpForCourse'
-                : curProgramsType === 'profession'
-                ? 'signUpForProfession'
-                : 'signUp'
-            }
-          />
-          <PopupTrigger btn='beta' cta='askQuestion' />
-        </div>
-        <div className={stls.info}>
-          <ProgramInfo />
-        </div>
-      </Wrapper>
-    </section>
+        </Wrapper>
+      </section>
+    </>
   )
 }
 

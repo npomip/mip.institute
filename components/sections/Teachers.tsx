@@ -1,6 +1,10 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
+import { useContext } from 'react'
+import { getImageHeight } from '@/helpers/index'
+import ProgramContext from '@/context/program/programContext'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
+import PopupTrigger from '@/components/general/PopupTrigger'
 import CardTeacher from '@/components/cards/CardTeacher'
 import BtnDelta from '@/components/btns/BtnDelta'
 import {
@@ -10,44 +14,37 @@ import {
   ImgTeacher3,
   ImgTeacher4
 } from '@/components/imgs'
-import ProgramContext from '@/context/program/programContext'
-import { useContext } from 'react'
-import PopupTrigger from '@/components/general/PopupTrigger'
 
 const Teachers = () => {
   const {
     program: { teachers }
   } = useContext(ProgramContext)
 
-  const list =
-    teachers &&
-    teachers.map(teacher => {
-      teacher.image = (
-        <ImgTeacher
-          src={teacher.portrait?.formats?.small?.url || teacher.portrait?.url}
-          alt={teacher.name}
-          width={
-            teacher.portrait?.formats?.small?.width || teacher.portrait?.width
-          }
-          height={
-            teacher.portrait?.formats?.small?.height || teacher.portrait?.height
-          }
-        />
-      )
-      return teacher
-    })
-
-  const teachersSlides =
-    list &&
-    list.map((teacher, idx) => (
-      <CardTeacher
-        key={teacher.name + idx}
-        portrait={teacher.image}
-        name={teacher.name}
-        specialization={teacher.specialization}
-        achievements={teacher.achievements}
+  const list = teachers?.map(teacher => {
+    teacher.image = (
+      <ImgTeacher
+        src={teacher?.portrait?.url}
+        alt={teacher.name}
+        width={160}
+        height={getImageHeight({
+          width: 160,
+          widthInitial: teacher?.portrait?.width,
+          heightInitial: teacher?.portrait?.height
+        })}
       />
-    ))
+    )
+    return teacher
+  })
+
+  const teachersSlides = list?.map((teacher, idx) => (
+    <CardTeacher
+      key={teacher.name + idx}
+      portrait={teacher.image}
+      name={teacher.name}
+      specialization={teacher.specialization}
+      achievements={teacher.achievements}
+    />
+  ))
 
   const mobileSwiperOptions = {
     slidesNum: 1.75,

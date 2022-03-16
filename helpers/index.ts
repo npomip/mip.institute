@@ -6,6 +6,7 @@ export { default as getCasedRuMonthString } from '@/helpers/getCasedRuMonthStrin
 export { default as getCasedRuYearString } from '@/helpers/getCasedRuYearString'
 export { default as getCasesRuCourseString } from '@/helpers/getCasesRuCourseString'
 export { default as getCasesRuProfessionString } from '@/helpers/getCasesRuProfessionString'
+export { default as getImageHeight } from '@/helpers/getImageHeight'
 export { default as getListItemsInnerHtml } from '@/helpers/getListItemsInnerHtml'
 export { default as getParagraphInnerHtml } from '@/helpers/getParagraphInnerHtml'
 export { default as getRuDaysOfWeek } from '@/helpers/getRuDaysOfWeek'

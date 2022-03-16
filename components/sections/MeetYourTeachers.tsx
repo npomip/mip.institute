@@ -1,8 +1,9 @@
 import stls from '@/styles/components/sections/MeetYourTeachers.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import { ImgTeacher } from '@/components/imgs'
 import parse from 'html-react-parser'
+import { getImageHeight } from '@/helpers/index'
+import Wrapper from '@/components/layout/Wrapper'
 import PopupTrigger from '@/components/general/PopupTrigger'
+import { ImgTeacher } from '@/components/imgs'
 
 const MeetYourTeachers = ({ teachers }) => {
   return (
@@ -15,19 +16,14 @@ const MeetYourTeachers = ({ teachers }) => {
               <li key={teacher.name} className={stls.teacher}>
                 <div className={stls.img}>
                   <ImgTeacher
-                    src={
-                      teacher.portrait?.formats?.small?.url ||
-                      teacher.portrait?.url
-                    }
+                    src={teacher?.portrait?.url}
                     alt={teacher?.name}
-                    width={
-                      teacher.portrait?.formats?.small?.width ||
-                      teacher.portrait?.width
-                    }
-                    height={
-                      teacher.portrait?.formats?.small?.height ||
-                      teacher.portrait?.height
-                    }
+                    width={270}
+                    height={getImageHeight({
+                      width: 270,
+                      widthInitial: teacher?.portrait?.width,
+                      heightInitial: teacher?.portrait?.height
+                    })}
                   />
                 </div>
                 <div>

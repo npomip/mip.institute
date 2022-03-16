@@ -6,6 +6,7 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 import { PopupCta } from '@/components/popups'
 import CardWebinarAlt from '@/components/cards/CardWebinarAlt'
 import { ImgWebinar } from '@/components/imgs'
+import getImageHeight from '@/helpers/getImageHeight'
 
 type WebinarsAltType = {
   webinars: any
@@ -35,19 +36,14 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                           name={webinar.name}
                           picture={
                             <ImgWebinar
-                              src={
-                                webinar.picture?.formats?.thumbnail?.url ||
-                                webinar.picture?.url
-                              }
+                              src={webinar?.picture?.url}
                               alt={webinar.title}
-                              width={
-                                webinar.picture?.formats?.thumbnail?.width ||
-                                webinar.picture?.width
-                              }
-                              height={
-                                webinar.picture?.formats?.thumbnail?.height ||
-                                webinar.picture?.height
-                              }
+                              width={70}
+                              height={getImageHeight({
+                                width: 70,
+                                widthInitial: webinar?.picture?.width,
+                                heightInitial: webinar?.picture?.height
+                              })}
                             />
                           }
                           title={webinar.title}

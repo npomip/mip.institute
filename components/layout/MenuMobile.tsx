@@ -12,7 +12,8 @@ import {
   routePrograms,
   routeWebinars,
   routeReviews,
-  routeAbout
+  routeAbout,
+  routeTeachers
 } from '@/data/routes'
 
 const MenuMobile = () => {
@@ -21,6 +22,7 @@ const MenuMobile = () => {
 
   const links = [
     { text: 'Направления обучения', href: routePrograms, withIcon: true },
+    { text: 'Преподаватели', href: routeTeachers, withIcon: false },
     { text: 'Вебинары', href: routeWebinars, withIcon: false },
     { text: 'Отзывы', href: routeReviews, withIcon: false },
     { text: 'Об институте', href: routeAbout, withIcon: false }

@@ -11,7 +11,7 @@ const getStaticPropsDefault = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
   props: TypePageDefaultProps
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   const res = await apolloClient.query<TypePageDefaultPropsQuery>({
     query: gql`

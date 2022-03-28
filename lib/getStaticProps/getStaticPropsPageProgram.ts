@@ -14,7 +14,7 @@ const getStaticPropsPageProgram = async ({
   type?: string | null
 }): Promise<{
   props: TypePageProgramProps
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   const studyFieldSlug = context?.params?.studyFieldSlug?.toString() || null
   const slug = context?.params?.slug?.toString() || null

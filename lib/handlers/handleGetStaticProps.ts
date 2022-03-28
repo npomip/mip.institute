@@ -39,7 +39,7 @@ const handleGetStaticProps = async ({
     | TypePageProgramsProps
     | TypePageProgramProps
     | {}
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   try {
     switch (page) {

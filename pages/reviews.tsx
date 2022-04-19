@@ -7,6 +7,7 @@ import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Reviews from '@/components/sections/Reviews'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -32,6 +33,7 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
         )}
         canonical={`${routes.front.root}${routes.front.reviews}`}
       />
+      <SeoOrganizationJsonLd />
       <Reviews standalone reviews={reviews} />
     </>
   )

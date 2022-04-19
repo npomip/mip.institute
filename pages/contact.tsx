@@ -9,6 +9,7 @@ import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import PageTitle from '@/components/layout/PageTitle'
 import { Contacts } from '@/components/sections'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -30,6 +31,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         )}
         canonical={`${routes.front.root}${routes.front.contact}`}
       />
+      <SeoOrganizationJsonLd />
       <PageTitle>Контакты</PageTitle>
       <Contacts />
     </>

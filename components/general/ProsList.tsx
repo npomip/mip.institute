@@ -1,25 +1,17 @@
 import stls from '@/styles/components/general/ProsList.module.sass'
+import { pros } from '@/data/index'
 import { IconCircleCheck } from '@/components/icons'
 
 const ProsList = () => {
-  const list = [
-    'Самые востребованные направления',
-    'Есть гос. аккредитация и сертификаты',
-    'Помощь в трудоустройстве',
-    'Онлайн обучение',
-    'Дипломы котируются по всему миру',
-    'Спикеры практики и имеют ученые степени'
-  ]
-
   return (
     <div className={stls.container}>
-      <ul className={stls.list}>
-        {list.map((item, idx) => (
-          <li key={item + idx} className={stls.item}>
+      <ul className={stls.pros}>
+        {pros.map((pro, idx) => (
+          <li key={`${pro}-${idx}`} className={stls.pro}>
             <div className={stls.icon}>
               <IconCircleCheck />
             </div>
-            <span className={stls.text}>{item}</span>
+            <span className={stls.text}>{pro}</span>
           </li>
         ))}
       </ul>

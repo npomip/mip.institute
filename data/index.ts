@@ -1,23 +1,14 @@
-// docs/constituent
-import dataDocsConstituentLeft from '@/data/docs/constituent/dataDocsConstituentLeft'
-import dataDocsConstituentRight from '@/data/docs/constituent/dataDocsConstituentRight'
+// ./docs/constituent
+export { default as dataDocsConstituentLeft } from '@/data/docs/constituent/dataDocsConstituentLeft'
+export { default as dataDocsConstituentRight } from '@/data/docs/constituent/dataDocsConstituentRight'
 
-// docs/general
-import dataDocsGeneralLeft from '@/data/docs/general/dataDocsGeneralLeft'
-import dataDocsGeneralRight from '@/data/docs/general/dataDocsGeneralRight'
+// ./docs/general
+export { default as dataDocsGeneralLeft } from '@/data/docs/general/dataDocsGeneralLeft'
+export { default as dataDocsGeneralRight } from '@/data/docs/general/dataDocsGeneralRight'
 
-// docs/regulations
-import dataDocsRegulationsLeft from '@/data/docs/regulations/dataDocsRegulationsLeft'
-import dataDocsRegulationsRight from '@/data/docs/regulations/dataDocsRegulationsRight'
+// ./docs/regulations
+export { default as dataDocsRegulationsLeft } from '@/data/docs/regulations/dataDocsRegulationsLeft'
+export { default as dataDocsRegulationsRight } from '@/data/docs/regulations/dataDocsRegulationsRight'
 
-export {
-  // docs/constituent
-  dataDocsConstituentLeft,
-  dataDocsConstituentRight,
-  // docs/general
-  dataDocsGeneralLeft,
-  dataDocsGeneralRight,
-  // docs/regulations
-  dataDocsRegulationsLeft,
-  dataDocsRegulationsRight
-}
+// ./general
+export { default as pros } from '@/data/general/pros'

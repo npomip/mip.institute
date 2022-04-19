@@ -13,6 +13,7 @@ import {
   PaymentDebitCard,
   PaymentInfo
 } from '@/components/sections'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -34,6 +35,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         )}
         canonical={`${routes.front.root}${routes.front.payment}`}
       />
+      <SeoOrganizationJsonLd />
       <PageTitle>Оплата</PageTitle>
       <PaymentDebitCard />
       <PaymentInfo />

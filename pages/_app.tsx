@@ -1,6 +1,6 @@
 import Router from 'next/router'
 
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
 import ProgramsState from '@/context/programs/ProgramsState'
@@ -82,14 +82,14 @@ function MyApp({ Component, pageProps, router }) {
   }, [])
 
   if (prod) {
-    console.log = function () {}
+    console.log = () => {}
   }
 
   return (
     <>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
-        logo={`${routes.front.root}/assets/imgs/icons/manifest-icon-512.png`}
+        logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
         url={routes.front.root}
       />
       <ProgramsState>

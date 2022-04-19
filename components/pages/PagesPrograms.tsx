@@ -2,7 +2,6 @@ import { NextSeo } from 'next-seo'
 import { useContext } from 'react'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
-import ProgramContext from '@/context/program/programContext'
 import ProgramsContext from '@/context/programs/programsContext'
 import {
   HeroPrograms,

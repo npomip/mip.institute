@@ -7,6 +7,7 @@ import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { WebinarsAlt } from '@/components/sections'
 import ProgramsContext from '@/context/programs/programsContext'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
   programs,
@@ -35,6 +36,7 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
         )}
         canonical={`${routes.front.root}${routes.front.webinars}`}
       />
+      <SeoOrganizationJsonLd />
       <WebinarsAlt webinars={webinars} />
     </>
   )

@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
+import { pros } from '@/data/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import {
@@ -16,6 +17,7 @@ import {
   Reviews,
   Webinars
 } from '@/components/sections'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -27,17 +29,36 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
     setCurProgramsStudyFieldSlug(null)
   }, [])
 
+  const seoParams = {
+    title: `${company.name} | ${company.desc} | ${company.tagline}
+    `,
+    desc: truncate(pros.map(pro => `✅ ${pro}`).join('; '), 120),
+    canonical: routes.front.root
+  }
+
   return (
     <>
       <NextSeo
-        title={`${company.name} | ${company.desc} | ${company.tagline}
-        `}
-        description={truncate(
-          `✅ Самые востребованные направления; ✅ Есть гос. аккредитация и сертификаты; ✅ Помощь в трудоустройстве; ✅ Онлайн обучение; ✅ Дипломы котируются по всему миру; ✅ Спикеры практики и имеют ученые степени`,
-          120
-        )}
-        canonical={`${routes.front.root}`}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
       />
+      <SeoOrganizationJsonLd />
       <Hero />
       <Programs withTitle withBtn max={8} />
       <WhyBother />

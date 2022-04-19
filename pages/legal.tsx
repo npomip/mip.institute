@@ -22,6 +22,7 @@ import {
   LegalDocs,
   LegalInfo
 } from '@/components/sections'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -44,6 +45,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         )}
         canonical={`${routes.front.root}${routes.front.legal}`}
       />
+      <SeoOrganizationJsonLd />
       <PageTitle>
         Сведения <br className={stls.linebrake} /> об организации
       </PageTitle>

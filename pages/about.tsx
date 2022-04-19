@@ -7,6 +7,7 @@ import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import About from '@/components/sections/About'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -28,6 +29,7 @@ const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         )}
         canonical={`${routes.front.root}${routes.front.about}`}
       />
+      <SeoOrganizationJsonLd />
       <About standalone />
     </>
   )

@@ -7,6 +7,7 @@ import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { MeetYourTeachers } from '@/components/sections'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const TeachersPage: NextPage<TypePageTeachersProps> = ({
   programs,
@@ -31,6 +32,7 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
         )}
         canonical={`${routes.front.root}${routes.front.teachers}`}
       />
+      <SeoOrganizationJsonLd />
       <MeetYourTeachers teachers={teachers} />
     </>
   )

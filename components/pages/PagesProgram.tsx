@@ -32,8 +32,11 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
   const { program } = useContext(ProgramContext)
   const { curProgramsStudyFieldSlug } = useContext(ProgramsContext)
 
+  console.log(program)
   const seoParams = {
-    title: `${program?.title} | ${program?.category?.label} | ${company.name}`,
+    title: `${program?.title} | ${program?.typeLabel || 'Курс'} | ${
+      company.name
+    }`,
     programTitle: program?.title || 'Программа',
     desc: truncate(program.description, 120),
     canonical: `${routes.front.root}${

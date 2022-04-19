@@ -1,13 +1,13 @@
 import stls from '@/styles/components/general/Logo.module.sass'
-import classNames from 'classnames'
 import Link from 'next/link'
+import classNames from 'classnames'
+import { routes } from '@/config/index'
 import { IconLogo } from '@/components/icons'
-import { routeHome } from '@/data/routes'
 
 const Logo = ({ atHeader = false, withTitle = true }) => {
   return (
     <div className={stls.container}>
-      <Link href={routeHome}>
+      <Link href={routes.front.home}>
         <a
           className={classNames({
             [stls.logo]: true,

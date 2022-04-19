@@ -3,7 +3,6 @@ import { TypePageWebinarsProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routeWebinars } from '@/data/routes'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { WebinarsAlt } from '@/components/sections'
@@ -34,7 +33,7 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
           }`,
           120
         )}
-        canonical={`${routes.front.root}${routeWebinars}`}
+        canonical={`${routes.front.root}${routes.front.webinars}`}
       />
       <WebinarsAlt webinars={webinars} />
     </>

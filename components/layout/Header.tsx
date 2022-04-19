@@ -1,25 +1,18 @@
 import stls from '@/styles/components/layout/Header.module.sass'
+import { useEffect, useContext } from 'react'
 import Link from 'next/link'
+import { routes } from '@/config/index'
+import { city, street } from '@/data/location'
+import { IconLocation } from '@/components/icons'
+import { handleSwipedEvt } from '@/helpers/index'
+import MenuContext from '@/context/menu/menuContext'
 import Wrapper from '@/components/layout/Wrapper'
+import MenuMobile from '@/components/layout/MenuMobile'
+import PopupTrigger from '@/components/general/PopupTrigger'
 import Logo from '@/components/general/Logo'
 import BtnPhone from '@/components/btns/BtnPhone'
 import BtnHumburger from '@/components/btns/BtnHumburger'
-import MenuMobile from '@/components/layout/MenuMobile'
-import { city, street } from '@/data/location'
-import { IconLocation } from '@/components/icons'
 import { BtnFields } from '@/components/btns'
-import {
-  routeContact,
-  routeReviews,
-  routeAbout,
-  routeLegal,
-  routeWebinars,
-  routeTeachers
-} from '@/data/routes'
-import MenuContext from '@/context/menu/menuContext'
-import { useEffect, useContext } from 'react'
-import { handleSwipedEvt } from '@/helpers/index'
-import PopupTrigger from '@/components/general/PopupTrigger'
 
 const Header = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -31,15 +24,15 @@ const Header = () => {
 
   const list = [
     {
-      href: routeWebinars,
+      href: routes.front.webinars,
       val: 'Вебинары'
     },
     {
-      href: routeTeachers,
+      href: routes.front.teachers,
       val: 'Преподаватели'
     },
     {
-      href: routeContact,
+      href: routes.front.contact,
       val: 'Контакты'
     }
   ]
@@ -50,7 +43,7 @@ const Header = () => {
       <Wrapper>
         <div className={stls.top}>
           <div className={stls.topleft}>
-            <Link href={routeLegal}>
+            <Link href={routes.front.legal}>
               <a className={stls.linkInfo}>
                 Сведения об образовательной организации
               </a>

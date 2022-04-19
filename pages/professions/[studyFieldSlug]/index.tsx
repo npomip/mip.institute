@@ -3,7 +3,6 @@ import { TypePageProgramsProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routeProfessions } from '@/data/routes'
 import { routes, company } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -38,7 +37,7 @@ const ProfessionsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
           `Профессии - длинные программы для полного погружения в направление`,
           120
         )}
-        canonical={`${routes.front.root}${routeProfessions}/${studyFieldSlug}`}
+        canonical={`${routes.front.root}${routes.front.professions}/${studyFieldSlug}`}
       />
       <PagesPrograms ofType='profession' />
     </>

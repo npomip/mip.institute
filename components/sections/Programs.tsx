@@ -1,14 +1,14 @@
 import stls from '@/styles/components/sections/Programs.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import Courses from '@/components/programs/Courses'
-import Professions from '@/components/programs/Professions'
-import ProgramsFilters from '@/components/layout/ProgramsFilters'
-import ProgramsContext from '@/context/programs/programsContext'
 import { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import classNames from 'classnames'
+import cn from 'classnames'
+import { routes } from '@/config/index'
 import { filterProgramsByStudyField } from '@/helpers/index'
-import { routeCourses, routeProfessions } from '@/data/routes'
+import Wrapper from '@/components/layout/Wrapper'
+import ProgramsFilters from '@/components/layout/ProgramsFilters'
+import ProgramsContext from '@/context/programs/programsContext'
+import Courses from '@/components/programs/Courses'
+import Professions from '@/components/programs/Professions'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
@@ -66,10 +66,10 @@ const Programs = ({
   useEffect(() => {
     ofType === 'course' &&
       data.courses.length === 0 &&
-      router.replace(routeCourses)
+      router.replace(routes.front.courses)
     ofType === 'profession' &&
       data.professions.length === 0 &&
-      router.replace(routeProfessions)
+      router.replace(routes.front.professions)
   }, [])
 
   const filteredProgramsIds = filteredPrograms.map(item => item.id)
@@ -93,7 +93,7 @@ const Programs = ({
 
   return (
     <section
-      className={classNames({
+      className={cn({
         [stls.container]: true,
         [stls.withFilters]: withFilters
       })}>

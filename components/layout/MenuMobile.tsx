@@ -1,36 +1,34 @@
 import stls from '@/styles/components/layout/MenuMobile.module.sass'
 import { useContext } from 'react'
 import Link from 'next/link'
+import cn from 'classnames'
+import { routes } from '@/config/index'
 import MenuContext from '@/context/menu/menuContext'
 import Wrapper from '@/components/layout/Wrapper'
+import PopupTrigger from '@/components/general/PopupTrigger'
 import Logo from '@/components/general/Logo'
 import { BtnClose, BtnPhone, BtnVk, BtnFb, BtnYt } from '@/components/btns'
-import PopupTrigger from '@/components/general/PopupTrigger'
 import { IconMoreThan } from '@/components/icons'
-import classNames from 'classnames'
-import {
-  routePrograms,
-  routeWebinars,
-  routeReviews,
-  routeAbout,
-  routeTeachers
-} from '@/data/routes'
 
 const MenuMobile = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
     useContext(MenuContext)
 
   const links = [
-    { text: 'Направления обучения', href: routePrograms, withIcon: true },
-    { text: 'Преподаватели', href: routeTeachers, withIcon: false },
-    { text: 'Вебинары', href: routeWebinars, withIcon: false },
-    { text: 'Отзывы', href: routeReviews, withIcon: false },
-    { text: 'Об институте', href: routeAbout, withIcon: false }
+    {
+      text: 'Направления обучения',
+      href: routes.front.programs,
+      withIcon: true
+    },
+    { text: 'Преподаватели', href: routes.front.teachers, withIcon: false },
+    { text: 'Вебинары', href: routes.front.webinars, withIcon: false },
+    { text: 'Отзывы', href: routes.front.reviews, withIcon: false },
+    { text: 'Об институте', href: routes.front.about, withIcon: false }
   ]
 
   return (
     <div
-      className={classNames({
+      className={cn({
         [stls.container]: true,
         [stls.menuIsOpen]: menuIsOpen
       })}>

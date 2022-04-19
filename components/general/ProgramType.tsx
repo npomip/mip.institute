@@ -1,9 +1,9 @@
 import stls from '@/styles/components/general/ProgramType.module.sass'
-import ProgramsContext from '@/context/programs/programsContext'
 import { useContext } from 'react'
-import classNames from 'classnames'
 import Link from 'next/link'
-import { routeProfessions, routeCourses, routePrograms } from '@/data/routes'
+import cn from 'classnames'
+import { routes } from '@/config/index'
+import ProgramsContext from '@/context/programs/programsContext'
 
 const ProgramType = ({ close = null }) => {
   const { curProgramsType, curProgramsStudyFieldSlug } =
@@ -15,10 +15,10 @@ const ProgramType = ({ close = null }) => {
     <div className={stls.container}>
       <p className={stls.p}>Тип обучения:</p>
 
-      <Link href={`${routePrograms}/${slug}`}>
+      <Link href={`${routes.front.programs}/${slug}`}>
         <a className={stls.item} onClick={close && close}>
           <div
-            className={classNames({
+            className={cn({
               [stls.circle]: true,
               [stls.active]: curProgramsType === null
             })}></div>{' '}
@@ -26,10 +26,10 @@ const ProgramType = ({ close = null }) => {
         </a>
       </Link>
 
-      <Link href={`${routeProfessions}/${slug}`}>
+      <Link href={`${routes.front.professions}/${slug}`}>
         <a className={stls.item} onClick={close && close}>
           <div
-            className={classNames({
+            className={cn({
               [stls.circle]: true,
               [stls.active]: curProgramsType === 'profession'
             })}></div>
@@ -37,10 +37,10 @@ const ProgramType = ({ close = null }) => {
         </a>
       </Link>
 
-      <Link href={`${routeCourses}/${slug}`}>
+      <Link href={`${routes.front.courses}/${slug}`}>
         <a className={stls.item} onClick={close && close}>
           <div
-            className={classNames({
+            className={cn({
               [stls.circle]: true,
               [stls.active]: curProgramsType === 'course'
             })}></div>

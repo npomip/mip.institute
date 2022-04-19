@@ -4,7 +4,6 @@ import { TypePageDefaultProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routeLegal } from '@/data/routes'
 import {
   dataDocsConstituentLeft,
   dataDocsConstituentRight,
@@ -43,7 +42,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         и сертификаты, основные сведения и нормативные документы`,
           120
         )}
-        canonical={`${routes.front.root}${routeLegal}`}
+        canonical={`${routes.front.root}${routes.front.legal}`}
       />
       <PageTitle>
         Сведения <br className={stls.linebrake} /> об организации

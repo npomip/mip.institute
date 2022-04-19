@@ -19,6 +19,8 @@ const routes: TRoutes = {
     root: dev ? 'http://localhost:3000' : 'https://mip.institute',
     home: '/',
     programs: '/programs',
+    professions: '/professions',
+    courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',
     teachers: '/teachers',
@@ -31,7 +33,9 @@ const routes: TRoutes = {
     docsConstituent: '/docs/constituent',
     docsRegulations: 'docs/regulations',
     docsGeneral: '/docs/general',
-    assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png'
+    assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
+    policiesPrivacy: '/policies/privacy.pdf',
+    policiesTerms: '/policies/terms.pdf'
   },
   back: {
     root: dev

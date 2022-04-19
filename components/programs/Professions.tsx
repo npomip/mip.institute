@@ -1,8 +1,8 @@
 import stls from '@/styles/components/programs/Professions.module.sass'
+import { routes } from '@/config/index'
 import CardProfession from '@/components/cards/CardProfession'
 import { BtnDelta } from '@/components/btns'
 import classNames from 'classnames'
-import { routeProfessions } from '@/data/routes'
 import ProgramsQty from '@/components/general/ProgramsQty'
 
 type ProfessionsType = {
@@ -78,7 +78,10 @@ const Professions = ({
       </div>
       {withBtn && (
         <div className={stls.btn}>
-          <BtnDelta text={'Смотреть все профессии'} href={routeProfessions} />
+          <BtnDelta
+            text={'Смотреть все профессии'}
+            href={routes.front.professions}
+          />
         </div>
       )}
     </div>

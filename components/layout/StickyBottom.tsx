@@ -1,13 +1,13 @@
 import stls from '@/styles/components/layout/StickyBottom.module.sass'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import cn from 'classnames'
+import { routes } from '@/config/index'
 import { discount, until } from '@/data/price'
-import { routePayment } from '@/data/routes'
 import Wrapper from '@/components/layout/Wrapper'
 import IconWavyShape from '@/components/icons/IconWavyShape'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import { IconCloseCircle } from '@/components/icons'
-import classNames from 'classnames'
 
 const StickyBottom = () => {
   const router = useRouter()
@@ -16,7 +16,7 @@ const StickyBottom = () => {
   const [isClosed, setIsClosed] = useState(false)
 
   useEffect(() => {
-    if (router.asPath !== routePayment) {
+    if (router.asPath !== routes.front.payment) {
       document.addEventListener('scroll', () => {
         const scrollHeight = document.body.scrollHeight
         const pageYOffset = window.pageYOffset
@@ -31,7 +31,7 @@ const StickyBottom = () => {
 
   return (
     <div
-      className={classNames({
+      className={cn({
         [stls.container]: true,
         [stls.isShown]: isShown,
         [stls.isClosed]: isClosed

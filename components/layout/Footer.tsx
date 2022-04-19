@@ -1,23 +1,11 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import classNames from 'classnames'
 import { useContext } from 'react'
-import { company } from '@/config/index'
+import { company, routes } from '@/config/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
 import { city, street } from '@/data/location'
-import {
-  routeCourses,
-  routeProfessions,
-  routeWebinars,
-  routeReviews,
-  routeContact,
-  routeLegal,
-  routeAbout,
-  routeHome,
-  routePayment,
-  routeTeachers
-} from '@/data/routes'
 import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import FooterBottom from '@/components/general/FooterBottom'
@@ -29,43 +17,43 @@ const Footer = () => {
   const staticLinks = [
     {
       val: 'Курсы',
-      href: routeCourses
+      href: routes.front.courses
     },
     {
       val: 'Профессии',
-      href: routeProfessions
+      href: routes.front.professions
     },
     {
       val: 'Вебинары',
-      href: routeWebinars
+      href: routes.front.webinars
     },
     {
       val: 'Преподаватели',
-      href: routeTeachers
+      href: routes.front.teachers
     },
     {
       val: 'Отзывы',
-      href: routeReviews
+      href: routes.front.reviews
     },
     {
       val: 'Главная',
-      href: routeHome
+      href: routes.front.home
     },
     {
       val: 'Об институте',
-      href: routeAbout
+      href: routes.front.about
     },
     {
       val: 'Сведения об образовательной организации',
-      href: routeLegal
+      href: routes.front.legal
     },
     {
       val: 'Контакты',
-      href: routeContact
+      href: routes.front.contact
     },
     {
       val: 'Оплата',
-      href: routePayment
+      href: routes.front.payment
     }
   ]
 

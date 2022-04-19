@@ -3,7 +3,6 @@ import { TypePageReviewsProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routeReviews } from '@/data/routes'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -31,7 +30,7 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
           }`,
           120
         )}
-        canonical={`${routes.front.root}${routeReviews}`}
+        canonical={`${routes.front.root}${routes.front.reviews}`}
       />
       <Reviews standalone reviews={reviews} />
     </>

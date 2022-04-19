@@ -1,9 +1,9 @@
 import stls from '@/styles/components/general/StudyFields.module.sass'
 import { Fragment, useContext } from 'react'
+import cn from 'classnames'
+import { routes } from '@/config/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { BtnField } from '@/components/btns'
-import { routePrograms, routeCourses, routeProfessions } from '@/data/routes'
-import classNames from 'classnames'
 
 type StudyFieldsType = {
   aside?: boolean
@@ -32,7 +32,7 @@ const StudyFields = ({
 
   return (
     <ul
-      className={classNames({
+      className={cn({
         [stls.container]: true,
         [stls.aside]: aside,
         [stls.tooltip]: !aside
@@ -45,11 +45,11 @@ const StudyFields = ({
                 href={
                   aside
                     ? curProgramsType === 'course'
-                      ? routeCourses
+                      ? routes.front.courses
                       : curProgramsType === 'profession'
-                      ? routeProfessions
-                      : routePrograms
-                    : routePrograms
+                      ? routes.front.professions
+                      : routes.front.programs
+                    : routes.front.programs
                 }
                 aside={aside}>
                 Все направления
@@ -61,11 +61,11 @@ const StudyFields = ({
               href={`${
                 aside
                   ? curProgramsType === 'course'
-                    ? routeCourses
+                    ? routes.front.courses
                     : curProgramsType === 'profession'
-                    ? routeProfessions
-                    : routePrograms
-                  : routePrograms
+                    ? routes.front.professions
+                    : routes.front.programs
+                  : routes.front.programs
               }/${slug}`}
               aside={aside}
               slug={slug}>

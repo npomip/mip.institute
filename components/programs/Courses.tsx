@@ -1,9 +1,9 @@
 import stls from '@/styles/components/programs/Courses.module.sass'
+import cn from 'classnames'
+import { routes } from '@/config/index'
+import ProgramsQty from '@/components/general/ProgramsQty'
 import CardCourse from '@/components/cards/CardCourse'
 import { BtnDelta } from '@/components/btns'
-import classNames from 'classnames'
-import { routeCourses } from '@/data/routes'
-import ProgramsQty from '@/components/general/ProgramsQty'
 
 type CoursesType = {
   biggerTitle?: boolean
@@ -26,7 +26,7 @@ const Courses = ({
         {biggerTitle ? (
           <div className={stls.heading}>
             <h2
-              className={classNames({
+              className={cn({
                 [stls.title]: true,
                 [stls.bold]: true
               })}>
@@ -62,7 +62,7 @@ const Courses = ({
       </hgroup>
 
       <div
-        className={classNames({
+        className={cn({
           [stls.courses]: true,
           [stls.threerow]: threerow
         })}>
@@ -76,7 +76,7 @@ const Courses = ({
       </div>
       {withBtn && (
         <div className={stls.btn}>
-          <BtnDelta text={'Смотреть все курсы'} href={routeCourses} />
+          <BtnDelta text={'Смотреть все курсы'} href={routes.front.courses} />
         </div>
       )}
     </div>

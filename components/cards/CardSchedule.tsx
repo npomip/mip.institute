@@ -1,17 +1,17 @@
 import stls from '@/styles/components/cards/CardSchedule.module.sass'
-import classNames from 'classnames'
 import Link from 'next/link'
-import ImgAllWebinars from '@/components/imgs/webinars/ImgAllWebinars'
+import cn from 'classnames'
+import { routes } from '@/config/index'
 import CtaText from '@/components/general/CtaText'
+import ImgAllWebinars from '@/components/imgs/webinars/ImgAllWebinars'
 import { IconPlayer } from '@/components/icons'
-import { routeWebinars } from '@/data/routes'
 
 const CardSchedule = ({ mobileLayout = false }) => {
   return (
-    <Link href={routeWebinars}>
+    <Link href={routes.front.webinars}>
       <a className={stls.linkContainer}>
         <article
-          className={classNames({
+          className={cn({
             [stls.container]: true,
             [stls.mobileLayout]: mobileLayout
           })}>

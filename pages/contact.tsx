@@ -4,7 +4,6 @@ import { TypePageDefaultProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routeContact } from '@/data/routes'
 import { city, street } from '@/data/location'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
@@ -30,7 +29,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
           `${city}, ${street}, ${company.phoneNumbers.default.val}, ${company.phoneNumbers.defaultAlt.val}, ${company.emails.default.val}`,
           120
         )}
-        canonical={`${routes.front.root}${routeContact}`}
+        canonical={`${routes.front.root}${routes.front.contact}`}
       />
       <PageTitle>Контакты</PageTitle>
       <Contacts />

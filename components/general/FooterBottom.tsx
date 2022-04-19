@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/FooterBottom.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Link from 'next/link'
-import { routePoliciesTerms, routePoliciesPrivacy } from '@/data/routes'
+import { routes } from '@/config/index'
 
 const FooterBottom = () => {
   return (
@@ -11,14 +11,14 @@ const FooterBottom = () => {
           &copy; Московский Институт Психологии, {new Date().getFullYear()}
         </p>
         <a
-          href={routePoliciesTerms}
+          href={routes.front.policiesTerms}
           target='_blank'
           rel='noopener noreferrer'
           className={stls.agreeLink}>
           Договор оферты
         </a>
         <a
-          href={routePoliciesPrivacy}
+          href={routes.front.policiesPrivacy}
           target='_blank'
           rel='noopener noreferrer'
           className={stls.docLink}>

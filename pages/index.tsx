@@ -3,7 +3,6 @@ import { TypePageHomeProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routeHome } from '@/data/routes'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -37,7 +36,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
           `✅ Самые востребованные направления; ✅ Есть гос. аккредитация и сертификаты; ✅ Помощь в трудоустройстве; ✅ Онлайн обучение; ✅ Дипломы котируются по всему миру; ✅ Спикеры практики и имеют ученые степени`,
           120
         )}
-        canonical={`${routes.front.root}${routeHome}`}
+        canonical={`${routes.front.root}`}
       />
       <Hero />
       <Programs withTitle withBtn max={8} />

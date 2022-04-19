@@ -4,7 +4,6 @@ import { TypePageDefaultProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routePayment } from '@/data/routes'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -33,7 +32,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
           `VISA International, Mastercard Worldwide, JCB, МИР`,
           120
         )}
-        canonical={`${routes.front.root}${routePayment}`}
+        canonical={`${routes.front.root}${routes.front.payment}`}
       />
       <PageTitle>Оплата</PageTitle>
       <PaymentDebitCard />

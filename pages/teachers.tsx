@@ -3,7 +3,6 @@ import { TypePageTeachersProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routeTeachers } from '@/data/routes'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -30,7 +29,7 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
           `${teachers[0].name}, ${teachers[0].achievements} | ${teachers[1].name}, ${teachers[1].achievements}`,
           120
         )}
-        canonical={`${routes.front.root}${routeTeachers}`}
+        canonical={`${routes.front.root}${routes.front.teachers}`}
       />
       <MeetYourTeachers teachers={teachers} />
     </>

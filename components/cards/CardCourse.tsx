@@ -1,18 +1,18 @@
 import stls from '@/styles/components/cards/CardCourse.module.sass'
 import Link from 'next/link'
-import { routeCourses } from '@/data/routes'
-import classNames from 'classnames'
+import cn from 'classnames'
+import { routes } from '@/config/index'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import { IconArrowRight } from '@/components/icons'
 
 const CardCourse = ({ course = null, threerow = false }) => {
   return (
     <Link
-      href={`${routeCourses}/${course.studyFieldSlug || 'studyfield'}/${
+      href={`${routes.front.courses}/${course.studyFieldSlug || 'studyfield'}/${
         course.slug
       }`}>
       <a
-        className={classNames({
+        className={cn({
           [stls.container]: true,
           [stls.threerow]: threerow,
           [stls.fourrow]: !threerow

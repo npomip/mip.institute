@@ -1,16 +1,16 @@
 import stls from '@/styles/components/cards/CardProfession.module.sass'
 import Link from 'next/link'
-import { routeProfessions } from '@/data/routes'
 import classNames from 'classnames'
+import { routes } from '@/config/index'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import { IconArrowRight } from '@/components/icons'
 
 const CardProfession = ({ profession = null, threerow = false }) => {
   return (
     <Link
-      href={`${routeProfessions}/${profession.studyFieldSlug || 'studyfield'}/${
-        profession.slug
-      }`}>
+      href={`${routes.front.professions}/${
+        profession.studyFieldSlug || 'studyfield'
+      }/${profession.slug}`}>
       <a
         className={classNames({
           [stls.container]: true,

@@ -1,8 +1,7 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { useEffect, useContext } from 'react'
 import Link from 'next/link'
-import { routes } from '@/config/index'
-import { city, street } from '@/data/location'
+import { routes, company } from '@/config/index'
 import { IconLocation } from '@/components/icons'
 import { handleSwipedEvt } from '@/helpers/index'
 import MenuContext from '@/context/menu/menuContext'
@@ -13,6 +12,7 @@ import Logo from '@/components/general/Logo'
 import BtnPhone from '@/components/btns/BtnPhone'
 import BtnHumburger from '@/components/btns/BtnHumburger'
 import { BtnFields } from '@/components/btns'
+import { GeneralAddress } from '@/components/general'
 
 const Header = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -52,9 +52,7 @@ const Header = () => {
               <div className={stls.icon}>
                 <IconLocation />
               </div>
-              <p className={stls.p}>
-                {city}, {street}
-              </p>
+              <GeneralAddress classNames={[stls.p]} />
             </div>
           </div>
           <div className={stls.topright}>

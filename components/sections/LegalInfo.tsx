@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/LegalInfo.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { company } from '@/config/index'
-import { zipcode, city, streetAlt, office } from '@/data/location'
 
 const LegalInfo = () => {
   const listLeft = [
@@ -24,8 +23,10 @@ const LegalInfo = () => {
         <>
           Юридический адрес: 115114, г. Москва, <br /> набережная Дербеневская,
           д.11, пом.13 <br />
-          Фактический адрес: {zipcode}, г. {city}, <br /> {streetAlt}, оф.{' '}
-          {office}
+          Фактический адрес: {company.addresses.default.zip}, г.{' '}
+          {company.addresses.default.city}, <br />{' '}
+          {`${company.addresses.default.street.type} ${company.addresses.default.street.name}, д.${company.addresses.default.street.door}`}
+          , оф. {company.addresses.default.officeNum}
         </>
       )
     },

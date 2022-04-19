@@ -1,4 +1,5 @@
 // ./general
+export type { default as TGeneralClassNames } from '@/types/general/TGeneralClassNames'
 export type { default as TypeDataDoc } from '@/types/general/TypeDataDoc'
 export type { default as TypeDataDocs } from '@/types/general/TypeDataDocs'
 export type { default as TypeGeneralGetStaticPropsContext } from '@/types/general/TypeGeneralGetStaticPropsContext'
@@ -68,3 +69,6 @@ export type { default as TypePageTeachersPropsQuery } from '@/types/page/teacher
 // ./page/webinars
 export type { default as TypePageWebinarsProps } from '@/types/page/webinars/props/TypePageWebinarsProps'
 export type { default as TypePageWebinarsPropsQuery } from '@/types/page/webinars/query/TypePageWebinarsPropsQuery'
+
+// ./props
+export type { default as TPropClassNames } from '@/types/props/TPropClassNames'

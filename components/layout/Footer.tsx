@@ -5,10 +5,10 @@ import { company, routes } from '@/config/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
-import { city, street } from '@/data/location'
 import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import FooterBottom from '@/components/general/FooterBottom'
+import { GeneralAddress } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
 
 const Footer = () => {
@@ -129,9 +129,8 @@ const Footer = () => {
                   {company.phoneNumbers.defaultAlt.val}
                 </a>
               </div>
-              <div className={stls.address}>
-                {city}, {street}
-              </div>
+              <GeneralAddress classNames={[stls.address]} />
+
               <div className={stls.sm}>
                 <BtnVk dark mlzero />
                 <BtnWhatsapp dark />

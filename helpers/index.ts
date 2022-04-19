@@ -1,3 +1,7 @@
+// ./general
+export { default as getClassNames } from '@/helpers/general/getClassNames'
+
+// ./
 export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'
 export { default as convertMdToHtml } from '@/helpers/convertMdToHtml'
 export { default as filterProgramsByStudyField } from '@/helpers/filterProgramsByStudyField'

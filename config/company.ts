@@ -14,8 +14,21 @@ const company = {
         type: 'набережная',
         typeShort: 'наб.',
         name: 'Дербеневская',
-        door: '11',
-        room: '14'
+        door: '11'
+      },
+      room: '14',
+      officeNum: 'B503'
+    },
+    kz: {
+      countryCode: 'KZ',
+      city: 'Алматы',
+      zip: '050059',
+      street: {
+        type: 'Проспект',
+        typeShort: 'пр.',
+        name: 'Аль-Фараби',
+        door: '17',
+        location: 'БЦ Нурлы-Тау'
       }
     }
   },

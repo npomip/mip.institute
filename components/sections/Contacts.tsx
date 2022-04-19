@@ -1,12 +1,8 @@
 import stls from '@/styles/components/sections/Contacts.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+import { company } from '@/config/index'
 import { city, cityAlmaty, street, streetAlmaty } from '@/data/location'
-import {
-  number,
-  numberAlt,
-  numberAlmaty,
-  numberAlmatyAlt
-} from '@/data/contact'
+import { numberAlt, numberAlmaty, numberAlmatyAlt } from '@/data/contact'
 import { email, emailAlmaty } from '@/data/email'
 import CardContact from '@/components/cards/CardContact'
 
@@ -15,7 +11,7 @@ const Contacts = () => {
     {
       city,
       street,
-      numbers: [number, numberAlt],
+      numbers: [company.phoneNumbers.default, numberAlt],
       email
     },
     {

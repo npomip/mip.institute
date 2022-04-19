@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/PaymentInfo.module.sass'
+import { company } from '@/config/index'
 import Wrapper from '@/components/layout/Wrapper'
-import { number } from '@/data/contact'
 import { email } from '@/data/email'
 
 const PaymentInfo = () => {
@@ -31,8 +31,8 @@ const PaymentInfo = () => {
     <>
       В случае возникновения проблем с оплатой, свяжитесь с нами, в рабочие часы
       (09:00-19:00 МСК), по телефону{' '}
-      <a href={number.href} className={stls.number}>
-        {number.val}
+      <a href={company.phoneNumbers.default.href} className={stls.number}>
+        {company.phoneNumbers.default.val}
       </a>
       , с помощью email{' '}
       <a href={email.href} className={stls.email}>

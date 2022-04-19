@@ -6,7 +6,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeContact } from '@/data/routes'
 import { city, street } from '@/data/location'
-import { number, numberAlt } from '@/data/contact'
+import { numberAlt } from '@/data/contact'
 import { email, emailAlmaty } from '@/data/email'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
@@ -29,7 +29,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
       <NextSeo
         title={`Контакты | ${company.name}`}
         description={truncate(
-          `${city}, ${street}, ${number}, ${numberAlt}, ${email}`,
+          `${city}, ${street}, ${company.phoneNumbers.default.val}, ${numberAlt}, ${email}`,
           120
         )}
         canonical={`${routes.front.root}${routeContact}`}

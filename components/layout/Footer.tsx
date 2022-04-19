@@ -1,10 +1,11 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import classNames from 'classnames'
 import { useContext } from 'react'
+import { company } from '@/config/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
-import { number, numberAlt } from '@/data/contact'
+import { numberAlt } from '@/data/contact'
 import { city, street } from '@/data/location'
 import {
   routeCourses,
@@ -130,8 +131,10 @@ const Footer = () => {
             </ul>
             <div className={stls.contact}>
               <div className={stls.numbers}>
-                <a href={number.href} className={stls.number}>
-                  {number.val}
+                <a
+                  href={company.phoneNumbers.default.href}
+                  className={stls.number}>
+                  {company.phoneNumbers.default.val}
                 </a>
                 <a href={numberAlt.href} className={stls.number}>
                   {numberAlt.val}

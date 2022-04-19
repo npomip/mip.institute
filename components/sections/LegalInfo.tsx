@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/LegalInfo.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+import { company } from '@/config/index'
 import { zipcode, city, streetAlt, office } from '@/data/location'
-import { number } from '@/data/contact'
 import { email } from '@/data/email'
 
 const LegalInfo = () => {
@@ -46,8 +46,8 @@ const LegalInfo = () => {
         'Информация о контактных телефонах образовательной организации, об адресах электронной почты образовательной организации:',
       content: (
         <>
-          Контактный телефон: {number.val} <br /> Адрес электронной почты:{' '}
-          {email.val}
+          Контактный телефон: {company.phoneNumbers.default.val} <br /> Адрес
+          электронной почты: {email.val}
         </>
       )
     },

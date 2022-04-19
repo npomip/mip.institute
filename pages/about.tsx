@@ -17,17 +17,35 @@ const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
     setPrograms(programs)
     setCurProgramsType('profession')
     setCurProgramsStudyFieldSlug(null)
-  }, [])
+  }, [programs])
 
+  const seoParams = {
+    title: `Об институте | ${company.desc} | ${company.name}
+    `,
+    desc: truncate(company.about, 120),
+    canonical: `${routes.front.root}${routes.front.about}`
+  }
   return (
     <>
       <NextSeo
-        title={`Об институте | ${company.name}`}
-        description={truncate(
-          `Московский Институт Психологии за современный подход в образовании. Мы постоянно берем обратную связь от работодателей и каждый месяц адаптируем учебные программы. Это в 12 раз быстрее обновления программы обучения в государственном ВУЗе!`,
-          120
-        )}
-        canonical={`${routes.front.root}${routes.front.about}`}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
       />
       <SeoOrganizationJsonLd />
       <About standalone />

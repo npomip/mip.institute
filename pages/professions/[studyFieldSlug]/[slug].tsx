@@ -21,7 +21,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     setProgram(program)
     setCurProgramsType('profession')
     setCurProgramsStudyFieldSlug(studyFieldSlug)
-  }, [programs, program])
+  }, [programs, studyFieldSlug, program])
 
   return (
     <>

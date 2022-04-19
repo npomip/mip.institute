@@ -27,7 +27,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
     setPrograms(programs)
     setCurProgramsType(null)
     setCurProgramsStudyFieldSlug(null)
-  }, [])
+  }, [programs])
 
   const seoParams = {
     title: `${company.name} | ${company.desc} | ${company.tagline}

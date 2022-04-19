@@ -32,18 +32,39 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
     setPrograms(programs)
     setCurProgramsType(null)
     setCurProgramsStudyFieldSlug(null)
-  }, [])
+  }, [programs])
+
+  const seoParams = {
+    title: `Сведения об образовательной организации | ${company.name}`,
+    desc: truncate(
+      `Действующие лицензии, выдаваемые дипломы
+    и сертификаты, основные сведения и нормативные документы`,
+      120
+    ),
+    canonical: `${routes.front.root}${routes.front.legal}`
+  }
 
   return (
     <>
       <NextSeo
-        title={`Сведения об образовательной организации | ${company.name}`}
-        description={truncate(
-          `Действующие лицензии, выдаваемые дипломы
-        и сертификаты, основные сведения и нормативные документы`,
-          120
-        )}
-        canonical={`${routes.front.root}${routes.front.legal}`}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
       />
       <SeoOrganizationJsonLd />
       <PageTitle>

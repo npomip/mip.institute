@@ -25,15 +25,35 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
     setCurProgramsStudyFieldSlug(null)
   }, [])
 
+  const seoParams = {
+    title: `Оплата | ${company.name}`,
+    desc: truncate(
+      'Для проведения оплаты обучения, с помощью банковской карты, ниже на этой странице необходимо нажать кнопку Оплата банковской картой. Оплата происходит через ПАО СБЕРБАНК с использованием банковских карт следующих платёжных систем: VISA International, Mastercard Worldwide, JCB, МИР',
+      120
+    ),
+    canonical: `${routes.front.root}${routes.front.payment}`
+  }
   return (
     <>
       <NextSeo
-        title={`Оплата | ${company.name}`}
-        description={truncate(
-          `VISA International, Mastercard Worldwide, JCB, МИР`,
-          120
-        )}
-        canonical={`${routes.front.root}${routes.front.payment}`}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
       />
       <SeoOrganizationJsonLd />
       <PageTitle>Оплата</PageTitle>

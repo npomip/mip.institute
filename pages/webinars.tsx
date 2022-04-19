@@ -20,21 +20,42 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
     setPrograms(programs)
     setCurProgramsType(null)
     setCurProgramsStudyFieldSlug(null)
-  }, [])
+  }, [programs])
 
+  const seoParams = {
+    title: `Вебинары | ${company.desc} | ${company.name}
+    `,
+    desc: truncate(
+      `${webinars[webinars.length - 1].title}, ${
+        webinars[webinars.length - 1].name
+      } | ${webinars[webinars.length - 2].title}, ${
+        webinars[webinars.length - 2].name
+      }`,
+      120
+    ),
+    canonical: `${routes.front.root}${routes.front.webinars}`
+  }
   return (
     <>
       <NextSeo
-        title={`Вебинары | ${company.name}`}
-        description={truncate(
-          `${webinars[webinars.length - 1].title}, ${
-            webinars[webinars.length - 1].name
-          } | ${webinars[webinars.length - 2].title}, ${
-            webinars[webinars.length - 2].name
-          }`,
-          120
-        )}
-        canonical={`${routes.front.root}${routes.front.webinars}`}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
       />
       <SeoOrganizationJsonLd />
       <WebinarsAlt webinars={webinars} />

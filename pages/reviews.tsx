@@ -17,21 +17,42 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
     setPrograms(programs)
     setCurProgramsType(null)
     setCurProgramsStudyFieldSlug(null)
-  }, [])
+  }, [programs])
 
+  const seoParams = {
+    title: `Отзывы и статьи наших студентов | ${company.desc} | ${company.name}
+    `,
+    desc: truncate(
+      `${reviews[reviews.length - 1].title}, ${
+        reviews[reviews.length - 1].name
+      } | ${reviews[reviews.length - 2].title}, ${
+        reviews[reviews.length - 2].name
+      }`,
+      120
+    ),
+    canonical: `${routes.front.root}${routes.front.reviews}`
+  }
   return (
     <>
       <NextSeo
-        title={`Отзывы и статьи наших студентов | ${company.name}`}
-        description={truncate(
-          `${reviews[reviews.length - 1].title}, ${
-            reviews[reviews.length - 1].name
-          } | ${reviews[reviews.length - 2].title}, ${
-            reviews[reviews.length - 2].name
-          }`,
-          120
-        )}
-        canonical={`${routes.front.root}${routes.front.reviews}`}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
       />
       <SeoOrganizationJsonLd />
       <Reviews standalone reviews={reviews} />

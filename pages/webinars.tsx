@@ -4,8 +4,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeWebinars } from '@/data/routes'
-import companyName from '@/data/companyName'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { WebinarsAlt } from '@/components/sections'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -26,7 +25,7 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
   return (
     <>
       <NextSeo
-        title={`Вебинары | ${companyName}`}
+        title={`Вебинары | ${company.name}`}
         description={truncate(
           `${webinars[webinars.length - 1].title}, ${
             webinars[webinars.length - 1].name

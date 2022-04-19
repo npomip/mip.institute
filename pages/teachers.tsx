@@ -4,8 +4,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeTeachers } from '@/data/routes'
-import companyName from '@/data/companyName'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { MeetYourTeachers } from '@/components/sections'
@@ -26,7 +25,7 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
   return (
     <>
       <NextSeo
-        title={`Преподаватели | ${companyName}`}
+        title={`Преподаватели | ${company.name}`}
         description={truncate(
           `${teachers[0].name}, ${teachers[0].achievements} | ${teachers[1].name}, ${teachers[1].achievements}`,
           120

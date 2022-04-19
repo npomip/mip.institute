@@ -4,8 +4,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeProfessions } from '@/data/routes'
-import companyName from '@/data/companyName'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { PagesPrograms } from '@/components/pages'
@@ -34,7 +33,7 @@ const ProfessionsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
   return (
     <>
       <NextSeo
-        title={`${studyFieldLabel} | Профессии | ${companyName}`}
+        title={`${studyFieldLabel} | Профессии | ${company.name}`}
         description={truncate(
           `Профессии - длинные программы для полного погружения в направление`,
           120

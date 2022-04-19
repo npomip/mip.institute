@@ -13,8 +13,7 @@ import {
   dataDocsRegulationsLeft,
   dataDocsRegulationsRight
 } from '@/data/index'
-import companyName from '@/data/companyName'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import PageTitle from '@/components/layout/PageTitle'
@@ -38,7 +37,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   return (
     <>
       <NextSeo
-        title={`Сведения об образовательной организации | ${companyName}`}
+        title={`Сведения об образовательной организации | ${company.name}`}
         description={truncate(
           `Действующие лицензии, выдаваемые дипломы
         и сертификаты, основные сведения и нормативные документы`,

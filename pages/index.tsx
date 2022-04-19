@@ -4,8 +4,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeHome } from '@/data/routes'
-import companyName from '@/data/companyName'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import {
@@ -32,7 +31,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   return (
     <>
       <NextSeo
-        title={`${companyName} | Онлайн-институт психологии | Освойте востребованную профессию психолога или повысьте квалификацию вместе с нами
+        title={`${company.name} | Онлайн-институт психологии | Освойте востребованную профессию психолога или повысьте квалификацию вместе с нами
         `}
         description={truncate(
           `✅ Самые востребованные направления; ✅ Есть гос. аккредитация и сертификаты; ✅ Помощь в трудоустройстве; ✅ Онлайн обучение; ✅ Дипломы котируются по всему миру; ✅ Спикеры практики и имеют ученые степени`,

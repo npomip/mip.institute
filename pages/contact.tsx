@@ -5,11 +5,10 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeContact } from '@/data/routes'
-import companyName from '@/data/companyName'
 import { city, street } from '@/data/location'
 import { number, numberAlt } from '@/data/contact'
 import { email, emailAlmaty } from '@/data/email'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import PageTitle from '@/components/layout/PageTitle'
@@ -28,7 +27,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   return (
     <>
       <NextSeo
-        title={`Контакты | ${companyName}`}
+        title={`Контакты | ${company.name}`}
         description={truncate(
           `${city}, ${street}, ${number}, ${numberAlt}, ${email}`,
           120

@@ -4,8 +4,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeReviews } from '@/data/routes'
-import companyName from '@/data/companyName'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Reviews from '@/components/sections/Reviews'
@@ -23,7 +22,7 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
   return (
     <>
       <NextSeo
-        title={`Отзывы и статьи наших студентов | ${companyName}`}
+        title={`Отзывы и статьи наших студентов | ${company.name}`}
         description={truncate(
           `${reviews[reviews.length - 1].title}, ${
             reviews[reviews.length - 1].name

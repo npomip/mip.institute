@@ -5,8 +5,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routePayment } from '@/data/routes'
-import companyName from '@/data/companyName'
-import { routes } from '@/config/index'
+import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import PageTitle from '@/components/layout/PageTitle'
@@ -29,7 +28,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   return (
     <>
       <NextSeo
-        title={`Оплата | ${companyName}`}
+        title={`Оплата | ${company.name}`}
         description={truncate(
           `VISA International, Mastercard Worldwide, JCB, МИР`,
           120

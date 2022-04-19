@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeWebinars } from '@/data/routes'
 import companyName from '@/data/companyName'
-import { routesFront } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { WebinarsAlt } from '@/components/sections'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -35,7 +35,7 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
           }`,
           120
         )}
-        canonical={`${routesFront.root}${routeWebinars}`}
+        canonical={`${routes.front.root}${routeWebinars}`}
       />
       <WebinarsAlt webinars={webinars} />
     </>
@@ -43,6 +43,6 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
 }
 
 export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routesFront.webinars })
+  await handleGetStaticProps({ page: routes.front.webinars })
 
 export default WebinarsPage

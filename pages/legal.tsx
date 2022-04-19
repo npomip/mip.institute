@@ -14,7 +14,7 @@ import {
   dataDocsRegulationsRight
 } from '@/data/index'
 import companyName from '@/data/companyName'
-import { routesFront } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import PageTitle from '@/components/layout/PageTitle'
@@ -44,7 +44,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         и сертификаты, основные сведения и нормативные документы`,
           120
         )}
-        canonical={`${routesFront.root}${routeLegal}`}
+        canonical={`${routes.front.root}${routeLegal}`}
       />
       <PageTitle>
         Сведения <br className={stls.linebrake} /> об организации
@@ -72,6 +72,6 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routesFront.legal })
+  await handleGetStaticProps({ page: routes.front.legal })
 
 export default LegalPage

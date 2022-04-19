@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/LegalDocs.module.sass'
 import { TypeDataDocs } from '@/types/index'
 import Wrapper from '@/components/layout/Wrapper'
-import { routesFront } from '@/config/index'
 import { IconDoc } from '@/components/icons'
 
 type TypeLegalDocsProps = {

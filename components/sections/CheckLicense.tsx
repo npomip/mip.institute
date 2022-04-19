@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/CheckLicense.module.sass'
-import { externalUrls } from '@/config/index'
+import { routes } from '@/config/index'
 import Wrapper from '@/components/layout/Wrapper'
 import { BtnAlpha } from '@/components/btns'
 import { ImgFullProgram1 } from '@/components/imgs'
@@ -22,7 +22,7 @@ const CheckLicense = () => {
             <div className={stls.btn}>
               <BtnAlpha
                 text='Проверить'
-                href={externalUrls.license}
+                href={routes.external.license}
                 target='_blank'
               />
             </div>

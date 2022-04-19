@@ -5,7 +5,7 @@ import {
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
-import { routesFront, routesBack, revalidate } from '@/config/index'
+import { routes, revalidate } from '@/config/index'
 import {
   getStaticPathsPagePrograms,
   getStaticPathsPageProgram
@@ -24,10 +24,10 @@ const handleGetStaticPaths = async ({
   fallback: boolean | 'blocking'
 }> => {
   switch (page) {
-    case routesFront.programs:
+    case routes.front.programs:
       return await getStaticPathsPagePrograms({ type })
 
-    case routesFront.program:
+    case routes.front.program:
       return await getStaticPathsPageProgram({ type })
 
     default:

@@ -1,8 +1,8 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
-import { routesBack } from '@/config/index'
+import { routes } from '@/config/index'
 
 const client = new ApolloClient({
-  uri: `${routesBack.root}${routesBack.graphql}`,
+  uri: `${routes.back.root}${routes.back.graphql}`,
   cache: new InMemoryCache()
 })
 

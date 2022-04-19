@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeHome } from '@/data/routes'
 import companyName from '@/data/companyName'
-import { routesFront } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import {
@@ -38,7 +38,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
           `✅ Самые востребованные направления; ✅ Есть гос. аккредитация и сертификаты; ✅ Помощь в трудоустройстве; ✅ Онлайн обучение; ✅ Дипломы котируются по всему миру; ✅ Спикеры практики и имеют ученые степени`,
           120
         )}
-        canonical={`${routesFront.root}${routeHome}`}
+        canonical={`${routes.front.root}${routeHome}`}
       />
       <Hero />
       <Programs withTitle withBtn max={8} />
@@ -57,6 +57,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routesFront.home })
+  await handleGetStaticProps({ page: routes.front.home })
 
 export default HomePage

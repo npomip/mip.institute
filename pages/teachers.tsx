@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeTeachers } from '@/data/routes'
 import companyName from '@/data/companyName'
-import { routesFront } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { MeetYourTeachers } from '@/components/sections'
@@ -31,7 +31,7 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
           `${teachers[0].name}, ${teachers[0].achievements} | ${teachers[1].name}, ${teachers[1].achievements}`,
           120
         )}
-        canonical={`${routesFront.root}${routeTeachers}`}
+        canonical={`${routes.front.root}${routeTeachers}`}
       />
       <MeetYourTeachers teachers={teachers} />
     </>
@@ -39,6 +39,6 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
 }
 
 export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routesFront.teachers })
+  await handleGetStaticProps({ page: routes.front.teachers })
 
 export default TeachersPage

@@ -14,6 +14,7 @@ type TypeGeneralRoutesFront = {
   docsConstituent: '/docs/constituent'
   docsRegulations: 'docs/regulations'
   docsGeneral: '/docs/general'
+  assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png'
 }
 
 export default TypeGeneralRoutesFront

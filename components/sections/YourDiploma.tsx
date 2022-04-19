@@ -13,7 +13,7 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 import { PopupImage } from '@/components/popups'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
 import { BtnAlpha, BtnIota } from '@/components/btns'
-import externalUrls from '@/config/externalUrls'
+import { routes } from '@/config/index'
 
 type YourDiplomaType = {
   ofType: 'course' | 'profession'
@@ -92,7 +92,7 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
                           <span className={stls.highlight}>№041221</span>{' '}
                         </>
                       }
-                      href={externalUrls.license}
+                      href={routes.external.license}
                       target='_blank'
                     />
                   }

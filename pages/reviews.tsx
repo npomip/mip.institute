@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeReviews } from '@/data/routes'
 import companyName from '@/data/companyName'
-import { routesFront } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Reviews from '@/components/sections/Reviews'
@@ -32,7 +32,7 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
           }`,
           120
         )}
-        canonical={`${routesFront.root}${routeReviews}`}
+        canonical={`${routes.front.root}${routeReviews}`}
       />
       <Reviews standalone reviews={reviews} />
     </>
@@ -40,6 +40,6 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routesFront.reviews })
+  await handleGetStaticProps({ page: routes.front.reviews })
 
 export default ReviewsPage

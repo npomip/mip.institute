@@ -9,7 +9,7 @@ import {
   TypePageProgramsProps,
   TypePageProgramProps
 } from '@/types/index'
-import { routesFront, revalidate } from '@/config/index'
+import { routes, revalidate } from '@/config/index'
 import {
   getStaticPropsPageHome,
   getStaticPropsPageReviews,
@@ -43,34 +43,34 @@ const handleGetStaticProps = async ({
 }> => {
   try {
     switch (page) {
-      case routesFront.about:
+      case routes.front.about:
         return await getStaticPropsDefault({ context })
 
-      case routesFront.contact:
+      case routes.front.contact:
         return await getStaticPropsDefault({ context })
 
-      case routesFront.home:
+      case routes.front.home:
         return await getStaticPropsPageHome({ context })
 
-      case routesFront.legal:
+      case routes.front.legal:
         return await getStaticPropsDefault({ context })
 
-      case routesFront.payment:
+      case routes.front.payment:
         return await getStaticPropsDefault({ context })
 
-      case routesFront.reviews:
+      case routes.front.reviews:
         return await getStaticPropsPageReviews({ context })
 
-      case routesFront.teachers:
+      case routes.front.teachers:
         return await getStaticPropsPageTeachers({ context })
 
-      case routesFront.webinars:
+      case routes.front.webinars:
         return await getStaticPropsPageWebinars({ context })
 
-      case routesFront.programs:
+      case routes.front.programs:
         return await getStaticPropsPagePrograms({ context })
 
-      case routesFront.program:
+      case routes.front.program:
         return await getStaticPropsPageProgram({ context, type })
 
       default:

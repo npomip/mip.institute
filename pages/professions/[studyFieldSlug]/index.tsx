@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routeProfessions } from '@/data/routes'
 import companyName from '@/data/companyName'
-import { routesFront } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { PagesPrograms } from '@/components/pages'
@@ -39,7 +39,7 @@ const ProfessionsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
           `Профессии - длинные программы для полного погружения в направление`,
           120
         )}
-        canonical={`${routesFront.root}${routeProfessions}/${studyFieldSlug}`}
+        canonical={`${routes.front.root}${routeProfessions}/${studyFieldSlug}`}
       />
       <PagesPrograms ofType='profession' />
     </>
@@ -47,9 +47,12 @@ const ProfessionsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
-  await handleGetStaticPaths({ page: routesFront.programs, type: 'Profession' })
+  await handleGetStaticPaths({
+    page: routes.front.programs,
+    type: 'Profession'
+  })
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routesFront.programs })
+  await handleGetStaticProps({ context, page: routes.front.programs })
 
 export default ProfessionsStudyFieldPage

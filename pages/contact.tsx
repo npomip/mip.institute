@@ -9,7 +9,7 @@ import companyName from '@/data/companyName'
 import { city, street } from '@/data/location'
 import { number, numberAlt } from '@/data/contact'
 import { email, emailAlmaty } from '@/data/email'
-import { routesFront } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import PageTitle from '@/components/layout/PageTitle'
@@ -33,7 +33,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
           `${city}, ${street}, ${number}, ${numberAlt}, ${email}`,
           120
         )}
-        canonical={`${routesFront.root}${routeContact}`}
+        canonical={`${routes.front.root}${routeContact}`}
       />
       <PageTitle>Контакты</PageTitle>
       <Contacts />
@@ -42,6 +42,6 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routesFront.contact })
+  await handleGetStaticProps({ page: routes.front.contact })
 
 export default LegalPage

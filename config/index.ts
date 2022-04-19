@@ -1,23 +1,8 @@
-import base64pixel from '@/config/base64pixel'
-import gtmId from '@/config/gtmId'
-import dev from '@/config/dev'
-import externalUrls from '@/config/externalUrls'
-import prod from '@/config/prod'
-import revalidate from '@/config/revalidate'
-import fallback from '@/config/fallback'
-import themeColor from '@/config/themeColor'
-import routesBack from '@/config/routesBack'
-import routesFront from '@/config/routesFront'
-
-export {
-  dev,
-  externalUrls,
-  prod,
-  routesFront,
-  fallback,
-  routesBack,
-  gtmId,
-  base64pixel,
-  themeColor,
-  revalidate
-}
+export { default as base64pixel } from '@/config/base64pixel'
+export { default as gtmId } from '@/config/gtmId'
+export { default as dev } from '@/config/dev'
+export { default as prod } from '@/config/prod'
+export { default as revalidate } from '@/config/revalidate'
+export { default as fallback } from '@/config/fallback'
+export { default as themeColor } from '@/config/themeColor'
+export { default as routes } from '@/config/routes'

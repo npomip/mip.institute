@@ -27,11 +27,6 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 
   return (
     <>
-      <NextSeo
-        title={`${program.title} | Профессия | ${company.name}`}
-        description={truncate(program.description, 120)}
-        canonical={`${routes.front.root}${routes.front.professions}/${studyFieldSlug}/${program.slug}`}
-      />
       <PagesProgram ofType={'profession'} />
     </>
   )

@@ -2,8 +2,6 @@ import stls from '@/styles/components/sections/Contacts.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { company } from '@/config/index'
 import { city, cityAlmaty, street, streetAlmaty } from '@/data/location'
-import { numberAlt, numberAlmaty, numberAlmatyAlt } from '@/data/contact'
-import { email, emailAlmaty } from '@/data/email'
 import CardContact from '@/components/cards/CardContact'
 
 const Contacts = () => {
@@ -11,14 +9,14 @@ const Contacts = () => {
     {
       city,
       street,
-      numbers: [company.phoneNumbers.default, numberAlt],
-      email
+      numbers: [company.phoneNumbers.default, company.phoneNumbers.defaultAlt],
+      email: company.emails.default
     },
     {
       city: cityAlmaty,
       street: streetAlmaty,
-      numbers: [numberAlmaty],
-      email: emailAlmaty
+      numbers: [company.phoneNumbers.kz],
+      email: company.emails.kz
     }
   ]
   return (

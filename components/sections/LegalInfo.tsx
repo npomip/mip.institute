@@ -2,7 +2,6 @@ import stls from '@/styles/components/sections/LegalInfo.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { company } from '@/config/index'
 import { zipcode, city, streetAlt, office } from '@/data/location'
-import { email } from '@/data/email'
 
 const LegalInfo = () => {
   const listLeft = [
@@ -47,7 +46,7 @@ const LegalInfo = () => {
       content: (
         <>
           Контактный телефон: {company.phoneNumbers.default.val} <br /> Адрес
-          электронной почты: {email.val}
+          электронной почты: {company.emails.default.val}
         </>
       )
     },

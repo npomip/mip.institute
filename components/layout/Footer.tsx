@@ -5,7 +5,6 @@ import { company } from '@/config/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
-import { numberAlt } from '@/data/contact'
 import { city, street } from '@/data/location'
 import {
   routeCourses,
@@ -136,8 +135,10 @@ const Footer = () => {
                   className={stls.number}>
                   {company.phoneNumbers.default.val}
                 </a>
-                <a href={numberAlt.href} className={stls.number}>
-                  {numberAlt.val}
+                <a
+                  href={company.phoneNumbers.defaultAlt.href}
+                  className={stls.number}>
+                  {company.phoneNumbers.defaultAlt.val}
                 </a>
               </div>
               <div className={stls.address}>

@@ -23,10 +23,15 @@ const company = {
     default: {
       href: 'mailto:info@mip.institute',
       val: 'info@mip.institute'
+    },
+    kz: {
+      href: 'mailto:almaty@mip.institute',
+      val: 'almaty@mip.institute'
     }
   },
   phoneNumbers: {
     default: {
+      city: 'Москва',
       href: 'tel:+7-499-110-86-32',
       val: '+7 (499) 110-86-32',
       contactType: 'Учебный отдел',
@@ -34,6 +39,7 @@ const company = {
       languages: ['Russian', 'Kazakh', 'Uzbek']
     },
     defaultAlt: {
+      city: 'Москва',
       href: 'tel:+7-800-600-29-03',
       val: '+7 (800) 600-29-03',
       contactType: 'Учебный отдел',
@@ -41,6 +47,7 @@ const company = {
       languages: ['Russian', 'Kazakh', 'Uzbek']
     },
     kz: {
+      city: 'Алматы',
       href: 'tel:+7-771-766-22-24',
       val: '+7 (771) 766-22-24',
       contactType: 'Учебный отдел',
@@ -48,6 +55,7 @@ const company = {
       languages: ['Russian', 'Kazakh', 'Uzbek']
     },
     kzAlt: {
+      city: 'Алматы',
       href: 'tel:+7-727-311-15-00',
       val: '+7 (727) 311-15-00',
       contactType: 'Учебный отдел',

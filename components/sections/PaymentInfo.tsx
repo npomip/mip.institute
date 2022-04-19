@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/PaymentInfo.module.sass'
 import { company } from '@/config/index'
 import Wrapper from '@/components/layout/Wrapper'
-import { email } from '@/data/email'
 
 const PaymentInfo = () => {
   const list = [
@@ -35,8 +34,8 @@ const PaymentInfo = () => {
         {company.phoneNumbers.default.val}
       </a>
       , с помощью email{' '}
-      <a href={email.href} className={stls.email}>
-        {email.val}
+      <a href={company.emails.default.href} className={stls.email}>
+        {company.emails.default.val}
       </a>{' '}
       или оставьте заявку, нажав на кнопку{' '}
       <span className={stls.highlight}>Помощь</span> ниже

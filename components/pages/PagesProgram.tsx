@@ -32,7 +32,6 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
   const { program } = useContext(ProgramContext)
   const { curProgramsStudyFieldSlug } = useContext(ProgramsContext)
 
-  console.log(program)
   const seoParams = {
     title: `${program?.title} | ${program?.typeLabel || 'Курс'} | ${
       company.name

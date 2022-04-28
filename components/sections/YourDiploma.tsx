@@ -65,9 +65,16 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
         )}
       </div>,
       <div className={cn(stls.diploma, stls.supplement)}>
+        <ImgSupplement key='supplement' />
+      </div>
+    )
+
+  ofType === 'course' &&
+    slides.push(
+      <div className={stls.diploma}>
         {program?.diploma1 ? (
           <ImgDiplomaDynamic
-            key='supplement'
+            key='certificate'
             src={program?.diploma1?.url}
             width={program?.diploma1?.width && 700}
             height={getImageHeight({
@@ -75,18 +82,11 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
               widthInitial: program?.diploma1?.width,
               heightInitial: program?.diploma1?.height
             })}
-            diplomaSupplement
+            diplomaCertificate
           />
         ) : (
-          <ImgSupplement key='supplement' />
+          <ImgCertificate key='certificate' />
         )}
-      </div>
-    )
-
-  ofType === 'course' &&
-    slides.push(
-      <div className={stls.diploma}>
-        <ImgCertificate key='certificate' />
       </div>
     )
 

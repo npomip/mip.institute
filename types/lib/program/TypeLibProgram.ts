@@ -10,6 +10,8 @@ type TypeLibProgram = {
   typeLabel?: string | null
   studyMounthsDuration?: string | null
   heroPicture?: TypeLibGeneralPicture | null
+  diploma1?: TypeLibGeneralPicture | null
+  diploma2?: TypeLibGeneralPicture | null
   studyForm?: string | null
   description?: string | null
   studyFormLabel?: string | null

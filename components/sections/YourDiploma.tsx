@@ -1,19 +1,23 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
+import { useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import { routes } from '@/config/index'
+import { getImageHeight } from '@/helpers/index'
+import ProgramContext from '@/context/program/programContext'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
+import PopupTrigger from '@/components/general/PopupTrigger'
+import { PopupImage } from '@/components/popups'
+import { BtnAlpha, BtnIota } from '@/components/btns'
 import {
+  ImgDiplomaDynamic,
   ImgCertificate,
   ImgDiploma,
   ImgDiplomaAlt,
   ImgSupplement
 } from '@/components/imgs'
-import PopupTrigger from '@/components/general/PopupTrigger'
-import { PopupImage } from '@/components/popups'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
-import { BtnAlpha, BtnIota } from '@/components/btns'
-import { routes } from '@/config/index'
 
 type YourDiplomaType = {
   ofType: 'course' | 'profession'
@@ -22,16 +26,60 @@ type YourDiplomaType = {
 const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
   const slides = []
 
+  const { program } = useContext(ProgramContext)
+  console.log(program)
+
   ofType === 'profession' &&
     slides.push(
       <div className={stls.diploma}>
-        <ImgDiploma key='diploma' />
+        {program.diploma1 ? (
+          <ImgDiplomaDynamic
+            key='diploma'
+            src={program?.diploma1?.src}
+            width={program?.diploma1?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma1?.width,
+              heightInitial: program?.diploma1?.height
+            })}
+          />
+        ) : (
+          <ImgDiploma key='diploma' />
+        )}
       </div>,
       <div className={stls.diploma}>
-        <ImgDiplomaAlt key='diploma-alt' />,
+        {program?.diploma2 ? (
+          <ImgDiplomaDynamic
+            key='diploma-alt'
+            src={program?.diploma2?.src}
+            width={program?.diploma2?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma2?.width,
+              heightInitial: program?.diploma2?.height
+            })}
+            diplomaAlt
+          />
+        ) : (
+          <ImgDiplomaAlt key='diploma-alt' />
+        )}
       </div>,
       <div className={cn(stls.diploma, stls.supplement)}>
-        <ImgSupplement key='supplement' />
+        {program?.diploma1 ? (
+          <ImgDiplomaDynamic
+            key='supplement'
+            src={program?.diploma1?.src}
+            width={program?.diploma1?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma1?.width,
+              heightInitial: program?.diploma1?.height
+            })}
+            diplomaSupplement
+          />
+        ) : (
+          <ImgSupplement key='supplement' />
+        )}
       </div>
     )
 

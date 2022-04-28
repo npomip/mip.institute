@@ -7,6 +7,7 @@
       "@/context/*": ["context/*"],
       "@/data/*": ["data/*"],
       "@/helpers/*": ["helpers/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/lib/*": ["lib/*"],
       "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"],

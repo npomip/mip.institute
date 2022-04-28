@@ -1,5 +1,6 @@
 // ./general
 export type { default as TGeneralClassNames } from '@/types/general/TGeneralClassNames'
+export type { default as TGeneralImg } from '@/types/general/TGeneralImg'
 export type { default as TypeDataDoc } from '@/types/general/TypeDataDoc'
 export type { default as TypeDataDocs } from '@/types/general/TypeDataDocs'
 export type { default as TypeGeneralGetStaticPropsContext } from '@/types/general/TypeGeneralGetStaticPropsContext'

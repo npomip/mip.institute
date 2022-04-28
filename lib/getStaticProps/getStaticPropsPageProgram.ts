@@ -41,6 +41,16 @@ const getStaticPropsPageProgram = async ({
             width
             height
           }
+          diploma1 {
+            url
+            width
+            height
+          }
+          diploma2 {
+            url
+            width
+            height
+          }
           slug
           studyForm
           type

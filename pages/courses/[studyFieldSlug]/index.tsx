@@ -5,6 +5,7 @@ import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { PagesPrograms } from '@/components/pages'
 import ProgramsContext from '@/context/programs/programsContext'
+import { SeoPagesPrograms } from '@/components/seo'
 
 const CoursesStudyFieldPage: NextPage<TypePageProgramsProps> = ({
   programs,
@@ -21,6 +22,11 @@ const CoursesStudyFieldPage: NextPage<TypePageProgramsProps> = ({
 
   return (
     <>
+      <SeoPagesPrograms
+        programs={programs}
+        ofType='course'
+        curProgramsStudyFieldSlug={studyFieldSlug}
+      />
       <PagesPrograms ofType='course' />
     </>
   )

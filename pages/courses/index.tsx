@@ -5,6 +5,7 @@ import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { PagesPrograms } from '@/components/pages'
+import { SeoPagesPrograms } from '@/components/seo'
 
 const CoursesPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
   const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
@@ -18,6 +19,7 @@ const CoursesPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
 
   return (
     <>
+      <SeoPagesPrograms programs={programs} ofType='course' />
       <PagesPrograms ofType='course' />
     </>
   )

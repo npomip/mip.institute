@@ -5,10 +5,15 @@ import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import { PagesPrograms } from '@/components/pages'
+import { SeoPagesPrograms } from '@/components/seo'
 
 const ProgramsPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
+  const {
+    setPrograms,
+    setCurProgramsType,
+    setCurProgramsStudyFieldSlug,
+    studyFields
+  } = useContext(ProgramsContext)
 
   useEffect(() => {
     setPrograms(programs)
@@ -18,6 +23,7 @@ const ProgramsPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
 
   return (
     <>
+      <SeoPagesPrograms programs={programs} />
       <PagesPrograms />
     </>
   )

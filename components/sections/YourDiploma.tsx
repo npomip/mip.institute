@@ -35,7 +35,7 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
         {program.diploma1 ? (
           <ImgDiplomaDynamic
             key='diploma'
-            src={program?.diploma1?.src}
+            src={program?.diploma1?.url}
             width={program?.diploma1?.width && 700}
             height={getImageHeight({
               width: 700,
@@ -51,7 +51,7 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
         {program?.diploma2 ? (
           <ImgDiplomaDynamic
             key='diploma-alt'
-            src={program?.diploma2?.src}
+            src={program?.diploma2?.url}
             width={program?.diploma2?.width && 700}
             height={getImageHeight({
               width: 700,
@@ -68,7 +68,7 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
         {program?.diploma1 ? (
           <ImgDiplomaDynamic
             key='supplement'
-            src={program?.diploma1?.src}
+            src={program?.diploma1?.url}
             width={program?.diploma1?.width && 700}
             height={getImageHeight({
               width: 700,

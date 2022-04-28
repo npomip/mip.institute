@@ -1,13 +1,12 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import ProgramContext from '@/context/program/programContext'
 import { PagesProgram } from '@/components/pages'
+import { SeoPagesProgram } from '@/components/seo'
 
 const CoursePage: NextPage<TypePageProgramProps> = ({
   programs,
@@ -27,6 +26,11 @@ const CoursePage: NextPage<TypePageProgramProps> = ({
 
   return (
     <>
+      <SeoPagesProgram
+        program={program}
+        ofType='course'
+        curProgramsStudyFieldSlug={studyFieldSlug}
+      />
       <PagesProgram ofType={'course'} />
     </>
   )

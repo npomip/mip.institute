@@ -6,6 +6,7 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import ProgramsContext from '@/context/programs/programsContext'
 import ProgramContext from '@/context/program/programContext'
 import { PagesProgram } from '@/components/pages'
+import { SeoPagesProgram } from '@/components/seo'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
@@ -25,6 +26,11 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 
   return (
     <>
+      <SeoPagesProgram
+        program={program}
+        ofType='profession'
+        curProgramsStudyFieldSlug={studyFieldSlug}
+      />
       <PagesProgram ofType={'profession'} />
     </>
   )

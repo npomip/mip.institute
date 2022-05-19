@@ -23,7 +23,7 @@ const ProgramInfo = () => {
     }
   } = useContext(ProgramContext)
 
-  console.log(program)
+  // console.log(program)
 
   const vals = [
     {

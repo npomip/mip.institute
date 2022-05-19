@@ -1,5 +1,6 @@
 import stls from '@/styles/components/sections/YourResume.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+import cn from 'classnames'
 import { ImgResume1 } from '@/components/imgs'
 import ProgramContext from '@/context/program/programContext'
 import { useContext } from 'react'
@@ -22,13 +23,15 @@ const YourResume = () => {
               <ImgResume1 />
             </div>
             <div className={stls.headings}>
-              <div className={stls.heading}>
+              <div className={cn(stls.heading, stls.headingLeft)}>
                 <p className={stls.p}>Профессия:</p>
                 <h3 className={stls.h3}>{resumeTitle}</h3>
               </div>
               <div className={stls.heading}>
                 <p className={stls.p}>Зарплата от:</p>
-                <h3 className={stls.h3}>{toNumberWithSpaces(entrySalary)} р</h3>
+                <h3 className={stls.h3}>
+                  {toNumberWithSpaces(entrySalary)}&nbsp;р
+                </h3>
               </div>
             </div>
           </div>

@@ -68,6 +68,10 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(13))
 
+.headingLeft
+  @include m.media(laptop, desktop)
+    flex-basis: 70%
+
 .p
   @include m.gap($mb: f.px(5))
   font-size: f.px(13)

@@ -12,6 +12,7 @@ const ProgramState = props => {
   const [state, dispatch] = useReducer(programReducer, initialState)
 
   const setProgram = (program = []) => {
+    console.log(program)
     const programPayload =
       convertMdToHtml({
         arr: [{ ...program }],

@@ -20,6 +20,7 @@ const Teachers = () => {
     program: { teachers }
   } = useContext(ProgramContext)
 
+  // console.log(teachers)
   const list = teachers?.map(teacher => {
     teacher.image = (
       <ImgTeacher

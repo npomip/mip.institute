@@ -27,7 +27,7 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ProgramContext)
-  console.log(program)
+  // console.log(program)
 
   ofType === 'profession' &&
     slides.push(

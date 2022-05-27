@@ -5,7 +5,8 @@ import {
   ImgDiploma,
   ImgDiplomaAlt,
   ImgSupplement,
-  ImgCertificate
+  ImgCertificate,
+  ImgCertificateAlt
 } from '@/components/imgs'
 
 const Diplomas = () => {
@@ -27,6 +28,10 @@ const Diplomas = () => {
         {
           image: <ImgCertificate />,
           title: 'Сертификат института'
+        },
+        {
+          image: <ImgCertificateAlt />,
+          title: 'Удостоверение института'
         }
       ]
     }

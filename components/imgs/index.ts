@@ -2,6 +2,7 @@ import ImgTemplate from '@/components/imgs/ImgTemplate'
 import ImgDiploma1 from '@/components/imgs/diplomas/ImgDiploma1'
 import ImgDiploma from '@/components/imgs/diplomas/ImgDiploma'
 import ImgCertificate from '@/components/imgs/diplomas/ImgCertificate'
+import ImgCertificateAlt from '@/components/imgs/diplomas/ImgCertificateAlt'
 import ImgDiplomaAlt from '@/components/imgs/diplomas/ImgDiplomaAlt'
 import ImgDiplomaDynamic from '@/components/imgs/diplomas/ImgDiplomaDynamic'
 import ImgSupplement from '@/components/imgs/diplomas/ImgSupplement'
@@ -37,6 +38,7 @@ export {
   ImgDiploma1,
   ImgDiploma,
   ImgCertificate,
+  ImgCertificateAlt,
   ImgDiplomaAlt,
   ImgDiplomaDynamic,
   ImgSupplement,

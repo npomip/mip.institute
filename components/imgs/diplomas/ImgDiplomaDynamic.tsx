@@ -6,10 +6,12 @@ import { useCheckIfResourseExists } from '@/hooks/index'
 import defaultSrc from '@/public/assets/imgs/diplomas/diploma.jpg'
 import defaultSrcAlt from '@/public/assets/imgs/diplomas/diploma-alt.jpg'
 import defaultSrcCertificate from '@/public/assets/imgs/diplomas/certificate.jpg'
+import defaultSrcCertificateAlt from '@/public/assets/imgs/diplomas/certificate-alt.jpg'
 
 type TImgDiplomaDynamic = TGeneralImg & {
   diplomaAlt?: boolean
   diplomaCertificate?: boolean
+  diplomaCertificateAlt?: boolean
 }
 
 const ImgDiplomaDynamic = ({
@@ -19,7 +21,8 @@ const ImgDiplomaDynamic = ({
   width,
   height,
   diplomaAlt,
-  diplomaCertificate
+  diplomaCertificate,
+  diplomaCertificateAlt
 }: TImgDiplomaDynamic) => {
   const isImage = useCheckIfResourseExists({ src })
 
@@ -34,6 +37,8 @@ const ImgDiplomaDynamic = ({
           ? defaultSrcAlt
           : diplomaCertificate
           ? defaultSrcCertificate
+          : diplomaCertificateAlt
+          ? defaultSrcCertificateAlt
           : defaultSrc
       }
       alt={alt || 'Диплом'}

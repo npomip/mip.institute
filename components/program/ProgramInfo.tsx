@@ -48,7 +48,7 @@ const ProgramInfo = () => {
     },
     {
       key: type === 'Profession' ? 'Диплом:' : 'Документ по окончанию',
-      val: type === 'Profession' ? 'Диплом о переподготовке' : 'Сертификат',
+      val: type === 'Profession' ? 'Диплом о переподготовке' : 'Удостоверение',
       icon: <IconFile />
     }
   ]

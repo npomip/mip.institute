@@ -13,6 +13,7 @@ import { BtnAlpha, BtnIota } from '@/components/btns'
 import {
   ImgDiplomaDynamic,
   ImgCertificate,
+  ImgCertificateAlt,
   ImgDiploma,
   ImgDiplomaAlt,
   ImgSupplement
@@ -86,6 +87,23 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
           />
         ) : (
           <ImgCertificate key='certificate' />
+        )}
+      </div>,
+      <div className={stls.diploma}>
+        {program?.diploma2 ? (
+          <ImgDiplomaDynamic
+            key='certificate-alt'
+            src={program?.diploma2?.url}
+            width={program?.diploma2?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma2?.width,
+              heightInitial: program?.diploma2?.height
+            })}
+            diplomaCertificateAlt
+          />
+        ) : (
+          <ImgCertificateAlt key='certificate-alt' />
         )}
       </div>
     )

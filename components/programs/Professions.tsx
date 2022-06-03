@@ -50,7 +50,8 @@ const Professions = ({
         )}
         <div className={stls.underheading}>
           <p className={stls.subTitle}>
-            Длинные программы для полного погружения в направление
+            Программы профессиональной переподготовки для полного погружения в
+            профессию
           </p>
           {withQty && (
             <div className={stls.laptopdesktop}>

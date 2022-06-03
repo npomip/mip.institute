@@ -51,7 +51,8 @@ const Courses = ({
 
         <div className={stls.underheading}>
           <p className={stls.subTitle}>
-            Короткие программы, чтобы изучить один конкретный навык
+            Повышение квалификации для получения или обновления знаний в
+            конкретной теме
           </p>
           {withQty && (
             <div className={stls.laptopdesktop}>

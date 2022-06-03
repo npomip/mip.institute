@@ -19,7 +19,8 @@ const ProgramAdmission = () => {
 
   return (
     <>
-      {currentDay < 5 ? '5' : currentDay >= 5 && currentDay < 20 ? '20' : '5'}{' '}
+      {/* {currentDay < 5 ? '5' : currentDay >= 5 && currentDay < 20 ? '20' : '5'}{' } */}
+      {currentDay < 20 ? '20' : 5}{' '}
       {(() => {
         let output
         if (currentDay < 20) {

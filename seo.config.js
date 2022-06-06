@@ -1,3 +1,5 @@
+import truncate from 'truncate'
+
 const seo = {
   openGraph: {
     type: 'website',
@@ -11,8 +13,10 @@ const seo = {
   //   cardType: 'summary_large_image',
   // },
   defaultTitle: 'Московский Институт Психологии',
-  description:
-    'Освойте востребованную профессию психолога или повысьте квалификацию вместе с нами',
+  description: truncate(
+    'Онлайн-институт востребованных профессий в области психологии (психоанализа, клинической психологии, бизнес-психологии, гештальт терапии, КПТ, психолого-педагогического и специального (дефектологического) направлений. Институт реализует программы дополнительного профессионального образования: повышение квалификации, профессиональной переподготовки и курсы Life',
+    120
+  ),
   canonical: 'https://mip.institute'
   // dangerouslySetAllPagesToNoIndex: true,
   // dangerouslySetAllPagesToNoFollow: true

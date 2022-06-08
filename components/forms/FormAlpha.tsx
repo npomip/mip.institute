@@ -11,6 +11,8 @@ import { PopupThankyou } from '@/components/popups'
 type FormValues = {
   name: string
   phone: string
+  email: string
+  promocode: string
   question: string
   leadPage: string
 }
@@ -50,6 +52,8 @@ const FormAlpha = ({
     const referer = JSON.parse(sessionStorage.getItem('referer'))
     data.referer = referer
     sessionStorage.removeItem('referer')
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    data.ymUid = ymUid
     const req = await hitContactRoute(data)
     if (req === 200) {
       console.log('Success')
@@ -104,6 +108,38 @@ const FormAlpha = ({
               })}
             />
             <p className={stls.err}>{errors.phone && errors.phone.message}</p>
+          </div>
+          <div className={classNames(stls.inpt, stls.email)}>
+            <input
+              type='email'
+              aria-label='Ваша электронная почта'
+              placeholder='Ваша электронная почта'
+              disabled={isDisabled}
+              {...register('email', {
+                pattern: {
+                  value:
+                    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                  message:
+                    'Пожалуйста, введите корректный адрес электронной почты'
+                }
+              })}
+            />
+            <p className={stls.err}>{errors.email && errors.email.message}</p>
+          </div>
+          <div className={classNames(stls.inpt, stls.promocode)}>
+            <input
+              type='text'
+              aria-label='Промокод'
+              placeholder='Промокод'
+              disabled={isDisabled}
+              {...register('promocode', {
+                maxLength: {
+                  value: 32,
+                  message: `*Не больше 32 символов`
+                }
+              })}
+            />
+            <p className={stls.err}>{errors.email && errors.email.message}</p>
           </div>
           {question && (
             <div className={classNames(stls.inpt, stls.question)}>

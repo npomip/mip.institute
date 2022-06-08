@@ -15,6 +15,7 @@ const contact = async (req, res) => {
     name,
     phone,
     email,
+    promocode,
     vk,
     contactWay,
     contactMethod,
@@ -22,15 +23,14 @@ const contact = async (req, res) => {
     programTitle,
     leadPage,
     utms,
-    referer
+    referer,
+    ymUid
   } = req.body
 
   if (name?.includes('@')) {
     email = name
     name = ''
   }
-
-  const promocode = null
 
   // geoip2 init
   const geoip2 = new WebServiceClient('550199', process.env.GEO2_APIKEY, {
@@ -105,6 +105,7 @@ const contact = async (req, res) => {
     name: name || null,
     phone: phone || '',
     email: email || '',
+    ymUid: ymUid || '',
     vk: vk || null,
     promocode: promocode || null,
     contactWay: contactWay || null,
@@ -278,7 +279,7 @@ const contact = async (req, res) => {
       },
       {
         tdKey: 'Yandex Metrics ID',
-        tdVal: null
+        tdVal: data.ymUid
       },
       {
         tdKey: 'Устройство пользователя',

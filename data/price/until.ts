@@ -16,15 +16,23 @@ const months = [
   'декабря'
 ]
 
-let output
-if (currentDay < 20) {
-  output = months[currentMonth]
-} else {
-  currentMonth === 11
-    ? (output = months[0])
-    : (output = months[currentMonth + 1])
-}
+const lastDayOfCurMonth = new Date(
+  currentDate.getFullYear(),
+  currentDate.getMonth() + 1,
+  0
+).getDate()
 
-const until = currentDay < 20 ? 'до 20 ' + output : 'до 5 ' + output
+let output
+output = months[currentMonth]
+// if (currentDay < 20) {
+//   output = months[currentMonth]
+// } else {
+//   currentMonth === 11
+//     ? (output = months[0])
+//     : (output = months[currentMonth + 1])
+// }
+
+const until =
+  currentDay < 20 ? `до 20 ${output}` : `до ${lastDayOfCurMonth} ${output}`
 
 export default until

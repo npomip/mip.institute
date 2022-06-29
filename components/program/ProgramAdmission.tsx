@@ -26,17 +26,18 @@ const ProgramAdmission = () => {
   return (
     <>
       {/* {currentDay < 5 ? '5' : currentDay >= 5 && currentDay < 20 ? '20' : '5'}{' } */}
-      {currentDay < 20 ? '20' : lastDayOfCurMonth}{' '}
+      {currentDay < 20 ? '20' : '5'}{' '}
+      {/* {currentDay < 20 ? '20' : lastDayOfCurMonth}{' '} */}
       {(() => {
         let output
-        output = months[currentMonth]
-        // if (currentDay < 20) {
-        //   output = months[currentMonth]
-        // } else {
-        //   currentMonth === 11
-        //     ? (output = months[0])
-        //     : (output = months[currentMonth + 1])
-        // }
+        // output = months[currentMonth]
+        if (currentDay < 20) {
+          output = months[currentMonth]
+        } else {
+          currentMonth === 11
+            ? (output = months[0])
+            : (output = months[currentMonth + 1])
+        }
         return output
       })()}
     </>

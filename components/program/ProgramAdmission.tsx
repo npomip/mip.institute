@@ -17,19 +17,26 @@ const ProgramAdmission = () => {
     'декабря'
   ]
 
+  const lastDayOfCurMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  ).getDate()
+
   return (
     <>
       {/* {currentDay < 5 ? '5' : currentDay >= 5 && currentDay < 20 ? '20' : '5'}{' } */}
-      {currentDay < 20 ? '20' : 5}{' '}
+      {currentDay < 20 ? '20' : lastDayOfCurMonth}{' '}
       {(() => {
         let output
-        if (currentDay < 20) {
-          output = months[currentMonth]
-        } else {
-          currentMonth === 11
-            ? (output = months[0])
-            : (output = months[currentMonth + 1])
-        }
+        output = months[currentMonth]
+        // if (currentDay < 20) {
+        //   output = months[currentMonth]
+        // } else {
+        //   currentMonth === 11
+        //     ? (output = months[0])
+        //     : (output = months[currentMonth + 1])
+        // }
         return output
       })()}
     </>

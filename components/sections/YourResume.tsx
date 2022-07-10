@@ -2,16 +2,17 @@ import stls from '@/styles/components/sections/YourResume.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import cn from 'classnames'
 import { ImgResume1 } from '@/components/imgs'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getListItemsInnerHtml, toNumberWithSpaces } from '@/helpers/index'
+import marked from 'marked'
 
 const YourResume = () => {
-  const {
-    program: { resumeTitle, entrySalary, resumeSkills }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  const list = getListItemsInnerHtml(resumeSkills)
+  const list =
+    program?.resumeSkills?.length > 0 &&
+    getListItemsInnerHtml(marked(program.resumeSkills))
 
   return (
     <section className={stls.container}>
@@ -25,12 +26,12 @@ const YourResume = () => {
             <div className={stls.headings}>
               <div className={cn(stls.heading, stls.headingLeft)}>
                 <p className={stls.p}>Профессия:</p>
-                <h3 className={stls.h3}>{resumeTitle}</h3>
+                <h3 className={stls.h3}>{program?.resumeTitle}</h3>
               </div>
               <div className={stls.heading}>
                 <p className={stls.p}>Зарплата от:</p>
                 <h3 className={stls.h3}>
-                  {toNumberWithSpaces(entrySalary)}&nbsp;р
+                  {toNumberWithSpaces(program?.entrySalary)}&nbsp;р
                 </h3>
               </div>
             </div>

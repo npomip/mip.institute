@@ -1,12 +1,10 @@
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageHomeProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
-import { pros } from '@/data/index'
 import { handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import {
   Hero,
   WhyBother,
@@ -20,14 +18,7 @@ import {
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType(null)
-    setCurProgramsStudyFieldSlug(null)
-  }, [programs])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `${company.name} | ${company.desc} | ${company.tagline}

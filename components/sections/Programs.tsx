@@ -6,7 +6,7 @@ import { routes } from '@/config/index'
 import { filterProgramsByStudyField } from '@/helpers/index'
 import Wrapper from '@/components/layout/Wrapper'
 import ProgramsFilters from '@/components/layout/ProgramsFilters'
-import ProgramsContext from '@/context/programs/programsContext'
+import { ContextStaticProps } from '@/context/index'
 import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
 
@@ -35,7 +35,7 @@ const Programs = ({
     curProgramsStudyFieldSlug,
     filteredPrograms,
     searchTerm
-  } = useContext(ProgramsContext)
+  } = useContext(ContextStaticProps)
 
   const router = useRouter()
 

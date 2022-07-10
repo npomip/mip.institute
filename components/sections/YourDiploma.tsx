@@ -4,7 +4,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routes } from '@/config/index'
 import { getImageHeight } from '@/helpers/index'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import PopupTrigger from '@/components/general/PopupTrigger'
@@ -27,7 +27,7 @@ type YourDiplomaType = {
 const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
   const slides = []
 
-  const { program } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
   // console.log(program)
 
   ofType === 'profession' &&

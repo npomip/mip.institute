@@ -1,15 +1,13 @@
 import stls from '@/styles/components/program/ProgramLabel.module.sass'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 
 const ProgramLabel = () => {
-  const {
-    program: { typeLabel }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
   return (
     <div className={stls.container}>
-      <p className={stls.p}>{typeLabel}</p>
+      <p className={stls.p}>{program?.typeLabel}</p>
     </div>
   )
 }

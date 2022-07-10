@@ -5,17 +5,18 @@ import {
   IconRemoteWork,
   IconToTheMoon
 } from '@/components/icons'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getListItemsInnerHtml } from '@/helpers/index'
 import parse from 'html-react-parser'
+import marked from 'marked'
 
 const ForWhom = () => {
-  const {
-    program: { ForWhom: forWhom }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  const list = getListItemsInnerHtml(forWhom)
+  const list =
+    program?.ForWhom?.length > 0 &&
+    getListItemsInnerHtml(marked(program.ForWhom))
 
   return (
     <section className={stls.container}>

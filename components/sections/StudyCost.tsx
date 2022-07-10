@@ -3,7 +3,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import ProgramCost from '@/components/program/ProgramCost'
 import { BtnEta, BtnGamma, BtnText } from '@/components/btns'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import classNames from 'classnames'
 import { IconCircleCheck } from '@/components/icons'
@@ -12,15 +12,13 @@ import ProgramAdmission from '@/components/program/ProgramAdmission'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 
 const StudyCost = () => {
-  const {
-    program: {
-      title,
-      studyHours,
-      studyForm,
-      studyFormLabel,
-      studyMounthsDuration
-    }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
+
+  const title = program?.title || ''
+  const studyHours = program?.studyHours || 0
+  const studyForm = program?.studyForm || ''
+  const studyFormLabel = program?.studyFormlabel || ''
+  const studyMounthsDuration = program?.studyMounthsDuration || 0
 
   const info = [
     { key: 'Зачисление:', val: <ProgramAdmission /> },

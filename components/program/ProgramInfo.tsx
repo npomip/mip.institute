@@ -1,5 +1,5 @@
 import stls from '@/styles/components/program/ProgramInfo.module.sass'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
@@ -12,18 +12,13 @@ import {
 } from '@/components/icons'
 
 const ProgramInfo = () => {
-  const {
-    program,
-    program: {
-      studyHours,
-      studyForm,
-      studyFormLabel,
-      studyMounthsDuration,
-      type
-    }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  // console.log(program)
+  const studyHours = program?.studyHours || 0
+  const studyForm = program?.studyForm || ''
+  const studyFormLabel = program?.studyFormLabel || ''
+  const studyMounthsDuration = program?.studyMounthsDuration || 0
+  const type = program?.type || ''
 
   const vals = [
     {

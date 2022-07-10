@@ -3,9 +3,8 @@ import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
-import ProgramsState from '@/context/programs/ProgramsState'
-import ProgramState from '@/context/program/ProgramState'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
+import { ContextStaticProps } from '@/context/index'
 
 import TagManager from 'react-gtm-module'
 
@@ -22,11 +21,63 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import '@/styles/app.sass'
 
+import { filterProgramsByType, getStudyFields } from '@/helpers/index'
+
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
 
-function MyApp({ Component, pageProps, router }) {
+const MyApp = ({ Component, pageProps, router }) => {
+  const getDefaultStateProps = pageProps => {
+    const program = pageProps.program || null
+    const programs = pageProps.programs || []
+    const courses =
+      programs?.length > 0
+        ? filterProgramsByType({ programs, type: 'course' })
+        : []
+    const professions =
+      programs?.length > 0
+        ? filterProgramsByType({ programs, type: 'profession' })
+        : []
+
+    const studyFields = programs?.length > 0 ? getStudyFields(programs) : []
+
+    const studyFieldsProfessions =
+      programs?.length > 0 ? getStudyFields(professions) : []
+
+    const studyFieldsCourses =
+      programs?.length > 0 ? getStudyFields(courses) : []
+
+    return {
+      program,
+      programs,
+      courses,
+      professions,
+      studyFields,
+      studyFieldsProfessions,
+      studyFieldsCourses
+    }
+  }
+
+  const defaultStateProps = getDefaultStateProps(pageProps)
+
+  const [program, setProgram] = useState(defaultStateProps.program)
+  const [programs, setPrograms] = useState(defaultStateProps.programs)
+  const [courses, setCourses] = useState(defaultStateProps.courses)
+  const [professions, setProfessions] = useState(defaultStateProps.professions)
+  const [studyFields, setStudyFields] = useState(defaultStateProps.studyFields)
+  const [studyFieldsProfessions, setStudyFieldsProfessions] = useState(
+    defaultStateProps.studyFieldsProfessions
+  )
+  const [studyFieldsCourses, setStudyFieldsCourses] = useState(
+    defaultStateProps.studyFieldsCourses
+  )
+  const [curProgramsType, setCurProgramsType] = useState(null)
+  const [curProgramsStudyFieldSlug, setCurProgramsStudyFieldSlug] =
+    useState(null)
+  const [searchTerm, setSearchTerm] = useState(null)
+  const [filteredPrograms, setFilteredPrograms] = useState([])
+
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -92,20 +143,42 @@ function MyApp({ Component, pageProps, router }) {
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
         url={routes.front.root}
       />
-      <ProgramsState>
-        <ProgramState>
-          <MenuState>
-            <FieldsTooltipState>
-              <Header />
-              <main>
-                <Component {...pageProps} />
-              </main>
-              <StickyBottom />
-              <Footer />
-            </FieldsTooltipState>
-          </MenuState>
-        </ProgramState>
-      </ProgramsState>
+      <ContextStaticProps.Provider
+        value={{
+          program,
+          programs,
+          courses,
+          professions,
+          studyFields,
+          studyFieldsProfessions,
+          studyFieldsCourses,
+          curProgramsType,
+          curProgramsStudyFieldSlug,
+          searchTerm,
+          filteredPrograms,
+          setProgram,
+          setPrograms,
+          setCourses,
+          setProfessions,
+          setStudyFields,
+          setStudyFieldsProfessions,
+          setStudyFieldsCourses,
+          setCurProgramsType,
+          setCurProgramsStudyFieldSlug,
+          setSearchTerm,
+          setFilteredPrograms
+        }}>
+        <MenuState>
+          <FieldsTooltipState>
+            <Header />
+            <main>
+              <Component {...pageProps} />
+            </main>
+            <StickyBottom />
+            <Footer />
+          </FieldsTooltipState>
+        </MenuState>
+      </ContextStaticProps.Provider>
       <Script src='/assets/js/vendors/swiped-events.min.js' />
     </>
   )

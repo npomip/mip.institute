@@ -2,7 +2,7 @@ import stls from '@/styles/components/layout/Footer.module.sass'
 import classNames from 'classnames'
 import { useContext } from 'react'
 import { company, routes } from '@/config/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { ContextStaticProps } from '@/context/index'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
 import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
@@ -12,7 +12,7 @@ import { GeneralAddress } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
 
 const Footer = () => {
-  const { studyFields } = useContext(ProgramsContext)
+  const { studyFields } = useContext(ContextStaticProps)
 
   const staticLinks = [
     {

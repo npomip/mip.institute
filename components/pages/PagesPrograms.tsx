@@ -2,7 +2,6 @@
 // import { useContext } from 'react'
 // import truncate from 'truncate'
 // import { routes, company } from '@/config/index'
-// import ProgramsContext from '@/context/programs/programsContext'
 import {
   HeroPrograms,
   FilterSearch,
@@ -16,8 +15,6 @@ type PagesProgramsType = {
 }
 
 const PagesPrograms = ({ ofType }: PagesProgramsType) => {
-  // const { curProgramsStudyFieldSlug, studyFields } = useContext(ProgramsContext)
-
   return (
     <>
       <HeroPrograms ofType={ofType} />

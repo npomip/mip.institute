@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/Faq.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import FaqAnswer from '@/components/general/FaqAnswer'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
 import PopupTrigger from '@/components/general/PopupTrigger'
@@ -10,9 +10,7 @@ import { convertMdToHtml } from '@/helpers/index'
 import marked from 'marked'
 
 const Faq = () => {
-  const {
-    program: { questions, qnas }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
   // const topics = getListItemsInnerHtml(questions)
   // const titles = getParagraphInnerHtml(questions)
@@ -26,8 +24,8 @@ const Faq = () => {
   //   }))
 
   const list =
-    qnas &&
-    qnas.map((qna, idx) => ({
+    program?.qnas?.length &&
+    program.qnas.map((qna, idx) => ({
       question: qna.question,
       answer: marked(qna.answer)
     }))

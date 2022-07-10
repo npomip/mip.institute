@@ -1,26 +1,18 @@
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageWebinarsProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { WebinarsAlt } from '@/components/sections'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
   programs,
   webinars
 }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType(null)
-    setCurProgramsStudyFieldSlug(null)
-  }, [programs])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Вебинары | ${company.desc} | ${company.name}

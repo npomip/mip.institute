@@ -1,23 +1,15 @@
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageReviewsProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import Reviews from '@/components/sections/Reviews'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType(null)
-    setCurProgramsStudyFieldSlug(null)
-  }, [programs])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Отзывы и статьи наших студентов | ${company.desc} | ${company.name}

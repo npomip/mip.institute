@@ -1,16 +1,17 @@
 import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { IconCircleCheck } from '@/components/icons'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getListItemsInnerHtml } from '@/helpers/index'
+import marked from 'marked'
 
 const WhatYouWillLearn = () => {
-  const {
-    program: { WhatYouWillLearn: whatYouWillLearn }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  const list = getListItemsInnerHtml(whatYouWillLearn)
+  const list =
+    program?.WhatYouWillLearn?.length > 0 &&
+    getListItemsInnerHtml(marked(program.WhatYouWillLearn))
 
   return (
     <section className={stls.container}>

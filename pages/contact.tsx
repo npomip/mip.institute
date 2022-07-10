@@ -1,25 +1,17 @@
 import stls from '@/styles/pages/Contact.module.sass'
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageDefaultProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import { Contacts } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType(null)
-    setCurProgramsStudyFieldSlug(null)
-  }, [programs])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Контакты | ${company.name}`,

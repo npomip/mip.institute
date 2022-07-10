@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/StudyFields.module.sass'
 import { Fragment, useContext } from 'react'
 import cn from 'classnames'
 import { routes } from '@/config/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { ContextStaticProps } from '@/context/index'
 import { BtnField } from '@/components/btns'
 
 type StudyFieldsType = {
@@ -21,7 +21,7 @@ const StudyFields = ({
     studyFieldsCourses,
     studyFieldsProfessions,
     curProgramsType
-  } = useContext(ProgramsContext)
+  } = useContext(ContextStaticProps)
 
   const list =
     ofType === 'course'

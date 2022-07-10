@@ -1,11 +1,11 @@
 import stls from '@/styles/components/program/ProgramCost.module.sass'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 import { discountNum } from '@/data/price'
 
 const ProgramCost = ({ withPerMonth = false }) => {
-  const { program } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
   const price = (program && program.price) || 0
   const discount = (program && program.discount) || discountNum

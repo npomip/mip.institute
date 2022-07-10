@@ -1,7 +1,6 @@
 import stls from '@/styles/pages/Legal.module.sass'
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageDefaultProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import {
@@ -14,7 +13,7 @@ import {
 } from '@/data/index'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import {
   ActiveLicenses,
@@ -25,14 +24,7 @@ import {
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType(null)
-    setCurProgramsStudyFieldSlug(null)
-  }, [programs])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Сведения об образовательной организации | ${company.name}`,

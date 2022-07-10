@@ -1,23 +1,15 @@
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageDefaultProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import About from '@/components/sections/About'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType('profession')
-    setCurProgramsStudyFieldSlug(null)
-  }, [programs])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Об институте | ${company.desc} | ${company.name}

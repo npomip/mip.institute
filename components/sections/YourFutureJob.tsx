@@ -7,18 +7,19 @@ import {
   ImgDecoration3
 } from '@/components/imgs'
 import { IconAtom } from '@/components/icons'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getListItemsInnerHtml } from '@/helpers/index'
+import marked from 'marked'
 
 const YourFutureJob = () => {
-  const {
-    program: { jobTitles }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  const list = getListItemsInnerHtml(jobTitles)
+  const list =
+    program?.jobTitles?.length > 0 &&
+    getListItemsInnerHtml(marked(program.jobTitles))
 
-  if (!jobTitles || (jobTitles && jobTitles.length === 0)) return <></>
+  if (!list || list?.length === 0) return <></>
 
   return (
     <section className={stls.container}>

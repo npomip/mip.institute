@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
 import { useContext } from 'react'
 import { getImageHeight } from '@/helpers/index'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import PopupTrigger from '@/components/general/PopupTrigger'
@@ -16,13 +16,12 @@ import {
 } from '@/components/imgs'
 
 const Teachers = () => {
-  const {
-    program: { teachers }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  // console.log(teachers)
-  const list = teachers?.map(teacher => {
-    teacher.image = (
+  const teachers = program?.teachers || []
+  const list = [...teachers]?.map(teacher => ({
+    ...teacher,
+    image: (
       <ImgTeacher
         src={teacher?.portrait?.url}
         alt={teacher.name}
@@ -34,8 +33,7 @@ const Teachers = () => {
         })}
       />
     )
-    return teacher
-  })
+  }))
 
   const teachersSlides = list?.map((teacher, idx) => (
     <CardTeacher

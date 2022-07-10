@@ -2,12 +2,13 @@ import stls from '@/styles/components/btns/BtnProgramsField.module.sass'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { useContext } from 'react'
-import ProgramsContext from '@/context/programs/programsContext'
+import { ContextStaticProps } from '@/context/index'
 import { IconMoreThan } from '@/components/icons'
 import PopupFields from '@/components/popups/PopupFields'
 
 const BtnProgramsField = ({ ofType = null }) => {
-  const { studyFields, curProgramsStudyFieldSlug } = useContext(ProgramsContext)
+  const { studyFields, curProgramsStudyFieldSlug } =
+    useContext(ContextStaticProps)
 
   const [isOpen, setIsOpen] = useState(false)
 

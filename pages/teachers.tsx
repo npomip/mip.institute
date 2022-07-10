@@ -1,11 +1,10 @@
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageTeachersProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import { MeetYourTeachers } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
@@ -13,14 +12,7 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
   programs,
   teachers
 }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType(null)
-    setCurProgramsStudyFieldSlug(null)
-  }, [programs])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Преподаватели | ${company.desc} | ${company.name}

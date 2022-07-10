@@ -1,9 +1,8 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { TypePageProgramsProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 
@@ -11,14 +10,11 @@ const ProfessionsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
   programs,
   studyFieldSlug
 }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType('profession')
-    setCurProgramsStudyFieldSlug(studyFieldSlug)
-  }, [programs, studyFieldSlug])
+  useHandleContextStaticProps({
+    programs,
+    curProgramsType: 'profession',
+    curProgramsStudyFieldSlug: studyFieldSlug
+  })
 
   return (
     <>

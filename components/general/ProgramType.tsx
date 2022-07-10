@@ -3,11 +3,11 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import { routes } from '@/config/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { ContextStaticProps } from '@/context/index'
 
 const ProgramType = ({ close = null }) => {
   const { curProgramsType, curProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
+    useContext(ContextStaticProps)
 
   const slug = curProgramsStudyFieldSlug ? curProgramsStudyFieldSlug : ''
 

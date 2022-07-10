@@ -1,12 +1,11 @@
 import stls from '@/styles/pages/Payment.module.sass'
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageDefaultProps } from '@/types/index'
-import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import {
   PaymentBtns,
@@ -16,14 +15,7 @@ import {
 import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  const { setPrograms, setCurProgramsType, setCurProgramsStudyFieldSlug } =
-    useContext(ProgramsContext)
-
-  useEffect(() => {
-    setPrograms(programs)
-    setCurProgramsType(null)
-    setCurProgramsStudyFieldSlug(null)
-  }, [])
+  useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Оплата | ${company.name}`,

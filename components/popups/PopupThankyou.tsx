@@ -1,12 +1,12 @@
 import stls from '@/styles/components/popups/PopupThankyou.module.sass'
 import { useEffect, useContext } from 'react'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import TagManager from 'react-gtm-module'
 import { BtnClose } from '@/components/btns'
 import { v4 as uuidv4 } from 'uuid'
 
 const PopupThankyou = ({ close }) => {
-  const { program } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
   useEffect(() => {
     const tagManagerArgs = {

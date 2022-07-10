@@ -1,14 +1,15 @@
 import stls from '@/styles/components/program/ProgramModulesQty.module.sass'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getParagraphInnerHtml } from '@/helpers/index'
+import marked from 'marked'
 
 const ProgramModulesQty = () => {
-  const {
-    program: { shortContents }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  const titles = getParagraphInnerHtml(shortContents)
+  const titles =
+    program?.shortContents?.length > 0 &&
+    getParagraphInnerHtml(marked(program.shortContents))
 
   return (
     <div className={stls.container}>

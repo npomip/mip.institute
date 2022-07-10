@@ -1,16 +1,19 @@
 import stls from '@/styles/components/program/ProgramModules.module.sass'
 import ProgramModule from '@/components/program/ProgramModule'
-import ProgramContext from '@/context/program/programContext'
+import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
+import marked from 'marked'
 
 const ProgramModules = () => {
-  const {
-    program: { shortContents }
-  } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
-  const topics = getListItemsInnerHtml(shortContents)
-  const titles = getParagraphInnerHtml(shortContents)
+  const topics =
+    program?.shortContents?.length > 0 &&
+    getListItemsInnerHtml(marked(program.shortContents))
+  const titles =
+    program?.shortContents?.length > 0 &&
+    getParagraphInnerHtml(marked(program.shortContents))
 
   const list =
     titles &&

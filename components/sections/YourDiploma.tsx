@@ -28,12 +28,11 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ContextStaticProps)
-  // console.log(program)
 
   ofType === 'profession' &&
     slides.push(
       <div className={stls.diploma}>
-        {program.diploma1 ? (
+        {program?.diploma1 ? (
           <ImgDiplomaDynamic
             key='diploma'
             src={program?.diploma1?.url}

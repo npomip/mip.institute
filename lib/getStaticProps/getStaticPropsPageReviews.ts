@@ -20,6 +20,9 @@ const getStaticPropsPageReviews = async ({
           id
           studyField
           studyFieldSlug
+          index_number {
+            idx
+          }
         }
         reviews {
           id
@@ -27,10 +30,14 @@ const getStaticPropsPageReviews = async ({
           profession
           title
           story
+          createdAt
           picture {
             url
             width
             height
+          }
+          index_number {
+            idx
           }
         }
       }

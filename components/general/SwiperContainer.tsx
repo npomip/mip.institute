@@ -104,6 +104,7 @@ const SwiperContainer = ({
           <SwiperSlide key={`slide-${idx}`}>
             {diplomas ? (
               <Popup trigger={<div>{slide}</div>} modal nested>
+                {/* @ts-expect-error */}
                 {close => <PopupImage image={slide} close={close} />}
               </Popup>
             ) : (

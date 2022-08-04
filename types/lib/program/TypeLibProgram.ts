@@ -36,6 +36,9 @@ type TypeLibProgram = {
       }[]
     | null
   teachers?: TypeLibTeachers | null
+  index_number?: {
+    idx?: number | null
+  } | null
 } | null
 
 export default TypeLibProgram

@@ -20,6 +20,9 @@ const getStaticPropsPageWebinars = async ({
           id
           studyField
           studyFieldSlug
+          index_number {
+            idx
+          }
         }
         webinars {
           id
@@ -31,6 +34,9 @@ const getStaticPropsPageWebinars = async ({
             height
           }
           title
+          index_number {
+            idx
+          }
         }
       }
     `

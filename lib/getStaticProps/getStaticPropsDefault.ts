@@ -20,6 +20,9 @@ const getStaticPropsDefault = async ({
           id
           studyField
           studyFieldSlug
+          index_number {
+            idx
+          }
         }
       }
     `

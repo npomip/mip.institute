@@ -25,6 +25,9 @@ const getStaticPropsPageHome = async ({
           type
           typeLabel
           studyMounthsDuration
+          index_number {
+            idx
+          }
         }
         reviews {
           id
@@ -32,10 +35,14 @@ const getStaticPropsPageHome = async ({
           profession
           title
           story
+          createdAt
           picture {
             url
             width
             height
+          }
+          index_number {
+            idx
           }
         }
       }

@@ -25,6 +25,9 @@ const getStaticPropsPagePrograms = async ({
           type
           typeLabel
           studyMounthsDuration
+          index_number {
+            idx
+          }
         }
       }
     `

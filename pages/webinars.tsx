@@ -1,7 +1,8 @@
 import { GetStaticProps, NextPage } from 'next'
-import { TypePageWebinarsProps } from '@/types/index'
+import { TypeLibWebinars, TypePageWebinarsProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
+import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { WebinarsAlt } from '@/components/sections'
@@ -14,14 +15,16 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
 }) => {
   useHandleContextStaticProps({ programs })
 
+  const webinarsSorted: TypeLibWebinars = sortBasedOnNumericOrder({ webinars })
+
   const seoParams = {
     title: `Вебинары | ${company.desc} | ${company.name}
     `,
     desc: truncate(
-      `${webinars[webinars.length - 1].title}, ${
-        webinars[webinars.length - 1].name
-      } | ${webinars[webinars.length - 2].title}, ${
-        webinars[webinars.length - 2].name
+      `${webinarsSorted[webinarsSorted.length - 1].title}, ${
+        webinarsSorted[webinarsSorted.length - 1].name
+      } | ${webinarsSorted[webinarsSorted.length - 2].title}, ${
+        webinarsSorted[webinarsSorted.length - 2].name
       }`,
       120
     ),
@@ -50,7 +53,7 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
         }}
       />
       <SeoOrganizationJsonLd />
-      <WebinarsAlt webinars={webinars} />
+      <WebinarsAlt webinars={webinarsSorted} />
     </>
   )
 }

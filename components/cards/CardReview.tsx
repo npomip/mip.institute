@@ -24,6 +24,7 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
           }
           modal
           nested>
+          {/* @ts-expect-error */}
           {close => (
             <PopupReview
               title={title}

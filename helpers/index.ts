@@ -1,5 +1,7 @@
 // ./general
 export { default as getClassNames } from '@/helpers/general/getClassNames'
+export { default as sortBasedOnNumericOrder } from '@/helpers/general/sortBasedOnNumericOrder'
+export { default as sortReviewsCreatedAtASC } from '@/helpers/general/sortReviewsCreatedAtASC'
 
 // ./
 export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'

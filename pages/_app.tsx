@@ -14,14 +14,17 @@ import SEO from '../seo.config'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
+import {
+  filterProgramsByType,
+  getStudyFields,
+  sortBasedOnNumericOrder
+} from '@/helpers/index'
 import { prod, gtmId, routes } from '@/config/index'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import '@/styles/app.sass'
-
-import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -30,7 +33,8 @@ import StickyBottom from '@/components/layout/StickyBottom'
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
     const program = pageProps.program || null
-    const programs = pageProps.programs || []
+    const programs =
+      sortBasedOnNumericOrder({ programs: pageProps.programs }) || []
     const courses =
       programs?.length > 0
         ? filterProgramsByType({ programs, type: 'course' })

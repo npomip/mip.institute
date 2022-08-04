@@ -88,6 +88,9 @@ const getStaticPropsPageProgram = async ({
               height
             }
           }
+          index_number {
+            idx
+          }
         }
       }
     `,

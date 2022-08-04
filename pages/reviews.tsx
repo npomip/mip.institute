@@ -2,6 +2,10 @@ import { GetStaticProps, NextPage } from 'next'
 import { TypePageReviewsProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
+import {
+  sortBasedOnNumericOrder,
+  sortReviewsCreatedAtASC
+} from '@/helpers/index'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -11,14 +15,18 @@ import { SeoOrganizationJsonLd } from '@/components/seo'
 const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
   useHandleContextStaticProps({ programs })
 
+  const reviewsSorted = sortBasedOnNumericOrder({
+    reviews: sortReviewsCreatedAtASC({ reviews })
+  })
+
   const seoParams = {
     title: `Отзывы и статьи наших студентов | ${company.desc} | ${company.name}
     `,
     desc: truncate(
-      `${reviews[reviews.length - 1].title}, ${
-        reviews[reviews.length - 1].name
-      } | ${reviews[reviews.length - 2].title}, ${
-        reviews[reviews.length - 2].name
+      `${reviewsSorted[reviewsSorted.length - 1].title}, ${
+        reviewsSorted[reviewsSorted.length - 1].name
+      } | ${reviewsSorted[reviewsSorted.length - 2].title}, ${
+        reviewsSorted[reviewsSorted.length - 2].name
       }`,
       120
     ),
@@ -47,7 +55,7 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
         }}
       />
       <SeoOrganizationJsonLd />
-      <Reviews standalone reviews={reviews} />
+      <Reviews standalone reviews={reviewsSorted} />
     </>
   )
 }

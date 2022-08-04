@@ -1,7 +1,8 @@
 import { GetStaticProps, NextPage } from 'next'
-import { TypePageTeachersProps } from '@/types/index'
+import { TypeLibTeachers, TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
+import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -14,11 +15,13 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
 }) => {
   useHandleContextStaticProps({ programs })
 
+  const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
+
   const seoParams = {
     title: `Преподаватели | ${company.desc} | ${company.name}
     `,
     desc: truncate(
-      `${teachers[0].name}, ${teachers[0].achievements} | ${teachers[1].name}, ${teachers[1].achievements}`,
+      `${teachersSorted[0].name}, ${teachersSorted[0].achievements} | ${teachersSorted[1].name}, ${teachersSorted[1].achievements}`,
       120
     ),
     canonical: `${routes.front.root}${routes.front.teachers}`
@@ -46,7 +49,7 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
         }}
       />
       <SeoOrganizationJsonLd />
-      <MeetYourTeachers teachers={teachers} />
+      <MeetYourTeachers teachers={teachersSorted} />
     </>
   )
 }

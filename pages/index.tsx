@@ -2,6 +2,10 @@ import { GetStaticProps, NextPage } from 'next'
 import { TypePageHomeProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
+import {
+  sortBasedOnNumericOrder,
+  sortReviewsCreatedAtASC
+} from '@/helpers/index'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -19,6 +23,10 @@ import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   useHandleContextStaticProps({ programs })
+
+  const reviewsSorted = sortBasedOnNumericOrder({
+    reviews: sortReviewsCreatedAtASC({ reviews })
+  })
 
   const seoParams = {
     title: `${company.name} | ${company.desc} | ${company.tagline}
@@ -63,7 +71,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
-      <Reviews reviews={reviews} />
+      <Reviews reviews={reviewsSorted} />
       {/* <Webinars /> */}
     </>
   )

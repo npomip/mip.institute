@@ -52,6 +52,7 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                     }
                     modal
                     nested>
+                    {/* @ts-expect-error */}
                     {close => (
                       <PopupCta
                         title={'Смотреть все вебинары'}

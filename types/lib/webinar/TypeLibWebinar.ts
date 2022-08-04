@@ -6,6 +6,9 @@ type TypeLibWebinar = {
   name: string | null
   date: Date | null
   picture: TypeLibGeneralPicture | null
+  index_number?: {
+    idx?: number | null
+  } | null
 } | null
 
 export default TypeLibWebinar

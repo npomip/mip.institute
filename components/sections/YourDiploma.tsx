@@ -146,7 +146,6 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
                   lockScroll
                   nested
                   closeOnDocumentClick>
-                  {/* @ts-expect-error */}
                   {close => <PopupImage image={<ImgLicence />} close={close} />}
                 </Popup>
                 {/* <Popup

@@ -2,7 +2,7 @@ import stls from '@/styles/components/cards/CardReview.module.sass'
 import truncate from 'truncate'
 import Popup from 'reactjs-popup'
 import { BtnText } from '@/components/btns'
-import { PopupReview } from '../popups'
+import { PopupReview } from '@/components/popups'
 
 const CardReview = ({ title, photo, name, occupation, story }) => {
   return (
@@ -24,7 +24,6 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
           }
           modal
           nested>
-          {/* @ts-expect-error */}
           {close => (
             <PopupReview
               title={title}

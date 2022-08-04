@@ -39,7 +39,6 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }) => {
                   className='DiplomaExpandableItem__popup'
                   modal
                   nested>
-                  {/* @ts-expect-error */}
                   {close => <PopupImage image={diploma.image} close={close} />}
                 </Popup>
               </li>

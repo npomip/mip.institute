@@ -33,7 +33,6 @@ const ActiveLicenses = () => {
               }
               modal
               nested>
-              {/* @ts-expect-error */}
               {close => <PopupImage image={<ImgLicence />} close={close} />}
             </Popup>
           </div>

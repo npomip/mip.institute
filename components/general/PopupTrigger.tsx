@@ -263,7 +263,6 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
       }
       modal
       nested>
-      {/* @ts-expect-error */}
       {close => (
         <PopupCta
           title={strs.title}

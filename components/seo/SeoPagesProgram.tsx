@@ -55,8 +55,10 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
       <CourseJsonLd
         courseName={seoParams.programTitle}
         description={seoParams.desc}
-        providerName={company.name}
-        providerUrl={seoParams.canonical}
+        provider={{
+          name: company.name,
+          url: seoParams.canonical
+        }}
       />
     </>
   )

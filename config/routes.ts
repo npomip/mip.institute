@@ -14,7 +14,7 @@ type TRoutes = {
   }
 }
 
-const routes: TRoutes = {
+const routes = {
   front: {
     root: dev ? 'http://localhost:3000' : 'https://mip.institute',
     home: '/',
@@ -53,11 +53,14 @@ const routes: TRoutes = {
   },
   external: {
     license:
-      'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/'
+      'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
+    vk: 'https://m.vk.com/mip_institute',
+    whatsapp: 'http://wa.me/+74991108632',
+    telegram: 'https://t.me/mip_edu'
   },
   anchors: {
     //
   }
-}
+} as const
 
 export default routes

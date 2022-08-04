@@ -1,18 +1,22 @@
 import stls from '@/styles/components/btns/BtnVk.module.sass'
-import { IconVk } from '@/components/icons'
+import { routes } from '@/config/index'
 import classNames from 'classnames'
+import { IconVk } from '@/components/icons'
 
 const BtnVk = ({ mlzero = false, dark = false }) => {
   return (
-    <button
+    <a
       className={classNames({
         [stls.container]: true,
         [stls.mlzero]: mlzero,
         [stls.dark]: dark
       })}
+      href={routes.external.vk}
+      target='_blank'
+      rel='noopener noreferrer'
       aria-label='VK'>
       <IconVk />
-    </button>
+    </a>
   )
 }
 

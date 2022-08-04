@@ -7,7 +7,15 @@ import MenuContext from '@/context/menu/menuContext'
 import Wrapper from '@/components/layout/Wrapper'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import Logo from '@/components/general/Logo'
-import { BtnClose, BtnPhone, BtnVk, BtnFb, BtnYt } from '@/components/btns'
+import {
+  BtnClose,
+  BtnPhone,
+  BtnVk,
+  BtnFb,
+  BtnYt,
+  BtnWhatsapp,
+  BtnTelegram
+} from '@/components/btns'
 import { IconMoreThan } from '@/components/icons'
 
 const MenuMobile = () => {
@@ -62,8 +70,10 @@ const MenuMobile = () => {
         </div>
         <div className={stls.sm}>
           <BtnVk mlzero />
-          <BtnFb />
-          <BtnYt />
+          <BtnWhatsapp />
+          <BtnTelegram />
+          {/* <BtnFb />
+          <BtnYt /> */}
         </div>
       </Wrapper>
     </div>

@@ -4,7 +4,8 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   generateRobotsTxt: true,
-  exclude: ['/payment'],
+  generateIndexSitemap: false,
+  exclude: ['/payment', '/promo*', '*?'],
   // alternateRefs: [
   //   {
   //     href: 'https://moscow.mba/en-US',
@@ -24,8 +25,8 @@ module.exports = {
     policies: [
       {
         userAgent: '*',
-        allow: '/'
-        // disallow: '/'
+        allow: ['/*.css', '/*.js', '/*.jpg', '/*.png', '/*.gif'],
+        disallow: ['/promo*', '*?']
       }
     ]
   }

@@ -24,21 +24,23 @@ const Teachers = () => {
 
   const teachers = program?.teachers
 
-  const list = [...teachers]?.map(teacher => ({
-    ...teacher,
-    image: (
-      <ImgTeacher
-        src={teacher?.portrait?.url}
-        alt={teacher.name}
-        width={160}
-        height={getImageHeight({
-          width: 160,
-          widthInitial: teacher?.portrait?.width,
-          heightInitial: teacher?.portrait?.height
-        })}
-      />
-    )
-  }))
+  const list =
+    teachers &&
+    [...teachers]?.map(teacher => ({
+      ...teacher,
+      image: (
+        <ImgTeacher
+          src={teacher?.portrait?.url}
+          alt={teacher.name}
+          width={160}
+          height={getImageHeight({
+            width: 160,
+            widthInitial: teacher?.portrait?.width,
+            heightInitial: teacher?.portrait?.height
+          })}
+        />
+      )
+    }))
 
   const teachersSlides = list?.map((teacher, idx) => (
     <CardTeacher

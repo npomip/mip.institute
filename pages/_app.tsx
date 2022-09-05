@@ -52,6 +52,14 @@ const MyApp = ({ Component, pageProps, router }) => {
     const studyFieldsCourses =
       programs?.length > 0 ? getStudyFields(courses) : []
 
+    const curProgramsType = pageProps.curProgramsType || null
+
+    const curProgramsStudyFieldSlug = pageProps.studyFieldSlug || null
+
+    const searchTerm = pageProps.searchTerm || null
+
+    const filteredPrograms = pageProps.filteredPrograms || []
+
     return {
       program,
       programs,
@@ -59,7 +67,11 @@ const MyApp = ({ Component, pageProps, router }) => {
       professions,
       studyFields,
       studyFieldsProfessions,
-      studyFieldsCourses
+      studyFieldsCourses,
+      curProgramsType,
+      curProgramsStudyFieldSlug,
+      searchTerm,
+      filteredPrograms
     }
   }
 
@@ -76,11 +88,16 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [studyFieldsCourses, setStudyFieldsCourses] = useState(
     defaultStateProps.studyFieldsCourses
   )
-  const [curProgramsType, setCurProgramsType] = useState(null)
-  const [curProgramsStudyFieldSlug, setCurProgramsStudyFieldSlug] =
-    useState(null)
-  const [searchTerm, setSearchTerm] = useState(null)
-  const [filteredPrograms, setFilteredPrograms] = useState([])
+  const [curProgramsType, setCurProgramsType] = useState(
+    defaultStateProps.curProgramsType
+  )
+  const [curProgramsStudyFieldSlug, setCurProgramsStudyFieldSlug] = useState(
+    defaultStateProps.curProgramsStudyFieldSlug
+  )
+  const [searchTerm, setSearchTerm] = useState(defaultStateProps.searchTerm)
+  const [filteredPrograms, setFilteredPrograms] = useState(
+    defaultStateProps.filteredPrograms
+  )
 
   const [loading, setLoading] = useState(false)
 

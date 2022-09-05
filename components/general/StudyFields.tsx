@@ -23,9 +23,6 @@ const StudyFields = ({
     curProgramsType
   } = useContext(ContextStaticProps)
 
-  console.log(studyFieldsCourses)
-  console.log(studyFieldsProfessions)
-
   const list =
     ofType === 'course'
       ? studyFieldsCourses

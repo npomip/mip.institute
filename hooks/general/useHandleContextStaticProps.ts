@@ -51,7 +51,7 @@ const useHandleContextStaticProps = ({
 
     setCurProgramsType(curProgramsType || null)
     setCurProgramsStudyFieldSlug(curProgramsStudyFieldSlug || null)
-  }, [])
+  }, [curProgramsStudyFieldSlug, curProgramsType, program, programs])
 }
 
 export default useHandleContextStaticProps

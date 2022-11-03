@@ -38,9 +38,7 @@ const routes = {
     policiesTerms: '/policies/terms.pdf'
   },
   back: {
-    root: dev
-      ? 'http://localhost:1337'
-      : 'https://api-mip-institute.herokuapp.com',
+    root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
     home: '/',
     graphql: '/graphql',
     programs: '/programs', // /programs || /programs/:id

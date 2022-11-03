@@ -20,7 +20,7 @@ const ProgramModules = () => {
     titles
       .map((topic, idx) => ({
         title: topic,
-        topics: topics[idx]
+        topics: topics?.[idx]
       }))
       .filter((item, idx) => idx < 5)
 

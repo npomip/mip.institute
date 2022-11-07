@@ -23,6 +23,7 @@ const ProgramAdmission = () => {
     0
   ).getDate()
 
+  return '18 ноября'
   return (
     <>
       {currentDay < 5 ? '5' : currentDay >= 5 && currentDay < 20 ? '20' : '5'}{' '}

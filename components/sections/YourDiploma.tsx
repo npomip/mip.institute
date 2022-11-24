@@ -63,10 +63,10 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
         ) : (
           <ImgDiplomaAlt key='diploma-alt' />
         )}
-      </div>,
-      <div className={cn(stls.diploma, stls.supplement)}>
-        <ImgSupplement key='supplement' />
       </div>
+      // <div className={cn(stls.diploma, stls.supplement)}>
+      //   <ImgSupplement key='supplement' />
+      // </div>
     )
 
   ofType === 'course' &&

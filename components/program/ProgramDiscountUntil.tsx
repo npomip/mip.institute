@@ -19,7 +19,7 @@ const ProgramDiscountUntil = () => {
 
   // const until = `до ${output}`
 
-  return <>До 27 ноября</>
+  return <>до 27 ноября</>
   return (
     <>
       до <ProgramAdmission />

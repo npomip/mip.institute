@@ -14,7 +14,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
     Math.round(Math.ceil((price / (100 - discount)) * 100) / 1000) * 1000
 
   const perMonthPrice = Math.round(Math.round(price && +price / 12) / 100) * 100
-  const perMonthRPrice =
+  const perMonthPriceRegular =
     Math.round(Math.round(rprice && +rprice / 12) / 100) * 100
 
   return (
@@ -24,14 +24,15 @@ const ProgramCost = ({ withPerMonth = false }) => {
           <p className={stls.label}>Беспроцентная рассрочка на 12 месяцев</p>
           <span className={stls.discount}>
             <span className={stls.bold}>
-              {toNumberWithSpaces(perMonthPrice)}
+              {/* {toNumberWithSpaces(perMonthPrice)} */}
+              {toNumberWithSpaces(perMonthPriceRegular / 2)}
             </span>{' '}
             <span className={stls.light}>&#8381;/мес</span>
           </span>{' '}
           <br />
           <span className={stls.regular}>
             <span className={stls.bold}>
-              {toNumberWithSpaces(perMonthRPrice)}
+              {toNumberWithSpaces(perMonthPriceRegular)}
             </span>{' '}
             <span className={stls.light}>&#8381;/мес</span>
           </span>

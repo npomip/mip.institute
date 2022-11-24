@@ -20,7 +20,7 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
       program?.typeLabel || 'Курс'
     } | ${company.name}`,
     programTitle: program?.title || 'Программа',
-    desc: truncate(program.description, 120),
+    desc: program?.description ? truncate(program?.description, 120) : '',
     canonical: `${routes.front.root}${
       ofType === 'course'
         ? routes.front.courses

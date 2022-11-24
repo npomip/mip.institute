@@ -45,7 +45,10 @@ const StickyBottom = () => {
             <IconWavyShape />
           </div>
           <p className={stls.discount}>
-            <span className={stls.highlight}>Скидка {discount}</span>{' '}
+            <span className={stls.highlight}>
+              Скидка -50%
+              {/* {discount} */}
+            </span>{' '}
             <br className={stls.smallMobileOnly} /> на все программы{' '}
             <br className={stls.mobileOnly} /> <ProgramDiscountUntil />!
           </p>

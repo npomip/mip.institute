@@ -3,11 +3,12 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import cn from 'classnames'
 import { routes } from '@/config/index'
-import { discount, until } from '@/data/price'
+import { discount } from '@/data/price'
 import Wrapper from '@/components/layout/Wrapper'
 import IconWavyShape from '@/components/icons/IconWavyShape'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import { IconCloseCircle } from '@/components/icons'
+import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
 
 const StickyBottom = () => {
   const router = useRouter()
@@ -46,7 +47,7 @@ const StickyBottom = () => {
           <p className={stls.discount}>
             <span className={stls.highlight}>Скидка {discount}</span>{' '}
             <br className={stls.smallMobileOnly} /> на все программы{' '}
-            <br className={stls.mobileOnly} /> {until}!
+            <br className={stls.mobileOnly} /> <ProgramDiscountUntil />!
           </p>
           <div className={stls.btns}>
             <PopupTrigger btn='theta' cta='learnAboutUs' />

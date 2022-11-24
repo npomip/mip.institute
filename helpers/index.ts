@@ -4,6 +4,7 @@ export { default as sortBasedOnNumericOrder } from '@/helpers/general/sortBasedO
 export { default as sortReviewsCreatedAtASC } from '@/helpers/general/sortReviewsCreatedAtASC'
 
 // ./
+export { default as calculateClosestAdmission } from '@/helpers/calculateClosestAdmission'
 export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'
 export { default as convertMdToHtml } from '@/helpers/convertMdToHtml'
 export { default as filterProgramsByStudyField } from '@/helpers/filterProgramsByStudyField'
@@ -16,6 +17,7 @@ export { default as getImageHeight } from '@/helpers/getImageHeight'
 export { default as getListItemsInnerHtml } from '@/helpers/getListItemsInnerHtml'
 export { default as getParagraphInnerHtml } from '@/helpers/getParagraphInnerHtml'
 export { default as getRuDaysOfWeek } from '@/helpers/getRuDaysOfWeek'
+export { default as getRuMonths } from '@/helpers/getRuMonths'
 export { default as getStudyFields } from '@/helpers/getStudyFields'
 export { default as getStudyFieldsLabels } from '@/helpers/getStudyFieldsLabels'
 export { default as getStudyFieldsSlugs } from '@/helpers/getStudyFieldsSlugs'

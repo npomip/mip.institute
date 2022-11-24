@@ -1,8 +1,9 @@
 import stls from '@/styles/components/program/ProgramDiscount.module.sass'
-import { discountNum, until } from '@/data/price'
+import { discountNum } from '@/data/price'
 import classNames from 'classnames'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
+import ProgramDiscountUntil from './ProgramDiscountUntil'
 
 type TypeProgramDiscount = {
   small?: boolean
@@ -29,7 +30,9 @@ const ProgramDiscount = ({
             [stls.small]: small
           })}>
           <p className={stls.discount}>{elDiscount}</p>
-          <p className={stls.until}>{until}</p>
+          <p className={stls.until}>
+            <ProgramDiscountUntil />
+          </p>
         </div>
       )}
     </>

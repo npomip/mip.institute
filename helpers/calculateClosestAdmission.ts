@@ -5,18 +5,22 @@ const calculateClosestAdmission = () => {
   const currentDay = currentDate.getDate()
   const currentMonth = currentDate.getMonth()
   const months = getRuMonths()
-  const day = currentDay < 20 ? '20' : '5'
-  // {currentDay < 5 ? '5' : currentDay >= 5 && currentDay < 20 ? '20' : '5'}{' '}
+
+  // const currendDayCondition = currentDay >= 5 && currentDay < 20
+  const currendDayCondition = currentDay < 20
+
+  const day = currendDayCondition ? '20' : '5'
+  // {currentDay < 5 ? '5' : currentDay >= 5 && currendDayCondition ? '20' : '5'}{' '}
   // const lastDayOfCurMonth = new Date(
   //   currentDate.getFullYear(),
   //   currentDate.getMonth() + 1,
   //   0
   // ).getDate()
   // const until =
-  // currentDay < 20 ? `до 20 ${output}` : `до ${lastDayOfCurMonth} ${output}`
+  // currendDayCondition ? `до 20 ${output}` : `до ${lastDayOfCurMonth} ${output}`
 
   let output
-  if (currentDay < 20) {
+  if (currendDayCondition) {
     output = `${day} ${months[currentMonth]}`
   } else {
     currentMonth === 11
@@ -24,7 +28,6 @@ const calculateClosestAdmission = () => {
       : (output = `${day} ${months[currentMonth + 1]}`)
   }
 
-  return '30 ноября'
   return output
 }
 

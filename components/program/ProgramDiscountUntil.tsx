@@ -1,4 +1,4 @@
-import { getRuMonths } from '@/helpers/index'
+import { calculateClosestAdmission, getRuMonths } from '@/helpers/index'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
 
 const ProgramDiscountUntil = () => {
@@ -19,7 +19,7 @@ const ProgramDiscountUntil = () => {
 
   // const until = `до ${output}`
 
-  return <>до 27 ноября</>
+  return <>до {calculateClosestAdmission()}</>
   return (
     <>
       до <ProgramAdmission />

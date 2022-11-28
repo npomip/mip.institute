@@ -18,8 +18,8 @@ const ProgramDiscount = ({
 
   const programDiscount = program?.discount || 0
 
-  // const elDiscount = <>{programDiscount ? `-${programDiscount}%` : discount}</>
-  const elDiscount = <>-50%</>
+  const elDiscount = <>{programDiscount ? `-${programDiscount}%` : discount}</>
+  // const elDiscount = <>-50%</>
   return (
     <>
       {textOnly ? (

@@ -9,7 +9,8 @@ const calculateClosestAdmission = () => {
   // const currendDayCondition = currentDay >= 5 && currentDay < 20
   const currendDayCondition = currentDay < 20
 
-  const day = currendDayCondition ? '20' : '5'
+  // const day = currendDayCondition ? '20' : '5'
+  const day = currentDay >= 5 && currendDayCondition ? '20' : '5'
   // {currentDay < 5 ? '5' : currentDay >= 5 && currendDayCondition ? '20' : '5'}{' '}
   // const lastDayOfCurMonth = new Date(
   //   currentDate.getFullYear(),

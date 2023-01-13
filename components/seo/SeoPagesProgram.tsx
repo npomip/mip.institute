@@ -67,9 +67,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
       } | ${company.name}`,
     programTitle: program?.title || 'Программа',
     desc:
-      seo?.metaDescription || program?.description
-        ? truncate(program?.description, 120)
-        : '',
+      seo?.metaDescription ||
+      (program?.description ? truncate(program?.description, 120) : ''),
     canonical:
       seo?.canonicalURL ||
       `${routes.front.root}${

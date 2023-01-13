@@ -20,11 +20,11 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
   const daysOfWeek = getRuDaysOfWeek()
 
   return (
-    <button className={stls.container}>
-      <span className={stls.bell}>
+    <div className={stls.container}>
+      <div className={stls.bell}>
         <IconBell />
-      </span>
-      <span className={stls.when}>
+      </div>
+      <div className={stls.when}>
         <span className={stls.date}>
           {newDate.getDate()} {monhts[newDate.getMonth()]}.,{' '}
           {newDate.getUTCHours() + 3}:
@@ -33,19 +33,19 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
             : newDate.getMinutes()}{' '}
         </span>
         <span className={stls.dayOfWeek}>{daysOfWeek[newDate.getDay()]}</span>
-      </span>
-      <span className={stls.speaker}>
-        <span className={stls.img}>{picture}</span>
-        <span className={stls.right}>
+      </div>
+      <div className={stls.speaker}>
+        <div className={stls.img}>{picture}</div>
+        <div className={stls.right}>
           <span className={stls.label}>Спикер:</span>
           <p className={stls.name}>{name}</p>
           <h2 className={stls.title}>{title}</h2>
-          <span className={stls.link}>
+          <div className={stls.link}>
             <CtaText text={'Подробнее'} ctheta />
-          </span>
-        </span>
-      </span>
-    </button>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 const IconFile = ({ theta = false, halfopacity = false }) => {
   return (
-    <div
+    <span
       className={classNames([stls.container], {
         [stls.theta]: theta,
         [stls.halfopacity]: halfopacity
@@ -45,7 +45,7 @@ const IconFile = ({ theta = false, halfopacity = false }) => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

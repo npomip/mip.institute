@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconHighIncome.module.sass'
 
 const IconHighIncome = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Высокий доход</title>
         <path
@@ -142,7 +142,7 @@ const IconHighIncome = () => {
           fill='#1A1E22'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

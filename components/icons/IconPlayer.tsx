@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconPlayer.module.sass'
 
 const IconPlayer = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Плей</title>
         <path
@@ -10,7 +10,7 @@ const IconPlayer = () => {
           fill='#fff'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

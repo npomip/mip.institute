@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconClose.module.sass'
 
 const IconClose = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 35 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Закрыть</title>
         <line
@@ -27,7 +27,7 @@ const IconClose = () => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

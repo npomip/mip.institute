@@ -10,7 +10,7 @@ const IconMoreThan = ({
 }) => {
   if (cnu === true) cbeta = false
   return (
-    <div
+    <span
       className={classNames({
         [stls.container]: true,
         [stls.small]: small,
@@ -28,7 +28,7 @@ const IconMoreThan = ({
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

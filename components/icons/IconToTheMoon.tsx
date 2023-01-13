@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconToTheMoon.module.sass'
 
 const IconToTheMoon = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 110 110' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>На луну!</title>
         <path
@@ -190,7 +190,7 @@ const IconToTheMoon = () => {
           fill='#F87E1B'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconHumburger.module.sass'
 
 const IconHumburger = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 35 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Меню</title>
         <line
@@ -36,7 +36,7 @@ const IconHumburger = () => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

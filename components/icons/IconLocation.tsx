@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 const IconLocation = ({ cbeta = false, responsive = false }) => {
   return (
-    <div
+    <span
       className={classNames({
         [stls.container]: true,
         [stls.cbeta]: cbeta,
@@ -16,7 +16,7 @@ const IconLocation = ({ cbeta = false, responsive = false }) => {
           fill='#fff'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

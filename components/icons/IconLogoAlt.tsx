@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 const IconLogoAlt = ({ responsive = null }) => {
   return (
-    <div
+    <span
       className={classNames({
         [stls.container]: true,
         [stls.responsive]: responsive
@@ -162,7 +162,7 @@ const IconLogoAlt = ({ responsive = null }) => {
           </clipPath>
         </defs>
       </svg>
-    </div>
+    </span>
   )
 }
 

@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconSearchAlt.module.sass'
 
 const IconSearchAlt = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Поиск</title>
         <path
@@ -10,7 +10,7 @@ const IconSearchAlt = () => {
           fill='white'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

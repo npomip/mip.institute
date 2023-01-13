@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconCompassion.module.sass'
 
 const IconCompassion = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Экологичная профессия</title>
         <path
@@ -174,7 +174,7 @@ const IconCompassion = () => {
           fill='#1A1E22'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

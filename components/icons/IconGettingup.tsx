@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconGettingup.module.sass'
 
 const IconGettingup = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 110 110' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Шаг за шагом наверх!</title>
         <g clipPath='url(#clip0)'>
@@ -437,7 +437,7 @@ const IconGettingup = () => {
           </clipPath>
         </defs>
       </svg>
-    </div>
+    </span>
   )
 }
 

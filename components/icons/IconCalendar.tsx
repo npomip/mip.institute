@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 const IconCalendar = ({ theta = false, halfopacity = false }) => {
   return (
-    <div
+    <span
       className={classNames([stls.container], {
         [stls.theta]: theta,
         [stls.halfopacity]: halfopacity
@@ -15,7 +15,7 @@ const IconCalendar = ({ theta = false, halfopacity = false }) => {
           fill='#F87E1B'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

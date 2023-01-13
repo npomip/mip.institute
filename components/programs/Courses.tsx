@@ -24,7 +24,7 @@ const Courses = ({
     <div className={stls.container}>
       <hgroup>
         {biggerTitle ? (
-          <div className={stls.heading}>
+          <p className={stls.heading}>
             <h2
               className={cn({
                 [stls.title]: true,
@@ -33,33 +33,33 @@ const Courses = ({
               Курсы
             </h2>
             {withQty && (
-              <div className={stls.phonetablet}>
+              <p className={stls.phonetablet}>
                 <ProgramsQty qty={courses.length} ofType='course' />
-              </div>
+              </p>
             )}
-          </div>
+          </p>
         ) : (
-          <div className={stls.heading}>
+          <p className={stls.heading}>
             <h3 className={stls.title}>Курсы</h3>
             {withQty && (
-              <div className={stls.phonetablet}>
+              <p className={stls.phonetablet}>
                 <ProgramsQty qty={courses.length} ofType='course' />
-              </div>
+              </p>
             )}
-          </div>
+          </p>
         )}
 
-        <div className={stls.underheading}>
+        <p className={stls.underheading}>
           <p className={stls.subTitle}>
             Повышение квалификации для получения или обновления знаний в
             конкретной теме
           </p>
           {withQty && (
-            <div className={stls.laptopdesktop}>
+            <p className={stls.laptopdesktop}>
               <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
-            </div>
+            </p>
           )}
-        </div>
+        </p>
       </hgroup>
 
       <div

@@ -4,7 +4,7 @@ import { base64pixel } from '@/config/index'
 
 const ImgWebinar = ({ src, alt, width = 0, height = 0 }) => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <Image
         src={src}
         alt={alt}
@@ -14,7 +14,7 @@ const ImgWebinar = ({ src, alt, width = 0, height = 0 }) => {
         placeholder='blur'
         blurDataURL={base64pixel}
       />
-    </div>
+    </span>
   )
 }
 

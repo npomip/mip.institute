@@ -39,6 +39,33 @@ type TypeLibProgram = {
   index_number?: {
     idx?: number | null
   } | null
+  seo?: {
+    metaTitle?: string | null
+    metaDescription?: string | null
+    metaImage?: {
+      url: string | null
+      width: string | null
+      height: string | null
+      alternativeText?: string | null
+    } | null
+    keywords?: string | null
+    metaRobots?: string | null
+    structuredData?: {} | null //TODO: figure out structured data
+    metaViewport?: string | null
+    canonicalURL?: string | null
+    isSEOFriendly?: boolean | null
+    metaSocial?: {
+      title?: string | null
+      description?: string | null
+      image: {
+        url: string | null
+        width: string | null
+        height: string | null
+        alternativeText?: string | null
+      }
+      socialNetwork?: string | null
+    } | null
+  } | null
 } | null
 
 export default TypeLibProgram

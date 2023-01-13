@@ -91,6 +91,33 @@ const getStaticPropsPageProgram = async ({
           index_number {
             idx
           }
+          seo {
+            metaTitle
+            metaDescription
+            metaImage {
+              url
+              width
+              height
+              alternativeText
+            }
+            keywords
+            metaRobots
+            structuredData
+            metaViewport
+            canonicalURL
+            isSEOFriendly
+            metaSocial {
+              title
+              description
+              image {
+                url
+                width
+                height
+                alternativeText
+              }
+              socialNetwork
+            }
+          }
         }
       }
     `,

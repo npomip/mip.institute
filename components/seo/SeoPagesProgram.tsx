@@ -15,6 +15,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
   program,
   curProgramsStudyFieldSlug
 }) => {
+  console.log(program)
+
   const seoParams = {
     title: `${program?.title ? program.title + ' | ' : 'Программа | '}${
       program?.typeLabel || 'Курс'
@@ -27,7 +29,7 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
         : ofType === 'profession'
         ? routes.front.professions
         : routes.front.professions
-    }/${curProgramsStudyFieldSlug}/${program.slug}`
+    }/${curProgramsStudyFieldSlug}/${program?.slug}`
   }
 
   return (

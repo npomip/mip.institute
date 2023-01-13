@@ -38,6 +38,7 @@ const routes = {
     policiesTerms: '/policies/terms.pdf'
   },
   back: {
+    // root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
     root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
     home: '/',
     graphql: '/graphql',

@@ -12,7 +12,9 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }) => {
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
       <button className={stls.title} onClick={() => setOpen(!isOpen)}>
-        <div className={stls.icon}>{isOpen ? <IconMinus /> : <IconPlus />}</div>
+        <span className={stls.icon}>
+          {isOpen ? <IconMinus /> : <IconPlus />}
+        </span>
         <p className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>
           {title}
         </p>
@@ -25,15 +27,15 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }) => {
                 <Popup
                   trigger={
                     <button className={stls.trigger}>
-                      <div className={stls.img}>{diploma.image}</div>
-                      <div className={stls.label}>
-                        <div className={stls.labelIcon}>
+                      <span className={stls.img}>{diploma.image}</span>
+                      <span className={stls.label}>
+                        <span className={stls.labelIcon}>
                           <IconDoc />
-                        </div>
+                        </span>
                         <span className={stls.diplomaTitle}>
                           {diploma.title}
                         </span>
-                      </div>
+                      </span>
                     </button>
                   }
                   className='DiplomaExpandableItem__popup'

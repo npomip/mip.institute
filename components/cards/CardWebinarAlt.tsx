@@ -21,10 +21,10 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
 
   return (
     <button className={stls.container}>
-      <div className={stls.bell}>
+      <span className={stls.bell}>
         <IconBell />
-      </div>
-      <div className={stls.when}>
+      </span>
+      <span className={stls.when}>
         <span className={stls.date}>
           {newDate.getDate()} {monhts[newDate.getMonth()]}.,{' '}
           {newDate.getUTCHours() + 3}:
@@ -33,18 +33,18 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
             : newDate.getMinutes()}{' '}
         </span>
         <span className={stls.dayOfWeek}>{daysOfWeek[newDate.getDay()]}</span>
-      </div>
-      <div className={stls.speaker}>
-        <div className={stls.img}>{picture}</div>
-        <div className={stls.right}>
+      </span>
+      <span className={stls.speaker}>
+        <span className={stls.img}>{picture}</span>
+        <span className={stls.right}>
           <span className={stls.label}>Спикер:</span>
           <p className={stls.name}>{name}</p>
           <h2 className={stls.title}>{title}</h2>
-          <div className={stls.link}>
+          <span className={stls.link}>
             <CtaText text={'Подробнее'} ctheta />
-          </div>
-        </div>
-      </div>
+          </span>
+        </span>
+      </span>
     </button>
   )
 }

@@ -24,9 +24,11 @@ const Teachers = () => {
 
   const teachers = program?.teachers
 
+  const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
+
   const list =
-    teachers &&
-    [...teachers]?.map(teacher => ({
+    teachersSorted &&
+    [...teachersSorted]?.map(teacher => ({
       ...teacher,
       image: (
         <ImgTeacher

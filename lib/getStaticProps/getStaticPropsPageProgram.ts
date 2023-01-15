@@ -87,6 +87,9 @@ const getStaticPropsPageProgram = async ({
               width
               height
             }
+            index_number {
+              idx
+            }
           }
           index_number {
             idx

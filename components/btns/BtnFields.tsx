@@ -17,9 +17,9 @@ const BtnFields = () => {
   return (
     <div id='btnFieldsContainer' className={stls.container}>
       <button className={stls.btn} onClick={toggleFieldsTooltip}>
-        <div className={stls.icon}>
+        <span className={stls.icon}>
           <IconMenu />
-        </div>
+        </span>
         <span className={stls.text}>Направления обучения</span>
       </button>
       <div

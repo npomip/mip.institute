@@ -22,46 +22,42 @@ const Courses = ({
 }: CoursesType) => {
   return (
     <div className={stls.container}>
-      <hgroup>
-        {biggerTitle ? (
-          <div className={stls.heading}>
-            <h2
-              className={cn({
-                [stls.title]: true,
-                [stls.bold]: true
-              })}>
-              Курсы
-            </h2>
-            {withQty && (
-              <div className={stls.phonetablet}>
-                <ProgramsQty qty={courses.length} ofType='course' />
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className={stls.heading}>
-            <h3 className={stls.title}>Курсы</h3>
-            {withQty && (
-              <div className={stls.phonetablet}>
-                <ProgramsQty qty={courses.length} ofType='course' />
-              </div>
-            )}
-          </div>
-        )}
-
-        <div className={stls.underheading}>
-          <p className={stls.subTitle}>
-            Повышение квалификации для получения или обновления знаний в
-            конкретной теме
-          </p>
+      {biggerTitle ? (
+        <div className={stls.heading}>
+          <h2
+            className={cn({
+              [stls.title]: true,
+              [stls.bold]: true
+            })}>
+            Курсы
+          </h2>
           {withQty && (
-            <div className={stls.laptopdesktop}>
-              <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={courses.length} ofType='course' />
             </div>
           )}
         </div>
-      </hgroup>
-
+      ) : (
+        <div className={stls.heading}>
+          <h3 className={stls.title}>Курсы</h3>
+          {withQty && (
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={courses.length} ofType='course' />
+            </div>
+          )}
+        </div>
+      )}
+      <div className={stls.underheading}>
+        <p className={stls.subTitle}>
+          Повышение квалификации для получения или обновления знаний в
+          конкретной теме
+        </p>
+        {withQty && (
+          <div className={stls.laptopdesktop}>
+            <ProgramsQty qty={courses.length} ofType='course' dye='bgalpha' />
+          </div>
+        )}
+      </div>
       <div
         className={cn({
           [stls.courses]: true,

@@ -6,7 +6,7 @@ type TypeIconCloseCircle = {
 
 const IconCloseCircle = ({ blackCross = false }) => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Закрыть</title>
         <circle cx='16' cy='16' r='16' fill='#F5F5F5' />
@@ -25,7 +25,7 @@ const IconCloseCircle = ({ blackCross = false }) => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

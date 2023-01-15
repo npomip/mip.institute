@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconVk.module.sass'
 
 const IconVk = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>VK</title>
         <path
@@ -12,7 +12,7 @@ const IconVk = () => {
           fill='white'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

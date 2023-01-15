@@ -14,7 +14,7 @@ const IconAtom = ({
   withCircles = false
 }) => {
   return (
-    <div
+    <span
       className={classNames({
         [stls.container]: true,
         [stls.small]: small,
@@ -49,7 +49,7 @@ const IconAtom = ({
           )}
         </g>
       </svg>
-    </div>
+    </span>
   )
 }
 

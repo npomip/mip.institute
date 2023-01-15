@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconDoc.module.sass'
 
 const IconDoc = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 20 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Документ</title>
         <path
@@ -20,7 +20,7 @@ const IconDoc = () => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

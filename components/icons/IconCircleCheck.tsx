@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 const IconCircleCheck = ({ calpha = false, inverse = false }) => {
   return (
-    <div
+    <span
       className={classNames({
         [stls.container]: true,
         [stls.calpha]: calpha,
@@ -29,7 +29,7 @@ const IconCircleCheck = ({ calpha = false, inverse = false }) => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

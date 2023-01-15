@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconFb.module.sass'
 
 const IconFb = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Facebook</title>
         <path
@@ -10,7 +10,7 @@ const IconFb = () => {
           fill='white'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

@@ -22,48 +22,46 @@ const Professions = ({
 }) => {
   return (
     <div className={stls.container}>
-      <hgroup>
-        {biggerTitle ? (
-          <div className={stls.heading}>
-            <h2
-              className={classNames({
-                [stls.title]: true,
-                [stls.bold]: true
-              })}>
-              Профессии
-            </h2>
-            {withQty && (
-              <div className={stls.phonetablet}>
-                <ProgramsQty qty={professions.length} ofType='profession' />
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className={stls.heading}>
-            <h3 className={stls.title}>Профессии</h3>
-            {withQty && (
-              <div className={stls.phonetablet}>
-                <ProgramsQty qty={professions.length} ofType='profession' />
-              </div>
-            )}
-          </div>
-        )}
-        <div className={stls.underheading}>
-          <p className={stls.subTitle}>
-            Программы профессиональной переподготовки для полного погружения в
-            профессию
-          </p>
+      {biggerTitle ? (
+        <div className={stls.heading}>
+          <h2
+            className={classNames({
+              [stls.title]: true,
+              [stls.bold]: true
+            })}>
+            Профессии
+          </h2>
           {withQty && (
-            <div className={stls.laptopdesktop}>
-              <ProgramsQty
-                qty={professions.length}
-                ofType='profession'
-                dye='bgalpha'
-              />
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={professions.length} ofType='profession' />
             </div>
           )}
         </div>
-      </hgroup>
+      ) : (
+        <div className={stls.heading}>
+          <h3 className={stls.title}>Профессии</h3>
+          {withQty && (
+            <div className={stls.phonetablet}>
+              <ProgramsQty qty={professions.length} ofType='profession' />
+            </div>
+          )}
+        </div>
+      )}
+      <div className={stls.underheading}>
+        <p className={stls.subTitle}>
+          Программы профессиональной переподготовки для полного погружения в
+          профессию
+        </p>
+        {withQty && (
+          <div className={stls.laptopdesktop}>
+            <ProgramsQty
+              qty={professions.length}
+              ofType='profession'
+              dye='bgalpha'
+            />
+          </div>
+        )}
+      </div>
       <div
         className={classNames({
           [stls.professions]: true,

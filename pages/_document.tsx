@@ -14,7 +14,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta charSet='UTF-8' />
           {/* <meta name='theme-color' content={themeColor} /> */}
           <MetaFonts />
           <MetaManifest />

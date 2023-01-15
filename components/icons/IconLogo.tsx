@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 const IconLogo = ({ withTitle = false }) => {
   return (
-    <div
+    <span
       className={classNames({
         [stls.withTitle]: withTitle,
         [stls.standalone]: !withTitle
@@ -27,7 +27,7 @@ const IconLogo = ({ withTitle = false }) => {
           fill='white'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 const IconMenu = ({ calpha = false }) => {
   return (
-    <div
+    <span
       className={classNames({ [stls.container]: true, [stls.calpha]: calpha })}>
       <svg viewBox='0 0 20 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <line
@@ -23,7 +23,7 @@ const IconMenu = ({ calpha = false }) => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

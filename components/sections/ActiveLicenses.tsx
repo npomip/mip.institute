@@ -20,15 +20,15 @@ const ActiveLicenses = () => {
             <Popup
               trigger={
                 <button className={stls.trigger}>
-                  <div className={stls.img}>
+                  <span className={stls.img}>
                     <ImgLicence />
-                  </div>
-                  <div className={stls.label}>
-                    <div className={stls.labelIcon}>
+                  </span>
+                  <span className={stls.label}>
+                    <span className={stls.labelIcon}>
                       <IconDoc />
-                    </div>
+                    </span>
                     <span className={stls.diplomaTitle}>Лицензия</span>
-                  </div>
+                  </span>
                 </button>
               }
               modal

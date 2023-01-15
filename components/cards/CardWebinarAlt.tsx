@@ -20,7 +20,7 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
   const daysOfWeek = getRuDaysOfWeek()
 
   return (
-    <button className={stls.container}>
+    <div className={stls.container}>
       <div className={stls.bell}>
         <IconBell />
       </div>
@@ -45,7 +45,7 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
           </div>
         </div>
       </div>
-    </button>
+    </div>
   )
 }
 

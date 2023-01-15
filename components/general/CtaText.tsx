@@ -11,7 +11,7 @@ const CtaText = ({
   arrowBottom = false
 }) => {
   return (
-    <div
+    <span
       className={classNames({
         [stls.container]: true,
         [stls.cbeta]: cbeta,
@@ -21,10 +21,10 @@ const CtaText = ({
         [stls.arrowBottom]: arrowBottom
       })}>
       <span className={stls.text}>{text}</span>{' '}
-      <div className={stls.icon}>
+      <span className={stls.icon}>
         <IconMoreThan cbeta={cbeta} cnu={cnu} ctheta={ctheta} dimmer={dimmer} />
-      </div>
-    </div>
+      </span>
+    </span>
   )
 }
 

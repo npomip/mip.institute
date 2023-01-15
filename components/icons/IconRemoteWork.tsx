@@ -2,10 +2,10 @@ import stls from '@/styles/components/icons/IconRemoteWork.module.sass'
 
 const IconRemoteWork = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Работайте удалённо</title>
-        <g clipPath='url(#clip0)'>
+        <g clipPath='url(#clip2)'>
           <path
             d='M50.1157 75.7866C47.8123 77.3502 33.4369 86.9984 31.1335 88.562C30.8737 88.7384 30.5779 88.991 30.7327 89.3126C30.8203 89.4938 31.0129 89.6061 31.2193 89.6145C36.8353 89.8323 42.4609 89.8083 48.0745 89.5424C50.4487 88.0076 60.8119 80.1481 64.5265 77.3953C64.9063 77.1138 64.7185 76.5258 64.2409 76.5018L50.1157 75.7866Z'
             fill='white'
@@ -204,12 +204,12 @@ const IconRemoteWork = () => {
           />
         </g>
         <defs>
-          <clipPath id='clip0'>
+          <clipPath id='clip2'>
             <rect width='90' height='90' fill='white' />
           </clipPath>
         </defs>
       </svg>
-    </div>
+    </span>
   )
 }
 

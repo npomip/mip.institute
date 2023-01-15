@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconTelegram.module.sass'
 
 const IconTelegram = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Telegram</title>
         <path
@@ -10,7 +10,7 @@ const IconTelegram = () => {
           fill='white'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

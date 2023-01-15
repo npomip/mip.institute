@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconSearch.module.sass'
 
 const IconSearch = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 18 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Фильтр</title>
         <path
@@ -38,7 +38,7 @@ const IconSearch = () => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

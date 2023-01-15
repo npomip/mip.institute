@@ -2,7 +2,7 @@ import stls from '@/styles/components/icons/IconBell.module.sass'
 
 const IconBell = () => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 15 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Колокольчик</title>
         <path
@@ -12,7 +12,7 @@ const IconBell = () => {
           fill='white'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

@@ -16,7 +16,7 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
   program,
   curProgramsStudyFieldSlug
 }) => {
-  console.log(program)
+  // TODO: pull the rest of SEO params from API
 
   const { seo } = program
 

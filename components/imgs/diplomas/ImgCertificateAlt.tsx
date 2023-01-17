@@ -4,7 +4,7 @@ import pic from '@/public/assets/imgs/diplomas/certificate-alt.jpg'
 
 const ImgCertificateAlt = ({ width = 0, height = 0 }) => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <Image
         src={pic}
         alt='Удостоверение'
@@ -13,7 +13,7 @@ const ImgCertificateAlt = ({ width = 0, height = 0 }) => {
         height={height !== 0 && height}
         placeholder='blur'
       />
-    </div>
+    </span>
   )
 }
 

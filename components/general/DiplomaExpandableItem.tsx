@@ -15,9 +15,9 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }) => {
         <span className={stls.icon}>
           {isOpen ? <IconMinus /> : <IconPlus />}
         </span>
-        <p className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>
+        <span className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>
           {title}
-        </p>
+        </span>
       </button>
       <div className={stls.diplomas}>
         <ul className={stls.list}>

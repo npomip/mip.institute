@@ -4,7 +4,7 @@ import pic from '@/public/assets/imgs/diplomas/diploma.jpg'
 
 const ImgDiploma = ({ width = null, height = null }) => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <Image
         src={pic}
         alt='Диплом'
@@ -13,7 +13,7 @@ const ImgDiploma = ({ width = null, height = null }) => {
         height={height}
         placeholder='blur'
       />
-    </div>
+    </span>
   )
 }
 

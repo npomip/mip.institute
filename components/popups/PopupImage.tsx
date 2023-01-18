@@ -3,12 +3,12 @@ import { BtnClose } from '@/components/btns'
 
 const PopupImage = ({ image, close }) => {
   return (
-    <div className={stls.container}>
-      <div className={stls.close}>
+    <span className={stls.container}>
+      <span className={stls.close}>
         <BtnClose onClick={close} />
-      </div>
-      <div className={stls.image}>{image}</div>
-    </div>
+      </span>
+      <span className={stls.image}>{image}</span>
+    </span>
   )
 }
 

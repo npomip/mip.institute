@@ -4,7 +4,7 @@ import pic from '@/public/assets/imgs/legal/licence.jpg'
 
 const ImgLicence = ({ width = 0, height = 0 }) => {
   return (
-    <div className={stls.container}>
+    <span className={stls.container}>
       <Image
         src={pic}
         alt='Лицензия'
@@ -13,7 +13,7 @@ const ImgLicence = ({ width = 0, height = 0 }) => {
         height={height !== 0 && height}
         placeholder='blur'
       />
-    </div>
+    </span>
   )
 }
 

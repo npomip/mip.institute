@@ -26,7 +26,7 @@ module.exports = {
       {
         userAgent: '*',
         allow: ['/*.css', '/*.js', '/*.jpg', '/*.png', '/*.gif'],
-        disallow: ['/promo*', '*?']
+        disallow: ['/promo*', '*?', '*test', '/kz', '/ru', '/uz']
       }
     ]
   }

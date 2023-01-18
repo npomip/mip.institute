@@ -5,6 +5,7 @@ import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { getStudyFields } from '@/helpers/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import { useRouter } from 'next/router'
 
 type TSeoPagesProgram = {
   ofType?: 'course' | 'profession'
@@ -17,6 +18,8 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
   curProgramsStudyFieldSlug,
   programs
 }) => {
+  const { asPath } = useRouter()
+
   const studyFields = getStudyFields(programs)
   const studyFieldLabel =
     studyFields.filter(
@@ -39,8 +42,11 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
         : 'Профессии - длинные программы для полного погружения в направление. Курсы - короткие программы, чтобы изучить один конкретный навык',
       120
     ),
-    canonical: `${routes.front.root}${routes.front.programs}`
+    // canonical: `${routes.front.root}${routes.front.programs}`
+    canonical: `${routes.front.root}${asPath}`
   }
+
+  console.log(`${routes.front.root}${asPath}`)
 
   return (
     <>

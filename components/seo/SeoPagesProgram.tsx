@@ -54,10 +54,10 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
   // noimageindex?: boolean;
   // notranslate?: boolean;
 
-  const isNoindex = !seo?.isSEOFriendly && seo?.metaRobots?.includes('noindex')
+  const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')
 
   const isNofollow =
-    !seo?.isSEOFriendly && seo?.metaRobots?.includes('nofollow')
+    !seo?.isSEOFriendly || seo?.metaRobots?.includes('nofollow')
 
   const seoParams = {
     title:

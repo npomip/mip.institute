@@ -18,8 +18,8 @@ const ProgramDiscountUntil = () => {
   // }
 
   // const until = `до ${output}`
-
-  return <>до {calculateClosestAdmission()}</>
+  return <>до 31 января</>
+  // return <>до {calculateClosestAdmission()}</>
   return (
     <>
       до <ProgramAdmission />

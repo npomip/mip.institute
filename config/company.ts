@@ -20,7 +20,7 @@ const company = {
         door: '11'
       },
       room: '14',
-      officeNum: 'B503'
+      officeNum: 'B903'
     },
     kz: {
       countryCode: 'KZ',

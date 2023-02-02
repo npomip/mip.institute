@@ -17,6 +17,8 @@
     @include m.flex($jc: center)
     @include m.gap($mb: f.px(50))
   @include m.media(laptop, desktop)
+    display: flex
+    flex: 1
     @include m.gap($mr: 5%)
     @include m.flex($display: false, $fb: 25%)
 
@@ -42,12 +44,22 @@
   @include m.dye(c, c.$theta)
 
 .trigger
+  display: flex
+  flex-direction: column
+  align-items: center
+  flex: 1
   &:hover,
   &:focus
     & .diplomaTitle
       text-decoration: underline
 
 .img
+  display: flex
+  flex: 1
+  flex-basis: 100%
+  min-width: 100%
+  & > *
+    flex-grow: 1
   max-width: f.px(213)
   border: f.px(2) solid
   @include m.dye(border, c.$delta-2)

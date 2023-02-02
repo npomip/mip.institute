@@ -3,6 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  display: flex
+  justify-content: center
+  align-items: center
   @include m.gap($m: f.px(6), $ptb: f.px(12), $plr: f.px(14))
   border: f.px(1) solid
   @include m.dye(border, c.$xi)

@@ -5,7 +5,13 @@ import { company, routes } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
 import Link from 'next/link'
 import Wrapper from '@/components/layout/Wrapper'
-import { BtnVk, BtnWhatsapp, BtnTelegram } from '@/components/btns'
+import {
+  BtnVk,
+  BtnWhatsapp,
+  BtnTelegram,
+  BtnYt,
+  BtnOk
+} from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import FooterBottom from '@/components/general/FooterBottom'
 import { GeneralAddress } from '@/components/general'
@@ -135,6 +141,8 @@ const Footer = () => {
                 <BtnVk dark mlzero />
                 <BtnWhatsapp dark />
                 <BtnTelegram dark />
+                <BtnYt dark />
+                <BtnOk dark />
               </div>
               <div className={stls.btn}>
                 <PopupTrigger btn='beta' cta='askQuestion' />

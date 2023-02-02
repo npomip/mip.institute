@@ -7,7 +7,7 @@ const BtnOk = ({ dark = false }) => {
   return (
     <a
       className={classNames({ [stls.container]: true, [stls.dark]: dark })}
-      href={routes.external.youtube}
+      href={routes.external.ok}
       target='_blank'
       rel='noopener noreferrer'
       aria-label='Одноклассники'>

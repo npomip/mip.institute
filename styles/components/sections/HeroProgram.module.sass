@@ -17,12 +17,14 @@
 
 .top
   @include m.media(laptop, desktop)
-    @include m.flex($jc: space-between, $ai: center)
+    // @include m.flex($jc: space-between, $ai: center)
+    @include m.flex($jc: space-between)
 
 .heading
   @include m.media(laptop, desktop)
     @include m.gap($mr: 8%)
-    @include m.flex($fd: column, $jc: center, $ai: center)
+    @include m.flex($fd: column, $ai: center)
+    flex-grow: 1
 
 .label
   @include m.media(laptop, desktop)
@@ -117,7 +119,8 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.flex($as: start)
+    @include m.flex($as: flex-end)
+    margin-top: auto
     width: 100%
     & > *
       width: 100%

@@ -15,15 +15,15 @@ const ProsCircle = () => {
         </p>
       </div>
       <div className={stls.right}>
-        <h3 className={stls.subTitle}>100 000</h3>
+        <h3 className={stls.subTitle}>160 000</h3>
         <p className={stls.p}>минут видео лекций студийного качества</p>
       </div>
       <div className={stls.bottom}>
-        <h3 className={stls.subTitle}>2000+</h3>
+        <h3 className={stls.subTitle}>2500+</h3>
         <p className={stls.p}>Студентов уже обучили</p>
       </div>
       <div className={stls.left}>
-        <h3 className={stls.subTitle}>Более 60</h3>
+        <h3 className={stls.subTitle}>Более 70</h3>
         <p className={stls.p}>Преподавателей практиков</p>
       </div>
     </div>

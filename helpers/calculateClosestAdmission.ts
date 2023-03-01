@@ -29,7 +29,7 @@ const calculateClosestAdmission = () => {
       : (output = `${day} ${months[currentMonth + 1]}`)
   }
 
-  return '28 февраля'
+  return '10 марта'
   return output
 }
 

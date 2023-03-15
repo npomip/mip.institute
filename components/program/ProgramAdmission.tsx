@@ -2,7 +2,7 @@ import { calculateClosestAdmission } from '@/helpers/index'
 
 const ProgramAdmission = () => {
   // return '31 января'
-  return calculateClosestAdmission()
+  return <>{calculateClosestAdmission()}</>
 }
 
 export default ProgramAdmission

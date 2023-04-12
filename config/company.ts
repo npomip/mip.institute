@@ -12,15 +12,15 @@ const company = {
     default: {
       countryCode: 'RU',
       city: 'Москва',
-      zip: '115114',
+      zip: '115419',
       street: {
-        type: 'набережная',
+        type: 'улица',
         typeShort: 'наб.',
-        name: 'Дербеневская',
-        door: '11'
+        name: 'Шаболовка',
+        door: '34с2'
       },
       room: '14',
-      officeNum: 'B903'
+      officeNum: 'строение 2, 4 подъезд, 1 этаж'
     },
     kz: {
       countryCode: 'KZ',

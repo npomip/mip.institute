@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/Contacts.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { company } from '@/config/index'
 import CardContact from '@/components/cards/CardContact'
+import StudyCost from './StudyCost'
 
 const Contacts = () => {
   const cards = [
@@ -9,6 +10,7 @@ const Contacts = () => {
       city: company.addresses.default.city,
       street: `${company.addresses.default.street.name} ${company.addresses.default.street.type} ${company.addresses.default.street.door}`,
       numbers: [company.phoneNumbers.default, company.phoneNumbers.defaultAlt],
+      studyDivision: company.phoneNumbers.studyDivision,
       email: company.emails.default
     },
     {
@@ -22,12 +24,13 @@ const Contacts = () => {
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.cards}>
-          {cards.map(({ city, street, numbers, email }) => (
+          {cards.map(({ city, street, numbers, email, studyDivision }) => (
             <div key={`${city} ${street}`} className={stls.card}>
               <CardContact
                 city={city}
                 street={street}
                 numbers={numbers}
+                studyDivision={studyDivision}
                 email={email}
               />
             </div>

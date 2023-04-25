@@ -123,6 +123,8 @@ const Footer = () => {
               ))}
             </ul>
             <div className={stls.contact}>
+              {/* оставил хардкод, но можно взять из company.phoneNumbers.studyPart.contactType в company.tsx */}
+              <p >Приемная комиссия:</p>
               <div className={stls.numbers}>
                 <a
                   href={company.phoneNumbers.default.href}
@@ -133,6 +135,12 @@ const Footer = () => {
                   href={company.phoneNumbers.defaultAlt.href}
                   className={stls.number}>
                   {company.phoneNumbers.defaultAlt.val}
+                </a>
+                <p >Учебный отдел:</p>
+                <a
+                  href={company.phoneNumbers.studyPart.href}
+                  className={stls.number}>
+                  {company.phoneNumbers.studyPart.val}
                 </a>
               </div>
               <GeneralAddress classNames={[stls.address]} />

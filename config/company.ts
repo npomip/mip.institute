@@ -62,6 +62,15 @@ const company = {
       areaServed: ['RU', 'KZ', 'UZ'],
       languages: ['Russian', 'Kazakh', 'Uzbek']
     },
+    //добавил для учебного отдела
+    studyPart: {
+      city: 'Москва',
+      href: 'tel:+7-499-110-82-11',
+      val: '+7 (499) 110-82-11',
+      contactType: 'Учебный отдел',
+      areaServed: ['RU', 'KZ', 'UZ'],
+      languages: ['Russian', 'Kazakh', 'Uzbek']
+    },
     kz: {
       city: 'Алматы',
       href: 'tel:+7-727-311-09-11',

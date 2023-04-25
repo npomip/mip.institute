@@ -138,9 +138,9 @@ const Footer = () => {
                 </a>
                 <p >Учебный отдел:</p>
                 <a
-                  href={company.phoneNumbers.studyPart.href}
+                  href={company.phoneNumbers.studyDivision.href}
                   className={stls.number}>
-                  {company.phoneNumbers.studyPart.val}
+                  {company.phoneNumbers.studyDivision.val}
                 </a>
               </div>
               <GeneralAddress classNames={[stls.address]} />

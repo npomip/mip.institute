@@ -63,7 +63,7 @@ const company = {
       languages: ['Russian', 'Kazakh', 'Uzbek']
     },
     //добавил для учебного отдела
-    studyPart: {
+    studyDivision: {
       city: 'Москва',
       href: 'tel:+7-499-110-82-11',
       val: '+7 (499) 110-82-11',

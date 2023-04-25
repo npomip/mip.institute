@@ -2,6 +2,7 @@ import stls from '@/styles/components/program/ProgramInfo.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
+import { setDateOfEnrollment } from '@/helpers/index'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import {
   IconCalendarAlt,
@@ -20,6 +21,9 @@ const ProgramInfo = () => {
   const studyMounthsDuration = program?.studyMounthsDuration || 0
   const type = program?.type || ''
 
+  // вручную проставляет дату ближайшего зачисления
+  const dateOfEnrollment = setDateOfEnrollment(28,4);
+
   const vals = [
     {
       key: 'Срок обучения:',
@@ -33,7 +37,8 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      val: <ProgramAdmission />,
+      // val: <ProgramAdmission />,
+      val: dateOfEnrollment,
       icon: <IconMap />
     },
     {

@@ -25,3 +25,4 @@ export { default as getThreeLettersRuMonths } from '@/helpers/getThreeLettersRuM
 export { default as handleSwipedEvt } from '@/helpers/handleSwipedEvt'
 export { default as removeDuplicates } from '@/helpers/removeDuplicates'
 export { default as toNumberWithSpaces } from '@/helpers/toNumberWithSpaces'
+export { default as setDateOfEnrollment } from '@/helpers/setDateOfEnrollment'

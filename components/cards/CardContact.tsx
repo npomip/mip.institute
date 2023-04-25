@@ -6,10 +6,17 @@ type CardContactType = {
   city: string
   street: string
   numbers: { href: string; val: string }[]
+  studyDivision: { href: string; val: string; contactType: string }
   email: { href: string; val: string }
 }
 
-const CardContact = ({ city, street, numbers, email }: CardContactType) => {
+const CardContact = ({
+  city,
+  street,
+  numbers,
+  email,
+  studyDivision
+}: CardContactType) => {
   return (
     <div className={stls.container}>
       <div className={stls.row}>
@@ -21,6 +28,7 @@ const CardContact = ({ city, street, numbers, email }: CardContactType) => {
       <div className={stls.row}>
         <p className={stls.street}>{street}</p>
       </div>
+      {studyDivision ? <p className={stls.number}>Приемная комиссия:</p> : ''}
       <div className={classNames({ [stls.row]: true, [stls.numbers]: true })}>
         {numbers.map((number, idx) => (
           <p key={number.val} className={stls.number}>
@@ -31,6 +39,19 @@ const CardContact = ({ city, street, numbers, email }: CardContactType) => {
           </p>
         ))}
       </div>
+      {studyDivision ? (
+        <>
+          <p className={stls.number}>{studyDivision.contactType}:</p>
+          <p className={stls.number}>
+            <a href={studyDivision.href} className={stls.link}>
+              {studyDivision.val}
+            </a>
+          </p>
+        </>
+      ) : (
+        ''
+      )}
+
       <div className={stls.row}>
         <p className={stls.email}>
           <a href={email.href} className={stls.link}>

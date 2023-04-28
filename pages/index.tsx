@@ -10,16 +10,19 @@ import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import {
-  Hero,
+  // Hero,
   WhyBother,
   About,
   HowProcessGoes,
-  Programs,
+  // Programs,
   Cta,
   Reviews,
   Webinars
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import { lazy, Suspense } from 'react'
+const LazyPrograms = lazy(() => import('@/components/sections/Programs'))
+const LazyHero = lazy(() => import('@/components/sections/Hero'))
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   useHandleContextStaticProps({ programs })
@@ -61,8 +64,14 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
         }}
       />
       <SeoOrganizationJsonLd />
-      <Hero />
-      <Programs withTitle withBtn max={8} />
+      {/* <Hero /> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyHero />
+      </Suspense>
+      {/* <Programs withTitle withBtn max={8} /> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyPrograms withTitle withBtn max={8} />
+      </Suspense>
       <WhyBother />
       <About />
       <HowProcessGoes />

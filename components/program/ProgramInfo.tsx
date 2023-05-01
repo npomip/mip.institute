@@ -22,7 +22,7 @@ const ProgramInfo = () => {
   const type = program?.type || ''
 
   // вручную проставляет дату ближайшего зачисления
-  const dateOfEnrollment = setDateOfEnrollment(28,4);
+  const dateOfEnrollment = setDateOfEnrollment(3,5);
 
   const vals = [
     {

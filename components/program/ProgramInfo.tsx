@@ -22,7 +22,7 @@ const ProgramInfo = () => {
   const type = program?.type || ''
 
   // вручную проставляет дату ближайшего зачисления
-  const dateOfEnrollment = setDateOfEnrollment(10, 5);
+  // const dateOfEnrollment = setDateOfEnrollment(20, 5);
 
   const vals = [
     {
@@ -37,8 +37,8 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      // val: <ProgramAdmission />,
-      val: dateOfEnrollment,
+      val: <ProgramAdmission />,
+      // val: dateOfEnrollment,
       icon: <IconMap />
     },
     {

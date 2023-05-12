@@ -1,0 +1,87 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/utils/mixin/media' as bp
+
+
+.cards
+  display: flex
+  justify-content: space-around
+  @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(106))
+    @include m.gap($pb: f.px(56))
+    @include m.gap($plr: f.px(156))
+    // padding-left: 9em
+    // padding-right: 9em
+  @include m.media(phone, tablet)
+    flex-direction: column
+
+.hideCards
+  display: flex
+  justify-content: space-around
+  @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(156))
+    @include m.gap($pb: f.px(56))
+    @include m.gap($plr: f.px(156))
+    // padding-left: 9em
+    // padding-right: 9em
+  @include m.media(phone, tablet)
+    display: none
+
+.container
+  height: 330px
+  width: 250px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin: 10px
+  @include m.media(phone, tablet)
+    flex-direction: row
+    width: 100%
+  p
+    padding: 10px
+    font-family: Stem
+    font-weight: 350
+    font-size: 18px
+    line-height: 1.3em
+    display: flex
+    justify-content: center
+  h3
+    display: flex
+    justify-content: flex-start
+    font-family: Stem
+    font-weight: 500
+    font-size: 22px
+    @include m.gap($mt: f.px(0))
+
+
+.teacher
+  height: 330px
+  width: 250px
+  margin-top: 8em
+  margin-bottom: 10px
+  @include m.media(phone, tablet)
+    flex: 80%
+    // padding-top: 100px
+
+.text
+  @include m.media(tablet)
+    // flex: 20%
+    @include m.gap($plr: f.px(10))
+    justify-content: center
+  @include m.media(phone)
+    @include m.gap($mt: f.px(60))
+    flex: 20%
+.image
+  flex: 80%
+  width: 270px
+  height: 300px
+  flex-shrink: 1
+
+.btnContainer
+  display: flex
+  align-content: center
+  justify-content: center
+  margin: 70px
+  padding: 20px

@@ -7,6 +7,9 @@ import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import About from '@/components/sections/About'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import AboutMip from '@/components/sections/AboutMip/AboutMip'
+import WhoIsOurSpeakers from '@/components/sections/WhoIsOurSpeakers/WhoIsOurSpeakers'
+import TeachersLineUp from '@/components/sections/TeachersLineUp/TeachersLineUp'
 
 const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
@@ -40,7 +43,10 @@ const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         }}
       />
       <SeoOrganizationJsonLd />
-      <About standalone />
+      {/* <About standalone /> */}
+      <AboutMip />
+      <WhoIsOurSpeakers />
+      <TeachersLineUp />
     </>
   )
 }

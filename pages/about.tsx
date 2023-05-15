@@ -1,18 +1,22 @@
 import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
+import { TypeLibTeachers, TypePageDefaultProps, TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
-import About from '@/components/sections/About'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import AboutMip from '@/components/sections/AboutMip/AboutMip'
 import WhoIsOurSpeakers from '@/components/sections/WhoIsOurSpeakers/WhoIsOurSpeakers'
-import TeachersLineUp from '@/components/sections/TeachersLineUp/TeachersLineUp'
+import ChooseProgram from '@/components/sections/ChooseProgram/ChooseProgram'
+import { ActiveLicenses, ContactForm } from '@/components/sections'
+import { sortBasedOnNumericOrder } from '../helpers'
+import TeachersFiles from '@/components/sections/TeachersLineUp/TeachersFiles'
 
-const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
+const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   useHandleContextStaticProps({ programs })
+
+  const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
 
   const seoParams = {
     title: `Об институте | ${company.desc} | ${company.name}
@@ -43,15 +47,17 @@ const AboutPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         }}
       />
       <SeoOrganizationJsonLd />
-      {/* <About standalone /> */}
       <AboutMip />
       <WhoIsOurSpeakers />
-      <TeachersLineUp />
+      <TeachersFiles teachers={teachersSorted} />
+      <ChooseProgram />
+      <ActiveLicenses />
+      <ContactForm/>
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routes.front.about })
+  await handleGetStaticProps({ page: routes.front.teachers })
 
 export default AboutPage

@@ -2,6 +2,7 @@ import stls from '@/styles/pages/about/MipFoto.module.sass'
 import photo from '@/public/assets/imgs/general/Rectangle.jpeg'
 import Image from 'next/image'
 import IconSpiral from '@/components/icons/IconSpiral'
+import IconSmallSpiral from '@/components/icons/IconSmallSpiral'
 
 export default function MipFoto() {
   return (
@@ -19,7 +20,12 @@ export default function MipFoto() {
       <div className={stls.round}></div>
       <div className={stls.spiralContainer}>
         <IconSpiral />
+        
       </div>
+      <div className={stls.smallSpiral}>
+        <IconSmallSpiral />
+      </div>
+    
     </div>
   )
 }

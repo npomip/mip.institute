@@ -1,87 +1,90 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
-@use '@/styles/utils/mixin/media' as bp
-
-
-.cards
-  display: flex
-  justify-content: space-around
-  @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(106))
-    @include m.gap($pb: f.px(56))
-    @include m.gap($plr: f.px(156))
-    // padding-left: 9em
-    // padding-right: 9em
-  @include m.media(phone, tablet)
-    flex-direction: column
-
-.hideCards
-  display: flex
-  justify-content: space-around
-  @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(156))
-    @include m.gap($pb: f.px(56))
-    @include m.gap($plr: f.px(156))
-    // padding-left: 9em
-    // padding-right: 9em
-  @include m.media(phone, tablet)
-    display: none
 
 .container
-  height: 330px
-  width: 250px
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  margin: 10px
   @include m.media(phone, tablet)
-    flex-direction: row
-    width: 100%
-  p
-    padding: 10px
-    font-family: Stem
-    font-weight: 350
-    font-size: 18px
-    line-height: 1.3em
-    display: flex
-    justify-content: center
-  h3
-    display: flex
-    justify-content: flex-start
-    font-family: Stem
-    font-weight: 500
-    font-size: 22px
-    @include m.gap($mt: f.px(0))
+    @include m.gap($mb: 0, $pt: f.px(50), $pb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: 0, $pt: f.px(62), $pb: f.px(62))
 
+.title
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(50))
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(31))
+    font-size: f.px(44)
+
+.teachers
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap)
+  @include m.gap($m: 0, $p: 0)
 
 .teacher
-  height: 330px
-  width: 250px
-  margin-top: 8em
-  margin-bottom: 10px
   @include m.media(phone, tablet)
-    flex: 80%
-    // padding-top: 100px
+    @include m.flex
+    @include m.gap($mb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column, $fb: 23%)
+    @include m.gap($mr: 1.8%, $mb: f.px(62))
 
-.text
-  @include m.media(tablet)
-    // flex: 20%
-    @include m.gap($plr: f.px(10))
-    justify-content: center
-  @include m.media(phone)
-    @include m.gap($mt: f.px(60))
-    flex: 20%
-.image
-  flex: 80%
-  width: 270px
-  height: 300px
-  flex-shrink: 1
+.img
+  @include m.media(phone, tablet)
+    min-width: f.px(147)
+    max-width: f.px(147)
+    max-height: f.px(169)
+    @include m.gap($mr: f.px(30))
+    border-radius: f.px(10)
+  @include m.media(laptop, desktop)
+    min-width: f.px(270)
+    max-width: f.px(270)
+    max-height: f.px(331)
+    @include m.gap($mb: f.px(30))
+    border-radius: f.px(20)
+  overflow: hidden
 
-.btnContainer
-  display: flex
-  align-content: center
-  justify-content: center
-  margin: 70px
-  padding: 20px
+.name
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(20)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(22)
+  @include m.dye(c, c.$epsilon-2)
+
+.bio
+  @include m.media(phone, tablet)
+    max-width: 25ch
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
+  font-weight: 300
+  line-height: 120%
+  & p
+    @include m.gap($mb: 0)
+
+.btn
+  margin: 0 auto
+  width: fit-content
+  border-radius: 20px
+  &:hover
+    
+  & > *
+    font-family: Stem, sans-serif
+    font-weight: 500
+    font-size: 18px
+    color: white
+  @include m.dye(bg, c.$beta)
+  @include m.gap($p: f.px(20))
+  @include m.flex($jc: center)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(30))
+    & > *
+      width: 100%
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(80))

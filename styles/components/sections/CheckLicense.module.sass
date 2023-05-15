@@ -8,6 +8,7 @@
       @include m.gap($plr: f.px(0))
 
 .wrapper
+  position: relative
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(50), $plr: f.px(33))
     border-radius: f.px(50) 0
@@ -15,7 +16,28 @@
     @include m.flex($jc: space-between)
     @include m.gap($ptb: f.px(60), $plr: f.px(70))
     border-radius: f.px(100) 0 
-  @include m.dye(bg, c.$pi)
+  @include m.dye(bg, c.$alpha)
+
+.icon
+  position: absolute
+  @include m.media(laptop, desktop)
+    top: 1em
+    left: 14em
+  @include m.media(phone, tablet)
+    top: 0.3em
+    left: 3em
+
+.smallSpiral
+  position: absolute
+  @include m.media( desktop)
+    right: 7em
+    bottom: 5em
+  @include m.media(laptop)
+    right: 2em
+    bottom: 5em
+  @include m.media(phone, tablet)
+    right: 4em
+    bottom: 7em
 
 .img
   @include m.media(phone, tablet)
@@ -44,11 +66,11 @@
   @include m.media(laptop, desktop)
     font-size: f.px(44)
   font-weight: 500
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$nu)
 
 .p
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
+    @include m.gap($mb: f.px(50))
     font-size: f.px(18)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(40))
@@ -56,7 +78,7 @@
     max-width: 31ch
   font-weight: 300
   line-height: 130%
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$nu)
 
 
 .btn

@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '@/styles/components/icons/IconCheck.module.sass'
 
 export default function IconCheck() {

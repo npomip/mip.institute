@@ -16,6 +16,7 @@ const About = ({ standalone = false }: AboutType) => {
         [stls.standalone]: standalone
       })}>
       <Wrapper>
+        
         <div className={stls.leaf}>
           <AboutLeaf />
         </div>

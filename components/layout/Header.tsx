@@ -32,8 +32,8 @@ const Header = () => {
       val: 'Преподаватели'
     },
     {
-      href: routes.front.contact,
-      val: 'Контакты'
+      href: routes.front.about,
+      val: 'Об университете'
     }
   ]
 

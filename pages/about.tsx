@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next'
-import { TypeLibTeachers, TypePageDefaultProps, TypePageTeachersProps } from '@/types/index'
+import { TypeLibTeachers, TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company } from '@/config/index'
@@ -9,9 +9,10 @@ import { SeoOrganizationJsonLd } from '@/components/seo'
 import AboutMip from '@/components/sections/AboutMip/AboutMip'
 import WhoIsOurSpeakers from '@/components/sections/WhoIsOurSpeakers/WhoIsOurSpeakers'
 import ChooseProgram from '@/components/sections/ChooseProgram/ChooseProgram'
-import { ActiveLicenses, ContactForm } from '@/components/sections'
+import { ActiveLicenses } from '@/components/sections'
 import { sortBasedOnNumericOrder } from '../helpers'
 import TeachersFiles from '@/components/sections/TeachersLineUp/TeachersFiles'
+import AboutPageContactForm from '@/components/sections/AboutPageContactForm'
 
 const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   useHandleContextStaticProps({ programs })
@@ -52,7 +53,7 @@ const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
       <TeachersFiles teachers={teachersSorted} />
       <ChooseProgram />
       <ActiveLicenses />
-      <ContactForm/>
+      <AboutPageContactForm />
     </>
   )
 }

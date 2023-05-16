@@ -5,12 +5,11 @@
 .container
   margin: 0 auto
   @include m.media( desktop)
-    @include m.gap($m: 0 auto)
-    height: 422px
-    width: 100%
     @include m.gap($plr: f.px(150))
+    height: 422px
   @include m.media(laptop)
     @include m.gap($plr: f.px(50))
+    height: 422px
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(20))
   background: #FBF4FF

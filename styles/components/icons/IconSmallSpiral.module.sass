@@ -4,4 +4,8 @@
 
 .container
   @include m.flex
-  @include m.sizeIcon($w: 21, $h: 17)
+  @include m.media(laptop, desktop)
+    @include m.sizeIcon($w: 25, $h: 30)
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 25, $h: 25)
+  @include m.flex

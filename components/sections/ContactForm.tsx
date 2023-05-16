@@ -2,7 +2,6 @@ import stls from '@/styles/components/sections/ContactForm.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { FormAlpha } from '@/components/forms'
 import { IconAtom } from '@/components/icons'
-import NewForm from '../forms/newForm';
 
 const ContactForm = () => {
   return (

@@ -3,9 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/utils/mixin/media' as bp
 
-.container
+.bg
   background: #FBF4FF
-  
+.container
   display: flex
   @include m.media(laptop, desktop)
     height: 650px
@@ -14,27 +14,27 @@
 
 .left
   @include m.media(phone, tablet)
-    // @include m.gap($mt: f.px(38))
+    @include m.gap($mt: f.px(38))
     @include m.gap($pb: f.px(18))
     padding: 1em
   @include m.media(desktop)
     position: relative
     @include m.gap($pt: f.px(76))
-    padding-left: 9em
-    padding-right: 2em
   @include m.media(laptop)
     position: relative
-    // @include m.gap($pt: f.px(76))
-    padding-left: 9em
-    padding-right: 4em
-  height: 650px
-  flex: 58%
-  // flex-shrink: 1
+    @include m.gap($pt: f.px(76))
+    @include m.gap($mr: f.px(16))
+  // height: 650px
+  // flex: 60%
 
 .ornament
+  // position: absolute
+  // right: 0
   @include m.media(laptop, desktop)
-    // flex-shrink: 1
+    // display: flex
     justify-content: flex-end
+    // margin-left: 100px
+    // padding-left: 100px
 
 
 .chooseContainer
@@ -50,6 +50,7 @@
     @include m.media(laptop)
       @include m.gap($pt: f.px(6))
       @include m.gap($pb: f.px(6))
+      
     @include m.media(phone, tablet)
       @include m.gap($pt: f.px(16))
       @include m.gap($pb: f.px(16))
@@ -82,7 +83,8 @@
     position: absolute
     top: f.px(230)
     left: f.px(140)
-    margin-right: 2em
+    max-width: 400px
+    margin-right: 0.5em
 
 .third
   border-radius: 20px 20px 0 20px 
@@ -95,7 +97,10 @@
   @include m.media( desktop)
     position: absolute
     top: f.px(478)
-    left: f.px(435)
+    left: f.px(415)
   @include m.media(laptop,phone, tablet)
     display: flex
     justify-content: flex-end
+
+.fon
+  background: #FBF4FF

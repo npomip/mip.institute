@@ -1,9 +1,9 @@
-import React from 'react'
+import stls from '@/styles/components/icons/IconOrnament.module.sass'
 
 export default function IconOrnament() {
   return (
-    <span>
-      <svg width="605" height="657" viewBox="0 0 605 657" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <span className={stls.container}>
+      <svg className={stls.svg} width="605" height="657" viewBox="0 0 605 657" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M403.336 657H605V438.005H403.336V657Z" fill="#FBF4FF"/>
 <path d="M201.672 657H403.336V438.005H201.672L201.672 657Z" fill="#6F01C6"/>
 <path d="M0.00827026 657H201.672L201.672 438.005H0.00827026L0.00827026 657Z" fill="#FBF4FF"/>

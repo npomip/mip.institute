@@ -10,6 +10,7 @@ import { IconCircleCheck } from '@/components/icons'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
+import MoneySaving from '../program/MoneySaving'
 
 const StudyCost = () => {
   const { program } = useContext(ContextStaticProps)
@@ -22,10 +23,6 @@ const StudyCost = () => {
 
   const info = [
     { key: 'Зачисление:', val: <ProgramAdmission /> },
-    // {
-    //   key: 'Количество часов:',
-    //   val: `${studyHours} ч`
-    // },
     {
       key: 'Форма обучения:',
       val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel
@@ -33,6 +30,10 @@ const StudyCost = () => {
     {
       key: 'Срок обучения:',
       val: <ProgramStudyDuration studyMounthsDuration={studyMounthsDuration} />
+    },
+    {
+      key: 'Рассрочка:',
+      val: 'От “Тинькофф банка”'
     }
   ]
 
@@ -48,24 +49,24 @@ const StudyCost = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>
+        
+        <div className={stls.content}>
+        
+          <div className={stls.left}>
+          <h2 className={stls.title}>
           <span className={stls.phonetablet}>Стоимость обучения</span>{' '}
           <span className={stls.laptopdesktop}>Запишитесь на программу</span>
         </h2>
-        <div className={stls.content}>
-          <div className={stls.left}>
             <div className={stls.heading}>
               <h3 className={stls.subtitle}>{title}</h3>
               <div className={stls.info}>
                 {info.map((item, idx) => (
                   <div key={item.key + idx} className={stls.infoitem}>
                     <p className={stls.infokey}>{item.key}</p>
-                    <p className={stls.infoval}>{item.val}</p>
+                    <p className={stls.infoval}>
+                      {item.val}</p>
                   </div>
                 ))}
-              </div>
-              <div className={stls.discount}>
-                <ProgramDiscount small />
               </div>
             </div>
             <div className={stls.cost}>
@@ -82,7 +83,7 @@ const StudyCost = () => {
                 className={classNames({
                   [stls.btnquestion]: true
                 })}>
-                <PopupTrigger btn='eta' cta='askQuestion' />
+                <PopupTrigger btn='zeta' cta='askQuestion' />
               </div>
               <div
                 className={classNames({
@@ -93,6 +94,9 @@ const StudyCost = () => {
             </div>
           </div>
           <div className={stls.right}>
+            <div className={stls.discount}>
+              <ProgramDiscount small violet />
+            </div>
             <ul className={stls.points}>
               {points.map((point, idx) => (
                 <li key={point + idx} className={stls.point}>
@@ -105,6 +109,7 @@ const StudyCost = () => {
             </ul>
           </div>
         </div>
+        <MoneySaving />
       </Wrapper>
     </section>
   )

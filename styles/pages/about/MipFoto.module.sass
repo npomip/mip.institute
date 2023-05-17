@@ -4,16 +4,22 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
+  // width: 600px
   position: relative
   margin: 0 auto
   padding: 2em
-  @include m.media(laptop, desktop)
+  @include m.media( desktop)
     width: 400px
     height: fit-content
+    margin-left: 10em
+  @include m.media(laptop)
+    width: 400px
+    height: fit-content
+    // margin-left: 10em
   @include m.media(phone, tablet)
     width: 300px
     padding-bottom: 1em
-    margin-bottom: 1em
+    margin-bottom: 3em
   
   
 .figure

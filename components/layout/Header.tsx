@@ -33,7 +33,7 @@ const Header = () => {
     },
     {
       href: routes.front.about,
-      val: 'Об университете'
+      val: 'Об институте'
     }
   ]
 

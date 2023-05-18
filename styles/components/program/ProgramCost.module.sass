@@ -22,12 +22,24 @@
     border: none
     
 .flexMonth
+  // width: 90%
+  
   display: flex
-  @include m.media(laptop, desktop, tablet)
-    justify-content: space-around
+  @include m.media(desktop, tablet)
+    justify-content: space-between
     align-items: baseline
-
+    padding-left: 20px
+    padding-right: 20px
+  
+  @include m.media(laptop)
+    justify-content: space-between
+    align-items: baseline
+    padding-left: 20px
+    padding-right: 20px
+    
   @include m.media(phone)
+    padding-top: 20px
+    padding-right: 20px
     flex-direction: column
     align-items: center
 .label
@@ -38,7 +50,7 @@
     max-width: 75%
     @include m.gap($pl: f.px(41))
     @include m.gap($mb: f.px(9))
-    @include m.gap($mt: f.px(9))
+    @include m.gap($mt: f.px(19))
     font-size: f.px(16)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(3))

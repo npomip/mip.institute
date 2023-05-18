@@ -90,7 +90,7 @@ const StudyCost = () => {
                   [stls.btnmore]: true
                 })}>
                 {/* <BtnText text={'Подробнее'} arrowBottom /> */}
-              </div>
+              </div> 
             </div>
           </div>
           <div className={stls.right}>

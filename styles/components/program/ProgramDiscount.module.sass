@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  margin-bottom: 50px
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $ai: center)
     min-width: f.px(108)
@@ -42,7 +43,31 @@
         font-size: f.px(38)
       & .until
         font-size: f.px(13)
+  &.violet
+    min-width: f.px(170)
+    max-width: f.px(170)
+    min-height: f.px(90)
+    max-height: f.px(90)
+    display: flex
+    // flex-direction: row
+    @include m.dye(bg, c.$alpha)
+    border-radius: 20px
+    transform: rotate(0deg)
 
+
+.forFlex
+  display: flex
+
+.rightPart
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.round
+  display: flex
+  align-items: center
+  padding-right: 10px
+  transform: scale(2.5)
 .discount
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)

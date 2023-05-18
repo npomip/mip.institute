@@ -21,34 +21,45 @@ const ProgramCost = ({ withPerMonth = false }) => {
     <div className={stls.container}>
       {withPerMonth && (
         <div className={stls.content}>
-          <p className={stls.label}>Беспроцентная рассрочка на 12 месяцев</p>
+          
+          <div className={stls.spanLine}>
+          <p className={stls.label}>Стоимость программы в месяц*:</p>
+          <div className={stls.flexMonth}>
           <span className={stls.discount}>
             <span className={stls.bold}>
               {toNumberWithSpaces(perMonthPrice)}
-              {/* {toNumberWithSpaces(perMonthPriceRegular / 2)} */}
             </span>{' '}
-            <span className={stls.light}>&#8381;/мес</span>
-          </span>{' '}
-          <br />
+            <span className={stls.light}>&#8381;</span>
+          </span>
+          
           <span className={stls.regular}>
             <span className={stls.bold}>
               {toNumberWithSpaces(perMonthPriceRegular)}
             </span>{' '}
-            <span className={stls.light}>&#8381;/мес</span>
+            <span className={stls.light}>&#8381;</span>
           </span>
+          </div>
+          <p className={stls.label}>*Беспроцентная рассрочка на 12 месяцев от Tinkoff</p>
+          </div>
+          <div className={stls.spanLine}>
+          <p className={stls.label}>Стоимость программы за весь курс:</p>
+          <div className={stls.flexMonth}>
+          <span className={stls.discount}>
+            <span className={stls.bold}>
+              {toNumberWithSpaces(price)}
+            </span>{' '}
+            <span className={stls.light}>&#8381;</span>
+          </span>{' '}
+          <span className={stls.regular}>
+            <span className={stls.bold}>
+              {toNumberWithSpaces(rprice)}
+            </span>{' '}
+            <span className={stls.light}>&#8381;</span>
+          </span>
+          </div>
+          </div>
         </div>
       )}
-      {/* <div className={stls.content}>
-        <p className={stls.label}>Единоразовый платёж</p>
-        <span className={stls.discount}>
-          <span className={stls.bold}>{toNumberWithSpaces(price)}</span>{' '}
-          <span className={stls.light}>&#8381;</span>
-        </span>
-        <span className={stls.regular}>
-          <span className={stls.bold}>{toNumberWithSpaces(rprice)}</span>{' '}
-          <span className={stls.light}>&#8381;</span>
-        </span>
-      </div> */}
     </div>
   )
 }

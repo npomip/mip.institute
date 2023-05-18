@@ -33,27 +33,27 @@
     border-radius: f.px(25) 0 0 0
   @include m.media(laptop, desktop)
     @include m.flex
-    @include m.gap($pt: f.px(72), $pb: f.px(46), $plr: f.px(70))
+    // @include m.gap($pt: f.px(72), $pb: f.px(46), $plr: f.px(70))
     border-radius: f.px(100) 0 0 0
-  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  @include m.dye(bg, c.$nu)
+  // box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+  // @include m.dye(bg, c.$nu)
 
 .left
   @include m.media(laptop, desktop)
     position: relative
-    max-width: f.px(585)
-    @include m.flex($display: false, $fb: 55%)
-    @include m.gap($pr: f.px(70))
-    &::after
-      content: ''
-      position: absolute
-      top: 0
-      right: 0
-      width: f.px(100)
-      clip-path: inset(0 f.px(-40) 0 0)
-      height: calc(100% + #{f.px(72) + f.px(46)})
-      transform: translateY(f.px(-72))
-      box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+    max-width: f.px(785)
+    @include m.flex($display: false, $fb: 75%)
+    // @include m.gap($pr: f.px(70))
+    // &::after
+    //   content: ''
+    //   position: absolute
+    //   top: 0
+    //   right: 0
+    //   width: f.px(100)
+    //   clip-path: inset(0 f.px(-40) 0 0)
+    //   height: calc(100% + #{f.px(72) + f.px(46)})
+    //   transform: translateY(f.px(-72))
+    //   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
 
 .heading
   @include m.media(phone, tablet)
@@ -67,14 +67,16 @@
     display: none
   @include m.media(laptop, desktop)
     @include m.flex
-    max-width: f.px(429)
-    @include m.gap($mb: f.px(71), $pb: f.px(22))
     border-bottom: f.px(1) solid
     @include m.dye(border, c.$mu)
 
 .infoitem
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(30))
+  &:nth-child(1)
+    .infoval
+      &::before
+        content: 'до '
 
 .infokey
   @include m.media(laptop, desktop)
@@ -86,9 +88,10 @@
 .infoval
   @include m.media(laptop, desktop)
     font-size: f.px(13)
-    font-weight: 300
+    font-weight: 500
 
 .subtitle
+  @include m.dye(c, c.$alpha)
   @include m.media(phone, tablet)
     max-width: 70%
     @include m.gap($mb: f.px(18))
@@ -97,7 +100,7 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(31))
     font-size: f.px(34)
-    font-weight: 300
+    font-weight: 500
 
 .discount
   @include m.media(phone, tablet)
@@ -106,9 +109,10 @@
     right: 0
     transform: translate(10%, -20%)
   @include m.media(laptop, desktop)
-    position: absolute
-    top: f.px(-40)
-    right: f.px(-130)
+    @include m.gap($ml: f.px(38))
+    // position: absolute
+    // top: f.px(-40)
+    // right: f.px(-130)
     // transform: translate(10%, -20%)
     z-index: 2
 
@@ -170,7 +174,7 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.gap($pl: f.px(70))
+    @include m.gap($pl: f.px(20))
     @include m.flex($display: false, $fb: 45%)
 
 .point

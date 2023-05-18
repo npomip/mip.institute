@@ -1,0 +1,40 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  height: 235px
+  @include m.media(phone, tablet)
+    height: fit-content
+  border: 3px solid #B250FF
+  margin-top: 100px
+  border-radius: 0 0 100px 0
+  
+
+.text
+  display: flex
+  justify-content: space-around
+  align-items: center
+  height: 100%
+  @include m.media(phone, tablet)
+    flex-direction: column
+    height: fit-content
+  @include m.media(laptop, desktop)
+.one
+  display: flex
+  flex-direction: column
+  @include m.media(phone, tablet)
+    align-items: center
+    padding: 15px
+  @include m.media(laptop, desktop)
+    width: 20%
+  & h1
+    font-size: 22px
+  & p
+    font-size: 18px
+
+.phoneNumber
+  color: black
+  text-decoration: underline
+  text-decoration-skip-ink: auto
+  text-underline-offset: 4px

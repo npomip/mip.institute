@@ -14,12 +14,14 @@
 .text
   display: flex
   justify-content: space-around
-  align-items: center
+  align-items: baseline
   height: 100%
   @include m.media(phone, tablet)
     flex-direction: column
     height: fit-content
+    
   @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(40))
 .one
   display: flex
   flex-direction: column

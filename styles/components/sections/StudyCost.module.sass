@@ -67,15 +67,13 @@
     display: none
   @include m.media(laptop, desktop)
     @include m.flex
-    // max-width: f.px(529)
-    // @include m.gap($mb: f.px(11), $pb: f.px(2))
     border-bottom: f.px(1) solid
     @include m.dye(border, c.$mu)
 
 .infoitem
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(30))
-  &:first-child
+  &:nth-child(1)
     .infoval
       &::before
         content: 'до '

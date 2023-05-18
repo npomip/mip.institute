@@ -95,7 +95,9 @@ const StudyCost = () => {
           </div>
           <div className={stls.right}>
             <div className={stls.discount}>
-              <ProgramDiscount small violet />
+              <ProgramDiscount small
+              violet 
+              />
             </div>
             <ul className={stls.points}>
               {points.map((point, idx) => (

@@ -46,6 +46,9 @@ const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
         <div className={stls.content}>
           <SwiperContainer slides={slides} />
         </div>
+        {reviews.map((el, i) => (
+          <p key={i}>{el.title}</p>
+        ))}
       </Wrapper>
     </section>
   )

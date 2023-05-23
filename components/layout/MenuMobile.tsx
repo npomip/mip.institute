@@ -69,7 +69,7 @@ const MenuMobile = () => {
           <p className={stls.divName}>Приемная комиссия:</p>
           <BtnPhone withNumber alterNumber />
           {/* <p>+7(800)600-29-03</p> */}
-          <p className={stls.divName}>Учебный отдел:</p>
+          <p className={stls.divName}>Кураторский отдел:</p>
           <BtnPhone studyDivision withNumber/>
           {/* <p>+7(499)110-82-11</p> */}
           

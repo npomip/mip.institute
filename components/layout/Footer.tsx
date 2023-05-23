@@ -136,7 +136,7 @@ const Footer = () => {
                   className={stls.number}>
                   {company.phoneNumbers.defaultAlt.val}
                 </a>
-                <p >Учебный отдел:</p>
+                <p >{company.phoneNumbers.studyDivision.contactType}:</p>
                 <a
                   href={company.phoneNumbers.studyDivision.href}
                   className={stls.number}>

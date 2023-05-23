@@ -67,7 +67,7 @@ const company = {
       city: 'Москва',
       href: 'tel:+7-499-110-82-11',
       val: '+7 (499) 110-82-11',
-      contactType: 'Учебный отдел',
+      contactType: 'Кураторский отдел',
       areaServed: ['RU', 'KZ', 'UZ'],
       languages: ['Russian', 'Kazakh', 'Uzbek']
     },

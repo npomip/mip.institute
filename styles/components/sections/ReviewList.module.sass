@@ -1,0 +1,75 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.box
+  margin-top: 20px
+  margin-bottom: 20px
+  display: grid
+  @include m.media( desktop)
+    grid-template-columns: 300px 300px 300px 300px
+    row-gap: 5px
+    column-gap: 5px
+  @include m.media( laptop)
+    grid-template-columns: 300px 300px 300px
+  @include m.media( tablet)
+    grid-template-columns: 1fr 1fr
+  @include m.media( phone)
+    grid-template-columns: 1fr
+  // @include m.media(phone, tablet)
+  //   @include m.gap($mb: 0, $pt: f.px(50), $pb: f.px(50))
+  // @include m.media(laptop, desktop)
+  //   @include m.gap($mb: 0, $pt: f.px(62), $pb: f.px(62))
+
+
+.container
+  height: fit-content
+  @include m.media(laptop, desktop)
+    padding: 15px
+  @include m.media(phone, tablet)
+    padding: 5px
+    padding-bottom: 20px
+    margin-bottom: 20px
+  &:hover
+    transform: scale(1.02)
+    transition: 0.2s ease-out
+  p
+    @include m.media(phone, tablet)
+      max-width: 25ch
+      font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
+  font-weight: 300
+  line-height: 120%
+  position: relative
+
+.img
+  width: 100%
+  min-height: f.px(260)
+  max-height: f.px(260)
+  @include m.gap($mb: f.px(30))
+  border-radius: f.px(20)
+  overflow: hidden
+
+.review
+  // padding-right: 30px
+
+.name
+  font-weight: 500
+
+.trigger
+  position: absolute
+  bottom: 0
+
+.title
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(50))
+    font-size: f.px(26)
+    @include m.gap($mb: 0, $pt: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(31))
+    font-size: f.px(44)
+    @include m.gap($mb: 0, $pt: f.px(62))
+    

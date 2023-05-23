@@ -11,6 +11,7 @@ import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import Reviews from '@/components/sections/Reviews'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import ReviewList from '@/components/sections/Reviews/ReviewList'
 
 const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
   useHandleContextStaticProps({ programs })
@@ -55,7 +56,8 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
         }}
       />
       <SeoOrganizationJsonLd />
-      <Reviews standalone reviews={reviewsSorted} />
+      {/* <Reviews standalone reviews={reviewsSorted} /> */}
+      <ReviewList reviews={reviewsSorted} />
     </>
   )
 }

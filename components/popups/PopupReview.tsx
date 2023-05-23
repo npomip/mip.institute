@@ -3,9 +3,12 @@ import { BtnClose } from '@/components/btns'
 
 const PopupReview = ({ title, photo, name, occupation, story, close }) => {
   return (
-    <div className={stls.container}>
+    <div className={stls.container}
+    >
       <div className={stls.close}>
-        <BtnClose onClick={close} />
+        <BtnClose onClick={
+          close 
+        } />
       </div>
       <div className={stls.img}>{photo}</div>
       <div className={stls.content}>

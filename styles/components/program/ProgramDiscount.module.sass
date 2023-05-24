@@ -28,11 +28,11 @@
       max-width: f.px(73)
       min-height: f.px(73)
       max-height: f.px(73)
-      @include m.gap($pt: f.px(17))
+      @include m.gap($pt: f.px(10))
       & .discount
-        font-size: f.px(23)
+        font-size: f.px(24)
       & .until
-        font-size: f.px(8)
+        font-size: f.px(10)
     @include m.media(laptop, desktop)
       min-width: f.px(122)
       max-width: f.px(122)
@@ -44,10 +44,16 @@
       & .until
         font-size: f.px(13)
   &.violet
-    min-width: f.px(170)
-    max-width: f.px(170)
-    min-height: f.px(90)
-    max-height: f.px(90)
+    @include m.media(laptop, desktop)
+      min-width: f.px(170)
+      max-width: f.px(170)
+      min-height: f.px(90)
+      max-height: f.px(90)
+    @include m.media(phone, tablet)
+      min-width: f.px(130)
+      max-width: f.px(130)
+      min-height: f.px(60)
+      max-height: f.px(70)
     display: flex
     // flex-direction: row
     @include m.dye(bg, c.$alpha)

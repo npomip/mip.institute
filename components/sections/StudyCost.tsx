@@ -49,22 +49,25 @@ const StudyCost = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        
         <div className={stls.content}>
-        
           <div className={stls.left}>
-          <h2 className={stls.title}>
-          <span className={stls.phonetablet}>Стоимость обучения</span>{' '}
-          <span className={stls.laptopdesktop}>Запишитесь на программу</span>
-        </h2>
+            <h2 className={stls.title}>
+              <span className={stls.laptopdesktop}>
+                Запишитесь на программу
+              </span>
+            </h2>
             <div className={stls.heading}>
-              <h3 className={stls.subtitle}>{title}</h3>
+              <div className={stls.discountMobile}>
+                <h3 className={stls.subtitle}>{title}</h3>
+                <div className={stls.discountMobileTag}>
+                  <ProgramDiscount small violet />
+                </div>
+              </div>
               <div className={stls.info}>
                 {info.map((item, idx) => (
                   <div key={item.key + idx} className={stls.infoitem}>
                     <p className={stls.infokey}>{item.key}</p>
-                    <p className={stls.infoval}>
-                      {item.val}</p>
+                    <p className={stls.infoval}>{item.val}</p>
                   </div>
                 ))}
               </div>
@@ -85,19 +88,16 @@ const StudyCost = () => {
                 })}>
                 <PopupTrigger btn='zeta' cta='askQuestion' />
               </div>
-              <div
+              {/* <div
                 className={classNames({
                   [stls.btnmore]: true
                 })}>
-                {/* <BtnText text={'Подробнее'} arrowBottom /> */}
-              </div> 
+              </div>  */}
             </div>
           </div>
           <div className={stls.right}>
             <div className={stls.discount}>
-              <ProgramDiscount small
-              violet 
-              />
+              <ProgramDiscount small violet />
             </div>
             <ul className={stls.points}>
               {points.map((point, idx) => (

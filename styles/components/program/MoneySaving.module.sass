@@ -13,21 +13,25 @@
 
 .text
   display: flex
-  justify-content: space-around
-  align-items: baseline
-  height: 100%
-  @include m.media(phone, tablet)
-    flex-direction: column
-    height: fit-content
-    
   @include m.media(laptop, desktop)
+    
+    justify-content: space-around
+    align-items: baseline
+    height: 100%
     @include m.gap($mt: f.px(40))
+  @include m.media(phone, tablet)
+    // display: inline
+    // flex-direction: column
+    // height: fit-content
+    flex-wrap: wrap
+    
 .one
   display: flex
   flex-direction: column
   @include m.media(phone, tablet)
     align-items: center
     padding: 15px
+    width: 50%
   @include m.media(laptop, desktop)
     width: 20%
   & h1

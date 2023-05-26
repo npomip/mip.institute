@@ -6,7 +6,7 @@ type getStudyFieldsLabelsType = {
 }[]
 
 const getStudyFieldsLabels = (programs: getStudyFieldsLabelsType) => {
-  const duplicates = programs.map(item => item.studyField).filter(item => item)
+  const duplicates = programs?.map(item => item.studyField).filter(item => item)
   const output = removeDuplicates(duplicates)
   return output
 }

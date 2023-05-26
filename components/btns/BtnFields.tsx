@@ -9,6 +9,7 @@ import Wrapper from '../layout/Wrapper'
 import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import CardTooltip from '../cards/CardTooltip'
+import BtnField from './BtnField'
 
 const BtnFields = () => {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
@@ -44,8 +45,6 @@ const BtnFields = () => {
     closeFieldsTooltip
   }
 
-  console.log(filteredPrograms)
-
   return (
     <Wrapper>
       <div id='btnFieldsContainer' className={stls.container}>
@@ -72,7 +71,9 @@ const BtnFields = () => {
               <IconSearchAlt />
             </div>
           </div>
-          {searchQuery && <h1 className={stls.searchResults}>Результаты поиска</h1>}
+          {searchQuery && (
+            <h1 className={stls.searchResults}>Результаты поиска</h1>
+          )}
           <div className={stls.card}>
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
@@ -82,7 +83,14 @@ const BtnFields = () => {
               ))}
           </div>
           {filteredPrograms.length === 0 && searchQuery && (
-            <p>К сожалению, по вашему запросу ничего не найдено</p>
+            <div className={stls.notFound}>
+              <p className={stls.sorryText}>К сожалению, по вашему запросу ничего не найдено</p>
+              <div onClick={clickHandler} className={stls.allPrograms}>
+                <BtnField href='/programs'>
+                  Ознакомиться со всеми направлениями
+                </BtnField>
+              </div>
+            </div>
           )}
           {!searchQuery && <StudyFields />}
         </div>

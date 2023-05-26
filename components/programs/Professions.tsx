@@ -4,6 +4,7 @@ import CardProfession from '@/components/cards/CardProfession'
 import { BtnDelta } from '@/components/btns'
 import classNames from 'classnames'
 import ProgramsQty from '@/components/general/ProgramsQty'
+import SearchProgram from '../general/SearchProgram'
 
 type ProfessionsType = {
   biggerTitle?: boolean
@@ -23,7 +24,12 @@ const Professions = ({
   return (
     <div className={stls.container}>
       {biggerTitle ? (
+        <>
+        <div>
+          <SearchProgram />
+        </div>
         <div className={stls.heading}>
+          
           <h2
             className={classNames({
               [stls.title]: true,
@@ -37,6 +43,7 @@ const Professions = ({
             </div>
           )}
         </div>
+          </>
       ) : (
         <div className={stls.heading}>
           <h3 className={stls.title}>Профессии</h3>

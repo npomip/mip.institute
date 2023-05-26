@@ -7,6 +7,7 @@
   z-index: 3
 
 .btn
+  // position: relative
   @include m.flex($ai: center)
   @include m.gap($ptb: f.px(14), $plr: f.px(30))
   border: f.px(2) solid
@@ -18,30 +19,30 @@
   @include m.dye(c, c.$nu)
   &:hover
     transform: scale(1.01)
-    // & > .icon svg line
-    //   &:nth-child(1)
-    //     x: 10
-    //   &:nth-last-child(1)
-    //     x: 10
   &:focus
     transform: scale(1)
 
-  // &:focus-within
-  //   & > .icon
-
+.input
+  width: 380px
+  height: f.px(50)
+  background: #F9F0FF
+  margin-bottom: 20px
+  &:focus
+    border: none
 .icon
   @include m.gap($mr: f.px(16))
 
 .tooltip
   position: absolute
+  height: 360px
   left: 0
-  bottom: 0
-  transform: translateY(114%)
+  top: 6em
   display: none
-  width: 200%
+  width: 290%
   @include m.gap($mtb: 0, $pt: f.px(37), $plr: f.px(37), $pb: f.px(37 - 12))
   box-shadow: 0 f.px(7) f.px(50) rgba(c.$chi, .2)
   border-radius: f.px(9)
+  // height: fit-content
   @include m.dye(bg, c.$nu)  
   z-index: 2
   &.isShown
@@ -61,3 +62,40 @@
 .studyField
   @include m.flex
   @include m.gap($mr: f.px(12), $mb: f.px(12))
+
+.card
+  width: 700px
+  display: grid
+  grid-template-columns: 1fr 1fr 
+  grid-gap: 35px
+  & > *
+    &:nth-child(2)
+      border-bottom: 1px solid #DEDEDE
+    &:nth-child(1)
+      border-bottom: 1px solid #DEDEDE
+
+.inputContainer
+  position: relative
+  width: fit-content
+
+.iconSearch
+  @include m.media(laptop, desktop)
+    position: absolute
+    top: f.px(25)
+    right: f.px(13)
+    transform: translateY(-50%)
+    @include m.flex($jc: center, $ai: center)
+    min-width: f.px(34)
+    max-width: f.px(34)
+    min-height: f.px(30)
+    max-height: f.px(30)
+    border-radius: f.px(4)
+    @include m.dye(bg, c.$beta)
+    transition: background-color .2s ease-in-out
+    pointer-events: none
+    & path
+      transition: fill .2s ease-in-out
+
+.searchResults
+  font-weight: 500
+  font-size: 16px

@@ -25,9 +25,9 @@ const Professions = ({
     <div className={stls.container}>
       {biggerTitle ? (
         <>
-        <div>
+        {/* <div>
           <SearchProgram />
-        </div>
+        </div> */}
         <div className={stls.heading}>
           
           <h2

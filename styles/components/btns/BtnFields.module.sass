@@ -38,7 +38,10 @@
   left: 0
   top: 6em
   display: none
-  width: 290%
+  @include m.media(desktop)
+    width: 290%
+  @include m.media(laptop)
+    width: 260%
   @include m.gap($mtb: 0, $pt: f.px(37), $plr: f.px(37), $pb: f.px(37 - 12))
   box-shadow: 0 f.px(7) f.px(50) rgba(c.$chi, .2)
   border-radius: f.px(9)
@@ -102,7 +105,10 @@
 
 .allPrograms
   margin: 0 auto
-  width: 350px
+  @include m.media(desktop)
+    width: 350px
+  @include m.media(laptop)
+    width: 315px
   font-size: 16px
   & > p
     margin: 0 auto

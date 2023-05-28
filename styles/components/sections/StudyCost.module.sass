@@ -15,48 +15,32 @@
     @include m.gap($mb: f.px(20))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30))
+    @include m.gap($mb: f.px(50))
     font-size: f.px(44)
   font-weight: 500
 
 .content
   @include m.media(phone, tablet)
-    // @include m.gap($ptb: f.px(26), $plr: f.px(19))
     border-radius: f.px(25) 0 0 0
   @include m.media(laptop, desktop)
     @include m.flex
-    // @include m.gap($pt: f.px(72), $pb: f.px(46), $plr: f.px(70))
     border-radius: f.px(100) 0 0 0
-  // box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  // @include m.dye(bg, c.$nu)
 
 .left
   @include m.media(laptop, desktop)
     position: relative
     max-width: f.px(785)
     @include m.flex($display: false, $fb: 75%)
-    // @include m.gap($pr: f.px(70))
-    // &::after
-    //   content: ''
-    //   position: absolute
-    //   top: 0
-    //   right: 0
-    //   width: f.px(100)
-    //   clip-path: inset(0 f.px(-40) 0 0)
-    //   height: calc(100% + #{f.px(72) + f.px(46)})
-    //   transform: translateY(f.px(-72))
-    //   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
 
 .heading
   @include m.media(phone, tablet)
-    // @include m.flex($jc: space-between)
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $jc: space-between)
   position: relative
 
 .info
+  @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
-    // display: none
     display: grid
     grid-template-columns: 1fr 1fr
   @include m.media(laptop, desktop)
@@ -73,14 +57,12 @@
         content: 'до '
 
 .infokey
-  // @include m.media(laptop, desktop)
   @include m.gap($mb: f.px(5))
   font-size: f.px(13)
   font-weight: 300
   @include m.dye(c, rgba(c.$chi, .5))
 
 .infoval
-  // @include m.media(laptop, desktop)
   font-size: f.px(13)
   font-weight: 500
 
@@ -92,24 +74,14 @@
     font-size: f.px(20)
     font-weight: 500
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(18))
+    @include m.gap($mb: f.px(28))
     font-size: f.px(34)
     font-weight: 500
 
 .discount
-  @include m.media(phone, tablet)
-    // position: absolute
-    // top: 100rem
-    // right: 0
-    // transform: translate(10%, -20%)
+  @include m.gap($mt: f.px(18))
   @include m.media(laptop, desktop)
     @include m.gap($ml: f.px(38))
-    // position: absolute
-    // top: 20em
-    // left: 0
-    // top: f.px(-40)
-    // right: f.px(-130)
-    // transform: translate(10%, -20%)
     z-index: 2
 
 .cost
@@ -127,31 +99,39 @@
 
 .btns
   .btncta
+    @include m.gap($mr: f.px(7))
+    @include m.media(desktop,laptop)
+      width: 220px
     button
+      @include m.media(desktop,laptop)
+        width: 220px
+      background: #B250FF
+      border: 2px solid #B250FF
       @include m.media(laptop, desktop)
-        padding-right: 4rem
-        padding-left: 4rem
         border-radius: 10px
-    // width: 130%
+      @include m.media(phone, tablet)
+
   .btnquestion
+    margin-right: 0
+    @include m.gap($ml: f.px(7))
+    @include m.media(desktop, laptop)
+      width: 220px
     button
+      @include m.media(desktop, laptop)
+        width: 220px
+      border: 2px solid #B250FF
+      color: #B250FF
+      margin-right: 0
       @include m.media(laptop, desktop)
-      // margin-right: 30px
-        padding-right: 3rem
-        padding-left: 3rem
         border-radius: 10px
   @include m.media(phone, tablet)
-    // @include m.flex($jc: space-between, $ai: center)
     display: flex
     justify-content: space-between
     
   @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
-    @include m.flex($fd: column)
+    // @include m.flex($fd: column)
   @include m.media(laptop, desktop)
     @include m.flex
-    // justify-content: center
-    // transform: scale(1.3)
-    
 
 .btncta
   @include m.media(phone, tablet)
@@ -170,23 +150,18 @@
 
 .btnquestion
   @include m.media(phone, tablet)
-    // display: none
-    // flex-wrap: nowrap
     @include m.flex($jc: center, $fb: 50%)
     height: 100%
     & > *
       width: 100% 
       height: 100%
       & > *
-        // font-size: 12px
         height: 100%
         white-space: nowrap
         overflow: hidden
-        // padding-bottom: 30px
 
     @include m.gap($mr: 5%)
     & > *
-      // width: 100%
   @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
     & > *
       width: 100%
@@ -210,9 +185,6 @@
     @include m.gap($pl: f.px(20))
     @include m.flex($display: false, $fb: 45%)
 
-// .points
-//   @include m.media(phone, tablet)
-//     display: none
 .point
   @include m.media(laptop, desktop)
     @include m.flex
@@ -226,9 +198,7 @@
 
 .discountMobile
   @include m.media(laptop, desktop)
-    
   @include m.media(phone, tablet)
-    // transform: scale(0.6)
     display: flex
     @include m.flex($jc: space-between, $ai: baseline)
 

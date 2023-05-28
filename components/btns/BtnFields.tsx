@@ -78,7 +78,7 @@ const BtnFields = () => {
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
                 <>
-                  <CardTooltip profession={el} clickHandler={clickHandler} />
+                  <CardTooltip key={el.id} profession={el} clickHandler={clickHandler} />
                 </>
               ))}
           </div>

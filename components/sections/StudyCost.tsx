@@ -88,11 +88,6 @@ const StudyCost = () => {
                 })}>
                 <PopupTrigger btn='zeta' cta='askQuestion' />
               </div>
-              {/* <div
-                className={classNames({
-                  [stls.btnmore]: true
-                })}>
-              </div>  */}
             </div>
           </div>
           <div className={stls.right}>

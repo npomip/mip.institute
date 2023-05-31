@@ -9,12 +9,16 @@ type StudyFieldsType = {
   aside?: boolean
   ofType?: 'course' | 'profession' | null
   close?: any
+  flexend?: boolean
+  smallText?: boolean
 }
 
 const StudyFields = ({
   aside = false,
   ofType = null,
-  close = null
+  close = null,
+  flexend = false,
+  smallText=false
 }: StudyFieldsType) => {
   const {
     studyFields,
@@ -35,13 +39,14 @@ const StudyFields = ({
       className={cn({
         [stls.container]: true,
         [stls.aside]: aside,
-        [stls.tooltip]: !aside
+        [stls.tooltip]: !aside,
+        [stls.flexend]: flexend
       })}>
       {list.map(({ label, slug }, idx) => (
         <Fragment key={slug + idx}>
           {idx === 0 && (
             <li className={stls.studyField} onClick={close && close}>
-              <BtnField
+              <BtnField smallText={smallText}
                 href={
                   aside
                     ? curProgramsType === 'course'
@@ -58,6 +63,7 @@ const StudyFields = ({
           )}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
+            smallText
               href={`${
                 aside
                   ? curProgramsType === 'course'

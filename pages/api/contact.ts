@@ -407,7 +407,7 @@ const contact = async (req, res) => {
       from: 'lead@mip.institute',
       to: `${
         dev
-          ? 'nova@ipo.msk.ru, novailoveyou3@gmail.com'
+          ? 'nova@ipo.msk.ru, vanjaklp@yandex.ru, novailoveyou3@gmail.com'
           : 'Mip-elama@yandex.ru, info@mip.institute'
       }`,
       subject, // Subject line

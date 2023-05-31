@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  
   @include m.flex($ai: center)
   @include m.gap($ptb: f.px(14), $plr: f.px(18))
   border-radius: f.px(40)
@@ -10,7 +11,7 @@
   &.tooltip
     border: f.px(2) solid
     @include m.dye(border, rgba(c.$chi, .2))
-    font-size: f.px(16)
+    font-size: f.px(14)
     font-weight: 300
     @include m.dye(c, c.$chi)
   &.aside
@@ -37,5 +38,10 @@
   &:focus
     transform: scale(0.98)
 
-  // &:focus-within
-  //   & > .icon
+  &.smallText
+    width: fit-content
+    padding: 12px
+    font-size: f.px(12)
+    & > *
+      // display: block
+      // margin: 0 auto

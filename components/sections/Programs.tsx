@@ -9,6 +9,7 @@ import ProgramsFilters from '@/components/layout/ProgramsFilters'
 import { ContextStaticProps } from '@/context/index'
 import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
+import SearchMobile from '../general/SearchMobile'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
@@ -104,6 +105,7 @@ const Programs = ({
           </div>
         )}
         <div className={stls.content}>
+          {/* <SearchMobile /> */}
           {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
             {ofType === 'profession' &&

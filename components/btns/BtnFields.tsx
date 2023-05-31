@@ -86,7 +86,7 @@ const BtnFields = () => {
             <div className={stls.notFound}>
               <p className={stls.sorryText}>К сожалению, по вашему запросу ничего не найдено</p>
               <div onClick={clickHandler} className={stls.allPrograms}>
-                <BtnField smallText href='/programs'>
+                <BtnField  href='/programs'>
                   Ознакомиться со всеми направлениями
                 </BtnField>
               </div>

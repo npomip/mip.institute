@@ -22,7 +22,8 @@ const ProgramDiscountUntil = () => {
   // return <>до {calculateClosestAdmission()}</>
   return (
     <>
-      до <ProgramAdmission />
+      {/* до <ProgramAdmission /> */}
+      до 31 мая
     </>
   )
 }

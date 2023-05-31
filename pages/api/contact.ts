@@ -389,6 +389,7 @@ const contact = async (req, res) => {
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
+    // host: 'smtp.jino.ru',
     port: 587,
     secure: false, // true for 465, false for other ports
     logger: true,
@@ -398,7 +399,9 @@ const contact = async (req, res) => {
     },
     auth: {
       user: process.env.SMTP_LOGIN,
-      pass: process.env.SMTP_PASS
+      pass: process.env.SMTP_PASS,
+      // user: 'leadmip@ipo.msk.ru',
+      // pass: 'hK8-p2T-FFs-TK8'
     }
   })
 

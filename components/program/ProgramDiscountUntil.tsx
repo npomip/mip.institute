@@ -23,7 +23,7 @@ const ProgramDiscountUntil = () => {
   return (
     <>
       {/* до <ProgramAdmission /> */}
-      до 31 мая
+      до 7 июня
     </>
   )
 }

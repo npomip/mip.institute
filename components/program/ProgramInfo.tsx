@@ -38,7 +38,7 @@ const ProgramInfo = () => {
     {
       key: 'Ближайшее зачисление:',
       // val: <ProgramAdmission />,
-      val: '31 мая',
+      val: '7 июня',
       icon: <IconMap />
     },
     {

@@ -8,7 +8,7 @@
     height: fit-content
     border: none
   border: 3px solid #B250FF
-  margin-top: 100px
+  margin-top: 30px
   border-radius: 0 0 100px 0
   
 
@@ -24,6 +24,7 @@
     // display: inline
     // flex-direction: column
     // height: fit-content
+    // justify-content: space-evenly
     flex-wrap: wrap
     
 .one
@@ -31,14 +32,23 @@
   flex-direction: column
   @include m.media(phone, tablet)
     align-items: center
-    padding: 15px
+    &:nth-child(odd)
+      @include m.gap($pr: f.px(9))
+    &:nth-child(even)
+      @include m.gap($pl: f.px(8))
     width: 50%
+    & h1
+      font-size: 18px
+      // display: none
+    & p
+      font-size: 14px
+      font-weight: 350
   @include m.media(laptop, desktop)
     width: 20%
-  & h1
-    font-size: 22px
-  & p
-    font-size: 18px
+    & h1
+      font-size: 22px
+    & p
+      font-size: 18px
 
 .phoneNumber
   color: black

@@ -11,6 +11,17 @@ export default function SearchMobile() {
   const [showModal, setShowModal] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const modalRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleFocus = () => {
+    if (inputRef.current) {
+      inputRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   const [filteredPrograms, setFilteredPrograms] = useState([])
   const [programs, setPrograms] = useState([])
 
@@ -66,8 +77,10 @@ const closeModalHandle = () => {
 
   return (
     <>
-    <div className={styles.container}>
+    <div ref={modalRef} className={styles.container}>
       <input
+      ref={inputRef}
+      onFocus={handleFocus}
       onChange={handleInputChange}
       value={searchQuery}
       placeholder='Поиск' 
@@ -79,10 +92,18 @@ const closeModalHandle = () => {
     </div>
     {showModal && 
       <div ref={modalRef} className={styles.modal}>
-        {!searchQuery && <StudyFields flexend />}
-        {searchQuery && (
+        
+        {(searchQuery && filteredPrograms.length > 0)  && (
             <h1 className={styles.searchResults}>Результаты поиска</h1>
           )}
+          {filteredPrograms.length === 0 && searchQuery && (
+            <div className={styles.notFound}>
+              <p className={styles.sorryText}>К сожалению, по вашему запросу ничего не найдено, но вы можете ознакомиться с другими нашими направлениями:</p>
+            </div>
+          )}
+          <div onClick={clickHandler} className={styles.menuButtons}>
+        {(!searchQuery || filteredPrograms.length === 0) && <StudyFields smallText flexend />}
+        </div>
         <div className={styles.card}>
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
@@ -93,16 +114,7 @@ const closeModalHandle = () => {
                 </>
               ))}
           </div>
-          {filteredPrograms.length === 0 && searchQuery && (
-            <div className={styles.notFound}>
-              <p className={styles.sorryText}>К сожалению, по вашему запросу ничего не найдено</p>
-              <div onClick={clickHandler} className={styles.allPrograms}>
-                <BtnField href='/programs'>
-                  Ознакомиться со всеми направлениями
-                </BtnField>
-              </div>
-            </div>
-          )}
+          
       </div>}
     
     </>

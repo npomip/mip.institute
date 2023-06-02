@@ -14,7 +14,7 @@ const BtnField = ({ href, aside = false, slug = null, children, smallText=false 
       <a
         className={classNames({
           [stls.container]: true,
-          [stls.tooltip]: !aside,
+          [stls.tooltip]: !aside && !smallText,
           [stls.aside]: aside,
           [stls.active]:
             aside &&

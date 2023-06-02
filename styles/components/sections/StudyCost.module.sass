@@ -105,11 +105,15 @@
     button
       @include m.media(desktop,laptop)
         width: 220px
-      background: #B250FF
-      border: 2px solid #B250FF
+      background: c.$alpha
+      border: 1px solid c.$alpha
+      font-size: 18px
+      font-weight: 500
       @include m.media(laptop, desktop)
         border-radius: 10px
       @include m.media(phone, tablet)
+        font-size: 16px
+        border-radius: 5px
 
   .btnquestion
     margin-right: 0
@@ -119,11 +123,16 @@
     button
       @include m.media(desktop, laptop)
         width: 220px
-      border: 2px solid #B250FF
-      color: #B250FF
+      border: 1px solid #B250FF
+      color: #808080
+      font-size: 18px
+      font-weight: 500
       margin-right: 0
       @include m.media(laptop, desktop)
         border-radius: 10px
+      @include m.media(phone, tablet)
+        border-radius: 5px
+        font-size: 16px
   @include m.media(phone, tablet)
     display: flex
     justify-content: space-between

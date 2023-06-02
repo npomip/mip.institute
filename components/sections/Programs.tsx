@@ -105,7 +105,7 @@ const Programs = ({
           </div>
         )}
         <div className={stls.content}>
-          {/* <SearchMobile /> */}
+          <SearchMobile />
           {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
             {ofType === 'profession' &&

@@ -34,13 +34,14 @@
       height: 18px
 
 .modal
-  // outline: 2px solid black
   position: absolute
   background: #F9F0FF
-  // opacity: 0.95
-  // width: 400px
-  height: 500px
+  height: 430px
   z-index: 2
+  $box-shadow: 2.3px 16.2px 2.2px rgba(0, 0, 0, 0.067), 2.1px 15px 5.3px rgba(0, 0, 0, 0.082), 1.9px 13.2px 10px rgba(0, 0, 0, 0.086), 2px 13.7px 17.9px rgba(0, 0, 0, 0.084), 2.9px 20.3px 33.4px rgba(0, 0, 0, 0.079), 10px 70px 80px rgba(0, 0, 0, 0.07)
+  box-shadow: $box-shadow
+
+
   @include m.media(laptop, desktop)
     display: none
   @include m.media(tablet)
@@ -54,7 +55,11 @@
     bottom: 0
     left: 14px
     right: 14px
-  // margin-left: 30px
+
+.card
+  font-size: 12px
+  font-weight: 350
+  @include m.gap($ml: f.px(16))
 
 .searchResults
   font-weight: 500
@@ -64,15 +69,11 @@
   @include m.gap($mb: f.px(10))
 
 .sorryText
-  font-weight: 300
-  @include m.gap($ml: f.px(16))
+  font-weight: 500
+  @include m.gap($mlr: f.px(16))
+  @include m.gap($mt: f.px(20))
   font-size: 12px
 
 .allPrograms
-  font-size: 12px
-  & > *
-    font-size: 12px
-    & > p
-      font-size: 12px
-      & > *
-        margin: 0 auto
+  display: flex
+  justify-content: center

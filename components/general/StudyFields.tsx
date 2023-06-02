@@ -18,7 +18,7 @@ const StudyFields = ({
   ofType = null,
   close = null,
   flexend = false,
-  smallText=false
+  smallText
 }: StudyFieldsType) => {
   const {
     studyFields,
@@ -63,7 +63,7 @@ const StudyFields = ({
           )}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
-            smallText
+            smallText={smallText}
               href={`${
                 aside
                   ? curProgramsType === 'course'

@@ -26,6 +26,8 @@
   max-height: f.px(110)
   border-radius: f.px(60) 0 f.px(60) f.px(60)
   overflow: hidden
+  @include m.media(phone)
+    display: none
 
 .content
   @include m.flex($fd: column, $fg: 1)

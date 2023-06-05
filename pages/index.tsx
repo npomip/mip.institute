@@ -10,22 +10,15 @@ import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import {
-  // Hero,
   WhyBother,
   About,
   HowProcessGoes,
-  // Programs,
   Cta,
   Reviews,
-  Webinars
+  Programs,
+  Hero
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
-import { lazy, Suspense } from 'react'
-const LazyPrograms = lazy(() => import('@/components/sections/Programs'))
-const LazyHero = lazy(() => import('@/components/sections/Hero'))
-const LazyWhyBother = lazy(() => import('@/components/sections/WhyBother'))
-const LazyAbout = lazy(() => import('@/components/sections/About'))
-const LazyHowProcessGoes = lazy(() => import('@/components/sections/HowProcessGoes'))
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   useHandleContextStaticProps({ programs })
@@ -67,28 +60,17 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
         }}
       />
       <SeoOrganizationJsonLd />
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyHero />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyPrograms withTitle withBtn max={8} />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyWhyBother />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyAbout />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyHowProcessGoes />
-      </Suspense>
+      <Hero />
+      <Programs withTitle withBtn max={8} />
+      <WhyBother />
+      <About />
+      <HowProcessGoes />
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
       <Reviews reviews={reviewsSorted} />
-      {/* <Webinars /> */}
     </>
   )
 }

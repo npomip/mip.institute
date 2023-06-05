@@ -74,6 +74,7 @@ export default function SearchMobile() {
     <div className={styles.container}>
       <input
       ref={inputRef}
+      name='search'
       onFocus={handleFocus}
       onChange={handleInputChange}
       value={searchQuery}

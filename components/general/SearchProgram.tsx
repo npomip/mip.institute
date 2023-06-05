@@ -45,6 +45,7 @@ export default function SearchProgram() {
       {/* <button onClick={toggleFieldsTooltip}> */}
       <input
           type='text'
+          name='search'
           onFocus={onFocusHandler}
           // onBlur={onFocusHandler}
           value={searchQuery}

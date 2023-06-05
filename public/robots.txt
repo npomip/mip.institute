@@ -5,6 +5,8 @@ Allow: /*.js
 Allow: /*.jpg
 Allow: /*.png
 Allow: /*.gif
+Allow: /*.xml
+Allow: /*.yaml
 Disallow: /promo*
 Disallow: *?
 Disallow: *test

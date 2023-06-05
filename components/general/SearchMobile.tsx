@@ -2,7 +2,6 @@ import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import getProgramsData from '@/lib/data/getProgramsData'
 import styles from '@/styles/components/general/SearchMobile.module.sass'
 import { useEffect, useRef, useState } from 'react'
-import { BtnField } from '../btns'
 import CardTooltip from '../cards/CardTooltip'
 import { IconSearchAlt } from '../icons'
 import StudyFields from './StudyFields'
@@ -76,7 +75,7 @@ const closeModalHandle = () => {
   }
 
   return (
-    <>
+    <div className={styles.box}>
     <div ref={modalRef} className={styles.container}>
       <input
       ref={inputRef}
@@ -117,6 +116,6 @@ const closeModalHandle = () => {
           
       </div>}
     
-    </>
+    </div>
   )
 }

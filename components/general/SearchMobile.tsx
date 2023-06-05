@@ -1,8 +1,7 @@
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import getProgramsData from '@/lib/data/getProgramsData'
 import styles from '@/styles/components/general/SearchMobile.module.sass'
-import { useEffect, useRef, useState } from 'react'
-import { BtnField } from '../btns'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import CardTooltip from '../cards/CardTooltip'
 import { IconSearchAlt } from '../icons'
 import StudyFields from './StudyFields'
@@ -10,7 +9,7 @@ import StudyFields from './StudyFields'
 export default function SearchMobile() {
   const [showModal, setShowModal] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
-  const modalRef = useRef(null)
+  const modalRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFocus = () => {
@@ -20,6 +19,7 @@ export default function SearchMobile() {
         block: 'start',
       });
     }
+    setShowModal(true)
   };
 
   const [filteredPrograms, setFilteredPrograms] = useState([])
@@ -42,18 +42,12 @@ export default function SearchMobile() {
     setFilteredPrograms(filtered)
   }, [programs, searchQuery])
 
-  const handleOutsideClick = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        // dispatch({ type: actionTypes.RESET_SEARCH });
-        setShowModal(false);
-        setSearchQuery('')
-      }
-  };
-
-const closeModalHandle = () => {
-  setShowModal(false);
-  setSearchQuery('')
-}
+  const handleOutsideClick = useCallback((event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setShowModal(false);
+      setSearchQuery('');
+    }
+  }, [modalRef, showModal]);
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -76,8 +70,8 @@ const closeModalHandle = () => {
   }
 
   return (
-    <>
-    <div ref={modalRef} className={styles.container}>
+    <div className={styles.box}>
+    <div className={styles.container}>
       <input
       ref={inputRef}
       onFocus={handleFocus}
@@ -88,7 +82,6 @@ const closeModalHandle = () => {
       <div className={styles.icon}>
         <IconSearchAlt />
       </div>
-      
     </div>
     {showModal && 
       <div ref={modalRef} className={styles.modal}>
@@ -117,6 +110,6 @@ const closeModalHandle = () => {
           
       </div>}
     
-    </>
+    </div>
   )
 }

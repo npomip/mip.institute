@@ -1,29 +1,17 @@
 import stls from '@/styles/components/sections/WebinarsAlt.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
 import Popup from 'reactjs-popup'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import { PopupCta } from '@/components/popups'
 import CardWebinarAlt from '@/components/cards/CardWebinarAlt'
 import { ImgWebinar } from '@/components/imgs'
 import getImageHeight from '@/helpers/getImageHeight'
-import { useEffect, useState } from 'react'
-import getWebinarsData from '@/lib/data/getWebinarsData'
 
 type WebinarsAltType = {
   webinars: any
 }
 
 const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
-  const [web, setWeb] = useState('')
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      const allPrograms = await getWebinarsData()
-      setWeb(allPrograms)
-    }
-    fetchPrograms()
-  }, [])
-  console.log(web)
   return (
     <section className={stls.container}>
       <Wrapper>

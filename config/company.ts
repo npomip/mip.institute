@@ -20,7 +20,7 @@ const company = {
         door: '34с2'
       },
       room: '14',
-      officeNum: 'строение 2, 4 подъезд, 1 этаж'
+      officeNum: '4 подъезд, 1 этаж'
     },
     kz: {
       countryCode: 'KZ',

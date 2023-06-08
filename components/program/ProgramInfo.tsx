@@ -37,8 +37,8 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      // val: <ProgramAdmission />,
-      val: '7 июня',
+      // val: setDateOfEnrollment(20,6),
+      val: <ProgramAdmission />,
       icon: <IconMap />
     },
     {

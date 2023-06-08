@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <yml_catalog date="2018-07-17 12:10">
   <shop>
-    <name>Профессии в MIP</name>
+    <name>Московский институт психологии</name>
     <company>Московский институт психологии</company>
     <url>https://mip.institute/professions?utm_source=yandex-Feed«&amp;»utm_medium=free«&amp;»utm_campaign=psychology&amp;»utm_content=professions</url>
     <email>info@mip.institute</email>
     <picture>https://mip.institute/yandex-feed/icon.png</picture>
-    <description>Дистанционные образовательные курсы для дизайнеров в Московском институте технологий и управления</description>
+    <description>Освойте востребованную профессию психолога или повысьте квалификацию онлайн вместе с Московским Институтом Психологии</description>
     <currencies>
       <currency id="RUR" rate="1" />
     </currencies>

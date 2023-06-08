@@ -16,7 +16,6 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
   useHandleContextStaticProps({ programs })
 
   const webinarsSorted: TypeLibWebinars = sortBasedOnNumericOrder({ webinars })
-console.log(webinars)
   const seoParams = {
     title: `Вебинары | ${company.desc} | ${company.name}
     `,

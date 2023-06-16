@@ -28,7 +28,6 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
-import { calltouchFunc } from '@/public/assets/js/calltouch/calltouch'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {

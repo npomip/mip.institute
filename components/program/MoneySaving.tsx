@@ -15,9 +15,15 @@ export default function MoneySaving() {
         </div>
         <div className={styles.one}>
           <h1>Остались вопросы?</h1>
-          <p>Позвоните или напишите нам на WhatsApp:
+          <p>Позвоните нам:
             <br />
             <a className={styles.phoneNumber} href='tel:+7(499) 110-86-32'>+7(499) 110-86-32</a>
+            <br />
+              Или напишите на
+              {/* <br/> */}
+              {' '}
+              <a className={styles.phoneNumber}
+              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>WhatsApp </a>
             </p>
         </div>
       </div>

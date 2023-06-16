@@ -19,6 +19,9 @@ import {
   Hero
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import { lazy, Suspense } from 'react'
+const ProgramsDynamic = lazy(() => import('@/components/sections/Programs'));
+const ReviewsDynamic = lazy(() => import('@/components/sections/Reviews'));
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   useHandleContextStaticProps({ programs })
@@ -61,7 +64,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
       />
       <SeoOrganizationJsonLd />
       <Hero />
-      <Programs withTitle withBtn max={8} />
+      <Suspense fallback={''}>
+        <ProgramsDynamic withTitle withBtn max={8} />
+      </Suspense>
       <WhyBother />
       <About />
       <HowProcessGoes />
@@ -70,7 +75,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
-      <Reviews reviews={reviewsSorted} />
+      <Suspense fallback={''}>
+        <ReviewsDynamic reviews={reviewsSorted} />
+      </Suspense>
     </>
   )
 }

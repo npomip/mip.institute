@@ -28,6 +28,7 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
+import { calltouchFunc } from '@/public/assets/js/calltouch/calltouch'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -200,6 +201,12 @@ const MyApp = ({ Component, pageProps, router }) => {
         </MenuState>
       </ContextStaticProps.Provider>
       <Script src='/assets/js/vendors/swiped-events.min.js' />
+      <Script
+            id='calltouch'
+            dangerouslySetInnerHTML={{
+                __html: `(function(w,d,n,c){w.CalltouchDataObject=n;w[n]=function(){w[n]["callbacks"].push(arguments)};if(!w[n]["callbacks"]){w[n]["callbacks"]=[]}w[n]["loaded"]=false;if(typeof c!=="object"){c=[c]}w[n]["counters"]=c;for(var i=0;i<c.length;i+=1){p(c[i])}function p(cId){var a=d.getElementsByTagName("script")[0],s=d.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)},m=typeof Array.prototype.find === 'function',n=m?"init-min.js":"init.js";s.async=true;s.src="https://mod.calltouch.ru/"+n+"?id="+cId;if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",i,false)}else{i()}}})(window,document,"ct","20yl3dqe");`
+            }}
+        />
     </>
   )
 }

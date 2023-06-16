@@ -5,9 +5,11 @@ import truncate from 'truncate'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import { WebinarsAlt } from '@/components/sections'
+// import { WebinarsAlt } from '@/components/sections'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import { lazy } from 'react'
+const WebinarsAlt = lazy(() => import('@/components/sections/WebinarsAlt'));
 
 const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
   programs,

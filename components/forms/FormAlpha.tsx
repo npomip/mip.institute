@@ -7,6 +7,7 @@ import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
+import sendToCalltouch from '../funcs/sendToCalltouch'
 
 type FormValues = {
   name: string
@@ -56,6 +57,7 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const req = await hitContactRoute(data)
+    // const calltouch = await sendToCalltouch(data)
     if (req === 200) {
       console.log('Success')
     } else {

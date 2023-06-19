@@ -332,7 +332,97 @@ module.exports = /* withPWA( */ {
         destination:
           '/courses/organizacionnaya-psihologiya/upravlenie-konfliktami',
         permanent: true
-      }
+      },
+      {
+        source: '/programs/defektologiya',
+        destination:
+          '/professions/detskaya-psihologiya/defektolog',
+        permanent: true
+      },
+      {
+        source: '/courses/defektolog',
+        destination:
+          '/professions/detskaya-psihologiya/defektolog',
+        permanent: true
+      },
+      {
+        source: '/programs/gipnoz',
+        destination:
+          '/professions/konsultirovanie/suggestivnaya-psihologiya.-gipnoz-v-psihologicheskom-konsultirovanii',
+        permanent: true
+      },
+      {
+        source: '/courses/gipnoz',
+        destination:
+          '/professions/konsultirovanie/suggestivnaya-psihologiya.-gipnoz-v-psihologicheskom-konsultirovanii',
+        permanent: true
+      },
+      {
+        source: '/courses/prakticheskaya-psihologiya',
+        destination:
+          '/professions/konsultirovanie/prakticheskij-psiholog',
+        permanent: true
+      },
+      {
+        source: '/programs/prakticheskaya-psihologiya',
+        destination:
+          '/professions/konsultirovanie/prakticheskij-psiholog',
+        permanent: true
+      },
+      {
+        source: '/professions/prakticheskaya-psihologiya',
+        destination:
+          '/professions/konsultirovanie/prakticheskij-psiholog',
+        permanent: true
+      },
+      {
+        source: '/professions/samoregulyaciya-psihologicheskogo-zdorovya',
+        destination:
+          '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
+        permanent: true
+      },
+      {
+        source: '/programs/etika-professionalnoj-deyatelnosti-psihologa',
+        destination:
+          '/courses/konsultirovanie/etika-professionalnoj-deyatelnosti-psihologa',
+        permanent: true
+      },
+      {
+        source: '/courses/socialnaya-psihologiya',
+        destination:
+          '/professions/obshaya-psihologiya/socialnyj-psiholog',
+        permanent: true
+      },
+      {
+        source: '/courses/samoregulyaciya-psihologicheskogo-zdorovya ',
+        destination:
+          '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
+        permanent: true
+      },
+      {
+        source: '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant',
+        destination:
+          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        permanent: true
+      },
+      {
+        source: '/professions/kouching',
+        destination:
+          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        permanent: true
+      },
+      {
+        source: '/professions/korporativnaya-psihologiya',
+        destination:
+          '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
+        permanent: true
+      },
+      {
+        source: '/professions/pedagogika',
+        destination:
+          '/professions/detskaya-psihologiya/pedagog-psiholog',
+        permanent: true
+      },
     ]
   }
 }

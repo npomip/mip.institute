@@ -2,7 +2,7 @@ import stls from '@/styles/components/layout/Header.module.sass'
 import { useEffect, useContext } from 'react'
 import Link from 'next/link'
 import { routes, company } from '@/config/index'
-import { IconLocation } from '@/components/icons'
+import { IconLocation, IconPhone } from '@/components/icons'
 import { handleSwipedEvt } from '@/helpers/index'
 import MenuContext from '@/context/menu/menuContext'
 import Wrapper from '@/components/layout/Wrapper'
@@ -11,8 +11,9 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 import Logo from '@/components/general/Logo'
 import BtnPhone from '@/components/btns/BtnPhone'
 import BtnHumburger from '@/components/btns/BtnHumburger'
-import { BtnFields } from '@/components/btns'
+import { BtnField, BtnFields } from '@/components/btns'
 import { GeneralAddress } from '@/components/general'
+import DropdownMenu from '../dropdown/DropdownMenu'
 
 const Header = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -79,6 +80,10 @@ const Header = () => {
               <a className={stls.link}>{item.val}</a>
             </Link>
           ))}
+          {/* <DropdownMenu
+        icon={<IconPhone/>}
+        menuItems={['Пункт меню 1', 'Пункт меню 2', 'Пункт меню 3']}
+      /> */}
         </div>
       </Wrapper>
     </header>

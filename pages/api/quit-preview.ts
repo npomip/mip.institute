@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import axios from 'axios'
 import { routes } from '@/config/index'
 
 const quitPreview = async (req: NextApiRequest, res: NextApiResponse) => {

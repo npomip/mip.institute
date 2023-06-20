@@ -57,12 +57,13 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const req = await hitContactRoute(data)
-    const calltouch = await sendToCalltouch(data)
+    
     if (req === 200) {
       console.log('Success')
     } else {
       console.log('err')
     }
+    const calltouch = await sendToCalltouch(data)
   }
 
   return (

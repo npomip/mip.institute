@@ -423,6 +423,12 @@ module.exports = /* withPWA( */ {
           '/professions/detskaya-psihologiya/pedagog-psiholog',
         permanent: true
       },
+      {
+        source: '/courses/samoregulyaciya-psihologicheskogo-zdorovya ',
+        destination:
+          '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
+        permanent: true
+      },
     ]
   }
 }

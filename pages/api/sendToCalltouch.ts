@@ -2,9 +2,10 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
 
-  const { _ym_d } = req.cookies
+  // const { _ym_d } = req.cookies
+  
   console.log('REQ', req.body)
-  const { fio, phoneNumber, email, requestUrl } = req.body;
+  const { fio, phoneNumber, email, requestUrl, sessionId } = req.body;
   const ct_site_id = '59867';
   // const ct_data = {
   //   fio,
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
   ct_data.append('email', email);
   ct_data.append('subject', 'Заявка с сайта');
   ct_data.append('requestUrl', requestUrl);
-  ct_data.append('sessionId', _ym_d || ' ');
+  ct_data.append('sessionId', sessionId || ' ');
 
 
   try {

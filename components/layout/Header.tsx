@@ -36,28 +36,6 @@ const Header = () => {
     handleSwipedEvt({ menuIsOpen, closeMenu })
   }, [menuIsOpen, closeMenu])
 
-  // const list = [
-  //   {
-  //     href: routes.front.about,
-  //     val: 'Об институте'
-  //   },
-  //   {
-  //     href: routes.front.teachers,
-  //     val: 'Преподаватели'
-  //   },
-  //   {
-  //     href: routes.front.webinars,
-  //     val: 'Вебинары'
-  //   },
-  //   {
-  //     href: routes.front.reviews,
-  //     val: 'Отзывы'
-  //   },
-  //   {
-  //     href: routes.front.payment,
-  //     val: 'Оплата обучения'
-  //   }
-  // ]
 
   //dropDown
   // const [selectedIcon, setSelectedIcon] = useState(null);

@@ -24,7 +24,6 @@ import IconWeakVision from '../icons/IconWeakVision'
 import IconEnterToPortal from '../icons/IconEnterToPortal'
 import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
-import CardTooltip from '../cards/CardTooltip'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 
@@ -36,28 +35,6 @@ const Header = () => {
     handleSwipedEvt({ menuIsOpen, closeMenu })
   }, [menuIsOpen, closeMenu])
 
-  // const list = [
-  //   {
-  //     href: routes.front.about,
-  //     val: 'Об институте'
-  //   },
-  //   {
-  //     href: routes.front.teachers,
-  //     val: 'Преподаватели'
-  //   },
-  //   {
-  //     href: routes.front.webinars,
-  //     val: 'Вебинары'
-  //   },
-  //   {
-  //     href: routes.front.reviews,
-  //     val: 'Отзывы'
-  //   },
-  //   {
-  //     href: routes.front.payment,
-  //     val: 'Оплата обучения'
-  //   }
-  // ]
 
   //dropDown
   // const [selectedIcon, setSelectedIcon] = useState(null);

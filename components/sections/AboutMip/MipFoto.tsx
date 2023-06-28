@@ -8,12 +8,14 @@ export default function MipFoto() {
   return (
     <div className={stls.container}>
       <Image
+        priority={false}
         alt='logo'
         className={stls.lady}
         width={360}
         height={400}
         layout='responsive'
         src={photo}
+        
       />
       <div className={stls.figure}></div>
       <div className={stls.shadow}></div>

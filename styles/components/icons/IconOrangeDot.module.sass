@@ -3,6 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.sizeIcon($w: 10, $h: 17)
+  @include m.sizeIcon($w: 29, $h: 29)
   @include m.flex
-  stroke: white
+  & svg
+    display: inline
+    height: 20px

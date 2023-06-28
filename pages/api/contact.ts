@@ -407,7 +407,7 @@ const contact = async (req, res) => {
 
   try {
     const emailRes = await transporter.sendMail({
-      from: 'lead@mip.institute',
+      from: process.env.SMTP_FROM,
       to: `${
         dev
           ? 'nova@ipo.msk.ru, vanjaklp@yandex.ru, novailoveyou3@gmail.com'

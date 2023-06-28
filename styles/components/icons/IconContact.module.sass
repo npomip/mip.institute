@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: relative
+  @include m.sizeIcon($w: 30, $h: 34)
+  @include m.flex
+  outline: 0.01px solid white
+  border-radius: 4px
+  padding: 3px
+  &.small
+    @include m.sizeIcon($size: 0.6, $w: 24, $h: 24)
+
+  & path
+    @include m.dye(fill, c.$nu)

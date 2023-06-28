@@ -7,7 +7,6 @@ const IconArrowRight = () => {
         <title>Стрелка вправо</title>
         <path
           d='M1 1L8.5 8.5L1 16'
-          stroke='white'
           strokeWidth='2'
           strokeLinecap='round'
         />

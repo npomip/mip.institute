@@ -1,0 +1,46 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.wrapper
+  padding-top: 20px
+  padding-left: 35px
+  height: 260px
+
+.title
+  font-size: 14px
+  font-weight: 500
+  &:nth-of-type(3)
+    margin-top: 22px
+
+.icon
+  display: inline
+
+.iconWrapper
+  display: flex
+  align-items: center
+  margin-bottom: f.px(12)
+  &:nth-of-type(2)
+    margin-bottom: f.px(15)
+  &:nth-last-child(2)
+    margin-bottom: f.px(15)
+    
+
+
+.phoneNumber
+  color: black
+  position: relative
+  margin-left: f.px(7)
+  &:hover
+    font-weight: 500
+
+.whatsUpNumber
+  color: black
+  text-decoration: underline
+  text-decoration-skip-ink: auto
+  text-underline-offset: 4px
+  font-size: 14px
+  font-weight: 350
+  &:hover
+    font-weight: 500
+    color: #F87E1B

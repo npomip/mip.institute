@@ -24,7 +24,6 @@ import IconWeakVision from '../icons/IconWeakVision'
 import IconEnterToPortal from '../icons/IconEnterToPortal'
 import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
-import CardTooltip from '../cards/CardTooltip'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 

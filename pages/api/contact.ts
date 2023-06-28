@@ -390,7 +390,7 @@ const contact = async (req, res) => {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     // host: 'smtp.jino.ru',
-    port: 587,
+    port: Number(process.env.SMTP_PORT),
     secure: false, // true for 465, false for other ports
     logger: true,
     debug: true,
@@ -399,20 +399,14 @@ const contact = async (req, res) => {
     },
     auth: {
       user: process.env.SMTP_LOGIN,
-      pass: process.env.SMTP_PASS,
-      // user: 'leadmip@ipo.msk.ru',
-      // pass: 'hK8-p2T-FFs-TK8'
+      pass: process.env.SMTP_PASS
     }
   })
 
   try {
     const emailRes = await transporter.sendMail({
       from: process.env.SMTP_FROM,
-      to: `${
-        dev
-          ? 'nova@ipo.msk.ru, vanjaklp@yandex.ru, novailoveyou3@gmail.com'
-          : 'Mip-elama@yandex.ru, info@mip.institute'
-      }`,
+      to: `${dev ? process.env.SMTP_TO_DEV : process.env.SMTP_TO_PROD}`,
       subject, // Subject line
       text: `
       ${name}, \n

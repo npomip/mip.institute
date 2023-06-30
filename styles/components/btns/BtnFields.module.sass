@@ -6,13 +6,16 @@
   position: relative
   z-index: 3
 
+.text
+  font-size: f.px(16)
+
 .btn
   // position: relative
   @include m.flex($ai: center)
-  @include m.gap($ptb: f.px(14), $plr: f.px(30))
+  @include m.gap($ptb: f.px(14), $plr: f.px(25))
   border: f.px(2) solid
   @include m.dye(border, rgba(c.$nu, .2))
-  border-radius: f.px(40)
+  border-radius: f.px(5)
   font-size: f.px(18)
   font-weight: 300
   text-align: center
@@ -37,14 +40,16 @@
 
 .tooltip
   position: absolute
-  height: 360px
+  height: 420px
   left: 0
   top: 6em
   display: none
   @include m.media(desktop)
-    width: 290%
+    width: 900px
   @include m.media(laptop)
-    width: 260%
+    width: 750px
+  @media ( min-width: 770px ) and ( max-width: 921px )
+    width: 550px
   @include m.gap($mtb: 0, $pt: f.px(37), $plr: f.px(37), $pb: f.px(37 - 12))
   box-shadow: 0 f.px(7) f.px(50) rgba(c.$chi, .2)
   border-radius: f.px(9)

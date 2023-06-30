@@ -10,6 +10,7 @@ import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import CardTooltip from '../cards/CardTooltip'
 import BtnField from './BtnField'
+import MainStudyFields from '../general/MainStudyFields'
 
 const BtnFields = () => {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
@@ -92,6 +93,7 @@ const BtnFields = () => {
               </div>
             </div>
           )}
+          <MainStudyFields />
           {!searchQuery && <StudyFields />}
         </div>
       </div>

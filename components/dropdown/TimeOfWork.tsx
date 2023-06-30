@@ -2,6 +2,8 @@ import React from 'react'
 import stls from '@/styles/components/dropdownMenu/TimeOfWork.module.sass';
 import classNames from 'classnames';
 import IconOrangeDot from '../icons/IconOrangeDot';
+import Link from 'next/link';
+import routes from '@/config/routes';
 
 interface Icon1Props {
   className?: string;
@@ -24,6 +26,15 @@ const TimeOfWork: React.FC<Icon1Props> = ({ className, selected = false }) => {
       </div>
       <p className={stls.description}>ул. Шаболовка, 34, стр. 2</p>
       <p className={stls.description}>Метро Шаболовская</p>
+      <div className={stls.wrapper}>
+        <IconOrangeDot />
+        {/* <p className={stls.contacts}>Контакты</p> */}
+        <Link href={routes.front.contact}>
+              <a className={stls.contacts}>
+              Контакты
+              </a>
+            </Link>
+      </div>
     </div>
   )
 }

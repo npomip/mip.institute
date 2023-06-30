@@ -41,7 +41,6 @@ const FormAlpha = ({
   }, [setFocus, popup])
 
   const router = useRouter()
-  // console.log(register)
 
   const onSubmit = async data => {
     setIsDisabled(true)

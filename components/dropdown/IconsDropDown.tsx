@@ -11,7 +11,7 @@ import WeakVision from './WeakVision'
 import DistanceStudy from './DistanceStudy'
 
 
-export default function IconsDropDown() {
+ function IconsDropDown() {
   const [selectedIcon, setSelectedIcon] = useState(null);
 
   const handleIconClick = (icon) => {
@@ -61,3 +61,5 @@ export default function IconsDropDown() {
       </div>
   )
 }
+
+export default IconsDropDown

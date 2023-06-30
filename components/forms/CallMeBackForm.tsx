@@ -18,7 +18,7 @@ type FormValues = {
   leadPage: string
 }
 
-const NewForm = ({
+const CallMeBackForm = ({
   cta = 'Подобрать программу',
   question = false,
   popup = false,
@@ -55,24 +55,17 @@ const NewForm = ({
     sessionStorage.removeItem('referer')
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
-    const req = await hitContactRoute(data)
-    if (req === 200) {
-      console.log('Success')
-    } else {
-      console.log('err')
-    }
-    const calltouch = await sendToCalltouch(data)
   }
 
   return (
     <>
-      <Popup
+      {/* <Popup
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
         <PopupThankyou close={() => setThanksIsOpen(false)} />
-      </Popup>
-      <form
+      </Popup> */}
+      {/* <form
         method='post'
         className={classNames({
           [stls.containet]: true,
@@ -151,7 +144,7 @@ const NewForm = ({
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
               <BtnAlpha text={cta} isDisabled={isDisabled} />
-            )} */}
+            )} 
             <button className={stls.violetButton}>Подобрать программу</button>
           </div>
 
@@ -162,9 +155,9 @@ const NewForm = ({
             </p>
           )}
         </div>
-      </form>
+      </form> */}
     </>
   )
 }
 
-export default NewForm
+export default CallMeBackForm

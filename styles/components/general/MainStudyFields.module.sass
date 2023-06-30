@@ -1,0 +1,29 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.wrapper
+  display: flex
+  justify-content: space-between
+  font-weight: 500
+  color: red
+  @include m.gap($pb: f.px(30), $plr: f.px(20))
+  margin-bottom: 30px
+  margin-top: 30px
+  // padding-bottom: 4px
+  border-bottom: 1px solid black
+  & > *
+    color: red
+    font-weight: 500
+    
+
+.studyField
+  @include m.flex
+  font-weight: 500
+  & > *
+    font-weight: 500
+    & > *
+      font-weight: 500
+      & > *
+        color: red
+        font-weight: 500

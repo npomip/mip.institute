@@ -2,6 +2,7 @@ import React from 'react'
 import stls from '@/styles/components/dropdownMenu/ConnectInfo.module.sass'
 import classNames from 'classnames'
 import IconOrangeDot from '../icons/IconOrangeDot'
+import PopupTrigger from '../general/PopupTrigger'
 
 interface Icon1Props {
   className?: string
@@ -45,8 +46,13 @@ const ConnectInfo: React.FC<Icon1Props> = ({ className, selected = false }) => {
         <p>Написать в 
           <a className={stls.whatsUpNumber}
               target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108211&amp;text&amp;type=phone_number&amp;app_absent=0'> WhatsApp </a>
+              
         </p>
+        <div className={stls.callBack}>
+      <PopupTrigger btn='epsilon' cta='callMeBack' />
       </div>
+      </div>
+      
     </div>
   )
 }

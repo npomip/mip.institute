@@ -7,7 +7,6 @@ import parse from 'html-react-parser'
 const FaqAnswer = ({ question = null, answer = null }) => {
   const [isOpen, setOpen] = useState(false)
 
-  // console.log(answer)
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>

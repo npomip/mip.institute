@@ -1,5 +1,5 @@
-import stls from '@/styles/components/general/StudyFields.module.sass'
-import { Fragment, useContext } from 'react'
+import stls from '@/styles/components/general/MainStudyFields.module.sass'
+import { Fragment } from 'react'
 import cn from 'classnames'
 import { routes } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
@@ -13,37 +13,20 @@ type StudyFieldsType = {
   smallText?: boolean
 }
 
-const StudyFields = ({
+const MainStudyFields = ({
   aside = false,
   ofType = null,
   close = null,
   flexend = false,
   smallText
 }: StudyFieldsType) => {
-  const {
-    studyFields,
-    studyFieldsCourses,
-    studyFieldsProfessions,
-    curProgramsType
-  } = useContext(ContextStaticProps)
-
-  const list =
-    ofType === 'course'
-      ? studyFieldsCourses
-      : ofType === 'profession'
-      ? studyFieldsProfessions
-      : studyFields
+  const list = [{id:1, label: 'Дополнительное образование', href: routes.front.programs}, {id:1, label: 'Профессиональная переподготовка', href: routes.front.professions}, {id:1, label: 'Повышение квалификации', href: routes.front.courses}]
 
   return (
-    <ul
-      className={cn({
-        [stls.container]: true,
-        [stls.aside]: aside,
-        [stls.tooltip]: !aside,
-        [stls.flexend]: flexend
-      })}>
-      {list.map(({ label, slug }, idx) => (
-        <Fragment key={slug + idx}>
+    <div
+      className={stls.wrapper}>
+      {list.map(({ label, href }, idx) => (
+        <Fragment key={idx}>
           {/* {idx === 0 && (
             <li className={stls.studyField} onClick={close && close}>
               <BtnField smallText={smallText}
@@ -63,25 +46,14 @@ const StudyFields = ({
           )} */}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
-            smallText={smallText}
-              href={`${
-                aside
-                  ? curProgramsType === 'course'
-                    ? routes.front.courses
-                    : curProgramsType === 'profession'
-                    ? routes.front.professions
-                    : routes.front.programs
-                  : routes.front.programs
-              }/${slug}`}
-              aside={aside}
-              slug={slug}>
+              href={href} mainFields>
               {label}
             </BtnField>
           </li>
         </Fragment>
       ))}
-    </ul>
+    </div>
   )
 }
 
-export default StudyFields
+export default MainStudyFields

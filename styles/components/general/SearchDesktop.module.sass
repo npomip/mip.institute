@@ -23,8 +23,8 @@
       font-weight: 300
       @include m.dye(c, c.$nu)
     &:focus
-      border: none
-      @include m.dye(bg, c.$nu)
+      border: 2px solid white
+      // @include m.dye(bg, c.$nu)
       @include m.dye(c, c.$chi)
       &::placeholder
         @include m.dye(c, c.$chi)
@@ -33,15 +33,10 @@
         & ~ .icon
           transform: translateY(-50%)
       & ~ .icon
-        @include m.dye(bg, c.$nu)
+        @include m.dye(bg, c.$nude)
         // @include m.dye(c, c.$chi)
         & path
-          @include m.dye(fill, c.$alpha)
-
-    &:hover
-      transform: scale(1.01)
-      & ~ .icon
-        transform: translateY(-50%) scale(1.02)
+          // @include m.dye(fill, c.$alpha)
       
 .icon
   @include m.media(laptop, desktop)

@@ -27,7 +27,7 @@ export default function CardTooltip({ profession, clickHandler }) {
         </Link>
       ) : (
         <Link
-          key={profession.id + profession.type}
+          key={profession.id + profession.type + 1}
           href={`${routes.front.courses}/${
             profession.studyFieldSlug || 'studyfield'
           }/${profession.slug}`}>

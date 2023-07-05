@@ -12,7 +12,7 @@ import BtnHumburger from '@/components/btns/BtnHumburger'
 import { BtnFields } from '@/components/btns'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
-import PopupTrigger from '../general/PopupTrigger'
+import { useRouter } from 'next/router'
 
 
 const Header = () => {
@@ -22,26 +22,24 @@ const Header = () => {
   useEffect(() => {
     handleSwipedEvt({ menuIsOpen, closeMenu })
   }, [menuIsOpen, closeMenu])
-
-
+  const router = useRouter()
   return (
     <header className={stls.container}>
       <MenuMobile />
       <Wrapper>
         <div className={stls.top}>
-          <div className={stls.topleft}>
+          {router.route === '/' ? (
+            <div className={stls.topleft}>
             <Link href={routes.front.legal}>
               <a className={stls.linkInfo}>
                 Сведения об образовательной организации
               </a>
             </Link>
-            {/* <div className={stls.location}>
-              <div className={stls.icon}>
-                <IconLocation />
-              </div>
-              <GeneralAddress classNames={[stls.p]} />
-            </div> */}
           </div>
+          ) : (
+            ''
+          )}
+          
           {/* <div className={stls.topright}>
             <div className={stls.phone}>
               <BtnPhone withNumber />

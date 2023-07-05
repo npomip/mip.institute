@@ -110,41 +110,46 @@
 .popupContent
   z-index: 3
   top: 100%
-  right: -10%
+  right: -20%
   position: absolute
   width: 370px
-  height: 300px
+  height: fit-content
   background: white
   display: none
   border: 1px solid #CDCDCD
   border-radius: 10px
+  // margin: 10px
   
   &.open
     display: block
 
 .dropdownIcon
   display: flex
-  width: 190px
-  // padding: 15px
-  // margin: 10px
+  height: 39px
+  @include m.media(desktop)
+    @include m.gap($mtb: f.px(10))
   z-index: 3
   justify-content: space-around
   @media screen and ( max-width: 1200px )
-    width: 160px
+    @include m.flex($ai: center)
+    @include m.gap($mtb: f.px(10))
 
 .hidden
   display: none
+  height: 0
 
 .visible
   display: block
 
 .selected
   border: 2px solid #6F01C6
+  // margin: 5px
   &::after
+    @include m.gap($mt: f.px(8))
     content: ''
     position: absolute
-    top: f.px(2)
-    left: f.px(15)
+    top: f.px(-5)
+    left: 55%
     @include m.dye(bg, c.$nu)  
     width: 1em
     height: 1em

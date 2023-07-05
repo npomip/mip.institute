@@ -60,7 +60,7 @@ const BtnFields = () => {
             [stls.tooltip]: true,
             [stls.isShown]: fieldsTooltipIsOpen
           })}>
-          <div className={stls.inputContainer}>
+          {/* <div className={stls.inputContainer}>
             <input
               className={stls.input}
               placeholder='Поиск программы'
@@ -71,7 +71,7 @@ const BtnFields = () => {
             <div className={stls.iconSearch}>
               <IconSearchAlt />
             </div>
-          </div>
+          </div> */}
           {searchQuery && (
             <h1 className={stls.searchResults}>Результаты поиска</h1>
           )}

@@ -27,23 +27,6 @@ const MainStudyFields = ({
       className={stls.wrapper}>
       {list.map(({ label, href }, idx) => (
         <Fragment key={idx}>
-          {/* {idx === 0 && (
-            <li className={stls.studyField} onClick={close && close}>
-              <BtnField smallText={smallText}
-                href={
-                  aside
-                    ? curProgramsType === 'course'
-                      ? routes.front.courses
-                      : curProgramsType === 'profession'
-                      ? routes.front.professions
-                      : routes.front.programs
-                    : routes.front.programs
-                }
-                aside={aside}>
-                Все направления
-              </BtnField>
-            </li>
-          )} */}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
               href={href} mainFields>

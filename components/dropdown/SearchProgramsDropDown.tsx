@@ -128,14 +128,14 @@ export default function SearchProgramsDropDown() {
                 {!searchQuery && programs[0] !== undefined && firstShownPrograms &&
                 firstShownPrograms?.map((el, i) => (
                   <>
-                  <CardTooltip key={el.id + el.i} profession={el}
+                  <CardTooltip  profession={el}
                   clickHandler={cardClickHandler} />
                 </>
                 ))}
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
                 <>
-                  <CardTooltip key={el.id + el.i} profession={el}
+                  <CardTooltip  profession={el}
                   clickHandler={cardClickHandler} />
                 </>
               ))}
@@ -172,7 +172,7 @@ export default function SearchProgramsDropDown() {
               </div>
             </div>
               </div>
-              <a href={'tel:+7-495-648-62-26'} className={isInputVisible ? stls.hiddenText : stls.showText}>+7 (495) 648-62-26</a>
+              <a href={'tel:+7-499-110-86-32'} className={isInputVisible ? stls.hiddenText : stls.showText}>+7 (499) 110-86-32</a>
             
             
           </div>

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/SearchDesktop.module.sass'
-import { IconSearchAlt } from '@/components/icons'
+import { IconArrowRight, IconSearchAlt } from '@/components/icons'
 import { useContext } from 'react'
 import { ContextStaticProps } from '@/context/index'
 
@@ -38,7 +38,7 @@ const SearchDesktop = () => {
         onChange={handleOnChange}
       />
       <div className={stls.icon}>
-        <IconSearchAlt />
+        <IconArrowRight />
       </div>
     </div>
   )

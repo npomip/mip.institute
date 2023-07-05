@@ -17,15 +17,15 @@ const IconDropDownClock: React.FC<IconProps> = ({
     className
   )
   return (
-    <span
+    <div
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
       className={iconClasses}>
       <svg
-        width='22'
-        height='25'
-        viewBox='0 0 22 25'
+        // width='16'
+        // height='16'
+        viewBox='0 0 25 25'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'>
         <path
@@ -37,7 +37,7 @@ const IconDropDownClock: React.FC<IconProps> = ({
           fill='white'
         />
       </svg>
-    </span>
+    </div>
   )
 }
 

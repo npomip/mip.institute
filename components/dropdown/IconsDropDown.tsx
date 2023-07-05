@@ -9,6 +9,8 @@ import ConnectInfo from './ConnectInfo'
 import TimeOfWork from './TimeOfWork'
 import WeakVision from './WeakVision'
 import DistanceStudy from './DistanceStudy'
+import IconDropDownDocuments from '../icons/IconDropDownDocuments'
+import DocumentsSection from './DocumentsSection'
 
 
  function IconsDropDown() {
@@ -18,9 +20,6 @@ import DistanceStudy from './DistanceStudy'
     if (selectedIcon !== icon) {
       setSelectedIcon(icon);
     } 
-    // else {
-    //   setSelectedIcon(icon);
-    // }
   };
   return (
     <div className={stls.popupWrapper} 
@@ -31,20 +30,24 @@ import DistanceStudy from './DistanceStudy'
             onMouseEnter={() => handleIconClick('icon1')}
             className={selectedIcon === 'icon1' ? stls.selected : ''}
           />
-          <IconDropDownClock
+          <IconDropDownDocuments
             onMouseEnter={() => handleIconClick('icon2')}
-            onClick={() => handleIconClick('icon2')}
             className={selectedIcon === 'icon2' ? stls.selected : ''}
           />
-          <IconWeakVision
+          <IconDropDownClock
             onMouseEnter={() => handleIconClick('icon3')}
-            onClick={() => handleIconClick('icon3')}
+            // onClick={() => handleIconClick('icon2')}
             className={selectedIcon === 'icon3' ? stls.selected : ''}
           />
-          <IconEnterToPortal
+          <IconWeakVision
             onMouseEnter={() => handleIconClick('icon4')}
-            onClick={() => handleIconClick('icon4')}
+            // onClick={() => handleIconClick('icon3')}
             className={selectedIcon === 'icon4' ? stls.selected : ''}
+          />
+          <IconEnterToPortal
+            onMouseEnter={() => handleIconClick('icon5')}
+            // onClick={() => handleIconClick('icon4')}
+            className={selectedIcon === 'icon5' ? stls.selected : ''}
           />
         </div>
         <div
@@ -54,9 +57,10 @@ import DistanceStudy from './DistanceStudy'
           })}
         >
           <ConnectInfo className={selectedIcon === 'icon1' ? stls.visible : stls.hidden} />
-          <TimeOfWork className={selectedIcon === 'icon2' ? stls.visible : stls.hidden} />
-          <WeakVision className={selectedIcon === 'icon3' ? stls.visible : stls.hidden} />
-          <DistanceStudy className={selectedIcon === 'icon4' ? stls.visible : stls.hidden} />
+          <DocumentsSection className={selectedIcon === 'icon2' ? stls.visible : stls.hidden} />
+          <TimeOfWork className={selectedIcon === 'icon3' ? stls.visible : stls.hidden} />
+          <WeakVision className={selectedIcon === 'icon4' ? stls.visible : stls.hidden} />
+          <DistanceStudy className={selectedIcon === 'icon5' ? stls.visible : stls.hidden} />
         </div>
       </div>
   )

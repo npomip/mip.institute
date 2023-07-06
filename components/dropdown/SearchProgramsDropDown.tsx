@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import stls from '@/styles/components/layout/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
@@ -7,31 +7,50 @@ import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import routes from '@/config/routes'
 import { BtnField } from '../btns'
+import { useRouter } from 'next/router'
 
 export default function SearchProgramsDropDown() {
 
-  const list = [
-    {
-      href: routes.front.about,
-      val: 'Об институте'
-    },
-    {
-      href: routes.front.teachers,
-      val: 'Преподаватели'
-    },
-    {
-      href: routes.front.webinars,
-      val: 'Вебинары'
-    },
-    {
-      href: routes.front.reviews,
-      val: 'Отзывы'
-    },
-    {
-      href: routes.front.payment,
-      val: 'Оплата обучения'
+  const list = useMemo(
+    () => [
+      {
+        href: routes.front.about,
+        val: 'Об институте'
+      },
+      {
+        href: routes.front.teachers,
+        val: 'Преподаватели'
+      },
+      {
+        href: routes.front.webinars,
+        val: 'Вебинары'
+      },
+      {
+        href: routes.front.reviews,
+        val: 'Отзывы'
+      },
+      {
+        href: routes.front.payment,
+        val: 'Оплата обучения'
+      }
+    ],
+    []
+  )
+  const router = useRouter()
+  const [descriptionText, setDescriptionText] = useState('Об институте')
+
+  useEffect(() => {
+    const currentRoute = router.pathname
+
+    // Ищем элемент списка, соответствующий текущему пути
+    const currentItem = list.find(item => item.href === currentRoute)
+
+    if (currentItem) {
+      setDescriptionText(currentItem.val)
+    } else {
+      setDescriptionText('Об институте')
     }
-  ]
+  }, [router.pathname, list])
 
   // направления
   const [directionOnHover, setDirectionOnHover] = useState(false);
@@ -153,7 +172,7 @@ export default function SearchProgramsDropDown() {
               </div>
             </div>
             <div className={ stls.desriptionPopup} onMouseEnter={directionsOnHoverHandler} onMouseLeave={directionsOnHoverHandler}>
-              <p className={ directionOnHover ? stls.directionPopupTextShown :stls.desriptionPopupText}>Об институте</p>
+              <p className={ directionOnHover ? stls.directionPopupTextShown :stls.desriptionPopupText}>{descriptionText}</p>
               <div  className={directionOnHover ? stls.directionsPopup : stls.hidden}>
               <div className={stls.oneDirection} >
               {list.map(item => (

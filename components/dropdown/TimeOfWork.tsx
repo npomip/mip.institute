@@ -26,15 +26,12 @@ const TimeOfWork: React.FC<Icon1Props> = ({ className, selected = false }) => {
       </div>
       <p className={stls.description}>ул. Шаболовка, 34, стр. 2</p>
       <p className={stls.description}>Метро Шаболовская</p>
-      <div className={stls.wrapper}>
-        <IconOrangeDot />
-        {/* <p className={stls.contacts}>Контакты</p> */}
+      <p className={stls.description}>Москва</p>
         <Link href={routes.front.contact}>
-              <a className={stls.contacts}>
+              <a href={routes.front.contact} className={stls.contacts}>
               Контакты
               </a>
             </Link>
-      </div>
     </div>
   )
 }

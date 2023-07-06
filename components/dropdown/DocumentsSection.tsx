@@ -21,8 +21,8 @@ const DocumentsSection: React.FC<Icon1Props> = ({
   return (
     <div className={infoClasses}>
       <div className={stls.wrapper}>
-        <h3>Сведения об образовательной</h3>
-        <h3>организации</h3>
+        <p>Сведения об образовательной</p>
+        <p>организации</p>
 
         <Link href={routes.front.legal}>
           <a className={stls.btn} href={routes.front.legal}>

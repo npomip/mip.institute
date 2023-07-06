@@ -13,8 +13,8 @@ const WeakVision: React.FC<Icon1Props> = ({ className, selected = false }) => {
   return (
     <div className={infoClasses}>
       <div className={stls.wrapper}>
-        <h3>Версия для слабовидящих</h3>
-        <p>Страница находится в процессе разработки.</p>
+        <p>Версия для слабовидящих</p>
+        <span>Страница находится в процессе разработки.</span>
         <div className={stls.icon}>
           <IconSadFace />
         </div>

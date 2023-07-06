@@ -4,7 +4,8 @@
 
 .container
   // margin-left: 30px
-  @include m.gap($ml: f.px(30), $mtb: f.px(20))
+  @include m.gap($ml: f.px(30), $mtb: f.px(30))
+  font-size: 14px
 
 .wrapper
   display: flex
@@ -20,10 +21,22 @@
   margin-left: 45px
 
 .contacts
-  font-size: 14px
-  @include m.gap($pl: f.px(20))
-  color: black
-  margin: 0
-  font-weight: 500
-  font-weight: 500
-  text-decoration-line: underline
+  // font-size: 14px
+  // @include m.gap($pl: f.px(20))
+  // color: black
+  // margin: 0
+  // font-weight: 500
+  // font-weight: 500
+  // text-decoration-line: underline
+  display: inline-block
+  font-size: 16px
+  font-weight: 350
+  color: #FD521B
+  // margin-top: 50px
+  @include m.gap($ptb: f.px(10), $plr: f.px(90), $mlr: f.px(30), $mt: f.px(20))
+  border-radius: f.px(5)
+  border: 2px solid #FD521B
+  transition: background 0.5s ease, color 0.5s ease
+  &:hover
+    background: #FD521B
+    color: white

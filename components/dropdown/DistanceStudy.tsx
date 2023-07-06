@@ -12,9 +12,9 @@ const DistanceStudy: React.FC<Icon1Props> = ({ className, selected = false }) =>
   return (
     <div className={infoClasses}>
       <div className={stls.wrapper}>
-        <h3>Вход в систему</h3>
-        <h3>дистанционного обучения</h3>
-        <h3>{"НАНО \"МИП\""}</h3>
+        <p>Вход в систему</p>
+        <p>дистанционного обучения</p>
+        <p>{"НАНО \"МИП\""}</p>
         <a className={stls.btn} href='https://lms.mip.institute/'>Войти</a>
       </div>
     </div>

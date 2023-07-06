@@ -26,27 +26,26 @@ import DocumentsSection from './DocumentsSection'
       onMouseLeave={() => handleIconClick(null)}
       >
         <div className={stls.dropdownIcon}>
+          
           <IconContact
             onMouseEnter={() => handleIconClick('icon1')}
             className={selectedIcon === 'icon1' ? stls.selected : ''}
+          />
+          <IconDropDownClock
+            onMouseEnter={() => handleIconClick('icon3')}
+            className={selectedIcon === 'icon3' ? stls.selected : ''}
           />
           <IconDropDownDocuments
             onMouseEnter={() => handleIconClick('icon2')}
             className={selectedIcon === 'icon2' ? stls.selected : ''}
           />
-          <IconDropDownClock
-            onMouseEnter={() => handleIconClick('icon3')}
-            // onClick={() => handleIconClick('icon2')}
-            className={selectedIcon === 'icon3' ? stls.selected : ''}
-          />
+          
           <IconWeakVision
             onMouseEnter={() => handleIconClick('icon4')}
-            // onClick={() => handleIconClick('icon3')}
             className={selectedIcon === 'icon4' ? stls.selected : ''}
           />
           <IconEnterToPortal
             onMouseEnter={() => handleIconClick('icon5')}
-            // onClick={() => handleIconClick('icon4')}
             className={selectedIcon === 'icon5' ? stls.selected : ''}
           />
         </div>

@@ -18,7 +18,7 @@ const CardCourse = ({ course = null, threerow = false }) => {
           [stls.fourrow]: !threerow
         })}>
         <span className={stls.type}>{course.typeLabel}</span>
-        <h4 className={stls.title}>{course.title}</h4>
+        <h3 className={stls.title}>{course.title}</h3>
         {course.studyMounthsDuration && (
           <div className={stls.dur}>
             <ProgramStudyDuration

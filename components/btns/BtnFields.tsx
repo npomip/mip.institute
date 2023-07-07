@@ -72,18 +72,18 @@ const BtnFields = () => {
               <IconSearchAlt />
             </div>
           </div> */}
-          {searchQuery && (
+          {/* {searchQuery && (
             <h1 className={stls.searchResults}>Результаты поиска</h1>
-          )}
-          <div className={stls.card}>
+          )} */}
+          {/* <div className={stls.card}>
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
                 <>
                   <CardTooltip key={el.id} profession={el} clickHandler={clickHandler} />
                 </>
               ))}
-          </div>
-          {filteredPrograms.length === 0 && searchQuery && (
+          </div> */}
+          {/* {filteredPrograms.length === 0 && searchQuery && (
             <div className={stls.notFound}>
               <p className={stls.sorryText}>К сожалению, по вашему запросу ничего не найдено</p>
               <div onClick={clickHandler} className={stls.allPrograms}>
@@ -92,9 +92,9 @@ const BtnFields = () => {
                 </BtnField>
               </div>
             </div>
-          )}
+          )} */}
           <MainStudyFields />
-          {!searchQuery && <StudyFields />}
+          {!searchQuery && <StudyFields orang />}
         </div>
       </div>
     </Wrapper>

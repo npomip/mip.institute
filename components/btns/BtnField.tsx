@@ -5,7 +5,7 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import classNames from 'classnames'
 
-const BtnField = ({ href, aside = false, slug = null, children, smallText=false , mainFields=false}) => {
+const BtnField = ({ href, aside = false, slug = null, children, smallText=false , mainFields=false, orang=false}) => {
   const { closeFieldsTooltip } = useContext(FieldsTooltipContext)
   const { curProgramsStudyFieldSlug } = useContext(ContextStaticProps)
 
@@ -22,6 +22,7 @@ const BtnField = ({ href, aside = false, slug = null, children, smallText=false 
             (slug === curProgramsStudyFieldSlug ||
               (!slug && !curProgramsStudyFieldSlug)),
           [stls.smallText]: smallText,
+          [stls.orang]: orang,
         })}
         onClick={!aside && closeFieldsTooltip}>
         {children}

@@ -24,9 +24,9 @@ const TimeOfWork: React.FC<Icon1Props> = ({ className, selected = false }) => {
         <IconOrangeDot />
         <p className={stls.title}>Адрес офиса:</p>
       </div>
-      <p className={stls.description}>ул. Шаболовка, 34, стр. 2</p>
-      <p className={stls.description}>Метро Шаболовская</p>
       <p className={stls.description}>Москва</p>
+      <p className={stls.description}>Метро Шаболовская</p>
+      <p className={stls.description}>ул. Шаболовка, 34, стр. 2</p>
         <Link href={routes.front.contact}>
               <a href={routes.front.contact} className={stls.contacts}>
               Контакты

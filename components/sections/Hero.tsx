@@ -45,15 +45,15 @@ const Hero = () => {
             </div>
           </div>
           <div className={stls.right}>
-            {/* <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
+            <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
               <IconAtom large cnu slightlyVisible />
-            </div> */}
+            </div>
             <div className={stls.img}>
               <ImgLadyStudying />
             </div>
-            {/* <div className={stls.prosList}>
+            <div className={stls.prosList}>
               <ProsList />
-            </div> */}
+            </div>
           </div>
         </TwoColumns>
       </Wrapper>

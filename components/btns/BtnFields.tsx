@@ -60,41 +60,8 @@ const BtnFields = () => {
             [stls.tooltip]: true,
             [stls.isShown]: fieldsTooltipIsOpen
           })}>
-          {/* <div className={stls.inputContainer}>
-            <input
-              className={stls.input}
-              placeholder='Поиск программы'
-              type='text'
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-            />
-            <div className={stls.iconSearch}>
-              <IconSearchAlt />
-            </div>
-          </div> */}
-          {/* {searchQuery && (
-            <h1 className={stls.searchResults}>Результаты поиска</h1>
-          )} */}
-          {/* <div className={stls.card}>
-            {searchQuery &&
-              filteredPrograms?.slice(0, 4).map((el, i) => (
-                <>
-                  <CardTooltip key={el.id} profession={el} clickHandler={clickHandler} />
-                </>
-              ))}
-          </div> */}
-          {/* {filteredPrograms.length === 0 && searchQuery && (
-            <div className={stls.notFound}>
-              <p className={stls.sorryText}>К сожалению, по вашему запросу ничего не найдено</p>
-              <div onClick={clickHandler} className={stls.allPrograms}>
-                <BtnField  href='/programs'>
-                  Ознакомиться со всеми направлениями
-                </BtnField>
-              </div>
-            </div>
-          )} */}
           <MainStudyFields />
-          {!searchQuery && <StudyFields orang />}
+          <StudyFields orang />
         </div>
       </div>
     </Wrapper>

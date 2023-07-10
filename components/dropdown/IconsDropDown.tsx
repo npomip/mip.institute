@@ -50,7 +50,6 @@ import DocumentsSection from './DocumentsSection'
           />
         </div>
         <div
-        onMouseEnter={() => console.log('inside')}
           className={classNames(stls.popupContent, {
             [stls.open]: selectedIcon !== null,
           })}

@@ -143,13 +143,13 @@
   display: block
 
 .selected
-  border: 2px solid #6F01C6
-  // margin: 5px
+  transform: scale(0.9)
+  transition: transform 0.3s ease
   &::after
     @include m.gap($mt: f.px(8))
     content: ''
     position: absolute
-    top: f.px(-5)
+    top: f.px(0)
     left: 55%
     @include m.dye(bg, c.$nu)  
     width: 1em
@@ -157,6 +157,8 @@
     border-radius: 5%
     color: black
     transform: rotate(58deg) skewX(30deg) translate(50%, 180%)
+    @include m.media(laptop)
+      top: f.px(5)
 
 .popupWrapper
   @include m.media(phone, tablet)
@@ -289,13 +291,15 @@
   display: flex
   justify-content: space-between
   border: 1px solid #FFCA9E
-  color: black
   font-size: 14px
   font-weight: 350
   border-radius: 10px
   align-items: center
   @include m.gap($plr: f.px(16))
+  & a
+    color: black
   &:hover
+    transition: background 0.5s ease
     background: #FFFFFF
     
 .arrowIcon

@@ -93,6 +93,18 @@ const titleName = item => {
           Психологическое консультирование. <br /> Повышение квалификации
         </>
       )
+      case '/programs/dietologiya-i-nutriciologiya':
+      return (
+        <>
+          Курсы<br />по диетологии и нутрициологии
+        </>
+      )
+      case '/programs/klinicheskaya-psihologiya':
+      return (
+        <>
+          Курсы <br /> клинической психологии
+        </>
+      )
     default:
       return 'Программа'
   }

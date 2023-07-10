@@ -46,8 +46,6 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
     canonical: `${routes.front.root}${asPath}`
   }
 
-  console.log(`${routes.front.root}${asPath}`)
-
   return (
     <>
       <NextSeo

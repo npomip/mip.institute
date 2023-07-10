@@ -142,21 +142,19 @@ export default function SearchProgramsDropDown() {
               </div>
               <div className={isInputVisible ? stls.programsPopUp : stls.hiddenProgramsPopUp}>
               <div className={isInputVisible ? stls.card : stls.hidden}>
-                {/* {!searchQuery && 
-                <p>Наши популярные курсы</p>} */}
                 {!searchQuery && programs[0] !== undefined && firstShownPrograms &&
                 firstShownPrograms?.map((el, i) => (
-                  <>
+                  <React.Fragment key={el.id}>
                   <CardTooltip  profession={el}
                   clickHandler={cardClickHandler} />
-                </>
+                </React.Fragment>
                 ))}
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
-                <>
+                <React.Fragment key={i}>
                   <CardTooltip  profession={el}
                   clickHandler={cardClickHandler} />
-                </>
+                </React.Fragment>
               ))}
           </div>
           {filteredPrograms.length === 0 && searchQuery && (
@@ -179,7 +177,7 @@ export default function SearchProgramsDropDown() {
                 <Link passHref={true} key={item.href + item.val}  href={item.href}>
                 <div  className={stls.popupLink}>
               
-                <a >{item.val}</a>
+                <a href={item.href}>{item.val}</a>
               
               <div className={stls.arrowIcon}>
 

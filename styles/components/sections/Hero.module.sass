@@ -35,7 +35,7 @@
   @include m.media(laptop, desktop)
     max-width: 13ch
     @include m.gap($mb: f.px(37))
-  font-size: f.px(42)
+  font-size: f.px(64)
   font-weight: 500
   line-height: 110%
   z-index: 1
@@ -62,7 +62,10 @@
     @include m.flex
 
 .btn
-  @include m.flex($fb: 45%)
+  @include m.media(desktop)
+    @include m.flex($fb: 55%)
+  @include m.media(laptop)
+    @include m.flex($fb: 45%)
   & > *
     width: 100%
     & > *
@@ -110,12 +113,12 @@
     @include m.gap($mt: f.px(51))
   @include m.media(laptop, desktop)
     position: absolute
-    top: f.px(-66)
+    top: f.px(-16)
     z-index: 1
   @include m.media(desktop)
-    right: f.px(-39)
+    right: f.px(105)
   @include m.media(laptop)
-    right: f.px(-119)
+    // right: f.px(-119)
 
 .prosList
   @include m.media(phone, tablet)

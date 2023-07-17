@@ -2,7 +2,7 @@ import stls from '@/styles/components/imgs/general/ImgLadyStudying.module.sass'
 import Image from 'next/image'
 import pic from '@/public/assets/imgs/general/lady-studying.jpg'
 
-const ImgLadyStudying = ({ width = 518, height = 407 }) => {
+const ImgLadyStudying = ({ width = 565, height = 417 }) => {
   return (
     <div className={stls.container}>
       <Image

@@ -5,14 +5,16 @@
 .container
   
   @include m.flex($ai: center)
-  @include m.gap($ptb: f.px(14), $plr: f.px(18))
+  @include m.gap($ptb: f.px(11), $plr: f.px(18))
   border-radius: f.px(40)
   text-align: center
   &.tooltip
     border: f.px(2) solid
+    @include m.gap($mlr: f.px(7))
     @include m.dye(border, rgba(c.$chi, .2))
     font-size: f.px(14)
     font-weight: 300
+    
     @include m.dye(c, c.$chi)
   &.smallText
     word-wrap: nowrap
@@ -26,6 +28,22 @@
     font-size: f.px(12)
     & > *
       // display: block
+  &.mainFields
+    font-weight: 300
+    border: 1px solid #6F01C6
+    // white-space: nowrap
+    @include m.gap($ptb: f.px(11), $plr: f.px(20))
+    transition: background 0.5s ease, color 0.5s ease
+    &:hover
+      background: #6F01C6
+      color: white
+  &.orang
+    border: 1px solid #FD521B
+    transition: background 0.5s ease, color 0.5s ease
+    &:hover
+      background: #FD521B
+      color: white
+  
   &.aside
     line-height: f.px(20)
     border: 1px solid
@@ -49,3 +67,4 @@
     //     x: 10
   &:focus
     transform: scale(0.98)
+  

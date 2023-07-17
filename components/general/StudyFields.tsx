@@ -11,6 +11,7 @@ type StudyFieldsType = {
   close?: any
   flexend?: boolean
   smallText?: boolean
+  orang?: boolean
 }
 
 const StudyFields = ({
@@ -18,6 +19,7 @@ const StudyFields = ({
   ofType = null,
   close = null,
   flexend = false,
+  orang = false,
   smallText
 }: StudyFieldsType) => {
   const {
@@ -40,11 +42,12 @@ const StudyFields = ({
         [stls.container]: true,
         [stls.aside]: aside,
         [stls.tooltip]: !aside,
-        [stls.flexend]: flexend
+        [stls.flexend]: flexend,
+        // [stls.orang]: orang,
       })}>
       {list.map(({ label, slug }, idx) => (
         <Fragment key={slug + idx}>
-          {idx === 0 && (
+          {/* {idx === 0 && (
             <li className={stls.studyField} onClick={close && close}>
               <BtnField smallText={smallText}
                 href={
@@ -60,10 +63,11 @@ const StudyFields = ({
                 Все направления
               </BtnField>
             </li>
-          )}
+          )} */}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
             smallText={smallText}
+            orang={orang}
               href={`${
                 aside
                   ? curProgramsType === 'course'

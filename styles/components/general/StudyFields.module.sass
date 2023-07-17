@@ -7,10 +7,12 @@
   &.tooltip
     @include m.flex($fw: wrap)
     & .studyField
-      @include m.gap($mb: f.px(12), $mr: f.px(12))
+      @include m.gap($mb: f.px(12), $mr: f.px(15))
   &.aside
     & .studyField
       @include m.gap($mb: f.px(10))
+  &.orange
+    border: 1px solid #6F01C6
   &.flexend
     @include m.gap($mt: f.px(25), $mlr: f.px(12))
     @include m.media(phone)

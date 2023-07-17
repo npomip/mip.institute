@@ -26,7 +26,6 @@ const ImgDiplomaDynamic = ({
 }: TImgDiplomaDynamic) => {
   const isImage = useCheckIfResourseExists({ src })
 
-  // console.log(isImage)
   return (
     <ImgTemplate
       classNames={[cn(stls.container, classNames)]}

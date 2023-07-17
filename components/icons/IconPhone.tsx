@@ -1,5 +1,7 @@
 import stls from '@/styles/components/icons/IconPhone.module.sass'
 import classNames from 'classnames'
+import React from 'react';
+
 
 const IconPhone = ({ small = false }) => {
   return (

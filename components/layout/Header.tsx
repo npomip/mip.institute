@@ -2,18 +2,18 @@ import stls from '@/styles/components/layout/Header.module.sass'
 import { useEffect, useContext } from 'react'
 import Link from 'next/link'
 import { routes, company } from '@/config/index'
-import { IconLocation, IconPhone } from '@/components/icons'
 import { handleSwipedEvt } from '@/helpers/index'
 import MenuContext from '@/context/menu/menuContext'
 import Wrapper from '@/components/layout/Wrapper'
 import MenuMobile from '@/components/layout/MenuMobile'
-import PopupTrigger from '@/components/general/PopupTrigger'
 import Logo from '@/components/general/Logo'
 import BtnPhone from '@/components/btns/BtnPhone'
 import BtnHumburger from '@/components/btns/BtnHumburger'
-import { BtnField, BtnFields } from '@/components/btns'
-import { GeneralAddress } from '@/components/general'
-import DropdownMenu from '../dropdown/DropdownMenu'
+import { BtnFields } from '@/components/btns'
+import IconsDropDown from '../dropdown/IconsDropDown'
+import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
+import { useRouter } from 'next/router'
+
 
 const Header = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -22,49 +22,33 @@ const Header = () => {
   useEffect(() => {
     handleSwipedEvt({ menuIsOpen, closeMenu })
   }, [menuIsOpen, closeMenu])
-
-  const list = [
-    {
-      href: routes.front.webinars,
-      val: 'Вебинары'
-    },
-    {
-      href: routes.front.teachers,
-      val: 'Преподаватели'
-    },
-    {
-      href: routes.front.about,
-      val: 'Об институте'
-    }
-  ]
-
+  const router = useRouter()
   return (
     <header className={stls.container}>
       <MenuMobile />
       <Wrapper>
         <div className={stls.top}>
-          <div className={stls.topleft}>
+          {router.route === '/' ? (
+            <div className={stls.topleft}>
             <Link href={routes.front.legal}>
               <a className={stls.linkInfo}>
                 Сведения об образовательной организации
               </a>
             </Link>
-            <div className={stls.location}>
-              <div className={stls.icon}>
-                <IconLocation />
-              </div>
-              <GeneralAddress classNames={[stls.p]} />
-            </div>
           </div>
-          <div className={stls.topright}>
+          ) : (
+            ''
+          )}
+          
+          {/* <div className={stls.topright}>
             <div className={stls.phone}>
               <BtnPhone withNumber />
             </div>
             <div className={stls.phoneNoNum}>
               <BtnPhone />
-            </div>
-            <PopupTrigger btn='epsilon' cta='callMeBack' />
-          </div>
+            </div> */}
+            {/* <PopupTrigger btn='epsilon' cta='callMeBack' /> */}
+          {/* </div> */}
         </div>
         <div className={stls.row}>
           <Logo atHeader />
@@ -75,15 +59,8 @@ const Header = () => {
           <div className={stls.btnFields}>
             <BtnFields />
           </div>
-          {list.map(item => (
-            <Link key={item.href + item.val} href={item.href}>
-              <a className={stls.link}>{item.val}</a>
-            </Link>
-          ))}
-          {/* <DropdownMenu
-        icon={<IconPhone/>}
-        menuItems={['Пункт меню 1', 'Пункт меню 2', 'Пункт меню 3']}
-      /> */}
+          <SearchProgramsDropDown />
+          <IconsDropDown />
         </div>
       </Wrapper>
     </header>

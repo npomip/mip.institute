@@ -1,7 +1,7 @@
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import getProgramsData from '@/lib/data/getProgramsData'
 import styles from '@/styles/components/general/SearchMobile.module.sass'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import CardTooltip from '../cards/CardTooltip'
 import { IconSearchAlt } from '../icons'
 import StudyFields from './StudyFields'
@@ -101,11 +101,11 @@ export default function SearchMobile() {
         <div className={styles.card}>
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
-                <>
-                  <CardTooltip key={el.id} profession={el} 
+                <React.Fragment key={el.id}>
+                  <CardTooltip  profession={el} 
                   clickHandler={clickHandler}
                   />
-                </>
+                </React.Fragment>
               ))}
           </div>
           

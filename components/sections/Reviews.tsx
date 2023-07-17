@@ -12,7 +12,6 @@ type ReviewsType = {
 }
 
 const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
-  // console.log(reviews)
   const slides = reviews.map((review, idx) => (
     <CardReview
       key={review.title + idx}

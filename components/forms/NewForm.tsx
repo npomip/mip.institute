@@ -7,6 +7,7 @@ import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
+import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 
 type FormValues = {
   name: string
@@ -60,6 +61,7 @@ const NewForm = ({
     } else {
       console.log('err')
     }
+    const calltouch = await sendToCalltouch(data)
   }
 
   return (

@@ -35,7 +35,7 @@
   @include m.media(laptop, desktop)
     max-width: 13ch
     @include m.gap($mb: f.px(37))
-  font-size: f.px(42)
+  font-size: f.px(55)
   font-weight: 500
   line-height: 110%
   z-index: 1
@@ -62,7 +62,10 @@
     @include m.flex
 
 .btn
-  @include m.flex($fb: 45%)
+  @include m.media(desktop)
+    @include m.flex($fb: 55%)
+  @include m.media(laptop)
+    @include m.flex($fb: 45%)
   & > *
     width: 100%
     & > *
@@ -87,8 +90,8 @@
     display: none
   @include m.media(laptop, desktop)
     position: absolute
-    bottom: f.px(60)
-    right: f.px(150)
+    bottom: f.px(130)
+    right: f.px(180)
     z-index: 2
   @media screen and (min-width: bp.$tablet) and (max-width: 850px)
     bottom: f.px(400)
@@ -103,25 +106,25 @@
 .right
   @include m.media(laptop, desktop)
     position: relative
-    @include m.gap($pb: f.px(345))
+    @include m.gap($pb: f.px(315))
 
 .img
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(51))
   @include m.media(laptop, desktop)
     position: absolute
-    top: f.px(-66)
+    top: f.px(-16)
     z-index: 1
   @include m.media(desktop)
-    right: f.px(-39)
+    right: f.px(105)
   @include m.media(laptop)
-    right: f.px(-119)
+    // right: f.px(-119)
 
 .prosList
   @include m.media(phone, tablet)
     transform: translateY(f.px(-25))
   @include m.media(laptop, desktop)
-    transform: translate(-81%, f.px(370))
+    transform: translate(-81%, f.px(340))
 
 .hiddenGem
   animation: rotating 6s linear infinite

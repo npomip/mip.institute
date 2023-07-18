@@ -92,7 +92,7 @@
     position: absolute
     bottom: f.px(130)
     right: f.px(180)
-    z-index: 2
+    z-index: 1
   @media screen and (min-width: bp.$tablet) and (max-width: 850px)
     bottom: f.px(400)
     right: f.px(270)
@@ -102,6 +102,7 @@
 .left
   @include m.media(laptop, desktop)
     min-width: f.px(570)
+    @include m.gap($mt: f.px(55))
 
 .right
   @include m.media(laptop, desktop)
@@ -124,7 +125,7 @@
   @include m.media(phone, tablet)
     transform: translateY(f.px(-25))
   @include m.media(laptop, desktop)
-    transform: translate(-81%, f.px(340))
+    transform: translate(-81%, f.px(390))
 
 .hiddenGem
   animation: rotating 6s linear infinite

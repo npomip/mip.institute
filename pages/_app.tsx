@@ -30,6 +30,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
 import saveUtmsToCookie from '@/components/funcs/utmsToCookie'
+import { getCookie, setCookie } from 'cookies-next'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -103,25 +104,47 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [loading, setLoading] = useState(false)
   //cookie for edPartners
   useEffect(() => {
-    const { cl_uid, utm_source, utm_campaign } = parse(document.cookie);
-    const { query } = router;
-    console.log(query)
+    // let utms = JSON.parse(sessionStorage.getItem('utms')) || {}
+    // let utmsAreEmpty = false
 
-    const utm = {};
+    // for (const key in utms) {
+    //   if (utms.hasOwnProperty(key)) {
+    //     utmsAreEmpty = true
+    //     break
+    //   }
+    // }
+    const utmCookie = getCookie('utm'); 
+    let arr 
+    if (typeof utmCookie === 'string') {
+      arr = JSON.parse(utmCookie)
+    }
+    
+    
+    const previousCookie = arr?.utm_source
+    console.log(router.query.utm_source, previousCookie)
 
-  // Перебираем все параметры из query и сохраняем их в объект utms
-  for (const key in query) {
-    utm[key] = query[key] || null;
-  }
-    saveUtmsToCookie(utm);
+    if (router.query.utm_source && router.query.utm_source != previousCookie) {
+      const urlUtmsArr = router.asPath.split('?')[1]
+      let utms = {}
+      urlUtmsArr &&
+        urlUtmsArr.split('&').forEach(utm => {
+          utms[utm.split('=')[0]] = utm.split('=')[1]
+        })
+      console.log(utmCookie, router.query.utm_source, previousCookie)
+
+      if((router.query.utm_source && router.query.utm_source != previousCookie)){
+        console.log(utmCookie, router.query.utm_source, previousCookie)
+        setCookie('utm', JSON.stringify(utms), {maxAge: 7776000})
+      }
+      
+    }
   }, [router.query]);
   //cookie for edPartners
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
-    const utms = JSON.parse(sessionStorage.getItem('utms')) || {}
-    console.log(utms)
+    let utms = JSON.parse(sessionStorage.getItem('utms')) || {}
     let utmsAreEmpty = false
 
     for (const key in utms) {
@@ -130,6 +153,12 @@ const MyApp = ({ Component, pageProps, router }) => {
         break
       }
     }
+    // const utmCookie = getCookie('utm'); 
+    // let arr 
+    // if (typeof utmCookie === 'string') {
+    //   arr = JSON.parse(utmCookie)
+    // }
+  
 
     if (!utmsAreEmpty) {
       const urlUtmsArr = router.asPath.split('?')[1]
@@ -139,6 +168,14 @@ const MyApp = ({ Component, pageProps, router }) => {
           utms[utm.split('=')[0]] = utm.split('=')[1]
         })
       sessionStorage.setItem('utms', JSON.stringify(utms))
+
+      // console.log(utmCookie, router.query.utm_source, previousCookie)
+
+      // if((router.query.utm_source && router.query.utm_source != previousCookie)){
+      //   console.log(utmCookie, router.query.utm_source, previousCookie)
+      //   setCookie('utm', JSON.stringify(utms), {maxAge: 7776000})
+      // }
+      
     }
 
     const referer = sessionStorage.getItem('referrer')

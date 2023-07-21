@@ -4,7 +4,6 @@ import nodemailer from 'nodemailer'
 import { dev } from '@/config/index'
 import url from 'url'
 import http from 'http'
-import { v4 as uuidv4 } from 'uuid'
 import moment from 'moment'
 import { WebServiceClient } from '@maxmind/geoip2-node'
 
@@ -12,6 +11,7 @@ const contact = async (req, res) => {
   process.env.TZ = 'Europe/Moscow'
   // data from the client
   let {
+    id,
     name,
     phone,
     email,
@@ -22,9 +22,10 @@ const contact = async (req, res) => {
     question,
     programTitle,
     leadPage,
+    utm,
     utms,
     referer,
-    ymUid
+    ymUid,
   } = req.body
 
   if (name?.includes('@')) {
@@ -98,7 +99,7 @@ const contact = async (req, res) => {
   const locationData = await getUserLocation()
 
   const data = {
-    id: uuidv4() || null,
+    id: id || null,
     date: now.format('DD-MM-YYYY') || null,
     time: now.format('HH:mm:ss') || null,
     utc: now.format('Z') || null,
@@ -129,11 +130,12 @@ const contact = async (req, res) => {
     timeZone: (locationData && locationData.timeZone) || null,
     postalCode: (locationData && locationData.postalCode) || null,
     programTitle: programTitle || null,
-    utmSource: (utms && utms.utm_source) || referer || null,
-    utmMedium: (utms && utms.utm_medium) || null,
-    utmCampaign: (utms && utms.utm_campaign) || null,
-    utmContent: (utms && utms.utm_content) || null,
-    utmTerm: (utms && utms.utm_term) || null
+    utmSource: (utm && utm.utm_source) ||(utms && utms.utm_source) || referer || null,
+    utmMedium: (utm && utm.utm_medium) ||(utms && utms.utm_medium) || null,
+    clickid: (utm && utm.cl_uid) || null,
+    utmCampaign: (utm && utm.utm_campaign) || (utms && utms.utm_campaign) || null,
+    utmContent: (utm && utm.utm_content) || (utms && utms.utm_content) || null,
+    utmTerm: (utm && utm.utm_medium) ||(utms && utms.utm_term) || null
   }
 
   const subject = 'Новая заявка с mip.institute'
@@ -300,6 +302,10 @@ const contact = async (req, res) => {
       {
         tdKey: 'Объявление',
         tdVal: data.utmContent
+      },
+      {
+        tdKey: 'clickid',
+        tdVal: data.clickid
       },
       {
         tdKey: 'Ключевое слово',

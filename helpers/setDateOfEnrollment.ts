@@ -4,8 +4,8 @@ const dateItem = new Date()
 const selectorDate = (item) => {
   switch (true) {
 
-    case (item < new Date(2023, 6, 21)) :
-      return new Date(2022, 6, 20).toLocaleString('ru-RU', {
+    case (item < new Date(2023, 6, 29)) :
+      return new Date(2022, 6, 28).toLocaleString('ru-RU', {
         day: 'numeric',
         month: 'long'
       })

@@ -8,7 +8,8 @@ import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
-import { parse } from 'cookie';
+import { getCookie } from 'cookies-next'
+
 
 type FormValues = {
   name: string
@@ -56,9 +57,16 @@ const NewForm = ({
     sessionStorage.removeItem('referer')
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
-    const clickId = parse(document.cookie).utm || null;
-    data.utm = JSON.parse(clickId)
-    document.cookie = "utm=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    const clickId = getCookie('utm'); 
+    console.log('clickId', clickId)
+    // const clickId = parse(document.cookie).utm || null;
+    if (typeof clickId === 'string') {
+      data.utm = JSON.parse(clickId);
+    } else {
+      data.utm = null; // или какое-то другое значение по умолчанию
+    }
+    // document.cookie = "utm=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    console.log(data)
     const req = await hitContactRoute(data)
     if (req === 200) {
       console.log('Success')

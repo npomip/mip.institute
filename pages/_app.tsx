@@ -5,6 +5,7 @@ import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 import { ContextStaticProps } from '@/context/index'
+import { parse } from 'cookie';
 
 import TagManager from 'react-gtm-module'
 
@@ -28,6 +29,7 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
+import saveUtmsToCookie from '@/components/funcs/utmsToCookie'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -99,11 +101,27 @@ const MyApp = ({ Component, pageProps, router }) => {
   )
 
   const [loading, setLoading] = useState(false)
+  //cookie for edPartners
+  useEffect(() => {
+    const { cl_uid, utm_source, utm_campaign } = parse(document.cookie);
+    const { query } = router;
+    console.log(query)
+
+    const utm = {};
+
+  // Перебираем все параметры из query и сохраняем их в объект utms
+  for (const key in query) {
+    utm[key] = query[key] || null;
+  }
+    saveUtmsToCookie(utm);
+  }, [router.query]);
+  //cookie for edPartners
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
     const utms = JSON.parse(sessionStorage.getItem('utms')) || {}
+    console.log(utms)
     let utmsAreEmpty = false
 
     for (const key in utms) {

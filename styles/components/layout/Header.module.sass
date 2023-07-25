@@ -70,6 +70,7 @@
 
 .row
   @include m.flex($jc: space-between, $ai: center)
+  @include m.gap($ptb: f.px(6))
 
 .btns
   @include m.media(phone, tablet)
@@ -165,6 +166,7 @@
     display: none
 
 .dropdownIcon
+  justify-content: flex-end
   & > *
     margin: 2px
 
@@ -172,9 +174,11 @@
   position: relative
   display: flex
   align-items: baseline
-  justify-content: space-between
+  
   width: 400px
   color: white
+  @include m.media(desktop)
+    justify-content: flex-start
   @media screen and ( max-width: 1200px )
     width: 350px
   @media screen and ( max-width: 920px )   
@@ -205,6 +209,9 @@
   
 .desriptionPopup
   // order: 1
+  @include m.media(desktop)
+    padding-left: 40px
+  padding-left: 20px
   cursor: pointer
   display: flex
   align-items: center
@@ -308,6 +315,9 @@
 
 .inputContainer
   position: relative
+  padding-left: 10px
+  @include m.media(desktop)
+    padding-left: 0
 
 .inputHidden
   opacity: 0
@@ -369,6 +379,10 @@
     font-weight: 500
 
 .showText
+  @include m.media(desktop)
+    padding-left: 50px
+  @include m.media(laptop)
+    padding-left: 25px
   opacity: 1
   color: white
   z-index: 1

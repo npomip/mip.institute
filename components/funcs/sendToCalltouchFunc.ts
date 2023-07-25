@@ -26,7 +26,6 @@ const sendToCalltouch = async data => {
   };
 
   try {
-    console.log('calltouch')
         const response = await axios.post(
           `${routes.front.root}/api/sendToCalltouch`,
           ct_data

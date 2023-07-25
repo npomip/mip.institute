@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import stls from '@/styles/components/layout/Header.module.sass'
 import IconContact from '../icons/IconContact'
 import IconDropDownClock from '../icons/IconDropDownClock'
@@ -11,6 +11,8 @@ import WeakVision from './WeakVision'
 import DistanceStudy from './DistanceStudy'
 import IconDropDownDocuments from '../icons/IconDropDownDocuments'
 import DocumentsSection from './DocumentsSection'
+import { getCookie } from 'cookies-next'
+import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 
 
  function IconsDropDown() {
@@ -21,16 +23,29 @@ import DocumentsSection from './DocumentsSection'
       setSelectedIcon(icon);
     } 
   };
+  const [isEdpartners, setIsEdpartners] = useState(false);
+const partCookie = getCookie('utm')
+  useEffect(()=>{
+    setTimeout(() => {
+      const utmSource = getUtmSourceFromCookie();
+      setIsEdpartners(utmSource === 'edpartners');
+    }, 300);
+}, [isEdpartners, partCookie]);
   return (
     <div className={stls.popupWrapper} 
       onMouseLeave={() => handleIconClick(null)}
       >
         <div className={stls.dropdownIcon}>
-          
-          <IconContact
+          {!isEdpartners && (
+            <IconContact
             onMouseEnter={() => handleIconClick('icon1')}
             className={selectedIcon === 'icon1' ? stls.selected : ''}
-          />
+          /> 
+          )}
+          {/* <IconContact
+            onMouseEnter={() => handleIconClick('icon1')}
+            className={selectedIcon === 'icon1' ? stls.selected : ''}
+          /> */}
           <IconDropDownClock
             onMouseEnter={() => handleIconClick('icon3')}
             className={selectedIcon === 'icon3' ? stls.selected : ''}

@@ -42,10 +42,10 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
         : 'Профессии - длинные программы для полного погружения в направление. Курсы - короткие программы, чтобы изучить один конкретный навык',
       120
     ),
-    // canonical: `${routes.front.root}${routes.front.programs}`
-    canonical: `${routes.front.root}${asPath}`
-  }
 
+    // canonical: `${routes.front.root}${asPath}`
+    canonical: asPath.includes('dietologiya') ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya` : asPath.includes('klinicheskaya') ? `${routes.front.root}/professions/klinicheskaya-psihologiya` : `${routes.front.root}${asPath}`
+    }
   return (
     <>
       <NextSeo

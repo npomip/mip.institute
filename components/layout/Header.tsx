@@ -27,8 +27,9 @@ const Header = () => {
     <header className={stls.container}>
       <MenuMobile />
       <Wrapper>
-        <div className={stls.top}>
+        {/* <div className={stls.top}> */}
           {router.route === '/' ? (
+            <div className={stls.top}>
             <div className={stls.topleft}>
             <Link href={routes.front.legal}>
               <a className={stls.linkInfo}>
@@ -36,20 +37,11 @@ const Header = () => {
               </a>
             </Link>
           </div>
+          </div>
           ) : (
             ''
           )}
-          
-          {/* <div className={stls.topright}>
-            <div className={stls.phone}>
-              <BtnPhone withNumber />
-            </div>
-            <div className={stls.phoneNoNum}>
-              <BtnPhone />
-            </div> */}
-            {/* <PopupTrigger btn='epsilon' cta='callMeBack' /> */}
-          {/* </div> */}
-        </div>
+        {/* </div> */}
         <div className={stls.row}>
           <Logo atHeader />
           <div className={stls.btns}>

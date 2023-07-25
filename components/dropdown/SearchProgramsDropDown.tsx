@@ -8,6 +8,8 @@ import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import routes from '@/config/routes'
 import { BtnField } from '../btns'
 import { useRouter } from 'next/router'
+import { getCookie } from 'cookies-next'
+import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 
 export default function SearchProgramsDropDown() {
 
@@ -124,6 +126,15 @@ export default function SearchProgramsDropDown() {
     setSearchQuery('')
   }
   // hidden INput
+
+  const [isEdpartners, setIsEdpartners] = useState(false);
+const partCookie = getCookie('utm')
+  useEffect(()=>{
+    setTimeout(() => {
+      const utmSource = getUtmSourceFromCookie();
+      setIsEdpartners(utmSource === 'edpartners');
+    }, 300);
+}, [isEdpartners, partCookie]);
   return (
     <div className={stls.searchAndPrograms}>
           <div className={stls.inputContainer}>
@@ -189,7 +200,10 @@ export default function SearchProgramsDropDown() {
               </div>
             </div>
               </div>
-              <a href={'tel:+7-499-110-86-32'} className={isInputVisible ? stls.hiddenText : stls.showText}>+7 (499) 110-86-32</a>
+              {!isEdpartners && (
+                <a href={'tel:+7-499-110-86-32'} className={isInputVisible ? stls.hiddenText : stls.showText}>+7 (499) 110-86-32</a>
+              )}
+              {/* <a href={'tel:+7-499-110-86-32'} className={isInputVisible ? stls.hiddenText : stls.showText}>+7 (499) 110-86-32</a> */}
             
             
           </div>

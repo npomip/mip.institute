@@ -121,7 +121,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     
     
     const previousCookie = arr?.utm_source
-    console.log(router.query.utm_source, previousCookie)
 
     if (router.query.utm_source && router.query.utm_source != previousCookie) {
       const urlUtmsArr = router.asPath.split('?')[1]
@@ -130,10 +129,8 @@ const MyApp = ({ Component, pageProps, router }) => {
         urlUtmsArr.split('&').forEach(utm => {
           utms[utm.split('=')[0]] = utm.split('=')[1]
         })
-      console.log(utmCookie, router.query.utm_source, previousCookie)
 
       if((router.query.utm_source && router.query.utm_source != previousCookie)){
-        console.log(utmCookie, router.query.utm_source, previousCookie)
         setCookie('utm', JSON.stringify(utms), {maxAge: 7776000})
       }
       

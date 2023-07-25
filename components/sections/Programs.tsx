@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Programs.module.sass'
-import { lazy, Suspense, useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 import { routes } from '@/config/index'
@@ -10,7 +10,6 @@ import { ContextStaticProps } from '@/context/index'
 import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
 import SearchMobile from '../general/SearchMobile'
-const DynamicSearch = lazy(() => import('../general/SearchMobile'));
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
@@ -60,9 +59,37 @@ const Programs = ({
     professions: curProgramsStudyFieldSlug ? professionsFiltered : professions
   }
 
+
+  const targetTitles = [
+    "Психолог-консультант",
+    "Психолог-диетолог. Нутрициолог",
+    "Когнитивно-поведенческий психотерапевт",
+    "Практический психолог с доп. квалификацией Психолог-психотерапевт",
+    "Клинический психолог",
+    "Детский психолог",
+    "Психосоматика и телесная психотерапия",
+    "Гештальт-терапевт"
+  ];
+
+  const rearrangeArray = (professions, targetTitles) => {
+    const resultArray = [];
+    const remainingArray = [];
+  
+    for (const item of professions) {
+      if (targetTitles.includes(item.title)) {
+        resultArray.push(item);
+      } else {
+        remainingArray.push(item);
+      }
+    }
+  
+    return resultArray.concat(remainingArray);
+  };
+  let favouritePrograms = rearrangeArray(professions, targetTitles)
+
   if (max) {
     data.courses = data.courses.filter((item, idx) => idx < max)
-    data.professions = data.professions.filter((item, idx) => idx < max)
+    favouritePrograms = favouritePrograms.slice(0,max)
   }
 
   useEffect(() => {
@@ -92,7 +119,9 @@ const Programs = ({
       if (include) return item
     })
   }
+  
 
+  
   return (
     <section
       className={cn({
@@ -106,9 +135,7 @@ const Programs = ({
           </div>
         )}
         <div className={stls.content}>
-        <Suspense fallback={''}>
-          <DynamicSearch />
-        </Suspense>
+        <SearchMobile />
           {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
             {ofType === 'profession' &&
@@ -152,7 +179,7 @@ const Programs = ({
                     biggerTitle={!withTitle}
                     withBtn={withBtn}
                     professions={
-                      searchTerm ? filteredData.professions : data.professions
+                      searchTerm ? filteredData.professions : favouritePrograms
                     }
                     withQty={withQty}
                     threerow={threerow}

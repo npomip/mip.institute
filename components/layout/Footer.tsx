@@ -1,6 +1,6 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import classNames from 'classnames'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { company, routes } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
 import Link from 'next/link'
@@ -16,6 +16,9 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 import FooterBottom from '@/components/general/FooterBottom'
 import { GeneralAddress } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
+import { useRouter } from 'next/router'
+import { getCookie, setCookie } from 'cookies-next'
+import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
@@ -69,6 +72,16 @@ const Footer = () => {
     fieldsLinks.push({ val: field.label, href: `/programs/${field.slug}` })
   })
 
+  const [isEdpartners, setIsEdpartners] = useState(false);
+  const router = useRouter()
+const partCookie = getCookie('utm')
+  useEffect(() => {
+    
+    setTimeout(() => {
+      const utmSource = getUtmSourceFromCookie();
+      setIsEdpartners(utmSource === 'edpartners');
+    }, 300);
+  }, [isEdpartners, partCookie]);
   return (
     <footer className={stls.container}>
       <Wrapper>
@@ -122,8 +135,8 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <div className={stls.contact}>
-              {/* оставил хардкод, но можно взять из company.phoneNumbers.studyPart.contactType в company.tsx */}
+            {!isEdpartners && (
+              <div className={stls.contact}>
               <p >Приемная комиссия:</p>
               <div className={stls.numbers}>
                 <a
@@ -156,6 +169,8 @@ const Footer = () => {
                 <PopupTrigger btn='beta' cta='askQuestion' />
               </div>
             </div>
+            )}
+            {/*  */}
           </div>
           <div className={stls.bottom}>
             <FooterBottom />

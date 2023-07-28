@@ -9,6 +9,11 @@ const selectorDate = (item) => {
         day: 'numeric',
         month: 'long'
       })
+      case (item < new Date(2023, 7, 1)) :
+      return new Date(2022, 6, 31).toLocaleString('ru-RU', {
+        day: 'numeric',
+        month: 'long'
+      })
 
     case (item < new Date(2023, 7, 9)) :
       return new Date(2023, 7, 8).toLocaleString('ru-RU', {

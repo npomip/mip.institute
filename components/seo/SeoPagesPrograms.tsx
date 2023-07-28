@@ -44,7 +44,7 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
     ),
 
     // canonical: `${routes.front.root}${asPath}`
-    canonical: asPath.includes('dietologiya') ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya` : asPath.includes('klinicheskaya') ? `${routes.front.root}/professions/klinicheskaya-psihologiya` : `${routes.front.root}${asPath}`
+    canonical: asPath.includes('dietologiya') ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya` : `${routes.front.root}${asPath}`
     }
   return (
     <>

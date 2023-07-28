@@ -12,7 +12,7 @@ import ProgramAdmission from '@/components/program/ProgramAdmission'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import MoneySaving from '../program/MoneySaving'
 
-const StudyCost = () => {
+const StudyCost = ({costRef}) => {
   const { program } = useContext(ContextStaticProps)
 
   const title = program?.title || ''
@@ -47,7 +47,7 @@ const StudyCost = () => {
   ]
 
   return (
-    <section className={stls.container}>
+    <section ref={costRef} className={stls.container}>
       <Wrapper>
         <div className={stls.content}>
           <div className={stls.left}>

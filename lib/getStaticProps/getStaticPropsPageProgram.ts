@@ -60,6 +60,8 @@ const getStaticPropsPageProgram = async ({
           typeLabel
           studyHours
           WhatYouWillLearn
+          programOverview
+          programOverviewTitle
           ForWhom
           fullTitle
           shortContents

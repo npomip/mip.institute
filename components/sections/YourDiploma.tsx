@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
-import { useContext } from 'react'
+import { RefObject, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routes } from '@/config/index'
@@ -21,10 +21,11 @@ import {
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
 
 type YourDiplomaType = {
-  ofType: 'course' | 'profession'
+  ofType: 'course' | 'profession',
+  diplomaRef: RefObject<HTMLElement>
 }
 
-const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
+const YourDiploma = ({ ofType = null, diplomaRef }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ContextStaticProps)
@@ -116,9 +117,10 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
     slidesNum: 1,
     spaceBetween: 30
   }
+  console.log(slides.map(el => el.props))
 
   return (
-    <section className={stls.container}>
+    <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
         <div className={stls.content}>
           <div className={stls.left}>
@@ -149,27 +151,11 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
                   closeOnDocumentClick>
                   {close => <PopupImage image={<ImgLicence />} close={close} />}
                 </Popup>
-                {/* <Popup
-                  trigger={
-                    <BtnIota
-                      text={
-                        <>
-                          Уведомление о предоставлении <br /> лицензии{' '}
-                          <span className={stls.highlight}>№041221</span>{' '}
-                        </>
-                      }
-                      href={routes.external.license}
-                      target='_blank'
-                    />
-                  }
-                  modal
-                  nested>
-                  {close => <PopupImage image={<ImgLicence />} close={close} />}
-                </Popup> */}
+                
               </div>
             </div>
           </div>
-          <div className={stls.swiper}>
+          {/* <div className={stls.swiper}>
             <SwiperContainer
               diplomas
               slides={slides}
@@ -178,7 +164,25 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
               laptopOptions={tabletLaptopDesktopSwiperOptions}
               desktopOptions={tabletLaptopDesktopSwiperOptions}
             />
-          </div>
+          </div> */}
+          <div className={stls.slidesContainer}>
+          {slides.map((slide, index) => (
+        <Popup
+          key={`popup-${index}`}
+          trigger={
+            <button className={stls.trigger}>
+              <span className={stls.img}>
+                {slide}
+              </span>
+            </button>
+          }
+          modal
+          nested
+        >
+          {close => <PopupImage image={slide.props.children} close={close} />}
+        </Popup>
+      ))}
+      </div>
         </div>
       </Wrapper>
     </section>

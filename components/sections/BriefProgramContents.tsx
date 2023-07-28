@@ -3,9 +3,9 @@ import Wrapper from '@/components/layout/Wrapper'
 import ProgramModulesQty from '@/components/program/ProgramModulesQty'
 import ProgramModules from '@/components/program/ProgramModules'
 
-const BriefProgramContents = () => {
+const BriefProgramContents = ({planRef}) => {
   return (
-    <section className={stls.container}>
+    <section ref={planRef} className={stls.container}>
       <Wrapper>
         <div className={stls.top}>
           <div className={stls.heading}>

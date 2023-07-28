@@ -8,7 +8,6 @@ import marked from 'marked'
 
 const WhatYouWillLearn = () => {
   const { program } = useContext(ContextStaticProps)
-
   const list =
     program?.WhatYouWillLearn?.length > 0 &&
     getListItemsInnerHtml(marked(program.WhatYouWillLearn))

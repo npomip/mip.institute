@@ -16,7 +16,7 @@ import {
   ImgTeacher4
 } from '@/components/imgs'
 
-const Teachers = () => {
+const Teachers = ({teachersRef}) => {
   const { program } = useContext(ContextStaticProps)
 
   // const teachers: TypeLibTeachers =
@@ -65,7 +65,7 @@ const Teachers = () => {
   }
 
   return (
-    <section className={stls.container}>
+    <section ref={teachersRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Преподаватели программы</h2>
         <p className={stls.desc}>

@@ -10,11 +10,10 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10))
+    @include m.gap($mb: f.px(30))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
-    max-width: 11ch
-    @include m.gap($mb: f.px(10))
+    @include m.gap($mb: f.px(30))
     font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
@@ -31,19 +30,22 @@
     font-size: f.px(15)
     @include m.gap($mb: f.px(20))
   @include m.media(laptop, desktop)
-    max-width: 33ch
-    @include m.gap($mb: f.px(24))
+    @include m.gap($mb: f.px(44), $mt: f.px(20))
     font-size: f.px(20)
+  color: #131313
   font-weight: 300
+  line-height: 130%
   @include m.dye(c, c.$theta)
 
 .content
   @include m.media(laptop, desktop)
     @include m.flex
+    justify-content: space-between
 
 .left
   @include m.media(laptop, desktop)
-    @include m.gap($mr: f.px(30))
+  flex-basis: 50%
+    // @include m.gap($mr: f.px(30))
 
 .swiper
   position: relative
@@ -67,36 +69,28 @@
   & > *
     max-width: f.px(291)
 
-.btn
-  @include m.media(phone, tablet)
-    margin-bottom: f.px(20)
-
-
 .slidesContainer 
   display: grid
   grid-template-columns: repeat(2, 1fr)
-  gap: 10px
-  grid-template-areas: 'CC CC'
+  // grid-template-rows: repeat(2, 1fr)
+  // gap: 10px
+  row-gap: 0px
+  column-gap: 10px
+  justify-items: stretch
+  flex-shrink: 0
+  // grid-template-areas: 'CC CC'
   
 
 .img
-  // height: 500px
-  // width: 500px
-  &:first-child
-    height: 500px
-  //   grid-area: A
-  //   grid-row: span 1
-  //   grid-column: 1 / span 2
-  // &:nth-child(2)
-  //   grid-area: B
-  //   grid-row: 1 / span 2
-  // &:nth-child(3)
-  //   grid-area: C
-  //   grid-row: 1 / span 2
-    
+  align-content: stretch
+  & > *
+    & > *
+      & > *
+        border-radius: 15px
 
 .trigger
-  width: 300px
+  width: 250px
+  border-radius: 15px
   // height: 200px
   &:first-child
     // width: 500px
@@ -110,3 +104,5 @@
   &:nth-child(3)
     grid-area: C
     grid-row: 1 / span 2
+    width: 100%
+    scale: 0.95

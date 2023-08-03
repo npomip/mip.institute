@@ -20,10 +20,12 @@ import {
   StudyCost,
   Faq,
   PageNavigation,
+  Reviews,
 } from '@/components/sections'
 import { discount } from '@/data/price'
 import styles from '@/styles/pages/PagesProgram.module.sass'
 import { useEffect, useRef } from 'react'
+import Review from '../sections/Reviews/Review'
 
 type PagesProgramType = {
   ofType: 'course' | 'profession'
@@ -39,7 +41,6 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
 // console.log(currRef.current.getBoundingClientRect().y)
   // const navTop = navigationRef.current.getBoundingClientRect().y;
   const handleScroll = () => {
-    console.log(processRef.current.getBoundingClientRect().y, diplomaRef.current.getBoundingClientRect().y)
   }
 
 
@@ -63,6 +64,7 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
+      <Teachers teachersRef={teachersRef} />
       {ofType !== 'course' && <YourResume />}
       <Cta
         title={'Начните обучаться со скидкой'}
@@ -71,10 +73,11 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
         )}`}
         cta='reserve'
       />
-      <Teachers teachersRef={teachersRef} />
+      
       {/* <HelpWithEmployment /> */}
       {ofType !== 'course' && <YourFutureJob />}
       <StudyCost costRef={costRef} />
+      <Reviews />
       <Faq />
     </>
   )

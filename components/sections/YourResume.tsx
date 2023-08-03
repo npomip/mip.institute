@@ -30,13 +30,15 @@ const YourResume = () => {
               </div>
               <div className={stls.heading}>
                 <p className={stls.p}>Зарплата от:</p>
-                <h3 className={stls.h3}>
+                <h3 className={stls.salary}>
                   {toNumberWithSpaces(program?.entrySalary)}&nbsp;р
                 </h3>
               </div>
             </div>
           </div>
+          <div className={stls.bottomContent}>
           <ul className={stls.list}>
+            <p className={stls.skills}>Профессиональный навыки:</p>
             {list &&
               list[0].map((item, idx) => (
                 <li key={item + idx} className={stls.item}>
@@ -44,6 +46,10 @@ const YourResume = () => {
                 </li>
               ))}
           </ul>
+          <div className={stls.right}>
+            <p>Получила профессию “Педагог–психолог” в Московском Институте Психологии</p>
+          </div>
+          </div>
         </div>
       </Wrapper>
     </section>

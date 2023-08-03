@@ -5,6 +5,8 @@ import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import classNames from 'classnames'
 import { PopupImage } from '../popups'
+import CustomNextButton from './CustomNextButton'
+import CustomPrevButton from './CustomPrevButton'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -83,8 +85,20 @@ const SwiperContainer = ({
     return swiperOptions[currentLayoutKey].spaceBetween
   }
 
+  const goNext = () => {
+    // Ваша логика для перехода к следующему слайду
+    // console.log('Next Slide');
+  };
+  const goPrev = () => {
+    // Ваша логика для перехода к предыдущему слайду
+    console.log('Previous Slide');
+  };
   return (
     <Swiper
+      navigation={{
+        prevEl: '.custom-prev-button',
+        nextEl: '.custom-next-button',
+      }}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}
       slidesPerView={assignNumOfSlidesPerView()}
@@ -111,6 +125,18 @@ const SwiperContainer = ({
             )}
           </SwiperSlide>
         ))}
+        
+        {/* {!isMobileLayout && (
+          <> */}
+          <div className="custom-prev-button-container">
+        <CustomPrevButton />
+      </div>
+        <div className="custom-next-button-container">
+        <CustomNextButton />
+      </div> 
+        {/* </>
+        )} */}
+        
     </Swiper>
   )
 }

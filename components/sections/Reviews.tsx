@@ -5,14 +5,19 @@ import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import CardReview from '@/components/cards/CardReview'
 import { ImgReview } from '@/components/imgs'
+import { useContext } from 'react'
+import { ContextStaticProps } from '@/context/index'
 
 type ReviewsType = {
   standalone?: boolean
-  reviews: any
+  // reviews: any
 }
 
-const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
-  const slides = reviews.map((review, idx) => (
+const Reviews = ({ standalone = false }: ReviewsType) => {
+  const { reviews } = useContext(ContextStaticProps)
+  console.log(reviews)
+  // const reviews = []
+  const slides = reviews?.map((review, idx) => (
     <CardReview
       key={review.title + idx}
       title={review.title}

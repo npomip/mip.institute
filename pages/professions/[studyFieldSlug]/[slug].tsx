@@ -9,6 +9,7 @@ import { SeoPagesProgram } from '@/components/seo'
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
   program,
+  reviews,
   studyFieldSlug
 }) => {
   useHandleContextStaticProps({
@@ -17,7 +18,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     curProgramsType: 'profession',
     curProgramsStudyFieldSlug: studyFieldSlug
   })
-
+  console.log('PPPPPPP', reviews)
   return (
     <>
       <SeoPagesProgram

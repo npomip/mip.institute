@@ -78,26 +78,34 @@
   @include m.dye(c, c.$kappa)
 
 .h3
+  color: #6F01C6
+  font-weight: 500
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
     font-size: f.px(20)
   @include m.media(laptop, desktop)
     font-size: f.px(28)
-  font-weight: 300
+
+.salary
+  font-size: 37px
+  font-style: normal
+  font-weight: 700
 
 .list
+  flex-basis: 50%
   @include m.gap($p: 0)
   @include m.media(phone, tablet)
     list-style-type: '•'
   @include m.media(laptop, desktop)
-    @include m.flex($fw: wrap, $jc: space-between)
+    margin-top: 0
+    // @include m.flex($fw: wrap, $jc: space-between)
     
 .item
   @include m.media(phone, tablet)
     @include m.gap($pl: f.px(12))
   @include m.media(laptop, desktop)
     @include m.flex($ai: center, $fb: 47%)
-    @include m.gap($mb: f.px(16), $pl: f.px(19))
+    @include m.gap( $pl: f.px(19))
     &:nth-child(odd)
       @include m.gap($mr: 5%)
     &::before
@@ -114,3 +122,21 @@
     font-size: f.px(18)
     line-height: 120%
   font-weight: 300
+
+.bottomContent
+  display: flex
+  // flex-direction: column
+
+.right
+  flex-basis: 50%
+  @include m.gap($mt: f.px(47), $ml: f.px(60))
+  // margin-top: f.px(57)
+  font-size: 18px
+  font-style: normal
+  font-weight: 350
+
+.skills
+  margin-left: f.px(50)
+  font-size: 22px
+  font-style: normal
+  font-weight: 500

@@ -17,15 +17,14 @@ import {
 } from '@/components/imgs'
 
 const Teachers = ({teachersRef}) => {
-  const { program } = useContext(ContextStaticProps)
-
+  const { program, reviews } = useContext(ContextStaticProps)
+// console.log(reviews)
   // const teachers: TypeLibTeachers =
   //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
 
   const teachers = program?.teachers
 
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
-
   const list =
     teachersSorted &&
     [...teachersSorted]?.map(teacher => ({
@@ -53,15 +52,24 @@ const Teachers = ({teachersRef}) => {
       achievements={teacher.achievements}
     />
   ))
-
   const mobileSwiperOptions = {
-    slidesNum: 1.75,
+    slidesNum: 1,
     spaceBetween: 40
   }
 
   const tabletSwiperOptions = {
-    slidesNum: 2,
+    slidesNum: 1,
     spaceBetween: 40
+  }
+
+  const laptopSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 30
+  }
+
+  const desktopSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 30
   }
 
   return (
@@ -74,17 +82,19 @@ const Teachers = ({teachersRef}) => {
         </p>
         <div className={stls.teachers}>
           <SwiperContainer
-            teachers
+            // teachers
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}
             tabletOptions={tabletSwiperOptions}
-            alwaysDisabledOnDesktop
-            isMultiRow
+            laptopOptions={laptopSwiperOptions}
+            desktopOptions={desktopSwiperOptions}
+            // alwaysDisabledOnDesktop
+            // isMultiRow
           />
         </div>
-        <div className={stls.btnContainer}>
+        {/* <div className={stls.btnContainer}>
           <PopupTrigger btn='delta' cta='learnAboutTeachers' />
-        </div>
+        </div> */}
       </Wrapper>
     </section>
   )

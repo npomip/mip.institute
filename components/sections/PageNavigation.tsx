@@ -41,7 +41,6 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef})
     //   stickyNav.current = isSticky;
     // }
     // console.log(diplomaRef.current.getBoundingClientRect().y)
-    console.log(sectionRefs)
     for (const [section, ref] of Object.entries(sectionRefs)) {
       if (ref.current && ref.current.getBoundingClientRect().top <= navHeight) {
         setActiveSection(section)

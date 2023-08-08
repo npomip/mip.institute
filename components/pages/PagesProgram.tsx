@@ -24,14 +24,19 @@ import {
 } from '@/components/sections'
 import { discount } from '@/data/price'
 import styles from '@/styles/pages/PagesProgram.module.sass'
+import { TypeLibReviews } from '@/types/index'
 import { useEffect, useRef } from 'react'
+import RequestsCard from '../sections/RequestsCard'
+import RequestsYouWillFace from '../sections/RequestsYouWillFace'
 import Review from '../sections/Reviews/Review'
 
 type PagesProgramType = {
-  ofType: 'course' | 'profession'
+  ofType: 'course' | 'profession',
+  reviews: TypeLibReviews
 }
 
-const PagesProgram = ({ ofType = null }: PagesProgramType) => {
+const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
+  console.log(reviews, 'reviews in pages')
   const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
@@ -66,6 +71,7 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
       <FullProgram />
       <Teachers teachersRef={teachersRef} />
       {ofType !== 'course' && <YourResume />}
+      <RequestsCard />
       <Cta
         title={'Начните обучаться со скидкой'}
         desc={`Забронируйте программу по спеццене — со скидкой ${discount.substring(
@@ -77,7 +83,7 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
       {/* <HelpWithEmployment /> */}
       {ofType !== 'course' && <YourFutureJob />}
       <StudyCost costRef={costRef} />
-      <Reviews />
+      <Reviews reviews={reviews} />
       <Faq />
     </>
   )

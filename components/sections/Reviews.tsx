@@ -10,13 +10,12 @@ import { ContextStaticProps } from '@/context/index'
 
 type ReviewsType = {
   standalone?: boolean
-  // reviews: any
+  reviews: any
 }
 
-const Reviews = ({ standalone = false }: ReviewsType) => {
-  const { reviews } = useContext(ContextStaticProps)
+const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
+
   console.log(reviews)
-  // const reviews = []
   const slides = reviews?.map((review, idx) => (
     <CardReview
       key={review.title + idx}
@@ -48,7 +47,7 @@ const Reviews = ({ standalone = false }: ReviewsType) => {
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <SwiperContainer slides={slides} />
+          <SwiperContainer diplomas slides={slides} />
         </div>
       </Wrapper>
     </section>

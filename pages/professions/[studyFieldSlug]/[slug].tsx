@@ -18,7 +18,6 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     curProgramsType: 'profession',
     curProgramsStudyFieldSlug: studyFieldSlug
   })
-  console.log('PPPPPPP', reviews)
   return (
     <>
       <SeoPagesProgram
@@ -26,7 +25,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         ofType='profession'
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      <PagesProgram ofType={'profession'} />
+      <PagesProgram reviews={reviews} ofType={'profession'} />
     </>
   )
 }

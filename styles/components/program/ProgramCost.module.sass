@@ -1,12 +1,14 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+@use '@/styles/utils/mixin/media' as bp
 
 .content
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$nu)
-  margin: 0 auto
+  // margin: 0 auto
   border-radius: 25px
+  min-height: 415px
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(28))
   @include m.media(laptop, desktop)
@@ -18,63 +20,61 @@
   width: 85%
   border-bottom: 2px solid white
   @include m.gap($ptb: f.px(19))
-  &:nth-last-child(1)
+  &:nth-last-child(2)
+    @include m.gap($ptb: f.px(10))
     border: none
     
-.flexMonth
-  // width: 90%
-  
+.topFlexMonth
   display: flex
+  justify-content: center
+  align-items: baseline
+.flexMonth
+  height: 70px
+  display: flex
+  justify-content: space-between
+  align-items: center
   @include m.media(desktop, tablet)
-    justify-content: space-between
-    align-items: baseline
-    padding-left: 20px
-    padding-right: 20px
-  
-  @include m.media(laptop)
-    justify-content: space-between
-    align-items: baseline
+    margin: 0 auto
     padding-left: 20px
     padding-right: 20px
     
   @include m.media(phone)
-    justify-content: space-between
-    align-items: baseline
     padding-top: 20px
-    // padding-right: 20px
-    // flex-direction: column
     align-items: center
     white-space: nowrap
+
 .label
-  display: flex
+  text-align: center
   font-weight: 200
   line-height: 120%
   @include m.media(tablet)
     @include m.gap($pl: f.px(11))
   @include m.media(phone)
-    // max-width: 75%
-    // @include m.gap($pl: f.px(41))
-    @include m.gap($mb: f.px(9))
-    @include m.gap($mt: f.px(19))
-    font-size: f.px(16)
+    @include m.gap($mtb: f.px(19))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(3))
     @include m.gap($pl: f.px(18))
     @include m.gap($pt: f.px(8))
-    font-size: f.px(18)
+    font-size: f.px(14)
+  b
+    font-weight: 500
 
 .discount
   @include m.media(phone, tablet)
     @include m.gap($mr: f.px(16))
-    font-size: f.px(32)
+    font-size: f.px(40)
     line-height: 110%
-  @include m.media(laptop)
-    // display: block
   @include m.media(laptop, desktop)
-    @include m.gap($mr: f.px(23))
-    font-size: f.px(60)
+    // @include m.gap($mr: f.px(23))
+    font-size: f.px(48)
     font-weight: 500
     line-height: f.px(77)
+  .full
+    font-size: f.px(21)
+    font-weight: 350
+  .fullLight
+    font-size: f.px(21)
+    font-weight: 300
 
 .regular
   position: relative
@@ -82,9 +82,8 @@
     font-size: f.px(24)
     line-height: f.px(32)
   @include m.media(laptop, desktop)
-    font-size: f.px(30)
+    font-size: f.px(20)
     line-height: f.px(39)
-  // @include m.dye(c, c.$nu)
   &::after
     content: ''
     position: absolute
@@ -93,10 +92,62 @@
     transform: translateY(-50%) rotate(-10deg)
     width: 100%
     height: f.px(2)
-    @include m.dye(bg, c.$nu)
+    @include m.dye(bg, #F87E1B)
 
-.bold
-  font-weight: 500
+
 
 .light
   font-weight: 300
+
+.btns
+  display: flex
+  justify-content: center
+  // height:90px
+  flex-direction: column
+  align-items: center
+  width: 100%
+  p
+    text-align: center
+    @include m.media(laptop, desktop)
+      display: none
+  button
+    width: 220px
+    @include m.gap($mb: f.px(16))
+    
+  .btnquestion
+    display: flex
+    justify-content: center
+    width: 100%
+    @include m.gap($mb: f.px(16))
+    & > *
+      width: 100%
+      @include m.gap($mlr: f.px(30))
+      @include m.media(phone, tablet)
+        
+        width: 220px
+    button
+      width: 100%
+      border: 1px solid #FFFFFF
+      color: #FFFFFF
+      font-size: 18px
+      font-weight: 500
+      @include m.media(laptop, desktop)
+        height: 60px
+        width: 100%
+        border-radius: 10px
+      @include m.media(phone, tablet)
+        height: 58px
+        width: 220px
+        border-radius: 5px
+        font-size: 16px
+  @include m.media(phone, tablet)
+    display: flex
+    
+    justify-content: center
+    
+  @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
+  @include m.media(laptop, desktop)
+    @include m.flex
+.askQuestion
+  @include m.media(laptop, desktop)
+    display: none

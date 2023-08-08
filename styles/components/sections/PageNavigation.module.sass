@@ -5,66 +5,32 @@
 .container
   display: flex
   flex-wrap: wrap
-  justify-content: center
   align-self: center
-  margin-bottom: 20px
-  padding: 0
-  height: 150px
-  width: 100%
   @include m.media(laptop, desktop)
-    padding-left: 2.8%
-    padding-right: 2.8%
-  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  border-radius: f.px(20)
-  @include m.dye(bg, c.$nu)
-  // background: #fbf4ff
-  
+  @include m.dye(bg, #fbf4ff)
+  @include m.gap($ptb: f.px(42))
   
 .wrap
   // width: 1200px
 
 .navigation 
-  // position: sticky
-  // display: block
-  position: absolute
-  // display: flex
-  // flex-direction: column
-  // justify-content: center
-  // top: 0
-  // background-color: red
-  // padding: 10px 0
-  // width: fit-content
-  // max-width: 1200px
-  // height: 150px
+  width: 100%
   z-index: 100
-  // background: green
-  background: rgba(216, 181, 237, 0.7)
 
   ul 
+    padding-left: 0
     display: flex
-    height: fit-content
-    // justify-self: center
     justify-content: space-between
     align-items: center
-    // align-content: center
     list-style: none
     flex-wrap: wrap
-    // background: rgba(255, 255, 255, 0.7)
-    background: (rgba(217, 18, 18, 0.3), transparent)
-    // margin: 0
-    // padding: 0
 
     & li 
-      margin: 0 10px
+      margin: 10px 10px
+      text-decoration: underline
+      text-underline-offset: f.px(5)
       & p 
-        // padding: 8px 12px
-        // border: none
-        // background-color: transparent
-        // font-size: 16px
-        // font-weight: 500
-        // color: #333
-        // cursor: pointer
-        // transition: color 0.3s
+        margin: 0
         color: #000
         font-family: Stem
         font-size: 18px
@@ -75,11 +41,24 @@
         text-transform: uppercase
         &.active
           // background: red
-          font-weight: 500
+          font-weight: bold
 
 .sticky
+  transition: width 1s ease
   position: fixed
+  // max-width: 100%
+  width: auto
+  left: 20px
+  right: 20px
+  // @include m.media(laptop)
+
+    
+  // @include m.media(desktop) 
+  //   width: 1200px
+  // @include m.media(tablet)
+  //   width: 600px
   top: 0
+  background: rgba(216, 181, 237, 0.7)
 
 .point
   height: 1px

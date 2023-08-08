@@ -20,7 +20,11 @@
     height: 100%
     @include m.gap($mt: f.px(40))
   @include m.media(phone, tablet)
-    flex-wrap: wrap
+    flex-direction: column
+    align-items: center
+    width: 100%
+    
+    
     
 .one
   display: flex
@@ -29,12 +33,14 @@
       font-size: 16px
       line-height: 21.6px
   @include m.media(phone, tablet)
+    border-radius: f.px(20)
+    margin: 10px
+    @include m.gap($plr: f.px(20), $ptb: f.px(20))
     align-items: center
-    &:nth-child(odd)
-      @include m.gap($pr: f.px(9))
-    &:nth-child(even)
-      @include m.gap($pl: f.px(8))
-    width: 50%
+    border: 1px solid #6F01C6
+    width: 80%
+    background: #FFF
+
     & h1
       font-size: 18px
     & p

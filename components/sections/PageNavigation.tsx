@@ -35,15 +35,10 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef})
       prevNavTop.current = 0
     }
 
-    // if (isSticky && isScrollingUp && window.scrollY > prevNavTop.current) {
-    //   stickyNav.current = false;
-    // } else {
-    //   stickyNav.current = isSticky;
-    // }
-    // console.log(diplomaRef.current.getBoundingClientRect().y)
     for (const [section, ref] of Object.entries(sectionRefs)) {
       if (ref.current && ref.current.getBoundingClientRect().top <= navHeight) {
-        setActiveSection(section)
+          setActiveSection(section)
+        
       } else if(!stickyNav) {
         setActiveSection('')
       }
@@ -56,9 +51,9 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef})
   }, [stickyNav])
 
   return (
-    
+    <section className={stls.container}>
       <Wrapper>
-        <section className={stls.container}>
+        
         <div className={stls.point} ref={pointRef}></div>
         <div
           className={`${stls.navigation} ${stickyNav ? stls.sticky : ''}`}
@@ -108,9 +103,9 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef})
             </li>
           </ul>
         </div>
-        </section>
+        
       </Wrapper>
-    
+      </section>
   )
 }
 

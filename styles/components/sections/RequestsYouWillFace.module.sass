@@ -1,0 +1,75 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.content
+  border: 2px solid black
+  height: 300px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+.cardList
+  
+  display: flex
+  flex-wrap: wrap
+  @include m.media(desktop, laptop)
+    justify-content: center
+  // justify-content: space-around
+  @include m.media(phone, tablet)
+    flex-direction: column
+    align-items: center
+    max-height: 390px
+    
+    overflow-y: auto
+
+.card
+  flex: 0 0 auto
+  border-radius: 25px
+  perspective: 1000px
+  cursor: pointer
+  transition: transform 0.6s
+  min-height: 117px
+  // overflow-y: hidden
+  transform-style: preserve-3d
+  width: f.px(250)
+  position: relative
+  font-size: 10px
+  @include m.gap($mb: f.px(18), $pb: f.px(10), $ml: f.px(20))
+  
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(18), $pb: f.px(10))
+  // backface-visibility: hidden
+
+  &.flipped
+    transform: rotateY(180deg)
+    // backface-visibility: hidden
+
+  .front, .back
+    border-radius: 25px
+    padding: 10px
+    position: absolute
+    width: 100%
+    height: 100%
+    display: flex
+    
+    align-items: center
+    // backface-visibility: hidden
+
+  .front
+    // z-index: 2
+    padding-left: f.px(20)
+    font-size: 18px
+    background: #FBF4FF
+    backface-visibility: hidden
+    & p
+      margin: 0
+      padding-left: f.px(30)
+
+  .back
+    justify-content: center
+    background: #e9cef8
+    font-size: 12px
+    transform: rotateY(180deg)
+    // z-index: 3
+    backface-visibility: hidden

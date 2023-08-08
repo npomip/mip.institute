@@ -28,19 +28,23 @@
 
 .top
   @include m.media(phone, tablet)
-    @include m.flex
+    justify-content: space-between
+    @include m.flex($ai: center)
+    @include m.gap($pb: f.px(25))
+    border-bottom: 1px solid #D1D1D1
   @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(40), $pb: f.px(40))
     position: relative
     @include m.flex($ai: center)
-    @include m.gap($mb: f.px(40), $pb: f.px(40))
-    &::after
-      content: ''
-      position: absolute
-      bottom: 0
-      left: 0
-      width: 100%
-      height: f.px(1)
-      @include m.dye(bg, c.$mu)
+  
+  &::after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    height: f.px(2)
+    @include m.dye(bg, c.$mu)
 
 .img
   @include m.media(phone, tablet)
@@ -59,21 +63,24 @@
   overflow: hidden
 
 .headings
+  width: 100%
+  @include m.flex($jc: space-between)
   @include m.media(laptop, desktop)
-    @include m.flex($jc: space-between)
-    width: 100%
     max-width: f.px(560)
+  @include m.media(phone, tablet)
+    align-items: center
 
 .heading
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(13))
+    align-self: center
+    // @include m.gap($mb: f.px(13))
 
 .headingLeft
   @include m.media(laptop, desktop)
     flex-basis: 70%
 
 .p
-  @include m.gap($mb: f.px(5))
+  // @include m.gap($mb: f.px(5))
   font-size: f.px(13)
   @include m.dye(c, c.$kappa)
 
@@ -87,6 +94,7 @@
     font-size: f.px(28)
 
 .salary
+  margin: 0 auto
   font-size: 37px
   font-style: normal
   font-weight: 700
@@ -125,15 +133,22 @@
 
 .bottomContent
   display: flex
+  @include m.media(phone, tablet)
+    flex-direction: column
+    
   // flex-direction: column
 
 .right
   flex-basis: 50%
-  @include m.gap($mt: f.px(47), $ml: f.px(60))
+  @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(47), $ml: f.px(60))
   // margin-top: f.px(57)
   font-size: 18px
   font-style: normal
   font-weight: 350
+  @include m.media(phone, tablet)
+    padding-top: f.px(15)
+    border-top: 1px solid #D1D1D1
 
 .skills
   margin-left: f.px(50)

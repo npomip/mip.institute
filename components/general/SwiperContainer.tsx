@@ -14,6 +14,8 @@ const SwiperContainer = ({
   teachers = false,
   diplomas = false,
   reviews = false,
+  reviewNextBtn = false,
+  reviewPrevBtn = false,
   slides,
   mobileOptions = { slidesNum: 1, spaceBetween: 10 },
   tabletOptions = { slidesNum: 1, spaceBetween: 10 },
@@ -131,10 +133,10 @@ const SwiperContainer = ({
         {/* {!isMobileLayout && (
           <> */}
           <div className="custom-prev-button-container">
-        <CustomPrevButton />
+        <CustomPrevButton reviewPrevBtn={reviewPrevBtn}  />
       </div>
         <div className="custom-next-button-container">
-        <CustomNextButton />
+        <CustomNextButton reviewNextBtn={reviewPrevBtn}  />
       </div> 
         {/* </>
         )} */}

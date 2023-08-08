@@ -49,7 +49,7 @@ const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <SwiperContainer reviews slides={slides} />
+          <SwiperContainer reviewPrevBtn reviewNextBtn reviews slides={slides} />
         </div>
       </Wrapper>
     </section>

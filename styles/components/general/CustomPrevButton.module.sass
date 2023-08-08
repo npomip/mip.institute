@@ -10,6 +10,22 @@
   z-index: 3
   @include m.media(phone, tablet)
     z-index: 0
+
+  &.reviewNextBtn
+    top: 90%
+    right: 5%
+    transform: scale(1.2)
+    @include m.media(phone, tablet)
+      top: 90%
+      right: 5%
+    & > *
+      & > *
+        & > *
+          & > *
+            stroke: #6F01C6
+            @include m.media(phone, tablet)
+                display: none
+
 .containerPrev
   position: absolute
   // font-size: 30px
@@ -18,3 +34,20 @@
   z-index: 3
   @include m.media(phone, tablet)
     z-index: 0
+
+  &.reviewPrevBtn
+    top: 90%
+    right: 10%
+    transform: scale(1.2)
+    @include m.media(phone, tablet)
+      top: 90%
+      right: 25%
+    & > *
+      & > *
+        & > *
+          & > *
+            stroke: #6F01C6
+            @include m.media(phone, tablet)
+              display: none
+            // transform: scale(1.05)
+

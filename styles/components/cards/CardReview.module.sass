@@ -4,6 +4,9 @@
 
 .container
   @include m.flex($fg: 0, $fs: 0, $fb: f.px(569))
+  background: #6F01C6
+  color: white
+  flex-direction: column
   @include m.gap($mr: f.px(10), $ptb: f.px(40), $plr: f.px(22))
   border-radius: f.px(10, em)
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
@@ -22,11 +25,14 @@
 
 .content
   @include m.flex($fd: column, $fg: 1)
-  // background: 
+  p
+    font-size: f.px(18)
+    font-weight: 500
+    @include m.media(phone, tablet)
+      font-size: f.px(14)
 
 .title
   @include m.gap($mt: 0, $mb: f.px(10))
-  font-weight: 500
 
 .text
   @include m.gap($mb: f.px(10))
@@ -36,10 +42,18 @@
   @include m.gap($m: 0)
 
 .name
-  font-size: f.px(18)
-  font-weight: 300
-  @include m.gap($mb: f.px(5))
 
-.occupation
-  font-size: f.px(13)
-  font-weight: 300
+  @include m.gap($mb: f.px(5))
+  
+
+
+.upperContainer
+  display: flex
+
+.bottom
+  @include m.gap($mt: f.px(15))
+
+.story
+  font-size: f.px(18)
+  @include m.media(phone, tablet)
+      font-size: f.px(12)

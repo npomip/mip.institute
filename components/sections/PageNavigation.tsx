@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import stls from '@/styles/components/sections/PageNavigation.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 
-const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef}) => {
+const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef}) => {
   const [activeSection, setActiveSection] = useState('')
   const navigationRef = useRef(null)
   const pointRef = useRef(null)
@@ -15,7 +15,7 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef})
     plan: planRef,
     teachers: teachersRef,
     cost: costRef,
-    reviews: useRef(null)
+    reviews: reviewsRef
   }
 
   const handleScrollToSection = section => {

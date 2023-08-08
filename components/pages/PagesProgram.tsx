@@ -27,8 +27,6 @@ import styles from '@/styles/pages/PagesProgram.module.sass'
 import { TypeLibReviews } from '@/types/index'
 import { useEffect, useRef } from 'react'
 import RequestsCard from '../sections/RequestsCard'
-import RequestsYouWillFace from '../sections/RequestsYouWillFace'
-import Review from '../sections/Reviews/Review'
 
 type PagesProgramType = {
   ofType: 'course' | 'profession',
@@ -62,7 +60,8 @@ const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
       <PageNavigation processRef={processRef} diplomaRef={diplomaRef}
       planRef={planRef}
       teachersRef={teachersRef}
-      costRef={costRef} />
+      costRef={costRef}
+      reviewsRef={reviewsRef}/>
       <WhatYouWillLearn  />
       <ForWhom />
       <HowProcessGoes processRef={processRef} />
@@ -83,7 +82,7 @@ const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
       {/* <HelpWithEmployment /> */}
       {ofType !== 'course' && <YourFutureJob />}
       <StudyCost costRef={costRef} />
-      <Reviews reviews={reviews} />
+      <Reviews reviewsRef={reviewsRef} reviews={reviews} />
       <Faq />
     </>
   )

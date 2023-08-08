@@ -16,16 +16,15 @@ import {
   ImgTeacher4
 } from '@/components/imgs'
 
-const Teachers = () => {
-  const { program } = useContext(ContextStaticProps)
-
+const Teachers = ({teachersRef}) => {
+  const { program, reviews } = useContext(ContextStaticProps)
+// console.log(reviews)
   // const teachers: TypeLibTeachers =
   //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
 
   const teachers = program?.teachers
 
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
-
   const list =
     teachersSorted &&
     [...teachersSorted]?.map(teacher => ({
@@ -53,19 +52,28 @@ const Teachers = () => {
       achievements={teacher.achievements}
     />
   ))
-
   const mobileSwiperOptions = {
-    slidesNum: 1.75,
+    slidesNum: 1,
     spaceBetween: 40
   }
 
   const tabletSwiperOptions = {
-    slidesNum: 2,
+    slidesNum: 1,
     spaceBetween: 40
   }
 
+  const laptopSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 30
+  }
+
+  const desktopSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 30
+  }
+
   return (
-    <section className={stls.container}>
+    <section ref={teachersRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Преподаватели программы</h2>
         <p className={stls.desc}>
@@ -74,17 +82,19 @@ const Teachers = () => {
         </p>
         <div className={stls.teachers}>
           <SwiperContainer
-            teachers
+            // teachers
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}
             tabletOptions={tabletSwiperOptions}
-            alwaysDisabledOnDesktop
-            isMultiRow
+            laptopOptions={laptopSwiperOptions}
+            desktopOptions={desktopSwiperOptions}
+            // alwaysDisabledOnDesktop
+            // isMultiRow
           />
         </div>
-        <div className={stls.btnContainer}>
+        {/* <div className={stls.btnContainer}>
           <PopupTrigger btn='delta' cta='learnAboutTeachers' />
-        </div>
+        </div> */}
       </Wrapper>
     </section>
   )

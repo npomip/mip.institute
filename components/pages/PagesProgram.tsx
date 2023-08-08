@@ -18,27 +18,59 @@ import {
   HelpWithEmployment,
   YourFutureJob,
   StudyCost,
-  Faq
+  Faq,
+  PageNavigation,
+  Reviews,
 } from '@/components/sections'
 import { discount } from '@/data/price'
+import styles from '@/styles/pages/PagesProgram.module.sass'
+import { TypeLibReviews } from '@/types/index'
+import { useEffect, useRef } from 'react'
+import RequestsCard from '../sections/RequestsCard'
 
 type PagesProgramType = {
-  ofType: 'course' | 'profession'
+  ofType: 'course' | 'profession',
+  reviews: TypeLibReviews
 }
 
-const PagesProgram = ({ ofType = null }: PagesProgramType) => {
+const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
+  console.log(reviews, 'reviews in pages')
+  const processRef = useRef(null)
+  const diplomaRef = useRef(null)
+  const planRef = useRef(null)
+  const teachersRef = useRef(null)
+  const costRef = useRef(null)
+  const reviewsRef = useRef(null)
+// console.log(currRef.current.getBoundingClientRect().y)
+  // const navTop = navigationRef.current.getBoundingClientRect().y;
+  const handleScroll = () => {
+  }
+
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+  // console.log(processRef.current.getBoundingClientRect().y)
   return (
     <>
       <HeroProgram />
       {/* <Opportunities /> */}
       {/* <Desc /> */}
-      <WhatYouWillLearn />
+      <PageNavigation processRef={processRef} diplomaRef={diplomaRef}
+      planRef={planRef}
+      teachersRef={teachersRef}
+      costRef={costRef}
+      reviewsRef={reviewsRef}/>
+      <WhatYouWillLearn  />
       <ForWhom />
-      <HowProcessGoes />
-      <YourDiploma ofType={ofType} />
-      <BriefProgramContents />
+      <HowProcessGoes processRef={processRef} />
+      <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
+      <BriefProgramContents planRef={planRef} />
       <FullProgram />
+      <Teachers teachersRef={teachersRef} />
       {ofType !== 'course' && <YourResume />}
+      <RequestsCard />
       <Cta
         title={'Начните обучаться со скидкой'}
         desc={`Забронируйте программу по спеццене — со скидкой ${discount.substring(
@@ -46,10 +78,11 @@ const PagesProgram = ({ ofType = null }: PagesProgramType) => {
         )}`}
         cta='reserve'
       />
-      <Teachers />
+      
       {/* <HelpWithEmployment /> */}
       {ofType !== 'course' && <YourFutureJob />}
-      <StudyCost />
+      <StudyCost costRef={costRef} />
+      <Reviews reviewsRef={reviewsRef} reviews={reviews} />
       <Faq />
     </>
   )

@@ -28,6 +28,7 @@ const getStaticPropsPageTeachers = async ({
           id
           name
           achievements
+          specialization
           portrait {
             url
             width

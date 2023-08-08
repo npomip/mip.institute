@@ -25,7 +25,9 @@ const FormAlpha = ({
   question = false,
   popup = false,
   atFooter = false,
-  agreement = false
+  agreement = false,
+  promo = false,
+  inProfessions=false,
 }) => {
   const {
     register,
@@ -88,7 +90,8 @@ const FormAlpha = ({
         method='post'
         className={classNames({
           [stls.containet]: true,
-          [stls.atFooter]: atFooter
+          [stls.atFooter]: atFooter,
+          [stls.inProfessions]: inProfessions
         })}
         onSubmit={handleSubmit(data => onSubmit(data))}>
         <div className={stls.group}>
@@ -140,7 +143,8 @@ const FormAlpha = ({
             />
             <p className={stls.err}>{errors.email && errors.email.message}</p>
           </div>
-          <div className={classNames(stls.inpt, stls.promocode)}>
+          {promo && (
+            <div className={classNames(stls.inpt, stls.promocode)}>
             <input
               type='text'
               aria-label='Промокод'
@@ -155,6 +159,7 @@ const FormAlpha = ({
             />
             <p className={stls.err}>{errors.email && errors.email.message}</p>
           </div>
+          )}
           {question && (
             <div className={classNames(stls.inpt, stls.question)}>
               <textarea

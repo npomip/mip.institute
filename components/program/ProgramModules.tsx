@@ -14,6 +14,7 @@ const ProgramModules = () => {
   const titles =
     program?.shortContents?.length > 0 &&
     getParagraphInnerHtml(marked(program.shortContents))
+    console.log(program)
 
   const list =
     titles &&
@@ -22,7 +23,7 @@ const ProgramModules = () => {
         title: topic,
         topics: topics?.[idx]
       }))
-      .filter((item, idx) => idx < 5)
+      // .filter((item, idx) => idx < 5)
 
   return (
     <ul className={stls.container}>

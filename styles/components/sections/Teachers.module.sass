@@ -28,17 +28,17 @@
   position: relative
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(50, em))
-    &::after
-      content: ''
-      position: absolute
-      left: 0
-      right: 0
-      bottom: 0
-      z-index: 100
-      height: f.px(127)
-      pointer-events: none
-      background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)
-      transform: rotate(180deg)
+    // &::after
+    //   content: ''
+    //   position: absolute
+    //   left: 0
+    //   right: 0
+    //   bottom: 0
+    //   z-index: 100
+    //   height: f.px(127)
+    //   pointer-events: none
+    //   background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)
+    //   transform: rotate(180deg)
 
 .btnContainer
   @include m.media(phone, tablet)

@@ -5,14 +5,19 @@ import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import CardReview from '@/components/cards/CardReview'
 import { ImgReview } from '@/components/imgs'
+import { useContext } from 'react'
+import { ContextStaticProps } from '@/context/index'
 
 type ReviewsType = {
   standalone?: boolean
-  reviews: any
+  reviews: any,
+  reviewsRef: any
 }
 
-const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
-  const slides = reviews.map((review, idx) => (
+const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
+
+  console.log(reviews)
+  const slides = reviews?.map((review, idx) => (
     <CardReview
       key={review.title + idx}
       title={review.title}
@@ -36,6 +41,7 @@ const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
 
   return (
     <section
+      ref={reviewsRef}
       className={classNames({
         [stls.container]: true,
         [stls.standalone]: standalone
@@ -43,7 +49,7 @@ const Reviews = ({ standalone = false, reviews }: ReviewsType) => {
       <Wrapper>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <SwiperContainer slides={slides} />
+          <SwiperContainer reviewPrevBtn reviewNextBtn reviews slides={slides} />
         </div>
       </Wrapper>
     </section>

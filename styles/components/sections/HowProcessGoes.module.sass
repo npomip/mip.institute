@@ -14,14 +14,14 @@
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: 0, $mr: f.px(19))
-    min-width: 10ch
-    max-width: 10ch
+    // min-width: 10ch
+    // max-width: 10ch
     font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
-    min-width: 100%
-    max-width: 100%
+    // min-width: 100%
+    // max-width: 100%
     @include m.gap($mb: f.px(37))
 
 .br
@@ -30,61 +30,72 @@
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
     display: none
 
+.left
+  @include m.media(laptop, desktop)
+    margin-right: 10px
+    width: 600px
+
 .list
   @include m.flex($fd: column)
-  @include m.gap($m: 0, $p: 0)
+  @include m.gap( $p: 0, $mt: f.px(35))
+  @include m.media(laptop, desktop)
+    width: 600px
+  flex-wrap: wrap
+  background: #F9F0FF
+  border-radius: 25px
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
     max-width: f.px(630)
     @include m.gap($ml: f.px(40))
 
 .item
   @include m.flex
-  @include m.gap($mb: f.px(18))
+  @include m.gap($mb: f.px(30))
   @include m.media(laptop, desktop)
     position: relative
-    @include m.gap($mb: f.px(50))
+    // @include m.gap($mb: f.px(50))
     &:not(:nth-last-child(1))::before
       content: ''
       position: absolute
-      top: f.px(40)
-      left: f.px(15)
+      top: f.px(30)
+      left: f.px(50)
       // transform: translateY(-50%)
       width: f.px(1)
       height: 100%
-      @include m.dye(bg, c.$alpha-2)
-  &:nth-last-child(1)
-    @include m.gap($mb: 0)
-  &:nth-last-child(1)
-    & .counter
-      font-size: f.px(20)
-      @include m.media(phone, tablet)
-        @include m.gap($mr: f.px(14), $p: f.px(16))
-      @include m.media(laptop, desktop)
-        @include m.gap($mr: f.px(12), $p: f.px(16))
-        min-width: f.px(87)
-        max-width: f.px(87)
-        min-height: f.px(87)
-        max-height: f.px(87)
-        transform: translateX(f.px(-27))
-        font-size: f.px(48)
-    & .subtitle
-      @include m.gap($pt: f.px(14))
+      background: #C1A5D3
+      // @include m.dye(bg, c.$alpha-2)
+  // &:nth-last-child(1)
+  //   @include m.gap($mb: 0)
+  // &:nth-last-child(1)
+  //   & .counter
+  //     font-size: f.px(20)
+  //     @include m.media(phone, tablet)
+  //       @include m.gap($mr: f.px(14), $p: f.px(16))
+  //     @include m.media(laptop, desktop)
+  //       @include m.gap($mr: f.px(12), $p: f.px(16))
+  //       min-width: f.px(87)
+  //       max-width: f.px(87)
+  //       min-height: f.px(87)
+  //       max-height: f.px(87)
+  //       transform: translateX(f.px(-27))
+  //       font-size: f.px(48)
+    // & .subtitle
+      // @include m.gap($pt: f.px(14))
 
 .counter
   @include m.flex($jc: center, $ai: center)
   @include m.media(phone, tablet)
-    @include m.gap($mr: f.px(26), $p: f.px(12, em))
+    @include m.gap($mlr: f.px(16), $p: f.px(12, em))
     max-width: f.px(24)
     max-height: f.px(24)
     font-size: f.px(14)
   @include m.media(laptop, desktop)
-    @include m.gap($mr: f.px(67), $p: f.px(12, em))
+    @include m.gap($mlr: f.px(35), $p: f.px(12, em))
     max-width: f.px(31)
     max-height: f.px(31)
     font-size: f.px(18)
   border-radius: 50%
   font-family: TTFirsNeue, sans-serif
-  @include m.dye(bg, c.$beta)
+  @include m.dye(bg, #6F01C6)
   @include m.dye(c, c.$nu)
 
 .number
@@ -95,23 +106,53 @@
     width: 100%
     @include m.flex($jc: space-between)
 
-.subtitle
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(5, em))
-    font-size: f.px(20)
-  @include m.media(laptop, desktop)
-    @include m.flex
-    max-width: 17ch
-    @include m.gap($mb: 0, $mr: f.px(19))
-    font-size: f.px(22)
-  font-weight: 500
-  @include m.dye(c, c.$theta)
+// .subtitle
+//   @include m.media(phone, tablet)
+//     @include m.gap($mb: f.px(5, em))
+//     font-size: f.px(20)
+//   @include m.media(laptop, desktop)
+//     @include m.flex
+//     // max-width: 17ch
+//     // @include m.gap($mb: 0, $mr: f.px(19))
+//     font-size: f.px(22)
+//   font-weight: 500
+//   @include m.dye(c, c.$theta)
 
 .desc
   @include m.media(phone, tablet)
     font-size: f.px(15)
   @include m.media(laptop, desktop)
-    max-width: 20ch
+    // max-width: 20ch
     font-size: f.px(18)
   @include m.gap($mb: f.px(0))
   font-weight: 300
+
+.listTitle
+  color: #1A1A1A
+  font-size: 22px
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  @include m.gap($mtb: f.px(35), $ml: f.px(30))
+
+.img
+  border-radius: 25px
+
+.leftTitle
+  @include m.gap($mtb: f.px(35))
+  color: #131313
+  font-size: 20px
+  font-style: normal
+  font-weight: 300
+  line-height: 130%
+
+.leftDesc
+  @include m.gap($ptb: f.px(35), $plr: f.px(20), $mt: f.px(40))
+  background: #FEF2E8
+  border-radius: 25px
+  font-size: 20px
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  & span
+    color: #F87E1B

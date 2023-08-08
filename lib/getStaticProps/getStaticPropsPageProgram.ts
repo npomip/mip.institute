@@ -26,6 +26,19 @@ const getStaticPropsPageProgram = async ({
         $studyFieldSlug: String!
         $type: String!
       ) {
+        reviews {
+          id
+          name
+          profession
+          title
+          story
+          createdAt
+          picture {
+            url
+            width
+            height
+          } 
+          }
         programs {
           id
           studyField
@@ -60,6 +73,8 @@ const getStaticPropsPageProgram = async ({
           typeLabel
           studyHours
           WhatYouWillLearn
+          programOverview
+          programOverviewTitle
           ForWhom
           fullTitle
           shortContents
@@ -82,6 +97,7 @@ const getStaticPropsPageProgram = async ({
             id
             name
             achievements
+            specialization
             portrait {
               url
               width
@@ -130,15 +146,18 @@ const getStaticPropsPageProgram = async ({
       type
     }
   })
-
+  const reviewsData = res?.data?.reviews || []
+  console.log('RRRRRR', reviewsData)
   return {
     props: {
       ...res?.data,
       studyFieldSlug,
-      program: res?.data?.program?.[0] || null
+      program: res?.data?.program?.[0] || null,
+      reviews: reviewsData
     },
     revalidate: revalidate.default
   }
 }
+
 
 export default getStaticPropsPageProgram

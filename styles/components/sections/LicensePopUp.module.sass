@@ -1,0 +1,89 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.btn
+  background: #6F01C6
+  border-radius: 20px 0 20px 0
+  margin-right: 10px
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(20)
+  transition: background 0.3s ease, transform 1s ease
+  
+  &:hover
+    background: #8806ec
+    transition: background 0.3s ease,color 1s ease
+    // & .licenseTitle
+    //   transition: background 0.3s ease,fontWeight 1s ease
+    //   font-weight: 500
+    & path, circle
+      transition: transform 1s ease,color 1s ease
+      transform: scale(1.05)
+
+.licenseTitle
+  position: relative
+  color: white
+  z-index: 2
+  font-size: f.px(20)
+  font-weight: 500
+  // max-width: 2em
+  margin-left: 20px
+  display: flex
+  // justify-content: flex-start
+    
+    // color: gray
+.edu
+  font-weight: 500
+  font-size: f.px(20)
+  margin-left: 20px
+  position: relative
+  color: #F87E1B
+  z-index: 10
+  &::before
+    content: 'лицензия '
+    color: white
+.iconRus
+  position: absolute
+  
+  @include m.media(phone, tablet)
+    top: 40%
+  @include m.media(laptop, desktop)
+    top: 50%
+  z-index: 1
+
+.iconAtom
+  position: absolute
+  @include m.media(laptop, desktop)
+    top: 30%
+    left: -20%
+    transform: scale(1.2)
+  @include m.media(phone, tablet)
+    top: 28%
+    left: -15%
+    transform: scale(1.5)
+  mix-blend-mode: soft-light
+
+
+.license
+  // flex-shrink: 
+  height: 250px
+  width: 550px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  
+
+.rightLicense
+  // padding-left: 10px
+  margin-right: 10px
+  
+
+.card
+  position: relative
+  // margin-left: 50px
+
+.loupe
+  position: absolute
+  top: 55%
+  //   fill: red
+  //   background: red

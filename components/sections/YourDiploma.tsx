@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
-import { useContext } from 'react'
+import { RefObject, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routes } from '@/config/index'
@@ -19,12 +19,18 @@ import {
   ImgSupplement
 } from '@/components/imgs'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
+import IconLoupe from '../icons/IconLoupe'
+import License from '../imgs/programs/license'
+import IconRusLicense from '../icons/IconRusLicense'
+import { IconAtom } from '../icons'
+import LicensePopUp from './LicensePopUp'
 
 type YourDiplomaType = {
   ofType: 'course' | 'profession'
+  diplomaRef: RefObject<HTMLElement>
 }
 
-const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
+const YourDiploma = ({ ofType = null, diplomaRef }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ContextStaticProps)
@@ -116,60 +122,64 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
     slidesNum: 1,
     spaceBetween: 30
   }
+  console.log(slides.map(el => el.props))
 
   return (
-    <section className={stls.container}>
+    <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
+      <h2 className={stls.title}>Ваши будущие дипломы</h2>
         <div className={stls.content}>
           <div className={stls.left}>
-            <h2 className={stls.title}>Ваши будущие дипломы</h2>
+            
             <div className={stls.subtitleContainer}>
               <p className={stls.subtitle}>
                 Все наши программы лицензированы Департаментом образования
                 города Москвы, поэтому дипломы ценятся как клиентами, так и
                 профессиональным сообществом!
               </p>
-
+              <div className={stls.cont}></div>
               <div className={stls.btn}>
-                <Popup
-                  trigger={open => (
-                    <div>
-                      <BtnAlpha
-                        text={
-                          <>
-                            Уведомление о предоставлении <br /> лицензии №041221{' '}
-                          </>
-                        }
-                      />
-                    </div>
-                  )}
+                {/* <Popup
+                  trigger={
+                    <button className={stls.trig}>
+                      
+                      <div className={stls.license}>
+                        <div className={stls.leftLicense}>
+                          <span className={stls.licenseTitle}>
+                            Образовательная
+                            <br />
+                            лицензия №041221
+                          </span>
+                          <div className={stls.iconRus}>
+                            
+                            <IconRusLicense />
+                          </div>
+                          <div className={stls.iconAtom}>
+                          <IconAtom />
+                          </div>
+                        </div>
+                        <div className={stls.rightLicense}>
+                          <div className={stls.card}>
+                            <License />
+                          </div>
+                          <div className={stls.loupe}>
+                            <IconLoupe />
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  }
                   modal
                   lockScroll
                   nested
                   closeOnDocumentClick>
                   {close => <PopupImage image={<ImgLicence />} close={close} />}
-                </Popup>
-                {/* <Popup
-                  trigger={
-                    <BtnIota
-                      text={
-                        <>
-                          Уведомление о предоставлении <br /> лицензии{' '}
-                          <span className={stls.highlight}>№041221</span>{' '}
-                        </>
-                      }
-                      href={routes.external.license}
-                      target='_blank'
-                    />
-                  }
-                  modal
-                  nested>
-                  {close => <PopupImage image={<ImgLicence />} close={close} />}
                 </Popup> */}
+                <LicensePopUp />
               </div>
             </div>
           </div>
-          <div className={stls.swiper}>
+          {/* <div className={stls.swiper}>
             <SwiperContainer
               diplomas
               slides={slides}
@@ -178,6 +188,25 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
               laptopOptions={tabletLaptopDesktopSwiperOptions}
               desktopOptions={tabletLaptopDesktopSwiperOptions}
             />
+          </div> */}
+          <div className={stls.slidesContainer}>
+            {slides.map((slide, index) => (
+              <Popup
+                key={`popup-${index}`}
+                trigger={
+                  <button className={stls.trigger}>
+                    {/* <span className={stls.img}> */}
+                    {slide}
+                    {/* </span> */}
+                  </button>
+                }
+                modal
+                nested>
+                {close => (
+                  <PopupImage image={slide.props.children} close={close} />
+                )}
+              </Popup>
+            ))}
           </div>
         </div>
       </Wrapper>

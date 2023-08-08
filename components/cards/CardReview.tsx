@@ -7,16 +7,22 @@ import { PopupReview } from '@/components/popups'
 const CardReview = ({ title, photo, name, occupation, story }) => {
   return (
     <article className={stls.container}>
-      <div className={stls.img}>{photo}</div>
+      <div className={stls.upperContainer}>
+        <div className={stls.img}>{photo}</div>
       <div className={stls.content}>
-        <h3 className={stls.title} title={title}>
+        <p className={stls.title} title={title}>
           {truncate(title, 65)}
-        </h3>
+        </p>
         <div className={stls.text}>
           <p className={stls.name}>{name}</p>
           <p className={stls.occupation}>{occupation}</p>
         </div>
-        <Popup
+      </div>
+      </div>
+      <div className={stls.bottom}>
+        <p className={stls.story}>{story}</p>
+      </div>
+        {/* <Popup
           trigger={
             <div>
               <BtnText text='Читать историю' />
@@ -34,8 +40,9 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
               close={close}
             />
           )}
-        </Popup>
-      </div>
+        </Popup> */}
+      
+      {/* <p>{story}</p> */}
     </article>
   )
 }

@@ -15,7 +15,7 @@
 
 .navigation 
   width: 100%
-  z-index: 100
+  z-index: 10
 
   ul 
     padding-left: 0
@@ -37,32 +37,36 @@
         font-style: normal
         font-weight: 350
         line-height: 120%
+        @include m.media(laptop)
+          font-size: 14px
         // text-decoration-line: underline
         text-transform: uppercase
         &.active
           // background: red
-          // font-weight: bold
+          font-weight: bold
+        &:hover
+          cursor: pointer
 
 .sticky
   transition: width 1s ease
   position: fixed
   // max-width: 100%
   width: auto
-  left: 20px
-  right: 20px
-  // @include m.media(laptop)
-
-    
-  // @include m.media(desktop) 
-  //   width: 1200px
-  // @include m.media(tablet)
-  //   width: 600px
+  @include m.media(desktop)
+    left: 120px
+    right: 120px
+  @include m.media(laptop)
+    left: 20px
+    right: 20px
   top: 0
+  border-radius: f.px(25)
   background: rgba(216, 181, 237, 0.7)
+  @include m.media(phone, tablet)
+    display: none
 
 .point
   height: 1px
 
 .active
   // background: red
-  // font-weight: 500
+  font-weight: 500

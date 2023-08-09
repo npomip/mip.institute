@@ -37,6 +37,22 @@ const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
     />
   ))
 
+  const desktopSwiperOptions = {
+    slidesNum: 1.39,
+    spaceBetween: 30
+  }
+  const laptopSwiperOptions = {
+    slidesNum: 1,
+    spaceBetween: 30
+  }
+  const tabletSwiperOptions = {
+    slidesNum: 1.3,
+    spaceBetween: 40
+  }
+  const mobileSwiperOptions = {
+    slidesNum: 1.3,
+    spaceBetween: 40
+  }
   return (
     <section
       ref={reviewsRef}
@@ -45,9 +61,16 @@ const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
         [stls.standalone]: standalone
       })}>
       <Wrapper>
+        <p className={stls.reviewCount}>{reviews.length} отзывов</p>
         <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
         <div className={stls.content}>
-          <SwiperContainer reviewPrevBtn reviewNextBtn reviews slides={slides} />
+          <SwiperContainer reviewPrevBtn reviewNextBtn 
+          reviews 
+          slides={slides}
+          desktopOptions={desktopSwiperOptions}
+          laptopOptions={laptopSwiperOptions}
+          tabletOptions={tabletSwiperOptions}
+          mobileOptions={mobileSwiperOptions}/>
         </div>
       </Wrapper>
     </section>

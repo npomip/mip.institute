@@ -23,6 +23,7 @@ import {
   Reviews,
 } from '@/components/sections'
 import { discount } from '@/data/price'
+import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
 import styles from '@/styles/pages/PagesProgram.module.sass'
 import { TypeLibReviews } from '@/types/index'
 import { useEffect, useRef } from 'react'
@@ -52,6 +53,9 @@ const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   // console.log(processRef.current.getBoundingClientRect().y)
+  const reviewsSorted = sortBasedOnNumericOrder({
+    reviews: sortReviewsCreatedAtASC({ reviews })
+  })
   return (
     <>
       <HeroProgram />
@@ -82,7 +86,7 @@ const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
       {/* <HelpWithEmployment /> */}
       {ofType !== 'course' && <YourFutureJob />}
       <StudyCost costRef={costRef} />
-      <Reviews reviewsRef={reviewsRef} reviews={reviews} />
+      <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <Faq />
     </>
   )

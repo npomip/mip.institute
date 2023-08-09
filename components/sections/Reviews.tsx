@@ -11,12 +11,10 @@ import { ContextStaticProps } from '@/context/index'
 type ReviewsType = {
   standalone?: boolean
   reviews: any,
-  reviewsRef: any
+  reviewsRef?: any
 }
 
 const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
-
-  console.log(reviews)
   const slides = reviews?.map((review, idx) => (
     <CardReview
       key={review.title + idx}

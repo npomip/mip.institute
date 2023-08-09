@@ -136,10 +136,8 @@ const SwiperContainer = ({
         <CustomPrevButton reviewPrevBtn={reviewPrevBtn}  />
       </div>
         <div className="custom-next-button-container">
-        <CustomNextButton reviewNextBtn={reviewPrevBtn}  />
+        <CustomNextButton reviewNextBtn={reviewNextBtn}  />
       </div> 
-        {/* </>
-        )} */}
         
     </Swiper>
   )

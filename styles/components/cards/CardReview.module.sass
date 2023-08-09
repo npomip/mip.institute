@@ -3,6 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  // transform: translateX(f.px(190))
+  @include m.media(desktop, laptop)
+    margin-left: f.px(180)
   @include m.flex($fg: 0, $fs: 0, $fb: f.px(569))
   background: #6F01C6
   color: white

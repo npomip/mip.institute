@@ -105,7 +105,7 @@ const contact = async (req, res) => {
     utc: now.format('Z') || null,
     name: name || null,
     phone: phone || '',
-    email: email || '',
+    email: email || null,
     ymUid: ymUid || '',
     vk: vk || null,
     promocode: promocode || null,

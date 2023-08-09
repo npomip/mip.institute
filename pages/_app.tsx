@@ -55,9 +55,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       programs?.length > 0 ? getStudyFields(courses) : []
 
     const curProgramsType = pageProps.curProgramsType || null
-
     const curProgramsStudyFieldSlug = pageProps.studyFieldSlug || null
-
+    const reviews = pageProps.reviews
     const searchTerm = pageProps.searchTerm || null
 
     const filteredPrograms = pageProps.filteredPrograms || []
@@ -65,6 +64,7 @@ const MyApp = ({ Component, pageProps, router }) => {
     return {
       program,
       programs,
+      reviews,
       courses,
       professions,
       studyFields,
@@ -82,6 +82,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [program, setProgram] = useState(defaultStateProps.program)
   const [programs, setPrograms] = useState(defaultStateProps.programs)
   const [courses, setCourses] = useState(defaultStateProps.courses)
+  const [reviews, setReviews] = useState(defaultStateProps.reviews)
   const [professions, setProfessions] = useState(defaultStateProps.professions)
   const [studyFields, setStudyFields] = useState(defaultStateProps.studyFields)
   const [studyFieldsProfessions, setStudyFieldsProfessions] = useState(
@@ -218,6 +219,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           program,
           programs,
           courses,
+          reviews,
           professions,
           studyFields,
           studyFieldsProfessions,

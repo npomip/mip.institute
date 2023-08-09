@@ -5,7 +5,11 @@ import { useEffect, useRef } from 'react'
 import gif from '@/public/assets/imgs/gif/howProcessGoes.gif'
 import Image from 'next/image'
 
-const HowProcessGoes = ({ processRef }) => {
+type ProcessType = {
+  processRef?: any
+}
+
+const HowProcessGoes = ({processRef}: ProcessType) => {
   // currRef = 'process'
   const procRef = useRef(null)
 

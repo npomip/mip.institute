@@ -1,12 +1,13 @@
 import stls from '@/styles/components/sections/LicensePopUp.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+
 import Popup from 'reactjs-popup'
 import IconRusLicense from '../icons/IconRusLicense'
 import { IconAtom } from '../icons'
-import License from '../imgs/programs/license'
+
 import IconLoupe from '../icons/IconLoupe'
 import { PopupImage } from '../popups'
 import ImgLicence from '../imgs/legal/ImgLicence'
+import License from '../imgs/legal/License'
 
 const LicensePopUp = () => {
   return (

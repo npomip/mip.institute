@@ -20,7 +20,7 @@ import {
 } from '@/components/imgs'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
 import IconLoupe from '../icons/IconLoupe'
-import License from '../imgs/programs/license'
+import License from '../imgs/legal/License'
 import IconRusLicense from '../icons/IconRusLicense'
 import { IconAtom } from '../icons'
 import LicensePopUp from './LicensePopUp'

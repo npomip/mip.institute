@@ -6,7 +6,7 @@
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(50))
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(100))
+    @include m.gap($pb: f.px(100))
 
 .title
   @include m.media(phone, tablet)
@@ -51,10 +51,6 @@
   position: relative
   z-index: 1
   overflow: hidden
-  // @include m.media(phone)
-  //   @include m.gap($pb: f.px(50))
-  // @include m.media(tablet, laptop)
-  //   @include m.gap($mb: f.px(20))
   @include m.media(laptop, desktop)
     max-width: 50%
 
@@ -78,6 +74,12 @@
   column-gap: 10px
   justify-items: stretch
   flex-shrink: 0
+  // overflow-x: scroll
+  // max-width: 390px
+  @include m.media(phone, tablet)
+    // max-width: 590px
+    
+    
   // grid-template-areas: 'CC CC'
   
 
@@ -104,5 +106,5 @@
   &:nth-child(3)
     grid-area: C
     grid-row: 1 / span 2
-    width: 100%
-    scale: 0.95
+    // width: 100%
+    scale: 1.05

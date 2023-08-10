@@ -10,7 +10,7 @@
   justify-content: space-around
 
 .cardList
-  
+  @include m.gap( $ptb: f.px(10))
   display: flex
   flex-wrap: wrap
   @include m.media(desktop, laptop)
@@ -28,7 +28,7 @@
   border-radius: 25px
   perspective: 1000px
   cursor: pointer
-  transition: transform 0.6s
+  transition: transform 0.6s, box-shadow 0.6s
   min-height: 117px
   // overflow-y: hidden
   transform-style: preserve-3d
@@ -37,6 +37,9 @@
   font-size: 10px
   @include m.gap($mb: f.px(18), $pb: f.px(10), $ml: f.px(20))
   flex-basis: 31%
+  &:hover
+    transform: rotateY(15deg)
+    box-shadow: 10px 0 15px 0  rgba(50,50,50,.1)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(18), $pb: f.px(10))
   // backface-visibility: hidden
@@ -57,6 +60,7 @@
     // backface-visibility: hidden
 
   .front
+    
     // z-index: 2
     padding-left: f.px(20)
     font-size: 18px

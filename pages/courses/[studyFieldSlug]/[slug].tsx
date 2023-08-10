@@ -18,7 +18,7 @@ const CoursePage: NextPage<TypePageProgramProps> = ({
     curProgramsType: 'course',
     curProgramsStudyFieldSlug: studyFieldSlug
   })
-
+console.log(program)
   return (
     <>
       <SeoPagesProgram

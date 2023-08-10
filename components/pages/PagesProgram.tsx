@@ -35,24 +35,21 @@ type PagesProgramType = {
 }
 
 const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
-  console.log(reviews, 'reviews in pages')
   const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
-// console.log(currRef.current.getBoundingClientRect().y)
-  // const navTop = navigationRef.current.getBoundingClientRect().y;
+
   const handleScroll = () => {
   }
-
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-  // console.log(processRef.current.getBoundingClientRect().y)
+
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
   })

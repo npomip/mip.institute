@@ -195,9 +195,7 @@ const YourDiploma = ({ ofType = null, diplomaRef }: YourDiplomaType) => {
                 key={`popup-${index}`}
                 trigger={
                   <button className={stls.trigger}>
-                    {/* <span className={stls.img}> */}
                     {slide}
-                    {/* </span> */}
                   </button>
                 }
                 modal

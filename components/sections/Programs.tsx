@@ -74,7 +74,6 @@ const Programs = ({
   const rearrangeArray = (professions, targetTitles) => {
     const resultArray = [];
     const remainingArray = [];
-  
     for (const item of professions) {
       if (targetTitles.includes(item.title)) {
         resultArray.push(item);
@@ -119,7 +118,6 @@ const Programs = ({
       if (include) return item
     })
   }
-  
 
   
   return (
@@ -179,7 +177,7 @@ const Programs = ({
                     biggerTitle={!withTitle}
                     withBtn={withBtn}
                     professions={
-                      searchTerm ? filteredData.professions : favouritePrograms
+                      searchTerm ? filteredData.professions : data.professions
                     }
                     withQty={withQty}
                     threerow={threerow}

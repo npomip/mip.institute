@@ -75,7 +75,7 @@ const HowProcessGoes = ({processRef}: ProcessType) => {
           <div className={stls.left}>
             <p className={stls.leftTitle}>
               Обучение осуществляется по заочной форме с применением
-              дистанционных* технологий. Лекции, общение, тестирование проходят
+              дистанционных<span className={stls.star}>*</span> технологий. Лекции, общение, тестирование проходят
               в онлайн формате через образовательную платформу
             </p>
             <div className={stls.img}>

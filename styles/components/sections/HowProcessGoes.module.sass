@@ -106,18 +106,6 @@
     width: 100%
     @include m.flex($jc: space-between)
 
-// .subtitle
-//   @include m.media(phone, tablet)
-//     @include m.gap($mb: f.px(5, em))
-//     font-size: f.px(20)
-//   @include m.media(laptop, desktop)
-//     @include m.flex
-//     // max-width: 17ch
-//     // @include m.gap($mb: 0, $mr: f.px(19))
-//     font-size: f.px(22)
-//   font-weight: 500
-//   @include m.dye(c, c.$theta)
-
 .desc
   @include m.media(phone, tablet)
     font-size: f.px(15)
@@ -136,10 +124,11 @@
   @include m.gap($mtb: f.px(35), $ml: f.px(30))
 
 .img
-  border-radius: 25px
+  & > *
+    border-radius: 25px
 
 .leftTitle
-  @include m.gap($mtb: f.px(35))
+  @include m.gap($mtb: f.px(30))
   color: #131313
   font-size: 20px
   font-style: normal
@@ -156,3 +145,6 @@
   line-height: 120%
   & span
     color: #F87E1B
+
+.star
+  color: #F87E1B

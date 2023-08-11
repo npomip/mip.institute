@@ -26,13 +26,13 @@ const YourResume = () => {
             <div className={stls.headings}>
               <div className={cn(stls.heading, stls.headingLeft)}>
                 <p className={stls.p}>Профессия:</p>
-                <h3 className={stls.h3}>{program?.resumeTitle}</h3>
+                <p className={stls.h3}>{program?.resumeTitle}</p>
               </div>
               <div className={stls.heading}>
                 <p className={stls.p}>Зарплата от:</p>
-                <h3 className={stls.salary}>
+                <p className={stls.salary}>
                   {toNumberWithSpaces(program?.entrySalary)}&nbsp;р
-                </h3>
+                </p>
               </div>
             </div>
           </div>

@@ -30,6 +30,7 @@
   @include m.media(laptop, desktop)
     position: relative
     max-width: f.px(785)
+    @include m.gap($plr: f.px(8))
     @include m.flex($display: false, $fb: 33%)
 
 .heading
@@ -67,7 +68,6 @@
   font-weight: 500
 
 .subtitle
-  white-space: nowrap
   @include m.dye(c, c.$alpha)
   @include m.media(phone, tablet)
     max-width: 70%
@@ -81,9 +81,9 @@
     font-weight: 500
 
 .discount
-  // @include m.gap($mt: f.px(18))
+  @include m.gap($mt: f.px(28))
   @include m.media(laptop, desktop)
-    @include m.gap($ml: f.px(38))
+    // @include m.gap($ml: f.px(38))
     z-index: 2
   @include m.media(phone, tablet)
     display: none
@@ -195,9 +195,10 @@
     // display: none
     @include m.flex($display: false, $fb: 33%)
   @include m.media(laptop, desktop)
-    @include m.gap($pl: f.px(20))
+    // @include m.gap($pl: f.px(20))
     @include m.flex($display: false, $fb: 33%)
   ul
+    @include m.gap($pl: f.px(16), $pr: f.px(16))
     @include m.media(phone, tablet)
       padding: 0
 
@@ -214,12 +215,6 @@
   & > *
     fill: red
 
-.discountMobile
-  @include m.media(laptop, desktop)
-  @include m.media(phone, tablet)
-    display: flex
-    @include m.flex($jc: space-between, $ai: baseline)
-
 .discountMobileTag
   @include m.media(laptop, desktop)
     display: none
@@ -227,14 +222,14 @@
 .center
   flex-basis: 33%
   // margin-top: 95px
-  padding: 10px
   display: flex
+  @include m.gap($plr: f.px(8))
   flex-direction: column
   @include m.media(phone, tablet)
     display: none
-  .forGap
-    height: 1px
-    @include m.gap($mt: f.px(96))
+  // .forGap
+  //   height: 1px
+  //   @include m.gap($mt: f.px(96))
 
 
 .bgForm
@@ -257,3 +252,8 @@
   font-style: normal
   font-weight: 500
   @include m.gap($ml: f.px(75))
+
+.upperContainer
+  display: flex
+  .subtitle
+    flex-basis: 66%

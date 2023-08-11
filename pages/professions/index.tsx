@@ -11,7 +11,6 @@ const ProfessionsPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
     programs,
     curProgramsType: 'profession'
   })
-
   return (
     <>
       <SeoPagesPrograms programs={programs} ofType='profession' />

@@ -18,6 +18,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     curProgramsType: 'profession',
     curProgramsStudyFieldSlug: studyFieldSlug
   })
+  const programOverview = program.programOverview
   return (
     <>
       <SeoPagesProgram
@@ -25,7 +26,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         ofType='profession'
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      <PagesProgram reviews={reviews} ofType={'profession'} />
+      <PagesProgram programOverview={programOverview} reviews={reviews} ofType={'profession'} />
     </>
   )
 }

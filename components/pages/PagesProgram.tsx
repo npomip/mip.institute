@@ -27,32 +27,31 @@ import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/inde
 import styles from '@/styles/pages/PagesProgram.module.sass'
 import { TypeLibReviews } from '@/types/index'
 import { useEffect, useRef } from 'react'
+import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 
 type PagesProgramType = {
   ofType: 'course' | 'profession',
-  reviews: TypeLibReviews
+  reviews: TypeLibReviews,
+  programOverview: string
 }
 
-const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
-  console.log(reviews, 'reviews in pages')
+const PagesProgram = ({ ofType = null, reviews, programOverview }: PagesProgramType) => {
   const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
-// console.log(currRef.current.getBoundingClientRect().y)
-  // const navTop = navigationRef.current.getBoundingClientRect().y;
+
   const handleScroll = () => {
   }
-
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-  // console.log(processRef.current.getBoundingClientRect().y)
+
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
@@ -66,6 +65,7 @@ const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
       teachersRef={teachersRef}
       costRef={costRef}
       reviewsRef={reviewsRef}/>
+      {programOverview && <ProgramOverview />}
       <WhatYouWillLearn  />
       <ForWhom />
       <HowProcessGoes processRef={processRef} />

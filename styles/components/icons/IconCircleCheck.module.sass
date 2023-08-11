@@ -37,6 +37,15 @@
         @include m.dye(stroke, #6F01C6)
       & rect
         @include m.dye(stroke, #6F01C6)
+    
+  &.violetItems
+    border-radius: 50%
+    @include m.dye(bg, #FBF4FF)
+    & path
+      @include m.dye(stroke, #6F01C6)
+      stroke-width: f.px(0.8)
+    & rect
+      @include m.dye(stroke, #6F01C6)
 
   // & path, & rect
   //   @include m.dye(stroke, c.$beta)

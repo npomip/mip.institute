@@ -58,8 +58,11 @@ const Programs = ({
     courses: curProgramsStudyFieldSlug ? coursesFiltered : courses,
     professions: curProgramsStudyFieldSlug ? professionsFiltered : professions
   }
+  // const titleToRemove = "Современные методы саморегуляции психологии здоровья"
+  // const filteredCourses = data.courses.filter(course => course.title !== titleToRemove)
+  // console.log(data.courses)
 
-
+// console.log(filteredCourses)
   const targetTitles = [
     "Психолог-консультант",
     "Психолог-диетолог. Нутрициолог",
@@ -74,7 +77,6 @@ const Programs = ({
   const rearrangeArray = (professions, targetTitles) => {
     const resultArray = [];
     const remainingArray = [];
-  
     for (const item of professions) {
       if (targetTitles.includes(item.title)) {
         resultArray.push(item);
@@ -119,7 +121,6 @@ const Programs = ({
       if (include) return item
     })
   }
-  
 
   
   return (
@@ -179,7 +180,7 @@ const Programs = ({
                     biggerTitle={!withTitle}
                     withBtn={withBtn}
                     professions={
-                      searchTerm ? filteredData.professions : favouritePrograms
+                      searchTerm ? filteredData.professions : data.professions
                     }
                     withQty={withQty}
                     threerow={threerow}

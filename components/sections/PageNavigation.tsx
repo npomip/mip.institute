@@ -53,7 +53,7 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
         
         <div className={stls.point} ref={pointRef}></div>
         <div
-          className={`${stls.navigation} ${stickyNav ? stls.sticky : ''}`}
+          className={`${stls.navigation} ${stickyNav ? stls.whiteLetters : ''}`}
           ref={navigationRef}>
           <ul>
             <li>
@@ -100,7 +100,54 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
             </li>
           </ul>
         </div>
-        
+        <div
+          className={`${stls.navigation} ${stickyNav ? stls.sticky : stls.hidden}`}
+          ref={navigationRef}>
+          <ul>
+            <li>
+              <p
+                className={activeSection === 'process' ? stls.active : ''}
+                onClick={() => handleScrollToSection('process')}>
+                Процесс обучения
+              </p>
+            </li>
+            <li>
+              <p
+                className={activeSection === 'diploma' ? stls.active : ''}
+                onClick={() => handleScrollToSection('diploma')}>
+                Диплом
+              </p>
+            </li>
+            <li>
+              <p
+                className={activeSection === 'plan' ? stls.active : ''}
+                onClick={() => handleScrollToSection('plan')}>
+                Учебный план
+              </p>
+            </li>
+            <li>
+              <p
+                className={activeSection === 'teachers' ? stls.active : ''}
+                onClick={() => handleScrollToSection('teachers')}>
+                Преподаватели
+              </p>
+            </li>
+            <li>
+              <p
+                className={activeSection === 'cost' ? stls.active : ''}
+                onClick={() => handleScrollToSection('cost')}>
+                Стоимость
+              </p>
+            </li>
+            <li>
+              <p
+                className={activeSection === 'reviews' ? stls.active : ''}
+                onClick={() => handleScrollToSection('reviews')}>
+                Отзывы
+              </p>
+            </li>
+          </ul>
+        </div>
       </Wrapper>
       </section>
   )

@@ -14,7 +14,6 @@ const ProgramModules = () => {
   const titles =
     program?.shortContents?.length > 0 &&
     getParagraphInnerHtml(marked(program.shortContents))
-    console.log(program)
 
   const list =
     titles &&

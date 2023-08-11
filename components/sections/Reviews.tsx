@@ -62,7 +62,7 @@ const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
       })}>
       <Wrapper>
         <p className={stls.reviewCount}>{reviews.length} отзывов</p>
-        <h2 className={stls.title}>Отзывы и статьи наших студентов</h2>
+        <h2 className={stls.title}>Отзывы наших студентов</h2>
         <div className={stls.content}>
           <SwiperContainer reviewPrevBtn reviewNextBtn 
           reviews 

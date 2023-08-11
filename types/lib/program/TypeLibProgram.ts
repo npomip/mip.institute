@@ -18,6 +18,8 @@ type TypeLibProgram = {
   studyHours?: string | null
   WhatYouWillLearn?: string | null
   ForWhom?: string | null
+  programOverview? : string | null
+  programOverviewTitle? : string | null
   fullTitle?: string | null
   shortContents?: string | null
   resumeTitle?: string | null

@@ -18,7 +18,7 @@ const CoursePage: NextPage<TypePageProgramProps> = ({
     curProgramsType: 'course',
     curProgramsStudyFieldSlug: studyFieldSlug
   })
-console.log(program)
+  const programOverview = program.programOverview
   return (
     <>
       <SeoPagesProgram
@@ -26,7 +26,7 @@ console.log(program)
         ofType='course'
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      <PagesProgram reviews={reviews} ofType={'course'} />
+      <PagesProgram programOverview={programOverview} reviews={reviews} ofType={'course'} />
     </>
   )
 }

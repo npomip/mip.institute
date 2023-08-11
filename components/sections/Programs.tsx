@@ -58,8 +58,11 @@ const Programs = ({
     courses: curProgramsStudyFieldSlug ? coursesFiltered : courses,
     professions: curProgramsStudyFieldSlug ? professionsFiltered : professions
   }
+  // const titleToRemove = "Современные методы саморегуляции психологии здоровья"
+  // const filteredCourses = data.courses.filter(course => course.title !== titleToRemove)
+  // console.log(data.courses)
 
-
+// console.log(filteredCourses)
   const targetTitles = [
     "Психолог-консультант",
     "Психолог-диетолог. Нутрициолог",

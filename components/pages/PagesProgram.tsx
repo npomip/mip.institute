@@ -27,14 +27,16 @@ import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/inde
 import styles from '@/styles/pages/PagesProgram.module.sass'
 import { TypeLibReviews } from '@/types/index'
 import { useEffect, useRef } from 'react'
+import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 
 type PagesProgramType = {
   ofType: 'course' | 'profession',
-  reviews: TypeLibReviews
+  reviews: TypeLibReviews,
+  programOverview: string
 }
 
-const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
+const PagesProgram = ({ ofType = null, reviews, programOverview }: PagesProgramType) => {
   const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
@@ -63,6 +65,7 @@ const PagesProgram = ({ ofType = null, reviews }: PagesProgramType) => {
       teachersRef={teachersRef}
       costRef={costRef}
       reviewsRef={reviewsRef}/>
+      {programOverview && <ProgramOverview />}
       <WhatYouWillLearn  />
       <ForWhom />
       <HowProcessGoes processRef={processRef} />

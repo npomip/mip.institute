@@ -5,8 +5,7 @@ import { IconCircleCheck, IconMinus, IconPlus } from '@/components/icons'
 
 const ProgramModule = ({ title, topics }) => {
   const [isOpen, setOpen] = useState(false)
-  console.log(topics)
-  const blockedWords = ['Описание', 'Содержание 1', undefined, ''];
+  const blockedWords = ['Описание 1', 'Содержание 1', undefined, ''];
   const hasNoDescriptionTopic = topics?.some(topic => blockedWords.includes(topic));
   const canBeOpened = !hasNoDescriptionTopic && topics?.length > 0; 
   return (

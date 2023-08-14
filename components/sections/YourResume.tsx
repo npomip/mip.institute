@@ -37,18 +37,23 @@ const YourResume = () => {
             </div>
           </div>
           <div className={stls.bottomContent}>
-          <ul className={stls.list}>
+            <div className={stls.left}>
             <p className={stls.skills}>Профессиональный навыки:</p>
-            {list &&
-              list[0].map((item, idx) => (
-                <li key={item + idx} className={stls.item}>
-                  <p className={stls.itemText}>{item}</p>
-                </li>
-              ))}
-          </ul>
-          <div className={stls.right}>
-            <p>Получила профессию “{program?.title}” в Московском Институте Психологии</p>
-          </div>
+            <ul className={stls.list}>
+              {list &&
+                list[0].map((item, idx) => (
+                  <li key={item + idx} className={stls.item}>
+                    <p className={stls.itemText}>{item}</p>
+                  </li>
+                ))}
+            </ul>
+            </div>
+            <div className={stls.right}>
+              <p>
+                Получила профессию “{program?.title}” в Московском Институте
+                Психологии
+              </p>
+            </div>
           </div>
         </div>
       </Wrapper>

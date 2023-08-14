@@ -103,11 +103,22 @@
   flex-basis: 50%
   @include m.gap($p: 0)
   @include m.media(phone, tablet)
-    list-style-type: '•'
+    list-style-type: none
+    // color: red
+    li
+      display: flex
+
+      &::before
+        content: '•'
+        color: red
   @include m.media(laptop, desktop)
     margin-top: 0
     // @include m.flex($fw: wrap, $jc: space-between)
-    
+  ul
+    &::before
+      content: '•'
+      color: red
+      // transform: scale(2.2)
 .item
   @include m.media(phone, tablet)
     @include m.gap($pl: f.px(12))
@@ -118,15 +129,19 @@
       @include m.gap($mr: 5%)
     &::before
       content: '•'
+      color: #F87E1B
       font-size: f.px(35)
       @include m.gap($mr: f.px(19))
 
-
+.left
+  @include m.flex($fb: 47%)
+  flex-direction: column
 .itemText
   @include m.media(phone, tablet)
     font-size: f.px(15)
+    @include m.gap($pl: f.px(15))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(0))
+    @include m.gap($mb: f.px(10))
     font-size: f.px(18)
     line-height: 120%
   font-weight: 300
@@ -151,7 +166,9 @@
     border-top: 1px solid #D1D1D1
 
 .skills
-  margin-left: f.px(50)
+  @include m.gap($pl: f.px(50))
   font-size: 22px
   font-style: normal
   font-weight: 500
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(15), $pl: f.px(15))

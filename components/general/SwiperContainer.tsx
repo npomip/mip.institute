@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import { PopupImage } from '../popups'
 import CustomNextButton from './CustomNextButton'
 import CustomPrevButton from './CustomPrevButton'
+import { useState } from 'react'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -96,8 +97,15 @@ const SwiperContainer = ({
     // Ваша логика для перехода к предыдущему слайду
     console.log('Previous Slide');
   };
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSlideChange = (swiper) => {
+    setActiveIndex(swiper.activeIndex);
+  };
   return (
     <Swiper
+      onSlideChange={handleSlideChange}
       navigation={{
         prevEl: '.custom-prev-button',
         nextEl: '.custom-next-button',
@@ -133,10 +141,12 @@ const SwiperContainer = ({
         {/* {!isMobileLayout && (
           <> */}
           <div className="custom-prev-button-container">
-        <CustomPrevButton reviewPrevBtn={reviewPrevBtn}  />
+        <CustomPrevButton reviewPrevBtn={reviewPrevBtn}
+        isLastSlide={activeIndex === slides.length - 1}  />
       </div>
         <div className="custom-next-button-container">
-        <CustomNextButton reviewNextBtn={reviewNextBtn}  />
+        <CustomNextButton reviewNextBtn={reviewNextBtn}
+        isLastSlide={activeIndex === slides.length - 1}  />
       </div> 
         
     </Swiper>

@@ -23,7 +23,7 @@ const MainStudyFields = ({
   const list = [{id:1, label: 'Дополнительное образование', href: routes.front.programs}, {id:1, label: 'Профессиональная переподготовка', href: routes.front.professions}, {id:1, label: 'Повышение квалификации', href: routes.front.courses}]
 
   return (
-    <div
+    <ul
       className={stls.wrapper}>
       {list.map(({ label, href }, idx) => (
         <Fragment key={idx}>
@@ -35,7 +35,7 @@ const MainStudyFields = ({
           </li>
         </Fragment>
       ))}
-    </div>
+    </ul>
   )
 }
 

@@ -79,15 +79,18 @@ const HowProcessGoes = ({processRef}: ProcessType) => {
               в онлайн формате через образовательную платформу
             </p>
             <div className={stls.img}>
-              <Image src={gif} />
+              <Image src={gif} alt='gif' />
             </div>
             <p className={stls.leftDesc}>
               <span>Дистанционное образование</span> — это обучение в комфортном темпе из любой точки мира 
             и возможность совмещать с работой</p>
           </div>
 
-          <ul className={stls.list}>
+          <div className={stls.right}>
+
+          
             <p className={stls.listTitle}>В программу дистанционного обучения входит:</p>
+            <ul className={stls.list}>
             {list.map(({ subtitle, desc }, idx) => (
               <li key={subtitle.toString() + idx} className={stls.item}>
                 <div className={stls.counter}>
@@ -100,6 +103,7 @@ const HowProcessGoes = ({processRef}: ProcessType) => {
               </li>
             ))}
           </ul>
+          </div>
         </TwoColumns>
       </Wrapper>
     </section>

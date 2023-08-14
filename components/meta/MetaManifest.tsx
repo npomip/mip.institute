@@ -33,7 +33,7 @@ const MetaManifest = () => {
         rel='apple-touch-icon'
         sizes='180x180'
         href='/assets/imgs/icons/apple-icon-180.png'
-      />
+      ></link>
       {/* <link
         rel='apple-touch-icon'
         sizes='167x167'

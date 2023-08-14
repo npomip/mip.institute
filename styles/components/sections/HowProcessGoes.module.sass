@@ -35,14 +35,16 @@
     margin-right: 10px
     width: 600px
 
+.right
+  margin-top: 30px
+  background: #F9F0FF
+  border-radius: 25px
+  height: fit-content
 .list
-  @include m.flex($fd: column)
+  // @include m.flex($fd: column)
   @include m.gap( $p: 0, $mt: f.px(35))
   @include m.media(laptop, desktop)
     width: 600px
-  flex-wrap: wrap
-  background: #F9F0FF
-  border-radius: 25px
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
     max-width: f.px(630)
     @include m.gap($ml: f.px(40))
@@ -62,24 +64,6 @@
       width: f.px(1)
       height: 100%
       background: #C1A5D3
-      // @include m.dye(bg, c.$alpha-2)
-  // &:nth-last-child(1)
-  //   @include m.gap($mb: 0)
-  // &:nth-last-child(1)
-  //   & .counter
-  //     font-size: f.px(20)
-  //     @include m.media(phone, tablet)
-  //       @include m.gap($mr: f.px(14), $p: f.px(16))
-  //     @include m.media(laptop, desktop)
-  //       @include m.gap($mr: f.px(12), $p: f.px(16))
-  //       min-width: f.px(87)
-  //       max-width: f.px(87)
-  //       min-height: f.px(87)
-  //       max-height: f.px(87)
-  //       transform: translateX(f.px(-27))
-  //       font-size: f.px(48)
-    // & .subtitle
-      // @include m.gap($pt: f.px(14))
 
 .counter
   @include m.flex($jc: center, $ai: center)
@@ -128,7 +112,7 @@
     border-radius: 25px
 
 .leftTitle
-  @include m.gap($mtb: f.px(30))
+  @include m.gap($mtb: f.px(30), $mb: f.px(40))
   color: #131313
   font-size: 20px
   font-style: normal

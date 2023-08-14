@@ -48,13 +48,13 @@ const StudyCost = ({costRef}) => {
   return (
     <section ref={costRef} className={stls.container}>
       <Wrapper>
-      <h2 className={stls.title}>
+      <div className={stls.title}>
               <span className={stls.laptopdesktop}>
                 Запишитесь на программу
               </span>
-            </h2>
+            </div>
             <div className={stls.upperContainer}>
-            <h3 className={stls.subtitle}>{title}</h3>
+            <p className={stls.subtitle}>{title}</p>
           <div className={stls.discount}>
               <ProgramDiscount small violet />
             </div>

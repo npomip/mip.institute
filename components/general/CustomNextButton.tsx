@@ -4,11 +4,10 @@ import IconNextButton from '../icons/IconNextButton';
 import classNames from 'classnames';
 
 const CustomNextButton = ({reviewNextBtn, isLastSlide}) => {
-  console.log(isLastSlide)
   return (
     <div className={classNames({
       [stls.containerNext]: true,
-      [stls.reviewNextBtn]: !isLastSlide,
+      [stls.reviewNextBtn]: reviewNextBtn,
       [stls.lastSlide] : isLastSlide
     })}>
     <button 

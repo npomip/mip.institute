@@ -7,7 +7,7 @@ const CustomPrevButton = ({reviewPrevBtn, isLastSlide}) => {
   return (
     <div className={classNames({
         [stls.containerPrev]: true,
-        [stls.reviewPrevBtn]: !isLastSlide,
+        [stls.reviewPrevBtn]: reviewPrevBtn,
         [stls.lastSlidePrev] : isLastSlide
       })}
     >

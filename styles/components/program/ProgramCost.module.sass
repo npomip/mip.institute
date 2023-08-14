@@ -131,10 +131,14 @@
       color: #FFFFFF
       font-size: 18px
       font-weight: 500
-      @include m.media(laptop, desktop)
-        height: 60px
+      @include m.media(desktop)
+        // margin-top: 3px
+        height: 65px
         width: 100%
         border-radius: 10px
+      @include m.media(laptop)
+        margin-top: 5px
+        height: 55px
       @include m.media(tablet)
         height: 73px
         width: 220px

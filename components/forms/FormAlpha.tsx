@@ -46,7 +46,8 @@ const FormAlpha = ({
 
   const onSubmit = async data => {
     setIsDisabled(true)
-    setThanksIsOpen(true)
+    // setThanksIsOpen(true)
+    router.push('/gratefull');
     // handle loader
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))

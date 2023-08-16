@@ -4,20 +4,18 @@
 
 .container
   position: relative
-  // padding-top: 200px
   width: 100%
   h1
     font-size: 44px
     font-weight: 500
     @include m.gap($mb: f.px(13))
-    // font-family: Stem
     @include m.media( tablet, phone)
       font-size: 36px
 
 
 .insideContainer
+  max-width: 500px
 
-  max-width: 490px
 .icon
   @include m.gap($pr: f.px(11))
 
@@ -37,9 +35,6 @@
   border-radius: 15px
   transition: color 0.3s ease-in-out, background 0.3s ease-in-out, stroke 0.3s ease-in-out
   &:hover
-    // @include m.gap($mt: f.px(30))
-    // padding: 5px
-    
     background: #6f01c6
     color: white
     stroke: white

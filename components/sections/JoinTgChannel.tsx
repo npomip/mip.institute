@@ -46,9 +46,9 @@ const JoinTgChannel = () => {
         <div
           className={stls.linkToTg}
           onClick={() => {
-            window.location.href = 'https://t.me/название_вашего_канала'
+            window.location.href = 'https://watbot.ru/w/beDi'
           }}>
-          <Link href='https://t.me/название_вашего_канала'>
+          <Link href='https://watbot.ru/w/beDi'>
             <a>Перейти на канал</a>
           </Link>
         </div>

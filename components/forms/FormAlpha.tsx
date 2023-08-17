@@ -47,7 +47,7 @@ const FormAlpha = ({
 
   const onSubmit = async data => {
     setIsDisabled(true)
-    // setThanksIsOpen(true)
+    setThanksIsOpen(true)
     // router.push('/gratefull');
     window.open(routes.front.gratefull, '_blank');
     // handle loader

@@ -42,7 +42,7 @@ const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
     spaceBetween: 30
   }
   const laptopSwiperOptions = {
-    slidesNum: 1,
+    slidesNum: 2,
     spaceBetween: 30
   }
   const tabletSwiperOptions = {

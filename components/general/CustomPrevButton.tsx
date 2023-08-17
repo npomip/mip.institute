@@ -3,12 +3,11 @@ import stls from '@/styles/components/general/CustomPrevButton.module.sass'
 import IconPrevButton from '../icons/IconPrevButton';
 import classNames from 'classnames';
 
-const CustomPrevButton = ({reviewPrevBtn, isLastSlide}) => {
+const CustomPrevButton = ({reviewPrevBtn}) => {
   return (
     <div className={classNames({
         [stls.containerPrev]: true,
         [stls.reviewPrevBtn]: reviewPrevBtn,
-        [stls.lastSlidePrev] : isLastSlide
       })}
     >
     <button className="custom-prev-button">

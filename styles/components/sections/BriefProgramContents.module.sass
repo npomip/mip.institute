@@ -5,14 +5,14 @@
 .container
   @include m.media(laptop, desktop)
     & > *
-      @include m.gap($pt: f.px(100), $plr: f.px(100), $pb: f.px(70))
+      @include m.gap($pt: f.px(80), $plr: f.px(100), $pb: f.px(80))
       border-radius: f.px(100) f.px(5) 0 0
       box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
 
 
 .top
   @include m.media(laptop, desktop)
-    @include m.flex($jc: space-between)
+    @include m.flex($jc: space-between, $ai: baseline)
 
 .heading
   @include m.media(laptop, desktop)
@@ -24,7 +24,7 @@
     @include m.gap($mb: f.px(10))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(12))
+    @include m.gap($mb: f.px(30))
     font-size: f.px(40)
   font-weight: 500
   @include m.dye(c, c.$theta)

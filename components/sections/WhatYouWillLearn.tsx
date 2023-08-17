@@ -24,9 +24,9 @@ const WhatYouWillLearn = () => {
           {list &&
             list[0].map((item, idx) => (
               <li key={item + idx} className={stls.item}>
-                <div className={stls.icon}>
+                {/* <div className={stls.icon}> */}
                   {/* <IconCircleCheck calpha /> */}
-                </div>
+                {/* </div> */}
                 <p className={stls.p}>{item}</p>
               </li>
             ))}

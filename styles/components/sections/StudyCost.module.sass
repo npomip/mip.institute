@@ -75,18 +75,16 @@
     font-size: f.px(20)
     font-weight: 500
   @include m.media(laptop, desktop)
-    // @include m.gap($mb: f.px(38))
-    // height: fit-content
     display: flex
     align-items: flex-end
-    // @include m.gap($mt: f.px(30))
+    @include m.gap($mb: f.px(10))
     font-size: f.px(34)
     font-weight: 500
 
 .discount
   // @include m.gap($mt: f.px(28))
   @include m.media(laptop, desktop)
-    // @include m.gap($ml: f.px(38))
+    @include m.gap($ml: f.px(18))
     z-index: 2
   @include m.media(phone, tablet)
     display: none
@@ -103,89 +101,6 @@
         display: block
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(45))
-
-// .btns
-//   .btncta
-//     @include m.gap($mr: f.px(7))
-//     @include m.media(desktop,laptop)
-//       width: 220px
-//     button
-//       @include m.media(desktop,laptop)
-//         width: 220px
-//       background: c.$alpha
-//       border: 1px solid c.$alpha
-//       font-size: 18px
-//       font-weight: 500
-//       @include m.media(laptop, desktop)
-//         border-radius: 10px
-//       @include m.media(phone, tablet)
-//         font-size: 16px
-//         border-radius: 5px
-
-  // .btnquestion
-  //   margin-right: 0
-  //   @include m.gap($ml: f.px(7))
-  //   @include m.media(desktop, laptop)
-  //     width: 220px
-  //   button
-  //     @include m.media(desktop, laptop)
-  //       width: 220px
-  //     border: 1px solid #B250FF
-  //     color: #808080
-  //     font-size: 18px
-  //     font-weight: 500
-  //     margin-right: 0
-  //     @include m.media(laptop, desktop)
-  //       border-radius: 10px
-  //     @include m.media(phone, tablet)
-  //       border-radius: 5px
-  //       font-size: 16px
-  // @include m.media(phone, tablet)
-  //   display: flex
-  //   justify-content: space-between
-    
-  // @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
-  //   // @include m.flex($fd: column)
-  // @include m.media(laptop, desktop)
-  //   @include m.flex
-
-// .btncta
-//   @include m.media(phone, tablet)
-//     @include m.flex($jc: center, $fb: 50%)
-//     @include m.gap($mr: 5%)
-//     & > *
-//       width: 100% 
-//   @include m.media(laptop, desktop)
-//     @include m.gap($mr: f.px(10))
-//   @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
-//     @include m.gap($mb: f.px(10), $mr: 0)
-//     & > *
-//       width: 100%
-//       & > *
-//         width: 100%
-
-// .btnquestion
-//   @include m.media(phone, tablet)
-//     @include m.flex($jc: center, $fb: 50%)
-//     height: 100%
-//     & > *
-//       width: 100% 
-//       height: 100%
-//       & > *
-//         height: 100%
-//         white-space: nowrap
-//         overflow: hidden
-
-//     @include m.gap($mr: 5%)
-//   @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
-//     & > *
-//       width: 100%
-//       & > *
-//         width: 100%
-
-  // @include m.media(laptop, desktop)
-  //   & > * > *
-  //     @include m.gap($plr: f.px(28))
 
 .btnmore
   @include m.media(phone, tablet)
@@ -218,10 +133,6 @@
   & > *
     fill: red
 
-.discountMobileTag
-  @include m.media(laptop, desktop)
-    display: none
-
 .center
   flex-basis: 33%
   // margin-top: 95px
@@ -239,7 +150,10 @@
   border-radius: 25px
   background: #6F01C6
   padding: 33px
-  height: 415px
+  @include m.media(desktop)
+    height: 420px
+  @include m.media(laptop)
+    height: 415px
   @include m.media(phone, tablet)
     display: none
   p
@@ -261,6 +175,7 @@
   @include m.gap($ml: f.px(75))
 
 .upperContainer
+  @include m.gap($mb: f.px(30))
   display: flex
   .subtitle
     flex-basis: 66%

@@ -3,10 +3,9 @@
 @use '@/styles/themes/default/colors' as c
   
 .container
-  
   @include m.flex
   align-items: center
-  height: 250px
+  height: 270px
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.05)
   @include m.media(phone, tablet)
     background: white
@@ -50,10 +49,11 @@
     line-height: 120%
   @include m.media(laptop, desktop)
     font-size: f.px(22)
+    @include m.gap($mb: f.px(10))
   font-weight: 500
 
 .specialization
-  @include m.gap($mb: f.px(11))
+  @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
     font-size: f.px(15)
   @include m.media(laptop, desktop)

@@ -3,15 +3,17 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(70))
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(50))
+    @include m.gap($pb: f.px(50))
 
 .title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(30))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(20))
+    @include m.gap($mb: f.px(30))
     font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
@@ -21,7 +23,7 @@
     @include m.gap($ptb: f.px(30), $plr: f.px(26))
     border-radius: f.px(10)
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(40), $plr: f.px(100))
+    @include m.gap($ptb: f.px(30), $plr: f.px(100))
     border-radius: f.px(20)
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   @include m.dye(bg, c.$nu)

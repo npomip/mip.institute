@@ -98,14 +98,9 @@ const SwiperContainer = ({
     console.log('Previous Slide');
   };
 
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleSlideChange = (swiper) => {
-    setActiveIndex(swiper.activeIndex);
-  };
+ 
   return (
     <Swiper
-      onSlideChange={handleSlideChange}
       navigation={{
         prevEl: '.custom-prev-button',
         nextEl: '.custom-next-button',
@@ -143,11 +138,11 @@ const SwiperContainer = ({
           <> */}
           <div className="custom-prev-button-container">
         <CustomPrevButton reviewPrevBtn={reviewPrevBtn}
-        isLastSlide={activeIndex === slides.length - 1}  />
+          />
       </div>
         <div className="custom-next-button-container">
         <CustomNextButton reviewNextBtn={reviewNextBtn}
-        isLastSlide={activeIndex === slides.length - 1}  />
+          />
       </div> 
         
     </Swiper>

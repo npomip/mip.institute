@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
+import routes from '@/config/routes'
 
 
 type FormValues = {
@@ -48,6 +49,7 @@ const FormAlpha = ({
     setIsDisabled(true)
     // setThanksIsOpen(true)
     // router.push('/gratefull');
+    window.open(routes.front.gratefull, '_blank');
     // handle loader
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
@@ -67,7 +69,6 @@ const FormAlpha = ({
     const req = await hitContactRoute(data)
     if (req === 200) {
       console.log('Success')
-      router.push('/gratefull');
     } else {
       console.log('err')
     }

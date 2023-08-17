@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import nodemailer from 'nodemailer'
-import { dev } from '@/config/index'
+import { dev, routes } from '@/config/index'
 import url from 'url'
 import http from 'http'
 import moment from 'moment'

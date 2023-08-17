@@ -3,18 +3,18 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  // transform: translateX(f.px(190))
-  @include m.media(desktop, laptop)
-    margin-left: f.px(180)
+  @include m.flex
+  // align-items: center
+  // height: 270px
   @include m.flex($fg: 0, $fs: 0, $fb: f.px(569))
   background: #6F01C6
   color: white
   flex-direction: column
-  @include m.gap($mr: f.px(10), $ptb: f.px(40), $plr: f.px(22))
+  @include m.gap($mr: f.px(10), $ptb: f.px(33), $plr: f.px(22), $mt: f.px(90))
   border-radius: f.px(10, em)
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(40), $plr: f.px(18))
+    @include m.gap($ptb: f.px(33), $plr: f.px(18), $mt: f.px(0))
 
 .img
   @include m.flex($display: false, $fg: 0, $fs: 0, $fb: f.px(80))
@@ -25,17 +25,22 @@
   max-height: f.px(110)
   border-radius: f.px(15)
   overflow: hidden
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(0))
+    // display: flex
+    // justify-content: flex-end
 
 .content
   @include m.flex($fd: column, $fg: 1)
   p
-    font-size: f.px(18)
     font-weight: 500
-    @include m.media(phone, tablet)
-      font-size: f.px(14)
+    @include m.media(laptop, desktop)
+      font-size: f.px(18)
 
 .title
   @include m.gap($mt: 0, $mb: f.px(10))
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
 
 .text
   @include m.gap($mb: f.px(10))
@@ -43,9 +48,13 @@
 .name,
 .occupation
   @include m.gap($m: 0)
+  @include m.media(phone, tablet)
+    font-size: f.px(9)
 
 .name
   @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+      // font-size: f.px(140)
   
 
 
@@ -54,10 +63,15 @@
 
 .bottom
   @include m.gap($mt: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(5))
 
 .story
+  @include m.gap($pb: f.px(0), $mb: f.px(0))
   font-size: f.px(18)
   font-weight: 350
   line-height: 130%
   @include m.media(phone, tablet)
-      font-size: f.px(12)
+    font-size: f.px(10)
+    color: #D7D7D7
+    

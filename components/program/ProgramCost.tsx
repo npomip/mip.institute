@@ -25,13 +25,13 @@ const ProgramCost = ({ withPerMonth = false }) => {
         <div className={stls.content}>
           
           <div className={stls.spanLine}>
-          <p className={stls.label}>Обучение можно оплатить сразу или воспользоваться <b>рассрочкой*</b></p>
-          <div className={stls.topFlexMonth}>
+          <p className={stls.costMonth}>Обучение можно оплатить сразу или воспользоваться <b>рассрочкой*</b></p>
+          {/* <div className={stls.topFlexMonth}> */}
           <span className={stls.discount}>
             <span className={stls.bold}>
               {toNumberWithSpaces(perMonthPrice)}
             </span>{' '}
-            <span className={stls.light}>&#8381;</span>
+            <span className={stls.bold}>&#8381;/мес</span>
           </span>
           
           {/* <span className={stls.regular}>
@@ -40,11 +40,11 @@ const ProgramCost = ({ withPerMonth = false }) => {
             </span>{' '}
             <span className={stls.light}>&#8381;</span>
           </span> */}
-          </div>
-          <p className={stls.label}>*Беспроцентная рассрочка на 12 месяцев от Tinkoff</p>
+          {/* </div> */}
+          <p className={stls.loan}>*Беспроцентная рассрочка на 12 месяцев от Tinkoff</p>
           </div>
           <div className={stls.spanLine}>
-          <p className={stls.label}>Стоимость программы за весь курс:</p>
+          <p className={stls.fullPrice}>Стоимость программы за весь курс:</p>
           <div className={stls.flexMonth}>
           <span className={stls.discount}>
             <span className={stls.full}>

@@ -9,13 +9,20 @@
   flex-wrap: wrap
   justify-content: space-around
 
+.title
+  @include m.gap( $pl: f.px(20))
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+    line-height: 120%
+
 .cardList
   @include m.gap( $ptb: f.px(10))
   display: flex
   flex-wrap: wrap
   @include m.media(desktop, laptop)
-    justify-content: center
-  // justify-content: space-around
+    justify-content: space-between
   @include m.media(phone, tablet)
     flex-direction: column
     align-items: center

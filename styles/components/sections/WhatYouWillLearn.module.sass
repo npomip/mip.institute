@@ -19,6 +19,7 @@
     @include m.gap($mb: f.px(20))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(35))
     font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
@@ -34,8 +35,11 @@
 .item
   z-index: 3
   text-align: center
+  justify-content: center
   border: 2px solid #6F01C6
   border-radius: f.px(25)
+  max-height: f.px(140)
+  min-height: f.px(140)
   align-items: center
   @include m.media(phone, tablet)
     @include m.flex
@@ -46,24 +50,23 @@
     &:nth-child(3n)
       @include m.gap($mr: 0)
   
-.icon
-  @include m.media(phone, tablet)
-    @include m.gap($mr: f.px(15))
-  @include m.media(laptop, desktop)
-    @include m.gap($mr: f.px(30))
-    & > *
-      width: 100%
-      min-width: f.px(37)
-      max-width: f.px(37)
+// .icon
+//   @include m.media(phone, tablet)
+//     @include m.gap($mr: f.px(15))
+//   @include m.media(laptop, desktop)
+//     @include m.gap($mr: f.px(30))
+//     & > *
+//       width: 100%
+//       min-width: f.px(37)
+//       max-width: f.px(37)
 
 .p
   @include m.media(phone, tablet)
     font-size: f.px(15)
     font-weight: 300
   @include m.media(laptop, desktop)
-    max-width: 22ch
     @include m.gap($mb: 0)
-    font-size: f.px(20)
+    font-size: f.px(16)
     font-weight: 300
 
 .learnIcon

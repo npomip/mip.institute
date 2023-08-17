@@ -18,57 +18,74 @@
   // text-align: center
   margin: 0 auto
   width: 85%
-  border-bottom: 2px solid white
-  @include m.gap($ptb: f.px(19))
+  border-bottom: 1px solid white
+  @include m.gap($ptb: f.px(20))
   &:nth-last-child(2)
-    @include m.gap($ptb: f.px(10))
+    // @include m.gap($ptb: f.px(19))
     border: none
-    
-.topFlexMonth
-  display: flex
-  justify-content: center
-  align-items: baseline
+
 .flexMonth
-  height: 70px
+  
   display: flex
   justify-content: space-between
-  align-items: center
-  @include m.media(desktop, tablet)
-    margin: 0 auto
-    padding-left: 20px
-    padding-right: 20px
+  align-items: baseline
+  @include m.gap($mb: f.px(2))
+  @include m.media(laptop, desktop)
+    height: 56px
+    // @include m.gap($pb: f.px(15))
     
   @include m.media(phone)
-    padding-top: 20px
+    // padding-top: 20px
     align-items: center
     white-space: nowrap
 
-.label
-  text-align: center
-  font-weight: 200
+.costMonth
+  // text-align: center
+  font-weight: 350
   line-height: 120%
+  @include m.gap($pt: f.px(12))
   @include m.media(tablet)
-    @include m.gap($pl: f.px(11))
+    font-size: f.px(18)
+    // @include m.gap($pl: f.px(11))
   @include m.media(phone)
-    @include m.gap($mtb: f.px(19))
+    text-align: center
+    font-size: f.px(15)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(3))
-    @include m.gap($pl: f.px(18))
-    @include m.gap($pt: f.px(8))
-    font-size: f.px(14)
+    
+    font-size: f.px(18)
   b
     font-weight: 500
 
-.discount
-  @include m.media(phone, tablet)
-    @include m.gap($mr: f.px(16))
-    font-size: f.px(40)
-    line-height: 110%
+.loan
+  font-size: f.px(10)
+  @include m.gap($pt: f.px(12), $mb: f.px(0))
+  font-weight: 350
+
+.fullPrice
+  
+  font-weight: 350
   @include m.media(laptop, desktop)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(16))
+  @include m.media(phone, tablet)
+    font-size: f.px(13)
+    @include m.gap($mb: f.px(7))
+
+.discount
+  height: 100%
+  font-weight: 500
+  line-height: 110%
+  @include m.media(phone)
+    display: flex
+    justify-content: center
+    font-size: f.px(40)
+  @include m.media(tablet)
+    font-size: f.px(48)
+  @include m.media(desktop)
     // @include m.gap($mr: f.px(23))
     font-size: f.px(48)
-    font-weight: 500
-    line-height: f.px(77)
+  @include m.media(laptop)
+    font-size: f.px(40)
   .full
     font-size: f.px(21)
     font-weight: 350
@@ -78,8 +95,9 @@
 
 .regular
   position: relative
+  font-weight: 500
   @include m.media(phone, tablet)
-    font-size: f.px(24)
+    font-size: f.px(21)
     line-height: f.px(32)
   @include m.media(laptop, desktop)
     font-size: f.px(20)
@@ -93,8 +111,6 @@
     width: 100%
     height: f.px(2)
     @include m.dye(bg, #F87E1B)
-
-
 
 .light
   font-weight: 300
@@ -110,6 +126,14 @@
     text-align: center
     @include m.media(laptop, desktop)
       display: none
+    @include m.media(phone, tablet)
+      font-size: f.px(15)
+      font-weight: 350
+      text-align: center
+      
+    @include m.media(phone)
+      max-width: f.px(300)
+
   button
     width: 220px
     @include m.gap($mb: f.px(16))
@@ -118,7 +142,8 @@
     display: flex
     justify-content: center
     width: 100%
-    @include m.gap($mb: f.px(16))
+    @include m.media(laptop, desktop)
+      @include m.gap($mb: f.px(16))
     & > *
       width: 100%
       @include m.gap($mlr: f.px(30))
@@ -137,18 +162,10 @@
         width: 100%
         border-radius: 10px
       @include m.media(laptop)
-        margin-top: 5px
-        height: 55px
+        height: 54px
       @include m.media(tablet)
         height: 73px
-        width: 220px
-        border-radius: 5px
-        font-size: 18px
-  @include m.media(phone, tablet)
-    display: flex
-    
-    justify-content: center
-    
+
   @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
   @include m.media(laptop, desktop)
     @include m.flex

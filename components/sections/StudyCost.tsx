@@ -67,9 +67,9 @@ const StudyCost = ({costRef}) => {
             <div className={stls.heading}>
               <div className={stls.discountMobile}>
                 
-                <div className={stls.discountMobileTag}>
+                {/* <div className={stls.discountMobileTag}>
                   <ProgramDiscount small violet />
-                </div>
+                </div> */}
               </div>
 
             </div>

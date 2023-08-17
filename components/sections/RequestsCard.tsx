@@ -22,6 +22,7 @@ const RequestsCard = () => {
   return (
     <section className={stls.section}>
       <Wrapper>
+        <h2 className={stls.title}>По итогу курса Вы будете работать с запросами:</h2>
       <div className={stls.cardList}>
       {requests.map((request, index) => (
         <RequestsYouWillFace key={index} title={request.title} description={request.description} />

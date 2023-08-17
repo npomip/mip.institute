@@ -13,7 +13,7 @@
   @include m.media(laptop, desktop)
     overflow: visible
     padding-top: f.px(52)
-    padding-bottom: f.px(106)
+    padding-bottom: f.px(82)
   padding-bottom: 0
   @include m.dye(bg, c.$alpha)
 
@@ -39,7 +39,7 @@
   @include m.media(laptop, desktop)
     min-width: 12ch
     max-width: 15ch
-    @include m.gap($mb: f.px(29))
+    @include m.gap($mb: f.px(35))
     font-size: f.px(64)
   font-weight: 500
   line-height: 110%
@@ -49,7 +49,7 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(39))
+    @include m.gap($mb: f.px(30))
     @include m.dye(c, c.$nu)
     & p
       max-width: 45ch
@@ -148,6 +148,6 @@
       @include m.dye(bg, c.$epsilon)
   @include m.media(laptop, desktop)
     // margin-top: f.px(100)
-    transform: translateY(f.px(59))
+    transform: translateY(f.px(35))
 
 

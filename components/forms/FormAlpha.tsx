@@ -46,8 +46,8 @@ const FormAlpha = ({
 
   const onSubmit = async data => {
     setIsDisabled(true)
-    // setThanksIsOpen(true)
-    router.push('/gratefull');
+    setThanksIsOpen(true)
+    // router.push('/gratefull');
     // handle loader
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
@@ -67,6 +67,7 @@ const FormAlpha = ({
     const req = await hitContactRoute(data)
     if (req === 200) {
       console.log('Success')
+      // router.push('/gratefull');
     } else {
       console.log('err')
     }

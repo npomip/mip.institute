@@ -28,7 +28,7 @@ const selectorDate = (item) => {
       })
 
     case (item < new Date(2023, 8, 1)) :
-      return new Date(2023, 7, 31).toLocaleString('ru-RU', {
+      return new Date(2023, 7, 30).toLocaleString('ru-RU', {
         day: 'numeric',
         month: 'long'
       })

@@ -38,15 +38,6 @@
     @include m.gap($mb: f.px(40), $pb: f.px(40))
     position: relative
     @include m.flex($ai: center)
-  
-  &::after
-    content: ''
-    position: absolute
-    bottom: 0
-    left: 0
-    width: 100%
-    height: f.px(2)
-    @include m.dye(bg, c.$mu)
 
 .img
   @include m.media(phone, tablet)

@@ -30,14 +30,18 @@
 .list
   @include m.gap($p: 0)
   @include m.media(laptop, desktop)
-    @include m.flex
+    @include m.flex( $jc: space-between)
+
+    
+    
 
 .item
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $jc: center, $ai: center)
     @include m.gap($mb: f.px(43))
   @include m.media(laptop, desktop)
-    @include m.flex($fd: column, $ai: center, $fb: 33%)
+    @include m.flex($fd: column, $ai: space-around)
+    
   &:nth-last-child(1)
     @include m.gap($mb: f.px(0))
 
@@ -54,11 +58,13 @@
       max-width: 100%
 
 .p
-  max-width: 23ch
-  text-align: center
   @include m.media(phone, tablet)
     font-size: f.px(15)
-  @include m.media(laptop, desktop)
+  @include m.media(desktop)
+    max-width: f.px(350)
+    font-size: f.px(18)
+  @include m.media(laptop)
+    max-width: f.px(330)
     font-size: f.px(18)
   line-height: 130%
   @include m.gap($mb: 0)

@@ -39,3 +39,25 @@
   border: 1px solid #6F01C6
   border-radius: f.px(23)
   @include m.gap($mt: f.px(51), $mb: f.px(34), $ptb: f.px(10), $plr: f.px(17))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(30), $mb: f.px(15), $ptb: f.px(10), $plr: f.px(17))
+    font-weight: 500
+    font-size: f.px(11)
+
+.description
+  @include m.gap($mt: f.px(30), $mb: f.px(0))
+  max-width: f.px(570)
+  color: #424242
+  font-family: Stem
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 300
+  line-height: 130%
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(15))
+    color: #000
+    font-family: Stem
+    font-size: f.px(15)
+    font-style: normal
+    font-weight: 350
+    line-height: 130%

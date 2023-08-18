@@ -5,7 +5,7 @@
 
 .container
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(50))
+    @include m.gap($ptb: f.px(30))
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(75))
   @include m.dye(bg, c.$epsilon)
@@ -177,5 +177,7 @@
 .upperContainer
   @include m.gap($mb: f.px(30))
   display: flex
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(0))
   .subtitle
     flex-basis: 66%

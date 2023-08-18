@@ -63,7 +63,7 @@ const Teachers = ({teachersRef}) => {
   }
 
   const laptopSwiperOptions = {
-    slidesNum: 2,
+    slidesNum: 1.5,
     spaceBetween: 30
   }
 

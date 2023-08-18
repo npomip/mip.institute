@@ -16,14 +16,27 @@
   @include m.dye(bg, c.$nu)
   
 .item
+  &:last-child
+    @include m.media(phone, tablet)
+      display: none
   display: flex
   @include m.media(phone, tablet)
-    flex-basis: 100%
-    margin-right: f.px(30)
-    margin-left: f.px(30)
-    padding-top: f.px(28)
-    padding-bottom: f.px(28)
-    border-bottom: f.px(1) solid
+    flex-basis: 50%
+    @include m.gap($plr: f.px(15), $ptb: f.px(14))
+    &:nth-of-type(3)
+      // order: -1
+      .key
+        font-size: 0.0001px
+        // color: red
+        &::after
+          font-size: f.px(15)
+          display: block
+          content: 'Зачисления'
+    &:nth-of-type(1), &:nth-of-type(2)
+      @include m.gap($pt: f.px(28))
+    &:nth-of-type(3), &:nth-of-type(4)
+      @include m.gap($pb: f.px(28))
+
     @include m.dye(border, rgba(c.$theta, .1))
   @include m.media(laptop)
     flex-basis: 18%
@@ -41,7 +54,8 @@
 
 .icon
   @include m.media(phone, tablet)
-    margin-right: f.px(12)
+    display: none
+    // margin-right: f.px(12)
   @include m.media(laptop, desktop)
     max-width: f.px(24)
     margin-bottom: f.px(12)
@@ -50,6 +64,9 @@
   max-width: 18ch
   margin-bottom: f.px(10)
   @include m.media(phone, tablet)
+    &:nth-of-type(2)
+      background: red
+    
     font-size: f.px(15)
   @include m.media(laptop, desktop)
     font-size: f.px(14)

@@ -40,6 +40,9 @@ const HeroProgram = () => {
                 <PopupTrigger btn='beta' cta='askQuestion' />
               </div>
             </div>
+            <div className={stls.mobileFlex}>
+
+            
             <div className={stls.pic}>
               <div className={stls.discount}>
                 <ProgramDiscount />
@@ -50,6 +53,7 @@ const HeroProgram = () => {
             </div>
             <div className={stls.descriptionMobile}>
               {program?.description && parse(program.description)}
+            </div>
             </div>
           </div>
           <div className={stls.btnsMobile}>

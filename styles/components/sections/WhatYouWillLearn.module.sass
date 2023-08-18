@@ -5,9 +5,8 @@
   position: relative
   z-index: 2
 .container
-
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(90))
+    @include m.gap($pt: f.px(30))
   @include m.media(laptop, desktop)
     @include m.gap($pt: f.px(90), $pb: f.px(100))
   @include m.dye(bg, #FFF)
@@ -49,16 +48,6 @@
     @include m.gap($mr: 3%, $mb: f.px(20), $ptb: f.px(15), $plr: f.px(10))
     &:nth-child(3n)
       @include m.gap($mr: 0)
-  
-// .icon
-//   @include m.media(phone, tablet)
-//     @include m.gap($mr: f.px(15))
-//   @include m.media(laptop, desktop)
-//     @include m.gap($mr: f.px(30))
-//     & > *
-//       width: 100%
-//       min-width: f.px(37)
-//       max-width: f.px(37)
 
 .p
   @include m.media(phone, tablet)
@@ -77,5 +66,5 @@
     right: -100px
   @include m.media(phone, tablet)
     z-index: 0
-    top: f.px(-150)
-    right: f.px(50)
+    top: f.px(-80)
+    // right: f.px(20)

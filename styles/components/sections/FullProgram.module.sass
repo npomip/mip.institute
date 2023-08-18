@@ -11,7 +11,7 @@
 
 .wrapper
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(53), $plr: f.px(33), $mb: f.px(30))
+    @include m.gap($ptb: f.px(53), $plr: f.px(10), $mb: f.px(30))
     border-radius: 0px 0px 50px  33px 
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between, $ai: center)
@@ -64,8 +64,9 @@
 
 .btn
   & > *
-      width: 100%
-      white-space: nowrap
+    width: 100%
+    white-space: nowrap
+
   @include m.media(laptop, desktop)
     @include m.flex($display: false, $fb: 30%)
     @include m.gap($mt: f.px(21))

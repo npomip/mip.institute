@@ -6,6 +6,7 @@
   & > *
     position: relative
   @include m.media(phone, tablet)
+    // display: flex
     z-index: 1
     overflow: hidden
     padding-top: f.px(16)
@@ -21,6 +22,14 @@
   @include m.media(laptop, desktop)
     // @include m.flex($jc: space-between, $ai: center)
     @include m.flex($jc: space-between)
+  // @include m.media(phone, tablet)
+  //   display: flex
+  //   flex-direction: column
+
+.mobileFlex
+  @include m.media(phone, tablet)
+    display: flex
+    flex-direction: column
 
 .heading
   @include m.media(laptop, desktop)
@@ -62,7 +71,8 @@
 
 .descriptionMobile
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
+    order: -1
+    @include m.gap($mb: f.px(30))
     @include m.dye(c, c.$nu)
     & p
       font-size: f.px(15)
@@ -133,19 +143,7 @@
 
 .info
   @include m.media(phone, tablet)
-    position: relative
-    z-index: 1
-    margin-top: f.px(50)
-    &::before
-      content: ''
-      position: absolute
-      z-index: -1
-      bottom: 0
-      left: 50%
-      transform: translateX(-50%)
-      width: 110%
-      height: 80%
-      @include m.dye(bg, c.$epsilon)
+    @include m.gap($mb: f.px(46))
   @include m.media(laptop, desktop)
     // margin-top: f.px(100)
     transform: translateY(f.px(35))

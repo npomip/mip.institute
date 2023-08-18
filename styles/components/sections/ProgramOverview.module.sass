@@ -6,8 +6,13 @@
   background: #fbf4ff
   padding-bottom: 0
   & h2
-    font-size: 44px
+    font-size: f.px(44)
     font-weight: 500
+    @include m.gap($pt: f.px(28), $mb: f.px(30))
+    @include m.media(phone, tablet)
+      @include m.gap($mb: f.px(15))
+      font-size: f.px(26)
+
 
 .flexContainer
   display: flex
@@ -18,13 +23,16 @@
   position: relative
   padding-bottom: 0
   & p
-    font-size: 18px
+    font-size: f.px(18)
     font-weight: 350
     line-height: 130%
+    @include m.media(phone, tablet)
+      font-size: f.px(15)
 
 .right
   align-self: center
-  @include m.gap($mt: f.px(35))
+  @include m.gap($mt: f.px(35), $mb: f.px(15))
+  
 .img  
   display: inline-block
   position: relative
@@ -43,6 +51,7 @@
 .item
   display: flex
   align-self: center
+  
 
 .itemIcon
   height: max-content
@@ -54,6 +63,9 @@
 
 .p
   @include m.gap($pl: f.px(35))
-  font-size: 18px
+  line-height: 130%
+  font-size: f.px(18)
   font-style: normal
   font-weight: 350
+  @include m.media(phone, tablet)
+      font-size: f.px(15)

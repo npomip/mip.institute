@@ -10,7 +10,7 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
@@ -91,7 +91,7 @@
   font-weight: 500
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
-    font-size: f.px(20)
+    font-size: f.px(15)
   @include m.media(laptop, desktop)
     font-size: f.px(28)
 
@@ -100,6 +100,8 @@
   font-size: 37px
   font-style: normal
   font-weight: 700
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
 
 .list
   flex-basis: 50%
@@ -160,10 +162,13 @@
   @include m.media(laptop, desktop)
     @include m.gap($mt: f.px(47), $ml: f.px(60))
   // margin-top: f.px(57)
-  font-size: 18px
+  font-size: f.px(18)
   font-style: normal
   font-weight: 350
   @include m.media(phone, tablet)
+    // font-weight: 350
+    @include m.gap($pl: f.px(25))
+    font-size: f.px(14)
     padding-top: f.px(15)
     border-top: 1px solid #D1D1D1
 
@@ -173,4 +178,5 @@
   font-style: normal
   font-weight: 500
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(15), $pl: f.px(15))
+    font-size: f.px(15)
+    @include m.gap($pt: f.px(15), $pl: f.px(15), $mb: f.px(0))

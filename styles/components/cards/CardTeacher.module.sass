@@ -5,11 +5,21 @@
 .container
   @include m.flex
   align-items: center
-  height: 270px
-  box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.05)
+  height: 300px
+  // border: 2px solid red
+  // box-shadow: 3px 4px 40px 0px rgba(0, 0, 0, 0.05)
   @include m.media(phone, tablet)
+    height: 200px
     background: white
     // @include m.flex($fd: column)
+
+.innerContainer
+  display: flex
+  align-items: center
+  @include m.gap($ptb: f.px(15), $mlr: f.px(10))
+  border-radius: f.px(10)
+  box-shadow: 3px 4px 40px 0px rgba(0, 0, 0, 0.1)
+  // border: 2px solid red
 
 .portrait
   border-radius: 50%
@@ -20,26 +30,23 @@
   max-height: 160px
   border-radius: 25px
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(18))
+    // @include m.gap($mb: f.px(18))
+    @include m.gap($mlr: f.px(18))
     min-width: 100px
     max-width: 100px
     min-height: 100px
     max-height: 100px
   @include m.media(laptop, desktop)
-    @include m.gap($mr: f.px(38))
+    @include m.gap($mlr: f.px(18))
     
 
 .content
-  // margin-left: 10px
-  // margin-top: 125px
+  @include m.gap($pr: f.px(20))
   height: 100%
   @include m.flex($fd: column)
   // align-items: center
   justify-content: center
   @include m.media(phone, tablet)
-    justify-content: flex-start
-    margin-left: 10px
-    margin-top: 125px
 
 .name
   // max-width: 15ch
@@ -47,23 +54,26 @@
   @include m.media(phone, tablet)
     font-size: f.px(14)
     line-height: 120%
+    @include m.gap($mb: f.px(5))
   @include m.media(laptop, desktop)
     font-size: f.px(22)
     @include m.gap($mb: f.px(10))
   font-weight: 500
 
 .specialization
-  @include m.gap($mb: f.px(30))
+  
   @include m.media(phone, tablet)
-    font-size: f.px(15)
+    font-size: f.px(10)
+    @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(20))
     font-size: f.px(18)
   font-weight: 500
 
 .achievements
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
-    font-size: f.px(11)
+    font-size: f.px(9)
   @include m.media(laptop, desktop)
     font-size: f.px(13)
   @include m.dye(c, c.$kappa)

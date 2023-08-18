@@ -26,6 +26,17 @@ export default function MoneySaving() {
               target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>WhatsApp </a>
             </p>
         </div>
+        <div className={styles.one}>
+          <span>Остались вопросы?</span>
+          <p>Позвоните нам:
+            <a className={styles.phoneNumber} href='tel:+7(499) 110-86-32'>+7(499) 110-86-32</a>
+            <br/>
+              Или напишите на
+              {' '}
+              <a className={styles.phoneNumber}
+              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>WhatsApp </a>
+            </p>
+        </div>
       </div>
     </div>
   )

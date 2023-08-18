@@ -9,13 +9,11 @@
   @include m.media(phone, tablet)
     margin-bottom: f.px(20)
   transition: background 0.3s ease, transform 1s ease
-  
+  & > *
+    width: 100%
   &:hover
     background: #8806ec
     transition: background 0.3s ease,color 1s ease
-    // & .licenseTitle
-    //   transition: background 0.3s ease,fontWeight 1s ease
-    //   font-weight: 500
     & path, circle
       transition: transform 1s ease,color 1s ease
       transform: scale(1.05)
@@ -25,6 +23,8 @@
   color: white
   z-index: 2
   font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
   font-weight: 500
   // max-width: 2em
   margin-left: 20px
@@ -35,6 +35,8 @@
 .edu
   font-weight: 500
   font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
   margin-left: 20px
   position: relative
   color: #F87E1B
@@ -67,7 +69,10 @@
 .license
   // flex-shrink: 
   height: 250px
-  width: 550px
+  // @include m.media(phone, tablet)
+  width: 100%
+  @include m.media(laptop, desktop)
+    min-width: 400px
   display: flex
   justify-content: space-between
   align-items: center
@@ -80,10 +85,15 @@
 
 .card
   position: relative
+  @include m.media(phone, tablet)
+    scale: 0.6
   // margin-left: 50px
 
 .loupe
   position: absolute
   top: 55%
+  @include m.media(phone, tablet)
+    scale: 0.6
+    top: 48%
   //   fill: red
   //   background: red

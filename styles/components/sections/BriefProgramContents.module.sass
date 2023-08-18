@@ -21,7 +21,7 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
@@ -31,8 +31,7 @@
 
 .p
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(23))
-    font-size: f.px(15)
+    display: none
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(0))
     font-size: f.px(20)
@@ -41,6 +40,6 @@
 
 .qty
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(17))
+    @include m.gap($mb: f.px(15))
   @include m.media(laptop, desktop)
     @include m.flex($display: false, $fb: 25%)

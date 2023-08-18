@@ -63,6 +63,7 @@ const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
       <Wrapper>
         <p className={stls.reviewCount}>{reviews.length} отзывов</p>
         <h2 className={stls.title}>Отзывы наших студентов</h2>
+        <p className={stls.description}>Мы собрали подробные отзывы учеников, которые прослушали курс и получили профессию. Они рассказали свои истории, которые откликаются в сердцах наших преподавателей и всей команды Московского Института Психологии.</p>
         <div className={stls.content}>
           <SwiperContainer reviewPrevBtn reviewNextBtn 
           reviews 

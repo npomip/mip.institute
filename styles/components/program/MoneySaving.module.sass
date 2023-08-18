@@ -27,28 +27,45 @@
     
     
 .one
+  &:nth-child(3)
+    max-width: 220px
+    @include m.media(phone, tablet) 
+      display: none
+  &:nth-child(4)
+    @include m.media(laptop, desktop)
+      display: none
+    // max-width: 220px
+    
   display: flex
   flex-direction: column
   & a 
+      // word-wrap: break-word
       font-size: 16px
       line-height: 21.6px
   & span
     font-weight: 500
-    @include m.gap($pb: f.px(20))
+    @include m.media(laptop, desktop)
+      @include m.gap($pb: f.px(20))
   @include m.media(phone, tablet)
     border-radius: f.px(20)
-    margin: 10px
-    @include m.gap($plr: f.px(20), $ptb: f.px(20))
+    // margin: 10px
+    @include m.gap( $mtb: f.px(10), $ptb: f.px(10))
     align-items: center
     border: 1px solid #6F01C6
-    width: 80%
+    // max-width: 100px
+    width: 100%
     background: #FFF
 
     & span
       font-size: 18px
     & p
       font-size: 14px
+      @include m.media(phone, tablet)
+        @include m.gap( $mtb: f.px(10))
+        font-size: f.px(12)
+        text-align: center
       font-weight: 350
+      max-width: 300px
     & a 
       font-size: 14px
   @include m.media(laptop, desktop)

@@ -11,16 +11,16 @@ type ProcessType = {
 
 const HowProcessGoes = ({processRef}: ProcessType) => {
   // currRef = 'process'
-  const procRef = useRef(null)
+  // const procRef = useRef(null)
 
-  const handleScroll = () => {
+  // const handleScroll = () => {
     // console.log(processRef.current.getBoundingClientRect().y)
-  }
+  // }
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => window.removeEventListener('scroll', handleScroll)
+  // }, [])
   const list = [
     {
       subtitle: 'Изучайте темы',

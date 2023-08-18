@@ -27,6 +27,7 @@ import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/inde
 import styles from '@/styles/pages/PagesProgram.module.sass'
 import { TypeLibReviews } from '@/types/index'
 import { useEffect, useRef } from 'react'
+import ButtonToTop from '../sections/ButtonToTop'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 
@@ -57,6 +58,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview }: PagesProgramT
   })
   return (
     <>
+    <ButtonToTop />
       <HeroProgram />
       {/* <Opportunities /> */}
       {/* <Desc /> */}

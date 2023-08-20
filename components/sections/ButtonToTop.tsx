@@ -6,13 +6,12 @@ const ButtonToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.scrollY > 300) {
+    if (window?.scrollY > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
   };
-console.log(window.scrollY)
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

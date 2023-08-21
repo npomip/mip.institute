@@ -12,7 +12,7 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(0))
@@ -71,7 +71,7 @@
   @include m.dye(c, c.$alpha)
   @include m.media(phone, tablet)
     max-width: 70%
-    @include m.gap($mb: f.px(18))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(20)
     font-weight: 500
   @include m.media(laptop, desktop)
@@ -173,6 +173,8 @@
   font-style: normal
   font-weight: 500
   @include m.gap($ml: f.px(75))
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(45), $mb: f.px(15))
 
 .upperContainer
   @include m.gap($mb: f.px(30))

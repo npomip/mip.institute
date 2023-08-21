@@ -3,6 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(30))
   @include m.media(laptop, desktop)
     & > *
       @include m.gap($pt: f.px(80), $plr: f.px(100), $pb: f.px(80))

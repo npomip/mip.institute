@@ -2,9 +2,16 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.section
+  @include m.media(phone, tablet)
+    @include m.gap( $pb: f.px(10))
+  @include m.media(desktop, laptop)
+    @include m.gap( $pb: f.px(60))
 .content
   border: 2px solid black
   height: 300px
+  // @include m.media(phone, tablet)
+  //   height: 400px
   display: flex
   flex-wrap: wrap
   justify-content: space-around
@@ -16,6 +23,7 @@
   @include m.media(phone, tablet)
     font-size: f.px(26)
     line-height: 120%
+    @include m.gap($mb: f.px(15))
 
 .cardList
   @include m.gap( $ptb: f.px(10))
@@ -26,7 +34,7 @@
   @include m.media(phone, tablet)
     flex-direction: column
     align-items: center
-    max-height: 390px
+    max-height: 450px
     
     overflow-y: auto
 

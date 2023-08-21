@@ -137,7 +137,7 @@
       max-width: f.px(300)
 
   button
-    width: 220px
+    width: 305px
     @include m.gap($mb: f.px(16))
     
   .btnquestion
@@ -148,10 +148,10 @@
       @include m.gap($mb: f.px(16))
     & > *
       width: 100%
-      @include m.gap($mlr: f.px(30))
+      @include m.gap($mlr: f.px(20))
       @include m.media(phone, tablet)
         
-        width: 220px
+        // max-width: 305px
     button
       width: 100%
       border: 1px solid #FFFFFF
@@ -172,5 +172,7 @@
   @include m.media(laptop, desktop)
     @include m.flex
 .askQuestion
+  width: 100%
+  @include m.gap($plr: f.px(20))
   @include m.media(laptop, desktop)
     display: none

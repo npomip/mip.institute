@@ -4,13 +4,13 @@
 
 .container
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(50))
+    @include m.gap($ptb: f.px(30))
   @include m.media(laptop, desktop)
     @include m.gap($pb: f.px(100))
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30), $mt: f.px(70))
@@ -25,10 +25,13 @@
   @include m.media(desktop)
     @include m.flex($display: false, $fb: 50%)
 
+.btn
+  width: 100%
+
 .subtitle
   @include m.media(phone, tablet)
     font-size: f.px(15)
-    @include m.gap($mb: f.px(20))
+    @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(42))
     font-size: f.px(20)
@@ -74,11 +77,19 @@
   grid-template-columns: repeat(2, 1fr)
   row-gap: 5px
   column-gap: 20px
+  @include m.media(phone, tablet)
+    row-gap: 10px
+    column-gap: f.px(10)
+  @include m.media(laptop)
+    row-gap: 15px
+    column-gap: f.px(10)
   justify-items: stretch
   flex-shrink: 0
 
 .trigger
   width: 250px
+  @include m.media(phone, tablet)
+    width: 305px
   border-radius: 15px
   // height: 200px
   &:first-child
@@ -89,9 +100,16 @@
     grid-area: B
     grid-column: 1 / span 2
     grid-row: 1 /span 1
+    z-index: 2
   &:nth-child(3)
-    margin-top: f.px(4)
+    margin-top: f.px(5)
     height: fit-content
     grid-area: C
     grid-row: 1 / span 2
     scale: 1.028
+    @include m.media(phone)
+      margin-top: f.px(16)
+      scale: 1.085
+    @include m.media(laptop)
+      margin-top: f.px(10)
+      scale: 1.062

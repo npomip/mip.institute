@@ -41,7 +41,7 @@
     @include m.gap($mb: f.px(43))
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $ai: space-around)
-    
+
   &:nth-last-child(1)
     @include m.gap($mb: f.px(0))
 
@@ -58,16 +58,21 @@
       max-width: 100%
 
 .p
-  @include m.media(phone, tablet)
+  
   & strong
     display: block
-    @include m.gap($pb: f.px(10))
-    font-size: f.px(15)
-  @include m.media(desktop)
     max-width: f.px(350)
+    @include m.gap($pb: f.px(10))
+    font-size: f.px(20)
+    @include m.media(phone, tablet)
+      font-size: f.px(15)
+  @include m.media(desktop)
+    max-width: f.px(370)
     font-size: f.px(18)
   @include m.media(laptop)
     max-width: f.px(330)
     font-size: f.px(18)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
   line-height: 130%
   @include m.gap($mb: 0)

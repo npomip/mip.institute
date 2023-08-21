@@ -8,6 +8,7 @@
   margin-right: 10px
   @include m.media(phone, tablet)
     margin-bottom: f.px(20)
+    margin-right: 0
   transition: background 0.3s ease, transform 1s ease
   & > *
     width: 100%
@@ -35,8 +36,10 @@
 .edu
   font-weight: 500
   font-size: f.px(20)
+  display: flex
   @include m.media(phone, tablet)
     font-size: f.px(15)
+    
   margin-left: 20px
   position: relative
   color: #F87E1B
@@ -69,7 +72,8 @@
 .license
   // flex-shrink: 
   height: 250px
-  // @include m.media(phone, tablet)
+  @include m.media(phone, tablet)
+    height: 150px
   width: 100%
   @include m.media(laptop, desktop)
     min-width: 400px
@@ -78,22 +82,29 @@
   align-items: center
   
 
+.leftLicense
+  // width: 100%
+  flex-basis: 60%
+  // text-align: center
 .rightLicense
   // padding-left: 10px
   margin-right: 10px
+  @include m.media(phone, tablet)
+    margin-right: 0
+    flex-wrap: nowrap
   
 
 .card
   position: relative
   @include m.media(phone, tablet)
-    scale: 0.6
+    scale: 0.75
   // margin-left: 50px
 
 .loupe
   position: absolute
   top: 55%
   @include m.media(phone, tablet)
-    scale: 0.6
+    scale: 0.7
     top: 48%
   //   fill: red
   //   background: red

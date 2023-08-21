@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/HeroProgram.module.sass'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import Wrapper from '@/components/layout/Wrapper'
 import ProgramLabel from '@/components/program/ProgramLabel'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
@@ -12,7 +12,19 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 
 const HeroProgram = () => {
   const { curProgramsType, program } = useContext(ContextStaticProps)
-
+  const [cut, setCut] = useState(210)
+  const [showFullText, setShowFullText] = useState(false)
+  const descriptionLength = program?.description?.length
+  const cutHandler = () => {
+    setShowFullText(!showFullText)
+    console.log(showFullText)
+    if (!showFullText) {
+      console.log('fullText')
+      setCut(descriptionLength)
+    } else {
+      setCut(210)
+    }
+  }
   return (
     <>
       <section className={stls.container}>
@@ -41,19 +53,27 @@ const HeroProgram = () => {
               </div>
             </div>
             <div className={stls.mobileFlex}>
-
-            
-            <div className={stls.pic}>
-              <div className={stls.discount}>
-                <ProgramDiscount />
+              <div className={stls.pic}>
+                <div className={stls.discount}>
+                  <ProgramDiscount />
+                </div>
+                <div className={stls.img}>
+                  <ImgCourse2 />
+                </div>
               </div>
-              <div className={stls.img}>
-                <ImgCourse2 />
+              <div
+                className={stls.descriptionMobile}>
+                {program?.description &&
+                  parse(program.description.slice(0, cut))}
+                {cut < descriptionLength && (
+                  <>
+                    <span>...</span>
+                  </>
+                )}
+                <p onClick={cutHandler} className={stls.moreText}>
+                  {showFullText ? 'Скрыть описание' : 'Читать далее'}
+                </p>
               </div>
-            </div>
-            <div className={stls.descriptionMobile}>
-              {program?.description && parse(program.description)}
-            </div>
             </div>
           </div>
           <div className={stls.btnsMobile}>

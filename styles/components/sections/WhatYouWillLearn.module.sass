@@ -6,7 +6,7 @@
   z-index: 2
 .container
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(30))
+    @include m.gap($pt: f.px(30), $pb: f.px(20))
   @include m.media(laptop, desktop)
     @include m.gap($pt: f.px(90), $pb: f.px(100))
   @include m.dye(bg, #FFF)
@@ -35,14 +35,19 @@
   z-index: 3
   text-align: center
   justify-content: center
-  border: 2px solid #6F01C6
+  border: 1px solid #6F01C6
   border-radius: f.px(25)
   max-height: f.px(140)
   min-height: f.px(140)
   align-items: center
+  background: #FFF
   @include m.media(phone, tablet)
+    border: 0.7px solid #6F01C6
+    max-height: f.px(90)
+    min-height: f.px(90)
     @include m.flex
-    @include m.gap($mr: 3%, $mb: f.px(20), $ptb: f.px(20), $plr: f.px(10))
+    @include m.gap($mb: f.px(15), $plr: f.px(10), $ptb: f.px(10))
+    // @include m.gap($mr: 3%, $mb: f.px(20), $ptb: f.px(20), $plr: f.px(10))
   @include m.media(laptop, desktop)
     @include m.flex($fb: 31%)
     @include m.gap($mr: 3%, $mb: f.px(20), $ptb: f.px(15), $plr: f.px(10))
@@ -51,6 +56,7 @@
 
 .p
   @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
     font-size: f.px(15)
     font-weight: 300
   @include m.media(laptop, desktop)

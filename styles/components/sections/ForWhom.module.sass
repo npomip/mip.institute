@@ -4,13 +4,13 @@
 
 .container
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(50), $ptb: f.px(30))
+    @include m.gap($mb: f.px(30), $ptb: f.px(30))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(97), $ptb: f.px(97))
   @include m.dye(bg, c.$pi)
 
 .title
-  @include m.gap($mb: f.px(10))
+  @include m.gap($mb: f.px(15))
   @include m.media(phone, tablet)
     font-size: f.px(26)
   @include m.media(laptop, desktop)
@@ -19,7 +19,7 @@
 
 .subtitle
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(40))
+    @include m.gap($mb: f.px(10))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(53))
@@ -38,7 +38,7 @@
 .item
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $jc: center, $ai: center)
-    @include m.gap($mb: f.px(43))
+    @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $ai: space-around)
 
@@ -66,6 +66,9 @@
     font-size: f.px(20)
     @include m.media(phone, tablet)
       font-size: f.px(15)
+    @include m.media(phone)
+      max-width: f.px(300)
+      
   @include m.media(desktop)
     max-width: f.px(370)
     font-size: f.px(18)
@@ -74,5 +77,6 @@
     font-size: f.px(18)
   @include m.media(phone, tablet)
     font-size: f.px(15)
+    @include m.gap($pr: f.px(20))
   line-height: 130%
   @include m.gap($mb: 0)

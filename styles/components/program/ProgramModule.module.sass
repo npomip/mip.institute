@@ -22,6 +22,11 @@
 
 .icon
   @include m.gap($mr: f.px(20))
+  & > *
+    @include m.sizeIcon($w: 40, $h: 40)
+    & path
+      // @include m.dye(stroke, #6F01C6)
+      // stroke-width: f.px(0.8)
 
 .pTitle
   @include m.gap($mb: 0)

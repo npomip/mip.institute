@@ -7,8 +7,10 @@
   @include m.media(phone, tablet)
     height: fit-content
     border: none
+    margin-top: 10
   border: 3px solid c.$alpha
-  margin-top: 30px
+  @include m.media(laptop, desktop)
+    margin-top: 30px
   border-radius: 0 0 100px 0
   
 
@@ -49,7 +51,7 @@
   @include m.media(phone, tablet)
     border-radius: f.px(20)
     // margin: 10px
-    @include m.gap( $mtb: f.px(10), $ptb: f.px(10))
+    @include m.gap( $mtb: f.px(7), $ptb: f.px(10))
     align-items: center
     border: 1px solid #6F01C6
     // max-width: 100px

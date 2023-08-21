@@ -3,7 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  // @include m.gap($mb: f.px(51))
+  @include m.gap($pb: f.px(51))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(8))
 
 .standalone
   @include m.media(phone, tablet)
@@ -40,6 +42,8 @@
   border-radius: f.px(23)
   @include m.gap($mt: f.px(51), $mb: f.px(34), $ptb: f.px(10), $plr: f.px(17))
   @include m.media(phone, tablet)
+    color: #9B51E0
+    letter-spacing: 1.1px
     @include m.gap($mt: f.px(30), $mb: f.px(15), $ptb: f.px(10), $plr: f.px(17))
     font-weight: 500
     font-size: f.px(11)

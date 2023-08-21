@@ -38,20 +38,20 @@ const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
   ))
 
   const desktopSwiperOptions = {
-    slidesNum: 1.39,
-    spaceBetween: 30
+    slidesNum: 1.5,
+    spaceBetween: 20
   }
   const laptopSwiperOptions = {
-    slidesNum: 2,
-    spaceBetween: 30
+    slidesNum: 1.2,
+    spaceBetween: 20
   }
   const tabletSwiperOptions = {
     slidesNum: 1.3,
-    spaceBetween: 40
+    spaceBetween: 10
   }
   const mobileSwiperOptions = {
-    slidesNum: 1.3,
-    spaceBetween: 40
+    slidesNum: 1.2,
+    spaceBetween: 5
   }
   return (
     <section

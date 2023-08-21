@@ -3,9 +3,10 @@
 @use '@/styles/themes/default/colors' as c
 .container
   @include m.gap($mb: f.px(0), $pb: f.px(0))
+  background: #FDFDFD
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(11))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(12))

@@ -10,11 +10,13 @@ const BriefProgramContents = ({planRef}) => {
         <div className={stls.top}>
           <div className={stls.heading}>
             <h2 className={stls.title}>Краткая программа курса</h2>
-            <p className={stls.p}>
-              Практики, которым мы учим, и методология, на которой строится
-              курс, проверены не только практическим опытом преподавателей, но и
-              строгими научными исследованиями
-            </p>
+            <p className={stls.subtitle}>В каждом модуле:</p>
+            <ul className={stls.points}>
+              <li>Разбор практических заданий с преподавателем;</li>
+              <li>Постоянная поддержка куратора;</li>
+              <li>Актуальные вебинары в режиме реального времени;</li>
+              <li>Бесплатный доступ к библиотеке.</li>
+            </ul>
           </div>
           <div className={stls.qty}>
             <ProgramModulesQty />

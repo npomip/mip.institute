@@ -8,9 +8,9 @@ const ProgramModule = ({ title, topics }) => {
   const blockedWords = ['Описание 1', 'Содержание 1', undefined, ''];
   const hasNoDescriptionTopic = topics?.some(topic => blockedWords.includes(topic));
   const canBeOpened = !hasNoDescriptionTopic && topics?.length > 0; 
-  const description = topics[0]
-  topics = topics.slice(1)
-
+  const description = topics?.[0]
+  topics = topics?.slice(1)
+  console.log(topics)
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>

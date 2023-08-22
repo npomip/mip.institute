@@ -5,6 +5,7 @@
 .container
   @include m.flex($fd: column, $jc: center)
   @include m.gap($mb: f.px(10))
+  // border-bottom: 2px solid gray
   &:nth-last-child(1)
     @include m.gap($mb: 0)
 
@@ -75,3 +76,15 @@
   & > .p
     @include m.media(phone, tablet)
       @include m.gap($pl: f.px(12))
+
+.description
+  color: #6F01C6
+  font-size: 22px
+  font-weight: 350
+  line-height: 120%
+  @include m.gap($ml: f.px(62), $pt: f.px(25))
+  border-top: 1px solid #D1D1D1
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    font-weight: 300
+    @include m.gap($pt: f.px(18))

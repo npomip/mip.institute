@@ -22,7 +22,9 @@
 .left
   position: relative
   padding-bottom: 0
+  flex-basis: 55%
   & p
+    // max-width: 850px
     font-size: f.px(18)
     font-weight: 350
     line-height: 130%
@@ -30,6 +32,7 @@
       font-size: f.px(15)
 
 .right
+  flex-basis: 45%
   align-self: center
   @include m.gap($mt: f.px(35), $mb: f.px(15))
   
@@ -51,12 +54,17 @@
 .item
   display: flex
   align-self: center
-  
+  @include m.media( tablet)
+    @include m.gap($mb: f.px(35))
+    // align-items: center
+    // justify-content: space-between
+  // justify-content: center
 
 .itemIcon
   height: max-content
   scale: 2
-  flex-basis: 10%
+  @include m.media(phone, tablet)
+    scale: 1.5
   align-self: baseline
   &>*
     @include m.gap($pt: f.px(5))

@@ -19,7 +19,7 @@
 .heading
   @include m.media(laptop, desktop)
     @include m.flex($display: false, $fb: 65%)
-    @include m.gap($mr: 8%, $mb: f.px(40))
+    @include m.gap($mr: 8%, $mb: f.px(30))
 
 .title
   @include m.media(phone, tablet)
@@ -45,3 +45,28 @@
     @include m.gap($mb: f.px(15))
   @include m.media(laptop, desktop)
     @include m.flex($display: false, $fb: 25%)
+.subtitle
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(10))
+.points
+  list-style: none
+  padding-left: 0
+  li
+    position: relative
+    padding-left: f.px(18)
+    margin-bottom: 5px
+    font-size: 20px
+    font-style: normal
+    font-weight: 350
+    &::before
+      left: 0
+      // bottom: 50%
+      position: absolute
+      content: '•'
+      color: #F87E1B
+      font-size: 1em
+      scale: 2

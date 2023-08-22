@@ -29,15 +29,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>136000</price>
+        <price>150000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">95000</param>
+        <param name="Цена по скидке">105000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">11300</param>
-        <param name="Ежемесячная цена по скидке">7900</param>
+        <param name="Ежемесячная цена">12500</param>
+        <param name="Ежемесячная цена по скидке">8700</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
 30
@@ -298,15 +298,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>86000</price>
+        <price>100000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">60000</param>
+        <param name="Цена по скидке">70000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">7200</param>
-        <param name="Ежемесячная цена по скидке">5000</param>
+        <param name="Ежемесячная цена">8300</param>
+        <param name="Ежемесячная цена по скидке">5800</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
         <!--Сроки курсов-->
@@ -508,15 +508,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>79000</price>
+        <price>100000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">55000</param>
+        <param name="Цена по скидке">70000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">6600</param>
-        <param name="Ежемесячная цена по скидке">4600</param>
+        <param name="Ежемесячная цена">8300</param>
+        <param name="Ежемесячная цена по скидке">5800</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
         <!--Сроки курсов-->
@@ -577,15 +577,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>64000</price>
+        <price>72000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">45000</param>
+        <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">5300</param>
-        <param name="Ежемесячная цена по скидке">3800</param>
+        <param name="Ежемесячная цена">6000</param>
+        <param name="Ежемесячная цена по скидке">4100</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
         <!--Сроки курсов-->
@@ -715,15 +715,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>143000</price>
+        <price>157000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">100000</param>
+        <param name="Цена по скидке">110000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">11900</param>
-        <param name="Ежемесячная цена по скидке">8300</param>
+        <param name="Ежемесячная цена">13100</param>
+        <param name="Ежемесячная цена по скидке">9200</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
         <!--Сроки курсов-->
@@ -788,15 +788,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>86000</price>
+        <price>100000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">60000</param>
+        <param name="Цена по скидке">70000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">7200</param>
-        <param name="Ежемесячная цена по скидке">5000</param>
+        <param name="Ежемесячная цена">8300</param>
+        <param name="Ежемесячная цена по скидке">5800</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
         <!--Сроки курсов-->
@@ -855,15 +855,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>150000</price>
+        <price>164500</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">105000</param>
+        <param name="Цена по скидке">115000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">12500</param>
-        <param name="Ежемесячная цена по скидке">8800</param>
+        <param name="Ежемесячная цена">13600</param>
+        <param name="Ежемесячная цена по скидке">9600</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
         <!--Сроки курсов-->
@@ -931,15 +931,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>100000</price>
+        <price>115000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">70000</param>
+        <param name="Цена по скидке">80000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">8300</param>
-        <param name="Ежемесячная цена по скидке">5800</param>
+        <param name="Ежемесячная цена">9500</param>
+        <param name="Ежемесячная цена по скидке">6700</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
         <!--Сроки курсов-->
@@ -1269,15 +1269,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>107000</price>
+        <price>121000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">75000</param>
+        <param name="Цена по скидке">85000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">8900</param>
-        <param name="Ежемесячная цена по скидке">6300</param>
+        <param name="Ежемесячная цена">10100</param>
+        <param name="Ежемесячная цена по скидке">7100</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
 
@@ -1689,15 +1689,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>71000</price>
+        <price>86000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">50000</param>
+        <param name="Цена по скидке">60000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">4200</param>
-        <param name="Ежемесячная цена по скидке">2900</param>
+        <param name="Ежемесячная цена">7200</param>
+        <param name="Ежемесячная цена по скидке">5000</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
 
@@ -1759,15 +1759,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>64000</price>
+        <price>107000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">45000</param>
+        <param name="Цена по скидке">75000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">5300</param>
-        <param name="Ежемесячная цена по скидке">3800</param>
+        <param name="Ежемесячная цена">8900</param>
+        <param name="Ежемесячная цена по скидке">6250</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
 
@@ -2520,9 +2520,9 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>64000</price>
+        <price>79000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">45000</param>
+        <param name="Цена по скидке">55000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
@@ -2586,7 +2586,7 @@
       </offer>
 
       <offer id="37_psychodiagnostics of children and adults in practical psychology">
-        <name>Семейное психологическое консультирование</name>
+        <name>Психодиагностика детей и взрослых в практической психологии</name>
         <url>https://mip.institute/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
@@ -2663,15 +2663,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>64000</price>
+        <price>79000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">45000</param>
+        <param name="Цена по скидке">55000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">5300</param>
-        <param name="Ежемесячная цена по скидке">3800</param>
+        <param name="Ежемесячная цена">6600</param>
+        <param name="Ежемесячная цена по скидке">4500</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
 
@@ -2738,15 +2738,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>64000</price>
+        <price>79000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">45000</param>
+        <param name="Цена по скидке">55000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">5300</param>
-        <param name="Ежемесячная цена по скидке">3800</param>
+        <param name="Ежемесячная цена">6600</param>
+        <param name="Ежемесячная цена по скидке">4600</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
 
@@ -2882,15 +2882,15 @@
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
 
         <!--Общая цена курса-->
-        <price>71000</price>
+        <price>86000</price>
         <currencyId>RUR</currencyId>
-        <param name="Цена по скидке">50000</param>
+        <param name="Цена по скидке">60000</param>
         <param name="Дата окончания скидки">2023-08-30</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
         <!--Цена за месяц-->
-        <param name="Ежемесячная цена">5900</param>
-        <param name="Ежемесячная цена по скидке">4200</param>
+        <param name="Ежемесячная цена">7200</param>
+        <param name="Ежемесячная цена по скидке">5000</param>
         <param name="Дата окончания ежемесячной скидки">2023-08-30</param>
 
 

@@ -44,7 +44,7 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(36))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(36)
   @include m.media(laptop, desktop)
     min-width: 12ch
@@ -76,6 +76,7 @@
     font-size: f.px(15)
     font-weight: 500
     line-height: 130%
+    @include m.gap($pt: f.px(5))
   @include m.media(phone, tablet)
     order: -1
     @include m.gap($mb: f.px(30))

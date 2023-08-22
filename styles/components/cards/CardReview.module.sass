@@ -26,7 +26,7 @@
   border-radius: f.px(15)
   overflow: hidden
   @include m.media(phone, tablet)
-    @include m.gap($mr: f.px(0))
+    @include m.gap($mr: f.px(15))
     // display: flex
     // justify-content: flex-end
 
@@ -63,8 +63,6 @@
 
 .bottom
   @include m.gap($mt: f.px(15))
-  @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(5))
 
 .story
   @include m.gap($pb: f.px(0), $mb: f.px(0))

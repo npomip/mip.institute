@@ -5,7 +5,12 @@
 .container
   @include m.flex($fd: column, $jc: center)
   @include m.gap($mb: f.px(10))
-  // border-bottom: 2px solid gray
+  @include m.media(laptop, desktop)
+    &::after
+      @include m.gap($ml: f.px(60))
+      content: " "
+      width: 100%
+      border-top: 1px solid #D1D1D1
   &:nth-last-child(1)
     @include m.gap($mb: 0)
 
@@ -58,7 +63,7 @@
 
 .list
   @include m.gap($mtb: f.px(0), $pl: f.px(82))
-  list-style-type: '•'
+  list-style: none
 
 .item
   @include m.media(phone, tablet)
@@ -69,6 +74,7 @@
     font-size: f.px(18)
     &::before
       content: '•'
+      color: #F87E1B
       font-size: f.px(35)
       line-height: 10%
       @include m.gap($mr: f.px(14))

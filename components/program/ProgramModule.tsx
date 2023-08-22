@@ -10,7 +10,6 @@ const ProgramModule = ({ title, topics }) => {
   const canBeOpened = !hasNoDescriptionTopic && topics?.length > 0; 
   const description = topics?.[0]
   topics = topics?.slice(1)
-  console.log(topics)
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>

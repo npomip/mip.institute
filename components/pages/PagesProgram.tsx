@@ -31,13 +31,19 @@ import ButtonToTop from '../sections/ButtonToTop'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 
+interface Breadcrumb {
+  label: string;
+  path: string;
+}
+
 type PagesProgramType = {
   ofType: 'course' | 'profession',
   reviews: TypeLibReviews,
   programOverview: string
+  breadcrumbs: Breadcrumb[]
 }
 
-const PagesProgram = ({ ofType = null, reviews, programOverview }: PagesProgramType) => {
+const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: PagesProgramType) => {
   const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
@@ -56,10 +62,11 @@ const PagesProgram = ({ ofType = null, reviews, programOverview }: PagesProgramT
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
+
   return (
     <>
     <ButtonToTop />
-      <HeroProgram />
+      <HeroProgram breadcrumbs={breadcrumbs} />
       {/* <Opportunities /> */}
       {/* <Desc /> */}
       <PageNavigation processRef={processRef} diplomaRef={diplomaRef}

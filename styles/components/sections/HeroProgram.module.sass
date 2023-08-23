@@ -13,13 +13,14 @@
     
   @include m.media(laptop, desktop)
     overflow: visible
-    padding-top: f.px(52)
+    // padding-top: f.px(52)
     padding-bottom: f.px(82)
   padding-bottom: 0
   @include m.dye(bg, c.$alpha)
 
 .top
   @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(52))
     // @include m.flex($jc: space-between, $ai: center)
     @include m.flex($jc: space-between)
   // @include m.media(phone, tablet)
@@ -155,4 +156,6 @@
     // margin-top: f.px(100)
     transform: translateY(f.px(35))
 
-
+.mobiledesc
+  display: inline-block
+  // white-space: nowrap

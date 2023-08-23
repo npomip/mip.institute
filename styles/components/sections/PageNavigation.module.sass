@@ -31,6 +31,8 @@
       margin: 10px 10px
       text-decoration: underline
       text-underline-offset: f.px(5)
+      &:hover
+        text-decoration-color: #F87E1B
       & p 
         margin: 0
         color: #000
@@ -39,9 +41,11 @@
         font-style: normal
         font-weight: 350
         line-height: 120%
+        &:hover
+          color: #F87E1B
+          
         @include m.media(laptop)
           font-size: 14px
-        // text-decoration-line: underline
         text-transform: uppercase
         &.active
           // background: red

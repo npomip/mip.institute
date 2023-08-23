@@ -16,6 +16,7 @@
   @include m.dye(bg, c.$nu)
   
 .item
+  position: relative
   &:last-child
     @include m.media(phone, tablet)
       display: none
@@ -79,3 +80,23 @@
   @include m.media(laptop, desktop)
     font-size: f.px(18)
   font-weight: 500
+
+
+.anotherIcon
+  position: absolute
+  top: 19px
+  right: 0
+
+.licenseInfo
+  border-radius: 15px
+  background: white
+  position: absolute
+  transform: translateY(-180%)
+  right: 0
+  max-width: 250px
+  padding: f.px(20)
+  font-size: 15px
+  color: #808080
+  font-weight: 500
+  span
+    color: #6F01C6

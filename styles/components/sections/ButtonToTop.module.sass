@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .scrollToTop
-  cursor: pointer
+  
   z-index: 10
   position: fixed
   @include m.media(laptop, desktop)
@@ -29,6 +29,7 @@
 
   &.show
     opacity: 1
+    cursor: pointer
 
 .icon
   @include m.gap($ptb: f.px(5.7), $plr: f.px(10))

@@ -37,6 +37,8 @@
   flex-basis: 45%
   align-self: center
   @include m.gap($mt: f.px(35), $mb: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(12))
   
 .img  
   display: inline-block

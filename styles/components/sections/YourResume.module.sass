@@ -20,7 +20,7 @@
 
 .content
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(30), $plr: f.px(26))
+    @include m.gap($ptb: f.px(30), $plr: f.px(10))
     border-radius: f.px(10)
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(30), $plr: f.px(100))
@@ -41,11 +41,11 @@
 
 .img
   @include m.media(phone, tablet)
-    min-width: f.px(72)
-    max-width: f.px(72)
-    min-height: f.px(72)
-    max-height: f.px(72)
-    @include m.gap($mr: f.px(20))
+    min-width: f.px(42)
+    max-width: f.px(42)
+    min-height: f.px(42)
+    max-height: f.px(42)
+    @include m.gap($mr: f.px(15))
   @include m.media(laptop, desktop)
     min-width: f.px(90)
     max-width: f.px(90)

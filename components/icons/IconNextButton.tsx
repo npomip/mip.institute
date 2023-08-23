@@ -1,4 +1,4 @@
-import stls from '@/styles/components/icons/IconMinus.module.sass'
+import stls from '@/styles/components/icons/IconPrevButton.module.sass'
 
 const IconNextButton = () => {
   return (

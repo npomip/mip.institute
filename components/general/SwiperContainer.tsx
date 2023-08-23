@@ -113,7 +113,7 @@ const SwiperContainer = ({
         rows: isMultiRow && (isLaptopLayout || isDesktopLayout) ? 2 : 1,
         fill: !isMobileLayout ? 'row' : 'column'
       }}
-      autoHeight={true}
+      // autoHeight={true}
       pagination={{ clickable: true, dynamicBullets: true }}
       className={classNames({
         [stls.container]: true,

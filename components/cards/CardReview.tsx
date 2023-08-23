@@ -3,8 +3,28 @@ import truncate from 'truncate'
 import Popup from 'reactjs-popup'
 import { BtnText } from '@/components/btns'
 import { PopupReview } from '@/components/popups'
+import { useEffect, useState } from 'react'
 
 const CardReview = ({ title, photo, name, occupation, story }) => {
+  const [cut, setCut] = useState(355)
+  const [isFull, setIsFull] = useState(false)
+  const [threePoints, setThreePoints] = useState(false)
+  const fullStory = story?.length
+
+  const cutHandler = () => {
+    setThreePoints(false)
+    setCut(fullStory)
+    setIsFull(true)
+  }
+
+  const shortHandler = () => {
+    setCut(370)
+    setIsFull(false)
+  }
+  useEffect(() => {
+    fullStory > cut && setThreePoints(true)
+  }, [ cut, fullStory, isFull])
+  // console.log(title, threePoints, fullStory, cut)
   return (
     <article className={stls.container}>
       <div className={stls.upperContainer}>
@@ -19,30 +39,12 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
         </div>
       </div>
       </div>
-      <div className={stls.bottom}>
-        <p className={stls.story}>{story}</p>
+      <div className={isFull ? `${stls.fullBottom}` : `${stls.bottom}`}>
+        <p className={stls.story}>{story.slice(0,cut)}{threePoints ? (<span>...</span>) : ('')}</p>
+        {story?.length > cut && 
+        (<p className={stls.moreText} onClick={cutHandler}>Читать полностью</p>)}
+        {isFull && cut === story?.length && <p onClick={shortHandler} className={stls.moreText}>Скрыть историю</p>}
       </div>
-        {/* <Popup
-          trigger={
-            <div>
-              <BtnText text='Читать историю' />
-            </div>
-          }
-          modal
-          nested>
-          {close => (
-            <PopupReview
-              title={title}
-              photo={photo}
-              name={name}
-              occupation={occupation}
-              story={story}
-              close={close}
-            />
-          )}
-        </Popup> */}
-      
-      {/* <p>{story}</p> */}
     </article>
   )
 }

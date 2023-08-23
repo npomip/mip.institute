@@ -13,9 +13,7 @@ const ProgramModule = ({ title, topics }) => {
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
-      {/* className={classNames({ [stls.container]: true })}> */}
       <div className={stls.title} onClick={() => setOpen(!isOpen)}>
-      {/* <div className={stls.title}> */}
         <div className={stls.icon}>{canBeOpened ? (isOpen ? <IconMinus /> : <IconPlus />) : <IconCircleCheck violetItems />}</div>
         {/* <div className={stls.icon}>
           <IconCircleCheck />
@@ -24,16 +22,20 @@ const ProgramModule = ({ title, topics }) => {
         <p className={classNames({ [stls.pTitle]: true })}>{title}</p>
       </div>
       <div className={stls.topic}>
-        {/* <p className={stls.p}>В результате обучения вы:</p> */}
-        <p className={stls.description}>{description}</p>
-        <ul className={stls.list}>
-          {topics && canBeOpened &&
+        
+        {canBeOpened && (
+          <>
+          <p className={stls.description}>{description}</p>
+          <ul className={stls.list}>
+          {topics &&
             topics.map((topic, idx) => (
               <li key={topic + idx} className={stls.item}>
                 <p className={stls.p}>{topic}</p>
               </li>
             ))}
         </ul>
+        </>
+        )}
       </div>
     </li>
   )

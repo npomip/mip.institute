@@ -19,7 +19,6 @@ const ProgramOverview = () => {
     getListItemsInnerHtml(marked(programOverview))
     const parseTitle = program?.programOverviewTitle?.length > 0 &&
     title
-console.log(parseTitle)
   return (
     <section className={stls.container}>
       <Wrapper>

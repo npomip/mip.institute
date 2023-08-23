@@ -122,7 +122,6 @@ const YourDiploma = ({ ofType = null, diplomaRef }: YourDiplomaType) => {
     slidesNum: 1,
     spaceBetween: 30
   }
-  console.log(slides.map(el => el.props))
 
   return (
     <section ref={diplomaRef} className={stls.container}>

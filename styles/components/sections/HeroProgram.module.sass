@@ -13,13 +13,14 @@
     
   @include m.media(laptop, desktop)
     overflow: visible
-    padding-top: f.px(52)
+    // padding-top: f.px(52)
     padding-bottom: f.px(82)
   padding-bottom: 0
   @include m.dye(bg, c.$alpha)
 
 .top
   @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(52))
     // @include m.flex($jc: space-between, $ai: center)
     @include m.flex($jc: space-between)
   // @include m.media(phone, tablet)
@@ -44,7 +45,7 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(36))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(36)
   @include m.media(laptop, desktop)
     min-width: 12ch
@@ -76,6 +77,7 @@
     font-size: f.px(15)
     font-weight: 500
     line-height: 130%
+    @include m.gap($pt: f.px(5))
   @include m.media(phone, tablet)
     order: -1
     @include m.gap($mb: f.px(30))
@@ -154,4 +156,6 @@
     // margin-top: f.px(100)
     transform: translateY(f.px(35))
 
-
+.mobiledesc
+  display: inline-block
+  // white-space: nowrap

@@ -9,17 +9,16 @@ import { ContextStaticProps } from '@/context/index'
 import parse from 'html-react-parser'
 import marked from 'marked'
 import PopupTrigger from '@/components/general/PopupTrigger'
+import Breadcrumbs from '../general/Breadcrumbs'
 
-const HeroProgram = () => {
+const HeroProgram = ({breadcrumbs}) => {
   const { curProgramsType, program } = useContext(ContextStaticProps)
   const [cut, setCut] = useState(210)
   const [showFullText, setShowFullText] = useState(false)
   const descriptionLength = program?.description?.length
   const cutHandler = () => {
     setShowFullText(!showFullText)
-    console.log(showFullText)
     if (!showFullText) {
-      console.log('fullText')
       setCut(descriptionLength)
     } else {
       setCut(210)
@@ -29,8 +28,10 @@ const HeroProgram = () => {
     <>
       <section className={stls.container}>
         <Wrapper>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
           <div className={stls.top}>
             <div className={stls.heading}>
+              
               <div className={stls.label}>
                 <ProgramLabel />
               </div>
@@ -63,13 +64,16 @@ const HeroProgram = () => {
               </div>
               <div
                 className={stls.descriptionMobile}>
-                {program?.description &&
-                  parse(program.description.slice(0, cut))}
-                {cut < descriptionLength && (
+                <span className={stls.mobiledesc}>{cut < descriptionLength ?
+                (program?.description &&
+                  parse(marked(program.description.slice(0, cut).concat('...')))) : (program?.description &&
+                    parse(marked(program.description.slice(0, cut))))
+                  }</span>
+                {/* {cut < descriptionLength && (
                   <>
                     <span>...</span>
                   </>
-                )}
+                )} */}
                 <p onClick={cutHandler} className={stls.moreText}>
                   {showFullText ? 'Скрыть описание' : 'Читать далее'}
                 </p>

@@ -1,4 +1,4 @@
-import { TypeLibGeneralPicture, TypeLibTeachers } from '@/types/index'
+import { TypeLibGeneralPicture, TypeLibTeachers, TypeLibReviews } from '@/types/index'
 
 type TypeLibProgram = {
   id: string | null
@@ -50,6 +50,7 @@ type TypeLibProgram = {
       height: string | null
       alternativeText?: string | null
     } | null
+    unique_reviews?: TypeLibReviews | null
     keywords?: string | null
     metaRobots?: string | null
     structuredData?: {} | null //TODO: figure out structured data

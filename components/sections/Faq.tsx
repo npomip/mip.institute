@@ -40,7 +40,10 @@ const Faq = () => {
             <p className={stls.p}>
               У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам!
             </p>
+            <div className={stls.btn}>
             <PopupTrigger btn='zeta' cta='askQuestion' />
+            </div>
+            
           </div>
         </div>
 

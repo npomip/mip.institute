@@ -6,11 +6,14 @@
   display: flex
   justify-content: center
   align-items: center
-  @include m.gap($m: f.px(6), $ptb: f.px(16), $plr: f.px(14))
+  
+  @include m.gap($mtb: f.px(4),$mr: f.px(6),  $ptb: f.px(7), $plr: f.px(10))
   border: f.px(1) solid
   @include m.dye(border, c.$xi)
   border-radius: f.px(4)
   transition: background-color .2s ease-in-out
+  // & > *
+  //   height: 16px
   &.dark
     @include m.dye(border, rgba(c.$nu, .1))
     &:focus, &:hover

@@ -64,6 +64,7 @@ const getStaticPropsPageProgram = async ({
             width
             height
           }
+          
           slug
           studyForm
           type
@@ -93,6 +94,7 @@ const getStaticPropsPageProgram = async ({
             question
             answer
           }
+          
           teachers {
             id
             name

@@ -15,8 +15,9 @@ const GeneralAddress = ({ classNames }: TypeGeneralAddressProps) => {
       <div>
         <span className='locality'>{company.addresses.default.city}</span>,{' '}
         <span className='street-address'>
+          {'ул.'}
           {company.addresses.default.street.name}{' '}
-          {company.addresses.default.street.type}{' '}
+          {/* {company.addresses.default.street.type}{' '} */}
           {company.addresses.default.street.door}
         </span>
       </div>

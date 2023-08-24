@@ -26,6 +26,7 @@ const getStaticPropsPageProgram = async ({
         $studyFieldSlug: String!
         $type: String!
       ) {
+      
         reviews {
           id
           name
@@ -37,8 +38,9 @@ const getStaticPropsPageProgram = async ({
             url
             width
             height
-          } 
+            } 
           }
+          
         programs {
           id
           studyField
@@ -94,7 +96,19 @@ const getStaticPropsPageProgram = async ({
             question
             answer
           }
-          
+          unique_reviews{
+            id
+          name
+          profession
+          title
+          story
+          createdAt
+          picture {
+            url
+            width
+            height
+            } 
+          }
           teachers {
             id
             name

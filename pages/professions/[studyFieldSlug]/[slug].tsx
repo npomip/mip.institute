@@ -19,7 +19,6 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     curProgramsType: 'profession',
     curProgramsStudyFieldSlug: studyFieldSlug
   })
-  console.log(program)
   const programOverview = program?.programOverview
   const router = useRouter()
   const segments = router.asPath.split("/").filter(segment => segment !== "");

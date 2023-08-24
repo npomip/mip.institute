@@ -22,7 +22,6 @@ const CoursePage: NextPage<TypePageProgramProps> = ({
   const programOverview = program?.programOverview
   const router = useRouter()
   const segments = router.asPath.split("/").filter(segment => segment !== "");
-console.log(program)
 
 const labels =['Повышение квалификации', program?.studyField, program?.title]
 const breadcrumbs = segments.map((segment, index) => {

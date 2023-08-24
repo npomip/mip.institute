@@ -19,8 +19,8 @@ const filterProgramsByStudyField = ({
     programs &&
     programs.filter(
       program =>
-        program.studyFieldSlug &&
-        program.studyFieldSlug.toLowerCase() === studyFieldSlug.toLowerCase()
+        program?.studyFieldSlug &&
+        program?.studyFieldSlug.toLowerCase() === studyFieldSlug.toLowerCase()
     )
   )
 }

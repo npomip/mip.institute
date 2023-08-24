@@ -12,8 +12,8 @@
 .left
   @include m.gap($pt: f.px(50))
   @include m.media(laptop, desktop)
-    @include m.flex($display: false, $fb: 70%)
-    @include m.gap($pr: f.px(113))
+    @include m.flex($display: false)
+    // @include m.gap($pr: f.px(113))
 
 .top
   @include m.media(laptop, desktop)
@@ -39,9 +39,13 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(27))
     font-size: f.px(18)
+    font-weight: 300
     @include m.dye(c, c.$nu)
 
 .numbers
+  font-weight: 300
+  line-height: 130%
+  font-size: f.px(18)
   @include m.flex($fd: column)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(25))
@@ -66,6 +70,8 @@
 
 .sm
   @include m.flex
+  max-width: 176px
+  flex-wrap: wrap
   @include m.gap($mb: f.px(25))
 
 .btn
@@ -112,3 +118,64 @@
     width: 30%
     height: 100%
     @include m.dye(bg, c.$gamma-2)
+
+.newRight
+  @include m.media(phone, tablet)
+    display: none
+  // background: red
+  width: 291px
+  display: flex
+  // justify-content: flex-end
+  flex-direction: column
+  align-items: flex-end
+
+.contact
+  padding-left: 10px
+  font-weight: 300
+  font-size: 18px
+
+.fieldsLink
+  width: f.px(250)
+
+.email
+  @include m.gap($mtb: f.px(15))
+  font-size: f.px(18)
+  p
+    @include m.gap($mb: f.px(10))
+  .eadress
+    font-weight: 300
+    font-size: f.px(22)
+
+.enterToPortal
+  display: flex
+  align-items: center
+  justify-content: center
+  // margin: 0 auto
+  @include m.gap($mtb: f.px(25))
+  color: white
+  width: f.px(268)
+  height: f.px(56)
+  border: 1px solid #F87E1B
+  font-size: f.px(18)
+  font-weight: 500
+  border-radius: 4px
+  & > *
+    margin: 0 auto
+
+.leaveApp
+  & > *
+    & > *
+      width: f.px(268)
+
+.primary
+  @include m.gap($mb: f.px(25))
+  width: f.px(268)
+  font-size: 13px
+  font-style: normal
+  font-weight: 700
+  line-height: 120%
+  color: #808080
+  span
+    display: block
+    text-decoration-line: underline
+    text-underline-offset: f.px(2)

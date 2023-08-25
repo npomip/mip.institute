@@ -16,11 +16,10 @@ type ReviewsType = {
 
 const Reviews = ({ standalone = false, reviews, reviewsRef }: ReviewsType) => {
   const { program } = useContext(ContextStaticProps)
-  console.log(program?.unique_reviews)
   const uniqueReviewsCount = program?.unique_reviews?.length
   if(uniqueReviewsCount > 0 ){
-    reviews = program?.unique_reviews}
-    // console.log(reviews)
+    reviews = program?.unique_reviews
+  }
   const slides = reviews?.map((review, idx) => (
     <CardReview
       key={review.title + idx}

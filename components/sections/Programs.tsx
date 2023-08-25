@@ -179,7 +179,7 @@ const Programs = ({
                     biggerTitle={!withTitle}
                     withBtn={withBtn}
                     professions={
-                      searchTerm ? filteredData.professions : data.professions
+                      searchTerm ? filteredData.professions : favouritePrograms
                     }
                     withQty={withQty}
                     threerow={threerow}

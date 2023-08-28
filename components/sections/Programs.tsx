@@ -87,10 +87,7 @@ const Programs = ({
   };
   let favouritePrograms = rearrangeArray(professions, targetTitles)
 
-  if (max) {
-    data.courses = data.courses.filter((item, idx) => idx < max)
-    favouritePrograms = favouritePrograms.slice(0,max)
-  }
+  
 
   useEffect(() => {
     ofType === 'course' &&
@@ -103,7 +100,7 @@ const Programs = ({
 
   const filteredProgramsIds = filteredPrograms.map(item => item.id)
 
-  const filteredData = {
+  let filteredData = {
     courses: data.courses.filter(item => {
       let include = false
       filteredProgramsIds.forEach(id => {
@@ -119,7 +116,13 @@ const Programs = ({
       if (include) return item
     })
   }
-  
+
+
+  if (max) {
+    data.courses = data.courses.filter((item, idx) => idx < max)
+    data.professions =data.professions.filter((item, idx) => idx < max)
+    favouritePrograms = favouritePrograms.slice(0,max)
+  }
   return (
     <section
       className={cn({

@@ -2,9 +2,15 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-// .container
+.container
+  position: relative
+  z-index: 5
 //   @include m.media(laptop, desktop)
 //     @include m.gap($pt: f.px(111))
+
+.content
+  border-radius: f.px(35)
+  background: #6F01C6
 
 .title
   @include m.media(phone, tablet)
@@ -18,44 +24,110 @@
   font-weight: 500
   @include m.dye(c, c.$theta)
 
-.reason
-  @include m.media(phone, tablet)
-    @include m.flex
-  @include m.gap($mb: f.px(15))
-  @include m.media(laptop, desktop)
-    @include m.flex($ai: center)
-    max-width: 50%
-    @include m.gap($mr: f.px(15))
+.points
+  z-index: 1
+  flex-basis: 50%
+  @include m.gap($mtb: f.px(22))
+  
+    
 
-.icon
+.img
   @include m.media(phone, tablet)
-    @include m.gap($mr: f.px(23))
-  @include m.media(laptop, desktop)
-    @include m.gap($mr: f.px(44))
+    display: none
+  position: relative
+  flex-basis: 50%
+  // @include m.gap($ml: f.px(33))
 
-.text
+.sofa
+  position: absolute
+  bottom: 0
+  z-index: 1
+  width: f.px(700)
+  // left: 10px
+.women
+  position: absolute
+  z-index: 2
+  bottom: 0
+  width: f.px(600)
+.wrapItem
+  border-radius: f.px(29)
+  background: #F9F0FF
+  height: f.px(160)
+  @include m.gap($mtb: f.px(4), $mlr: f.px(33), $pl: f.px(41))
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(8))
+    @include m.gap($mlr: f.px(15), $plr: f.px(21))
+  &:nth-of-type(3)
+    & > *
+      max-width: f.px(300)
+    // max-width: 200px
 
-.subTitle
-  @include m.gap($mb: f.px(9))
+.pointTitle
+  font-size: f.px(28)
+  font-weight: 500
+  @include m.gap($pt: f.px(37), $pb: f.px(9), $mb: f.px(0))
+  @include m.media(laptop)
+    @include m.gap($pt: f.px(17))
   @include m.media(phone, tablet)
     font-size: f.px(20)
-  @include m.media(laptop, desktop)
-    max-width: 14ch
-    font-size: f.px(28)
-    overflow-wrap: break-word
-  @media screen and ( max-width: 900px )
-    max-width: 10ch
-  font-weight: 500
-  @include m.dye(c, c.$theta)
+    @include m.gap($pt: f.px(20))
 
-.p
-  @include m.gap($mb: f.px(0))
-  max-width: 27ch
-  @include m.media(phone, tablet)
-    font-size: f.px(15)
-  @include m.media(laptop, desktop)
-    font-size: f.px(18)
+.decs
+  font-size: f.px(18)
+  color: #1A1A1A
   font-weight: 300
-  @include m.dye(c, c.$theta)
+  line-height: 120%
+  @include m.gap($mb: f.px(0), $pb: f.px(6))
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+
+.subdesc
+  font-size: f.px(10)
+  font-weight: 200
+  line-height: 120%
+  color: #1A1A1A
+  @include m.media(phone, tablet)
+
+  // @include m.gap($pb: f.px(12))
+
+
+// .reason
+//   @include m.media(phone, tablet)
+//     @include m.flex
+//   @include m.gap($mb: f.px(15))
+//   @include m.media(laptop, desktop)
+//     @include m.flex($ai: center)
+//     max-width: 50%
+//     @include m.gap($mr: f.px(15))
+
+// .icon
+//   @include m.media(phone, tablet)
+//     @include m.gap($mr: f.px(23))
+//   @include m.media(laptop, desktop)
+//     @include m.gap($mr: f.px(44))
+
+// .text
+//   @include m.media(phone, tablet)
+//     @include m.gap($pt: f.px(8))
+
+// .subTitle
+//   @include m.gap($mb: f.px(9))
+//   @include m.media(phone, tablet)
+//     font-size: f.px(20)
+//   @include m.media(laptop, desktop)
+//     max-width: 14ch
+//     font-size: f.px(28)
+//     overflow-wrap: break-word
+//   @media screen and ( max-width: 900px )
+//     max-width: 10ch
+//   font-weight: 500
+//   @include m.dye(c, c.$theta)
+
+// .p
+//   @include m.gap($mb: f.px(0))
+//   max-width: 27ch
+//   @include m.media(phone, tablet)
+//     font-size: f.px(15)
+//   @include m.media(laptop, desktop)
+//     font-size: f.px(18)
+//   font-weight: 300
+//   @include m.dye(c, c.$theta)

@@ -61,7 +61,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
       />
       <SeoOrganizationJsonLd />
       <Hero />
-      <Programs withTitle withBtn max={8} />
+      {/* <Programs withTitle withBtn max={8} /> */}
       <WhyBother />
       <About />
       <HowProcessGoes />

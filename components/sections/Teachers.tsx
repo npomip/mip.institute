@@ -19,9 +19,10 @@ import {
 type TeacherProps ={
   teachersRef?: React.RefObject<HTMLElement | null>
   teachersFromMain?: TypeLibTeachers
+  title: string
 }
 
-const Teachers = ({teachersRef, teachersFromMain}: TeacherProps) => {
+const Teachers = ({teachersRef, teachersFromMain, title}: TeacherProps) => {
   const { program, reviews } = useContext(ContextStaticProps)
   console.log(program)
 // console.log(reviews)
@@ -85,7 +86,7 @@ const Teachers = ({teachersRef, teachersFromMain}: TeacherProps) => {
   return (
     <section ref={teachersRef} className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Преподаватели программы</h2>
+        <h2 className={stls.title}>{title}</h2>
         <p className={stls.desc}>
           Преподают ведущие практикующие психологи и психоаналитики России{' '}
           <span className={stls.highlight}>с опытом от 7 до 25 лет</span>

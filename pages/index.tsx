@@ -90,7 +90,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
-      <Teachers teachersFromMain={teachersFromMain} />
+      <Teachers title={'Преподаватели – наставники'} teachersFromMain={teachersFromMain} />
       <YourDiploma ofType='profession'/>
       <Reviews reviews={reviewsSorted} />
       <CreateApplication />

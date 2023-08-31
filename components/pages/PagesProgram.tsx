@@ -92,7 +92,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
-      <Teachers teachersRef={teachersRef} />
+      <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'course' && <YourResume />}
       <RequestsCard />
       <Cta

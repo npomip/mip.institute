@@ -5,15 +5,19 @@
 
 
 .container
-  position: relative
+  @include m.dye(bg, c.$alpha)
+  
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(35))
   @include m.media(laptop, desktop)
     overflow: visible
     @include m.gap($pt: f.px(65, em), $pb: f.px(55))
-
+.content
+  max-width: f.px(1400)
+  position: relative
 .bg
-  position: absolute
+  z-index: 0
+  // position: absolute
   top: 0
   right: 0
   @include m.media(phone, tablet)
@@ -30,12 +34,13 @@
 .title
   position: relative
   @include m.media(phone, tablet)
-    max-width: 10ch
+    font-size: f.px(36)
+    max-width: f.px(500)
     @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
     max-width: 13ch
-    @include m.gap($mb: f.px(37))
-  font-size: f.px(55)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(64)
   font-weight: 500
   line-height: 110%
   z-index: 1
@@ -43,15 +48,19 @@
 .desc
   position: relative
   @include m.media(phone, tablet)
+    color: #EAEAEA
+    font-weight: 350
     max-width: 33ch
+    line-height: 130%
     @include m.gap($mb: f.px(35))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
     max-width: 35ch
     font-size: f.px(20)
+    font-weight: 300
   @include m.gap($mb: f.px(30))
   font-family: Stem, sans-serif
-  font-weight: 300
+  
   line-height: 130%
   z-index: 1
 
@@ -66,6 +75,8 @@
     @include m.flex($fb: 55%)
   @include m.media(laptop)
     @include m.flex($fb: 45%)
+  @include m.media(phone, tablet)
+      display: none
   & > *
     width: 100%
     & > *
@@ -100,32 +111,61 @@
       
 
 .left
+  position: relative
+  z-index: 2
   @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(260))
     min-width: f.px(570)
     @include m.gap($mt: f.px(55))
 
 .right
   @include m.media(laptop, desktop)
     position: relative
-    @include m.gap($pb: f.px(315))
-
+    // @include m.gap($pb: f.px(315))
+    display: flex
+    align-items: flex-start
+  @include m.media(phone, tablet)
+    height: f.px(400)
+    // display: flex
+    align-items: flex-end
+    justify-content: stretch
 .img
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(51))
-  @include m.media(laptop, desktop)
     position: absolute
-    top: f.px(-16)
+    // top: f.px(0)
+    right: 0
+    transform: translate(5%, f.px(-145))
+    right: 0
+    width: f.px(380)
+    height: f.px(477)
+    position: absolute
+    // top: f.px(-76)
+    z-index: 1
+  @include m.media(laptop, desktop)
+    transform: translate(23%, f.px(-95))
+    right: 0
+    width: f.px(594)
+    height: f.px(677)
+    position: absolute
+    // top: f.px(-76)
     z-index: 1
   @include m.media(desktop)
-    right: f.px(105)
+    // right: f.px(-37)
   @include m.media(laptop)
     // right: f.px(-119)
 
 .prosList
   @include m.media(phone, tablet)
-    transform: translateY(f.px(-25))
+    transform: translateY(f.px(-13))
   @include m.media(laptop, desktop)
-    transform: translate(-81%, f.px(390))
+    // display: block
+    // position: initial
+    z-index: 15
+    left: 0
+    right: 0
+    position: absolute
+    // top: 500px
+    transform: translate(0%, f.px(-235))
 
 .hiddenGem
   animation: rotating 6s linear infinite
@@ -139,3 +179,15 @@
 
   100%
     transform: translateX(54%) rotate(360deg)
+
+
+.mobileBtns
+  z-index: 100
+  margin-top: f.px(230)
+  @include m.media(laptop, desktop)
+    display: none
+
+.mobileBtn
+  position: relative
+  z-index: 100
+  margin-bottom: f.px(17)

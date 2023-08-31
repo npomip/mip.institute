@@ -1,8 +1,12 @@
 import stls from '@/styles/components/icons/IconPrevButton.module.sass'
+import classNames from 'classnames'
 
-const IconPrevButton = () => {
+const IconPrevButton = ({fourtyPx=false}) => {
   return (
-    <span className={stls.container}>
+    <span className={classNames({
+      [stls.container]: true,
+      [stls.fourtyPx]: fourtyPx
+    })}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='45'
@@ -18,26 +22,26 @@ const IconPrevButton = () => {
           strokeWidth='1.17647'
         />
         <line
-          x1='0.765625'
+          x1='2.765625'
           y1='23.06743'
-          x2='22.5303'
+          x2='24.5303'
           y2='23.06743'
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />
         <line
-          x1='0.577034'
+          x1='1.577034'
           y1='23.10474'
-          x2='7.69242'
+          x2='8.69242'
           y2='20.17487'
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />
         <line
           y1='-0.495315'
-          x2='7.69499'
+          x2='6.69499'
           y2='-0.495315'
-          transform='matrix(-0.924678 -0.38075 -0.38075 0.924678 7.875 26.49243)'
+          transform='matrix(-0.924678 -0.48075 -0.48075 0.924678 7.875 26.49243)'
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />

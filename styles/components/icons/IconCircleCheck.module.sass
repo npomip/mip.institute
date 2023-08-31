@@ -47,6 +47,21 @@
       stroke-width: f.px(0.8)
     & rect
       @include m.dye(stroke, #6F01C6)
+  
+  &.onMain
+    @include m.sizeIcon($w: 45, $h: 45)
+    border-radius: 50%
+    @include m.dye(bg, #ffffff)
+    & path
+      @include m.dye(stroke, #6F01C6)
+      stroke-width: f.px(0.8)
+      @include m.media(phone, tablet)
+        stroke-width: f.px(0.5)
+    & rect
+      stroke-width: f.px(0.8)
+      @include m.media(phone, tablet)
+        stroke-width: f.px(0.5)
+      @include m.dye(stroke, #6F01C6)
 
   // & path, & rect
   //   @include m.dye(stroke, c.$beta)

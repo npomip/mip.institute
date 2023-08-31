@@ -18,6 +18,7 @@ const RequestsYouWillFace = ({ title, description }) => {
         <p>{title}</p>
       </div>
       <div className={stls.back}>
+        <IconCheck />
         <p>{description}</p>
       </div>
     </div>

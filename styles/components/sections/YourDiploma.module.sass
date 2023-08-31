@@ -9,6 +9,7 @@
     @include m.gap($pb: f.px(100))
 
 .title
+  display: inline-block
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
@@ -17,6 +18,23 @@
     font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
+
+.tag
+  height: 100%
+  display: inline-block
+  position: relative
+  @include m.gap( $mb: f.px(20))
+  align-self: center
+  & > *
+    position: absolute
+    @include m.media(laptop, desktop)
+      top: f.px(-10)
+      left: f.px(25)
+      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
+    @include m.media(phone, tablet)
+      @include m.gap($plr: f.px(18), $ptb: f.px(5), $mb:f.px(10))
+      top: f.px(-35)
+      left: f.px(-297)
 
 .subtitleContainer
   position: relative

@@ -4,9 +4,13 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(91)) 
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(65)) 
   & > *
     @include m.media(laptop, desktop)
-      @include m.flex
+      // @include m.flex
     @media screen and (min-width: bp.$tablet) and ( max-width:  990px)
       @include m.flex($display: false, $fd: column)
 

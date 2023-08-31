@@ -24,13 +24,14 @@ import License from '../imgs/legal/License'
 import IconRusLicense from '../icons/IconRusLicense'
 import { IconAtom } from '../icons'
 import LicensePopUp from './LicensePopUp'
+import TagOrange from '../general/TagOrange'
 
 type YourDiplomaType = {
   ofType: 'course' | 'profession'
-  diplomaRef: RefObject<HTMLElement>
+  diplomaRef?: React.RefObject<HTMLElement | null>
 }
 
-const YourDiploma = ({ ofType = null, diplomaRef }: YourDiplomaType) => {
+const YourDiploma = ({ ofType = null, diplomaRef = null }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ContextStaticProps)
@@ -127,6 +128,11 @@ const YourDiploma = ({ ofType = null, diplomaRef }: YourDiplomaType) => {
     <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Ваши будущие дипломы</h2>
+        <div className={stls.tag}>
+          <TagOrange>
+            Образование
+          </TagOrange>
+        </div>
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.subtitleContainer}>

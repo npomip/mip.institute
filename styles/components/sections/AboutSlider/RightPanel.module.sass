@@ -1,0 +1,63 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/utils/mixin/media' as bp
+
+  
+.right-panel
+  position: relative
+  // flex: 1
+  flex-basis: 50%
+  flex-shrink: 0
+  transform: translateX(0)
+  transition:  transform 0.5s ease
+  // width: f.px(891)
+  // height: f.px(555)
+  @include m.media(laptop)
+    flex-basis: 40%
+  @include m.media(phone, tablet)
+    flex-basis: 20%
+    // transform: translateX(f.px(100))
+  // & > *
+  //   border-radius: f.px(35)
+  //   width: f.px(891)
+  //   height: f.px(595)
+
+
+.slide-out 
+  // opacity: 0
+  transition:  transform 0.5s ease
+  transform: translateX(100%)
+  
+
+
+.slide-in 
+  // background: red
+  border-radius: 40px
+  // opacity: 1
+  transition:  transform 0.5s ease
+  transform: translateX(0)
+
+.img
+  position: absolute
+  @include m.media(desktop)
+  height: f.px(575)
+  width: f.px(567)
+  overflow: hidden
+  @include m.media(laptop)
+    height: f.px(575)
+    width: f.px(560)
+  @include m.media(tablet)
+    height: f.px(375)
+    width: f.px(355)
+  @include m.media(phone)
+    height: f.px(375)
+    width: f.px(367)
+  & > *
+    border-radius: f.px(40)
+    @include m.media(phone, tablet)
+      border-radius: f.px(11)
+  // @include m.media(laptop)
+    // height: f.px(585)
+    // width: f.px(580)
+  // transform: translateX(f.px(100))

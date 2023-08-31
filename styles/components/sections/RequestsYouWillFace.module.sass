@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .section
+  // background: #F0F0F0
   @include m.media(phone, tablet)
     @include m.gap( $pb: f.px(10))
   @include m.media(desktop, laptop)
@@ -10,8 +11,6 @@
 .content
   border: 2px solid black
   height: 300px
-  // @include m.media(phone, tablet)
-  //   height: 400px
   display: flex
   flex-wrap: wrap
   justify-content: space-around
@@ -61,11 +60,9 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(18), $pb: f.px(10))
     width: f.px(350)
-  // backface-visibility: hidden
 
   &.flipped
     transform: rotateY(180deg)
-    // backface-visibility: hidden
 
   .front, .back
     border-radius: 25px
@@ -74,18 +71,16 @@
     width: 100%
     height: 100%
     display: flex
-    
     align-items: center
-    // backface-visibility: hidden
+    line-height: f.px(14)
 
   .front
-    
-    // z-index: 2
     padding-left: f.px(20)
-    font-size: 18px
+    font-size: f.px(18)
     background: #FBF4FF
     backface-visibility: hidden
     & p
+      font-size: f.px(18)
       color: #1A1A1A
       font-weight: 350
       margin: 0
@@ -95,8 +90,13 @@
 
   .back
     justify-content: center
-    background: #e9cef8
-    font-size: 12px
+    background: #FBF4FF
+    padding-left: f.px(20)
+    font-weight: 350
+    font-size: f.px(18)
     transform: rotateY(180deg)
     // z-index: 3
     backface-visibility: hidden
+    & p
+      font-size: f.px(10)
+      padding-left: f.px(30)

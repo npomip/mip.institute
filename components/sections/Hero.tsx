@@ -6,6 +6,8 @@ import ProsList from '@/components/general/ProsList'
 import { IconAtom } from '@/components/icons'
 import { ImgLadyStudying } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
+import HandsOnMain from '../imgs/general/HandsOnMain'
+import FullWrapper from '../layout/FullWrapper'
 
 const Hero = () => {
   let hiddenGemCount = 0
@@ -25,6 +27,7 @@ const Hero = () => {
     <section className={stls.container}>
       <div className={stls.bg}></div>
       <Wrapper>
+      <div className={stls.content}>
         <div className={stls.icon} onClick={e => hiddenGem(e)}>
           <IconAtom regular crho />
         </div>
@@ -32,8 +35,7 @@ const Hero = () => {
           <div className={stls.left}>
             <h1 className={stls.title}>Онлайн-институт психологии</h1>
             <h2 className={stls.desc}>
-              Освойте востребованную профессию психолога или повысьте
-              квалификацию вместе с нами
+            Освойте востребованную профессию психолога или повысьте квалификацию вместе с МИП
             </h2>
             <div className={stls.btns}>
               <div className={stls.btn}>
@@ -45,17 +47,30 @@ const Hero = () => {
             </div>
           </div>
           <div className={stls.right}>
-            <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
+            {/* <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
               <IconAtom large cnu slightlyVisible />
-            </div>
+            </div> */}
             <div className={stls.img}>
-              <ImgLadyStudying />
+              <HandsOnMain />
             </div>
-            <div className={stls.prosList}>
-              <ProsList />
+            <div className={stls.mobileBtns}>
+
+            <div className={stls.mobileBtn}>
+
+            
+            <PopupTrigger btn='alpha' cta='signUpForCourse' />
+            </div>
+            <div className={stls.mobileBtn}>
+            <PopupTrigger btn='beta' cta='askQuestion' />
+            </div>
             </div>
           </div>
+          
         </TwoColumns>
+        <div className={stls.prosList}>
+              <ProsList />
+            </div>
+            </div>
       </Wrapper>
     </section>
   )

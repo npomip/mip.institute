@@ -9,7 +9,7 @@ const ProsList = () => {
         {pros.map((pro, idx) => (
           <li key={`${pro}-${idx}`} className={stls.pro}>
             <div className={stls.icon}>
-              <IconCircleCheck />
+              <IconCircleCheck onMain />
             </div>
             <span className={stls.text}>{pro}</span>
           </li>

@@ -3,6 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  z-index: 2
+  position: relative
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(30), $ptb: f.px(30))
   @include m.media(laptop, desktop)

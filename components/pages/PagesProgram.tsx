@@ -22,9 +22,11 @@ import {
   PageNavigation,
   Reviews,
 } from '@/components/sections'
+import list from '@/data/general/list'
 import { discount } from '@/data/price'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
 import styles from '@/styles/pages/PagesProgram.module.sass'
+import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import { TypeLibReviews } from '@/types/index'
 import { useEffect, useRef } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
@@ -63,6 +65,15 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
 
+  const subtitle = 
+    <>
+      <p className={stls.leftTitle}>
+        Обучение осуществляется по заочной форме с применением
+        дистанционных<span className={stls.star}>*</span> технологий. Лекции, общение, тестирование проходят
+        в онлайн формате через образовательную платформу
+      </p>
+    </>
+
   return (
     <>
     <ButtonToTop />
@@ -77,7 +88,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       {programOverview && <ProgramOverview />}
       <WhatYouWillLearn  />
       <ForWhom />
-      <HowProcessGoes processRef={processRef} />
+      <HowProcessGoes processRef={processRef} list={list} subtitle={subtitle} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />

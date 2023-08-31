@@ -2,7 +2,10 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 .container
-  @include m.gap($mb: f.px(0), $pb: f.px(0))
+  @include m.gap($pb: f.px(91))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(30))
+
   background: #FDFDFD
 .title
   @include m.media(phone, tablet)
@@ -29,9 +32,9 @@
 .teachers
   position: relative
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(50, em))
+    // @include m.gap($mb: f.px(50, em))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
+    // @include m.gap($mb: f.px(30))
     height: 200px
     & > *
       height: 200px

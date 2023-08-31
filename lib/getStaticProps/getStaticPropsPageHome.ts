@@ -29,6 +29,20 @@ const getStaticPropsPageHome = async ({
             idx
           }
         }
+        teachers {
+          id
+          name
+          achievements
+          specialization
+          portrait {
+            url
+            width
+            height
+          }
+          index_number {
+            idx
+          }
+        }
         reviews {
           id
           name

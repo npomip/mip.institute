@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/Cta.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { ImgCta1 } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
+import CtaWrapper from '../layout/CtaWrapper'
 
 type CtaType = {
   title: string
@@ -23,7 +24,7 @@ type CtaType = {
 const Cta = ({ title = null, desc = null, cta }: CtaType) => {
   return (
     <section className={stls.container}>
-      <Wrapper>
+      <CtaWrapper>
         <div className={stls.img}>
           <ImgCta1 />
         </div>
@@ -34,7 +35,7 @@ const Cta = ({ title = null, desc = null, cta }: CtaType) => {
         <div className={stls.btn}>
           <PopupTrigger btn='alpha' cta={cta} />
         </div>
-      </Wrapper>
+      </CtaWrapper>
     </section>
   )
 }

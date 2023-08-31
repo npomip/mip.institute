@@ -86,7 +86,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       costRef={costRef}
       reviewsRef={reviewsRef}/>
       {programOverview && <ProgramOverview />}
-      <WhatYouWillLearn  />
+      <WhatYouWillLearn title={'Чему вы научитесь'}  />
       <ForWhom />
       <HowProcessGoes processRef={processRef} list={list} subtitle={subtitle} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />

@@ -20,16 +20,19 @@ import {
   Hero,
   WhatYouWillLearn,
   Teachers,
-  YourDiploma
+  YourDiploma,
+  Faq
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import mainList from '@/data/general/mainList'
 import CommonAboutSlider from '@/components/sections/AboutSlider/CommonAboutSlider'
+import CreateApplication from '@/components/sections/CreateApplication'
 
-const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
+const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) => {
   useHandleContextStaticProps({ programs })
 
-  console.log(programs)
+  console.log(teachers)
+  const teachersFromMain = teachers
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -86,10 +89,12 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
-      <WhatYouWillLearn onMain />
-      <Teachers />
+      <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
+      <Teachers teachersFromMain={teachersFromMain} />
       <YourDiploma ofType='profession'/>
       <Reviews reviews={reviewsSorted} />
+      <CreateApplication />
+      <Faq />
     </>
   )
 }

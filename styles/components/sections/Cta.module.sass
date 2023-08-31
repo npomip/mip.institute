@@ -4,12 +4,15 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
+  // max-width: 1170px
+  @include m.gap($pb: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(15))
   @include m.media(laptop, desktop)
-    @include m.gap($plr: f.px(15))
+    // @include m.gap($plr: f.px(15))
     overflow: visible
   & > *
+    // @include m.gap($mlr: f.px(15))
     @include m.media(phone, tablet)
       @include m.gap($ptb: f.px(50), $plr: f.px(25))
       border-radius: f.px(50) 0
@@ -26,6 +29,12 @@
     @media screen and (min-width: bp.$tablet) and (max-width: 920px)
       @include m.flex($jc: space-between)
   
+// .content
+//   display: flex
+//   width: f.px(1170)
+//   @include m.gap($plr: f.px(15))
+  // max-width: f.px(1170)
+  // flex-direction: 
 
 .img
   @include m.media(phone, tablet)
@@ -42,11 +51,11 @@
 
 .text
   @include m.media(laptop)
-    @include m.flex($display: false, $fb: 60%)
-    @include m.gap($ml: 30%)
+    @include m.flex($display: false, $fb: 40%)
+    @include m.gap($ml: 35%)
   @include m.media(desktop)
     @include m.flex($display: false, $fb: 50%)
-    @include m.gap($ml: 20%)
+    @include m.gap($ml: 25%)
   @media screen and (min-width: bp.$tablet) and (max-width: 920px)
     @include m.gap($ml: f.px(0))
 
@@ -59,7 +68,7 @@
     @include m.gap($mb: f.px(20), $mr: f.px(84))
     font-size: f.px(44)
   @include m.media(desktop)
-    @include m.gap($mb: f.px(20), $mr: f.px(70))
+    @include m.gap($mb: f.px(20), $mr: f.px(10))
     font-size: f.px(44)
   font-weight: 500
   @media screen and (min-width: bp.$tablet) and (max-width: 920px)
@@ -88,7 +97,8 @@
       & > *
         width: 100%
   @include m.media(laptop)
-    @include m.flex($display: false, $fb: 40%)
+    @include m.flex($display: false, $fb: 31%)
+    @include m.gap($mr: f.px(30))
   @include m.media(desktop)
-    @include m.flex($display: false, $fb: 30%)
+    @include m.flex($display: false, $fb: 23%)
   

@@ -8,7 +8,7 @@ import marked from 'marked'
 import IconLearnLine from '../icons/IconLearnLine'
 import TagOrange from '../general/TagOrange'
 
-const WhatYouWillLearn = ({onMain=false}) => {
+const WhatYouWillLearn = ({onMain=false, title}) => {
   const { program } = useContext(ContextStaticProps)
   let list =
     program?.WhatYouWillLearn?.length > 0 &&
@@ -24,7 +24,7 @@ const WhatYouWillLearn = ({onMain=false}) => {
         <div className={stls.block}>
 
         {/* {points} */}
-        <h2 className={stls.title}>Чему вы научитесь</h2>
+        <h2 className={stls.title}>{title}</h2>
         {onMain && (
         <div className={stls.tag}>
           <TagOrange >

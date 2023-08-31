@@ -7,7 +7,7 @@
   z-index: 2
 .container
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(30), $pb: f.px(20))
+    @include m.gap($pt: f.px(30), $pb: f.px(43))
   @include m.media(laptop, desktop)
     @include m.gap($pt: f.px(90), $pb: f.px(100))
   @include m.dye(bg, #FFF)
@@ -15,6 +15,7 @@
 .title
   display: inline-block
   z-index: 2
+  white-space: nowrap
   position: inherit
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(20))
@@ -92,4 +93,4 @@
     @include m.media(phone, tablet)
       @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
       top: f.px(-30)
-      left: f.px(-235)
+      left: f.px(-339)

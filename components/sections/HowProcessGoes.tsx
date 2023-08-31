@@ -18,7 +18,6 @@ type ProcessType = {
 }
 
 const HowProcessGoes = ({processRef, list, subtitle, onMain=false}: ProcessType) => {
-  console.log(subtitle)
   return (
     <section ref={processRef} className={stls.container}>
       <Wrapper>

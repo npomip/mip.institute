@@ -2,7 +2,7 @@ import { TypeLibProgram } from '@/types/index'
 import { FC } from 'react'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { routes, company, themeColor } from '@/config/index'
+import { routes, company, themeColor, dev } from '@/config/index'
 import { AdditionalRobotsProps } from 'next-seo/lib/types'
 
 type TSeoPagesProgram = {
@@ -87,8 +87,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
         description={seoParams.desc}
         canonical={seoParams.canonical}
         themeColor={themeColor}
-        nofollow={isNofollow}
-        noindex={isNoindex}
+        nofollow={dev ? true : isNofollow}
+        noindex={dev ? true : isNoindex}
         {...((parsedMetaRobots && { robotsProps: parsedMetaRobots }) || {})}
         openGraph={{
           url: seoParams.canonical,
@@ -119,3 +119,4 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 }
 
 export default SeoPagesProgram
+

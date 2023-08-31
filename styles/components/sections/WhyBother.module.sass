@@ -14,24 +14,27 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(22))
-    font-size: f.px(26)
+    @include m.gap($mb: f.px(22), $mt: f.px(30))
+    font-size: f.px(30)
   @include m.media(laptop, desktop)
-    @include m.gap($mlr: auto, $mb: f.px(24))
-    transform: translateX(f.px(-114))
+    @include m.gap($mt: f.px(60))
+    // transform: translateX(f.px(-114))
     font-size: f.px(44)
-  max-width: 18ch
+  // max-width: 18ch
   font-weight: 500
   @include m.dye(c, c.$theta)
 
 .points
   z-index: 1
   flex-basis: 50%
-  @include m.gap($mtb: f.px(22))
+  @include m.gap($mb: f.px(22), $mt: f.px(22))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(0))
   
     
 
 .img
+  @include m.gap($mt: f.px(36))
   @include m.media(phone, tablet)
     display: none
   position: relative
@@ -50,18 +53,23 @@
   bottom: 0
   width: f.px(600)
 .wrapItem
+  
   border-radius: f.px(29)
   background: #F9F0FF
   height: f.px(160)
   @include m.gap($mtb: f.px(4), $mlr: f.px(33), $pl: f.px(41))
   @include m.media(phone, tablet)
+    height: auto
+    min-height: f.px(103)
+    max-height: fit-content
     @include m.gap($mlr: f.px(15), $plr: f.px(21))
-  &:nth-of-type(3)
+  &:nth-of-type(4)
     & > *
       max-width: f.px(300)
     // max-width: 200px
 
 .pointTitle
+  white-space: nowrap
   font-size: f.px(28)
   font-weight: 500
   @include m.gap($pt: f.px(37), $pb: f.px(9), $mb: f.px(0))
@@ -86,7 +94,43 @@
   line-height: 120%
   color: #1A1A1A
   @include m.media(phone, tablet)
+    color: #565350
+    @include m.gap($pb: f.px(14), $mb:f.px(0))
 
+.tagOne
+  // background: red
+  & > *
+    @include m.gap($plr: f.px(42), $ptb: f.px(8), $ml: f.px(52), $mr: f.px(12))
+  display: inline
+
+
+.tagTwo
+  display: inline
+  & > *
+    @include m.gap($plr: f.px(16), $ptb: f.px(8))
+
+.mobileTags
+  @include m.gap($pl: f.px(17), $mtb: f.px(26))
+  @include m.media(laptop, desktop)
+    display: none
+
+.tagOneMobile
+  display: inline
+  & > *
+    @include m.gap($plr: f.px(25), $ptb: f.px(10), $mr: f.px(13))
+
+
+
+.tagTwoMobile
+  display: inline
+  & > *
+    @include m.gap($plr: f.px(16), $ptb: f.px(10))
+
+.portal
+  position: absolute
+  bottom: f.px(350)
+  left: f.px(450)
+  width: 100%
   // @include m.gap($pb: f.px(12))
 
 

@@ -3,11 +3,14 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  
   & > *
     position: relative
+    // z-index: 13
   @include m.media(phone, tablet)
     // display: flex
-    z-index: 1
+    position: relative
+    z-index: 3
     overflow: hidden
     padding-top: f.px(16)
     
@@ -44,6 +47,8 @@
     @include m.flex($as: start)
 
 .title
+  position: relative
+  z-index: 1
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(36)

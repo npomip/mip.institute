@@ -16,8 +16,13 @@ import {
   ImgTeacher4
 } from '@/components/imgs'
 
-const Teachers = ({teachersRef}) => {
+type TeacherProps ={
+  teachersRef?: React.RefObject<HTMLElement | null>
+}
+
+const Teachers = ({teachersRef}: TeacherProps) => {
   const { program, reviews } = useContext(ContextStaticProps)
+  console.log(program)
 // console.log(reviews)
   // const teachers: TypeLibTeachers =
   //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []

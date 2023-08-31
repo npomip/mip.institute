@@ -3,6 +3,8 @@ import Wrapper from '@/components/layout/Wrapper'
 import AboutLeaf from '@/components/general/AboutLeaf'
 import ProsCircle from '@/components/general/ProsCircle'
 import classNames from 'classnames'
+import CommonAboutSlider from './AboutSlider/CommonAboutSlider'
+import AboutList from './AboutList'
 
 type AboutType = {
   standalone?: boolean
@@ -16,13 +18,14 @@ const About = ({ standalone = false }: AboutType) => {
         [stls.standalone]: standalone
       })}>
       <Wrapper>
-        
-        <div className={stls.leaf}>
+        <CommonAboutSlider />
+        <AboutList />
+        {/* <div className={stls.leaf}>
           <AboutLeaf />
         </div>
         <div className={stls.circle}>
           <ProsCircle />
-        </div>
+        </div> */}
       </Wrapper>
     </section>
   )

@@ -2,6 +2,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { TypePageHomeProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
+import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import {
   sortBasedOnNumericOrder,
   sortReviewsCreatedAtASC
@@ -16,12 +17,19 @@ import {
   Cta,
   Reviews,
   Programs,
-  Hero
+  Hero,
+  WhatYouWillLearn,
+  Teachers,
+  YourDiploma
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import mainList from '@/data/general/mainList'
+import CommonAboutSlider from '@/components/sections/AboutSlider/CommonAboutSlider'
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
   useHandleContextStaticProps({ programs })
+
+  console.log(programs)
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -36,6 +44,13 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
     ),
     canonical: routes.front.root
   }
+
+  const subtitle = 
+    <>
+      <p className={stls.leftTitle}>
+      Обучение в МИП осуществляется по заочной форме с применением дистанционных<span className={stls.star}>*</span> технологий. Лекции, общение, тестирование проходят в онлайн-формате через образовательную платформу. Вы получите научную базу по главным психологическим дисциплинам и практический опыт в работе с задачами по реальным кейсам. Узнаете, как терапия помогает решить внутриличностные проблемы и выйти из стрессовых ситуаций без потерь. 
+      </p>
+    </>
 
   return (
     <>
@@ -63,13 +78,17 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
       <Hero />
       {/* <Programs withTitle withBtn max={8} /> */}
       <WhyBother />
+      {/* <CommonAboutSlider /> */}
       <About />
-      <HowProcessGoes />
+      <HowProcessGoes onMain subtitle={subtitle} list={mainList} />
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
+      <WhatYouWillLearn onMain />
+      <Teachers />
+      <YourDiploma ofType='profession'/>
       <Reviews reviews={reviewsSorted} />
     </>
   )

@@ -25,9 +25,11 @@
   @include m.dye(c, c.$theta)
 
 .points
-  z-index: 1
+  // overflow: hidden
+  position: relative
+  z-index: 2
   flex-basis: 50%
-  @include m.gap($mb: f.px(22), $mt: f.px(22))
+  @include m.gap($mb: f.px(0), $mt: f.px(22))
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(0))
   
@@ -53,7 +55,8 @@
   bottom: 0
   width: f.px(600)
 .wrapItem
-  
+  position: relative
+  z-index: 2
   border-radius: f.px(29)
   background: #F9F0FF
   height: f.px(160)
@@ -62,10 +65,13 @@
     height: auto
     min-height: f.px(103)
     max-height: fit-content
-    @include m.gap($mlr: f.px(15), $plr: f.px(21))
+    @include m.gap($mlr: f.px(15), $pl: f.px(11))
   &:nth-of-type(4)
     & > *
       max-width: f.px(300)
+  &:nth-of-type(5)
+    margin-bottom: f.px(22)
+    
     // max-width: 200px
 
 .pointTitle
@@ -133,45 +139,46 @@
   width: 100%
   // @include m.gap($pb: f.px(12))
 
+.portals
+  position: relative
+  width: 100%
+.smallOne
+  position: absolute
+  bottom: f.px(-70)
+  right: f.px(100)
+  @include m.media(phone, tablet)
+    display: none
+.smallTwo
+  position: absolute
+  bottom: f.px(-290)
+  right: f.px(460)
+  @include m.media(phone, tablet)
+    display: none
 
-// .reason
-//   @include m.media(phone, tablet)
-//     @include m.flex
-//   @include m.gap($mb: f.px(15))
-//   @include m.media(laptop, desktop)
-//     @include m.flex($ai: center)
-//     max-width: 50%
-//     @include m.gap($mr: f.px(15))
+.medium
+  position: absolute
+  bottom: f.px(-60)
+  right: f.px(490)
+  @include m.media(phone, tablet)
+    display: none
+.big
+  position: absolute
+  bottom: f.px(-300)
+  right: f.px(40)
+  transform: rotate(25deg)
+  @include m.media(phone, tablet)
+    display: none
 
-// .icon
-//   @include m.media(phone, tablet)
-//     @include m.gap($mr: f.px(23))
-//   @include m.media(laptop, desktop)
-//     @include m.gap($mr: f.px(44))
-
-// .text
-//   @include m.media(phone, tablet)
-//     @include m.gap($pt: f.px(8))
-
-// .subTitle
-//   @include m.gap($mb: f.px(9))
-//   @include m.media(phone, tablet)
-//     font-size: f.px(20)
-//   @include m.media(laptop, desktop)
-//     max-width: 14ch
-//     font-size: f.px(28)
-//     overflow-wrap: break-word
-//   @media screen and ( max-width: 900px )
-//     max-width: 10ch
-//   font-weight: 500
-//   @include m.dye(c, c.$theta)
-
-// .p
-//   @include m.gap($mb: f.px(0))
-//   max-width: 27ch
-//   @include m.media(phone, tablet)
-//     font-size: f.px(15)
-//   @include m.media(laptop, desktop)
-//     font-size: f.px(18)
-//   font-weight: 300
-//   @include m.dye(c, c.$theta)
+.verticalArrow
+  position: absolute
+  top: -2px
+  z-index: 1
+  right: f.px(0)
+  // display: flex
+  // align-self: stretch
+  height: 100%
+  @include m.media(tablet)
+    right: f.px(-6)
+  @include m.media(laptop, desktop)
+    display: none
+  // height: 100%

@@ -31,8 +31,20 @@ import CreateApplication from '@/components/sections/CreateApplication'
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) => {
   useHandleContextStaticProps({ programs })
 
-  console.log(teachers)
-  const teachersFromMain = teachers
+  // console.log(teachers)
+  const teachersFromMain = teachers.filter(teacher => {
+    const allowedNames = [
+      'Гиль Людмила Владимировна',
+      'Шавырина Анна Алексеевна',
+      'Перемолотова Ирина Александровна',
+      'Катасонова Юлия Викторовна',
+      'Круглушина Олеся Александровна',
+      'Юферова Юлия Михайловна'
+    ];
+  
+    return allowedNames.includes(teacher.name);
+  });
+  console.log(teachersFromMain)
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -90,8 +102,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
-      <Teachers title={'Преподаватели – наставники'} teachersFromMain={teachersFromMain} />
-      <YourDiploma ofType='profession'/>
+      <Teachers onMain title={'Преподаватели – наставники'} teachersFromMain={teachersFromMain} />
+      <YourDiploma onMain ofType='profession'/>
       <Reviews reviews={reviewsSorted} />
       <CreateApplication />
       <Faq />

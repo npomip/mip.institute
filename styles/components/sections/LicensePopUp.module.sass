@@ -51,27 +51,28 @@
   position: absolute
   
   @include m.media(phone, tablet)
-    top: 40%
+    top: -90%
   @include m.media(laptop, desktop)
-    top: 50%
+    transform: translateY(-30%)
   z-index: 1
 
 .iconAtom
   position: absolute
   @include m.media(laptop, desktop)
-    top: 30%
+    top: -220%
     left: -20%
     transform: scale(1.2)
   @include m.media(phone, tablet)
-    top: 28%
-    left: -15%
-    transform: scale(1.5)
+    height: 100%
+    top: -280%
+    left: -65%
+    // transform: scale(1)
   mix-blend-mode: soft-light
 
 
 .license
   // flex-shrink: 
-  height: 250px
+  height: f.px(250)
   @include m.media(phone, tablet)
     height: 150px
   width: 100%
@@ -83,7 +84,7 @@
   
 
 .leftLicense
-  // width: 100%
+  position: relative
   flex-basis: 60%
   // text-align: center
 .rightLicense
@@ -102,9 +103,14 @@
 
 .loupe
   position: absolute
-  top: 55%
+  // top: 69%
+  @include m.media(laptop, desktop)
+    transform: translate(f.px(-15), f.px(-145))
   @include m.media(phone, tablet)
-    scale: 0.7
-    top: 48%
+    scale: 0.6
+    // top: 68%
+    // transform: translateY(f.px(5))
+    transform: translate(f.px(-15), f.px(-245))
+    // left: 45%
   //   fill: red
   //   background: red

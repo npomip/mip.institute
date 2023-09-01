@@ -1,11 +1,12 @@
 import stls from '@/styles/components/icons/IconPrevButton.module.sass'
 import classNames from 'classnames'
 
-const IconPrevButton = ({fourtyPx=false}) => {
+const IconPrevButton = ({fourtyPx=false, fourtyPxViolet=false}) => {
   return (
     <span className={classNames({
       [stls.container]: true,
-      [stls.fourtyPx]: fourtyPx
+      [stls.fourtyPx]: fourtyPx,
+      [stls.fourtyPxViolet]: fourtyPxViolet
     })}>
       <svg
         xmlns='http://www.w3.org/2000/svg'

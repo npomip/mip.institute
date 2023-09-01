@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
-import { RefObject, useContext } from 'react'
+import { RefObject, useContext, useState } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routes } from '@/config/index'
@@ -29,12 +29,14 @@ import TagOrange from '../general/TagOrange'
 type YourDiplomaType = {
   ofType: 'course' | 'profession'
   diplomaRef?: React.RefObject<HTMLElement | null>
+  onMain?: boolean
 }
 
-const YourDiploma = ({ ofType = null, diplomaRef = null }: YourDiplomaType) => {
+const YourDiploma = ({ ofType = null, diplomaRef = null, onMain=false }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ContextStaticProps)
+
 
   ofType === 'profession' &&
     slides.push(
@@ -76,6 +78,8 @@ const YourDiploma = ({ ofType = null, diplomaRef = null }: YourDiplomaType) => {
         <ImgSupplement key='supplement' />
       </div>
     )
+
+
 
   ofType === 'course' &&
     slides.push(
@@ -124,6 +128,19 @@ const YourDiploma = ({ ofType = null, diplomaRef = null }: YourDiplomaType) => {
     spaceBetween: 30
   }
 
+  const [cut, setCut] = useState(184)
+  const [showFullText, setShowFullText] = useState(false)
+
+  const cutHandler = () => {
+    setShowFullText(!showFullText)
+    if (!showFullText) {
+      setCut(500)
+    } else {
+      setCut(184)
+    }
+  }
+  const subtitleMain = 'Все наши программы лицензированы, а дипломы имеют международные приложения, поэтому они ценятся клиентами и профессиональным психологическим сообществом как в России, так и за рубежом! По окончании программ профессиональной переподготовки и курсов повышения квалификации выпускники института получают официальный документ установленного образца, который вносится в реестр ФРДО, а в дополнение — сертификат Московского Института Психологии в формате А4'
+
   return (
     <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
@@ -136,11 +153,18 @@ const YourDiploma = ({ ofType = null, diplomaRef = null }: YourDiplomaType) => {
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.subtitleContainer}>
-              <p className={stls.subtitle}>
-                Все наши программы лицензированы Департаментом образования
-                города Москвы, поэтому дипломы ценятся как клиентами, так и
-                профессиональным сообществом!
-              </p>
+              {onMain && (
+                <>
+                <p className={stls.mainSubtitle}>{subtitleMain.slice(0,cut)}</p>
+                {!showFullText && <span className={stls.threePoints}>...</span>}
+                <p onClick={cutHandler} className={stls.moreText}>
+                  {showFullText ? 'Скрыть описание' : 'Читать далее'}
+                </p>
+                </>
+              )}
+              {!onMain && (<p className={stls.subtitle}>
+                Все наши программы лицензированы, а дипломы имеют международные приложения, поэтому они ценятся клиентами и профессиональным психологическим сообществом как в России, так и за рубежом!
+              </p>)}
               {/* <div className={stls.cont}></div> */}
               <div className={stls.btn}>
                 <LicensePopUp />

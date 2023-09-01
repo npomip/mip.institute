@@ -15,7 +15,7 @@
   height: f.px(200)
   @include m.media(phone, tablet)
     min-width: f.px(115)
-    max-width: f.px(115)
+    max-width: f.px(195)
     height: f.px(128)
     border-radius: f.px(14)
   border-radius: f.px(23)
@@ -36,11 +36,18 @@
       color: #333
       max-width: 150px
       @include m.media(phone, tablet)
-        max-width: 90px
+        max-width: 95px
     
   &:nth-child(2)
-    background-image: url('/assets/imgs/general/teacher.png')
+    background: url('/assets/imgs/general/lection.png')
+    background-position: center center
     background-size: cover
+    // background-attachment: fixed
+    // object-fit: cover
+    // width: 300px
+    // height: fit-content
+    // height: fit
+    background-repeat: no-repeat
 
 .title
   font-size: f.px(32)

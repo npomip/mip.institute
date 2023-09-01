@@ -46,17 +46,39 @@
 .btn
   width: 100%
 
-.subtitle
+.subtitle, .mainSubtitle
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(42))
+    @include m.gap($mb: f.px(54))
     font-size: f.px(20)
+  @include m.media(laptop)
+    @include m.gap($mb: f.px(39))
   color: #131313
   font-weight: 300
   line-height: 130%
   @include m.dye(c, c.$theta)
+
+.mainSubtitle
+  display: inline
+  @include m.gap($mb: f.px(4))
+
+.moreText
+  position: relative
+  z-index: 2
+  @include m.gap($mb: f.px(31))
+  @include m.media(laptop)
+    @include m.gap($mb: f.px(18))
+
+  font-size: f.px(20)
+  font-weight: 700
+  color: #F87E1B
+  text-decoration-line: underline
+  text-underline-offset: f.px(4)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb: f.px(15))
 
 .content
   @include m.media(laptop, desktop)
@@ -78,7 +100,8 @@
 .diploma
   & > *
     display: flex
-    max-width: max-content
+    height: f.px(192)
+    // max-width: max-content
     border: f.px(1) solid
     @include m.dye(border, rgba(c.$kappa, .2))
     border-radius: f.px(15)
@@ -86,20 +109,29 @@
       border-radius: f.px(15)
 
 .supplement
+  
   & > *
-    max-width: f.px(291)
+    // max-width: f.px(291)
+    height: f.px(390)
+    width: f.px(270)
+    @include m.media(phone, tablet)
+      height: f.px(385)
+      width: f.px(270)
 
 .slidesContainer 
   margin-top: f.px(10)
   display: grid
   grid-template-columns: repeat(2, 1fr)
-  row-gap: 5px
+  row-gap: f.px(15)
   column-gap: 20px
   @include m.media(phone, tablet)
-    row-gap: 10px
+    row-gap: f.px(10)
+    column-gap: f.px(10)
+  @include m.media(phone)
+    row-gap: f.px(30)
     column-gap: f.px(10)
   @include m.media(laptop)
-    row-gap: 15px
+    row-gap: f.px(26)
     column-gap: f.px(10)
   justify-items: stretch
   flex-shrink: 0

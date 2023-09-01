@@ -8,6 +8,7 @@ import { ImgLadyStudying } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import HandsOnMain from '../imgs/general/HandsOnMain'
 import FullWrapper from '../layout/FullWrapper'
+import IconGratefullPortal from '../icons/IconGratefullPortal'
 
 const Hero = () => {
   let hiddenGemCount = 0
@@ -28,9 +29,9 @@ const Hero = () => {
       <div className={stls.bg}></div>
       <Wrapper>
       <div className={stls.content}>
-        <div className={stls.icon} onClick={e => hiddenGem(e)}>
+        {/* <div className={stls.icon} onClick={e => hiddenGem(e)}>
           <IconAtom regular crho />
-        </div>
+        </div> */}
         <TwoColumns>
           <div className={stls.left}>
             <h1 className={stls.title}>Онлайн-институт психологии</h1>
@@ -52,6 +53,29 @@ const Hero = () => {
             </div> */}
             <div className={stls.img}>
               <HandsOnMain />
+            </div>
+            <div className={stls.portals}>
+              <div className={stls.smallOne}>
+                <IconGratefullPortal thirtyPx />
+              </div>
+              <div className={stls.pointShadow}>
+
+              </div>
+              <div className={stls.smallTwo}>
+                <IconGratefullPortal thirtyPx/>
+              </div>
+              <div className={stls.xsmallOne}>
+                <IconGratefullPortal xsmall/>
+              </div>
+              <div className={stls.xsmallTwo}>
+                <IconGratefullPortal xsmall/>
+              </div>
+              <div className={stls.medium}>
+                <IconGratefullPortal fiftyPx/>
+              </div>
+              <div className={stls.big}>
+                <IconGratefullPortal medium />
+              </div>
             </div>
             <div className={stls.mobileBtns}>
 

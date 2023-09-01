@@ -12,6 +12,7 @@ import Sofa from '../imgs/general/Sofa'
 import TagWhite from '../general/TagWhite'
 import TagOrange from '../general/TagOrange'
 import IconGratefullPortal from '../icons/IconGratefullPortal'
+import IconVerticalArrow from '../icons/IconVerticalArrow'
 
 const WhyBother = () => {
   const points=[{title:'Востребованность', desc:'С начала 2023 года ТАСС зафиксировал рост обращений к психологам на 15%'},{title:'Экологичная профессия', desc:'Психолог — тот человек, который несет пользу окружающим, помогает справиться с психологическими проблемами и кризисами '},{title:'Удаленный график', desc:'Можно работать дистанционно из любой точки мира '},{title:'Высокий доход', desc:'Средняя зарплата наших выпускников 80 000 р.* ', subdesc:<>*Средняя стоимость консультации выпускников МИП — 3 000 р./час <br /> Занятость — 1-2 часа в будние дни <br /> Доход — 60 000-120 000 р./месяц</>}]
@@ -39,8 +40,22 @@ const WhyBother = () => {
             <div className={stls.women}>
               <WomenOnWhy />
             </div>
-            <div className={stls.portal}>
+            {/* <div className={stls.portal}>
               <IconGratefullPortal />
+            </div> */}
+            <div className={stls.portals}>
+              <div className={stls.smallOne}>
+                <IconGratefullPortal thirtyPx />
+              </div>
+              <div className={stls.smallTwo}>
+                <IconGratefullPortal thirtyPx/>
+              </div>
+              <div className={stls.medium}>
+                <IconGratefullPortal fiftyPx/>
+              </div>
+              <div className={stls.big}>
+                <IconGratefullPortal  />
+              </div>
             </div>
             <div className={stls.sofa}>
               <Sofa />
@@ -69,6 +84,10 @@ const WhyBother = () => {
                 {el?.subdesc && <p className={stls.subdesc}>{el.subdesc}</p>}
               </div>
             ))}
+            <div className={stls.verticalArrow}>
+            <IconVerticalArrow />
+            </div>
+            
           </div>
         </TwoColumns>
         {/* <TwoColumns>

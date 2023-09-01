@@ -49,7 +49,6 @@
     color: white
 .iconRus
   position: absolute
-  
   @include m.media(phone, tablet)
     top: -90%
   @include m.media(laptop, desktop)
@@ -70,8 +69,7 @@
   mix-blend-mode: soft-light
 
 
-.license
-  // flex-shrink: 
+.license, .cuttedLicense
   height: f.px(250)
   @include m.media(phone, tablet)
     height: 150px
@@ -81,6 +79,12 @@
   display: flex
   justify-content: space-between
   align-items: center
+  transform-origin: 20px
+  transition: transform 0.2s ease
+
+.cuttedLicense
+  // transform: rotateX(90deg)
+  height: f.px(120)
   
 
 .leftLicense
@@ -97,6 +101,7 @@
 
 .card
   position: relative
+  
   @include m.media(phone, tablet)
     scale: 0.75
   // margin-left: 50px

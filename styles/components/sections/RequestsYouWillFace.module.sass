@@ -85,13 +85,14 @@
       font-size: f.px(18)
       color: #1A1A1A
       font-weight: 350
+      line-height: 120%
       margin: 0
       padding-left: f.px(30)
       @include m.media(phone, tablet)
         font-size: f.px(15)
 
   .back
-    justify-content: center
+    // justify-content: center
     background: #FBF4FF
     padding-left: f.px(20)
     font-weight: 350
@@ -100,5 +101,11 @@
     // z-index: 3
     backface-visibility: hidden
     & p
+      max-width: f.px(298)
       font-size: f.px(10)
+      line-height: 130%
       padding-left: f.px(30)
+      @include m.media(laptop)
+        max-width: f.px(248)
+      @include m.media(phone, tablet) 
+        max-width: f.px(258)

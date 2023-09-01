@@ -9,14 +9,14 @@ import { PopupImage } from '../popups'
 import ImgLicence from '../imgs/legal/ImgLicence'
 import License from '../imgs/legal/License'
 
-const LicensePopUp = () => {
+const LicensePopUp = ({showFullText=false}) => {
   return (
     <div className={stls.btn}>
     <Popup
       trigger={
         <button className={stls.trig}>
           {/* <span className={stls.img}> */}
-          <div className={stls.license}>
+          <div className={!showFullText ? stls.license : stls.cuttedLicense}>
             <div className={stls.leftLicense}>
               <span className={stls.licenseTitle}>
                 Образовательная

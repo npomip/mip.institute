@@ -9,7 +9,11 @@
   border-radius: f.px(36)
   color: white
   @include m.gap($pb: f.px(85), $pl: f.px(71), $pr: f.px(58))
+  @include m.media(laptop)
+    @include m.gap($pb: f.px(78))
   @include m.media(phone, tablet)
+    max-height: f.px(355)
+    min-height: f.px(355)
     @include m.gap($pb: f.px(54), $pl: f.px(24), $pr: f.px(17))
     border-radius: f.px(20)
   .first, .second

@@ -24,7 +24,7 @@ type CtaType = {
 const Cta = ({ title = null, desc = null, cta }: CtaType) => {
   return (
     <section className={stls.container}>
-      <CtaWrapper>
+      <Wrapper>
         <div className={stls.img}>
           <ImgCta1 />
         </div>
@@ -35,7 +35,7 @@ const Cta = ({ title = null, desc = null, cta }: CtaType) => {
         <div className={stls.btn}>
           <PopupTrigger btn='alpha' cta={cta} />
         </div>
-      </CtaWrapper>
+      </Wrapper>
     </section>
   )
 }

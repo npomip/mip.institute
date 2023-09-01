@@ -40,23 +40,29 @@
 
 .img
   position: absolute
+  // width: 100%
+  // height: auto
+  // object-fit: cover
   @include m.media(desktop)
-  height: f.px(575)
-  width: f.px(567)
-  overflow: hidden
+    height: f.px(575)
+    width: f.px(567)
+    overflow: hidden
   @include m.media(laptop)
     height: f.px(575)
     width: f.px(560)
   @include m.media(tablet)
-    height: f.px(375)
-    width: f.px(355)
+    height: 45vh
+    width: 47vh
   @include m.media(phone)
     height: f.px(375)
-    width: f.px(367)
+    width: f.px(350)
   & > *
+    object-fit: cover
     border-radius: f.px(40)
     @include m.media(phone, tablet)
       border-radius: f.px(11)
+    & > *
+      object-fit: cover
   // @include m.media(laptop)
     // height: f.px(585)
     // width: f.px(580)

@@ -14,6 +14,9 @@
     @media screen and (min-width: bp.$tablet) and ( max-width:  990px)
       @include m.flex($display: false, $fd: column)
 
+    @include m.media(phone, tablet)
+      @include m.gap($plr: f.px(0))
+
 .standalone
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(38))

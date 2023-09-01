@@ -5,8 +5,11 @@
 .container
   position: relative
   z-index: 5
-//   @include m.media(laptop, desktop)
-//     @include m.gap($pt: f.px(111))
+  & > *
+    @include m.media(phone, tablet)
+      @include m.gap($plr: f.px(0))
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(79))
 
 .content
   border-radius: f.px(35)
@@ -14,10 +17,11 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(22), $mt: f.px(30))
+    @include m.gap($mb: f.px(22), $mt: f.px(30), $pl: f.px(15))
+    line-height: 110%
     font-size: f.px(30)
   @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(60))
+    @include m.gap($mt: f.px(60),$mb: f.px(30))
     // transform: translateX(f.px(-114))
     font-size: f.px(44)
   // max-width: 18ch
@@ -29,14 +33,14 @@
   position: relative
   z-index: 2
   flex-basis: 50%
-  @include m.gap($mb: f.px(0), $mt: f.px(22))
+  @include m.gap($mb: f.px(0), $mt: f.px(29))
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(0))
   
     
 
 .img
-  @include m.gap($mt: f.px(36))
+  @include m.gap($mt: f.px(29))
   @include m.media(phone, tablet)
     display: none
   position: relative
@@ -45,7 +49,7 @@
 
 .sofa
   position: absolute
-  bottom: 0
+  bottom: -1px
   z-index: 1
   width: f.px(700)
   // left: 10px
@@ -66,11 +70,13 @@
     min-height: f.px(103)
     max-height: fit-content
     @include m.gap($mlr: f.px(15), $pl: f.px(11))
+  &:nth-of-type(2)
+    @include m.gap($mt: f.px(0))
   &:nth-of-type(4)
     & > *
       max-width: f.px(300)
   &:nth-of-type(5)
-    margin-bottom: f.px(22)
+    margin-bottom: f.px(31)
     
     // max-width: 200px
 

@@ -43,9 +43,14 @@ const WhatYouWillLearn = ({onMain=false, title}) => {
               </li>
             ))}
         </ul>
-        <div className={stls.learnIcon}>
-          <IconLearnLine />
-        </div>
+        {onMain ? (
+          <div className={stls.learnIconMain}>
+            <IconLearnLine />
+          </div>
+        ):(
+          <div className={stls.learnIcon}>
+            <IconLearnLine />
+          </div>)}
         </div>
       </Wrapper>
     </section>

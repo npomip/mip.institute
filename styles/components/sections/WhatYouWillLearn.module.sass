@@ -9,7 +9,7 @@
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(30), $pb: f.px(43))
   @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(90), $pb: f.px(100))
+    @include m.gap($ptb: f.px(90))
   @include m.dye(bg, #FFF)
 
 .title
@@ -66,7 +66,7 @@
     font-size: f.px(16)
     font-weight: 300
 
-.learnIcon
+.learnIcon, .learnIconMain
   position: absolute
   z-index: 0
   // overflow: hidden
@@ -76,6 +76,13 @@
   @include m.media(phone, tablet)
     z-index: 0
     top: f.px(-105)
+
+.learnIconMain
+  top: f.px(-155)
+  right: f.px(-156)
+  transform: rotate(-35deg)
+  @include m.media(phone, tablet)
+    display: none
 
 .tag
   z-index: 2

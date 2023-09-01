@@ -8,7 +8,7 @@
   @include m.dye(bg, c.$alpha)
   
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(35))
+    @include m.gap($pb: f.px(25))
   @include m.media(laptop, desktop)
     overflow: visible
     @include m.gap($pt: f.px(65, em), $pb: f.px(55))
@@ -36,7 +36,7 @@
   @include m.media(phone, tablet)
     font-size: f.px(36)
     max-width: f.px(500)
-    @include m.gap($mb: f.px(10))
+    @include m.gap($mb: f.px(15))
   @include m.media(laptop, desktop)
     max-width: 13ch
     @include m.gap($mb: f.px(20))

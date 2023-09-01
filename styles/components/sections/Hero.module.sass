@@ -87,27 +87,27 @@
     @include m.media(laptop, desktop)
       @include m.gap($mr: f.px(24))
 
-.icon
-  @include m.media(phone, tablet)
-    position: absolute
-    top: 0
-    right: 0
-    transform: translateX(54%)
-  @include m.media(laptop, desktop)
-    display: none
+// .icon
+//   @include m.media(phone, tablet)
+//     position: absolute
+//     top: 0
+//     right: 0
+//     transform: translateX(54%)
+//   @include m.media(laptop, desktop)
+//     display: none
 
-.iconDesktop
-  @include m.media(phone, tablet)
-    display: none
-  @include m.media(laptop, desktop)
-    position: absolute
-    bottom: f.px(130)
-    right: f.px(180)
-    z-index: 1
-  @media screen and (min-width: bp.$tablet) and (max-width: 850px)
-    bottom: f.px(400)
-    right: f.px(270)
-    transform: rotate(10deg)
+// .iconDesktop
+//   @include m.media(phone, tablet)
+//     display: none
+//   @include m.media(laptop, desktop)
+//     position: absolute
+//     bottom: f.px(130)
+//     right: f.px(180)
+//     z-index: 1
+//   @media screen and (min-width: bp.$tablet) and (max-width: 850px)
+//     bottom: f.px(400)
+//     right: f.px(270)
+//     transform: rotate(10deg)
       
 
 .left
@@ -167,18 +167,18 @@
     // top: 500px
     transform: translate(0%, f.px(-235))
 
-.hiddenGem
-  animation: rotating 6s linear infinite
+// .hiddenGem
+//   animation: rotating 6s linear infinite
 
-@keyframes rotating
-  0%
-    transform: translateX(54%) rotate(0deg)
+// @keyframes rotating
+//   0%
+//     transform: translateX(54%) rotate(0deg)
 
-  50%
-    transform: translateX(0%) rotate(180deg)
+//   50%
+//     transform: translateX(0%) rotate(180deg)
 
-  100%
-    transform: translateX(54%) rotate(360deg)
+//   100%
+//     transform: translateX(54%) rotate(360deg)
 
 
 .mobileBtns
@@ -191,3 +191,59 @@
   position: relative
   z-index: 100
   margin-bottom: f.px(17)
+
+.portals
+  position: relative
+
+
+.smallOne
+  position: absolute
+  bottom: f.px(-60)
+  right: f.px(300)
+  @include m.media(phone, tablet)
+    bottom: f.px(-10)
+    right: f.px(250)
+.smallTwo
+  position: absolute
+  bottom: f.px(-80)
+  right: f.px(60)
+  @include m.media(phone, tablet)
+    display: none
+.xsmallOne
+  position: absolute
+  bottom: f.px(-120)
+  right: f.px(-80)
+  @include m.media(phone, tablet)
+    bottom: f.px(-200)
+    right: f.px(280)
+
+.xsmallTwo
+  position: absolute
+  bottom: f.px(-350)
+  right: f.px(10)
+  @include m.media(phone, tablet)
+    bottom: f.px(30)
+    right: f.px(10)
+
+.pointShadow
+  width: f.px(1)
+  height: f.px(1)
+  box-shadow: rgba(182, 210, 244, 0.2) 10px 17px 149px 170px
+  position: absolute
+  bottom: f.px(-150)
+  right: f.px(180)
+.medium
+  // box-shadow: rgba(182, 210, 244, 0.2) 10px 17px 149px 170px
+  position: absolute
+  bottom: f.px(-150)
+  right: f.px(180)
+  @include m.media(phone, tablet)
+    bottom: f.px(-200)
+    right: f.px(40)
+.big
+  position: absolute
+  bottom: f.px(-200)
+  right: f.px(390)
+  transform: rotate(25deg)
+  @include m.media(phone, tablet)
+    display: none

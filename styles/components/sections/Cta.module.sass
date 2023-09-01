@@ -7,7 +7,7 @@
   // max-width: 1170px
   @include m.gap($pb: f.px(0))
   @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(15))
+    @include m.gap($plr: f.px(15), $mb: f.px(30))
   @include m.media(laptop, desktop)
     // @include m.gap($plr: f.px(15))
     overflow: visible
@@ -23,7 +23,7 @@
     @include m.media(laptop)
       @include m.gap($ptb: f.px(43), $plr: f.px(50))
     @include m.media(desktop)
-      @include m.gap($ptb: f.px(43), $plr: f.px(100))
+      @include m.gap($ptb: f.px(64), $plr: f.px(100))
     @include m.dye(bg, c.$alpha)
     @include m.dye(c, c.$nu)
     @media screen and (min-width: bp.$tablet) and (max-width: 920px)
@@ -87,7 +87,10 @@
     max-width: 34ch
     @include m.gap($mb: 0)
     font-size: f.px(20)
-  font-weight: 300
+  font-family: Stem
+  font-weight: 400
+  font-style: normal
+  color: #FFF
   line-height: 130%
 
 .btn

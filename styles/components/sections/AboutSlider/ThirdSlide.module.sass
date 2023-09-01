@@ -5,19 +5,22 @@
 
 .container
   max-height: f.px(595)
-  background: #6F01C6
+  background: #F9F0FF
   border-radius: f.px(36)
-  color: white
-  @include m.gap($pb: f.px(85), $pl: f.px(71), $pr: f.px(58))
+  color: #131313
+  @include m.gap($pb: f.px(114), $pl: f.px(71), $pr: f.px(58))
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(54), $pl: f.px(24), $pr: f.px(17))
+    @include m.gap($pb: f.px(50), $pl: f.px(24), $pr: f.px(17))
     border-radius: f.px(20)
-  .first, .second
+  .first
+    @include m.gap($mb: f.px(25), $pt: f.px(60))
     font-size: f.px(20)
     font-weight: 300
     line-height: 130%
     @include m.media(phone, tablet)
       font-size: f.px(12)
+  .bold
+    font-weight: 500
 
 .title
   font-size: f.px(30)
@@ -27,11 +30,9 @@
     font-size: f.px(20)
     @include m.gap($mb: f.px(10), $pt: f.px(20))
 
-.first
-  @include m.gap($mb: f.px(15))
+.img
+  border-radius: 20px
 
-.second
-  @include m.gap($mb: f.px(0))
 
 
 

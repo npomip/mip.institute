@@ -44,7 +44,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
   
     return allowedNames.includes(teacher.name);
   });
-  console.log(teachersFromMain)
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -91,7 +90,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       />
       <SeoOrganizationJsonLd />
       <Hero />
-      {/* <Programs withTitle withBtn max={8} /> */}
+      <Programs withTitle withBtn max={8} />
       <WhyBother />
       {/* <CommonAboutSlider /> */}
       <About />

@@ -25,7 +25,7 @@ const LicensePopUp = ({showFullText=false}) => {
                 
               </span>
               <span className={stls.edu}>
-                №041221
+                №041363
                 </span>
               <div className={stls.iconRus}>
                 <IconRusLicense />

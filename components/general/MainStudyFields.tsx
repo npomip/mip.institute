@@ -1,37 +1,39 @@
 import stls from '@/styles/components/general/MainStudyFields.module.sass'
-import { Fragment } from 'react'
+import { Fragment, useContext, useEffect } from 'react'
 import cn from 'classnames'
 import { routes } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
 import { BtnField } from '@/components/btns'
+import { useRouter } from 'next/router'
 
 type StudyFieldsType = {
-  aside?: boolean
   ofType?: 'course' | 'profession' | null
   close?: any
-  flexend?: boolean
-  smallText?: boolean
+  setCurrentType?: (type: string) => void;
+  currentType?: string
 }
 
 const MainStudyFields = ({
-  aside = false,
-  ofType = null,
+  setCurrentType,
   close = null,
-  flexend = false,
-  smallText
+  currentType
 }: StudyFieldsType) => {
-  const list = [{id:1, label: 'Дополнительное образование', href: routes.front.programs}, {id:1, label: 'Профессиональная переподготовка', href: routes.front.professions}, {id:1, label: 'Повышение квалификации', href: routes.front.courses}]
+  const list = [{id:1, label: 'Дополнительное образование', href: routes.front.programs, programType: 'null'}, {id:1, label: 'Профессиональная переподготовка', href: routes.front.professions, programType: 'profession'}, {id:1, label: 'Повышение квалификации', href: routes.front.courses, programType: 'course'}]
 
   return (
     <ul
       className={stls.wrapper}>
-      {list.map(({ label, href }, idx) => (
+      {list.map(({ label, programType }, idx) => (
         <Fragment key={idx}>
-          <li className={stls.studyField} onClick={close && close}>
-            <BtnField
-              href={href} mainFields>
+          <li className={cn({
+              [stls.studyField]: true,
+              [stls.active]: currentType === programType
+            })}  onClick={close && close }>
+            {/* <BtnField */}
+            <p onClick={()=> setCurrentType(programType)} className={stls.mainFields}>
               {label}
-            </BtnField>
+              </p>
+            {/* </BtnField> */}
           </li>
         </Fragment>
       ))}

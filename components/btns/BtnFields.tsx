@@ -1,16 +1,20 @@
 import stls from '@/styles/components/btns/BtnFields.module.sass'
-import { IconMenu, IconSearchAlt } from '@/components/icons'
+import { IconMenu } from '@/components/icons'
 import { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { closeFieldsTooltipOnOuterClick } from '@/helpers/index'
 import StudyFields from '@/components/general/StudyFields'
 import Wrapper from '../layout/Wrapper'
-import getProgramsData from '@/lib/data/getProgramsData'
-import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
-import CardTooltip from '../cards/CardTooltip'
-import BtnField from './BtnField'
+// import getProgramsData from '@/lib/data/getProgramsData'
+// import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
+// import CardTooltip from '../cards/CardTooltip'
+// import BtnField from './BtnField'
 import MainStudyFields from '../general/MainStudyFields'
+import { ContextStaticProps } from '@/context/index'
+import { useRouter } from 'next/router'
+import routes from '@/config/routes'
+import StudyFieldsOnMain from '../general/StudyFieldsOnMain'
 
 const BtnFields = () => {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
@@ -20,31 +24,8 @@ const BtnFields = () => {
     closeFieldsTooltipOnOuterClick(closeFieldsTooltip)
   }, [])
 
-  const [searchQuery, setSearchQuery] = useState('')
-  const [filteredPrograms, setFilteredPrograms] = useState([])
-  const [programs, setPrograms] = useState([])
+  const [currentType, setCurrentType] = useState('')
 
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      const allPrograms = await getProgramsData()
-      setPrograms(allPrograms)
-    }
-    fetchPrograms()
-  }, [])
-
-  useEffect(() => {
-    const filtered = programs.filter(program => {
-      const programTitle = convertEnglishToRussian(program.title.toLowerCase())
-      const query = convertEnglishToRussian(searchQuery.toLowerCase())
-      return programTitle.includes(query)
-    })
-    setFilteredPrograms(filtered)
-  }, [programs, searchQuery])
-
-  const clickHandler = () => {
-    setSearchQuery('')
-    closeFieldsTooltip
-  }
 
   return (
     <Wrapper>
@@ -60,8 +41,8 @@ const BtnFields = () => {
             [stls.tooltip]: true,
             [stls.isShown]: fieldsTooltipIsOpen
           })}>
-          <MainStudyFields />
-          <StudyFields orang />
+          <MainStudyFields currentType={currentType} setCurrentType={setCurrentType} />
+          <StudyFieldsOnMain currentType={currentType} ofType={currentType === 'course' ? 'course' : currentType === 'profession' ? 'profession' : null} orang />
         </div>
       </div>
     </Wrapper>

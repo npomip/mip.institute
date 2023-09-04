@@ -54,44 +54,35 @@ const Programs = ({
       studyFieldSlug: curProgramsStudyFieldSlug
     })
 
+    const targetTitles = [
+      "Психолог-консультант",
+      "Психолог-диетолог. Нутрициолог",
+      "Когнитивно-поведенческий психотерапевт",
+      "Практический психолог с доп. квалификацией Психолог-психотерапевт",
+      "Клинический психолог",
+      "Детский психолог",
+      "Психосоматика и телесная психотерапия",
+      "Гештальт-терапевт"
+    ];
+  
+    const rearrangeArray = (professions, targetTitles) => {
+      const resultArray = [];
+      const remainingArray = [];
+    
+      for (const item of professions) {
+        if (targetTitles.includes(item.title)) {
+          resultArray.push(item);
+        } else {
+          remainingArray.push(item);
+        }
+      }
+    
+      return resultArray.concat(remainingArray);
+    };
+
   const data = {
     courses: curProgramsStudyFieldSlug ? coursesFiltered : courses,
-    professions: curProgramsStudyFieldSlug ? professionsFiltered : professions
-  }
-  // const titleToRemove = "Современные методы саморегуляции психологии здоровья"
-  // const filteredCourses = data.courses.filter(course => course.title !== titleToRemove)
-  // console.log(data.courses)
-
-// console.log(filteredCourses)
-  const targetTitles = [
-    "Психолог-консультант",
-    "Психолог-диетолог. Нутрициолог",
-    "Когнитивно-поведенческий психотерапевт",
-    "Практический психолог с доп. квалификацией Психолог-психотерапевт",
-    "Клинический психолог",
-    "Детский психолог",
-    "Психосоматика и телесная психотерапия",
-    "Гештальт-терапевт"
-  ];
-
-  const rearrangeArray = (professions, targetTitles) => {
-    const resultArray = [];
-    const remainingArray = [];
-    for (const item of professions) {
-      if (targetTitles.includes(item.title)) {
-        resultArray.push(item);
-      } else {
-        remainingArray.push(item);
-      }
-    }
-  
-    return resultArray.concat(remainingArray);
-  };
-  let favouritePrograms = rearrangeArray(professions, targetTitles)
-
-  if (max) {
-    data.courses = data.courses.filter((item, idx) => idx < max)
-    favouritePrograms = favouritePrograms.slice(0,max)
+    professions: curProgramsStudyFieldSlug ? professionsFiltered : rearrangeArray(professions, targetTitles)
   }
 
   useEffect(() => {
@@ -105,7 +96,7 @@ const Programs = ({
 
   const filteredProgramsIds = filteredPrograms.map(item => item.id)
 
-  const filteredData = {
+  let filteredData = {
     courses: data.courses.filter(item => {
       let include = false
       filteredProgramsIds.forEach(id => {
@@ -122,7 +113,11 @@ const Programs = ({
     })
   }
 
-  
+
+  if (max) {
+    data.courses = data.courses.filter((item, idx) => idx < max)
+    data.professions =data.professions.filter((item, idx) => idx < max)
+  }
   return (
     <section
       className={cn({
@@ -180,7 +175,7 @@ const Programs = ({
                     biggerTitle={!withTitle}
                     withBtn={withBtn}
                     professions={
-                      searchTerm ? filteredData.professions : favouritePrograms
+                      searchTerm ? filteredData.professions : data.professions
                     }
                     withQty={withQty}
                     threerow={threerow}

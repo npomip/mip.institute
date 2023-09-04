@@ -26,12 +26,10 @@ type TeacherProps ={
 
 const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherProps) => {
   const { program, reviews } = useContext(ContextStaticProps)
-  console.log(program)
 // console.log(reviews)
   // const teachers: TypeLibTeachers =
   //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
   let teachers = program?.teachers
-  console.log(teachersFromMain)
   if(teachersFromMain) {
     teachers = teachersFromMain
   }

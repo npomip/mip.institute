@@ -5,7 +5,7 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import classNames from 'classnames'
 
-const BtnField = ({ href, aside = false, slug = null, children, smallText=false , mainFields=false, orang=false}) => {
+const BtnField = ({ href=null, aside = false, slug = null, children, smallText=false , mainFields=false, orang=false}) => {
   const { closeFieldsTooltip } = useContext(FieldsTooltipContext)
   const { curProgramsStudyFieldSlug } = useContext(ContextStaticProps)
 

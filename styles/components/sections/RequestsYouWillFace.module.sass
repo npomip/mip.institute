@@ -82,6 +82,10 @@
     background: white
     backface-visibility: hidden
     & p
+      @include m.media(desktop)
+        max-width: f.px(288)
+      @include m.media( laptop)
+        max-width: f.px(248)
       font-size: f.px(18)
       color: #1A1A1A
       font-weight: 350

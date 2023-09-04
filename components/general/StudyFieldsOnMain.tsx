@@ -13,41 +13,52 @@ type StudyFieldsType = {
   smallText?: boolean
   onMain?: boolean
   orang?: boolean
+  currentType?: string
 }
 
-const StudyFields = ({
+const StudyFieldsOnMain = ({
   aside = false,
   ofType = null,
   close = null,
   flexend = false,
   orang = false,
   smallText,
-  onMain
+  onMain,
+  currentType
 }: StudyFieldsType) => {
-  const {
-    studyFields,
-    studyFieldsCourses,
-    studyFieldsProfessions,
-    curProgramsType
-  } = useContext(ContextStaticProps)
+  // const {
+  //   studyFields,
+  //   studyFieldsCourses,
+  //   studyFieldsProfessions,
+  //   curProgramsType
+  // } = useContext(ContextStaticProps)
 
-  // console.log(studyFields, 'studyFields')
-  // console.log('studyFieldsCourses', studyFieldsCourses)
-  // console.log(studyFieldsProfessions, 'studyFieldsProfessions')
-  console.log('curProgramsType in Sttudy', curProgramsType)
+  const studyFields = [
+    {label: 'Консультирование',slug: 'konsultirovanie'},
+    {label: 'Детская психология', slug: 'detskaya-psihologiya'},
+    {label: 'Психотерапия', slug: 'psihoterapiya'},
+    {label: 'Общая психология', slug: 'obshaya-psihologiya'},
+    {label: 'Клиническая психология', slug: 'klinicheskaya-psihologiya'},
+    {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
+    {label: 'Диетология и нутрициология', slug: 'dietologiya-i-nutriciologiya'}
+  ]
 
-  if(onMain) {
-
-  }
+  const studyFieldsCourses = [
+    {label: 'Консультирование',slug: 'konsultirovanie'},
+    {label: 'Детская психология', slug: 'detskaya-psihologiya'},
+    {label: 'Психотерапия', slug: 'psihoterapiya'},
+    {label: 'Общая психология', slug: 'obshaya-psihologiya'},
+    {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
+  ]
 
   const list =
     ofType === 'course'
       ? studyFieldsCourses
       : ofType === 'profession'
-      ? studyFieldsProfessions
+      ? studyFields
       : studyFields
       
-console.log(list)
+console.log(studyFieldsCourses, studyFields)
 
   return (
     <ul
@@ -60,31 +71,14 @@ console.log(list)
       })}>
       {list.map(({ label, slug }, idx) => (
         <Fragment key={slug + idx}>
-          {/* {idx === 0 && (
-            <li className={stls.studyField} onClick={close && close}>
-              <BtnField smallText={smallText}
-                href={
-                  aside
-                    ? curProgramsType === 'course'
-                      ? routes.front.courses
-                      : curProgramsType === 'profession'
-                      ? routes.front.professions
-                      : routes.front.programs
-                    : routes.front.programs
-                }
-                aside={aside}>
-                Все направления
-              </BtnField>
-            </li>
-          )} */}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
             smallText={smallText}
             orang={orang}
               href={`${
-                   curProgramsType === 'course'
+                currentType === 'course'
                     ? routes.front.courses
-                    : curProgramsType === 'profession'
+                    : currentType === 'profession'
                     ? routes.front.professions
                     : routes.front.programs
               }/${slug}`}
@@ -99,4 +93,4 @@ console.log(list)
   )
 }
 
-export default StudyFields
+export default StudyFieldsOnMain

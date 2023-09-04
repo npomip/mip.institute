@@ -167,7 +167,7 @@ const YourDiploma = ({ ofType = null, diplomaRef = null, onMain=false }: YourDip
               </p>)}
               {/* <div className={stls.cont}></div> */}
               <div className={stls.btn}>
-                <LicensePopUp />
+                <LicensePopUp showFullText={showFullText} />
               </div>
             </div>
           </div>

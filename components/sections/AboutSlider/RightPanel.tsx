@@ -13,7 +13,7 @@ const RightPanel = ({ imageUrl, slideDirection }) => {
         className={stls.innerImg} 
         // layout="responsive"
         // width={580}
-        // height={575}
+        // height={573}
         src={imageUrl} alt={'divan'} />
       </div>
     </div>

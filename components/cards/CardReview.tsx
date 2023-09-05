@@ -26,7 +26,7 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
   }, [ cut, fullStory, isFull])
   // console.log(title, threePoints, fullStory, cut)
   return (
-    <article className={stls.container}>
+    <div className={stls.container}>
       <div className={stls.upperContainer}>
         <div className={stls.img}>{photo}</div>
       <div className={stls.content}>
@@ -45,7 +45,7 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
         (<p className={stls.moreText} onClick={cutHandler}>Читать полностью</p>)}
         {isFull && cut === story?.length && <p onClick={shortHandler} className={stls.moreText}>Скрыть историю</p>}
       </div>
-    </article>
+    </div>
   )
 }
 

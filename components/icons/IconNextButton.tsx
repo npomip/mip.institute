@@ -31,19 +31,19 @@ const IconNextButton = ({fourtyPx=false, fourtyPxViolet=false}) => {
           strokeWidth='0.990629'
         />
         <line
-          y1='-0.495315'
+          y1='-0.595315'
           x2='7.69499'
-          y2='-0.495315'
+          y2='-0.445315'
           transform='matrix(-0.924678 -0.38075 -0.38075 0.924678 41.7 24)'
           
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />
         <line
-          x1='14.9364'
+          x1='14.8364'
           y1='26.03443'
-          x2='22.0518'
-          y2='23.10456'
+          x2='21.9518'
+          y2='23.18456'
           transform='translate(19.8)'
           stroke='#F87E1B'
           strokeWidth='0.990629'

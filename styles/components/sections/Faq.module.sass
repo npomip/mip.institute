@@ -16,7 +16,7 @@
     @include m.flex($display: false, $fb: 55%)
     @include m.gap($mr: 8%)
   @include m.media(desktop)
-    @include m.flex($display: false, $fb: 45%)
+    @include m.flex($display: false, $fb: 57%)
     @include m.gap($mr: 8%)
 
 .title
@@ -32,6 +32,10 @@
 .phonetablet
   @include m.media(laptop, desktop)
     display: none
+  &>*
+    &>*
+      // @include m.gap($plr: f.px(76))
+      border-radius: f.px(15)
 
 .laptopdesktop
   @include m.media(phone, tablet)
@@ -46,11 +50,12 @@
     font-size: f.px(15)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(50))
-    font-size: f.px(18)
+    font-size: f.px(20)
   font-weight: 300
 
 .btn
   &>*
     &>*
       @include m.gap($plr: f.px(76))
+      border-radius: f.px(15)
       // padding: 10px

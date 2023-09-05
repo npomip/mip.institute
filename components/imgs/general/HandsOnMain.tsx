@@ -12,6 +12,7 @@ const HandsOnMain = ({ width = 594, height = 677 }) => {
         width={width !== 0 && width}
         height={height !== 0 && height}
         placeholder='blur'
+        quality={100}
       />
     </div>
   )

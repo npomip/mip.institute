@@ -130,29 +130,26 @@
     align-items: flex-end
     justify-content: stretch
 .img
-  @include m.media(phone, tablet)
-    position: absolute
-    // top: f.px(0)
+  position: absolute
+  @include m.media(phone)
     right: 0
-    transform: translate(5%, f.px(-145))
-    right: 0
-    width: f.px(380)
-    height: f.px(477)
+    left: 0
+    top: f.px(30)
     position: absolute
-    // top: f.px(-76)
     z-index: 1
   @include m.media(laptop, desktop)
-    transform: translate(20%, f.px(-105))
+    transform: translate(23%, f.px(-100))
     right: 0
     width: f.px(594)
     height: f.px(677)
-    position: absolute
-    // top: f.px(-76)
     z-index: 1
-  @include m.media(desktop)
-    // right: f.px(-37)
   @include m.media(laptop)
-    // right: f.px(-119)
+    transform: translate(20%, f.px(-100))
+  @include m.media(tablet)
+    right: 0
+    transform: translate(5%, f.px(-145))
+    width: f.px(380)
+    height: f.px(477)
 
 .prosList
   @include m.media(phone, tablet)

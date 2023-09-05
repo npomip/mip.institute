@@ -11,7 +11,8 @@ const WomenOnWhy = ({ width = 649, height = 649 }) => {
         className={stls.img}
         width={width !== 0 && width}
         height={height !== 0 && height}
-        placeholder='blur'
+        quality={100}
+        // placeholder='blur'
       />
     </div>
   )

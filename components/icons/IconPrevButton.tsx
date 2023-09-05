@@ -23,26 +23,26 @@ const IconPrevButton = ({fourtyPx=false, fourtyPxViolet=false}) => {
           strokeWidth='1.17647'
         />
         <line
-          x1='2.765625'
+          x1='3.765625'
           y1='23.06743'
-          x2='24.5303'
+          x2='25.5303'
           y2='23.06743'
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />
         <line
-          x1='1.577034'
+          x1='2.577034'
           y1='23.10474'
-          x2='8.69242'
+          x2='9.69242'
           y2='20.17487'
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />
         <line
           y1='-0.495315'
-          x2='6.69499'
+          x2='7.69499'
           y2='-0.495315'
-          transform='matrix(-0.924678 -0.48075 -0.48075 0.924678 7.875 26.49243)'
+          transform='matrix(-0.824678 -0.38075 -0.38075 0.924678 8.875 26.49243)'
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />

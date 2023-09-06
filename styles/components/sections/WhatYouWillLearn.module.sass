@@ -49,22 +49,31 @@
     max-height: f.px(90)
     min-height: f.px(90)
     @include m.flex
-    @include m.gap($mb: f.px(15), $plr: f.px(10), $ptb: f.px(10))
+    @include m.gap($mb: f.px(15), $plr: f.px(35), $ptb: f.px(10))
+    & > *
+        max-width: f.px(420)
+    &:nth-child(5)
+      & > *
+        max-width: f.px(220)
+    &:nth-child(6)
+      & > *
+        max-width: f.px(190)
   @include m.media(laptop, desktop)
     @include m.flex($fb: 31%)
-    @include m.gap($mr: 3%, $mb: f.px(20), $ptb: f.px(15), $plr: f.px(10))
+    @include m.gap($mr: 3%, $mb: f.px(20), $ptb: f.px(15), $plr: f.px(40))
+    &:nth-child(5)
+      @include m.gap($plr: f.px(80))
+    &:nth-child(6)
+      @include m.gap($plr: f.px(80))
     &:nth-child(3n)
       @include m.gap($mr: 0)
 
 .p
-  @include m.media(phone, tablet)
-    @include m.gap($mb: 0)
-    font-size: f.px(15)
-    font-weight: 300
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: 0)
-    font-size: f.px(16)
-    font-weight: 300
+  font-size: f.px(14)
+  font-weight: 350
+  line-height: 130%
+  @include m.gap($mb: 0)
+    
 
 .learnIcon, .learnIconMain
   position: absolute

@@ -29,8 +29,9 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
-import saveUtmsToCookie from '@/components/funcs/utmsToCookie'
+import client from '@/lib/apolloClient'
 import { getCookie, setCookie } from 'cookies-next'
+import { ApolloProvider } from '@apollo/client'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -244,7 +245,9 @@ const MyApp = ({ Component, pageProps, router }) => {
           <FieldsTooltipState>
             <Header />
             <main>
+              <ApolloProvider client={client}>
               <Component {...pageProps} />
+              </ApolloProvider>
             </main>
             <StickyBottom />
             <Footer />

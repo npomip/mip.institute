@@ -28,7 +28,7 @@
     flex-wrap: wrap
 
     & li 
-      margin: 10px 10px
+      @include m.gap($mtb: f.px(10))
       text-decoration: underline
       text-underline-offset: f.px(5)
       &:hover
@@ -54,19 +54,30 @@
           cursor: pointer
 
 .sticky
+  color: white
+  display: flex
+  justify-content: center
+  ul
+    @include m.gap($plr: f.px(15))
+    width: 100%
+    max-width: f.px(1200)
+    // min-width: f.px(768)
+    li
+      p
+        color: white 
   transition: width 1s ease
   position: fixed
   // max-width: 100%
   width: auto
-  @include m.media(desktop)
-    left: 120px
-    right: 120px
-  @include m.media(laptop)
-    left: 20px
-    right: 20px
+  // @include m.media(desktop)
+  left: 0
+  right: 0
+  // @include m.media(laptop)
+  //   left: 20px
+  //   right: 20px
   top: 0
-  border-radius: f.px(25)
-  background: rgba(216, 181, 237, 0.7)
+  border-radius: 0 0 f.px(25) f.px(25)
+  background: #6F01C6
   @include m.media(phone, tablet)
     display: none
 

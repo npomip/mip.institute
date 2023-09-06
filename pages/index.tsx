@@ -103,7 +103,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
       <Teachers onMain title={'Преподаватели – наставники'} teachersFromMain={teachersFromMain} />
       <YourDiploma onMain ofType='profession'/>
-      <Reviews reviews={reviewsSorted} />
+      <Reviews onMain reviews={reviewsSorted} />
       <CreateApplication />
       <Faq />
     </>

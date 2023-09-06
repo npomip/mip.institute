@@ -67,3 +67,21 @@
     font-style: normal
     font-weight: 350
     line-height: 130%
+
+.tag
+  z-index: 2
+  height: 100%
+  display: inline-block
+  position: relative
+  @include m.gap( $mb: f.px(12))
+  align-self: center
+  & > *
+    // position: absolute
+    @include m.media(laptop, desktop)
+      top: -10px
+      left: 25px
+      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
+    @include m.media(phone, tablet)
+      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(0))
+      top: f.px(-30)
+      left: f.px(-295)

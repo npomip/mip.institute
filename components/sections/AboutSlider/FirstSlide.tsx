@@ -13,7 +13,7 @@ const FirstSlide = () => {
         <TagWhite>Онлайн-институт</TagWhite>
       </div>
       <div className={stls.tagOrange}>
-        <TagOrange>О нас</TagOrange>
+        <TagOrange>МИП</TagOrange>
       </div>
       <p className={stls.title}>Об институте</p>
       <p className={stls.first}>Московский Институт Психологии за современный подход в образовании.</p>

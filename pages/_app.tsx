@@ -104,22 +104,12 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [loading, setLoading] = useState(false)
   //cookie for edPartners
   useEffect(() => {
-    // let utms = JSON.parse(sessionStorage.getItem('utms')) || {}
-    // let utmsAreEmpty = false
-
-    // for (const key in utms) {
-    //   if (utms.hasOwnProperty(key)) {
-    //     utmsAreEmpty = true
-    //     break
-    //   }
-    // }
     const utmCookie = getCookie('utm'); 
     let arr 
     if (typeof utmCookie === 'string') {
       arr = JSON.parse(utmCookie)
     }
-    
-    
+
     const previousCookie = arr?.utm_source
 
     if (router.query.utm_source && router.query.utm_source != previousCookie) {
@@ -150,12 +140,6 @@ const MyApp = ({ Component, pageProps, router }) => {
         break
       }
     }
-    // const utmCookie = getCookie('utm'); 
-    // let arr 
-    // if (typeof utmCookie === 'string') {
-    //   arr = JSON.parse(utmCookie)
-    // }
-  
 
     if (!utmsAreEmpty) {
       const urlUtmsArr = router.asPath.split('?')[1]
@@ -165,13 +149,6 @@ const MyApp = ({ Component, pageProps, router }) => {
           utms[utm.split('=')[0]] = utm.split('=')[1]
         })
       sessionStorage.setItem('utms', JSON.stringify(utms))
-
-      // console.log(utmCookie, router.query.utm_source, previousCookie)
-
-      // if((router.query.utm_source && router.query.utm_source != previousCookie)){
-      //   console.log(utmCookie, router.query.utm_source, previousCookie)
-      //   setCookie('utm', JSON.stringify(utms), {maxAge: 7776000})
-      // }
       
     }
 
@@ -251,6 +228,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       </ContextStaticProps.Provider>
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script id='calltouch' src='/assets/js/vendors/calltouchScript.js' />
+      <Script id='botfaq' src='/assets/js/vendors/faq.js' />
     </>
   )
 }

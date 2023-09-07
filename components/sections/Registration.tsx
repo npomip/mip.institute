@@ -3,12 +3,11 @@ import { useRouter } from 'next/router';
 import { useMutation, gql } from '@apollo/client';
 
 const REGISTER_USER = gql`
-  mutation RegisterUser($input: UsersPermissionsLoginInput!) {
-    createUser(input: $input) {
+  mutation RegisterUser($input: UsersPermissionsRegisterInput!) {
+    register(input: $input) {
       jwt
       user {
         id
-        username
       }
     }
   }
@@ -36,17 +35,16 @@ function Register() {
       const { data } = await registerUser({
         variables: {
           input: {
-            data: {
-              username: formData.username,
-              email: formData.email,
-              password: formData.password,
-            },
+            username: formData.username,
+            email: formData.email,
+            password: formData.password,
           },
         },
       });
 
-      console.log('User registered:', data.createUser.user);
-      router.push('/login'); // Перенаправление на страницу подтверждения почты
+      console.log('User registered:', data);
+      // Перенаправление на страницу после успешной регистрации
+      router.push('/login');
     } catch (error) {
       console.error('Registration error:', error);
     }

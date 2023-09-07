@@ -24,7 +24,6 @@ function Login() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log('start', formData)
     setFormData({ ...formData, [name]: value });
   };
 
@@ -32,7 +31,6 @@ function Login() {
     e.preventDefault();
 
     try {
-      console.log('start')
       const { data } = await loginUser({
         
         variables: {

@@ -58,7 +58,6 @@ const StudyFieldsOnMain = ({
       ? studyFields
       : studyFields
       
-console.log(studyFieldsCourses, studyFields)
 
   return (
     <ul

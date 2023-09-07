@@ -44,7 +44,7 @@ function Register() {
 
       console.log('User registered:', data);
       // Перенаправление на страницу после успешной регистрации
-      router.push('/login');
+      // router.push('/login');
     } catch (error) {
       console.error('Registration error:', error);
     }

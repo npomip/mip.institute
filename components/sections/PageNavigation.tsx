@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import stls from '@/styles/components/sections/PageNavigation.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 
-const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef}) => {
+const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef, resumeRef, faqRef}) => {
   const [activeSection, setActiveSection] = useState('')
   const navigationRef = useRef(null)
   const pointRef = useRef(null)
@@ -14,8 +14,10 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
     diploma: diplomaRef,
     plan: planRef,
     teachers: teachersRef,
+    resume: resumeRef,
     cost: costRef,
-    reviews: reviewsRef
+    reviews: reviewsRef,
+    faq: faqRef,
   }
 
   const handleScrollToSection = section => {
@@ -46,6 +48,7 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [stickyNav])
+
 
   return (
     <section className={stls.container}>
@@ -86,6 +89,13 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
             </li>
             <li>
               <p
+                className={activeSection === 'resume' ? stls.active : ''}
+                onClick={() => handleScrollToSection('resume')}>
+                Навыки
+              </p>
+            </li>
+            <li>
+              <p
                 className={activeSection === 'cost' ? stls.active : ''}
                 onClick={() => handleScrollToSection('cost')}>
                 Стоимость
@@ -96,6 +106,13 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
                 className={activeSection === 'reviews' ? stls.active : ''}
                 onClick={() => handleScrollToSection('reviews')}>
                 Отзывы
+              </p>
+            </li>
+            <li>
+              <p
+                className={activeSection === 'faq' ? stls.active : ''}
+                onClick={() => handleScrollToSection('faq')}>
+                FAQ
               </p>
             </li>
           </ul>
@@ -134,6 +151,13 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
             </li>
             <li>
               <p
+                className={activeSection === 'resume' ? stls.active : ''}
+                onClick={() => handleScrollToSection('resume')}>
+                Навыки
+              </p>
+            </li>
+            <li>
+              <p
                 className={activeSection === 'cost' ? stls.active : ''}
                 onClick={() => handleScrollToSection('cost')}>
                 Стоимость
@@ -144,6 +168,13 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
                 className={activeSection === 'reviews' ? stls.active : ''}
                 onClick={() => handleScrollToSection('reviews')}>
                 Отзывы
+              </p>
+            </li>
+            <li>
+              <p
+                className={activeSection === 'faq' ? stls.active : ''}
+                onClick={() => handleScrollToSection('faq')}>
+                FAQ
               </p>
             </li>
           </ul>

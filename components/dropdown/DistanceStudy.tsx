@@ -1,6 +1,7 @@
 import React from 'react'
 import stls from '@/styles/components/dropdownMenu/DistanceStudy.module.sass';
 import classNames from 'classnames';
+import PopupLogin from './PopupLogin';
 
 interface Icon1Props {
   className?: string;
@@ -12,6 +13,7 @@ const DistanceStudy: React.FC<Icon1Props> = ({ className, selected = false }) =>
   return (
     <div className={infoClasses}>
       <div className={stls.wrapper}>
+        {/* <PopupLogin /> */}
         <p>Вход в систему</p>
         <p>дистанционного обучения</p>
         <p>{"НАНО \"МИП\""}</p>

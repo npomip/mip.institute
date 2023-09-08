@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { getListItemsInnerHtml, toNumberWithSpaces } from '@/helpers/index'
 import marked from 'marked'
 
-const YourResume = () => {
+const YourResume = ({resumeRef=null}) => {
   const { program } = useContext(ContextStaticProps)
 
   const list =
@@ -15,7 +15,7 @@ const YourResume = () => {
     getListItemsInnerHtml(marked(program.resumeSkills))
 
   return (
-    <section className={stls.container}>
+    <section ref={resumeRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Ваше резюме после обучения</h2>
         <div className={stls.content}>

@@ -9,7 +9,7 @@ import parse from 'html-react-parser'
 import { convertMdToHtml } from '@/helpers/index'
 import marked from 'marked'
 
-const Faq = () => {
+const Faq = ({faqRef=null}) => {
   const { program } = useContext(ContextStaticProps)
 
   // const topics = getListItemsInnerHtml(questions)
@@ -43,7 +43,7 @@ const Faq = () => {
     }
 
   return (
-    <section className={stls.container}>
+    <section ref={faqRef} className={stls.container}>
       <Wrapper>
         <div className={stls.heading}>
           {' '}

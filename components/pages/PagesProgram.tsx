@@ -1,7 +1,3 @@
-// import { useContext } from 'react'
-// import { NextSeo, CourseJsonLd } from 'next-seo'
-// import truncate from 'truncate'
-// import { routes, company } from '@/config/index'
 import {
   HeroProgram,
   Opportunities,
@@ -50,8 +46,10 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
+  const resumeRef = useRef(null)
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
+  const faqRef = useRef(null)
 
   const handleScroll = () => {
   }
@@ -83,8 +81,10 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       <PageNavigation processRef={processRef} diplomaRef={diplomaRef}
       planRef={planRef}
       teachersRef={teachersRef}
+      resumeRef={resumeRef}
       costRef={costRef}
-      reviewsRef={reviewsRef}/>
+      reviewsRef={reviewsRef}
+      faqRef={faqRef}/>
       {programOverview && <ProgramOverview />}
       <WhatYouWillLearn title={'Чему вы научитесь'}  />
       <ForWhom />
@@ -93,7 +93,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {ofType !== 'course' && <YourResume />}
+      {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
       <RequestsCard />
       <Cta
         title={'Начните обучаться со скидкой'}
@@ -107,7 +107,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       {/* {ofType !== 'course' && <YourFutureJob />} */}
       <StudyCost costRef={costRef} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
-      <Faq />
+      <Faq faqRef={faqRef}/>
     </>
   )
 }

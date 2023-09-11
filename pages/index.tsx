@@ -34,12 +34,13 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
   // console.log(teachers)
   const teachersFromMain = teachers.filter(teacher => {
     const allowedNames = [
+      'Косина Алла Александровна',
       'Гиль Людмила Владимировна',
       'Шавырина Анна Алексеевна',
       'Перемолотова Ирина Александровна',
       'Катасонова Юлия Викторовна',
-      'Круглушина Олеся Александровна',
-      'Юферова Юлия Михайловна'
+      'Волкова Анастасия Михайловна',
+      
     ];
   
     return allowedNames.includes(teacher.name);
@@ -90,7 +91,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       />
       <SeoOrganizationJsonLd />
       <Hero />
-      <Programs withTitle withBtn max={8} />
+      <Programs withTitle withBtn max={8} onMain />
       <WhyBother />
       {/* <CommonAboutSlider /> */}
       <About />

@@ -6,6 +6,7 @@
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(30))
   @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(0))
     & > *
       @include m.gap($pt: f.px(80), $plr: f.px(100), $pb: f.px(80))
       border-radius: f.px(100) f.px(5) 0 0

@@ -5,6 +5,8 @@
 .container
   @include m.media(laptop, desktop)
     @include m.gap($pt: f.px(111))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(30))
     &.withFilters
       @include m.gap($pt: 0)
       & > *

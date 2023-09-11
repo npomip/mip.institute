@@ -21,21 +21,24 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
   }
 
   const handleScrollToSection = section => {
+    console.log(sectionRefs[section])
     sectionRefs[section].current.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleScroll = () => {
     const navHeight = navigationRef.current.offsetHeight
-    const navTop = navigationRef.current.getBoundingClientRect().y
-    if (pointRef.current.getBoundingClientRect().y < 0) {
+    // console.log(pointRef.current.getBoundingClientRect())
+    if (pointRef.current.getBoundingClientRect().y < -70) {
       setStickyNav(true)
     } else {
       setStickyNav(false)
+      
       prevNavTop.current = 0
     }
 
     for (const [section, ref] of Object.entries(sectionRefs)) {
-      if (ref.current && ref.current.getBoundingClientRect().top <= navHeight) {
+      console.log(stickyNav)
+      if (ref.current && ref.current.getBoundingClientRect().top <= 53) {
           setActiveSection(section)
         
       } else if(!stickyNav) {

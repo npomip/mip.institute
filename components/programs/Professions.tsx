@@ -35,7 +35,7 @@ const Professions = ({
               [stls.title]: true,
               [stls.bold]: true
             })}>
-            Программы
+            Программы профессиональной переподготовки
           </h2>
           {withQty && (
             <div className={stls.phonetablet}>
@@ -46,7 +46,7 @@ const Professions = ({
           </>
       ) : (
         <div className={stls.heading}>
-          <h3 className={stls.title}>Программы</h3>
+          <h3 className={stls.title}>Программы профессиональной переподготовки</h3>
           {withQty && (
             <div className={stls.phonetablet}>
               <ProgramsQty qty={professions.length} ofType='profession' />

@@ -3,9 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pb: f.px(87))
+  @include m.gap($ptb: f.px(87))
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(30))
+    @include m.gap($pb: f.px(30), $pt: f.px(0))
 
 .standalone
   @include m.media(phone, tablet)

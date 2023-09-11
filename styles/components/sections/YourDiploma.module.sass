@@ -6,7 +6,7 @@
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(30))
   @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(90))
+    @include m.gap($pb: f.px(90), $pt: f.px(64))
 
 .title
   display: inline-block
@@ -131,6 +131,8 @@
   @include m.media(phone)
     row-gap: f.px(30)
     column-gap: f.px(10)
+    overflow-x: auto
+    overflow-y: hidden
   @include m.media(laptop)
     row-gap: f.px(26)
     column-gap: f.px(10)
@@ -160,7 +162,8 @@
     scale: 1.028
     @include m.media(phone)
       margin-top: f.px(16)
-      scale: 1.085
+      scale: 1.076
+      
     @include m.media(laptop)
       margin-top: f.px(10)
       scale: 1.062

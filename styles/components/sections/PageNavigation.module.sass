@@ -29,7 +29,7 @@
 
     & li 
       @include m.gap($mtb: f.px(10))
-      text-decoration: underline
+      // text-decoration: underline
       text-underline-offset: f.px(5)
       &:hover
         text-decoration-color: #F87E1B
@@ -58,13 +58,16 @@
   display: flex
   justify-content: center
   ul
-    @include m.gap($plr: f.px(15), $mtb: f.px(0))
+    @include m.gap($plr: f.px(15), $mtb: f.px(0), $ptb: f.px(0))
     width: 100%
     max-width: f.px(1200)
+    background: white
+    opacity: 0.9
+
     li
       @include m.gap($mtb: f.px(0))
       p
-        @include m.gap($ptb: f.px(15))
+        @include m.gap($ptb: f.px(10))
         font-size: f.px(13)
   transition: width 1s ease
   position: fixed
@@ -90,7 +93,7 @@
   @include m.gap($plr: f.px(15), $ptb: f.px(15))
   border-radius: 20px
   color: white
-  text-decoration: underline
+  // text-decoration: underline
 
 
 .hidden

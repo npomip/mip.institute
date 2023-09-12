@@ -24,7 +24,6 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
   useEffect(() => {
     fullStory > cut && setThreePoints(true)
   }, [ cut, fullStory, isFull])
-  // console.log(title, threePoints, fullStory, cut)
   return (
     <div className={stls.container}>
       <div className={stls.upperContainer}>

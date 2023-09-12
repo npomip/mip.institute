@@ -22,7 +22,6 @@ const StudyFields = ({
   flexend = false,
   orang = false,
   smallText,
-  onMain
 }: StudyFieldsType) => {
   const {
     studyFields,
@@ -31,14 +30,6 @@ const StudyFields = ({
     curProgramsType
   } = useContext(ContextStaticProps)
 
-  // console.log(studyFields, 'studyFields')
-  // console.log('studyFieldsCourses', studyFieldsCourses)
-  // console.log(studyFieldsProfessions, 'studyFieldsProfessions')
-  console.log('curProgramsType in Sttudy', curProgramsType)
-
-  if(onMain) {
-
-  }
 
   const list =
     ofType === 'course'
@@ -47,8 +38,6 @@ const StudyFields = ({
       ? studyFieldsProfessions
       : studyFields
       
-console.log(list)
-
   return (
     <ul
       className={cn({

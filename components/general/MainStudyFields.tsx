@@ -5,6 +5,7 @@ import { routes } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
 import { BtnField } from '@/components/btns'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 type StudyFieldsType = {
   ofType?: 'course' | 'profession' | null
@@ -23,16 +24,21 @@ const MainStudyFields = ({
   return (
     <ul
       className={stls.wrapper}>
-      {list.map(({ label, programType }, idx) => (
+      {list.map(({ label, href, programType }, idx) => (
         <Fragment key={idx}>
           <li className={cn({
               [stls.studyField]: true,
               [stls.active]: currentType === programType
             })}  onClick={close && close }>
             {/* <BtnField */}
-            <p onClick={()=> setCurrentType(programType)} className={stls.mainFields}>
-              {label}
-              </p>
+            <Link href={href} passHref>
+                <p
+                  onMouseEnter={() => setCurrentType(programType)}
+                  className={stls.mainFields}
+                >
+                  {label}
+                </p>
+            </Link>
             {/* </BtnField> */}
           </li>
         </Fragment>

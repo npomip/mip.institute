@@ -7,12 +7,12 @@
     @include m.gap($pt: f.px(111))
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(30))
-    &.withFilters
-      @include m.gap($pt: 0)
-      & > *
-        @include m.flex
-      & .content
-        @include m.flex($display: false, $fb: 75%)
+  &.withFilters
+    @include m.gap($pt: 0)
+    & > *
+      @include m.flex
+    & .content
+      @include m.flex($display: false, $fb: 75%)
 
 .title
   @include m.media(phone, tablet)

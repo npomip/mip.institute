@@ -104,7 +104,7 @@ const FormAlpha = ({
               {...register('name', {
                 required: `*Введите ваше имя`,
                 minLength: {
-                  value: 3,
+                  value: 2,
                   message: `*Введите ваше имя`
                 },
                 maxLength: {

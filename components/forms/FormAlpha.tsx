@@ -9,7 +9,6 @@ import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
-import routes from '@/config/routes'
 
 
 type FormValues = {
@@ -26,7 +25,9 @@ const FormAlpha = ({
   question = false,
   popup = false,
   atFooter = false,
-  agreement = false
+  agreement = false,
+  promo = false,
+  inProfessions=false,
 }) => {
   const {
     register,
@@ -48,8 +49,6 @@ const FormAlpha = ({
   const onSubmit = async data => {
     setIsDisabled(true)
     setThanksIsOpen(true)
-    // router.push('/gratefull');
-    window.open(routes.front.gratefull, '_blank');
     // handle loader
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
@@ -61,11 +60,15 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
+    console.log('clickId', clickId)
+    // const clickId = parse(document.cookie).utm || null;
     if (typeof clickId === 'string') {
       data.utm = JSON.parse(clickId);
     } else {
       data.utm = null; // или какое-то другое значение по умолчанию
     }
+    // document.cookie = "utm=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    console.log(data)
     const req = await hitContactRoute(data)
     if (req === 200) {
       console.log('Success')
@@ -87,7 +90,8 @@ const FormAlpha = ({
         method='post'
         className={classNames({
           [stls.containet]: true,
-          [stls.atFooter]: atFooter
+          [stls.atFooter]: atFooter,
+          [stls.inProfessions]: inProfessions
         })}
         onSubmit={handleSubmit(data => onSubmit(data))}>
         <div className={stls.group}>
@@ -98,6 +102,11 @@ const FormAlpha = ({
               placeholder='Ваше имя'
               disabled={isDisabled}
               {...register('name', {
+                required: `*Введите ваше имя`,
+                minLength: {
+                  value: 3,
+                  message: `*Введите ваше имя`
+                },
                 maxLength: {
                   value: 32,
                   message: `*Не больше 32 символов`
@@ -108,15 +117,19 @@ const FormAlpha = ({
           </div>
           <div className={classNames(stls.inpt, stls.phone)}>
             <input
-              type='tel'
+              type='number'
               aria-label='Ваш номер телефона'
               placeholder='Ваш телефон'
               disabled={isDisabled}
               {...register('phone', {
                 required: `*Номер телефона обязателен`,
                 minLength: {
-                  value: 5,
-                  message: `*Минимум 5 цифр`
+                  value: 7,
+                  message: `*Минимум 7 цифр`
+                },
+                maxLength: {
+                  value: 18,
+                  message: `*Не больше 18 символов`
                 }
               })}
             />
@@ -131,15 +144,16 @@ const FormAlpha = ({
               {...register('email', {
                 pattern: {
                   value:
-                  /[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                    /[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
                   message:
-                    'Пожалуйста, введите корректный адрес электронной почты'
+                    'Пожалуйста, введите корректный адрес электронной почты в формате example@mail.ru'
                 }
               })}
             />
             <p className={stls.err}>{errors.email && errors.email.message}</p>
           </div>
-          <div className={classNames(stls.inpt, stls.promocode)}>
+          {promo && (
+            <div className={classNames(stls.inpt, stls.promocode)}>
             <input
               type='text'
               aria-label='Промокод'
@@ -154,6 +168,7 @@ const FormAlpha = ({
             />
             <p className={stls.err}>{errors.email && errors.email.message}</p>
           </div>
+          )}
           {question && (
             <div className={classNames(stls.inpt, stls.question)}>
               <textarea

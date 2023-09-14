@@ -102,6 +102,11 @@ const FormAlpha = ({
               placeholder='Ваше имя'
               disabled={isDisabled}
               {...register('name', {
+                required: `*Введите ваше имя`,
+                minLength: {
+                  value: 2,
+                  message: `*Введите ваше имя`
+                },
                 maxLength: {
                   value: 32,
                   message: `*Не больше 32 символов`
@@ -112,15 +117,19 @@ const FormAlpha = ({
           </div>
           <div className={classNames(stls.inpt, stls.phone)}>
             <input
-              type='tel'
+              type='number'
               aria-label='Ваш номер телефона'
               placeholder='Ваш телефон'
               disabled={isDisabled}
               {...register('phone', {
                 required: `*Номер телефона обязателен`,
                 minLength: {
-                  value: 5,
-                  message: `*Минимум 5 цифр`
+                  value: 7,
+                  message: `*Минимум 7 цифр`
+                },
+                maxLength: {
+                  value: 18,
+                  message: `*Не больше 18 символов`
                 }
               })}
             />
@@ -137,7 +146,7 @@ const FormAlpha = ({
                   value:
                     /[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
                   message:
-                    'Пожалуйста, введите корректный адрес электронной почты'
+                    'Пожалуйста, введите корректный адрес электронной почты в формате example@mail.ru'
                 }
               })}
             />

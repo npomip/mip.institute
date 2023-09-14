@@ -34,17 +34,20 @@
     @include m.gap($mt: f.px(16))
     @include m.gap($p: f.px(20))
     @include m.media(laptop, desktop)
-      
+      max-width: 370px
     @include m.media(phone, tablet)
+      font-size: f.px(16)
+      @include m.gap($mt: f.px(12))
       // @include m.gap($mb: f.px(16))
-    width: 370px
+      max-width: f.px(370)
+      min-width: f.px(350)
     display: flex
     justify-content: space-between
     background: #FFCA9E
     border-radius: 25px
     font-weight: 500
     font-family: Stem, sans-serif
-    font-size: 18px
+    font-size: f.px(18)
     &:hover
       color: #ffffff
       background: #F87E1B
@@ -76,7 +79,7 @@
   p
     font-family: Stem, sans-serif
     font-weight: 500
-    font-size: 22px
+    font-size: f.px(22)
 
 .pinkRound
   background: #B250FF

@@ -27,6 +27,7 @@ import { SeoOrganizationJsonLd } from '@/components/seo'
 import mainList from '@/data/general/mainList'
 import CommonAboutSlider from '@/components/sections/AboutSlider/CommonAboutSlider'
 import CreateApplication from '@/components/sections/CreateApplication'
+import Directions from '@/components/sections/Directions'
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) => {
   useHandleContextStaticProps({ programs })
@@ -92,6 +93,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       <SeoOrganizationJsonLd />
       <Hero />
       <Programs withTitle withBtn max={8} onMain />
+      <Directions />
       <WhyBother />
       {/* <CommonAboutSlider /> */}
       <About />

@@ -3,17 +3,15 @@ import styles from '@/styles/components/sections/ChooseProgram.module.sass'
 import Link from 'next/link'
 
 interface ProgramProps {
-  program: {
-    name: string;
+    label: string;
     href: string;
-  }
 }
 
-const Program: React.FC<ProgramProps> = ({ program }) => {
+const Program: React.FC<ProgramProps> = ({ label, href }) => {
   return (
-    <Link href={program.href}>
+    <Link href={href} passHref>
     <div className={styles.item}>
-      <span>{program.name}</span>
+      <span>{label}</span>
       <IconArrowRight />
       </div>
     </Link>

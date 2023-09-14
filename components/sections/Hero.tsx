@@ -35,9 +35,9 @@ const Hero = () => {
         <TwoColumns>
           <div className={stls.left}>
             <h1 className={stls.title}>Онлайн-институт психологии</h1>
-            <h2 className={stls.desc}>
+            <p className={stls.desc}>
             Освойте востребованную профессию психолога или повысьте квалификацию вместе с МИП
-            </h2>
+            </p>
             <div className={stls.btns}>
               <div className={stls.btn}>
                 <PopupTrigger btn='alpha' cta='signUpForCourse' />

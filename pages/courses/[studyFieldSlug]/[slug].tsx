@@ -32,6 +32,8 @@ const breadcrumbs = segments.map((segment, index) => {
   return breadcrumb;
 });
 
+const slug = program.slug
+
   return (
     <>
       <SeoPagesProgram
@@ -39,7 +41,8 @@ const breadcrumbs = segments.map((segment, index) => {
         ofType='course'
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      <PagesProgram breadcrumbs={breadcrumbs} programOverview={programOverview} reviews={reviews} ofType={'course'} />
+      <PagesProgram 
+      slug={slug} breadcrumbs={breadcrumbs} programOverview={programOverview} reviews={reviews} ofType={'course'} />
     </>
   )
 }

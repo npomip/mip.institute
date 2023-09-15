@@ -37,11 +37,12 @@ interface Breadcrumb {
 type PagesProgramType = {
   ofType: 'course' | 'profession',
   reviews: TypeLibReviews,
-  programOverview: string
-  breadcrumbs: Breadcrumb[]
+  programOverview: string,
+  breadcrumbs: Breadcrumb[],
+  slug:string
 }
 
-const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: PagesProgramType) => {
+const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, slug }: PagesProgramType) => {
   const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
@@ -72,6 +73,14 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       </p>
     </>
 
+  console.log(slug)
+  console.log(slug==='pedagog-psiholog')
+  console.log(slug === 'nejropsiholog')
+  const checkSlug = [
+    'pedagog-psiholog',
+    'nejropsiholog'
+  ]
+  console.log(checkSlug.includes(slug))
   return (
     <>
     <ButtonToTop />
@@ -86,8 +95,21 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       reviewsRef={reviewsRef}
       faqRef={faqRef}/>
       {programOverview && <ProgramOverview />}
+      {/* <WhatYouWillLearn title={'Чему вы научитесь'}  />
+      <ForWhom /> */}
+      
+      {checkSlug.includes(slug) ? (
+        <>
+        
       <WhatYouWillLearn title={'Чему вы научитесь'}  />
       <ForWhom />
+        </>
+      ) : (
+        <>
+        <ForWhom />
+      <WhatYouWillLearn title={'Чему вы научитесь'}  />
+      </>
+      )}
       <HowProcessGoes processRef={processRef} list={list} subtitle={subtitle} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
@@ -95,6 +117,8 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs }: 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
       <RequestsCard />
+      
+      
       <Cta
         title={'Начните обучаться со скидкой'}
         desc={`Забронируйте программу по спеццене — со скидкой ${discount.substring(

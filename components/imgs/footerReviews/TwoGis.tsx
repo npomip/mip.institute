@@ -2,7 +2,7 @@ import stls from '@/styles/components/imgs/footerReviews/Otzovic.module.sass'
 import Image from 'next/image'
 import pic from '@/public/assets/imgs/footerReviews/twoGis.png'
 
-const TwoGis = ({ width = 68, height = 19 }) => {
+const TwoGis = ({ width = 83, height = 23 }) => {
   return (
     <div className={stls.container}>
       <Image

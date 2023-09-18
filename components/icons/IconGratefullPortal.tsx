@@ -1,10 +1,12 @@
 import stls from '@/styles/components/icons/IconGratefullPortal.module.sass'
+import { red } from '@mui/material/colors'
 import classNames from 'classnames'
 
-const IconGratefullPortal = ({ large=false, medium=false, small=false, xsmall=false, fiftyPx=false, thirtyPx=false}) => {
+const IconGratefullPortal = ({ large=false, medium=false, small=false, xsmall=false, fiftyPx=false, thirtyPx=false, isViolet=false}) => {
   return (
     <span className={classNames({
       [stls.container]: true,
+      [stls.isViolet]: isViolet,
       [stls.large]: large,
       [stls.medium]: medium,
       [stls.small]: small,

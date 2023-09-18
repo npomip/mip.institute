@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { routes } from '@/config/index'
 import { IconLogo } from '@/components/icons'
 
-const Logo = ({ atHeader = false, withTitle = true }) => {
+const Logo = ({ atHeader = false, withTitle = true, atFooter=false }) => {
   return (
     <div className={stls.container}>
       <Link href={routes.front.home}>
@@ -13,7 +13,7 @@ const Logo = ({ atHeader = false, withTitle = true }) => {
             [stls.logo]: true,
             [stls.atHeader]: atHeader
           })}>
-          <IconLogo withTitle={withTitle} />
+          <IconLogo withTitle={withTitle} atFooter={atFooter} />
           {withTitle && (
             <p className={stls.title}>
               Московский <br />

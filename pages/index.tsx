@@ -96,7 +96,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       <Programs withTitle withBtn max={8} onMain />
       
       <WhyBother />
-      {/* <CommonAboutSlider /> */}
       <About />
       <HowProcessGoes onMain subtitle={subtitle} list={mainList} />
       <Cta

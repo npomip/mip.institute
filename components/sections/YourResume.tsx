@@ -6,6 +6,7 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getListItemsInnerHtml, toNumberWithSpaces } from '@/helpers/index'
 import marked from 'marked'
+import ResumeDiplomas from '@/components/imgs/general/ResumeDiplomas'
 
 const YourResume = ({resumeRef=null}) => {
   const { program } = useContext(ContextStaticProps)
@@ -18,7 +19,13 @@ const YourResume = ({resumeRef=null}) => {
     <section ref={resumeRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Ваше резюме после обучения</h2>
+        
+        
         <div className={stls.content}>
+        <div className={stls.upperRound}></div>
+        <div className={stls.upperRightRound}></div>
+        <div className={stls.bg}></div>
+        <div className={stls.line}></div>
           <div className={stls.top}>
             <div className={stls.img}>
               <ImgResume1 />
@@ -53,6 +60,9 @@ const YourResume = ({resumeRef=null}) => {
                 Получила профессию “{program?.title}” в Московском Институте
                 Психологии
               </p>
+              <div className={stls.diploma}>
+                <ResumeDiplomas />
+              </div>
             </div>
           </div>
         </div>

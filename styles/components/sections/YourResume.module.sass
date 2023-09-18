@@ -18,17 +18,79 @@
   font-weight: 500
   @include m.dye(c, c.$theta)
 
-.content
+.upperRound
+  z-index: 2
+  position: absolute
+  height: f.px(50)
+  width: 50%
+  top: 0
+  transform: translate(-0.17%, -98.9%)
+  @include m.media(laptop)
+    transform: translate(-0.11%, -98.9%)
+  left: 0
+  background: #FBF4FF
+  border: f.px(1) solid black
+  // border-left: none
+  // border-right: none
+  border-bottom: none
+  border-radius: f.px(40) f.px(40) f.px(0) f.px(0)
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(30), $plr: f.px(10))
-    border-radius: f.px(10)
+    transform: translate(-0.45%, -98.9%)
+
+.upperRightRound
+  z-index: 1
+  position: absolute
+  height: f.px(73)
+  background: #DCCDFF
+  top: 0
+  width: 53%
+  right: 0
+  // left: 0
+  transform: translate(0.2%, -39.5%)
+  @include m.media(phone)
+    transform: translate(0.55%, -39.5%)
+  border: f.px(1) solid black
+  border-radius: f.px(0) f.px(40) f.px(0) f.px(0)
+
+.bg
+  z-index: 1
+  height: 10%
+  width: 55.1%
+  position: absolute
+  border-top: f.px(1) solid black
+  background: #FBF4FF 
+  // opacity: 0.1
+  top: f.px(0)
+  right: 0
+  border-radius: 0 f.px(50) 0 0
+.line
+  z-index: 3
+  position: absolute
+  height: f.px(3)
+  top: f.px(-1)
+  left: 0
+  width: 49.8%
+  @include m.media(phone, tablet)
+    width: 49.5%
+  background: #FBF4FF
+
+.content
+  z-index: 2
+  position: relative
+  border: f.px(1) solid black
+  border-radius: 0 0 f.px(20) 0
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(63),$ptb: f.px(30), $plr: f.px(10))
+    border-radius: f.px(0) f.px(20) f.px(10) f.px(10)
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(30), $plr: f.px(100))
-    border-radius: f.px(20)
+    @include m.gap($mt: f.px(79),$ptb: f.px(30), $plr: f.px(100))
+    border-radius: f.px(0) f.px(20) f.px(20) f.px(20)
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, #FBF4FF)
 
 .top
+  z-index: 3
+  position: relative
   @include m.media(phone, tablet)
     justify-content: space-between
     @include m.flex($ai: center)
@@ -36,7 +98,7 @@
     border-bottom: 1px solid #D1D1D1
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(40), $pb: f.px(40))
-    position: relative
+    
     @include m.flex($ai: center)
 
 .img
@@ -162,6 +224,13 @@
     font-size: f.px(14)
     padding-top: f.px(15)
     border-top: 1px solid #D1D1D1
+
+.diploma
+  position: absolute
+  right: 0
+  transform: translateY(-10%)
+  @include m.media(phone, tablet)
+    display: none
 
 .skills
   @include m.gap($pl: f.px(50))

@@ -1,5 +1,4 @@
 import stls from '@/styles/components/icons/IconGratefullPortal.module.sass'
-import { red } from '@mui/material/colors'
 import classNames from 'classnames'
 
 const IconGratefullPortal = ({ large=false, medium=false, small=false, xsmall=false, fiftyPx=false, thirtyPx=false, isViolet=false}) => {

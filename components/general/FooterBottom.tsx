@@ -6,9 +6,9 @@ import { routes } from '@/config/index'
 const FooterBottom = () => {
   return (
     <div className={stls.container}>
-      <Wrapper>
+      {/* <Wrapper> */}
         <p className={stls.copy}>
-          &copy; Московский Институт Психологии, {new Date().getFullYear()}
+          &copy; МИП, 2020 - {new Date().getFullYear()}
         </p>
         <a
           href={routes.front.policiesTerms}
@@ -24,7 +24,8 @@ const FooterBottom = () => {
           className={stls.docLink}>
           Политика конфиденциальности
         </a>
-      </Wrapper>
+        {/* <p>a</p> */}
+      {/* </Wrapper> */}
     </div>
   )
 }

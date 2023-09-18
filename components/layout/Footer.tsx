@@ -20,6 +20,14 @@ import { useRouter } from 'next/router'
 import { getCookie, setCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 import Logo from '../general/Logo'
+import BtnDzen from '../btns/BtnDzen'
+import Popup from 'reactjs-popup'
+import FooterReviews from '../popups/FooterReviews'
+import Otzovic from '../imgs/footerReviews/Otzovic'
+import Ya from '../imgs/footerReviews/Ya'
+import Tutortop from '../imgs/footerReviews/Tutortop'
+import TwoGis from '../imgs/footerReviews/TwoGis'
+import Ucheba from '../imgs/footerReviews/Ucheba'
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
@@ -134,7 +142,7 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-              <Logo />
+              <Logo atFooter/>
             </ul>
             {!isEdpartners && (
               <div className={stls.contact}>
@@ -169,7 +177,33 @@ const Footer = () => {
                   <BtnTelegram dark />
                   <BtnYt dark />
                   <BtnOk dark />
+                  <BtnDzen/>
                 </div>
+                <Popup
+    trigger={open => (
+      <p className={stls.about}>О нас</p>
+    )}
+    position="right center"
+    closeOnDocumentClick
+    className={stls.reviews}
+  >
+    <FooterReviews href='https://ok.ru/group/70000001109496'>
+      <Ya />
+    </FooterReviews>
+    <FooterReviews href='https://ok.ru/group/70000001109496'>
+      <Tutortop />
+    </FooterReviews>
+    
+    <FooterReviews href='https://ok.ru/group/70000001109496'>
+      <Otzovic />
+    </FooterReviews>
+    <FooterReviews href='https://ok.ru/group/70000001109496'>
+      <TwoGis />
+    </FooterReviews>
+    <FooterReviews href='https://ok.ru/group/70000001109496'>
+      <Ucheba />
+    </FooterReviews>
+  </Popup>
                 <div className={stls.btn}>
                   <PopupTrigger btn='beta' cta='askQuestion' />
                 </div>

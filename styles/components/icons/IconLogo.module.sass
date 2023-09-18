@@ -36,3 +36,8 @@ $spaceRight: math.div($width, math.div($defaultWidth, $defaultSpaceRight))
     height: 130%
     transform: translateY(-50%)
     @include m.dye(bg, c.$gamma)
+
+
+.atFooter
+  &::after
+    @include m.dye(bg, white)

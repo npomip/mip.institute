@@ -8,7 +8,7 @@ const BtnDzen = () => {
   return (
     <a
       className={stls.container}
-      href={routes.external.youtube}
+      href={routes.external.dzen}
       target='_blank'
       rel='noopener noreferrer'
       aria-label='Dzen'>

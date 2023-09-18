@@ -7,6 +7,9 @@ import { useContext } from 'react'
 import { getListItemsInnerHtml, toNumberWithSpaces } from '@/helpers/index'
 import marked from 'marked'
 import ResumeDiplomas from '@/components/imgs/general/ResumeDiplomas'
+import Clip from '@/components/imgs/general/Clip'
+import HeadHunter from '@/components/imgs/general/HeadHunter'
+import IconGratefullPortal from '../icons/IconGratefullPortal'
 
 const YourResume = ({resumeRef=null}) => {
   const { program } = useContext(ContextStaticProps)
@@ -22,10 +25,33 @@ const YourResume = ({resumeRef=null}) => {
         
         
         <div className={stls.content}>
-        <div className={stls.upperRound}></div>
+        <div className={stls.upperRound}>
+          <p>Твое резюме</p>
+        </div>
         <div className={stls.upperRightRound}></div>
         <div className={stls.bg}></div>
         <div className={stls.line}></div>
+        <div className={stls.midPortal}>
+          <IconGratefullPortal small isViolet/>
+        </div>
+        <div className={stls.midPortalTwo}>
+          <IconGratefullPortal small isViolet/>
+        </div>
+        <div className={stls.smallPortal}>
+          <IconGratefullPortal xsmall isViolet/>
+        </div>
+        <div className={stls.smallPortalTwo}>
+        <IconGratefullPortal xsmall isViolet/>
+        </div>
+        <div className={stls.smallPortalThree}>
+          <IconGratefullPortal xsmall isViolet/>
+        </div>
+        <div className={stls.clip}>
+          <Clip />
+        </div>
+        <div className={stls.hh}>
+          <HeadHunter />
+        </div>
           <div className={stls.top}>
             <div className={stls.img}>
               <ImgResume1 />

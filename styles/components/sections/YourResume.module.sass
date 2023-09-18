@@ -19,6 +19,8 @@
   @include m.dye(c, c.$theta)
 
 .upperRound
+  display: flex
+  justify-content: center
   z-index: 2
   position: absolute
   height: f.px(50)
@@ -36,8 +38,15 @@
   border-radius: f.px(40) f.px(40) f.px(0) f.px(0)
   @include m.media(phone, tablet)
     transform: translate(-0.45%, -98.9%)
+  & p
+    padding-top: f.px(14)
+    font-size: f.px(18)
+    font-weight: 350
+    @include m.media(phone, tablet)
+      font-size: f.px(13)
 
 .upperRightRound
+  
   z-index: 1
   position: absolute
   height: f.px(73)
@@ -62,7 +71,7 @@
   // opacity: 0.1
   top: f.px(0)
   right: 0
-  border-radius: 0 f.px(50) 0 0
+  border-radius: 0 f.px(100) 0 0
 .line
   z-index: 3
   position: absolute
@@ -186,7 +195,7 @@
       @include m.gap($mr: 5%)
     &::before
       content: '•'
-      color: #F87E1B
+      color: #7104C4
       font-size: f.px(35)
       @include m.gap($mr: f.px(19))
 
@@ -240,3 +249,59 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($pt: f.px(15), $pl: f.px(15), $mb: f.px(0))
+
+.clip
+  z-index: 20
+  position: absolute
+  top: 0
+  transform: translate(750%, -75.7%)
+  @include m.media(laptop)
+    transform: translate(400%, -71.8%)
+  @include m.media(tablet)
+    transform: translate(410%, -114%)
+  @include m.media(phone)
+    transform: translate(410%, -115.5%)
+
+.hh
+  @include m.gap($ml: f.px(10))
+  z-index: 2
+  position: absolute
+  top: 0
+  right: 0
+  @include m.media(phone, tablet)
+    display: none
+
+.midPortal
+  position: absolute
+  top: 60%
+  right: 40%
+  @include m.media(phone, tablet)
+    display: none
+
+.midPortalTwo
+  position: absolute
+  top: 46%
+  right: 6%
+  @include m.media(phone, tablet)
+    display: none
+
+.smallPortal
+  position: absolute
+  top: 54%
+  right: 52%
+  @include m.media(phone, tablet)
+    display: none
+
+.smallPortalTwo
+  position: absolute
+  top: 74%
+  right: 48%
+  @include m.media(phone, tablet)
+    display: none
+
+.smallPortalThree
+  position: absolute
+  top: 94%
+  right: 28%
+  @include m.media(phone, tablet)
+    display: none

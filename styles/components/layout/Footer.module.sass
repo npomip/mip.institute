@@ -75,10 +75,13 @@
 
 .sm
   @include m.flex
+  // justify-content: center
   max-width: f.px(200)
   min-width: f.px(200)
   flex-wrap: wrap
-  @include m.gap($mb: f.px(25))
+  @include m.gap($mb: f.px(25), $mr: f.px(0))
+  // margin: 0 auto
+  @include m.gap($mb: f.px(25), $mr: f.px(0))
   @include m.media(phone, tablet)
     display: none
 
@@ -189,3 +192,7 @@
     display: block
     text-decoration-line: underline
     text-underline-offset: f.px(2)
+
+.rating
+  cursor: pointer
+

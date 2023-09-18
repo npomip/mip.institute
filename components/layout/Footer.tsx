@@ -28,6 +28,7 @@ import Ya from '../imgs/footerReviews/Ya'
 import Tutortop from '../imgs/footerReviews/Tutortop'
 import TwoGis from '../imgs/footerReviews/TwoGis'
 import Ucheba from '../imgs/footerReviews/Ucheba'
+import IconRating from '../icons/IconRating'
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
@@ -181,26 +182,28 @@ const Footer = () => {
                 </div>
                 <Popup
     trigger={open => (
-      <p className={stls.about}>О нас</p>
+      <div className={stls.rating}>
+        <IconRating />
+      </div>
     )}
     position="right center"
     closeOnDocumentClick
     className={stls.reviews}
   >
-    <FooterReviews href='https://ok.ru/group/70000001109496'>
+    <FooterReviews href={routes.external.yandex}>
       <Ya />
     </FooterReviews>
-    <FooterReviews href='https://ok.ru/group/70000001109496'>
+    <FooterReviews href={routes.external.turtop}>
       <Tutortop />
     </FooterReviews>
     
-    <FooterReviews href='https://ok.ru/group/70000001109496'>
+    <FooterReviews href={routes.external}>
       <Otzovic />
     </FooterReviews>
-    <FooterReviews href='https://ok.ru/group/70000001109496'>
+    <FooterReviews href={routes.external.twoGis}>
       <TwoGis />
     </FooterReviews>
-    <FooterReviews href='https://ok.ru/group/70000001109496'>
+    <FooterReviews href={routes.external.ucheba}>
       <Ucheba />
     </FooterReviews>
   </Popup>

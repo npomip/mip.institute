@@ -10,6 +10,8 @@
       @include m.gap($plr: f.px(0))
   @include m.media(laptop, desktop)
     @include m.gap($pb: f.px(79))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(30))
 
 .content
   border-radius: f.px(35)
@@ -19,11 +21,11 @@
 
 .title
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(22), $mt: f.px(30), $pl: f.px(15))
+    @include m.gap($mb: f.px(22), $pl: f.px(15))
     line-height: 110%
     font-size: f.px(30)
   @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(60),$mb: f.px(30))
+    @include m.gap($mt: f.px(0),$mb: f.px(30))
     // transform: translateX(f.px(-114))
     font-size: f.px(44)
   // max-width: 18ch

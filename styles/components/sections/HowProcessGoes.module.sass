@@ -17,6 +17,8 @@
 
 .onMain
   @include m.gap( $pb: f.px(97))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(15))
 
 .onProfession
   @include m.gap($pt: f.px(0))

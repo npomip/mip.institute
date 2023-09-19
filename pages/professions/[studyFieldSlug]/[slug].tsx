@@ -31,8 +31,6 @@ const breadcrumbs = segments.map((segment, index) => {
   return breadcrumb;
 });
 
-console.log(program.slug)
-
 const slug = program.slug
 
   return (

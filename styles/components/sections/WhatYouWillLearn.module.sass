@@ -80,10 +80,11 @@
   z-index: 0
   // overflow: hidden
   @include m.media(laptop, desktop)
-    top: f.px(-180)
-    right: -100px
+    top: f.px(-200)
+    right: f.px(-150)
   @include m.media(phone, tablet)
-    z-index: 0
+    // overflow: hidden
+    z-index: 1
     top: f.px(-105)
 
 .learnIconMain

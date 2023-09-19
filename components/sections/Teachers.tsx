@@ -16,6 +16,7 @@ import {
   ImgTeacher4
 } from '@/components/imgs'
 import TagOrange from '../general/TagOrange'
+import classNames from 'classnames'
 
 type TeacherProps ={
   teachersRef?: React.RefObject<HTMLElement | null>
@@ -84,7 +85,10 @@ const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherP
   }
 
   return (
-    <section ref={teachersRef} className={stls.container}>
+    <section ref={teachersRef} className={classNames({
+      [stls.container]: true,
+      [stls.onProfessions]: !onMain
+    })}>
       <Wrapper>
         <h2 className={stls.title}>{title}</h2>
         {onMain && (

@@ -3,8 +3,10 @@ import Wrapper from '@/components/layout/Wrapper'
 import { ImgCta1 } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import CtaWrapper from '../layout/CtaWrapper'
+import classNames from 'classnames'
 
 type CtaType = {
+  onMain?: boolean
   title: string
   desc: string
   cta:
@@ -21,9 +23,12 @@ type CtaType = {
   question?: boolean
 }
 
-const Cta = ({ title = null, desc = null, cta }: CtaType) => {
+const Cta = ({ title = null, desc = null, cta, onMain=false }: CtaType) => {
   return (
-    <section className={stls.container}>
+    <section className={classNames({
+      [stls.container]: true,
+      [stls.onProfessions]: !onMain
+    })}>
       <Wrapper>
         <div className={stls.img}>
           <ImgCta1 />

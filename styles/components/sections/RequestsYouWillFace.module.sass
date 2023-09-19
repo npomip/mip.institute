@@ -5,9 +5,9 @@
 .section
   // background: #F0F0F0
   @include m.media(phone, tablet)
-    @include m.gap( $pb: f.px(10))
+    @include m.gap( $pb: f.px(30))
   @include m.media(desktop, laptop)
-    @include m.gap( $pb: f.px(60))
+    @include m.gap( $pb: f.px(90))
 .content
   border: 2px solid black
   height: 300px
@@ -105,10 +105,11 @@
     // z-index: 3
     backface-visibility: hidden
     & p
-      max-width: f.px(298)
+      max-width: f.px(270)
       font-size: f.px(10)
       line-height: 130%
-      padding-left: f.px(30)
+      padding-left: f.px(15)
+      margin-bottom: 0
       @include m.media(laptop)
         max-width: f.px(248)
       @include m.media(phone, tablet) 

@@ -71,7 +71,7 @@ const YourResume = ({resumeRef=null}) => {
           </div>
           <div className={stls.bottomContent}>
             <div className={stls.left}>
-            <p className={stls.skills}>Профессиональный навыки:</p>
+            <p className={stls.skills}>Профессиональные навыки:</p>
             <ul className={stls.list}>
               {list &&
                 list[0].map((item, idx) => (

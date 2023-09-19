@@ -2,11 +2,16 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 .container
-  @include m.gap($pb: f.px(0), $pt: f.px(30))
+  @include m.gap($pb: f.px(0), $pt: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(30))
-
   background: #FDFDFD
+
+.onProfessions
+  @include m.gap($pt: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(30))
+
 .title
   display: inline-block
   @include m.media(phone, tablet)

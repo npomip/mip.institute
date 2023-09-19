@@ -4,6 +4,9 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
+  position: relative
+  z-index: 4
+  background: white
   @include m.gap($pb: f.px(0), $pt: f.px(97))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(15))
@@ -11,6 +14,9 @@
     & > *
       @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
         @include m.flex($display: false, $fd: column)
+
+.onProfession
+  @include m.gap($pt: f.px(0))
 
 .title
   display: inline-block
@@ -55,12 +61,12 @@
 
 .left
   @include m.media(laptop, desktop)
-    flex-basis: 50%
+    flex-basis: 48.8%
     margin-right: 0px
     width: 600px
 
 .right
-  flex-basis: 46.5%
+  flex-basis: 48.5%
   margin-top: 30px
   background: #F9F0FF
   border-radius: 25px
@@ -86,7 +92,7 @@
     content: ''
     position: absolute
     top: f.px(30)
-    left: f.px(50)
+    left: f.px(45)
     @include m.media(phone, tablet)
       top: f.px(27)
       left: f.px(27.5)
@@ -104,7 +110,7 @@
     max-height: f.px(24)
     font-size: f.px(10)
   @include m.media(laptop, desktop)
-    @include m.gap($mlr: f.px(35), $p: f.px(12, em))
+    @include m.gap($ml: f.px(30),$mr: f.px(20), $p: f.px(12, em))
     max-width: f.px(31)
     max-height: f.px(31)
     font-size: f.px(18)
@@ -125,14 +131,14 @@
   @include m.media(phone, tablet)
     font-size: f.px(12)
   @include m.media(laptop, desktop)
-    // max-width: 20ch
+    max-width: f.px(440)
     font-size: f.px(18)
   @include m.gap($mb: f.px(0))
   font-weight: 300
 
 .listTitle
   color: #1A1A1A
-  font-size: 22px
+  font-size: f.px(22)
   font-style: normal
   font-weight: 500
   line-height: 120%

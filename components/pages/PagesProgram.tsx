@@ -73,21 +73,20 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       </p>
     </>
 
-  console.log(slug)
-  console.log(slug==='pedagog-psiholog')
-  console.log(slug === 'nejropsiholog')
   const checkSlug = [
     'pedagog-psiholog',
     'nejropsiholog'
   ]
-  console.log(checkSlug.includes(slug))
   return (
     <>
     <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
       {/* <Opportunities /> */}
       {/* <Desc /> */}
-      <PageNavigation processRef={processRef} diplomaRef={diplomaRef}
+      <PageNavigation 
+      ofType={ofType}
+      processRef={processRef} 
+      diplomaRef={diplomaRef}
       planRef={planRef}
       teachersRef={teachersRef}
       resumeRef={resumeRef}

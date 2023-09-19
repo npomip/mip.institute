@@ -132,11 +132,16 @@
 .img
   position: absolute
   @include m.media(phone)
-    right: 0
-    left: 0
-    top: f.px(30)
+    // right: 0
+    // left: 0
+    top: f.px(60)
     position: absolute
     z-index: 1
+    scale: 1.1
+    // width: f.px(350)
+    max-height: f.px(398)
+    overflow: hidden
+    // transform: translate(5%, f.px(0))
   @include m.media(laptop, desktop)
     transform: translate(23%, f.px(-100))
     right: 0

@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react'
 import gif from '@/public/assets/imgs/gif/howProcessGoes.gif'
 import Image from 'next/image'
 import TagOrange from '../general/TagOrange'
+import classNames from 'classnames'
 
 interface listType  {
   desc: string
@@ -19,7 +20,10 @@ type ProcessType = {
 
 const HowProcessGoes = ({processRef, list, subtitle, onMain=false}: ProcessType) => {
   return (
-    <section ref={processRef} className={stls.container}>
+    <section ref={processRef} className={classNames({
+      [stls.container]: true,
+      [stls.onProfession]: !onMain
+    })}>
       <Wrapper>
         <h2 className={stls.title}>Как проходит обучение</h2>
         {onMain && (
@@ -34,7 +38,10 @@ const HowProcessGoes = ({processRef, list, subtitle, onMain=false}: ProcessType)
           <div className={stls.left}>
             {subtitle}
             <div className={stls.img}>
-              <Image src={gif} alt='gif' />
+              <Image
+              width={569}
+              height={328}
+              src={gif} alt='gif' />
             </div>
             <p className={stls.leftDesc}>
               <span>Дистанционное образование</span> — это обучение в комфортном темпе из любой точки мира 

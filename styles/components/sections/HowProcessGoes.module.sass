@@ -15,6 +15,9 @@
       @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
         @include m.flex($display: false, $fd: column)
 
+.onMain
+  @include m.gap( $pb: f.px(97))
+
 .onProfession
   @include m.gap($pt: f.px(0))
 
@@ -164,7 +167,7 @@
 
 
 .leftDesc
-  @include m.gap($ptb: f.px(35), $plr: f.px(20), $mt: f.px(38))
+  @include m.gap($ptb: f.px(35), $plr: f.px(20), $mt: f.px(38), $mb: f.px(0))
   background: #FEF2E8
   border-radius: 25px
   font-size: f.px(20)

@@ -22,7 +22,8 @@ const HowProcessGoes = ({processRef, list, subtitle, onMain=false}: ProcessType)
   return (
     <section ref={processRef} className={classNames({
       [stls.container]: true,
-      [stls.onProfession]: !onMain
+      [stls.onProfession]: !onMain,
+      [stls.onMain]: onMain
     })}>
       <Wrapper>
         <h2 className={stls.title}>Как проходит обучение</h2>

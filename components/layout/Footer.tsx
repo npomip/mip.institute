@@ -29,6 +29,7 @@ import Tutortop from '../imgs/footerReviews/Tutortop'
 import TwoGis from '../imgs/footerReviews/TwoGis'
 import Ucheba from '../imgs/footerReviews/Ucheba'
 import IconRating from '../icons/IconRating'
+import SearchProgram from '../general/SearchProgram'
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
@@ -220,6 +221,7 @@ const Footer = () => {
                 <PopupTrigger btn='alpha' cta='submitApplication' />
               </div>
               <a href='https://lms.mip.institute/' className={stls.enterToPortal}>Вход</a>
+              <SearchProgram />
               <p className={stls.primary}>
                 Государственный контроль (надзор) в сфере образования:
                 <span>
@@ -235,6 +237,7 @@ const Footer = () => {
                 образования города Москвы на осуществление образовательной
                 деятельности №041363 от 14.04.21.
               </p>
+              
             </div>
           </div>
           <div className={stls.bottom}>

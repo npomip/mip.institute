@@ -145,11 +145,14 @@ const YourDiploma = ({ ofType = null, diplomaRef = null, onMain=false }: YourDip
     <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Ваши будущие дипломы</h2>
-        <div className={stls.tag}>
+        {onMain && (
+          <div className={stls.tag}>
           <TagOrange>
             Образование
           </TagOrange>
         </div>
+        )}
+        
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.subtitleContainer}>

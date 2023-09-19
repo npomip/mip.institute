@@ -88,14 +88,14 @@ const Programs = ({
     professions: curProgramsStudyFieldSlug ? professionsFiltered : rearrangeArray(professions, targetTitles)
   }
 
-  useEffect(() => {
-    ofType === 'course' &&
-      data.courses.length === 0 &&
-      router.replace(routes.front.courses)
-    ofType === 'profession' &&
-      data.professions.length === 0 &&
-      router.replace(routes.front.professions)
-  }, [])
+  // useEffect(() => {
+  //   ofType === 'course' &&
+  //     data.courses.length === 0 &&
+  //     router.replace(routes.front.courses)
+  //   ofType === 'profession' &&
+  //     data.professions.length === 0 &&
+  //     router.replace(routes.front.professions)
+  // }, [])
 
   const filteredProgramsIds = filteredPrograms.map(item => item.id)
 

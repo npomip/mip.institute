@@ -91,6 +91,7 @@ const Footer = () => {
       setIsEdpartners(utmSource === 'edpartners')
     }, 300)
   }, [isEdpartners, partCookie])
+  const contentStyle = { background: '#ffffff', paddingLeft: '30px', paddingRight: '30px', paddingTop: '9px', paddingBottom: '9px' }
   return (
     <footer className={stls.container}>
       <Wrapper>
@@ -180,6 +181,7 @@ const Footer = () => {
                   <BtnOk dark />
                   <BtnDzen/>
                 </div>
+                
                 <Popup
     trigger={open => (
       <div className={stls.rating}>
@@ -187,7 +189,7 @@ const Footer = () => {
       </div>
     )}
     position="right center"
-    closeOnDocumentClick
+    {...{contentStyle}}
     className={stls.reviews}
   >
     <FooterReviews href={routes.external.yandex}>

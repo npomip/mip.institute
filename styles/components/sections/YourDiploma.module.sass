@@ -88,8 +88,8 @@
 
 .left
   @include m.media(laptop, desktop)
-  flex-basis: 51%
-    // @include m.gap($mr: f.px(30))
+  flex-basis: 49%
+  // @include m.gap($mr: f.px(30))
 
 .swiper
   position: relative
@@ -121,10 +121,11 @@
 
 .slidesContainer 
   margin-top: f.px(10)
+  margin-right: f.px(15)
   display: grid
   grid-template-columns: repeat(2, 1fr)
   row-gap: f.px(15)
-  column-gap: 20px
+  column-gap: f.px(16)
   @include m.media(phone, tablet)
     row-gap: f.px(10)
     column-gap: f.px(10)
@@ -140,7 +141,7 @@
   flex-shrink: 0
 
 .trigger
-  width: 250px
+  width: 260px
   @include m.media(phone, tablet)
     width: 305px
   border-radius: 15px

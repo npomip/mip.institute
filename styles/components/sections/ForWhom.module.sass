@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  z-index: 2
+  z-index: 3
   position: relative
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(30))
@@ -43,6 +43,13 @@
     @include m.gap($mb: f.px(25))
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $ai: space-around)
+    &:nth-of-type(3)
+      p
+        max-width: f.px(320)
+        & strong
+          width: f.px(450)
+        
+      
 
   &:nth-last-child(1)
     @include m.gap($mb: f.px(0))
@@ -60,7 +67,6 @@
       max-width: 100%
 
 .p
-  
   & strong
     font-size: 20px
     font-weight: 500
@@ -74,8 +80,9 @@
       max-width: f.px(300)
       
   @include m.media(desktop)
-    max-width: f.px(370)
+    max-width: f.px(357)
     font-size: f.px(18)
+      
   @include m.media(laptop)
     max-width: f.px(330)
     font-size: f.px(18)

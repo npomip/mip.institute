@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import stls from '@/styles/components/sections/PageNavigation.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 
-const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef, resumeRef, faqRef}) => {
+const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef, resumeRef, faqRef}) => {
   const [activeSection, setActiveSection] = useState('')
   const navigationRef = useRef(null)
   const pointRef = useRef(null)
@@ -49,6 +49,7 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
   }, [stickyNav])
 
 
+  console.log(ofType === '')
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -86,13 +87,16 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
                 Преподаватели
               </p>
             </li>
-            <li>
+            {ofType === 'profession' && (
+              <li>
               <p
                 className={activeSection === 'resume' ? stls.active : ''}
                 onClick={() => handleScrollToSection('resume')}>
                 Навыки
               </p>
             </li>
+            )}
+            
             <li>
               <p
                 className={activeSection === 'cost' ? stls.active : ''}
@@ -148,13 +152,16 @@ const PageNavigation = ({processRef, diplomaRef, planRef, teachersRef, costRef, 
                 Преподаватели
               </p>
             </li>
-            <li>
+            {ofType === 'profession' && (
+              <li>
               <p
                 className={activeSection === 'resume' ? stls.active : ''}
                 onClick={() => handleScrollToSection('resume')}>
                 Навыки
               </p>
             </li>
+            )}
+            
             <li>
               <p
                 className={activeSection === 'cost' ? stls.active : ''}

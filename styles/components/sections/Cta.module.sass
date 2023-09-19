@@ -29,6 +29,9 @@
     @media screen and (min-width: bp.$tablet) and (max-width: 920px)
       @include m.flex($jc: space-between)
 
+.onProfessions
+  @include m.gap($pb: f.px(0), $pt: f.px(0))
+
 .img
   @include m.media(phone, tablet)
     display: none

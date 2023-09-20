@@ -5,7 +5,7 @@ import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 import { ContextStaticProps } from '@/context/index'
-import { parse } from 'cookie';
+import { parse } from 'cookie'
 
 import TagManager from 'react-gtm-module'
 
@@ -104,8 +104,8 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [loading, setLoading] = useState(false)
   //cookie for edPartners
   useEffect(() => {
-    const utmCookie = getCookie('utm'); 
-    let arr 
+    const utmCookie = getCookie('utm')
+    let arr
     if (typeof utmCookie === 'string') {
       arr = JSON.parse(utmCookie)
     }
@@ -120,12 +120,14 @@ const MyApp = ({ Component, pageProps, router }) => {
           utms[utm.split('=')[0]] = utm.split('=')[1]
         })
 
-      if((router.query.utm_source && router.query.utm_source != previousCookie)){
-        setCookie('utm', JSON.stringify(utms), {maxAge: 7776000})
+      if (
+        router.query.utm_source &&
+        router.query.utm_source != previousCookie
+      ) {
+        setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
       }
-      
     }
-  }, [router.query]);
+  }, [router.query])
   //cookie for edPartners
 
   useEffect(() => {
@@ -149,7 +151,6 @@ const MyApp = ({ Component, pageProps, router }) => {
           utms[utm.split('=')[0]] = utm.split('=')[1]
         })
       sessionStorage.setItem('utms', JSON.stringify(utms))
-      
     }
 
     const referer = sessionStorage.getItem('referrer')
@@ -229,6 +230,32 @@ const MyApp = ({ Component, pageProps, router }) => {
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script id='calltouch' src='/assets/js/vendors/calltouchScript.js' />
       <Script id='botfaq' src='/assets/js/vendors/faq.js' />
+      <Script
+        id='google tag manager'
+        dangerouslySetInnerHTML={{
+          __html: `
+              (function(w, d, s, l, i) {
+              w[l] = w[l] || [];
+              w[l].push({
+              'gtm.start':
+              new Date().getTime(),
+              event: 'gtm.js'
+              });
+              var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+              j.async = true;
+              j.src =
+              'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+              f.parentNode.insertBefore(j, f);
+              })(window, document, 'script', 'dataLayer', 'GTM-5L6T2K77');
+            `
+        }}
+      />
+      <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77"
+                  height="0" width="0" style={{display: 'none', visibility: 'hidden'}}></iframe>
+      </noscript>
     </>
   )
 }

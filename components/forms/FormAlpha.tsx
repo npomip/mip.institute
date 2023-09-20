@@ -225,13 +225,13 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={!captchaIsDone} />
+              <BtnAlpha text={cta} isDisabled={isDisabled} />
             )}
           </div>
-          {dirtyFields.phone && <ReCAPTCHA
+          {/* {dirtyFields.phone && <ReCAPTCHA
             sitekey={key}
             onChange={onChange}
-    />}
+    />} */}
 
           {agreement && (
             <p className={stls.agreement}>

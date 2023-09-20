@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 type FormValues = {
@@ -25,15 +26,24 @@ const NewForm = ({
   question = false,
   popup = false,
   atFooter = false,
-  agreement = false
+  agreement = false,
+  promo = false,
+  inProfessions=false,
 }) => {
   const {
     register,
     handleSubmit,
     reset,
     setFocus,
-    formState: { errors }
-  } = useForm<FormValues>()
+    formState: { errors, dirtyFields },
+    getValues
+  } = useForm<FormValues>({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: ''
+    }
+  })
 
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
@@ -42,7 +52,31 @@ const NewForm = ({
     popup && setFocus('name')
   }, [setFocus, popup])
 
+  console.log(dirtyFields)
+
   const router = useRouter()
+  const [captchaIsDone, setCaptchaIsDone] = useState(false)
+  const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
+
+  const onChange = () =>  {
+    setCaptchaIsDone(true)
+  }
+
+  // const [phoneNum, setPhoneNum] = useState('')
+  // const values = getValues()
+  
+//  const changeHandler = () => {
+//     // В этой функции вы можете проверить, что поле телефонного номера заполнено и активировать капчу
+    
+//     setPhoneNum(values.phone) // Получите значение поля телефонного номера из формы
+//     console.log(phoneNum)
+//     if (phoneNum && phoneNum.trim() !== '') {
+//       setCaptchaIsVisible(true); // Показать капчу, если номер введен
+//     } else {
+//       setCaptchaIsVisible(false); // Скрыть капчу, если номер не введен
+//     }
+//   };
+  
 
   const onSubmit = async data => {
     setIsDisabled(true)
@@ -75,6 +109,8 @@ const NewForm = ({
     }
     const calltouch = await sendToCalltouch(data)
   }
+
+  const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
 
   return (
     <>
@@ -166,7 +202,10 @@ const NewForm = ({
             )} */}
             <button className={stls.violetButton}>Подобрать программу</button>
           </div>
-
+          {dirtyFields.phone && <ReCAPTCHA
+            sitekey={key}
+            onChange={onChange}
+    />}
           {agreement && (
             <p className={stls.agreement}>
               Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших

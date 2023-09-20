@@ -48,8 +48,6 @@ const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachers
     return () => window.removeEventListener('scroll', handleScroll)
   }, [stickyNav])
 
-
-  console.log(ofType === '')
   return (
     <section className={stls.container}>
       <Wrapper>

@@ -2,7 +2,6 @@ import stls from '@/styles/components/general/Breadcrumbs.module.sass'
 import Link from 'next/link'
 
 const Breadcrumbs = ({breadcrumbs}) => {
-  console.log(breadcrumbs)
 
   return (
     <div className={stls.container}>

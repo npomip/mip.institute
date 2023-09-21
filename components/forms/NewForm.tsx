@@ -200,19 +200,22 @@ const NewForm = ({
             ) : (
               <BtnAlpha text={cta} isDisabled={isDisabled} />
             )} */}
-            <button className={stls.violetButton}>Подобрать программу</button>
+            <button disabled={!captchaIsDone} className={stls.violetButton}>Подобрать программу</button>
           </div>
-          {dirtyFields.phone && <ReCAPTCHA
-            sitekey={key}
-            onChange={onChange}
-    />}
+          
           {agreement && (
             <p className={stls.agreement}>
               Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
               персональных данных
             </p>
           )}
+          
         </div>
+        <br />
+          {dirtyFields.phone && <ReCAPTCHA
+            sitekey={key}
+            onChange={onChange}
+    />}
       </form>
     </>
   )

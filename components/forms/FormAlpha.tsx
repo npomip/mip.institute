@@ -10,6 +10,7 @@ import { PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
 import ReCAPTCHA from "react-google-recaptcha";
+import verifyCaptcha from '../funcs/verifyCaptcha'
 
 
 type FormValues = {
@@ -58,25 +59,20 @@ const FormAlpha = ({
   const [captchaIsDone, setCaptchaIsDone] = useState(false)
   const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
 
-  const onChange = () =>  {
-    setCaptchaIsDone(true)
+  const onChange = async (value) =>  {
+    // const captchaToken = await recaptchaRef.current.executeAsync();
+    // console.log(captchaToken)
+    const req = await verifyCaptcha({token: value})
+    // recaptchaRef.current.reset();
+    if(req === 200){
+      console.log('Set true')
+      setCaptchaIsDone(true)
+    } else {
+      console.log('Set false')
+      setCaptchaIsDone(false)
+    }
   }
 
-  // const [phoneNum, setPhoneNum] = useState('')
-  // const values = getValues()
-  
-//  const changeHandler = () => {
-//     // В этой функции вы можете проверить, что поле телефонного номера заполнено и активировать капчу
-    
-//     setPhoneNum(values.phone) // Получите значение поля телефонного номера из формы
-//     console.log(phoneNum)
-//     if (phoneNum && phoneNum.trim() !== '') {
-//       setCaptchaIsVisible(true); // Показать капчу, если номер введен
-//     } else {
-//       setCaptchaIsVisible(false); // Скрыть капчу, если номер не введен
-//     }
-//   };
-  
 
   const onSubmit = async data => {
     setIsDisabled(true)
@@ -225,13 +221,13 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={isDisabled} />
+              <BtnAlpha text={cta} isDisabled={!captchaIsDone} />
             )}
           </div>
-          {/* {dirtyFields.phone && <ReCAPTCHA
+          {dirtyFields.phone && <ReCAPTCHA
             sitekey={key}
             onChange={onChange}
-    />} */}
+    />}
 
           {agreement && (
             <p className={stls.agreement}>

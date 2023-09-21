@@ -66,7 +66,13 @@ const NewForm = ({
     // console.log(captchaToken)
     const req = await verifyCaptcha({token: value})
     // recaptchaRef.current.reset();
-    setCaptchaIsDone(true)
+    if(req === 200){
+      console.log('Set true')
+      setCaptchaIsDone(true)
+    } else {
+      console.log('Set false')
+      setCaptchaIsDone(false)
+    }
   }
   console.log(captchaIsDone)
 

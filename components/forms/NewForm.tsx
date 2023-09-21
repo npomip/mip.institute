@@ -1,6 +1,6 @@
 import stls from '@/styles/components/forms/NewForm.module.sass'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Popup from 'reactjs-popup'
 import { useForm } from 'react-hook-form'
 import hitContactRoute from '@/components/funcs/hitContactRoute'
@@ -9,6 +9,9 @@ import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
+import ReCAPTCHA from "react-google-recaptcha";
+import verifyCaptcha from '../funcs/verifyCaptcha'
+import routes from '@/config/routes'
 
 
 type FormValues = {
@@ -25,29 +28,60 @@ const NewForm = ({
   question = false,
   popup = false,
   atFooter = false,
-  agreement = false
+  agreement = false,
+  promo = false,
+  inProfessions=false,
 }) => {
   const {
     register,
     handleSubmit,
     reset,
     setFocus,
-    formState: { errors }
-  } = useForm<FormValues>()
+    formState: { errors, dirtyFields },
+    getValues
+  } = useForm<FormValues>({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: ''
+    }
+  })
 
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
+  const [token, setToken] = useState(null)
 
   useEffect(() => {
     popup && setFocus('name')
   }, [setFocus, popup])
 
+  console.log(dirtyFields)
+
   const router = useRouter()
+  const [captchaIsDone, setCaptchaIsDone] = useState(false)
+  const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
+  const recaptchaRef = useRef(null)
+
+  const onChange = async (value) =>  {
+    // const captchaToken = await recaptchaRef.current.executeAsync();
+    // console.log(captchaToken)
+    const req = await verifyCaptcha({token: value})
+    // recaptchaRef.current.reset();
+    if(req === 200){
+      console.log('Set true')
+      setCaptchaIsDone(true)
+    } else {
+      console.log('Set false')
+      setCaptchaIsDone(false)
+    }
+  }
+  console.log(captchaIsDone)
 
   const onSubmit = async data => {
     setIsDisabled(true)
     setThanksIsOpen(true)
     // handle loader
+    window.open(routes.front.gratefull, '_blank');
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     data.utms = utms
@@ -75,6 +109,8 @@ const NewForm = ({
     }
     const calltouch = await sendToCalltouch(data)
   }
+
+  const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
 
   return (
     <>
@@ -164,16 +200,24 @@ const NewForm = ({
             ) : (
               <BtnAlpha text={cta} isDisabled={isDisabled} />
             )} */}
-            <button className={stls.violetButton}>Подобрать программу</button>
+            <button disabled={!captchaIsDone} className={stls.violetButton}>Подобрать программу</button>
           </div>
-
+          
           {agreement && (
             <p className={stls.agreement}>
               Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
               персональных данных
             </p>
           )}
+          
         </div>
+        <br />
+          {dirtyFields.phone && <ReCAPTCHA
+          // ref={recaptchaRef}
+            sitekey={key}
+            onChange={onChange}
+            
+    />}
       </form>
     </>
   )

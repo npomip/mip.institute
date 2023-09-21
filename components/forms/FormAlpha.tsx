@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 type FormValues = {
@@ -34,8 +35,15 @@ const FormAlpha = ({
     handleSubmit,
     reset,
     setFocus,
-    formState: { errors }
-  } = useForm<FormValues>()
+    formState: { errors, dirtyFields },
+    getValues
+  } = useForm<FormValues>({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: ''
+    }
+  })
 
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
@@ -44,7 +52,31 @@ const FormAlpha = ({
     popup && setFocus('name')
   }, [setFocus, popup])
 
+  console.log(dirtyFields)
+
   const router = useRouter()
+  const [captchaIsDone, setCaptchaIsDone] = useState(false)
+  const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
+
+  const onChange = () =>  {
+    setCaptchaIsDone(true)
+  }
+
+  // const [phoneNum, setPhoneNum] = useState('')
+  // const values = getValues()
+  
+//  const changeHandler = () => {
+//     // В этой функции вы можете проверить, что поле телефонного номера заполнено и активировать капчу
+    
+//     setPhoneNum(values.phone) // Получите значение поля телефонного номера из формы
+//     console.log(phoneNum)
+//     if (phoneNum && phoneNum.trim() !== '') {
+//       setCaptchaIsVisible(true); // Показать капчу, если номер введен
+//     } else {
+//       setCaptchaIsVisible(false); // Скрыть капчу, если номер не введен
+//     }
+//   };
+  
 
   const onSubmit = async data => {
     setIsDisabled(true)
@@ -78,6 +110,8 @@ const FormAlpha = ({
     const calltouch = await sendToCalltouch(data)
   }
 
+  const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
+
   return (
     <>
       <Popup
@@ -104,7 +138,7 @@ const FormAlpha = ({
               {...register('name', {
                 required: `*Введите ваше имя`,
                 minLength: {
-                  value: 3,
+                  value: 2,
                   message: `*Введите ваше имя`
                 },
                 maxLength: {
@@ -194,6 +228,10 @@ const FormAlpha = ({
               <BtnAlpha text={cta} isDisabled={isDisabled} />
             )}
           </div>
+          {/* {dirtyFields.phone && <ReCAPTCHA
+            sitekey={key}
+            onChange={onChange}
+    />} */}
 
           {agreement && (
             <p className={stls.agreement}>

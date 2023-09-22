@@ -81,7 +81,7 @@ const NewForm = ({
     setIsDisabled(true)
     setThanksIsOpen(true)
     // handle loader
-    window.open(routes.front.gratefull, '_blank');
+    // window.open(routes.front.gratefull, '_blank');
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     data.utms = utms

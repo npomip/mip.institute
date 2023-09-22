@@ -256,6 +256,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       </ContextStaticProps.Provider>
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script id='calltouch' src='/assets/js/vendors/calltouchScript.js' />
+      <Script type="text/javascript"  src='https://eddu.pro/getRating.js' />
     </>
   )
 }

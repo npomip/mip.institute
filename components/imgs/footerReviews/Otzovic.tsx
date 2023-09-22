@@ -11,7 +11,7 @@ const Otzovic = ({ width = 92, height = 28 }) => {
         className={stls.img}
         width={width !== 0 && width}
         height={height !== 0 && height}
-        placeholder='blur'
+        // placeholder='blur'
         quality={100}
       />
     </div>

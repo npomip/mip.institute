@@ -16,6 +16,9 @@
 
 .spanLine
   // text-align: center
+  // display: flex
+  // flex-direction: column
+  // align-items: center
   margin: 0 auto
   width: 88%
   border-bottom: 1px solid white
@@ -23,6 +26,9 @@
   &:nth-last-child(2)
     // @include m.gap($ptb: f.px(19))
     border: none
+    @include m.media(phone, tablet)
+      @include m.gap($pb: f.px(0))
+
 
 .flexMonth
   
@@ -40,19 +46,27 @@
     white-space: nowrap
 
 .costMonth
-  // text-align: center
-  font-weight: 350
+  text-align: center
+  @include m.media(desktop)
+    font-size: f.px(18)
+    @include m.gap($pr: f.px(24))
+  @include m.media(laptop)
+    font-size: f.px(15)
+    @include m.gap($pr: f.px(40))
+  font-weight: 150
   line-height: 120%
   @include m.gap($pt: f.px(12))
   @include m.media(tablet)
     font-size: f.px(18)
-    // @include m.gap($pl: f.px(11))
+    // 
   @include m.media(phone)
+    
+    width: f.px(260)
+    margin: 0 auto
+    @include m.gap($mb: f.px(10))
     text-align: center
     font-size: f.px(15)
-  @include m.media(laptop, desktop)
-    
-    font-size: f.px(18)
+  
   b
     font-weight: 500
 
@@ -60,6 +74,8 @@
   font-size: f.px(10)
   @include m.gap($pt: f.px(12), $mb: f.px(0))
   font-weight: 350
+  @include m.media(phone, tablet)
+    text-align: center
 
 .fullPrice
   
@@ -82,6 +98,8 @@
     justify-content: center
     font-size: f.px(40)
   @include m.media(tablet)
+    display: flex
+    justify-content: center
     font-size: f.px(48)
   @include m.media(desktop)
     // @include m.gap($mr: f.px(23))
@@ -173,6 +191,6 @@
     @include m.flex
 .askQuestion
   width: 100%
-  @include m.gap($plr: f.px(20))
+  @include m.gap($plr: f.px(20), $mb: f.px(20))
   @include m.media(laptop, desktop)
     display: none

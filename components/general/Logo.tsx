@@ -11,7 +11,8 @@ const Logo = ({ atHeader = false, withTitle = true, atFooter=false }) => {
         <a
           className={classNames({
             [stls.logo]: true,
-            [stls.atHeader]: atHeader
+            [stls.atHeader]: atHeader,
+            [stls.atFooter]: atFooter
           })}>
           <IconLogo withTitle={withTitle} atFooter={atFooter} />
           {withTitle && (

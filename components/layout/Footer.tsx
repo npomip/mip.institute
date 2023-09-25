@@ -30,6 +30,8 @@ import TwoGis from '../imgs/footerReviews/TwoGis'
 import Ucheba from '../imgs/footerReviews/Ucheba'
 import IconRating from '../icons/IconRating'
 import SearchProgram from '../general/SearchProgram'
+import sendToEddu from '../funcs/sendToEddu'
+import PopupFooterReviews from '../popups/PopupFooterReviews'
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
@@ -92,7 +94,12 @@ const Footer = () => {
       setIsEdpartners(utmSource === 'edpartners')
     }, 300)
   }, [isEdpartners, partCookie])
-  const contentStyle = { background: '#ffffff', paddingLeft: '30px', paddingRight: '30px', paddingTop: '9px', paddingBottom: '9px' }
+  
+{/* for test only */}
+  const edduSend= () => {
+    sendToEddu()
+  }
+  {/* for test only */}
   return (
     <footer className={stls.container}>
       <Wrapper>
@@ -182,34 +189,13 @@ const Footer = () => {
                   <BtnOk dark />
                   <BtnDzen/>
                 </div>
-                
-                <Popup
-    trigger={open => (
-      <div className={stls.rating}>
-        <IconRating />
-      </div>
-    )}
-    position="right center"
-    {...{contentStyle}}
-    className={stls.reviews}
-  >
-    <FooterReviews href={routes.external.yandex}>
-      <Ya />
-    </FooterReviews>
-    <FooterReviews href={routes.external.turtop}>
-      <Tutortop />
-    </FooterReviews>
-    
-    <FooterReviews href={routes.external}>
-      <Otzovic />
-    </FooterReviews>
-    <FooterReviews href={routes.external.twoGis}>
-      <TwoGis />
-    </FooterReviews>
-    <FooterReviews href={routes.external.ucheba}>
-      <Ucheba />
-    </FooterReviews>
-  </Popup>
+                <PopupFooterReviews />
+  {/* eddduuuuu */}
+  {/* <script type="text/javascript" defer src="https://eddu.pro/getRating.js"/>
+  <div className={stls.eddu} id="getRatingFromEddu" data-id="71158"></div> */}
+{/* for test only */}
+{/* <button onClick={edduSend}>safsaf</button> */}
+{/* for test only */}
                 <div className={stls.btn}>
                   <PopupTrigger btn='beta' cta='askQuestion' />
                 </div>

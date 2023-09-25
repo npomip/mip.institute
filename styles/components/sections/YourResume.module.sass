@@ -113,10 +113,10 @@
 
 .img
   @include m.media(phone, tablet)
-    min-width: f.px(60)
-    max-width: f.px(60)
-    min-height: f.px(60)
-    max-height: f.px(60)
+    min-width: f.px(45)
+    max-width: f.px(45)
+    min-height: f.px(45)
+    max-height: f.px(45)
     @include m.gap($mr: f.px(15))
   @include m.media(laptop, desktop)
     min-width: f.px(90)
@@ -133,6 +133,7 @@
   @include m.media(laptop, desktop)
     max-width: f.px(573)
   @include m.media(phone, tablet)
+  justify-content: space-around
     align-items: center
 
 .heading
@@ -148,7 +149,7 @@
   // @include m.gap($mb: f.px(5))
   font-size: f.px(21)
   @include m.media(phone, tablet)
-    font-size: f.px(15)
+    font-size: f.px(10)
   font-weight: 500
   @include m.dye(c, c.$kappa)
 
@@ -180,6 +181,7 @@
       &::before
         content: '•'
         color: #7104C4
+        font-size: f.px(35)
   @include m.media(laptop, desktop)
     margin-top: 0
   ul
@@ -232,7 +234,7 @@
   font-weight: 350
   @include m.media(phone, tablet)
     // font-weight: 350
-    @include m.gap($pl: f.px(25))
+    // @include m.gap($pl: f.px(25))
     font-size: f.px(14)
     padding-top: f.px(15)
     border-top: 1px solid #D1D1D1

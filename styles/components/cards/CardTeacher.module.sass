@@ -8,15 +8,16 @@
   height: 300px
   // box-shadow: 3px 4px 40px 0px rgba(0, 0, 0, 0.05)
   @include m.media(phone, tablet)
-    height: 200px
+    @include m.gap( $mt: f.px(2))
+    height: f.px(140)
     background: white
     // @include m.flex($fd: column)
 
 .innerContainer
   display: flex
   align-items: center
-  @include m.gap( $mlr: f.px(10))
-  height: 190px
+  // @include m.gap( $mlr: f.px(10))
+  height: f.px(140)
   border-radius: f.px(25)
   border: f.px(0.5) solid #6F01C6
   // box-shadow: 3px 4px 40px 0px rgba(0, 0, 0, 0.1)

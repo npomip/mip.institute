@@ -11,7 +11,7 @@ const TwoGis = ({ width = 83, height = 23 }) => {
         className={stls.img}
         width={width !== 0 && width}
         height={height !== 0 && height}
-        placeholder='blur'
+        // placeholder='blur'
         quality={100}
       />
     </div>

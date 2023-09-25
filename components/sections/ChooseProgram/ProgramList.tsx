@@ -48,9 +48,6 @@ export default function ProgramList({ofType=null, currentType=null}) {
       : ofType === 'profession'
       ? studyFieldsProfessions
       : studyFields
-
-      // list.map((label, slug) => console.log(label))
-      console.log(currentType)
       
 
   return (

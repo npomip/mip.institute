@@ -11,7 +11,7 @@ const Ucheba = ({ width = 79, height = 18 }) => {
         className={stls.img}
         width={width !== 0 && width}
         height={height !== 0 && height}
-        placeholder='blur'
+        // placeholder='blur'
         quality={100}
       />
     </div>

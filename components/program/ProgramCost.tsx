@@ -41,7 +41,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
             <span className={stls.light}>&#8381;</span>
           </span> */}
           {/* </div> */}
-          <p className={stls.loan}>*Беспроцентная рассрочка на 12 месяцев от Tinkoff</p>
+          <p className={stls.loan}>*Беспроцентная рассрочка на 12 месяцев от TINKOFF</p>
           </div>
           <div className={stls.spanLine}>
           <p className={stls.fullPrice}>Стоимость программы за весь курс:</p>

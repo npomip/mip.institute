@@ -256,6 +256,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       </ContextStaticProps.Provider>
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script id='calltouch' src='/assets/js/vendors/calltouchScript.js' />
+      {/* <script type="text/javascript" defer src="https://eddu.pro/getRating.js"/>  */}
     </>
   )
 }

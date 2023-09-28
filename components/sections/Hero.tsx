@@ -9,6 +9,8 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 import HandsOnMain from '../imgs/general/HandsOnMain'
 import FullWrapper from '../layout/FullWrapper'
 import IconGratefullPortal from '../icons/IconGratefullPortal'
+import IconHero from '../icons/IconHero'
+import IconHeroWave from '../icons/IconHeroWave'
 
 const Hero = () => {
   let hiddenGemCount = 0
@@ -52,7 +54,7 @@ const Hero = () => {
               <IconAtom large cnu slightlyVisible />
             </div> */}
             <div className={stls.img}>
-              <HandsOnMain />
+              <IconHero />
             </div>
             <div className={stls.portals}>
               <div className={stls.smallOne}>
@@ -90,6 +92,9 @@ const Hero = () => {
             </div>
           </div>
           
+          <div className={stls.iconWave}>
+              <IconHeroWave />
+            </div>
         </TwoColumns>
         <div className={stls.prosList}>
               <ProsList />

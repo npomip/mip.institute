@@ -15,6 +15,7 @@ import IconInfo from '../icons/IconInfo'
 
 const ProgramInfo = () => {
   const { program } = useContext(ContextStaticProps)
+  console.log(program)
 
   const studyHours = program?.studyHours || 0
   const studyForm = program?.studyForm || ''

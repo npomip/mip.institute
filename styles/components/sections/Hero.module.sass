@@ -6,7 +6,7 @@
 
 .container
   @include m.dye(bg, c.$alpha)
-  
+  position: relative
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(25))
   @include m.media(laptop, desktop)
@@ -134,25 +134,30 @@
   @include m.media(phone)
     // right: 0
     // left: 0
-    top: f.px(60)
+    // transform: translate(40%, f.px(-70))
+    top: f.px(119)
+    right: f.px(-50)
     position: absolute
     z-index: 1
-    scale: 1.1
+    // scale: 1.1
     // width: f.px(350)
-    max-height: f.px(398)
+    // max-height: f.px(398)
     overflow: hidden
     // transform: translate(5%, f.px(0))
   @include m.media(laptop, desktop)
-    transform: translate(23%, f.px(-100))
+    // overflow: hidden
+    transform: translate(6%, f.px(-145))
     right: 0
-    width: f.px(594)
-    height: f.px(677)
-    z-index: 1
+    width: f.px(454)
+    height: f.px(437)
+    z-index: 2
+    // overflow: visible 
   @include m.media(laptop)
     transform: translate(20%, f.px(-100))
   @include m.media(tablet)
-    right: 0
-    transform: translate(5%, f.px(-145))
+    z-index: 2
+    right: f.px(-30)
+    transform: translate(5%, f.px(-115))
     width: f.px(380)
     height: f.px(477)
 
@@ -200,33 +205,37 @@
 
 
 .smallOne
+  z-index: 2
   position: absolute
-  bottom: f.px(-60)
+  bottom: f.px(-20)
   right: f.px(300)
   @include m.media(phone, tablet)
     bottom: f.px(-10)
-    right: f.px(250)
+    left: f.px(0)
 .smallTwo
+  z-index: 2
   position: absolute
-  bottom: f.px(-80)
-  right: f.px(60)
+  bottom: f.px(30)
+  right: f.px(120)
   @include m.media(phone, tablet)
     display: none
 .xsmallOne
+  z-index: 2
   position: absolute
-  bottom: f.px(-120)
+  bottom: f.px(-180)
   right: f.px(-80)
   @include m.media(phone, tablet)
     bottom: f.px(-200)
-    right: f.px(280)
+    left: f.px(2)
 
 .xsmallTwo
+  z-index: 2
   position: absolute
   bottom: f.px(-350)
   right: f.px(10)
   @include m.media(phone, tablet)
-    bottom: f.px(30)
-    right: f.px(10)
+    bottom: f.px(-140)
+    left: f.px(60)
 
 .pointShadow
   width: f.px(1)
@@ -250,3 +259,14 @@
   transform: rotate(25deg)
   @include m.media(phone, tablet)
     display: none
+
+.iconWave
+  position: absolute
+  transform: translate(-15%, f.px(-49))
+  @include m.media(laptop)
+    transform: translate(-17%, f.px(22))
+  @include m.media( tablet)
+    transform: translate(-3%, f.px(90))
+  @include m.media(phone)
+    transform: translate(-3%, f.px(154))
+

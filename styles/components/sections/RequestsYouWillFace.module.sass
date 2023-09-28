@@ -33,8 +33,7 @@
   @include m.media(phone, tablet)
     flex-direction: column
     align-items: center
-    max-height: 450px
-    
+    max-height: f.px(450)
     overflow-y: auto
 
 .card
@@ -55,7 +54,6 @@
   @include m.media(phone, tablet)
     &:nth-of-type(4)
       @include m.gap($mlr: f.px(30))
-    
   &:hover
     transform: rotateY(15deg)
     box-shadow: 10px 0 15px 0  rgba(50,50,50,.1)
@@ -96,7 +94,6 @@
         font-size: f.px(15)
 
   .back
-    // justify-content: center
     background: #FBF4FF
     padding-left: f.px(20)
     font-weight: 350

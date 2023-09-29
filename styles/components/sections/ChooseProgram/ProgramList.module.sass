@@ -5,23 +5,15 @@
 
 
 .program
-  // flex-basis: 50%
-  // flex-direction: column
   @include m.media(laptop, desktop)
     width: 100%
     display: grid
-    grid-template: f.px(44) repeat(3, f.px(66)) / repeat(2, f.px(370))
+    grid-template: f.px(40) repeat(3, f.px(60)) / repeat(2, 1fr)
     grid-column-gap: f.px(29)
     grid-auto-flow: column
-    // &:nth-child(2)
-      
-    //   color: red
-      
   @include m.media(phone, tablet)
     display: flex
     flex-direction: column
-    // justify-items: center
-    // align-items: center
     margin: 0 auto
     @include m.gap($mb: f.px(20))
     max-width: f.px(350)

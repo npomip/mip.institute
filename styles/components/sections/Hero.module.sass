@@ -87,29 +87,6 @@
     @include m.media(laptop, desktop)
       @include m.gap($mr: f.px(24))
 
-// .icon
-//   @include m.media(phone, tablet)
-//     position: absolute
-//     top: 0
-//     right: 0
-//     transform: translateX(54%)
-//   @include m.media(laptop, desktop)
-//     display: none
-
-// .iconDesktop
-//   @include m.media(phone, tablet)
-//     display: none
-//   @include m.media(laptop, desktop)
-//     position: absolute
-//     bottom: f.px(130)
-//     right: f.px(180)
-//     z-index: 1
-//   @media screen and (min-width: bp.$tablet) and (max-width: 850px)
-//     bottom: f.px(400)
-//     right: f.px(270)
-//     transform: rotate(10deg)
-      
-
 .left
   position: relative
   z-index: 2
@@ -132,26 +109,17 @@
 .img
   position: absolute
   @include m.media(phone)
-    // right: 0
-    // left: 0
-    // transform: translate(40%, f.px(-70))
     top: f.px(119)
     right: f.px(-50)
     position: absolute
     z-index: 1
-    // scale: 1.1
-    // width: f.px(350)
-    // max-height: f.px(398)
     overflow: hidden
-    // transform: translate(5%, f.px(0))
   @include m.media(laptop, desktop)
-    // overflow: hidden
     transform: translate(6%, f.px(-145))
     right: 0
     width: f.px(454)
     height: f.px(437)
     z-index: 2
-    // overflow: visible 
   @include m.media(laptop)
     transform: translate(20%, f.px(-100))
   @include m.media(tablet)
@@ -165,8 +133,6 @@
   @include m.media(phone, tablet)
     transform: translateY(f.px(-13))
   @include m.media(laptop, desktop)
-    // display: block
-    // position: initial
     z-index: 15
     left: 0
     right: 0
@@ -245,7 +211,6 @@
   bottom: f.px(-150)
   right: f.px(180)
 .medium
-  // box-shadow: rgba(182, 210, 244, 0.2) 10px 17px 149px 170px
   position: absolute
   bottom: f.px(-150)
   right: f.px(180)
@@ -261,6 +226,8 @@
     display: none
 
 .iconWave
+  z-index: 0
+  overflow: hidden
   position: absolute
   transform: translate(-15%, f.px(-49))
   @include m.media(laptop)

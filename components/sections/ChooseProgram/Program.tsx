@@ -1,4 +1,3 @@
-import { IconArrowRight } from '@/components/icons'
 import PopupProgram from '@/components/popups/PopupProgram'
 import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
@@ -9,7 +8,6 @@ import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import classNames from 'classnames'
 import ProgramMobile from './ProgramMobile'
-import { useMediaQuery } from 'react-responsive'
 import IconTriangle from '@/components/icons/IconTriangle'
 
 const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenListIndex, openListIndex }) => {

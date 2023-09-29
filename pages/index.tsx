@@ -28,6 +28,8 @@ import mainList from '@/data/general/mainList'
 import CommonAboutSlider from '@/components/sections/AboutSlider/CommonAboutSlider'
 import CreateApplication from '@/components/sections/CreateApplication'
 import Directions from '@/components/sections/Directions'
+import ButtonToTop from '@/components/sections/ButtonToTop'
+import TopCourses from '@/components/sections/TopCourses'
 
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) => {
   useHandleContextStaticProps({ programs })
@@ -64,7 +66,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
   const subtitle = 
     <>
       <p className={stls.leftTitle}>
-      Обучение в МИП осуществляется по заочной форме с применением дистанционных<span className={stls.star}>*</span> технологий. Лекции, общение, тестирование проходят в онлайн-формате через образовательную платформу. Вы получите научную базу по главным психологическим дисциплинам и практический опыт в работе с задачами по реальным кейсам. Узнаете, как терапия помогает решить внутриличностные проблемы и выйти из стрессовых ситуаций без потерь. 
+      Обучение в МИП осуществляется по заочной форме с применением дистанционных<span className={stls.star}>*</span> технологий. Лекции, общение, тестирование проходят в онлайн-формате через образовательную платформу. Вы получите научную базу по главным психологическим дисциплинам и практический опыт в работе с задачами по реальным кейсам. Узнаете, как терапия помогает решить внутриличностные проблемы и выйти из стрессовых ситуаций без потерь.
       </p>
     </>
 
@@ -93,8 +95,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       <SeoOrganizationJsonLd />
       <Hero />
       <Directions />
+      <TopCourses />
       {/* <Programs withTitle withBtn max={8} onMain /> */}
-      
+      <ButtonToTop />
       <WhyBother />
       <About />
       <HowProcessGoes onMain subtitle={subtitle} list={mainList} />

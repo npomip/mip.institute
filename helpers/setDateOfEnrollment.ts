@@ -4,19 +4,19 @@ const dateItem = new Date()
 const selectorDate = (item) => {
   switch (true) {
 
-    case (item < new Date(2023, 8, 8)) :
-      return new Date(2022, 8, 7).toLocaleString('ru-RU', {
+    case (item < new Date(2023, 8, 30)) :
+      return new Date(2023, 8, 29).toLocaleString('ru-RU', {
         day: 'numeric',
         month: 'long'
       })
-      case (item < new Date(2023, 8, 22)) :
-      return new Date(2022, 8, 21).toLocaleString('ru-RU', {
+      case (item < new Date(2023, 9, 5)) :
+      return new Date(2022, 9, 4).toLocaleString('ru-RU', {
         day: 'numeric',
         month: 'long'
       })
 
-    case (item < new Date(2023, 8, 30)) :
-      return new Date(2023, 8, 29).toLocaleString('ru-RU', {
+    case (item < new Date(2023, 9, 19)) :
+      return new Date(2023, 9, 18).toLocaleString('ru-RU', {
         day: 'numeric',
         month: 'long'
       })

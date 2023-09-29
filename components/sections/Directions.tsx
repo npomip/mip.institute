@@ -2,16 +2,14 @@ import stls from '@/styles/components/sections/Directions.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import { useContext, useState } from 'react'
-
 import ProgramList from './ChooseProgram/ProgramList'
 import DirectionsSelector from './DirectionsSelector'
 import TagOrange from '../general/TagOrange'
-import IconVerticalArrow from '../icons/IconVerticalArrow'
+import IconForBottomDirections from '../icons/IconForBottomDirections'
 
 const Directions = () => {
-  const { program } = useContext(ContextStaticProps)
 
-  const [currentType, setCurrentType] = useState('')
+  const [currentType, setCurrentType] = useState('profession')
 
   return (
     <section className={stls.container}>
@@ -25,14 +23,21 @@ const Directions = () => {
               </div>
 
             </div>
-            <DirectionsSelector currentType={currentType} setCurrentType={setCurrentType} />
-            <ProgramList currentType={currentType} ofType={currentType === 'course' ? 'course' : currentType === 'profession' ? 'profession' : null} />
+            <div className={stls.flexContainer}>
+              <DirectionsSelector currentType={currentType} setCurrentType={setCurrentType} />
+              <ProgramList currentType={currentType} ofType={currentType === 'course' ? 'course' : currentType === 'profession' ? 'profession' : null} />
+            </div>
+            <div className={stls.flexContainerMobile}>
+              <DirectionsSelector currentType={currentType} setCurrentType={setCurrentType} />
+            </div>
           </div>
-          <div className={stls.icon}>
-            <IconVerticalArrow />
-          </div>
+          
         </div>
+        
       </Wrapper>
+      <div className={stls.icon}>
+            <IconForBottomDirections />
+          </div>
     </section>
   )
 }

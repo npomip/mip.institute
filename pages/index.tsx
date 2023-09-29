@@ -93,7 +93,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       <SeoOrganizationJsonLd />
       <Hero />
       <Directions />
-      <Programs withTitle withBtn max={8} onMain />
+      {/* <Programs withTitle withBtn max={8} onMain /> */}
       
       <WhyBother />
       <About />

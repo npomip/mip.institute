@@ -4,11 +4,20 @@
 
 .container
   display: flex
+  flex-direction: column
   background: #FEF2E8
-  @include m.gap($ptb: f.px(25))
-  // flex-direction: column
-// .content
-//   display: flex
+  @include m.gap($pt: f.px(25), $pb: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(40))
+
+.flexContainer
+  display: flex
+  @include m.media(phone, tablet)
+    display: none
+
+.flexContainerMobile
+  @include m.media(laptop, desktop)
+    display: none
 
 .heading
   display: flex
@@ -46,9 +55,10 @@
 
 .icon
   // position: absolute
-  flex-basis: 10%
-  max-height: f.px(600)
+  // flex-basis: 10%
+  // max-height: f.px(600)
+  @include m.gap($pt: f.px(87))
   display: flex
-  justify-content: flex-end
+  justify-content: center
   @include m.media(phone, tablet)
     display: none

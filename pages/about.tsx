@@ -24,7 +24,10 @@ const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
     `,
     desc: truncate(company.about, 120),
     canonical: `${routes.front.root}${routes.front.about}`
+
   }
+
+  console.log(programs)
   return (
     <>
       <NextSeo

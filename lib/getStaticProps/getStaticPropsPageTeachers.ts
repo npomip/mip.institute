@@ -23,6 +23,7 @@ const getStaticPropsPageTeachers = async ({
           title
           slug
           typeLabel
+          type
           studyMounthsDuration
           studyHours
           index_number {

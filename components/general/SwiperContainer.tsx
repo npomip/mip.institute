@@ -98,7 +98,7 @@ const SwiperContainer = ({
     console.log('Previous Slide');
   };
 
- 
+
   return (
     <Swiper
       navigation={{

@@ -13,6 +13,8 @@ import { ActiveLicenses } from '@/components/sections'
 import { sortBasedOnNumericOrder } from '../helpers'
 import TeachersFiles from '@/components/sections/TeachersLineUp/TeachersFiles'
 import AboutPageContactForm from '@/components/sections/AboutPageContactForm'
+import { useContext } from 'react'
+import { ContextStaticProps } from '../context'
 
 const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   useHandleContextStaticProps({ programs })
@@ -27,7 +29,12 @@ const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
 
   }
 
-  console.log(programs)
+  
+  const {
+    courses,
+    professions,
+  } = useContext(ContextStaticProps)
+  console.log(courses)
   return (
     <>
       <NextSeo

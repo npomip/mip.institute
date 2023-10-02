@@ -26,6 +26,11 @@ const getStaticPropsPageHome = async ({
           typeLabel
           studyMounthsDuration
           studyHours
+          heroPicture {
+            url
+            width
+            height
+          }
           index_number {
             idx
           }

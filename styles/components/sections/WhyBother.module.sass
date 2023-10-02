@@ -9,9 +9,9 @@
     @include m.media(phone, tablet)
       @include m.gap($plr: f.px(0))
   @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(79))
+    @include m.gap($pb: f.px(79), $pt: f.px(60))
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(30))
+    @include m.gap($ptb: f.px(30))
 
 .content
   border-radius: f.px(35)

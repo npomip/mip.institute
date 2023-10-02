@@ -3,23 +3,14 @@
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/utils/mixin/media' as bp
 
-
-
 .directionsMobile
   // max-height: f.px(58)
   @include m.media(desktop, laptop)
     display: none
 
-
-
 .item
   @include m.media(desktop, laptop)
     height: 100%
-    // @include m.gap($ptb: f.px(20))
-    // &:nth-last-of-type(6)
-    //   @include m.gap($pt: f.px(0))
-    // &:nth-of-type(1)
-    //   @include m.gap($pt: f.px(0))
   @include m.media(desktop)
     width: f.px(370)
   @include m.media(laptop)
@@ -29,14 +20,11 @@
   justify-content: space-between
   align-items: center
   border-bottom: f.px(1) solid #B250FF
-  // background: #FFCA9E
-  // border-radius: 25px
   font-weight: 500
   font-family: Stem, sans-serif
   font-size: f.px(18)
   &:hover
     color: #B250FF
-    // background: #F87E1B
     cursor: pointer
   @include m.media(phone, tablet)
     max-width: f.px(350)
@@ -45,45 +33,10 @@
     @include m.gap($mt: f.px(10), $pt: f.px(10), $pb: f.px(17))
     font-size: f.px(16)
 
-      
-      
-
-
-.itemCourse
-  @include m.media(desktop, laptop)
-    height: 100%
-    @include m.gap($ptb: f.px(20))
-    &:nth-of-type( )
-      
-      color: red
-      @include m.gap($pt: f.px(0))
-  @include m.media(desktop)
-    width: f.px(370)
-  @include m.media(laptop)
-    max-width: f.px(450)
-    min-width: f.px(300)
-  display: flex
-  align-items: center
-  justify-content: space-between
-  border-bottom: f.px(1) solid #B250FF
-  font-weight: 500
-  font-family: Stem, sans-serif
-  font-size: f.px(18)
-  &:hover
-    color: #B250FF
-    cursor: pointer
-  @include m.media(phone, tablet)
-    min-width: f.px(350)
-    margin: 0 auto
-    @include m.gap($mt: f.px(10), $pt: f.px(10), $pb: f.px(17))
-    font-size: f.px(16)
-
 .desktopPopup
   &:nth-of-type(1)
-    // color: red
     .item, .itemCourse
       align-items: flex-start
-      // @include m.gap($pt: f.px(0))
   &:nth-of-type(9)
     .item, .itemCourse
       align-items: flex-start

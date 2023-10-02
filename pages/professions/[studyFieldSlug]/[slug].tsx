@@ -22,8 +22,8 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
   const programOverview = program?.programOverview
   const router = useRouter()
   const segments = router.asPath.split("/").filter(segment => segment !== "");
-const labels =['Профессиональная переподготовка', program?.studyField, program?.title]
-const breadcrumbs = segments.map((segment, index) => {
+  const labels =['Профессиональная переподготовка', program?.studyField, program?.title]
+  const breadcrumbs = segments.map((segment, index) => {
   const breadcrumb = {
     label: labels[index],
     path: "/" + segments.slice(0, index + 1).join("/")

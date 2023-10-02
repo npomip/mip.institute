@@ -78,7 +78,7 @@ const PopupFooterReviews = () => {
         <FooterReviews href={routes.external.turtop}>
           <Tutortop />
         </FooterReviews>
-        <FooterReviews href={routes.external}>
+        <FooterReviews href={routes.external.otzovic}>
           <Otzovic />
         </FooterReviews>
         <FooterReviews href={routes.external.twoGis}>

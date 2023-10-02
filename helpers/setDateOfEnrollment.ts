@@ -22,6 +22,7 @@ const setDateOfEnrollment = (day: number, month: number): string => {
         })
   
     }
+
   }
   
     return selectorDate(dateItem)

@@ -115,6 +115,7 @@ const Programs = ({
       if (include) return item
     })
   }
+
   const isMobileTabletLayout = useMediaQuery({ query: '(max-width: 768px)' })
 
   if (max) {

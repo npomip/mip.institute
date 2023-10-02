@@ -5,6 +5,7 @@
 .group
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between)
+    // flex-wrap: wrap
 
 .atFooter
   & .name,
@@ -76,6 +77,8 @@
       font-family: Stem, sans-serif
       font-weight: 500
       font-size: 18px
+      &:disabled
+        background: gray
 
 .agreement
   @include m.gap($mt: f.px(30))

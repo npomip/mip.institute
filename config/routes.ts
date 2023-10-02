@@ -28,6 +28,7 @@ const routes = {
     reviews: '/reviews',
     legal: '/legal',
     payment: '/payment',
+    gratefull: '/gratefull',
     contact: '/contact',
     docs: '/docs',
     docsConstituent: '/docs/constituent',

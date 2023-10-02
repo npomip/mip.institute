@@ -58,6 +58,9 @@ const handleGetStaticProps = async ({
       case routes.front.payment:
         return await getStaticPropsDefault({ context })
 
+        case routes.front.gratefull:
+          return await getStaticPropsDefault({ context })
+
       case routes.front.reviews:
         return await getStaticPropsPageReviews({ context })
 

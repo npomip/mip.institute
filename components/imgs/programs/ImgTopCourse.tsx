@@ -1,8 +1,8 @@
-import stls from '@/styles/components/imgs/teachers/ImgTeacher.module.sass'
+import stls from '@/styles/components/imgs/programs/ImgTopCourse.module.sass'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 
-const ImgTeacher = ({ src, alt, width = 0, height = 0 }) => {
+const ImgTopCourse = ({ src, alt, width = 0, height = 0 }) => {
   return (
     <div className={stls.container}>
       <Image
@@ -18,4 +18,4 @@ const ImgTeacher = ({ src, alt, width = 0, height = 0 }) => {
   )
 }
 
-export default ImgTeacher
+export default ImgTopCourse

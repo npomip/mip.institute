@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/Teachers.module.sass'
+import stls from '@/styles/components/sections/TopCourses.module.sass'
 import { TypeLibTeachers } from '@/types/index'
 import { useContext } from 'react'
 import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
@@ -8,17 +8,13 @@ import SwiperContainer from '@/components/general/SwiperContainer'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import CardTeacher from '@/components/cards/CardTeacher'
 import BtnDelta from '@/components/btns/BtnDelta'
-import {
-  ImgTeacher,
-  ImgTeacher1,
-  ImgTeacher2,
-  ImgTeacher3,
-  ImgTeacher4
-} from '@/components/imgs'
 import TagOrange from '../general/TagOrange'
 import classNames from 'classnames'
+import ImgTopCourse from '../imgs/programs/ImgTopCourse'
+import CardTopProgram from '../cards/CardTopProgram'
+import routes from '@/config/routes'
 
-type TeacherProps ={
+type TeacherProps = {
   teachersRef?: React.RefObject<HTMLElement | null>
   teachersFromMain?: TypeLibTeachers
   title: string
@@ -27,82 +23,95 @@ type TeacherProps ={
 
 const TopCourses = () => {
   const { programs } = useContext(ContextStaticProps)
-// console.log(reviews)
-  // const teachers: TypeLibTeachers =
-  //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
-  let teachers = programs
-  // if(teachersFromMain) {
-  //   teachers = teachersFromMain
-  // }
-  
+  // console.log(programs)
 
-  const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
+  const targetTitles = [
+    'Психолог-консультант',
+    'Психолог-диетолог. Нутрициолог',
+    'Когнитивно-поведенческий психотерапевт',
+    'Практический психолог с доп. квалификацией Психолог-психотерапевт',
+    'Клиническая психология',
+    'Детский психолог',
+    'Психосоматика и телесная психотерапия',
+    'Гештальт-терапевт'
+  ]
+  const rearrangeArray = (professions, targetTitles) => {
+    const resultArray = []
+    const remainingArray = []
+
+    for (const item of professions) {
+      if (targetTitles.includes(item.title)) {
+        resultArray.push(item)
+      }
+    }
+
+    return resultArray
+  }
+  const topCourses = rearrangeArray(programs, targetTitles)
+  console.log(topCourses)
+
   const list =
-    teachersSorted &&
-    [...teachersSorted]?.map(teacher => ({
-      ...teacher,
+    topCourses &&
+    [...topCourses]?.map(course => ({
+      ...course,
       image: (
-        <ImgTeacher
-          src={teacher?.portrait?.url}
-          alt={teacher.name}
-          width={160}
+        <ImgTopCourse
+          src={course?.heroPicture?.url}
+          alt={course.name}
+          width={390}
           height={getImageHeight({
-            width: 160,
-            widthInitial: teacher?.portrait?.width,
-            heightInitial: teacher?.portrait?.height
+            width: 470,
+            widthInitial: course?.heroPicture?.width,
+            heightInitial: course?.heroPicture?.height
           })}
         />
       )
     }))
 
+    console.log(list)
+
   const teachersSlides = list?.map((teacher, idx) => (
-    <CardTeacher
+    <CardTopProgram
+      href={`${routes.front.professions}/${teacher.studyFieldSlug}/${teacher.slug}`}
       key={teacher.name + idx}
       portrait={teacher.image}
-      name={teacher.name}
-      specialization={teacher.specialization}
-      achievements={teacher.achievements}
+      title={teacher.title}
+      // admissionDate={teacher.specialization}
+      studyHours={teacher.studyHours}
     />
   ))
   const mobileSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 40
+    slidesNum: 1.24,
+    spaceBetween: 10
   }
 
   const tabletSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 40
+    slidesNum: 1.4,
+    spaceBetween: 20
   }
 
   const laptopSwiperOptions = {
-    slidesNum: 1.5,
+    slidesNum: 3,
     spaceBetween: 30
   }
 
   const desktopSwiperOptions = {
-    slidesNum: 2,
+    slidesNum: 3,
     spaceBetween: 30
   }
 
   return (
-    <section className={classNames({
-      [stls.container]: true,
-      // [stls.onProfessions]: !onMain
-    })}>
+    <section
+      className={classNames({
+        [stls.container]: true
+        // [stls.onProfessions]: !onMain
+      })}>
       <Wrapper>
-        {/* <h2 className={stls.title}>{title}</h2>
-        {onMain && (
-          <div className={stls.tag}>
-            <TagOrange>
-              Опыт
-            </TagOrange>
-          </div>
-          
-        )} */}
-        <p className={stls.desc}>
-          Преподают ведущие практикующие психологи и психоаналитики России{' '}
-          <span className={stls.highlight}>с опытом от 7 до 25 лет</span>
-        </p>
+
+        <h2 className={stls.title}>Популярные курсы</h2>
+        <div className={stls.tag}>
+          <TagOrange>ТОП</TagOrange>
+        </div>
         <div className={stls.teachers}>
           <SwiperContainer
             // teachers

@@ -10,6 +10,7 @@ import { ContextStaticProps } from '@/context/index'
 import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
 import SearchMobile from '../general/SearchMobile'
+import { useMediaQuery } from 'react-responsive'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
@@ -19,6 +20,7 @@ type ProgramsType = {
   threerow?: boolean
   withFilters?: boolean
   max?: number
+  onMain?: boolean
 }
 
 const Programs = ({
@@ -28,7 +30,8 @@ const Programs = ({
   withQty = false,
   threerow = false,
   withFilters = false,
-  max
+  max,
+  onMain = false
 }: ProgramsType) => {
   const {
     courses,
@@ -85,14 +88,14 @@ const Programs = ({
     professions: curProgramsStudyFieldSlug ? professionsFiltered : rearrangeArray(professions, targetTitles)
   }
 
-  useEffect(() => {
-    ofType === 'course' &&
-      data.courses.length === 0 &&
-      router.replace(routes.front.courses)
-    ofType === 'profession' &&
-      data.professions.length === 0 &&
-      router.replace(routes.front.professions)
-  }, [])
+  // useEffect(() => {
+  //   ofType === 'course' &&
+  //     data.courses.length === 0 &&
+  //     router.replace(routes.front.courses)
+  //   ofType === 'profession' &&
+  //     data.professions.length === 0 &&
+  //     router.replace(routes.front.professions)
+  // }, [])
 
   const filteredProgramsIds = filteredPrograms.map(item => item.id)
 
@@ -113,10 +116,15 @@ const Programs = ({
     })
   }
 
+  const isMobileTabletLayout = useMediaQuery({ query: '(max-width: 768px)' })
 
   if (max) {
     data.courses = data.courses.filter((item, idx) => idx < max)
     data.professions =data.professions.filter((item, idx) => idx < max)
+    
+  }
+  if (isMobileTabletLayout) {
+    data.courses = data.courses.filter((item, idx) => idx < 3)
   }
   return (
     <section

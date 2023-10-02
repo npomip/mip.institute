@@ -54,7 +54,6 @@ const FormAlpha = ({
     popup && setFocus('name')
   }, [setFocus, popup])
 
-  console.log(dirtyFields)
 
   const router = useRouter()
   const [captchaIsDone, setCaptchaIsDone] = useState(false)

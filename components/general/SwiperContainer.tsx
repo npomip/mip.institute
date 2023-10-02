@@ -5,12 +5,18 @@ import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import classNames from 'classnames'
 import { PopupImage } from '../popups'
+import CustomNextButton from './CustomNextButton'
+import CustomPrevButton from './CustomPrevButton'
+import { useState } from 'react'
 
 SwiperCore.use([Navigation, Pagination])
 
 const SwiperContainer = ({
   teachers = false,
   diplomas = false,
+  reviews = false,
+  reviewNextBtn = false,
+  reviewPrevBtn = false,
   slides,
   mobileOptions = { slidesNum: 1, spaceBetween: 10 },
   tabletOptions = { slidesNum: 1, spaceBetween: 10 },
@@ -83,8 +89,22 @@ const SwiperContainer = ({
     return swiperOptions[currentLayoutKey].spaceBetween
   }
 
+  const goNext = () => {
+    // Ваша логика для перехода к следующему слайду
+    // console.log('Next Slide');
+  };
+  const goPrev = () => {
+    // Ваша логика для перехода к предыдущему слайду
+    console.log('Previous Slide');
+  };
+
+
   return (
     <Swiper
+      navigation={{
+        prevEl: '.custom-prev-button',
+        nextEl: '.custom-next-button',
+      }}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}
       slidesPerView={assignNumOfSlidesPerView()}
@@ -93,11 +113,13 @@ const SwiperContainer = ({
         rows: isMultiRow && (isLaptopLayout || isDesktopLayout) ? 2 : 1,
         fill: !isMobileLayout ? 'row' : 'column'
       }}
+      // autoHeight={true}
       pagination={{ clickable: true, dynamicBullets: true }}
       className={classNames({
         [stls.container]: true,
         [stls.teachers]: teachers,
-        [stls.diplomas]: diplomas
+        [stls.diplomas]: diplomas,
+        [stls.reviews]: reviews,
       })}>
       {slides &&
         slides.map((slide, idx) => (
@@ -111,6 +133,18 @@ const SwiperContainer = ({
             )}
           </SwiperSlide>
         ))}
+        
+        {/* {!isMobileLayout && (
+          <> */}
+          <div className="custom-prev-button-container">
+        <CustomPrevButton reviewPrevBtn={reviewPrevBtn}
+          />
+      </div>
+        <div className="custom-next-button-container">
+        <CustomNextButton reviewNextBtn={reviewNextBtn}
+          />
+      </div> 
+        
     </Swiper>
   )
 }

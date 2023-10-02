@@ -1,6 +1,6 @@
 import stls from '@/styles/components/program/ProgramInfo.module.sass'
 import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
 import { setDateOfEnrollment } from '@/helpers/index'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
@@ -11,9 +11,11 @@ import {
   IconClock,
   IconFile
 } from '@/components/icons'
+import IconInfo from '../icons/IconInfo'
 
 const ProgramInfo = () => {
   const { program } = useContext(ContextStaticProps)
+  console.log(program)
 
   const studyHours = program?.studyHours || 0
   const studyForm = program?.studyForm || ''
@@ -49,22 +51,40 @@ const ProgramInfo = () => {
     {
       key: type === 'Profession' ? 'Диплом:' : 'Документ по окончанию',
       val: type === 'Profession' ? 'Диплом о переподготовке' : 'Удостоверение',
-      icon: <IconFile />
+      icon: <IconFile />,
+      iconInfo: <IconInfo />
     }
   ]
+  const [info, setInfo] = useState(false)
+
+  const infoHandler = () => {
+    setInfo(prev => !prev)
+  }
 
   return (
-    <ul className={stls.container}>
-      {vals.map(({ key, val, icon }, idx) => (
-        <li key={key + val + idx} className={stls.item}>
-          <div className={stls.icon}>{icon}</div>
-          <div>
-            <p className={stls.key}>{key}</p>
-            <p className={stls.val}>{val}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className={stls.container}>
+        {vals.map(({ key, val, icon, iconInfo }, idx) => (
+          <li key={key + val + idx} className={stls.item}>
+            <div className={stls.icon}>{icon}</div>
+            {iconInfo && <div onMouseEnter={infoHandler} onMouseLeave={infoHandler} className={stls.anotherIcon}>{iconInfo}</div>}
+
+            <div>
+              <p className={stls.key}>{key}</p>
+              <p className={stls.val}>{val}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div>
+        {info && (<p className={stls.licenseInfo}>
+          Диплом о переподготовке —это официальный документ, который даёт право
+          вести профессиональную деятельность по полученной специальности. Все
+          выданные дипломы вносятся в <span>ФРДО — Федеральный реестр сведений о
+          документах об образовании.</span>
+        </p>)}
+      </div>
+    </>
   )
 }
 

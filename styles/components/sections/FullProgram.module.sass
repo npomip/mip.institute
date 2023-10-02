@@ -5,16 +5,16 @@
 .container
   @include m.gap($pb: 0)
   @include m.media(laptop, desktop)
-    transform: translateY(f.px(-115))
+    // transform: translateY(f.px(-115))
     & > *
       @include m.gap($plr: f.px(0))
 
 .wrapper
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(57), $plr: f.px(33))
-    border-radius: f.px(50) 0
+    @include m.gap($ptb: f.px(53), $plr: f.px(10), $mb: f.px(0))
+    border-radius: 0px 0px 50px  33px 
   @include m.media(laptop, desktop)
-    @include m.flex($jc: space-between)
+    @include m.flex($jc: space-between, $ai: center)
     @include m.gap($ptb: f.px(30), $plr: f.px(80))
     border-radius: 0 0 f.px(100) 0 
   @include m.dye(bg, c.$pi)
@@ -38,17 +38,21 @@
     @include m.gap($mr: f.px(36))
 
 .title
-  @include m.gap($mb: f.px(10))
+  color: #F87E1B
+  
   @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    text-align: center
     font-size: f.px(26)
   @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(20))
     font-size: f.px(44)
   font-weight: 500
-  @include m.dye(c, c.$theta)
 
 .p
   @include m.gap($mb: f.px(20))
   @include m.media(phone, tablet)
+    text-align: center
     font-size: f.px(18)
   @include m.media(laptop, desktop)
     font-size: f.px(20)
@@ -59,10 +63,17 @@
 
 
 .btn
+  & > *
+    width: 100%
+    white-space: nowrap
+
   @include m.media(laptop, desktop)
     @include m.flex($display: false, $fb: 30%)
     @include m.gap($mt: f.px(21))
     & > *
       width: 100%
+      white-space: nowrap
+      // border-radius: 15px
       & > *
         width: 100%
+        border-radius: 15px

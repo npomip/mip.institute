@@ -33,6 +33,7 @@ type PopupTriggerType = {
     | 'chooseProgram'
     | 'learnAboutUs'
     | 'submitApplication'
+    | 'getFullProgram'
     | 'reserve'
     | 'learnAboutTeachers'
     | 'help'
@@ -63,6 +64,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Узнать об институте'
         : cta === 'submitApplication'
         ? 'Оставить заявку'
+        : cta === 'getFullProgram'
+        ? 'Получить полную программу'
         : cta === 'reserve'
         ? 'Забронировать'
         : cta === 'learnAboutTeachers'
@@ -95,6 +98,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Узнать об институте'
         : cta === 'submitApplication'
         ? 'Оставить заявку'
+        : cta === 'getFullProgram'
+        ? 'Получить полную программу'
         : cta === 'reserve'
         ? 'Забронировать'
         : cta === 'learnAboutTeachers'
@@ -159,7 +164,12 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
           минут!
         </>
-      ) : cta === 'reserve' ? (
+      ) : cta === 'getFullProgram' ? (
+        <>
+          Заполните форму.{' '}
+          <br className={stls.phonetablet} />  И получите полную программу!
+        </>
+      ): cta === 'reserve' ? (
         <>
           {/* У Вас есть вопросы? Оставьте заявку!{' '}
           <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
@@ -217,6 +227,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Узнать об институте'
         : cta === 'submitApplication'
         ? 'Оставить заявку'
+        : cta === 'getFullProgram'
+        ? 'Получить программу'
         : cta === 'reserve'
         ? 'Забронировать'
         : cta === 'learnAboutTeachers'

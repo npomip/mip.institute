@@ -1,10 +1,12 @@
 import fieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
-import closeFieldsTooltipOnOuterClick from '@/helpers/closeFieldsTooltipOnOuterClick'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import getProgramsData from '@/lib/data/getProgramsData'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import CardTooltip from '../cards/CardTooltip'
 import StudyFields from './StudyFields'
+import stls from '@/styles/components/general/SearchProgram.module.sass'
+import { BtnField } from '../btns'
+import { IconSearchAlt } from '../icons'
 
 export default function SearchProgram() {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
@@ -35,31 +37,68 @@ export default function SearchProgram() {
     setSearchQuery('')
     closeFieldsTooltip
   }
-  const [btnShow, setBtnShow] = useState(false)
+
+  const [isProgramsVisible, setIsProgramsVisible] = useState(false);
+
   const onFocusHandler = () => {
-    setBtnShow(prev=>!prev)
-  }
+    setIsProgramsVisible(true);
+  };
+
+  const onBlurHandler = () => {
+    setTimeout(() => {
+      setSearchQuery('')
+      setIsProgramsVisible(false);
+    }, 100)
+    
+  };
+
+const programsRef = useRef(null)
 
   return (
     <div>
       {/* <button onClick={toggleFieldsTooltip}> */}
+      <div className={stls.inputLoupe}>
+
+      
       <input
+      className={stls.searchInput}
+      ref={programsRef}
           type='text'
           name='search'
+          placeholder='Поиск'
           onFocus={onFocusHandler}
-          // onBlur={onFocusHandler}
+          onBlur={onBlurHandler}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           />
-          {btnShow && !searchQuery && <StudyFields />}
+          <div className={stls.icon}>
+            <IconSearchAlt />
+          </div>
+          </div>
+          {/* {btnShow && !searchQuery && <StudyFields />} */}
           {/* </button> */}
           {/* <div className={stls.card}> */}
-          {searchQuery && 
+          {isProgramsVisible && <div className={stls.programs}>
+
+          
+          {
           filteredPrograms?.slice(0,4).map((el, i) => (
           <>
           <CardTooltip profession={el} clickHandler={clickHandler} />
           </>
           ))}
+          {filteredPrograms.length == 0 && (
+            <>
+            
+            <p>К сожалению по вашему запросу ничего не найдено</p>
+            <div  className={stls.allPrograms}>
+                <BtnField href='/programs'>
+                  Ознакомиться со всеми направлениями
+                </BtnField>
+              </div>
+              </>
+          )}
+          </div>}
           </div>
     // </div>
   )

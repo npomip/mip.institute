@@ -17,7 +17,6 @@ const ForWhom = () => {
   const list =
     program?.ForWhom?.length > 0 &&
     getListItemsInnerHtml(marked(program.ForWhom))
-
   return (
     <section className={stls.container}>
       <Wrapper>

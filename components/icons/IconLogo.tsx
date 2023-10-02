@@ -1,11 +1,12 @@
 import stls from '@/styles/components/icons/IconLogo.module.sass'
 import classNames from 'classnames'
 
-const IconLogo = ({ withTitle = false }) => {
+const IconLogo = ({ withTitle = false, atFooter=false }) => {
   return (
     <span
       className={classNames({
         [stls.withTitle]: withTitle,
+        [stls.atFooter]: atFooter,
         [stls.standalone]: !withTitle
       })}>
       <svg viewBox='0 0 33 40' fill='none' xmlns='http://www.w3.org/2000/svg'>

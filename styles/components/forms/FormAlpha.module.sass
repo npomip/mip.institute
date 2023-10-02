@@ -29,6 +29,30 @@
         &::placeholder
           @include m.dye(c, c.$psi)
 
+.inProfessions
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode,
+  & .btn
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 100%)
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode
+    & input
+      @include m.media(laptop, desktop)
+        margin-top: 6px
+        font-size: f.px(16)
+        border: f.px(1) solid
+        @include m.dye(border, c.$phi)
+        border-radius: f.px(4)
+        // background-color: transparent
+        // @include m.dye(c, c.$nu)
+        &::placeholder
+          @include m.dye(c, #B3B3B3)
+
 .inpt
   & input,
   & textarea

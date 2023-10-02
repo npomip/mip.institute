@@ -1,0 +1,99 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap( $pb: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap( $pb: f.px(53))
+
+
+.content
+  position: relative
+  background: #6F01C6
+  border-radius: f.px(36) f.px(36) f.px(36) f.px(56)
+  @include m.media(phone, tablet)
+    border-radius: f.px(20) f.px(20) f.px(20) f.px(50)
+
+.title
+
+  color: #212121
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
+    color: #1A1A1A
+    @include m.gap($mb: f.px(20))
+
+.img
+  flex: 1.2
+  position: relative
+  & > *
+    // position: absolute
+    top: f.px(5)
+    height: 100%
+    @include m.media(phone, tablet)
+      top: f.px(6)
+  @include m.media(phone, tablet)
+    order: 1
+
+.form 
+  flex: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  @include m.gap($pr: f.px(100))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(25), $pt: f.px(38))
+    // flex-basis: 100%
+    display: block
+
+// .portals
+//   position: absolute
+
+.smallOne, .smallTwo, .medium, .mediumTwo, .mediumThree, .big
+  position: absolute
+  
+
+.smallOne
+  bottom: f.px(50)
+  right: f.px(10)
+  @include m.media(phone, tablet)
+    top: f.px(10)
+    right: f.px(70)
+
+.smallTwo
+  top: f.px(50)
+  left: f.px(100)
+  @include m.media(phone, tablet)
+    top: f.px(99)
+    left: f.px(20)
+
+.medium
+  top: f.px(50)
+  right: f.px(40)
+  @include m.media(phone, tablet)
+    top: f.px(350)
+    right: f.px(20)
+
+.mediumTwo
+  top: f.px(200)
+  left: f.px(450)
+  @include m.media(phone, tablet)
+    display: none
+
+.mediumThree
+  @include m.media(desktop, laptop)
+    top: f.px(120)
+    left: f.px(160)
+  @include m.media(phone, tablet)
+    bottom: f.px(160)
+    left: f.px(80)
+.big
+  @include m.media(desktop, laptop)
+    bottom: f.px(20)
+    left: f.px(380)
+  @include m.media(phone, tablet)
+    bottom: f.px(10)
+    right: f.px(40)

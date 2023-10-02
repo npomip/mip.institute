@@ -20,6 +20,12 @@ const getStaticPropsPageTeachers = async ({
           id
           studyField
           studyFieldSlug
+          title
+          slug
+          typeLabel
+          type
+          studyMounthsDuration
+          studyHours
           index_number {
             idx
           }
@@ -28,6 +34,7 @@ const getStaticPropsPageTeachers = async ({
           id
           name
           achievements
+          specialization
           portrait {
             url
             width

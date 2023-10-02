@@ -5,15 +5,19 @@
 
 
 .container
+  @include m.dye(bg, c.$alpha)
   position: relative
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(35))
+    @include m.gap($pb: f.px(25))
   @include m.media(laptop, desktop)
     overflow: visible
     @include m.gap($pt: f.px(65, em), $pb: f.px(55))
-
+.content
+  max-width: f.px(1400)
+  position: relative
 .bg
-  position: absolute
+  z-index: 0
+  // position: absolute
   top: 0
   right: 0
   @include m.media(phone, tablet)
@@ -30,12 +34,13 @@
 .title
   position: relative
   @include m.media(phone, tablet)
-    max-width: 10ch
-    @include m.gap($mb: f.px(10))
+    font-size: f.px(36)
+    max-width: f.px(500)
+    @include m.gap($mb: f.px(15))
   @include m.media(laptop, desktop)
     max-width: 13ch
-    @include m.gap($mb: f.px(37))
-  font-size: f.px(55)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(64)
   font-weight: 500
   line-height: 110%
   z-index: 1
@@ -43,15 +48,19 @@
 .desc
   position: relative
   @include m.media(phone, tablet)
+    color: #EAEAEA
+    font-weight: 350
     max-width: 33ch
+    line-height: 130%
     @include m.gap($mb: f.px(35))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
     max-width: 35ch
     font-size: f.px(20)
+    font-weight: 300
   @include m.gap($mb: f.px(30))
   font-family: Stem, sans-serif
-  font-weight: 300
+  
   line-height: 130%
   z-index: 1
 
@@ -66,6 +75,8 @@
     @include m.flex($fb: 55%)
   @include m.media(laptop)
     @include m.flex($fb: 45%)
+  @include m.media(phone, tablet)
+      display: none
   & > *
     width: 100%
     & > *
@@ -76,66 +87,153 @@
     @include m.media(laptop, desktop)
       @include m.gap($mr: f.px(24))
 
-.icon
-  @include m.media(phone, tablet)
-    position: absolute
-    top: 0
-    right: 0
-    transform: translateX(54%)
-  @include m.media(laptop, desktop)
-    display: none
-
-.iconDesktop
-  @include m.media(phone, tablet)
-    display: none
-  @include m.media(laptop, desktop)
-    position: absolute
-    bottom: f.px(130)
-    right: f.px(180)
-    z-index: 1
-  @media screen and (min-width: bp.$tablet) and (max-width: 850px)
-    bottom: f.px(400)
-    right: f.px(270)
-    transform: rotate(10deg)
-      
-
 .left
+  position: relative
+  z-index: 2
   @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(260))
     min-width: f.px(570)
     @include m.gap($mt: f.px(55))
 
 .right
   @include m.media(laptop, desktop)
     position: relative
-    @include m.gap($pb: f.px(315))
-
-.img
+    // @include m.gap($pb: f.px(315))
+    display: flex
+    align-items: flex-start
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(51))
-  @include m.media(laptop, desktop)
+    height: f.px(400)
+    // display: flex
+    align-items: flex-end
+    justify-content: stretch
+.img
+  position: absolute
+  @include m.media(phone)
+    top: f.px(119)
+    right: f.px(-50)
     position: absolute
-    top: f.px(-16)
     z-index: 1
-  @include m.media(desktop)
-    right: f.px(105)
+    overflow: hidden
+  @include m.media(laptop, desktop)
+    transform: translate(6%, f.px(-145))
+    right: 0
+    width: f.px(454)
+    height: f.px(437)
+    z-index: 2
   @include m.media(laptop)
-    // right: f.px(-119)
+    transform: translate(20%, f.px(-100))
+  @include m.media(tablet)
+    z-index: 2
+    right: f.px(-30)
+    transform: translate(5%, f.px(-115))
+    width: f.px(380)
+    height: f.px(477)
 
 .prosList
   @include m.media(phone, tablet)
-    transform: translateY(f.px(-25))
+    transform: translateY(f.px(-13))
   @include m.media(laptop, desktop)
-    transform: translate(-81%, f.px(390))
+    z-index: 15
+    left: 0
+    right: 0
+    position: absolute
+    // top: 500px
+    transform: translate(0%, f.px(-235))
 
-.hiddenGem
-  animation: rotating 6s linear infinite
+// .hiddenGem
+//   animation: rotating 6s linear infinite
 
-@keyframes rotating
-  0%
-    transform: translateX(54%) rotate(0deg)
+// @keyframes rotating
+//   0%
+//     transform: translateX(54%) rotate(0deg)
 
-  50%
-    transform: translateX(0%) rotate(180deg)
+//   50%
+//     transform: translateX(0%) rotate(180deg)
 
-  100%
-    transform: translateX(54%) rotate(360deg)
+//   100%
+//     transform: translateX(54%) rotate(360deg)
+
+
+.mobileBtns
+  position: relative
+  z-index: 10
+  margin-top: f.px(230)
+  @include m.media(laptop, desktop)
+    display: none
+
+.mobileBtn
+  position: relative
+  z-index: 10
+  margin-bottom: f.px(17)
+
+.portals
+  position: relative
+
+
+.smallOne
+  z-index: 2
+  position: absolute
+  bottom: f.px(-20)
+  right: f.px(300)
+  @include m.media(phone, tablet)
+    bottom: f.px(-10)
+    left: f.px(0)
+.smallTwo
+  z-index: 2
+  position: absolute
+  bottom: f.px(30)
+  right: f.px(120)
+  @include m.media(phone, tablet)
+    display: none
+.xsmallOne
+  z-index: 2
+  position: absolute
+  bottom: f.px(-180)
+  right: f.px(-80)
+  @include m.media(phone, tablet)
+    bottom: f.px(-200)
+    left: f.px(2)
+
+.xsmallTwo
+  z-index: 2
+  position: absolute
+  bottom: f.px(-350)
+  right: f.px(10)
+  @include m.media(phone, tablet)
+    bottom: f.px(-140)
+    left: f.px(60)
+
+.pointShadow
+  width: f.px(1)
+  height: f.px(1)
+  box-shadow: rgba(182, 210, 244, 0.2) 10px 17px 149px 170px
+  position: absolute
+  bottom: f.px(-150)
+  right: f.px(180)
+.medium
+  position: absolute
+  bottom: f.px(-150)
+  right: f.px(180)
+  @include m.media(phone, tablet)
+    bottom: f.px(-200)
+    right: f.px(40)
+.big
+  position: absolute
+  bottom: f.px(-200)
+  right: f.px(390)
+  transform: rotate(25deg)
+  @include m.media(phone, tablet)
+    display: none
+
+.iconWave
+  z-index: 0
+  overflow: hidden
+  position: absolute
+  transform: translate(-15%, f.px(-49))
+  @include m.media(laptop)
+    transform: translate(-17%, f.px(22))
+  @include m.media( tablet)
+    transform: translate(-3%, f.px(90))
+  @include m.media(phone)
+    transform: translate(-3%, f.px(154))
+

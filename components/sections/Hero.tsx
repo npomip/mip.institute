@@ -6,6 +6,11 @@ import ProsList from '@/components/general/ProsList'
 import { IconAtom } from '@/components/icons'
 import { ImgLadyStudying } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
+import HandsOnMain from '../imgs/general/HandsOnMain'
+import FullWrapper from '../layout/FullWrapper'
+import IconGratefullPortal from '../icons/IconGratefullPortal'
+import IconHero from '../icons/IconHero'
+import IconHeroWave from '../icons/IconHeroWave'
 
 const Hero = () => {
   let hiddenGemCount = 0
@@ -25,16 +30,16 @@ const Hero = () => {
     <section className={stls.container}>
       <div className={stls.bg}></div>
       <Wrapper>
-        <div className={stls.icon} onClick={e => hiddenGem(e)}>
+      <div className={stls.content}>
+        {/* <div className={stls.icon} onClick={e => hiddenGem(e)}>
           <IconAtom regular crho />
-        </div>
+        </div> */}
         <TwoColumns>
           <div className={stls.left}>
             <h1 className={stls.title}>Онлайн-институт психологии</h1>
-            <h2 className={stls.desc}>
-              Освойте востребованную профессию психолога или повысьте
-              квалификацию вместе с нами
-            </h2>
+            <p className={stls.desc}>
+            Освойте востребованную профессию психолога или повысьте квалификацию вместе с МИП
+            </p>
             <div className={stls.btns}>
               <div className={stls.btn}>
                 <PopupTrigger btn='alpha' cta='signUpForCourse' />
@@ -45,17 +50,56 @@ const Hero = () => {
             </div>
           </div>
           <div className={stls.right}>
-            <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
+            {/* <div className={stls.iconDesktop} onClick={e => hiddenGem(e)}>
               <IconAtom large cnu slightlyVisible />
-            </div>
+            </div> */}
             <div className={stls.img}>
-              <ImgLadyStudying />
+              <IconHero />
             </div>
-            <div className={stls.prosList}>
-              <ProsList />
+            <div className={stls.portals}>
+              <div className={stls.smallOne}>
+                <IconGratefullPortal thirtyPx />
+              </div>
+              <div className={stls.pointShadow}>
+
+              </div>
+              <div className={stls.smallTwo}>
+                <IconGratefullPortal thirtyPx/>
+              </div>
+              <div className={stls.xsmallOne}>
+                <IconGratefullPortal xsmall/>
+              </div>
+              <div className={stls.xsmallTwo}>
+                <IconGratefullPortal xsmall/>
+              </div>
+              <div className={stls.medium}>
+                <IconGratefullPortal fiftyPx/>
+              </div>
+              <div className={stls.big}>
+                <IconGratefullPortal medium />
+              </div>
+            </div>
+            <div className={stls.mobileBtns}>
+
+            <div className={stls.mobileBtn}>
+
+            
+            <PopupTrigger btn='alpha' cta='signUpForCourse' />
+            </div>
+            <div className={stls.mobileBtn}>
+            <PopupTrigger btn='beta' cta='askQuestion' />
+            </div>
             </div>
           </div>
+          
+          <div className={stls.iconWave}>
+              <IconHeroWave />
+            </div>
         </TwoColumns>
+        <div className={stls.prosList}>
+              <ProsList />
+            </div>
+            </div>
       </Wrapper>
     </section>
   )

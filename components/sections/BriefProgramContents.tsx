@@ -3,18 +3,20 @@ import Wrapper from '@/components/layout/Wrapper'
 import ProgramModulesQty from '@/components/program/ProgramModulesQty'
 import ProgramModules from '@/components/program/ProgramModules'
 
-const BriefProgramContents = () => {
+const BriefProgramContents = ({planRef}) => {
   return (
-    <section className={stls.container}>
+    <section ref={planRef} className={stls.container}>
       <Wrapper>
         <div className={stls.top}>
           <div className={stls.heading}>
             <h2 className={stls.title}>Краткая программа курса</h2>
-            <p className={stls.p}>
-              Практики, которым мы учим, и методология, на которой строится
-              курс, проверены не только практическим опытом преподавателей, но и
-              строгими научными исследованиями
-            </p>
+            <p className={stls.subtitle}>В каждом модуле:</p>
+            <ul className={stls.points}>
+              <li>Разбор практических заданий с преподавателем;</li>
+              <li>Постоянная поддержка куратора;</li>
+              <li>Актуальные вебинары в режиме реального времени;</li>
+              <li>Бесплатный доступ к библиотеке.</li>
+            </ul>
           </div>
           <div className={stls.qty}>
             <ProgramModulesQty />

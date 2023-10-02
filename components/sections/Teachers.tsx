@@ -15,17 +15,28 @@ import {
   ImgTeacher3,
   ImgTeacher4
 } from '@/components/imgs'
+import TagOrange from '../general/TagOrange'
+import classNames from 'classnames'
 
-const Teachers = () => {
-  const { program } = useContext(ContextStaticProps)
+type TeacherProps ={
+  teachersRef?: React.RefObject<HTMLElement | null>
+  teachersFromMain?: TypeLibTeachers
+  title: string
+  onMain?: boolean
+}
 
+const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherProps) => {
+  const { program, reviews } = useContext(ContextStaticProps)
+// console.log(reviews)
   // const teachers: TypeLibTeachers =
   //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
-
-  const teachers = program?.teachers
+  let teachers = program?.teachers
+  if(teachersFromMain) {
+    teachers = teachersFromMain
+  }
+  
 
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
-
   const list =
     teachersSorted &&
     [...teachersSorted]?.map(teacher => ({
@@ -53,38 +64,60 @@ const Teachers = () => {
       achievements={teacher.achievements}
     />
   ))
-
   const mobileSwiperOptions = {
-    slidesNum: 1.75,
+    slidesNum: 1,
     spaceBetween: 40
   }
 
   const tabletSwiperOptions = {
-    slidesNum: 2,
+    slidesNum: 1,
     spaceBetween: 40
   }
 
+  const laptopSwiperOptions = {
+    slidesNum: 1.5,
+    spaceBetween: 30
+  }
+
+  const desktopSwiperOptions = {
+    slidesNum: 2,
+    spaceBetween: 30
+  }
+
   return (
-    <section className={stls.container}>
+    <section ref={teachersRef} className={classNames({
+      [stls.container]: true,
+      [stls.onProfessions]: !onMain
+    })}>
       <Wrapper>
-        <h2 className={stls.title}>Преподаватели программы</h2>
+        <h2 className={stls.title}>{title}</h2>
+        {onMain && (
+          <div className={stls.tag}>
+            <TagOrange>
+              Опыт
+            </TagOrange>
+          </div>
+          
+        )}
         <p className={stls.desc}>
           Преподают ведущие практикующие психологи и психоаналитики России{' '}
           <span className={stls.highlight}>с опытом от 7 до 25 лет</span>
         </p>
         <div className={stls.teachers}>
           <SwiperContainer
-            teachers
+            // teachers
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}
             tabletOptions={tabletSwiperOptions}
-            alwaysDisabledOnDesktop
-            isMultiRow
+            laptopOptions={laptopSwiperOptions}
+            desktopOptions={desktopSwiperOptions}
+            // alwaysDisabledOnDesktop
+            // isMultiRow
           />
         </div>
-        <div className={stls.btnContainer}>
+        {/* <div className={stls.btnContainer}>
           <PopupTrigger btn='delta' cta='learnAboutTeachers' />
-        </div>
+        </div> */}
       </Wrapper>
     </section>
   )

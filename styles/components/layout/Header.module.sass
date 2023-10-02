@@ -7,10 +7,11 @@
   margin: 10px
 
 .container
+  // opacity: 0.5
+  // position: relative
+  // z-index: 0
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(4, em), $pb: f.px(1, em))
-  @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(2, em))
   @include m.dye(bg, c.$alpha)
 
 .top
@@ -305,6 +306,11 @@
   @include m.gap($plr: f.px(16))
   & a
     color: black
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    // margin: 0 auto
   &:hover
     transition: background 0.5s ease
     background: #FFFFFF
@@ -410,7 +416,7 @@
   border-radius: 10px
 
 .hiddenProgramsPopUp
-  transform: translate(-50%, 10%)
+  transform: translate(-200%, 10%)
   position: absolute
   width: 700px
   height: 0px

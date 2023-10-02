@@ -3,6 +3,7 @@ import { createContext, Dispatch } from 'react'
 // TODO: figure out better types
 const ContextStaticProps = createContext<{
   program: any
+  reviews: any[]
   programs: any[]
   courses: any[]
   professions: any[]
@@ -26,6 +27,7 @@ const ContextStaticProps = createContext<{
   setFilteredPrograms: Dispatch<any>
 }>({
   program: null,
+  reviews: [],
   programs: [],
   courses: [],
   professions: [],

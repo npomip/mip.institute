@@ -11,6 +11,7 @@ type StudyFieldsType = {
   close?: any
   flexend?: boolean
   smallText?: boolean
+  onMain?: boolean
   orang?: boolean
 }
 
@@ -20,7 +21,7 @@ const StudyFields = ({
   close = null,
   flexend = false,
   orang = false,
-  smallText
+  smallText,
 }: StudyFieldsType) => {
   const {
     studyFields,
@@ -29,13 +30,14 @@ const StudyFields = ({
     curProgramsType
   } = useContext(ContextStaticProps)
 
+
   const list =
     ofType === 'course'
       ? studyFieldsCourses
       : ofType === 'profession'
       ? studyFieldsProfessions
       : studyFields
-
+      
   return (
     <ul
       className={cn({
@@ -69,13 +71,11 @@ const StudyFields = ({
             smallText={smallText}
             orang={orang}
               href={`${
-                aside
-                  ? curProgramsType === 'course'
+                   curProgramsType === 'course'
                     ? routes.front.courses
                     : curProgramsType === 'profession'
                     ? routes.front.professions
                     : routes.front.programs
-                  : routes.front.programs
               }/${slug}`}
               aside={aside}
               slug={slug}>

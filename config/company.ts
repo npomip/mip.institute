@@ -17,7 +17,7 @@ const company = {
         type: 'улица',
         typeShort: 'наб.',
         name: 'Шаболовка',
-        door: '34с2'
+        door: '34, строение 2'
       },
       room: '14',
       officeNum: '4 подъезд, 1 этаж'

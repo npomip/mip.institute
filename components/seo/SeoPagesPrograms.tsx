@@ -32,19 +32,18 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
         ? 'Курсы'
         : ofType === 'profession'
         ? 'Профессии'
-        : 'Все направления'
-    } | ${company.name}`,
-    desc: truncate(
+        : 'Курсы по психологии онлайн'
+    } | Дистанционное обучение для психологов`,
+    desc: 
       ofType === 'course'
         ? 'Курсы - короткие программы, чтобы изучить один конкретный навык'
         : ofType === 'profession'
         ? 'Профессии - длинные программы для полного погружения в направление'
-        : 'Профессии - длинные программы для полного погружения в направление. Курсы - короткие программы, чтобы изучить один конкретный навык',
-      120
-    ),
+        : 'Дополнительное образование для психологов от Московского Института Психологии (МИП). Получи ДПО с со скидкой 30% Дипломы ФРДО. Удобный формат обучения! Актуальный материал с упором на практику.'
+    ,
 
     // canonical: `${routes.front.root}${asPath}`
-    canonical: asPath.includes('dietologiya') ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya` : asPath.includes('klinicheskaya') ? `${routes.front.root}/professions/klinicheskaya-psihologiya` : `${routes.front.root}${asPath}`
+    canonical: asPath.includes('dietologiya') ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya` : `${routes.front.root}${asPath}`
     }
   return (
     <>

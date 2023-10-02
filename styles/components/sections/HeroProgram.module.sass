@@ -3,27 +3,43 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  
   & > *
     position: relative
+    // z-index: 13
   @include m.media(phone, tablet)
-    z-index: 1
+    // display: flex
+    position: relative
+    z-index: 3
     overflow: hidden
     padding-top: f.px(16)
+    
   @include m.media(laptop, desktop)
     overflow: visible
-    padding-top: f.px(52)
+    // padding-top: f.px(52)
+    padding-bottom: f.px(82)
   padding-bottom: 0
   @include m.dye(bg, c.$alpha)
 
 .top
   @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(52))
     // @include m.flex($jc: space-between, $ai: center)
     @include m.flex($jc: space-between)
+  // @include m.media(phone, tablet)
+  //   display: flex
+  //   flex-direction: column
+
+.mobileFlex
+  height: 100%
+  @include m.media(phone, tablet)
+    display: flex
+    flex-direction: column
 
 .heading
   @include m.media(laptop, desktop)
     @include m.gap($mr: 8%)
-    @include m.flex($fd: column, $ai: center)
+    @include m.flex($fd: column)
     flex-grow: 1
 
 .label
@@ -31,13 +47,15 @@
     @include m.flex($as: start)
 
 .title
+  position: relative
+  z-index: 1
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(36))
+    @include m.gap($mb: f.px(15))
     font-size: f.px(36)
   @include m.media(laptop, desktop)
     min-width: 12ch
     max-width: 15ch
-    @include m.gap($mb: f.px(29))
+    @include m.gap($mb: f.px(35))
     font-size: f.px(64)
   font-weight: 500
   line-height: 110%
@@ -47,7 +65,7 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(39))
+    @include m.gap($mb: f.px(30))
     @include m.dye(c, c.$nu)
     & p
       max-width: 45ch
@@ -59,8 +77,17 @@
         font-weight: 500
 
 .descriptionMobile
+  .moreText
+    color: #F87E1B
+    text-decoration-line: underline
+    text-underline-offset: f.px(2)
+    font-size: f.px(15)
+    font-weight: 500
+    line-height: 130%
+    @include m.gap($pt: f.px(5))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
+    order: -1
+    @include m.gap($mb: f.px(30))
     @include m.dye(c, c.$nu)
     & p
       font-size: f.px(15)
@@ -97,13 +124,13 @@
   @include m.media(laptop, desktop)
     position: relative
     width: f.px(460)
-    height: f.px(460)
+    height: f.px(505)
     & > *
       position: absolute
       top: 0
       left: 0
       width: f.px(676)
-      height: f.px(460)
+      height: f.px(505)
       transform: translate(-16%, f.px(1))
 
 .btnsMobile
@@ -131,21 +158,11 @@
 
 .info
   @include m.media(phone, tablet)
-    position: relative
-    z-index: 1
-    margin-top: f.px(50)
-    &::before
-      content: ''
-      position: absolute
-      z-index: -1
-      bottom: 0
-      left: 50%
-      transform: translateX(-50%)
-      width: 110%
-      height: 80%
-      @include m.dye(bg, c.$epsilon)
+    @include m.gap($mb: f.px(46))
   @include m.media(laptop, desktop)
     // margin-top: f.px(100)
-    transform: translateY(f.px(59))
+    transform: translateY(f.px(35))
 
-
+.mobiledesc
+  display: inline-block
+  // white-space: nowrap

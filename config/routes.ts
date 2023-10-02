@@ -49,7 +49,8 @@ const routes = {
     webinars: '/webinars',
     getStaticProps: '/get-static-props', // /get-static-props/:page
     getStaticPathsStudyFields: '/get-static-paths/study-fields', // /get-static-paths/study-fields || /get-static-paths/study-fields/:type
-    getStaticPathsPrograms: '/get-static-paths/programs' // /get-static-paths/programs || /get-static-paths/programs/:type
+    getStaticPathsPrograms: '/get-static-paths/programs', // /get-static-paths/programs || /get-static-paths/programs/:type
+    users: '/users'
   },
   external: {
     license:
@@ -58,7 +59,13 @@ const routes = {
     whatsapp: 'http://wa.me/+74991108632',
     telegram: 'https://t.me/mip_institute',
     youtube: 'https://www.youtube.com/channel/UCGW-oYT-mquOPy6OY7R6iRA',
-    ok: 'https://ok.ru/group/70000001109496'
+    ok: 'https://ok.ru/group/70000001109496',
+    turtop: 'https://tutortop.ru/school-reviews/moskovskij-institut-psihologii/?cid=1685112262621940498',
+    otzovic: 'https://otzovik.com/reviews/nano_moskovskiy_institut_psihologii_russia_moscow',
+    yandex: 'https://yandex.ru/profile/118117434311',
+    twoGis: 'https://go.2gis.com/y85xl6',
+    ucheba: 'https://www.ucheba.ru/uz/107383/opinions#new-comments-panel',
+    dzen: 'https://dzen.ru/institute_mip',
   },
   anchors: {
     //

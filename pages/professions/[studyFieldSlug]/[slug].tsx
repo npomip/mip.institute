@@ -5,10 +5,12 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesProgram } from '@/components/pages'
 import { SeoPagesProgram } from '@/components/seo'
+import { useRouter } from 'next/router'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
   program,
+  reviews,
   studyFieldSlug
 }) => {
   useHandleContextStaticProps({
@@ -17,6 +19,19 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     curProgramsType: 'profession',
     curProgramsStudyFieldSlug: studyFieldSlug
   })
+  const programOverview = program?.programOverview
+  const router = useRouter()
+  const segments = router.asPath.split("/").filter(segment => segment !== "");
+  const labels =['Профессиональная переподготовка', program?.studyField, program?.title]
+  const breadcrumbs = segments.map((segment, index) => {
+  const breadcrumb = {
+    label: labels[index],
+    path: "/" + segments.slice(0, index + 1).join("/")
+  };
+  return breadcrumb;
+});
+
+const slug = program.slug
 
   return (
     <>
@@ -25,7 +40,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         ofType='profession'
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      <PagesProgram ofType={'profession'} />
+      <PagesProgram slug={slug} breadcrumbs={breadcrumbs} programOverview={programOverview} reviews={reviews} ofType={'profession'} />
     </>
   )
 }

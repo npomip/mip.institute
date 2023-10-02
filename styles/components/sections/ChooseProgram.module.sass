@@ -17,39 +17,6 @@
 .fon
   background: #FEF2E8
 
-
-.program
-  // flex-direction: column
-  @include m.media(laptop, desktop)
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-column-gap: 5em
-  @include m.media(phone, tablet)
-    display: flex
-    flex-direction: column
-    align-items: center
-    @include m.gap($mb: f.px(36))
-
-  .item
-    @include m.gap($mt: f.px(16))
-    @include m.gap($p: f.px(20))
-    @include m.media(laptop, desktop)
-      
-    @include m.media(phone, tablet)
-      // @include m.gap($mb: f.px(16))
-    width: 370px
-    display: flex
-    justify-content: space-between
-    background: #FFCA9E
-    border-radius: 25px
-    font-weight: 500
-    font-family: Stem, sans-serif
-    font-size: 18px
-    &:hover
-      color: #ffffff
-      background: #F87E1B
-      cursor: pointer
-
 .icon
   @include m.media(phone, tablet)
     display: none
@@ -76,7 +43,7 @@
   p
     font-family: Stem, sans-serif
     font-weight: 500
-    font-size: 22px
+    font-size: f.px(22)
 
 .pinkRound
   background: #B250FF
@@ -107,3 +74,5 @@
   @include m.gap($m: f.px(30))
   @include m.media(laptop, desktop)
     display: none
+
+

@@ -2,6 +2,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { TypePageHomeProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
+import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import {
   sortBasedOnNumericOrder,
   sortReviewsCreatedAtASC
@@ -16,12 +17,37 @@ import {
   Cta,
   Reviews,
   Programs,
-  Hero
+  Hero,
+  WhatYouWillLearn,
+  Teachers,
+  YourDiploma,
+  Faq
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import mainList from '@/data/general/mainList'
+import CommonAboutSlider from '@/components/sections/AboutSlider/CommonAboutSlider'
+import CreateApplication from '@/components/sections/CreateApplication'
+import Directions from '@/components/sections/Directions'
+import ButtonToTop from '@/components/sections/ButtonToTop'
+import TopCourses from '@/components/sections/TopCourses'
 
-const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
+const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) => {
   useHandleContextStaticProps({ programs })
+
+  // console.log(teachers)
+  const teachersFromMain = teachers.filter(teacher => {
+    const allowedNames = [
+      'Косина Алла Александровна',
+      'Гиль Людмила Владимировна',
+      'Шавырина Анна Алексеевна',
+      'Перемолотова Ирина Александровна',
+      'Катасонова Юлия Викторовна',
+      'Волкова Анастасия Михайловна',
+      
+    ];
+  
+    return allowedNames.includes(teacher.name);
+  });
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -36,6 +62,13 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
     ),
     canonical: routes.front.root
   }
+
+  const subtitle = 
+    <>
+      <p className={stls.leftTitle}>
+      Обучение в МИП осуществляется по заочной форме с применением дистанционных<span className={stls.star}>*</span> технологий. Лекции, общение, тестирование проходят в онлайн-формате через образовательную платформу. Вы получите научную базу по главным психологическим дисциплинам и практический опыт в работе с задачами по реальным кейсам. Узнаете, как терапия помогает решить внутриличностные проблемы и выйти из стрессовых ситуаций без потерь.
+      </p>
+    </>
 
   return (
     <>
@@ -61,16 +94,24 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews }) => {
       />
       <SeoOrganizationJsonLd />
       <Hero />
-      <Programs withTitle withBtn max={8} />
+      <Directions />
+      {/* <TopCourses /> */}
+      {/* <Programs withTitle withBtn max={8} onMain /> */}
+      <ButtonToTop />
       <WhyBother />
       <About />
-      <HowProcessGoes />
+      <HowProcessGoes onMain subtitle={subtitle} list={mainList} />
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
-      <Reviews reviews={reviewsSorted} />
+      <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
+      <Teachers onMain title={'Преподаватели – наставники'} teachersFromMain={teachersFromMain} />
+      <YourDiploma onMain ofType='profession'/>
+      <Reviews onMain reviews={reviewsSorted} />
+      <CreateApplication />
+      <Faq />
     </>
   )
 }

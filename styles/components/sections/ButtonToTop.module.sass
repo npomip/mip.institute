@@ -1,0 +1,38 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.scrollToTop
+  
+  z-index: 10
+  position: fixed
+  @include m.media(laptop, desktop)
+    right: f.px(50)
+    bottom: f.px(100)
+  @include m.media(tablet, phone)
+    right: f.px(10)
+    bottom: f.px(80)
+  // background: red
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 2px solid black
+  border-radius: f.px(5)
+  opacity: 0
+  transition: background 0.5s ease
+  &:hover
+    background: black
+    & > *
+      & > *
+        transition: stroke 0.5s ease
+        stroke: white
+
+  &.show
+    opacity: 1
+    cursor: pointer
+
+.icon
+  @include m.gap($ptb: f.px(5.7), $plr: f.px(10))
+  transform: rotate(-90deg)
+  & > *
+    stroke: black

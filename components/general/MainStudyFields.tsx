@@ -1,41 +1,49 @@
 import stls from '@/styles/components/general/MainStudyFields.module.sass'
-import { Fragment } from 'react'
+import { Fragment, useContext, useEffect } from 'react'
 import cn from 'classnames'
 import { routes } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
 import { BtnField } from '@/components/btns'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 type StudyFieldsType = {
-  aside?: boolean
   ofType?: 'course' | 'profession' | null
   close?: any
-  flexend?: boolean
-  smallText?: boolean
+  setCurrentType?: (type: string) => void;
+  currentType?: string
 }
 
 const MainStudyFields = ({
-  aside = false,
-  ofType = null,
+  setCurrentType,
   close = null,
-  flexend = false,
-  smallText
+  currentType
 }: StudyFieldsType) => {
-  const list = [{id:1, label: 'Дополнительное образование', href: routes.front.programs}, {id:1, label: 'Профессиональная переподготовка', href: routes.front.professions}, {id:1, label: 'Повышение квалификации', href: routes.front.courses}]
+  const list = [{id:1, label: 'Дополнительное образование', href: routes.front.programs, programType: 'null'}, {id:1, label: 'Профессиональная переподготовка', href: routes.front.professions, programType: 'profession'}, {id:1, label: 'Повышение квалификации', href: routes.front.courses, programType: 'course'}]
 
   return (
-    <div
+    <ul
       className={stls.wrapper}>
-      {list.map(({ label, href }, idx) => (
+      {list.map(({ label, href, programType }, idx) => (
         <Fragment key={idx}>
-          <li className={stls.studyField} onClick={close && close}>
-            <BtnField
-              href={href} mainFields>
-              {label}
-            </BtnField>
+          <li className={cn({
+              [stls.studyField]: true,
+              [stls.active]: currentType === programType
+            })}  onClick={close && close }>
+            {/* <BtnField */}
+            <Link href={href} passHref>
+                <p
+                  onMouseEnter={() => setCurrentType(programType)}
+                  className={stls.mainFields}
+                >
+                  {label}
+                </p>
+            </Link>
+            {/* </BtnField> */}
           </li>
         </Fragment>
       ))}
-    </div>
+    </ul>
   )
 }
 

@@ -28,6 +28,8 @@ const contact = async (req, res) => {
     ymUid,
   } = req.body
 
+  console.log(req.body)
+
   if (name?.includes('@')) {
     email = name
     name = ''

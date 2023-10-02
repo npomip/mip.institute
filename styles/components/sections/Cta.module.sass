@@ -4,12 +4,15 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
+  // max-width: 1170px
+  @include m.gap($pb: f.px(0), $pt: f.px(64))
   @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(15))
+    @include m.gap($plr: f.px(15), $mb: f.px(30), $pt: f.px(0))
   @include m.media(laptop, desktop)
-    @include m.gap($plr: f.px(15))
+    // @include m.gap($plr: f.px(15))
     overflow: visible
   & > *
+    // @include m.gap($mlr: f.px(15))
     @include m.media(phone, tablet)
       @include m.gap($ptb: f.px(50), $plr: f.px(25))
       border-radius: f.px(50) 0
@@ -20,12 +23,14 @@
     @include m.media(laptop)
       @include m.gap($ptb: f.px(43), $plr: f.px(50))
     @include m.media(desktop)
-      @include m.gap($ptb: f.px(43), $plr: f.px(100))
+      @include m.gap($ptb: f.px(64), $plr: f.px(100))
     @include m.dye(bg, c.$alpha)
     @include m.dye(c, c.$nu)
     @media screen and (min-width: bp.$tablet) and (max-width: 920px)
       @include m.flex($jc: space-between)
-  
+
+.onProfessions
+  @include m.gap($pb: f.px(0), $pt: f.px(0))
 
 .img
   @include m.media(phone, tablet)
@@ -42,11 +47,11 @@
 
 .text
   @include m.media(laptop)
-    @include m.flex($display: false, $fb: 60%)
-    @include m.gap($ml: 30%)
+    @include m.flex($display: false, $fb: 40%)
+    @include m.gap($ml: 35%)
   @include m.media(desktop)
     @include m.flex($display: false, $fb: 50%)
-    @include m.gap($ml: 20%)
+    @include m.gap($ml: 25%)
   @media screen and (min-width: bp.$tablet) and (max-width: 920px)
     @include m.gap($ml: f.px(0))
 
@@ -59,7 +64,7 @@
     @include m.gap($mb: f.px(20), $mr: f.px(84))
     font-size: f.px(44)
   @include m.media(desktop)
-    @include m.gap($mb: f.px(20), $mr: f.px(70))
+    @include m.gap($mb: f.px(20), $mr: f.px(10))
     font-size: f.px(44)
   font-weight: 500
   @media screen and (min-width: bp.$tablet) and (max-width: 920px)
@@ -78,7 +83,10 @@
     max-width: 34ch
     @include m.gap($mb: 0)
     font-size: f.px(20)
-  font-weight: 300
+  font-family: Stem
+  font-weight: 400
+  font-style: normal
+  color: #FFF
   line-height: 130%
 
 .btn
@@ -88,7 +96,8 @@
       & > *
         width: 100%
   @include m.media(laptop)
-    @include m.flex($display: false, $fb: 40%)
+    @include m.flex($display: false, $fb: 31%)
+    @include m.gap($mr: f.px(30))
   @include m.media(desktop)
-    @include m.flex($display: false, $fb: 30%)
+    @include m.flex($display: false, $fb: 23%)
   

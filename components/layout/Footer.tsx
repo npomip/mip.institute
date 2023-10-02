@@ -19,6 +19,19 @@ import { FormAlpha } from '@/components/forms'
 import { useRouter } from 'next/router'
 import { getCookie, setCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
+import Logo from '../general/Logo'
+import BtnDzen from '../btns/BtnDzen'
+import Popup from 'reactjs-popup'
+import FooterReviews from '../popups/FooterReviews'
+import Otzovic from '../imgs/footerReviews/Otzovic'
+import Ya from '../imgs/footerReviews/Ya'
+import Tutortop from '../imgs/footerReviews/Tutortop'
+import TwoGis from '../imgs/footerReviews/TwoGis'
+import Ucheba from '../imgs/footerReviews/Ucheba'
+import IconRating from '../icons/IconRating'
+import SearchProgram from '../general/SearchProgram'
+import sendToEddu from '../funcs/sendToEddu'
+import PopupFooterReviews from '../popups/PopupFooterReviews'
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
@@ -72,16 +85,21 @@ const Footer = () => {
     fieldsLinks.push({ val: field.label, href: `/programs/${field.slug}` })
   })
 
-  const [isEdpartners, setIsEdpartners] = useState(false);
+  const [isEdpartners, setIsEdpartners] = useState(false)
   const router = useRouter()
-const partCookie = getCookie('utm')
+  const partCookie = getCookie('utm')
   useEffect(() => {
-    
     setTimeout(() => {
-      const utmSource = getUtmSourceFromCookie();
-      setIsEdpartners(utmSource === 'edpartners');
-    }, 300);
-  }, [isEdpartners, partCookie]);
+      const utmSource = getUtmSourceFromCookie()
+      setIsEdpartners(utmSource === 'edpartners')
+    }, 300)
+  }, [isEdpartners, partCookie])
+  
+{/* for test only */}
+  const edduSend= () => {
+    sendToEddu()
+  }
+  {/* for test only */}
   return (
     <footer className={stls.container}>
       <Wrapper>
@@ -134,61 +152,99 @@ const partCookie = getCookie('utm')
                   </Link>
                 </li>
               ))}
+              <Logo atFooter/>
             </ul>
             {!isEdpartners && (
               <div className={stls.contact}>
-              <p >Приемная комиссия:</p>
-              <div className={stls.numbers}>
-                <a
-                  href={company.phoneNumbers.default.href}
-                  className={stls.number}>
-                  {company.phoneNumbers.default.val}
-                </a>
-                <a
-                  href={company.phoneNumbers.defaultAlt.href}
-                  className={stls.number}>
-                  {company.phoneNumbers.defaultAlt.val}
-                </a>
-                <p >{company.phoneNumbers.studyDivision.contactType}:</p>
-                <a
-                  href={company.phoneNumbers.studyDivision.href}
-                  className={stls.number}>
-                  {company.phoneNumbers.studyDivision.val}
-                </a>
-              </div>
-              <GeneralAddress classNames={[stls.address]} />
+                <p>Приемная комиссия:</p>
+                <div className={stls.numbers}>
+                  <a
+                    href={company.phoneNumbers.default.href}
+                    className={stls.number}>
+                    {company.phoneNumbers.default.val}
+                  </a>
+                  <a
+                    href={company.phoneNumbers.defaultAlt.href}
+                    className={stls.number}>
+                    {company.phoneNumbers.defaultAlt.val}
+                  </a>
+                  <p>{company.phoneNumbers.studyDivision.contactType}:</p>
+                  <a
+                    href={company.phoneNumbers.studyDivision.href}
+                    className={stls.number}>
+                    {company.phoneNumbers.studyDivision.val}
+                  </a>
+                </div>
+                <div className={stls.email}>
+                  <p>Электронный адрес:</p>
+                  <p className={stls.eadress}>info@mip.institute</p>
+                </div>
+                <GeneralAddress classNames={[stls.address]} />
 
-              <div className={stls.sm}>
-                <BtnVk dark mlzero />
-                <BtnWhatsapp dark />
-                <BtnTelegram dark />
-                <BtnYt dark />
-                <BtnOk dark />
+                <div className={stls.sm}>
+                  <BtnVk dark mlzero />
+                  <BtnWhatsapp dark />
+                  <BtnTelegram dark />
+                  <BtnYt dark />
+                  <BtnOk dark />
+                  <BtnDzen/>
+                </div>
+                <PopupFooterReviews />
+  {/* eddduuuuu */}
+  {/* <script type="text/javascript" defer src="https://eddu.pro/getRating.js"/>
+  <div className={stls.eddu} id="getRatingFromEddu" data-id="71158"></div> */}
+{/* for test only */}
+{/* <button onClick={edduSend}>safsaf</button> */}
+{/* for test only */}
+                <div className={stls.btn}>
+                  <PopupTrigger btn='beta' cta='askQuestion' />
+                </div>
               </div>
-              <div className={stls.btn}>
-                <PopupTrigger btn='beta' cta='askQuestion' />
-              </div>
-            </div>
             )}
             {/*  */}
+            <div className={stls.newRight}>
+              <div className={stls.leaveApp}>
+                <PopupTrigger btn='alpha' cta='submitApplication' />
+              </div>
+              <a href='https://lms.mip.institute/' className={stls.enterToPortal}>Вход</a>
+              <SearchProgram />
+              <p className={stls.primary}>
+                Государственный контроль (надзор) в сфере образования:
+                <span>
+                  Департамент образования и науки города Москвы Федеральная
+                  служба по надзору в сфере образования и науки
+                </span>
+              </p>
+              
+              <p className={stls.primary}>
+                Научная автономная некоммерческая организация «Московский институт
+                психологии» (НАНО «МИП»)
+                ИНН 9725041321 ОГРН 1207700479260 Лицензия департамента
+                образования города Москвы на осуществление образовательной
+                деятельности №041363 от 14.04.21.
+              </p>
+              
+            </div>
           </div>
           <div className={stls.bottom}>
             <FooterBottom />
           </div>
         </div>
-        <div className={stls.right}>
+        {/* NEw */}
+
+        {/* <div className={stls.right}>
           <div className={stls.formTitles}>
             <p className={stls.formTitle}>Остались вопросы?</p>
             <p className={stls.formTitle}>Свяжитесь с нами!</p>
           </div>
 
           <FormAlpha cta={'Связаться'} atFooter agreement />
-        </div>
+        </div> */}
       </Wrapper>
       <div className={stls.footerBottom}>
         <FooterBottom />
       </div>
-      <div className={stls.bgRight}></div>
+      {/* <div className={stls.bgRight}></div> */}
     </footer>
   )
 }

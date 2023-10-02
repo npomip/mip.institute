@@ -3,14 +3,16 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  z-index: 3
+  position: relative
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(50), $ptb: f.px(50))
+    @include m.gap($ptb: f.px(30))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(97), $ptb: f.px(97))
+    @include m.gap($ptb: f.px(97))
   @include m.dye(bg, c.$pi)
 
 .title
-  @include m.gap($mb: f.px(10))
+  @include m.gap($mb: f.px(15))
   @include m.media(phone, tablet)
     font-size: f.px(26)
   @include m.media(laptop, desktop)
@@ -19,7 +21,7 @@
 
 .subtitle
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(40))
+    @include m.gap($mb: f.px(10))
     font-size: f.px(15)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(53))
@@ -30,14 +32,25 @@
 .list
   @include m.gap($p: 0)
   @include m.media(laptop, desktop)
-    @include m.flex
+    @include m.flex( $jc: space-between)
+
+    
+    
 
 .item
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $jc: center, $ai: center)
-    @include m.gap($mb: f.px(43))
+    @include m.gap($mb: f.px(25))
   @include m.media(laptop, desktop)
-    @include m.flex($fd: column, $ai: center, $fb: 33%)
+    @include m.flex($fd: column, $ai: space-around)
+    &:nth-of-type(3)
+      p
+        max-width: f.px(320)
+        & strong
+          width: f.px(450)
+        
+      
+
   &:nth-last-child(1)
     @include m.gap($mb: f.px(0))
 
@@ -54,11 +67,28 @@
       max-width: 100%
 
 .p
-  max-width: 23ch
-  text-align: center
+  & strong
+    font-size: 20px
+    font-weight: 500
+    display: block
+    max-width: f.px(350)
+    @include m.gap($pb: f.px(10))
+    font-size: f.px(20)
+    @include m.media(phone, tablet)
+      font-size: f.px(15)
+    @include m.media(phone)
+      max-width: f.px(300)
+      
+  @include m.media(desktop)
+    max-width: f.px(357)
+    font-size: f.px(18)
+      
+  @include m.media(laptop)
+    max-width: f.px(330)
+    font-size: f.px(18)
   @include m.media(phone, tablet)
     font-size: f.px(15)
-  @include m.media(laptop, desktop)
-    font-size: f.px(18)
+    @include m.gap($pr: f.px(20))
   line-height: 130%
+  font-weight: 300
   @include m.gap($mb: 0)

@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+
   &.diplomas
     max-height: f.px(400)
     margin-bottom: f.px(60)
@@ -15,6 +16,9 @@
         // max-width: f.px(400)
         cursor: pointer
         // transform: translate3d(0px, 0px, 0px) !important
+  &.reviews
+    .swiper-slide
+      width: 300px
   @include m.media(phone, tablet)
     &.teachers > *
       & > *
@@ -39,3 +43,14 @@
         flex-basis: 45%
         margin-top: f.px(10) !important
         margin-bottom: f.px(30)
+
+// .reviews
+//   // border: 2px solid black
+//   & > *
+//     & > *
+//       & > *
+//         @include m.media( desktop)
+//         // padding-left: 20px
+//           // width: 600px
+//         @include m.media(laptop)
+//           // width: 75%

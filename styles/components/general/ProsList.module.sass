@@ -4,46 +4,67 @@
 
 .container
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(20), $plr: 6%)
-    border-radius: f.px(25, em) 0 0 0
+    // @include m.gap($ptb: f.px(20), $plr: 6%)
+    border-radius: f.px(20)
   @include m.media(laptop, desktop)
-    min-width: f.px(700)
-    @include m.gap($pt: f.px(48), $pb: f.px(64), $pl: f.px(58), $pr: f.px(88))
-    border-radius: f.px(50, em) 0 0 0
+    // min-width: f.px(700)
+    // width: 100%
+    @include m.gap($pt: f.px(37), $pb: f.px(38), $pl: f.px(50),$pr: f.px(45))
+    border-radius: f.px(35)
+  @include m.media(laptop)
+    @include m.gap($plr: f.px(20))
   box-shadow: 0 f.px(7) f.px(100) rgba(0, 0, 0, .09)
   @include m.dye(bg, c.$nu)
 
 .pros
   @include m.media(phone, tablet)
-    @include m.flex($fd: column)
-  @include m.media(laptop, desktop)
     @include m.flex($fw: wrap, $jc: space-between)
+    @include m.gap($ptb: f.px(30), $plr: f.px(19))
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: nowrap, $jc: space-between)
   @include m.gap($p: 0, $m: 0)
 
 .pro
+  font-weight: 300
   @include m.media(phone, tablet)
-    @include m.flex($ai: center)
-    @include m.gap($mb: f.px(8))
-    font-size: f.px(15)
+    @include m.flex($fd: column)
+    @include m.gap($mb: f.px(30))
+    font-size: f.px(12)
+    &:nth-child(5)
+      @include m.gap($mb: f.px(0))
+    &:nth-child(6)
+      @include m.gap($mb: f.px(0))
   @include m.media(laptop, desktop)
-    @include m.flex($fb: 30%, $fd: column)
-    @include m.gap($mr: f.px(22))
-    font-size: f.px(18)
+    max-width: f.px(175)
+    @include m.flex($fd: column)
+    font-size: f.px(14)
+    line-height: 120%
+    @include m.gap($mr: f.px(10)) 
     &:nth-child(-n+3)
-      @include m.gap($mb: f.px(25))
-    &:nth-child(3n)
-      @include m.gap($mr: 0)  
+      // @include m.gap($mb: f.px(25))
+    &:nth-child(n + 2)
+      max-width: f.px(155)
+      // color: red
+      // @include m.gap($pr: f.px(20))  
 
 .icon
+  @include m.gap($mb: f.px(15))
   @include m.media(phone, tablet)
     @include m.gap($mr: f.px(11))
   @include m.media(laptop, desktop)
-    width: max-content
+    // width: max-content
     max-width: f.px(37)
-    @include m.gap($mb: f.px(15))
+    
     & > *
       width: 100%
 
 .text
   @include m.media(laptop, desktop)
-    max-width: 13ch
+    // max-width: f.px(175)
+    
+    // &:nth-of-type(3)
+    //   color: red
+  @include m.media(phone, tablet)
+    max-width: f.px(140)
+    font-weight: 300
+    line-height: 120%

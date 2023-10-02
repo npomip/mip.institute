@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
-import { useContext } from 'react'
+import { RefObject, useContext, useState } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routes } from '@/config/index'
@@ -19,15 +19,24 @@ import {
   ImgSupplement
 } from '@/components/imgs'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
+import IconLoupe from '../icons/IconLoupe'
+import License from '../imgs/legal/License'
+import IconRusLicense from '../icons/IconRusLicense'
+import { IconAtom } from '../icons'
+import LicensePopUp from './LicensePopUp'
+import TagOrange from '../general/TagOrange'
 
 type YourDiplomaType = {
   ofType: 'course' | 'profession'
+  diplomaRef?: React.RefObject<HTMLElement | null>
+  onMain?: boolean
 }
 
-const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
+const YourDiploma = ({ ofType = null, diplomaRef = null, onMain=false }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ContextStaticProps)
+
 
   ofType === 'profession' &&
     slides.push(
@@ -69,6 +78,8 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
         <ImgSupplement key='supplement' />
       </div>
     )
+
+
 
   ofType === 'course' &&
     slides.push(
@@ -117,67 +128,64 @@ const YourDiploma = ({ ofType = null }: YourDiplomaType) => {
     spaceBetween: 30
   }
 
+  const [cut, setCut] = useState(184)
+  const [showFullText, setShowFullText] = useState(false)
+
+  const cutHandler = () => {
+    setShowFullText(!showFullText)
+    if (!showFullText) {
+      setCut(500)
+    } else {
+      setCut(184)
+    }
+  }
+  const subtitleMain = 'Все наши программы лицензированы, а дипломы имеют международные приложения, поэтому они ценятся клиентами и профессиональным психологическим сообществом как в России, так и за рубежом! По окончании программ профессиональной переподготовки и курсов повышения квалификации выпускники института получают официальный документ установленного образца, который вносится в реестр ФРДО, а в дополнение — сертификат Московского Института Психологии в формате А4'
+
   return (
-    <section className={stls.container}>
+    <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
+        <h2 className={stls.title}>Ваши будущие дипломы</h2>
+        {onMain && (
+          <div className={stls.tag}>
+          <TagOrange>
+            Образование
+          </TagOrange>
+        </div>
+        )}
+        
         <div className={stls.content}>
           <div className={stls.left}>
-            <h2 className={stls.title}>Ваши будущие дипломы</h2>
             <div className={stls.subtitleContainer}>
-              <p className={stls.subtitle}>
-                Все наши программы лицензированы Департаментом образования
-                города Москвы, поэтому дипломы ценятся как клиентами, так и
-                профессиональным сообществом!
-              </p>
-
+              {onMain && (
+                <>
+                <p className={stls.mainSubtitle}>{subtitleMain.slice(0,cut)}</p>
+                {!showFullText && <span className={stls.threePoints}>...</span>}
+                <p onClick={cutHandler} className={stls.moreText}>
+                  {showFullText ? 'Скрыть описание' : 'Читать далее'}
+                </p>
+                </>
+              )}
+              {!onMain && (<p className={stls.subtitle}>
+                Все наши программы лицензированы, а дипломы имеют международные приложения, поэтому они ценятся клиентами и профессиональным психологическим сообществом как в России, так и за рубежом!
+              </p>)}
+              {/* <div className={stls.cont}></div> */}
               <div className={stls.btn}>
-                <Popup
-                  trigger={open => (
-                    <div>
-                      <BtnAlpha
-                        text={
-                          <>
-                            Уведомление о предоставлении <br /> лицензии №041221{' '}
-                          </>
-                        }
-                      />
-                    </div>
-                  )}
-                  modal
-                  lockScroll
-                  nested
-                  closeOnDocumentClick>
-                  {close => <PopupImage image={<ImgLicence />} close={close} />}
-                </Popup>
-                {/* <Popup
-                  trigger={
-                    <BtnIota
-                      text={
-                        <>
-                          Уведомление о предоставлении <br /> лицензии{' '}
-                          <span className={stls.highlight}>№041221</span>{' '}
-                        </>
-                      }
-                      href={routes.external.license}
-                      target='_blank'
-                    />
-                  }
-                  modal
-                  nested>
-                  {close => <PopupImage image={<ImgLicence />} close={close} />}
-                </Popup> */}
+                <LicensePopUp showFullText={showFullText} />
               </div>
             </div>
           </div>
-          <div className={stls.swiper}>
-            <SwiperContainer
-              diplomas
-              slides={slides}
-              mobileOptions={mobileSwiperOptions}
-              tabletOptions={tabletLaptopDesktopSwiperOptions}
-              laptopOptions={tabletLaptopDesktopSwiperOptions}
-              desktopOptions={tabletLaptopDesktopSwiperOptions}
-            />
+          <div className={stls.slidesContainer}>
+            {slides.map((slide, index) => (
+              <Popup
+                key={`popup-${index}`}
+                trigger={<div className={stls.trigger}>{slide}</div>}
+                modal
+                nested>
+                {close => (
+                  <PopupImage image={slide.props.children} close={close} />
+                )}
+              </Popup>
+            ))}
           </div>
         </div>
       </Wrapper>

@@ -32,12 +32,15 @@ const MainStudyFields = ({
             })}  onClick={close && close }>
             {/* <BtnField */}
             <Link href={href} passHref>
-                <p
+                <a
                   onMouseEnter={() => setCurrentType(programType)}
-                  className={stls.mainFields}
+                  className={cn({
+              [stls.mainFields]: true,
+              [stls.active]: currentType === programType
+            })} 
                 >
                   {label}
-                </p>
+                </a>
             </Link>
             {/* </BtnField> */}
           </li>

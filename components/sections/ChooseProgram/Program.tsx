@@ -64,7 +64,7 @@ const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenList
             </div>
           )}
           {...{ contentStyle }}
-          // on={'hover'}
+          on={'hover'}
           position={index < 4  ? 'right center' : 'left center'}
           offsetY={index == 0 ? -15 : index == 4 ? -15 : 0}
           offsetX={index < 4  ? -80 : 20}

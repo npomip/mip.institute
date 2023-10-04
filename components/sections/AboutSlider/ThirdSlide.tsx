@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/AboutSlider/ThirdSlide.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/general/leftSlide.jpg'
+import pic from '@/public/assets/imgs/general/LeftSlide.jpg'
 
 const ThirdSlide = () => {
   // const width = 600

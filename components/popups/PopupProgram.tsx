@@ -5,12 +5,13 @@ import ProgramAdmission from '../program/ProgramAdmission'
 
 
 const PopupProgram = ({ program, href }) => {
+  console.log(program)
 
   return (
     <Link href={href} passHref>
     <div className={stls.container}>
       {/* <div className={stls.img}> */}
-        <ForPopup />
+        <ForPopup src={program.heroPicture.url} alt={program.title} />
       {/* </div> */}
       <div className={stls.content}>
         <p className={stls.title}>{program.title}</p>

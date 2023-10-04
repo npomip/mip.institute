@@ -29,7 +29,10 @@ const Hero = () => {
   return (
     <section className={stls.container}>
       <div className={stls.bg}></div>
+      
       <Wrapper>
+      <div className={stls.leftbg}>
+      </div>
       <div className={stls.content}>
         {/* <div className={stls.icon} onClick={e => hiddenGem(e)}>
           <IconAtom regular crho />

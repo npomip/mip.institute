@@ -41,6 +41,8 @@
 
 .img
   position: absolute
+  // filter: grayscale(21%) brightness(105%) sepia(25%) 
+  color-interpolation-filters: #6F01C6
   // width: 100%
   // height: auto
   // object-fit: cover
@@ -52,8 +54,8 @@
     height: f.px(575)
     width: f.px(560)
   @include m.media(tablet)
-    height: 45vh
-    width: 47vh
+    height: f.px(375)
+    width: f.px(360)
   @include m.media(phone)
     height: f.px(375)
     width: f.px(350)
@@ -68,3 +70,19 @@
     // height: f.px(585)
     // width: f.px(580)
   // transform: translateX(f.px(100))
+
+.filterImg
+  position: relative
+
+.filter
+  border-radius: f.px(25)
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background: #6F01C6
+  z-index: 1
+  opacity: 0.1
+.innerImg
+  border-radius: f.px(25)

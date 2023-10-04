@@ -5,7 +5,6 @@ import ProgramAdmission from '../program/ProgramAdmission'
 
 
 const PopupProgram = ({ program, href }) => {
-  console.log(program)
 
   return (
     <Link href={href} passHref>

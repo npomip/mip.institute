@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import Image from 'next/image'
 
 const RightPanel = ({ imageUrl, slideDirection }) => {
-  console.log(imageUrl)
   return (
     // <div className={classNames({
     // [stls.rightPanel]: true,
@@ -14,9 +13,9 @@ const RightPanel = ({ imageUrl, slideDirection }) => {
         <span className={stls.filter}></span>
         <Image
         className={stls.innerImg} 
-        // layout="responsive"
+        // layout="fill"
         // width={580}
-        // height={573}
+        // height={588}
         src={imageUrl} alt={'divan'} />
       </div>
       </div>

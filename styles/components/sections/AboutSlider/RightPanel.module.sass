@@ -75,7 +75,9 @@
   position: relative
 
 .filter
-  border-radius: f.px(25)
+  border-radius: f.px(36)
+  @include m.media(phone, tablet)
+      border-radius: f.px(11)
   position: absolute
   top: 0
   right: 0
@@ -85,4 +87,6 @@
   z-index: 1
   opacity: 0.1
 .innerImg
-  border-radius: f.px(25)
+  border-radius: f.px(36)
+  @include m.media(phone, tablet)
+    border-radius: f.px(11)

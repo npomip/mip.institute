@@ -3,7 +3,7 @@ import { useState } from 'react'
 import FirstSlide from './FirstSlide'
 import LeftPanel from './LeftPanel'
 import RightPanel from './RightPanel'
-import firstPic from '@/public/assets/imgs/general/FirstSlide.jpg'
+// import firstPic from '@/public/assets/imgs/general/FirstSlide.jpg'
 import secondPic from '@/public/assets/imgs/general/SecondSlide.jpg'
 import thirdPic from '@/public/assets/imgs/general/ThirdSlide.jpg'
 import SecondSlide from './SecondSlide'
@@ -16,7 +16,7 @@ const CommonAboutSlider = () => {
   const contentData = [
     {
       component: <FirstSlide />,
-      imageUrl: firstPic
+      imageUrl: secondPic
     },
     {
       component: <SecondSlide />,

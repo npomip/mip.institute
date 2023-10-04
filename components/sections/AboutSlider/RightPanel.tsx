@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import Image from 'next/image'
 
 const RightPanel = ({ imageUrl, slideDirection }) => {
+  console.log(imageUrl)
   return (
     // <div className={classNames({
     // [stls.rightPanel]: true,

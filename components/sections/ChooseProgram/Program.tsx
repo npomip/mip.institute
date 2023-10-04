@@ -64,12 +64,13 @@ const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenList
             </div>
           )}
           {...{ contentStyle }}
-          on={'hover'}
-          position={index < 4  ? 'right top' : 'left top'}
+          // on={'hover'}
+          position={index < 4  ? 'right center' : 'left center'}
           offsetY={index == 0 ? -15 : index == 4 ? -15 : 0}
           offsetX={index < 4  ? -80 : 20}
-          // repositionOnResize
-          // offsetX={-100}
+          mouseLeaveDelay={300}
+          mouseEnterDelay={300}
+          
           arrowStyle={{
             stroke: '#6F01C6'
           }}>

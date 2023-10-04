@@ -57,7 +57,7 @@ const TopCourses = () => {
       image: (
         <ImgTopCourse
           src={course?.heroPicture?.url}
-          alt={course.name}
+          alt={course.title}
           width={390}
           height={getImageHeight({
             width: 530,

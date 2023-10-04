@@ -13,6 +13,7 @@ SwiperCore.use([Navigation, Pagination])
 
 const SwiperContainer = ({
   teachers = false,
+  topCourses=false,
   diplomas = false,
   reviews = false,
   reviewNextBtn = false,
@@ -120,6 +121,7 @@ const SwiperContainer = ({
         [stls.teachers]: teachers,
         [stls.diplomas]: diplomas,
         [stls.reviews]: reviews,
+        [stls.topCourses]: topCourses,
       })}>
       {slides &&
         slides.map((slide, idx) => (

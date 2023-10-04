@@ -7,7 +7,10 @@ const CardTopProgram = ({ portrait, title, studyHours, href }) => {
     // <article >
       <Link href={href} passHref>
         <a className={stls.container}>
-        <div className={stls.portrait}>{portrait}</div>
+        <div className={stls.portrait}>
+          <span className={stls.filter}></span>
+          {portrait}
+          </div>
         <p className={stls.title}>{title}</p>
         <p className={stls.subtitle}>
           Ближайшее зачисление: <br /> <ProgramAdmission />{' '}

@@ -27,6 +27,17 @@
   width: 100%
   @include m.dye(bg, c.$alpha)
 
+// .leftbg
+//   position: absolute
+//   top: 4%
+//   // left: -10px
+//   overflow: hidden
+//   transform: translate(-145%, f.px(0))
+//   // left: 0
+//   width: 300px
+//   height: 100%
+//   background: #52049E
+
 .title,
 .desc
   @include m.dye(c, c.$nu)
@@ -109,13 +120,12 @@
 .img
   position: absolute
   @include m.media(phone)
-    top: f.px(119)
-    right: f.px(-50)
+    transform: translate(10%, f.px(-255))
     position: absolute
     z-index: 1
     overflow: hidden
   @include m.media(laptop, desktop)
-    transform: translate(6%, f.px(-145))
+    transform: translate(8%, f.px(-205))
     right: 0
     width: f.px(454)
     height: f.px(437)
@@ -123,9 +133,9 @@
   @include m.media(laptop)
     transform: translate(20%, f.px(-100))
   @include m.media(tablet)
-    z-index: 2
+    z-index: 1
     right: f.px(-30)
-    transform: translate(5%, f.px(-115))
+    transform: translate(5%, f.px(-355))
     width: f.px(380)
     height: f.px(477)
 
@@ -229,11 +239,11 @@
   z-index: 0
   overflow: hidden
   position: absolute
-  transform: translate(-15%, f.px(-49))
+  transform: translate(-47%, f.px(-59))
   @include m.media(laptop)
     transform: translate(-17%, f.px(22))
   @include m.media( tablet)
-    transform: translate(-3%, f.px(90))
+    transform: translate(-14%, f.px(161))
   @include m.media(phone)
-    transform: translate(-3%, f.px(154))
+    transform: translate(-12%, f.px(214))
 

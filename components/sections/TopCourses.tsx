@@ -60,7 +60,7 @@ const TopCourses = () => {
           alt={course.name}
           width={390}
           height={getImageHeight({
-            width: 470,
+            width: 530,
             widthInitial: course?.heroPicture?.width,
             heightInitial: course?.heroPicture?.height
           })}

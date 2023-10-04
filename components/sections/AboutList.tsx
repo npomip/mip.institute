@@ -15,6 +15,7 @@ const AboutList = () => {
     <div className={stls.container}>
       {list.map(el => (
         <div className={stls.item} key={el.title}>
+          <span className={stls.filter}></span>
           <p className={stls.title}>{el.title}</p>
           <p className={stls.desc}>{el.desc}</p>
         </div>

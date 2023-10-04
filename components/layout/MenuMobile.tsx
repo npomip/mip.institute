@@ -18,6 +18,7 @@ import {
   BtnOk
 } from '@/components/btns'
 import { IconMoreThan } from '@/components/icons'
+import BtnDzen from '../btns/BtnDzen'
 
 const MenuMobile = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -82,6 +83,7 @@ const MenuMobile = () => {
           <BtnTelegram />
           <BtnYt />
           <BtnOk />
+          <BtnDzen />
           {/* <BtnFb />
           <BtnYt /> */}
         </div>

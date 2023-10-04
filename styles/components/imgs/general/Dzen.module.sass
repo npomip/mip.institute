@@ -15,7 +15,10 @@
       @include m.dye(bg, rgba(c.$nu, .1))
   // display: flex
   // justify-content: center
-  @include m.media(phone, tablet)
+  @include m.media(tablet)
+    padding: f.px(15) f.px(15) f.px(12) f.px(15)
+  @include m.media(phone)
+    padding: f.px(13) f.px(13) f.px(9) f.px(13)
     // width: 100%
     // border-top-left-radius: f.px(50)
   // @include m.media(laptop, desktop)

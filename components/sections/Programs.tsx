@@ -123,9 +123,9 @@ const Programs = ({
     data.professions =data.professions.filter((item, idx) => idx < max)
     
   }
-  if (isMobileTabletLayout) {
-    data.courses = data.courses.filter((item, idx) => idx < 3)
-  }
+  // if (isMobileTabletLayout) {
+  //   data.courses = data.courses.filter((item, idx) => idx < 3)
+  // }
   return (
     <section
       className={cn({

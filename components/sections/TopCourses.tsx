@@ -35,19 +35,10 @@ const TopCourses = () => {
     'Психосоматика и телесная психотерапия',
     'Гештальт-терапевт'
   ]
-  const rearrangeArray = (professions, targetTitles) => {
-    const resultArray = []
-    const remainingArray = []
-
-    for (const item of professions) {
-      if (targetTitles.includes(item.title)) {
-        resultArray.push(item)
-      }
-    }
-
-    return resultArray
-  }
-  const topCourses = rearrangeArray(programs, targetTitles)
+  const topCourses = targetTitles.map(title =>
+    programs.find(profession => profession.title === title)
+  );
+  // const topCourses = rearrangeArray(programs, targetTitles)
   console.log(topCourses)
 
   const list =
@@ -86,7 +77,7 @@ const TopCourses = () => {
   }
 
   const tabletSwiperOptions = {
-    slidesNum: 1.4,
+    slidesNum: 3,
     spaceBetween: 20
   }
 
@@ -96,7 +87,7 @@ const TopCourses = () => {
   }
 
   const desktopSwiperOptions = {
-    slidesNum: 3,
+    slidesNum: 4,
     spaceBetween: 30
   }
 
@@ -114,7 +105,7 @@ const TopCourses = () => {
         </div>
         <div className={stls.teachers}>
           <SwiperContainer
-            // teachers
+            topCourses
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}
             tabletOptions={tabletSwiperOptions}

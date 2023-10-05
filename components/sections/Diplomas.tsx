@@ -18,8 +18,8 @@ const Diplomas = () => {
           image: <ImgDiploma />,
           title: 'Диплом института'
         },
-        { image: <ImgDiplomaAlt />, title: 'Диплом установленного образца' }
-        // { image: <ImgSupplement />, title: 'Саплемент' }
+        { image: <ImgDiplomaAlt />, title: 'Диплом установленного образца' },
+        { image: <ImgSupplement />, title: 'Саплемент' }
       ]
     },
     {

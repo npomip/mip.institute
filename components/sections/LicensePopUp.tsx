@@ -13,7 +13,7 @@ const LicensePopUp = ({showFullText=false}) => {
     <div className={stls.btn}>
     <Popup
       trigger={
-        <button className={stls.trig}>
+        <div className={stls.trig}>
           {/* <span className={stls.img}> */}
           <div className={!showFullText ? stls.license : stls.cuttedLicense}>
             <div className={stls.leftLicense}>
@@ -42,7 +42,7 @@ const LicensePopUp = ({showFullText=false}) => {
               </div>
             </div>
           </div>
-        </button>
+        </div>
       }
       modal
       lockScroll

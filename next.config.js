@@ -434,9 +434,9 @@ module.exports = /* withPWA( */ {
         permanent: true
       },
       {
-        source: 'https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskij-psiholog',
+        source: '/professions/klinicheskaya-psihologiya/klinicheskij-psiholog',
         destination:
-          'https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
+        '/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
         permanent: true
       },
     ]

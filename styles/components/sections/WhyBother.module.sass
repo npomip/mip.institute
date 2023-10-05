@@ -107,12 +107,12 @@
     font-size: f.px(12)
 
 .subdesc
-  max-width: f.px(260)
   font-size: f.px(10)
   font-weight: 200
   line-height: 120%
   color: #1A1A1A
   @include m.media(phone, tablet)
+    max-width: f.px(260)
     color: #565350
     @include m.gap($pb: f.px(14), $mb:f.px(0))
 

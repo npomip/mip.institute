@@ -26,6 +26,11 @@ const getStaticPropsPageTeachers = async ({
           type
           studyMounthsDuration
           studyHours
+          heroPicture {
+            url
+            width
+            height
+          }
           index_number {
             idx
           }

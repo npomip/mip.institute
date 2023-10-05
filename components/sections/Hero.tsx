@@ -29,7 +29,10 @@ const Hero = () => {
   return (
     <section className={stls.container}>
       <div className={stls.bg}></div>
+      
       <Wrapper>
+      <div className={stls.leftbg}>
+      </div>
       <div className={stls.content}>
         {/* <div className={stls.icon} onClick={e => hiddenGem(e)}>
           <IconAtom regular crho />
@@ -64,7 +67,7 @@ const Hero = () => {
 
               </div>
               <div className={stls.smallTwo}>
-                <IconGratefullPortal thirtyPx/>
+                <IconGratefullPortal xsmall/>
               </div>
               <div className={stls.xsmallOne}>
                 <IconGratefullPortal xsmall/>
@@ -73,10 +76,22 @@ const Hero = () => {
                 <IconGratefullPortal xsmall/>
               </div>
               <div className={stls.medium}>
-                <IconGratefullPortal fiftyPx/>
+                <IconGratefullPortal xsmall/>
+              </div>
+              <div className={stls.mediumMobile}>
+                <IconGratefullPortal medium/>
               </div>
               <div className={stls.big}>
                 <IconGratefullPortal medium />
+              </div>
+              <div className={stls.tenPx}>
+                <IconGratefullPortal tenPx />
+              </div>
+              <div className={stls.tenPxTwo}>
+                <IconGratefullPortal tenPx />
+              </div>
+              <div className={stls.thirtyPx}>
+                <IconGratefullPortal thirtyPx />
               </div>
             </div>
             <div className={stls.mobileBtns}>

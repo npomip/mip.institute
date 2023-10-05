@@ -24,6 +24,13 @@ const FooterBottom = () => {
           className={stls.docLink}>
           Политика конфиденциальности
         </a>
+        <a
+          href={routes.external.license}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={stls.linkToLicense}>
+          Лицензия на образовательную деятельность №041363 от 14.04.2021 г.
+        </a>
         {/* <p>a</p> */}
       {/* </Wrapper> */}
     </div>

@@ -7,7 +7,7 @@
   position: relative
   // z-index: 4
   background: white
-  @include m.gap($pb: f.px(0), $pt: f.px(97))
+  @include m.gap($pb: f.px(0), $pt: f.px(90))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(15))
   & > *
@@ -16,7 +16,7 @@
         @include m.flex($display: false, $fd: column)
 
 .onMain
-  @include m.gap( $pb: f.px(97))
+  @include m.gap( $pb: f.px(90))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(15))
 
@@ -164,7 +164,7 @@
     border-radius: 25px
 
 .leftTitle
-  @include m.gap($mt: f.px(30), $mb: f.px(40))
+  @include m.gap($mt: f.px(30), $mb: f.px(45))
   color: #131313
   font-size: f.px(20)
   font-style: normal
@@ -176,7 +176,7 @@
 
 
 .leftDesc
-  @include m.gap($ptb: f.px(35), $plr: f.px(20), $mt: f.px(38), $mb: f.px(0))
+  @include m.gap($ptb: f.px(35), $plr: f.px(20), $mt: f.px(45), $mb: f.px(0))
   background: #FEF2E8
   border-radius: 25px
   font-size: f.px(20)

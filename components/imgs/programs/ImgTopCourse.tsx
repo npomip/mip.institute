@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 
 const ImgTopCourse = ({ src, alt, width = 0, height = 0 }) => {
+
   return (
     <div className={stls.container}>
       <Image

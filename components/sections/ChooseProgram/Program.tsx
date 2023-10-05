@@ -42,8 +42,8 @@ const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenList
   const contentStyle = {
     background: '#ffffff',
     paddingLeft: '50px',
-    width: '425px',
-    // paddingRight: '100px',
+    width: '525px',
+    paddingRight: '100px',
     paddingTop: '40px',
     paddingBottom: '9px',
     border: '1px solid #6F01C6'
@@ -68,8 +68,9 @@ const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenList
           position={index < 4  ? 'right center' : 'left center'}
           offsetY={index == 0 ? -15 : index == 4 ? -15 : 0}
           offsetX={index < 4  ? -80 : 20}
-          // repositionOnResize
-          // offsetX={-100}
+          mouseLeaveDelay={300}
+          // mouseEnterDelay={300}
+          
           arrowStyle={{
             stroke: '#6F01C6'
           }}>

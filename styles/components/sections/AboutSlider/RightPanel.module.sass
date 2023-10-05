@@ -41,22 +41,25 @@
 
 .img
   position: absolute
+  // filter: grayscale(21%) brightness(105%) sepia(25%) 
+  // color-interpolation-filters: #6F01C6
   // width: 100%
   // height: auto
   // object-fit: cover
   @include m.media(desktop)
-    height: f.px(575)
-    width: f.px(567)
+    // object-fit: fill
+    // height: f.px(575)
+    // width: f.px(575)
     overflow: hidden
   @include m.media(laptop)
     height: f.px(575)
     width: f.px(560)
   @include m.media(tablet)
-    height: 45vh
-    width: 47vh
-  @include m.media(phone)
     height: f.px(375)
-    width: f.px(350)
+    width: f.px(360)
+  @include m.media(phone)
+    height: f.px(377)
+    width: f.px(362)
   & > *
     object-fit: cover
     border-radius: f.px(40)
@@ -68,3 +71,23 @@
     // height: f.px(585)
     // width: f.px(580)
   // transform: translateX(f.px(100))
+
+.filterImg
+  position: relative
+
+.filter
+  border-radius: f.px(36)
+  @include m.media(phone, tablet)
+    border-radius: f.px(14)
+  position: absolute
+  top: 0
+  right: 0
+  bottom: f.px(5)
+  left: 0
+  background: #6F01C6
+  z-index: 1
+  opacity: 0.05
+.innerImg
+  border-radius: f.px(36)
+  @include m.media(phone, tablet)
+    border-radius: f.px(11)

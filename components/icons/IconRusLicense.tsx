@@ -9,8 +9,8 @@ const IconRusLicense = () => {
         viewBox='10 0 90 250'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'>
-        <g id='Group 973'>
-          <g id='Group 66'>
+        <g id='Group_973'>
+          <g id='Group_66'>
             <g id='Group'>
               <path
                 id='vector'

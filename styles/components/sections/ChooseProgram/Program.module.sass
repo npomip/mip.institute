@@ -4,6 +4,7 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .directionsMobile
+  width: 100%
   // max-height: f.px(58)
   @include m.media(desktop, laptop)
     display: none
@@ -27,7 +28,7 @@
     color: #B250FF
     cursor: pointer
   @include m.media(phone, tablet)
-    max-width: f.px(350)
+    // max-width: f.px(350)
     // width: 100%
     margin: 0 auto
     @include m.gap($mt: f.px(10), $pt: f.px(10), $pb: f.px(17))

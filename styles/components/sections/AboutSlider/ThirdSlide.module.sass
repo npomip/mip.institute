@@ -4,6 +4,7 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
+
   max-height: f.px(595)
   background: #F9F0FF
   border-radius: f.px(36)
@@ -12,7 +13,7 @@
   @include m.media(phone, tablet)
     // max-height: f.px(355)
     @include m.gap($pb: f.px(50), $pl: f.px(24), $pr: f.px(17))
-    border-radius: f.px(20)
+    border-radius: f.px(11)
   .first
     @include m.gap($mb: f.px(25), $pt: f.px(60))
     font-size: f.px(20)
@@ -37,6 +38,24 @@
 
 .img
   border-radius: 20px
+  // width: 300px
+  // height: 200px
+  // object-fit: contain
+
+.filterImg
+  position: relative
+
+.filter
+  border-radius: f.px(25)
+  position: absolute
+  top: 0
+  right: 0
+  bottom: f.px(4)
+  left: 0
+  background: #6F01C6
+  z-index: 1
+  opacity: 0.05
+
 
 
 

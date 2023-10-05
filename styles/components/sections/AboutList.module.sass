@@ -7,7 +7,7 @@
   flex-wrap: wrap
   width: 100%
   @include m.media(phone, tablet)
-    max-width: f.px(400)
+    // max-width: f.px(400)
 
 .item
   min-width: f.px(125)
@@ -15,8 +15,9 @@
   height: f.px(200)
   @include m.media(phone, tablet)
     min-width: f.px(115)
-    max-width: f.px(195)
-    height: f.px(128)
+    max-width: f.px(305)
+    min-height: f.px(127)
+    max-height: f.px(128)
     border-radius: f.px(14)
   border-radius: f.px(23)
   display: flex
@@ -39,14 +40,21 @@
         max-width: 95px
     
   &:nth-child(2)
-    background: url('/assets/imgs/general/lection.png')
+    position: relative
+    .filter
+      border-radius: f.px(25)
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background: #6F01C6
+      z-index: 4
+      opacity: 0.05
+    background-color: #6F01C6
+    background: url('/assets/imgs/general/lection.jpg')
     background-position: center center
     background-size: cover
-    // background-attachment: fixed
-    // object-fit: cover
-    // width: 300px
-    // height: fit-content
-    // height: fit
     background-repeat: no-repeat
 
 .title

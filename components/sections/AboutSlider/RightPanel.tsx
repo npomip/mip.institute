@@ -9,12 +9,15 @@ const RightPanel = ({ imageUrl, slideDirection }) => {
     // [stls.slideDirection]: slideDirection})}></div>
     <div className={classNames(stls['right-panel'], stls[`${slideDirection}`])}>
       <div className={stls.img}>
+        <div className={stls.filterImg}>
+        <span className={stls.filter}></span>
         <Image
         className={stls.innerImg} 
-        // layout="responsive"
-        // width={580}
-        // height={573}
+        // layout="fill"
+        width={585}
+        height={576}
         src={imageUrl} alt={'divan'} />
+      </div>
       </div>
     </div>
   )

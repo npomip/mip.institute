@@ -4,15 +4,21 @@ import ProgramAdmission from '../program/ProgramAdmission'
 
 const CardTopProgram = ({ portrait, title, studyHours, href }) => {
   return (
-    
+    // <article >
       <Link href={href} passHref>
-        <article className={stls.container}>
-        <div className={stls.portrait}>{portrait}</div>
+        <a className={stls.container}>
+        <div className={stls.portrait}>
+          <span className={stls.filter}></span>
+          {portrait}
+          </div>
         <p className={stls.title}>{title}</p>
-        <p className={stls.subtitle}>Ближайшее зачисление: <br /> <ProgramAdmission /> </p>
+        <p className={stls.subtitle}>
+          Ближайшее зачисление: <br /> <ProgramAdmission />{' '}
+        </p>
         <p className={stls.subtitle}>Кол-во часов: {studyHours}</p>
-        </article>
+        </a>
       </Link>
+    // </article>
   )
 }
 

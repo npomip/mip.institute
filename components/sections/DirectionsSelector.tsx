@@ -38,7 +38,7 @@ const DirectionsSelector = ({ currentType = null, setCurrentType }) => {
     <div className={stls.container}>
       {list.map(({ id, label, href, programType }, idx) => (
         <Fragment key={id}>
-          <li
+          <div
             className={classNames({
               [stls.studyField]: true,
               [stls.active]: currentType === programType,
@@ -58,7 +58,7 @@ const DirectionsSelector = ({ currentType = null, setCurrentType }) => {
               }
             }}>
             <p className={stls.mainFields}>{label}</p>
-          </li>
+          </div>
           {/* Показываем надпись под активным элементом */}
           {activeItem === id && (
             <div className={stls.mobileAccordeon}>

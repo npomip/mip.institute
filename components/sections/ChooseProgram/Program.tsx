@@ -69,7 +69,7 @@ const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenList
           offsetY={index == 0 ? -15 : index == 4 ? -15 : 0}
           offsetX={index < 4  ? -80 : 20}
           mouseLeaveDelay={300}
-          mouseEnterDelay={300}
+          // mouseEnterDelay={300}
           
           arrowStyle={{
             stroke: '#6F01C6'

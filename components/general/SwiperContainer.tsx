@@ -8,6 +8,7 @@ import { PopupImage } from '../popups'
 import CustomNextButton from './CustomNextButton'
 import CustomPrevButton from './CustomPrevButton'
 import { useState } from 'react'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -26,14 +27,11 @@ const SwiperContainer = ({
   alwaysDisabledOnDesktop = false,
   isMultiRow = false
 }) => {
-  const isMobileLayout = useMediaQuery({ query: '(max-width: 480px)' })
-  const isTabletLayout = useMediaQuery({
-    query: '(min-width: 481px) and (max-width: 768px)'
-  })
-  const isLaptopLayout = useMediaQuery({
-    query: '(min-width: 768px) and (max-width: 1200px)'
-  })
-  const isDesktopLayout = useMediaQuery({ query: '(min-width: 1201px)' })
+  const isMobileLayout = useBetterMediaQuery( '(max-width: 480px)')
+  const isTabletLayout = useBetterMediaQuery( '(min-width: 481px) and (max-width: 768px)'
+  )
+  const isLaptopLayout = useBetterMediaQuery('(min-width: 768px) and (max-width: 1200px)')
+  const isDesktopLayout = useBetterMediaQuery('(min-width: 1201px)')
 
   const layouts = [
     { mobile: isMobileLayout },
@@ -115,7 +113,7 @@ const SwiperContainer = ({
         fill: !isMobileLayout ? 'row' : 'column'
       }}
       // autoHeight={true}
-      pagination={isMobileLayout && !topCourses ? { clickable: true, dynamicBullets: true } : false}
+      pagination={(isMobileLayout || isTabletLayout) && !topCourses ? { clickable: true, dynamicBullets: true } : false}
       className={classNames({
         [stls.container]: true,
         [stls.teachers]: teachers,

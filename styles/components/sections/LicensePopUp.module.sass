@@ -28,7 +28,7 @@
     font-size: f.px(15)
   font-weight: 500
   // max-width: 2em
-  margin-left: 20px
+  margin-left: 25px
   display: flex
   // justify-content: flex-start
     
@@ -40,11 +40,14 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
     
-  margin-left: 20px
+  margin-left: 29px
+  // margin-right: 20px
   position: relative
   color: #F87E1B
   z-index: 10
+  
   &::before
+    transform: translateX(-4px)
     content: 'лицензия '
     color: white
 .iconRus

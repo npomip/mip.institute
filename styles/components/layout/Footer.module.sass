@@ -80,8 +80,6 @@
   min-width: f.px(200)
   flex-wrap: wrap
   @include m.gap($mb: f.px(25), $mr: f.px(0))
-  // margin: 0 auto
-  @include m.gap($mb: f.px(25), $mr: f.px(0))
   @include m.media(phone, tablet)
     display: none
 
@@ -181,6 +179,9 @@
       width: f.px(268)
 
 .primary
+  &:nth-of-type(2)
+    @include m.gap($mb: f.px(18))
+    
   @include m.gap($mb: f.px(25))
   width: f.px(268)
   font-size: 13px
@@ -193,7 +194,15 @@
     text-decoration-line: underline
     text-underline-offset: f.px(2)
 
-
-
+.logo
+  list-style-type: none
 // .eddu
 //   height: 200px
+
+.linkToLicense
+  color: #808080
+  font-size: f.px(13)
+  font-weight: 700
+  line-height: 120%
+  &:hover
+    color: #b0aeae

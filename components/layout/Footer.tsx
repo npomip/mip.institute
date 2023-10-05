@@ -15,20 +15,11 @@ import {
 import PopupTrigger from '@/components/general/PopupTrigger'
 import FooterBottom from '@/components/general/FooterBottom'
 import { GeneralAddress } from '@/components/general'
-import { FormAlpha } from '@/components/forms'
 import { useRouter } from 'next/router'
 import { getCookie, setCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 import Logo from '../general/Logo'
 import BtnDzen from '../btns/BtnDzen'
-import Popup from 'reactjs-popup'
-import FooterReviews from '../popups/FooterReviews'
-import Otzovic from '../imgs/footerReviews/Otzovic'
-import Ya from '../imgs/footerReviews/Ya'
-import Tutortop from '../imgs/footerReviews/Tutortop'
-import TwoGis from '../imgs/footerReviews/TwoGis'
-import Ucheba from '../imgs/footerReviews/Ucheba'
-import IconRating from '../icons/IconRating'
 import SearchProgram from '../general/SearchProgram'
 import sendToEddu from '../funcs/sendToEddu'
 import PopupFooterReviews from '../popups/PopupFooterReviews'
@@ -152,7 +143,9 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-              <Logo atFooter/>
+              <li className={stls.logo}>
+                <Logo atFooter/>
+              </li>
             </ul>
             {!isEdpartners && (
               <div className={stls.contact}>
@@ -223,7 +216,9 @@ const Footer = () => {
                 образования города Москвы на осуществление образовательной
                 деятельности №041363 от 14.04.21.
               </p>
-              
+              <a className={stls.linkToLicense} href={routes.external.license} target='_blank'  rel="noreferrer nofollow noindex" >
+                Лицензия на образовательную деятельность №041363 от 14.04.2021 г.
+              </a>
             </div>
           </div>
           <div className={stls.bottom}>

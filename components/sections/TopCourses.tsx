@@ -39,7 +39,7 @@ const TopCourses = () => {
     programs.find(profession => profession.title === title)
   );
   // const topCourses = rearrangeArray(programs, targetTitles)
-  console.log(topCourses)
+  // console.log(topCourses)
 
   const list =
     topCourses &&

@@ -42,13 +42,14 @@
 .img
   position: absolute
   // filter: grayscale(21%) brightness(105%) sepia(25%) 
-  color-interpolation-filters: #6F01C6
+  // color-interpolation-filters: #6F01C6
   // width: 100%
   // height: auto
   // object-fit: cover
   @include m.media(desktop)
-    height: f.px(575)
-    width: f.px(567)
+    // object-fit: fill
+    // height: f.px(575)
+    // width: f.px(575)
     overflow: hidden
   @include m.media(laptop)
     height: f.px(575)
@@ -57,8 +58,8 @@
     height: f.px(375)
     width: f.px(360)
   @include m.media(phone)
-    height: f.px(375)
-    width: f.px(350)
+    height: f.px(377)
+    width: f.px(362)
   & > *
     object-fit: cover
     border-radius: f.px(40)

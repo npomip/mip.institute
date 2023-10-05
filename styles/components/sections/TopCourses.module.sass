@@ -4,7 +4,7 @@
 
 .container
   position: relative
-  @include m.gap($pb: f.px(0), $pt: f.px(60))
+  @include m.gap($pb: f.px(0), $pt: f.px(84))
   @include m.media(tablet, phone)
     @include m.gap($pb: f.px(0), $pt: f.px(50))
 
@@ -15,7 +15,7 @@
   display: inline-block
   font-weight: 500
   @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(66), $mb: f.px(0))
+    @include m.gap($pt: f.px(87), $mb: f.px(0))
     font-size: f.px(44)
   @include m.media(tablet, phone)
     transform: translateY(f.px(65))
@@ -31,7 +31,7 @@
   & > *
     position: absolute
     @include m.media(laptop, desktop)
-      top: f.px(10)
+      top: f.px(9)
       left: f.px(430)
       @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
     @include m.media(phone, tablet)

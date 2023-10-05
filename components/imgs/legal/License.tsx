@@ -2,7 +2,7 @@ import stls from '@/styles/components/imgs/programs/License.module.sass'
 import Image from 'next/image'
 import pic from '@/public/assets/imgs/programs/courses/license.png'
 
-const License = ({ width = 200, height = 0 }) => {
+const License = ({ width = 180, height = 240 }) => {
   return (
     <div className={stls.container}>
       <Image

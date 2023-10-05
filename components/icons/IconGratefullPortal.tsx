@@ -1,7 +1,7 @@
 import stls from '@/styles/components/icons/IconGratefullPortal.module.sass'
 import classNames from 'classnames'
 
-const IconGratefullPortal = ({ large=false, medium=false, small=false, xsmall=false, fiftyPx=false, thirtyPx=false, isViolet=false}) => {
+const IconGratefullPortal = ({ large=false, medium=false, small=false, xsmall=false, fiftyPx=false, thirtyPx=false, isViolet=false, tenPx=false}) => {
   return (
     <span className={classNames({
       [stls.container]: true,
@@ -12,6 +12,7 @@ const IconGratefullPortal = ({ large=false, medium=false, small=false, xsmall=fa
       [stls.xsmall]: xsmall,
       [stls.fiftyPx]: fiftyPx,
       [stls.thirtyPx]: thirtyPx,
+      [stls.tenPx]: tenPx,
     })}>
       <svg
         width='75'

@@ -433,6 +433,12 @@ module.exports = /* withPWA( */ {
           '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
         permanent: true
       },
+      {
+        source: 'https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskij-psiholog',
+        destination:
+          'https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
+        permanent: true
+      },
     ]
   }
 }

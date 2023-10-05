@@ -33,7 +33,10 @@
 .xsmall
   @include m.sizeIcon($size: 1, $w: 16, $h: 16)
   animation: laptopanimate 2.9s linear infinite
-
+.tenPx
+  @include m.sizeIcon($size: 1, $w: 10, $h: 10)
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($size: 1, $w: 5, $h: 5)
 @keyframes laptopanimate
   0%
     @include m.sizeIcon($size: 1, $w: 16, $h: 16)

@@ -6,7 +6,7 @@
   font-weight: 700
   border-top: f.px(1) solid
   @include m.dye(border, c.$phi)
-  @include m.gap($ptb: f.px(40))
+  @include m.gap($pt: f.px(40), $pb: f.px(22))
   display: flex
   @include m.media(phone, tablet)
     @include m.flex($fw: wrap)
@@ -19,7 +19,8 @@
 
 .copy,
 .agreeLink,
-.docLink
+.docLink,
+.linkToLicense
   @include m.media(desktop)
     flex-basis: 24%
   @include m.media(laptop)
@@ -37,6 +38,8 @@
     flex-basis: 21%
   @include m.media(laptop)
     flex-basis: 18%
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(13))
 
 .agreeLink
   @include m.media(desktop)
@@ -45,4 +48,11 @@
 
 .docLink
   @include m.gap($mr: 0)
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(13))
   
+.linkToLicense
+  @include m.media(desktop, laptop)
+    display: none
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(0), $ml: f.px(13))

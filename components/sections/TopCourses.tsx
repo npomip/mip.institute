@@ -105,6 +105,7 @@ const TopCourses = () => {
         </div>
         <div className={stls.teachers}>
           <SwiperContainer
+            initialSlide={0}
             topCourses
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}

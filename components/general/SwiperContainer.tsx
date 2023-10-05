@@ -25,7 +25,8 @@ const SwiperContainer = ({
   laptopOptions = { slidesNum: 2, spaceBetween: 10 },
   desktopOptions = { slidesNum: 2, spaceBetween: 50 },
   alwaysDisabledOnDesktop = false,
-  isMultiRow = false
+  isMultiRow = false,
+  initialSlide=0
 }) => {
   const isMobileLayout = useBetterMediaQuery( '(max-width: 480px)')
   const isTabletLayout = useBetterMediaQuery( '(min-width: 481px) and (max-width: 768px)'
@@ -97,13 +98,14 @@ const SwiperContainer = ({
     console.log('Previous Slide');
   };
 
-
+console.log(slides)
   return (
     <Swiper
       navigation={{
         prevEl: '.custom-prev-button',
         nextEl: '.custom-next-button',
       }}
+      initialSlide={initialSlide}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}
       slidesPerView={assignNumOfSlidesPerView()}

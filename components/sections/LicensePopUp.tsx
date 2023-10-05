@@ -3,7 +3,6 @@ import stls from '@/styles/components/sections/LicensePopUp.module.sass'
 import Popup from 'reactjs-popup'
 import IconRusLicense from '../icons/IconRusLicense'
 import { IconAtom } from '../icons'
-
 import IconLoupe from '../icons/IconLoupe'
 import { PopupImage } from '../popups'
 import ImgLicence from '../imgs/legal/ImgLicence'

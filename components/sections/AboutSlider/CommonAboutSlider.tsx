@@ -16,7 +16,7 @@ const CommonAboutSlider = () => {
   const contentData = [
     {
       component: <FirstSlide />,
-      imageUrl: firstPic
+      imageUrl: thirdPic
     },
     {
       component: <SecondSlide />,
@@ -24,7 +24,7 @@ const CommonAboutSlider = () => {
     },
     {
       component: <ThirdSlide />,
-      imageUrl: thirdPic
+      imageUrl:  firstPic
     }
   ]
 

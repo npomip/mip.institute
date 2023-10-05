@@ -115,7 +115,7 @@ const SwiperContainer = ({
         fill: !isMobileLayout ? 'row' : 'column'
       }}
       // autoHeight={true}
-      // pagination={{ clickable: true, dynamicBullets: true }}
+      pagination={isMobileLayout && !topCourses ? { clickable: true, dynamicBullets: true } : false}
       className={classNames({
         [stls.container]: true,
         [stls.teachers]: teachers,

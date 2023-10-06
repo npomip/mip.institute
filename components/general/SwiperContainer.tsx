@@ -7,6 +7,7 @@ import { PopupImage } from '../popups'
 import CustomNextButton from './CustomNextButton'
 import CustomPrevButton from './CustomPrevButton'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { useEffect, useRef, useState } from 'react'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -24,7 +25,7 @@ const SwiperContainer = ({
   desktopOptions = { slidesNum: 2, spaceBetween: 50 },
   alwaysDisabledOnDesktop = false,
   isMultiRow = false,
-  initialSlide=0
+  autoHeight=false
 }) => {
   const isMobileLayout = useBetterMediaQuery( '(max-width: 480px)')
   const isTabletLayout = useBetterMediaQuery( '(min-width: 481px) and (max-width: 768px)'
@@ -42,7 +43,6 @@ const SwiperContainer = ({
   const getCurrentLayoutKey = () => {
     const currentLayout = layouts.find(layout => {
       const firstKey = Object.keys(layout)[0]
-
       if (layout[firstKey]) return layout
     })
 
@@ -86,17 +86,8 @@ const SwiperContainer = ({
 
     return swiperOptions[currentLayoutKey].spaceBetween
   }
+  
 
-  const goNext = () => {
-    // Ваша логика для перехода к следующему слайду
-    // console.log('Next Slide');
-  };
-  const goPrev = () => {
-    // Ваша логика для перехода к предыдущему слайду
-    console.log('Previous Slide');
-  };
-
-// console.log(slides)
   return (
     <Swiper
       navigation={{
@@ -104,7 +95,6 @@ const SwiperContainer = ({
         nextEl: '.custom-next-button',
       }}
       loop={true}
-      initialSlide={0}
       speed={250}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}
@@ -114,7 +104,7 @@ const SwiperContainer = ({
         rows: isMultiRow && (isLaptopLayout || isDesktopLayout) ? 2 : 1,
         fill: !isMobileLayout ? 'row' : 'column'
       }}
-      // autoHeight={true}
+      autoHeight={autoHeight}
       pagination={(isMobileLayout || isTabletLayout) && !topCourses ? { clickable: true, dynamicBullets: true } : false}
       className={classNames({
         [stls.container]: true,
@@ -136,8 +126,6 @@ const SwiperContainer = ({
           </SwiperSlide>
         ))}
         
-        {/* {!isMobileLayout && (
-          <> */}
           <div className="custom-prev-button-container">
         <CustomPrevButton reviewPrevBtn={reviewPrevBtn}
           />

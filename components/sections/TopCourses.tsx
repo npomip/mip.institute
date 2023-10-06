@@ -65,7 +65,7 @@ const TopCourses = () => {
     />
   ))
   const mobileSwiperOptions = {
-    slidesNum: 1.24,
+    slidesNum: 2,
     spaceBetween: 10
   }
 
@@ -98,7 +98,7 @@ const TopCourses = () => {
         </div>
         <div className={stls.teachers}>
           <SwiperContainer
-            initialSlide={0}
+            autoHeight
             topCourses
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}

@@ -1,7 +1,5 @@
 import stls from '@/styles/components/sections/About.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import AboutLeaf from '@/components/general/AboutLeaf'
-import ProsCircle from '@/components/general/ProsCircle'
 import classNames from 'classnames'
 import CommonAboutSlider from './AboutSlider/CommonAboutSlider'
 import AboutList from './AboutList'

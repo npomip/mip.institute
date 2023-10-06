@@ -5,15 +5,9 @@ import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
 import { ContextStaticProps } from '@/context/index'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
-import PopupTrigger from '@/components/general/PopupTrigger'
 import CardTeacher from '@/components/cards/CardTeacher'
-import BtnDelta from '@/components/btns/BtnDelta'
 import {
   ImgTeacher,
-  ImgTeacher1,
-  ImgTeacher2,
-  ImgTeacher3,
-  ImgTeacher4
 } from '@/components/imgs'
 import TagOrange from '../general/TagOrange'
 import classNames from 'classnames'
@@ -26,7 +20,7 @@ type TeacherProps ={
 }
 
 const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherProps) => {
-  const { program, reviews } = useContext(ContextStaticProps)
+  const { program } = useContext(ContextStaticProps)
 // console.log(reviews)
   // const teachers: TypeLibTeachers =
   //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
@@ -115,9 +109,6 @@ const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherP
             // isMultiRow
           />
         </div>
-        {/* <div className={stls.btnContainer}>
-          <PopupTrigger btn='delta' cta='learnAboutTeachers' />
-        </div> */}
       </Wrapper>
     </section>
   )

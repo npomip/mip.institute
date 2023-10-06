@@ -2,7 +2,6 @@ import stls from '@/styles/components/sections/Contacts.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { company } from '@/config/index'
 import CardContact from '@/components/cards/CardContact'
-import StudyCost from './StudyCost'
 
 const Contacts = () => {
   const cards = [

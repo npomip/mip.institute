@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import TwoColumns from '@/components/layout/TwoColumns'
-import { useEffect, useRef } from 'react'
 import gif from '@/public/assets/imgs/gif/howProcessGoes.gif'
 import Image from 'next/image'
 import TagOrange from '../general/TagOrange'

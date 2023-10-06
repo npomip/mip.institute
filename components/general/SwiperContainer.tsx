@@ -1,5 +1,4 @@
 import stls from '@/styles/components/general/SwiperContainer.module.sass'
-import { useMediaQuery } from 'react-responsive'
 import Popup from 'reactjs-popup'
 import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -7,7 +6,6 @@ import classNames from 'classnames'
 import { PopupImage } from '../popups'
 import CustomNextButton from './CustomNextButton'
 import CustomPrevButton from './CustomPrevButton'
-import { useState } from 'react'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 SwiperCore.use([Navigation, Pagination])
@@ -98,14 +96,16 @@ const SwiperContainer = ({
     console.log('Previous Slide');
   };
 
-console.log(slides)
+// console.log(slides)
   return (
     <Swiper
       navigation={{
         prevEl: '.custom-prev-button',
         nextEl: '.custom-next-button',
       }}
-      initialSlide={initialSlide}
+      loop={true}
+      initialSlide={0}
+      speed={250}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}
       slidesPerView={assignNumOfSlidesPerView()}

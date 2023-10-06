@@ -183,12 +183,7 @@ const Footer = () => {
                   <BtnDzen/>
                 </div>
                 <PopupFooterReviews />
-  {/* eddduuuuu */}
-  {/* <script type="text/javascript" defer src="https://eddu.pro/getRating.js"/>
-  <div className={stls.eddu} id="getRatingFromEddu" data-id="71158"></div> */}
-{/* for test only */}
-{/* <button onClick={edduSend}>safsaf</button> */}
-{/* for test only */}
+
                 <div className={stls.btn}>
                   <PopupTrigger btn='beta' cta='askQuestion' />
                 </div>

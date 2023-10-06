@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/CreateApplication.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { FormAlpha } from '@/components/forms'
-import { IconAtom } from '@/components/icons'
 import TwoColumns from '../layout/TwoColumns'
 import ImgCreateApplication from '../imgs/general/ImgCreateApplication'
 import IconGratefullPortal from '../icons/IconGratefullPortal'

@@ -2,7 +2,6 @@ import stls from '@/styles/components/sections/Cta.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { ImgCta1 } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
-import CtaWrapper from '../layout/CtaWrapper'
 import classNames from 'classnames'
 
 type CtaType = {

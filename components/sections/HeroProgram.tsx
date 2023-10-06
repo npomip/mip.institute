@@ -41,6 +41,7 @@ const HeroProgram = ({breadcrumbs}) => {
               </div>
               <div className={stls.btnsDesktop}>
                 <PopupTrigger
+                  
                   btn='alpha'
                   cta={
                     curProgramsType === 'course'

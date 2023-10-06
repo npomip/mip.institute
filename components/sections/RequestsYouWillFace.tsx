@@ -1,7 +1,5 @@
 import stls from '@/styles/components/sections/RequestsYouWillFace.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
 import { useState } from 'react'
-import IconCheck from '../icons/IconCheck'
 import IconRound from '../icons/IconRound'
 
 const RequestsYouWillFace = ({ title, description }) => {

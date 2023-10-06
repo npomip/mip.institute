@@ -44,6 +44,7 @@ type PopupTriggerType = {
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
+  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve';
   const question = cta === 'askQuestion'
 
   const strs = {
@@ -277,6 +278,7 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
       nested>
       {close => (
         <PopupCta
+          promo={promo}
           title={strs.title}
           desc={strs.desc}
           cta={strs.cta}

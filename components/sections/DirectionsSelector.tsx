@@ -1,9 +1,7 @@
 import stls from '@/styles/components/sections/DirectionsSelector.module.sass';
-import { ContextStaticProps } from '@/context/index';
-import { Fragment, useContext, useState } from 'react';
+import { Fragment, useState } from 'react';
 import routes from '@/config/routes';
 import classNames from 'classnames';
-import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import ProgramList from './ChooseProgram/ProgramList';
 

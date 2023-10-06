@@ -5,9 +5,6 @@ import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
 import { ContextStaticProps } from '@/context/index'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
-import PopupTrigger from '@/components/general/PopupTrigger'
-import CardTeacher from '@/components/cards/CardTeacher'
-import BtnDelta from '@/components/btns/BtnDelta'
 import TagOrange from '../general/TagOrange'
 import classNames from 'classnames'
 import ImgTopCourse from '../imgs/programs/ImgTopCourse'
@@ -23,7 +20,6 @@ type TeacherProps = {
 
 const TopCourses = () => {
   const { programs } = useContext(ContextStaticProps)
-  // console.log(programs)
 
   const targetTitles = [
     'Психолог-консультант',
@@ -38,8 +34,6 @@ const TopCourses = () => {
   const topCourses = targetTitles.map(title =>
     programs.find(profession => profession.title === title)
   );
-  // const topCourses = rearrangeArray(programs, targetTitles)
-  // console.log(topCourses)
 
   const list =
     topCourses &&
@@ -59,7 +53,7 @@ const TopCourses = () => {
       )
     }))
 
-    console.log(list)
+    // console.log(list)
 
   const teachersSlides = list?.map((teacher, idx) => (
     <CardTopProgram
@@ -67,7 +61,6 @@ const TopCourses = () => {
       key={teacher.name + idx}
       portrait={teacher.image}
       title={teacher.title}
-      // admissionDate={teacher.specialization}
       studyHours={teacher.studyHours}
     />
   ))

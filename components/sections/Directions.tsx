@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/Directions.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { ContextStaticProps } from '@/context/index'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import ProgramList from './ChooseProgram/ProgramList'
 import DirectionsSelector from './DirectionsSelector'
 import TagOrange from '../general/TagOrange'

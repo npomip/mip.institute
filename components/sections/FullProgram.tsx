@@ -1,6 +1,5 @@
 import stls from '@/styles/components/sections/FullProgram.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { BtnAlpha } from '@/components/btns'
 import { ImgFullProgram1 } from '@/components/imgs'
 import PopupTrigger from '@/components/general/PopupTrigger'
 

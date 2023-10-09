@@ -3,7 +3,7 @@ import { FormAlpha } from '@/components/forms'
 import { BtnClose } from '@/components/btns'
 
 const PopupCta = ({ title, desc, cta, close, question = false, promo=false }) => {
-  console.log(promo)
+
   return (
     <div className={stls.container}>
       <div className={stls.close}>

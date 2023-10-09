@@ -41,11 +41,12 @@ type PopupTriggerType = {
     | 'seeAllWebinars'
     | 'learnMore'
     | 'consultMe'
+    | 'programQuestion'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
   const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve';
-  const question = cta === 'askQuestion'
+  const question = cta === 'askQuestion' || cta === 'programQuestion'
 
   const strs = {
     trigger:
@@ -81,6 +82,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Подробнее'
         : cta === 'consultMe'
         ? 'Хочу консультацию'
+        : cta === 'programQuestion'
+        ? 'Вопрос по программе'
         : '',
     title:
       cta === 'askQuestion'
@@ -115,6 +118,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Узнать подробнее'
         : cta === 'consultMe'
         ? 'Хочу консультацию'
+        : cta ==='programQuestion'
+        ? 'Вопрос по программе'
         : '',
     desc:
       cta === 'askQuestion' ? (
@@ -208,6 +213,12 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
           минут!
         </>
+      ) :
+      cta === 'programQuestion' ? (
+        <>
+          У вас появились вопросы по программе или конкретному модулю?{' '}
+          <br className={stls.phonetablet} /> Напишите нам в форме обратной связи
+        </>
       ) : (
         ''
       ),
@@ -244,6 +255,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Узнать подробнее'
         : cta === 'consultMe'
         ? 'Получить консультацию'
+        : cta === 'programQuestion'
+        ? 'Задать вопрос'
         : ''
   }
 

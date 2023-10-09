@@ -14,12 +14,11 @@ const FullProgram = () => {
           <div className={stls.text}>
             <h2 className={stls.title}>Полная программа</h2>
             <p className={stls.p}>
-              Оставьте свои контактные данные, чтобы мы прислали учебный план
-              направления
+              Остались вопросы по программе или конкретному модулю? Напишите нам в форме обратной связи.
             </p>
           </div>
           <div className={stls.btn}>
-            <PopupTrigger btn='alpha' cta='getFullProgram' />
+            <PopupTrigger btn='alpha' cta='programQuestion' />
           </div>
         </div>
       </Wrapper>

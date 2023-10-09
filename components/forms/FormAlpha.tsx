@@ -90,13 +90,13 @@ const FormAlpha = ({
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
     console.log('clickId', clickId)
-    // const clickId = parse(document.cookie).utm || null;
+
     if (typeof clickId === 'string') {
       data.utm = JSON.parse(clickId);
     } else {
       data.utm = null; // или какое-то другое значение по умолчанию
     }
-    // document.cookie = "utm=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
     console.log(data)
     const req = await hitContactRoute(data)
     if (req === 200) {

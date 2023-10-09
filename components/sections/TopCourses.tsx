@@ -23,13 +23,13 @@ const TopCourses = () => {
 
   const targetTitles = [
     'Психолог-консультант',
-    'Психолог-диетолог. Нутрициолог',
     'Когнитивно-поведенческий психотерапевт',
+    'Психолог-диетолог. Нутрициолог',
+    'Гештальт-терапевт',
     'Практический психолог с доп. квалификацией Психолог-психотерапевт',
     'Клиническая психология',
     'Детский психолог',
     'Психосоматика и телесная психотерапия',
-    'Гештальт-терапевт'
   ]
   const topCourses = targetTitles.map(title =>
     programs.find(profession => profession.title === title)
@@ -53,8 +53,6 @@ const TopCourses = () => {
       )
     }))
 
-    // console.log(list)
-
   const teachersSlides = list?.map((teacher, idx) => (
     <CardTopProgram
       href={`${routes.front.professions}/${teacher.studyFieldSlug}/${teacher.slug}`}
@@ -65,7 +63,7 @@ const TopCourses = () => {
     />
   ))
   const mobileSwiperOptions = {
-    slidesNum: 1.24,
+    slidesNum: 2,
     spaceBetween: 10
   }
 
@@ -98,15 +96,13 @@ const TopCourses = () => {
         </div>
         <div className={stls.teachers}>
           <SwiperContainer
-            initialSlide={0}
+            autoHeight
             topCourses
             slides={teachersSlides}
             mobileOptions={mobileSwiperOptions}
             tabletOptions={tabletSwiperOptions}
             laptopOptions={laptopSwiperOptions}
             desktopOptions={desktopSwiperOptions}
-            // alwaysDisabledOnDesktop
-            // isMultiRow
           />
         </div>
       </Wrapper>

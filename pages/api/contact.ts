@@ -26,6 +26,7 @@ const contact = async (req, res) => {
     utms,
     referer,
     ymUid,
+    blockForAmo
   } = req.body
 
   console.log(req.body)
@@ -109,6 +110,7 @@ const contact = async (req, res) => {
     phone: phone || '',
     email: email || null,
     ymUid: ymUid || '',
+    blockForAmo: blockForAmo || '',
     vk: vk || null,
     promocode: promocode || null,
     contactWay: contactWay || null,
@@ -204,6 +206,10 @@ const contact = async (req, res) => {
       {
         tdKey: 'Вопрос',
         tdVal: data.question
+      },
+      {
+        tdKey: 'Блок',
+        tdVal: data.blockForAmo
       },
       {
         tdKey: 'Лид сайт',
@@ -316,7 +322,8 @@ const contact = async (req, res) => {
       {
         tdKey: 'Дубль',
         tdVal: null
-      }
+      },
+      
     ]
 
     const output = /* html */ `

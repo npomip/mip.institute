@@ -257,7 +257,43 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Получить консультацию'
         : cta === 'programQuestion'
         ? 'Задать вопрос'
-        : ''
+        : '',
+      blockForAmo:
+        cta === 'askQuestion'
+          ? 'Задать вопрос'
+          : cta === 'callMeBack'
+          ? 'Обратный звонок'
+          : cta === 'signUpForCourse'
+          ? 'Записаться на курс'
+          : cta === 'signUpForProfession'
+          ? 'Записаться на курс'
+          : cta === 'signUp'
+          ? 'Записаться'
+          : cta === 'chooseProgram'
+          ? 'Подобрать программу'
+          : cta === 'learnAboutUs'
+          ? 'Узнать об институте'
+          : cta === 'submitApplication'
+          ? 'Оставить заявку'
+          : cta === 'getFullProgram'
+          ? 'Получить программу'
+          : cta === 'reserve'
+          ? 'Забронировать'
+          : cta === 'learnAboutTeachers'
+          ? 'Узнать всех'
+          : cta === 'help'
+          ? 'Оставить заявку'
+          : cta === 'getFullList'
+          ? 'Оставить заявку'
+          : cta === 'seeAllWebinars'
+          ? 'Оставить заявку'
+          : cta === 'learnMore'
+          ? 'Узнать подробнее'
+          : cta === 'consultMe'
+          ? 'Получить консультацию'
+          : cta === 'programQuestion'
+          ? 'Вопрос по программе'
+          : ''
   }
 
   return (
@@ -297,6 +333,7 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           cta={strs.cta}
           question={question}
           close={close}
+          blockForAmo={strs.blockForAmo}
         />
       )}
     </Popup>

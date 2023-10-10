@@ -25,6 +25,7 @@ type FormValues = {
 
 const FormAlpha = ({
   cta = 'Подобрать программу',
+  blockForAmo = 'Подобрать программу',
   question = false,
   popup = false,
   atFooter = false,
@@ -57,7 +58,7 @@ const FormAlpha = ({
 
   const router = useRouter()
   const [captchaIsDone, setCaptchaIsDone] = useState(false)
-  const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
+  console.log(blockForAmo)
 
   const onChange = async (value) =>  {
     // const captchaToken = await recaptchaRef.current.executeAsync();
@@ -90,6 +91,8 @@ const FormAlpha = ({
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
     console.log('clickId', clickId)
+
+    data.blockForAmo = blockForAmo
 
     if (typeof clickId === 'string') {
       data.utm = JSON.parse(clickId);

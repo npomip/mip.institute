@@ -2,7 +2,7 @@ import stls from '@/styles/components/popups/PopupCta.module.sass'
 import { FormAlpha } from '@/components/forms'
 import { BtnClose } from '@/components/btns'
 
-const PopupCta = ({ title, desc, cta, close, question = false, promo=false, blockForAmo }) => {
+const PopupCta = ({ title, desc, cta, close, question = false, promo=false, blockForAmo='' }) => {
 
   return (
     <div className={stls.container}>

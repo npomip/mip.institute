@@ -38,7 +38,7 @@
 
 .heading
   @include m.media(laptop, desktop)
-    @include m.gap($mr: 8%)
+    @include m.gap($mr: f.px(30))
     @include m.flex($fd: column)
     flex-grow: 1
 
@@ -54,7 +54,7 @@
     font-size: f.px(36)
   @include m.media(laptop, desktop)
     min-width: 12ch
-    max-width: 15ch
+    // max-width: 15ch
     @include m.gap($mb: f.px(35))
     font-size: f.px(64)
   font-weight: 500
@@ -68,7 +68,7 @@
     @include m.gap($mb: f.px(30))
     @include m.dye(c, c.$nu)
     & p
-      max-width: 45ch
+      // max-width: 45ch
       font-size: f.px(20)
       font-weight: 300
       &:nth-last-child(1)
@@ -87,7 +87,7 @@
     @include m.gap($pt: f.px(5))
   @include m.media(phone, tablet)
     order: -1
-    @include m.gap($mb: f.px(30))
+    @include m.gap($mb: f.px(45))
     @include m.dye(c, c.$nu)
     & p
       font-size: f.px(15)
@@ -108,30 +108,34 @@
 
 .discount
   position: absolute
-  top: f.px(-20)
+  transform: translateY(f.px(-20))
   @include m.media(phone, tablet)
-    left: 0
+    transform: translateY(f.px(-45))
   @include m.media(laptop, desktop)
-    left: f.px(-30)
+    transform: translate(f.px(-75), f.px(-48))
   z-index: 1
 
 .img
   border-radius: f.px(100) 0
   overflow: hidden
-  @include m.media(phone, tablet)
-    max-width: 670px
-    margin: 0 auto
   @include m.media(laptop, desktop)
     position: relative
-    width: f.px(460)
-    height: f.px(505)
-    & > *
-      position: absolute
-      top: 0
-      left: 0
-      width: f.px(676)
-      height: f.px(505)
-      transform: translate(-16%, f.px(1))
+    width: f.px(400)
+    height: f.px(400)
+    transform: translateY(f.px(-23))
+  @include m.media(phone, tablet)
+    display: none
+
+.imgMobile
+  border-radius: f.px(100) 0
+  overflow: hidden
+  @include m.media(laptop, desktop)
+    display: none
+  @include m.media(phone)
+    max-width: f.px(400)
+    max-height: f.px(255)
+    margin: 0 auto
+
 
 .btnsMobile
   @include m.media(phone, tablet)
@@ -146,6 +150,7 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
+    @include m.gap($pr: f.px(147))
     @include m.flex($as: flex-end)
     margin-top: auto
     width: 100%

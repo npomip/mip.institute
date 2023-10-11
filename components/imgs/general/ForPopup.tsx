@@ -14,7 +14,7 @@ const ForPopup = ({ src, alt, width = 135, height = 117 }) => {
         height={height !== 0 && height}
         placeholder='blur'
         blurDataURL={base64pixel}
-        // quality={100}
+        quality={100}
       />
     // {/* </div> */}
   )

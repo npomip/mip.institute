@@ -53,6 +53,7 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                     nested>
                     {close => (
                       <PopupCta
+                        blockForAmo='Узнать про вебинары'
                         title={'Смотреть все вебинары'}
                         desc={
                           <>

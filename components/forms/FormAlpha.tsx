@@ -58,7 +58,6 @@ const FormAlpha = ({
 
   const router = useRouter()
   const [captchaIsDone, setCaptchaIsDone] = useState(false)
-  console.log(blockForAmo)
 
   const onChange = async (value) =>  {
     // const captchaToken = await recaptchaRef.current.executeAsync();

@@ -69,6 +69,8 @@ export default function SearchMobile() {
     setShowModal(false)
   }
 
+  
+
   return (
     <div className={styles.box}>
     <div className={styles.container}>

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/TopCourses.module.sass'
 import { TypeLibTeachers } from '@/types/index'
 import { useContext } from 'react'
-import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
+import { getImageHeight } from '@/helpers/index'
 import { ContextStaticProps } from '@/context/index'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
@@ -21,6 +21,10 @@ type TeacherProps = {
 const TopCourses = () => {
   const { programs } = useContext(ContextStaticProps)
 
+  if (!programs || !programs.length) {
+    return null; // Если нет данных, не рендерим ничего
+  }
+
   const targetTitles = [
     'Психолог-консультант',
     'Когнитивно-поведенческий психотерапевт',
@@ -36,7 +40,7 @@ const TopCourses = () => {
   );
 
   const list =
-    topCourses &&
+  programs &&
     [...topCourses]?.map(course => ({
       ...course,
       image: (
@@ -53,11 +57,11 @@ const TopCourses = () => {
       )
     }))
 
-  const teachersSlides = list?.map((teacher, idx) => (
+  const teachersSlides = list[0]?.title && list.map((teacher, idx) => (
     <CardTopProgram
       href={`${routes.front.professions}/${teacher.studyFieldSlug}/${teacher.slug}`}
       key={teacher.name + idx}
-      portrait={teacher.image}
+      portrait={teacher?.image}
       title={teacher.title}
       studyHours={teacher.studyHours}
     />
@@ -95,7 +99,7 @@ const TopCourses = () => {
           <TagOrange>ТОП</TagOrange>
         </div>
         <div className={stls.teachers}>
-          <SwiperContainer
+            <SwiperContainer
             autoHeight
             topCourses
             slides={teachersSlides}

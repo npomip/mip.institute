@@ -1,28 +1,29 @@
 import routes from '@/config/routes'
 import Link from 'next/link'
 import styles from '@/styles/components/cards/CardTooltip.module.sass'
-import { ImgCourse2 } from '../imgs'
+import ForPopup from '../imgs/general/ForPopup'
 
 export default function CardTooltip({ profession, clickHandler }) {
   return (
     <div className={styles.container}>
       {profession.type === 'Profession' ? (
-        
         <Link
           key={profession.id + profession.type}
           href={`${routes.front.professions}/${
             profession.studyFieldSlug || 'studyfield'
           }/${profession.slug}`}>
-            
           <a onClick={clickHandler}>
-          <div className={styles.card}>
-            <div className={styles.img}>
-              <ImgCourse2 height={80} width={110} />
+            <div className={styles.card}>
+              <div className={styles.img}>
+                <ForPopup
+                  src={profession?.heroPicture?.url}
+                  alt={profession?.title}
+                  height={80}
+                  width={110}
+                />
+              </div>
+              <div className={styles.title}>{profession.title}</div>
             </div>
-            <div className={styles.title}>
-              {profession.title}
-            </div>
-          </div>
           </a>
         </Link>
       ) : (
@@ -32,15 +33,18 @@ export default function CardTooltip({ profession, clickHandler }) {
             profession.studyFieldSlug || 'studyfield'
           }/${profession.slug}`}>
           <a onClick={clickHandler}>
-          <div className={styles.card}>
-          <div className={styles.img}>
-              <ImgCourse2 height={80} width={110} />
+            <div className={styles.card}>
+              <div className={styles.img}>
+                <ForPopup
+                  src={profession?.heroPicture?.url}
+                  alt={profession?.title}
+                  height={80}
+                  width={110}
+                />
+              </div>
+              <div className={styles.title}>{profession.title}</div>
             </div>
-            <div className={styles.title}>
-              {profession.title}
-            </div>
-            </div>
-            </a>
+          </a>
         </Link>
       )}
     </div>

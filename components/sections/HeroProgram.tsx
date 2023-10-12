@@ -10,6 +10,7 @@ import parse from 'html-react-parser'
 import marked from 'marked'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import Breadcrumbs from '../general/Breadcrumbs'
+import ForPopup from '../imgs/general/ForPopup'
 
 const HeroProgram = ({breadcrumbs}) => {
   const { curProgramsType, program } = useContext(ContextStaticProps)
@@ -59,9 +60,17 @@ const HeroProgram = ({breadcrumbs}) => {
                 <div className={stls.discount}>
                   <ProgramDiscount />
                 </div>
-                <div className={stls.img}>
-                  <ImgCourse2 />
+                {program?.heroPicture && (
+                  <>
+                  <div className={stls.img}>
+                  <ForPopup src={program?.heroPicture?.url} alt={program?.title} height={402} width={402}/>
                 </div>
+                <div className={stls.imgMobile}>
+                  <ForPopup src={program?.heroPicture?.url} alt={program?.title} height={600} width={700}/>
+                </div>
+                </>
+                )}
+                
               </div>
               <div
                 className={stls.descriptionMobile}>

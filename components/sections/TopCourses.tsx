@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/TopCourses.module.sass'
 import { TypeLibTeachers } from '@/types/index'
 import { useContext } from 'react'
-import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
+import { getImageHeight } from '@/helpers/index'
 import { ContextStaticProps } from '@/context/index'
 import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'

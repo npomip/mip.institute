@@ -12,6 +12,7 @@ import { getCookie } from 'cookies-next'
 import ReCAPTCHA from "react-google-recaptcha";
 import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
+import ipCheckFunc from '../funcs/ipCheckFunc'
 
 
 type FormValues = {
@@ -50,6 +51,7 @@ const FormAlpha = ({
 
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
+  const [isIpCheckFailed, setIsIpCheckFailed] = useState(false);
 
   useEffect(() => {
     popup && setFocus('name')
@@ -75,7 +77,10 @@ const FormAlpha = ({
 
 
   const onSubmit = async data => {
-    setIsDisabled(true)
+    const ipCheck = await ipCheckFunc()
+    if( ipCheck === 200) {
+      console.log('IP 200')
+      setIsDisabled(true)
     setThanksIsOpen(true)
     window.open(routes.front.gratefull, '_blank');
     // handle loader
@@ -89,7 +94,7 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
-    console.log('clickId', clickId)
+    // console.log('clickId', clickId)
 
     data.blockForAmo = blockForAmo
 
@@ -99,7 +104,7 @@ const FormAlpha = ({
       data.utm = null; // или какое-то другое значение по умолчанию
     }
 
-    console.log(data)
+    // console.log(data)
     const req = await hitContactRoute(data)
     if (req === 200) {
       // router.push('/gratefull')
@@ -108,6 +113,12 @@ const FormAlpha = ({
       console.log('err')
     }
     const calltouch = await sendToCalltouch(data)
+
+    } else {
+      setIsIpCheckFailed(true)
+      console.log(errors)
+    }
+    
   }
 
   const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
@@ -239,6 +250,15 @@ const FormAlpha = ({
               персональных данных
             </p>
           )}
+          {isIpCheckFailed && (
+            // <div className={stls.serverError}>
+            <p className={stls.checkError}>
+          Невозможно отправить форму, пожалуйста, свяжитесь с нами по номеру <a href='tel:+7-499-110-86-32'>+7 (499) 110-86-32</a> или <a className={stls.whatsUpNumber}
+              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>Напишите в WhatsApp</a>
+          </p>
+            // {/* </div> */}
+          )}
+          
         </div>
       </form>
     </>

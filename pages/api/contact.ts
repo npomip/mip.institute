@@ -59,7 +59,7 @@ const contact = async (req, res) => {
     // req.socket.remoteAddress ||
     req.connection.remoteAddress ||
     null
-
+  console.log(ip, 'ipppppp')
   const getUserLocation = async () => {
     try {
       const res = await geoip2.city(ip.toString())
@@ -419,20 +419,19 @@ const contact = async (req, res) => {
   })
 
   try {
-    const emailRes = await transporter.sendMail({
-      from: process.env.SMTP_FROM,
-      to: `${dev ? process.env.SMTP_TO_DEV : process.env.SMTP_TO_PROD}`,
-      subject, // Subject line
-      text: `
-      ${name}, \n
-      ${phone},
-      ${email}
-      `, // plain text body
-      html
-    })
-
-    console.log('Message sent: %s', emailRes.messageId)
-    res.status(200).json({ status: 200, msg: 'Email is sent' })
+      const emailRes = await transporter.sendMail({
+        from: process.env.SMTP_FROM,
+        to: `${dev ? process.env.SMTP_TO_DEV : process.env.SMTP_TO_PROD}`,
+        subject, // Subject line
+        text: `
+        ${name}, \n
+        ${phone},
+        ${email}
+        `, // plain text body
+        html
+      })
+      console.log('Message sent: %s', emailRes.messageId)
+      res.status(200).json({ status: 200, msg: 'Email is sent' })
   } catch (err) {
     res.status(500).json({ status: 500, err, msg: 'Unexpected server error' })
     console.error(err)

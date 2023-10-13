@@ -7,6 +7,15 @@
     @include m.flex($jc: space-between)
     // flex-wrap: wrap
 
+.checkError
+  font-size: f.px(14)
+  font-weight: 300
+  @include m.gap($pt: f.px(17), $mb: f.px(0))
+  & > *
+    color: #808080
+    &:hover
+      color: #6F01C6
+
 .atFooter
   & .name,
   & .phone,

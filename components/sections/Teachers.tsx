@@ -20,8 +20,7 @@ type TeacherProps ={
 }
 
 const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherProps) => {
-  const { program } = useContext(ContextStaticProps)
-// console.log(reviews)
+  const { program, curProgramsType } = useContext(ContextStaticProps)
   // const teachers: TypeLibTeachers =
   //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
   let teachers = program?.teachers
@@ -81,7 +80,8 @@ const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherP
   return (
     <section ref={teachersRef} className={classNames({
       [stls.container]: true,
-      [stls.onProfessions]: !onMain
+      [stls.onProfessions]: !onMain,
+      [stls.course]: curProgramsType === 'course'
     })}>
       <Wrapper>
         <h2 className={stls.title}>{title}</h2>

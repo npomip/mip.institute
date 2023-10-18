@@ -13,7 +13,7 @@
   background: #6F01C6
   border-radius: f.px(36) f.px(36) f.px(36) f.px(56)
   @include m.media(phone, tablet)
-    border-radius: f.px(20) f.px(20) f.px(20) f.px(50)
+    border-radius: f.px(20) 
 
 .title
 
@@ -27,15 +27,16 @@
     @include m.gap($mb: f.px(20))
 
 .img
-  flex: 1.2
+  flex: 1.3
   position: relative
   & > *
     // position: absolute
-    top: f.px(5)
+    top: f.px(1)
     height: 100%
     @include m.media(phone, tablet)
       top: f.px(6)
   @include m.media(phone, tablet)
+    display: none
     order: 1
 
 .form 
@@ -43,9 +44,9 @@
   display: flex
   align-items: center
   justify-content: center
-  @include m.gap($pr: f.px(100))
+  @include m.gap($pr: f.px(110), $mtb: f.px(28))
   @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(25), $pt: f.px(38))
+    @include m.gap($plr: f.px(25), $pt: f.px(38), $pb: f.px(96))
     // flex-basis: 100%
     display: block
 
@@ -60,12 +61,12 @@
   bottom: f.px(50)
   right: f.px(10)
   @include m.media(phone, tablet)
-    top: f.px(10)
-    right: f.px(70)
+    bottom: f.px(40)
+    right: f.px(150)
 
 .smallTwo
   top: f.px(50)
-  left: f.px(100)
+  left: f.px(50)
   @include m.media(phone, tablet)
     top: f.px(99)
     left: f.px(20)
@@ -74,8 +75,7 @@
   top: f.px(50)
   right: f.px(40)
   @include m.media(phone, tablet)
-    top: f.px(350)
-    right: f.px(20)
+    transform: translate(f.px(-20), f.px(-50))
 
 .mediumTwo
   top: f.px(200)
@@ -88,8 +88,8 @@
     top: f.px(120)
     left: f.px(160)
   @include m.media(phone, tablet)
-    bottom: f.px(160)
-    left: f.px(80)
+    bottom: f.px(50)
+    left: f.px(50)
 .big
   @include m.media(desktop, laptop)
     bottom: f.px(20)

@@ -9,6 +9,7 @@ import Ucheba from '../imgs/footerReviews/Ucheba';
 import Popup from 'reactjs-popup';
 import IconRating from '../icons/IconRating';
 import { useEffect, useState, useRef } from 'react';
+import IconEddu from '../icons/IconEddu';
 
 const PopupFooterReviews = () => {
   const contentStyle = {
@@ -19,44 +20,6 @@ const PopupFooterReviews = () => {
     paddingBottom: '9px',
   };
   const [popupOpen, setPopupOpen] = useState(false);
-  const edduRef = useRef(null);
-
-  const loadRatingScript = () => {
-    // if (!edduRef.current) {
-      // Находим элемент с классом 'eddu'
-      const eddu = document.querySelector('.eddu');
-      
-      if (eddu) {
-        // Создаем элемент с id 'getRatingFromEddu'
-        const newEddu = document.createElement('div');
-        newEddu.id = 'getRatingFromEddu';
-        newEddu.setAttribute('data-id', '71158');
-        
-        // Создаем скрипт
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = 'https://eddu.pro/getRating.js';
-        script.async = true;
-        script.defer = true;
-        script.onload = () => {
-          // Скрипт успешно загружен
-        };
-        
-        // Вставляем элемент 'getRatingFromEddu' и скрипт внутрь 'eddu'
-        eddu.appendChild(newEddu);
-        eddu.appendChild(script);
-        
-        // Запоминаем скрипт в ref
-        edduRef.current = script;
-      }
-    // }
-  };
-
-  useEffect(() => {
-    if (popupOpen) {
-      loadRatingScript();
-    }
-  }, [popupOpen]);
 
   return (
     <div className={stls.container}>
@@ -87,9 +50,9 @@ const PopupFooterReviews = () => {
         <FooterReviews href={routes.external.ucheba}>
           <Ucheba />
         </FooterReviews>
-        
-        {/* Вставляем div eddu, который будет заполнен скриптом */}
-        <div className='eddu' ref={edduRef}></div>
+        <FooterReviews href={routes.external.eddu}>
+          <IconEddu />
+        </FooterReviews>
       </Popup>
     </div>
   );

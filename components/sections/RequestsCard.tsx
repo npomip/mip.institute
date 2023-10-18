@@ -3,7 +3,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import RequestsYouWillFace from './RequestsYouWillFace'
 
 
-const RequestsCard = () => {
+const RequestsCard = ({requestRef}) => {
   const requests = [
     {title: 'Выгорание', description: 'Выгорание- Состояние физического и психического истощения, возникшее в ответ на эмоциональное перенапряжение при работе с людьми.' 
     },
@@ -18,14 +18,13 @@ const RequestsCard = () => {
     {title: 'Аддиктивное поведение', description: 'Один из типов девиантного поведения с формированием стремления к уходу от реальности путем искусственного изменения своего психического состояния посредством приема некоторых веществ или постоянной фиксации внимания на определенных видах деятельности.'},
   ]
   
-
   return (
-    <section className={stls.section}>
+    <section ref={requestRef} className={stls.section}>
       <Wrapper>
         <h2 className={stls.title}>По итогу курса Вы будете работать с запросами:</h2>
       <div className={stls.cardList}>
       {requests.map((request, index) => (
-        <RequestsYouWillFace key={index} title={request.title} description={request.description} />
+        <RequestsYouWillFace key={index} title={request.title} description={request.description} index={index} />
       ))}
     </div>
       </Wrapper>

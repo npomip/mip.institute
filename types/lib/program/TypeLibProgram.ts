@@ -31,6 +31,10 @@ type TypeLibProgram = {
   price?: string | null
   discount?: string | null
   questions?: string | null
+  requests?: {
+    title: string | null
+    description: string| null
+  } | null
   qnas?:
     | {
         question?: string | null

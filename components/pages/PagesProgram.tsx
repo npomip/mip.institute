@@ -51,6 +51,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
+  const requestRef = useRef(null)
 
   const handleScroll = () => {
   }
@@ -92,6 +93,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       resumeRef={resumeRef}
       costRef={costRef}
       reviewsRef={reviewsRef}
+      requestRef={requestRef}
       faqRef={faqRef}/>
       {programOverview && <ProgramOverview />}
       {/* <WhatYouWillLearn title={'Чему вы научитесь'}  />
@@ -115,7 +117,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
-      <RequestsCard />
+      <RequestsCard requestRef={requestRef} />
       
       
       <Cta

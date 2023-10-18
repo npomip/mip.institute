@@ -38,7 +38,7 @@ const CreateApplication = () => {
             <ImgCreateApplication />
           </div>
           <div className={stls.form}>
-            <FormAlpha inProfessions cta='Записаться'/>
+            <FormAlpha inProfessions promo cta='Записаться'/>
           </div>
         </TwoColumns>
         </div>

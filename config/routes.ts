@@ -66,6 +66,7 @@ const routes = {
     twoGis: 'https://go.2gis.com/y85xl6',
     ucheba: 'https://www.ucheba.ru/uz/107383/opinions#new-comments-panel',
     dzen: 'https://dzen.ru/institute_mip',
+    eddu: 'https://eddu.pro/reviews/mip-review',
   },
   anchors: {
     //

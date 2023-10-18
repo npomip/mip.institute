@@ -12,7 +12,7 @@ const Breadcrumbs = ({breadcrumbs}) => {
           </Link>
         </li>
         {breadcrumbs.map(el => (
-          <li  key={el.label}>
+          <li  key={el.path}>
             <span className={stls.triangle}></span>
             <Link className={stls.links} href={el.path}>
             {el.label}

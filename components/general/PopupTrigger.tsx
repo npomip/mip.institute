@@ -45,7 +45,7 @@ type PopupTriggerType = {
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
-  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve';
+  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve' || cta === 'askQuestion';
   const question = cta === 'askQuestion' || cta === 'programQuestion'
 
   const strs = {

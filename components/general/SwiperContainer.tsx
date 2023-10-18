@@ -87,14 +87,13 @@ const SwiperContainer = ({
     return swiperOptions[currentLayoutKey].spaceBetween
   }
   
-
   return (
     <Swiper
       navigation={{
         prevEl: '.custom-prev-button',
         nextEl: '.custom-next-button',
       }}
-      loop={true}
+      loop={slides.length > 1 ? true : false}
       speed={250}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}

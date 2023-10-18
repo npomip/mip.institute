@@ -109,6 +109,10 @@ const getStaticPropsPageProgram = async ({
             height
             } 
           }
+          requests {
+            title
+            description
+          }
           teachers {
             id
             name

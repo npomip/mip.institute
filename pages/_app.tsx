@@ -234,7 +234,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       </ContextStaticProps.Provider>
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script id='calltouch' src='/assets/js/vendors/calltouchScript.js' />
-      <Script id='botfaq' src='/assets/js/vendors/faq.js' />
+      {/* <Script id='botfaq' src='/assets/js/vendors/faq.js' /> */}
       <Script
         id='google tag manager'
         dangerouslySetInnerHTML={{

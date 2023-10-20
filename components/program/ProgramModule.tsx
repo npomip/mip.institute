@@ -2,6 +2,7 @@ import stls from '@/styles/components/program/ProgramModule.module.sass'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { IconCircleCheck, IconMinus, IconPlus } from '@/components/icons'
+import parse from 'html-react-parser'
 
 const ProgramModule = ({ title, topics }) => {
   const [isOpen, setOpen] = useState(false)
@@ -30,7 +31,7 @@ const ProgramModule = ({ title, topics }) => {
           {topics &&
             topics.map((topic, idx) => (
               <li key={topic + idx} className={stls.item}>
-                <p className={stls.p}>{topic}</p>
+                <p className={stls.p}>{parse(topic)}</p>
               </li>
             ))}
         </ul>

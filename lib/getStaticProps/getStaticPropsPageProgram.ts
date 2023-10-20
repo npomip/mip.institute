@@ -79,6 +79,7 @@ const getStaticPropsPageProgram = async ({
           programOverview
           programOverviewTitle
           ForWhom
+          forWhomSubtitle
           fullTitle
           shortContents
           resumeTitle

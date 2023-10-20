@@ -147,7 +147,7 @@ const Footer = () => {
                 <Logo atFooter/>
               </li>
             </ul>
-            {!isEdpartners && (
+            {!isEdpartners ? (
               <div className={stls.contact}>
                 <p>Приемная комиссия:</p>
                 <div className={stls.numbers}>
@@ -188,6 +188,8 @@ const Footer = () => {
                   <PopupTrigger btn='beta' cta='askQuestion' />
                 </div>
               </div>
+            ) : (
+              <PopupFooterReviews />
             )}
             {/*  */}
             <div className={stls.newRight}>

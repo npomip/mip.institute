@@ -5,7 +5,12 @@
 .container
   @include m.sizeIcon($w: 20, $h: 20)
   @include m.flex
-  // @include m.gap($m: f.px(10, em))
+  & svg
+    fill: white
 
-  // & path
-  //   @include m.dye(stroke, c.$beta)
+.red
+  stroke: #FD521B
+  stroke-width: f.px(0.7)
+  @include m.sizeIcon($w: 45, $h: 20)
+  & svg
+    fill: none

@@ -14,6 +14,10 @@ import marked from 'marked'
 const ForWhom = () => {
   const { program } = useContext(ContextStaticProps)
 
+  console.log(program.forWhomSubtitle)
+
+  const subtitle = marked(program.forWhomSubtitle)
+
   const list =
     program?.ForWhom?.length > 0 &&
     getListItemsInnerHtml(marked(program.ForWhom))
@@ -22,7 +26,7 @@ const ForWhom = () => {
       <Wrapper>
         <h2 className={stls.title}>Для кого программа</h2>
         <p className={stls.subtitle}>
-          Программа точно подойдет тем, кто хочет:
+          {parse(subtitle)}
         </p>
         <ul className={stls.list}>
           {list &&

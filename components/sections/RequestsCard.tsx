@@ -5,7 +5,7 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 
 
-const RequestsCard = ({requestRef}) => {
+const RequestsCard = () => {
   // const requests = [
   //   {title: 'Выгорание', description: 'Выгорание- Состояние физического и психического истощения, возникшее в ответ на эмоциональное перенапряжение при работе с людьми.' 
   //   },
@@ -22,11 +22,10 @@ const RequestsCard = ({requestRef}) => {
   const {  program } = useContext(ContextStaticProps)
   
   const requests = program?.requests
-  console.log(requests)
   return (
     <>
     {requests?.length > 0  && (
-      <section ref={requestRef} className={stls.section}>
+      <section className={stls.section}>
       <Wrapper>
         <h2 className={stls.title}>По итогу курса Вы будете работать с запросами:</h2>
       <div className={stls.cardList}>

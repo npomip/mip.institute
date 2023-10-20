@@ -3,6 +3,7 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { getParagraphInnerHtml } from '@/helpers/index'
 import marked from 'marked'
+import getDeclension from '@/helpers/getDeclension'
 
 const ProgramModulesQty = () => {
   const { program } = useContext(ContextStaticProps)
@@ -14,7 +15,7 @@ const ProgramModulesQty = () => {
   return (
     <div className={stls.container}>
       <p className={stls.qty}>{titles && titles.length}</p>
-      <p className={stls.text}>Тематических модулей</p>
+      <p className={stls.text}>{getDeclension(titles?.length)}</p>
     </div>
   )
 }

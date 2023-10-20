@@ -15,6 +15,7 @@
     @include m.gap($pt: f.px(20), $mb: f.px(33))
     max-width: f.px(750)
     @include m.media(phone, tablet)
+      max-width: f.px(320)
       font-size: f.px(36)
       @include m.gap($pt: f.px(25))
 
@@ -45,13 +46,8 @@
   @include m.media(laptop)
     flex-basis: 85%
   @include m.media(phone, tablet)
-    // align-items: center
-  // display: flex
-  // flex-direction: column
 
 .right
-  // height: 100%
-  // height: f.px(510)
   display: flex
   align-items: flex-start
   // align-content: flex-start
@@ -65,7 +61,7 @@
   justify-content: space-between
   display: flex
   @include m.media(phone, tablet)
-    justify-content: center
+    // justify-content: center
 
 .oneChannel
   color: #131313
@@ -76,7 +72,7 @@
   @include m.media(desktop)
     width: f.px(370)
   @include m.media(laptop)
-    width: f.px(340)
+    width: f.px(345)
   @include m.media(phone, tablet)
     width: f.px(370)
   display: flex

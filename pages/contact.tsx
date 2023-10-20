@@ -9,6 +9,7 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import { Contacts } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import JoinInSocialChannels from '@/components/sections/JoinInSocialChannels'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
@@ -78,6 +79,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
       />
       <PageTitle>Контакты</PageTitle>
       <Contacts />
+      <JoinInSocialChannels />
     </>
   )
 }

@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import stls from '@/styles/components/sections/PageNavigation.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 
-const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef, resumeRef, faqRef, requestRef}) => {
+const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef, resumeRef, faqRef}) => {
   const [activeSection, setActiveSection] = useState('')
   const navigationRef = useRef(null)
   const pointRef = useRef(null)
@@ -18,7 +18,6 @@ const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachers
     cost: costRef,
     reviews: reviewsRef,
     faq: faqRef,
-    request: requestRef,
   }
 
   // console.log(activeSection)

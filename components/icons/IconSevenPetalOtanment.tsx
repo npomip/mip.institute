@@ -4,7 +4,7 @@ export default function IconSevenPetalOtanment() {
   return (
     <span className={styles.container}>
       <svg
-        viewBox='0 30 140 530'
+        viewBox='0 25 140 550'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'>
         <path

@@ -12,8 +12,6 @@ const ProgramModulesQty = () => {
     program?.shortContents?.length > 0 &&
     getParagraphInnerHtml(marked(program.shortContents))
 
-    console.log(titles)
-
   return (
     <div className={stls.container}>
       <p className={stls.qty}>{titles && titles.length}</p>

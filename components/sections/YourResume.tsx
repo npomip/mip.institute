@@ -9,7 +9,7 @@ import marked from 'marked'
 import ResumeDiplomas from '@/components/imgs/general/ResumeDiplomas'
 import Clip from '@/components/imgs/general/Clip'
 import HeadHunter from '@/components/imgs/general/HeadHunter'
-import IconGratefullPortal from '../icons/IconGratefullPortal'
+import IconGratefullPortal from '@/components/icons/IconGratefullPortal'
 
 const YourResume = ({resumeRef=null}) => {
   const { program } = useContext(ContextStaticProps)

@@ -14,7 +14,7 @@ import marked from 'marked'
 const ForWhom = () => {
   const { program } = useContext(ContextStaticProps)
 
-  const subtitle = program?.forWhomSubtitle
+  const subtitle = program?.forWhomSubtitle &&  marked(program?.forWhomSubtitle)
 
   const list =
     program?.ForWhom?.length > 0 &&
@@ -23,9 +23,9 @@ const ForWhom = () => {
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Для кого программа</h2>
-        <p className={stls.subtitle}>
-          {subtitle}
-        </p>
+        <div className={stls.subtitle}>
+          {subtitle && parse(subtitle)}
+        </div>
         <ul className={stls.list}>
           {list &&
             list[0].map((item, idx) => (

@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const tokens = async (req, res) => {
   // Параметры запроса
-  const clientId = '0073ec4e-1397-4b6d-819d-bfd13767fe70'; // Замените на ваш реальный client_id
-  const clientSecret = 'BSa9QOIOe2NZ728l1B0rF2KkQS4vwHOXPNXgBYOO9buXj5PuTN7onOsexDIcJAzw'; // Замените на ваш реальный client_secret
+  const clientId = 'fd4f102c-150e-4d56-9cf5-e53a92e8a5d4'; // Замените на ваш реальный client_id
+  const clientSecret = 'yJkCKv0Zivitn6YjVmFjRv8iCZJdIRR7u3clBsntHgFEtJkDTqVhyMQDaiJwORCy'; // Замените на ваш реальный client_secret
   const redirectUri = 'YOUR_REDIRECT_URI'; // Замените на ваш реальный redirect_uri
-  const code = 'def5020039e3d21c63af789b447e0d2b2df2d4c4402c847456c9afd3f7b142019cdf8ae8aa8ebd510c640284032245baa42956cc412c328ffaf534aeabb56d619057efafb7a25edf76533427c07a04a8a0102fbceb89a9d4495e5fb65a0a00136203136652df1a39d504f738ccbe495542399bebceea6906ce3b1305ae645c9988c59f947821228a3c5f92feaf94ba7f98f3ba138638bf02dd3906e8922287aaba71bb6483334a869b86d89303902736bb2fe8d51208f2340c3112800aaf39125ce7b6cb1fac234f80bf1b5aa82397bf302c2b01e7fb57f1d69cebdb1999f626869c1f7269d03b76d63ec1a8dba8300767e88c60ce551df134898519d1360a4a8fcda19d968459ccb0c17111e01440b9e3635f9a88344580ac7e7d4635eeb6204edb960f9e239873afc291acec8e145b355551d06c4616c00e2322aa2bbe76d717e4fc1a36b020b04771964b0aa330fb6c741fbec1105a80b5d53de753488d75c0c130699eaaded7d991aaa4db10061906794496bfe4fc70c7151add0628a2bfee5501b117bae9af1f7056b1e78b63821f5b197b45da15c3ce792c50abb06bbe21eda4f9836d3fe4c5d0ace931e65c57d9345032ed7513cf5b0e86589a84a5119dc7d5045f155e2be90c93f4ce9409789f3040ed8756d8b3e2ca364f35dfbd67f16dca8d76'; // Получите код авторизации из запроса
+  const code = 'def502002bc9556cb4b4027c589dfdc733a496b48e46512660386883e67562a92b1a09609270e8a7e53b5c85f1319b94cfacba14857f981a97400fa27a47d2726d01274a0b3bc5bb95f8adffd5731777d2ac8dcd1ad0b931f9734db9b5d94037d8370569b73f7b09819b4247c6898034f61668a74522c863eed641be9523120e612103a0e22671e3adfd45639b6e6d3613b48eeb959256e3a5efa5987f0e92be4f05fe4a994b1016dc715da6e78e6398a82b6b2a3baa24c0d9b65135c344167cab4eaf5e692ae237e452868dd6a07b2953863e74de08cd0b4e8249f003cc5ed22929e20800eb1e572f5af878308c380476c3ae1619c454a14108c0d7d9c677657e339934377779d621292c704ad3df1182ccb030de7b424edb4c04a9fce8860057faa95ef12f02b7cbf0729a17210d098dffef32f071dda6e6a64f15a877892a28664eeb07778cfe9f0886f4b1b0f8227990531f39f5c7f274222bb245744f5f4e9095ed422f3a662b4c48e7008caf56f1dccd63d82c2aefc92f9a4dd77745c69f33d7570534cc00f1b57926f2168a0f67f6296e2334f50c0d6011febe2f6accc6a01151164572dd2cd63e3ab32e0e966f4565cca48ce30aba69afabc9a18492bf0c97596896f48974cc41d62b525362a4d59a12c680cba72705919bcf3d7dc92f6612d824'; // Получите код авторизации из запроса
 
   // Подготовьте данные для POST-запроса
   const data = {
@@ -18,7 +18,7 @@ const tokens = async (req, res) => {
 
   try {
     // Выполните POST-запрос к /oauth2/access_token
-    const response = await axios.post('https://www.amocrm.com/oauth2/access_token', data);
+    const response = await axios.post('https://www.amocrm.ru/oauth2/access_token', data);
 
     // Ответ с токенами
     const tokens = {

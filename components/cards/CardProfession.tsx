@@ -7,7 +7,7 @@ import { IconArrowRight } from '@/components/icons'
 import Image from 'next/image'
 
 const CardProfession = ({ profession = null, threerow = false }) => {
-  console.log(profession)
+
   return (
     <Link
       href={`${routes.front.professions}/${

@@ -9,8 +9,8 @@ const tokens = async (req, res) => {
 
   // Подготовьте данные для POST-запроса
   const data = {
-    "client_id": "9118f965-6418-42bf-8825-afe91bc0b177",
-    "client_secret": "fq1AWRNAOx9HCpvRBfp6lfpj8kqyU3umywr2P4Uiibhm7Mll5lv2Zgeshj5HXzCl",
+    "client_id": "639746a8-043f-458d-abae-080bbfc87f60",
+    "client_secret": "mUQeKHhs1QIG732HqpRH5PWW395HLnRO9TCnb7yH6AELILrLQa5h3QeQ8lKwlYS1",
     "grant_type": "authorization_code",
     "code": code,
     "redirect_uri": "https://mip.institute/api/amoCRMtokens"

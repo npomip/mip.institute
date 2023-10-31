@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const createLead = async (req, res) => {
-  const { name, phone, price, email, promo, access } = req.body;
+  const { name, phone, price, email, promo, access, leadPage, ymUid } = req.body;
   console.log('in createLead', phone)
 
   // Замените на ваш access_token
@@ -15,7 +15,7 @@ const createLead = async (req, res) => {
     const leadsData = [
       {
         name: 'Новая заявка с Forms',
-        price: price,
+        // price: price,
         custom_fields_values: [
           {
             field_id: 705109,

@@ -82,7 +82,7 @@ const CallMeBackForm = ({
   const nowUNIXtime = moment().unix()
   const differenceInTime = expireTime - nowUNIXtime
   // if(differenceInTime < 1800)
-  console.log(data?.amos[0].refresh)
+  console.log(data, error)
   const [updateTokens] = useMutation(UPDATE_TOKEN)
 
  const [serverErrorMeassage, setServerErrorMeassage] = useState('')

@@ -7,7 +7,36 @@ import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
-import sendToCalltouch from '../funcs/sendToCalltouchFunc'
+import { useMutation, gql, ApolloClient, useQuery } from '@apollo/client'
+import apolloClient from '@/lib/apolloClient'
+import moment from 'moment'
+import axios from 'axios'
+import routes from '@/config/routes'
+
+const CHECK_TOKENS = gql`
+  query amoTokens($title: String!) {
+    amos(where: { title: $title }) {
+      id
+      title
+      refresh
+      access
+      expired_in
+    }
+  }
+`
+
+const UPDATE_TOKEN = gql`
+  mutation UpdateTokens($input: updateAmoInput!) {
+    updateAmo(input: $input) {
+      amo {
+        id
+        access
+        refresh
+        expired_in
+      }
+    }
+  }
+`
 
 type FormValues = {
   name: string
@@ -42,30 +71,135 @@ const CallMeBackForm = ({
 
   const router = useRouter()
 
-  const onSubmit = async data => {
-    setIsDisabled(true)
-    setThanksIsOpen(true)
-    // handle loader
-    data.leadPage = router.asPath
+  const { loading, error, data } = useQuery(CHECK_TOKENS, {
+    variables: { title: 'amo' }
+  })
+
+  const tokenId = data?.amos[0]?.id
+  const expireTime = data?.amos[0]?.expired_in
+  const access_token = data?.amos[0]?.access
+  const refresh_token = data?.amos[0]?.refresh
+  const nowUNIXtime = moment().unix()
+  const differenceInTime = expireTime - nowUNIXtime
+  // if(differenceInTime < 1800)
+  console.log(data?.amos[0].refresh)
+  const [updateTokens] = useMutation(UPDATE_TOKEN)
+
+ const [serverErrorMeassage, setServerErrorMeassage] = useState('')
+
+  const onSubmit = async formData => {
+    setServerErrorMeassage('')
+    console.log(differenceInTime)
     const utms = JSON.parse(sessionStorage.getItem('utms'))
-    data.utms = utms
+    formData.utms = utms
     sessionStorage.removeItem('utms')
+    formData.leadPage = router.asPath
     const referer = JSON.parse(sessionStorage.getItem('referer'))
-    data.referer = referer
+    formData.referer = referer
     sessionStorage.removeItem('referer')
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
-    data.ymUid = ymUid
+    formData.ymUid = ymUid
+    if (differenceInTime < 1800) {
+      try {
+        // отправляем запрос на обновление токенов, нам нужен из базы рефреш токен
+        //
+        console.log(refresh_token, 'in submit')
+        const exchangeTokensResponse = await axios.post(
+          `${routes.front.root}/api/amoCRMexchangeToken`,
+          data?.amos[0]
+        )
+        console.log(exchangeTokensResponse.data)
+        if (exchangeTokensResponse.status === 200) {
+          // update token as time close to end
+          console.log('Обновляем токен')
+          const { data } = await updateTokens({
+            variables: {
+              input: {
+                where: { id: tokenId },
+                data: {
+                  access: exchangeTokensResponse.data.access_token,
+                  refresh: exchangeTokensResponse.data.refresh_token,
+                  expired_in: nowUNIXtime + 84400
+                }
+              }
+            }
+          })
+          console.log('Токены обновлены для записи Amo:', data.updateAmo)
+          if (data.updateAmo.amo) {
+            formData.access = data.updateAmo.amo.access
+            console.log('используем новые токены', data.updateAmo.amo.access)
+            try {
+              const responseNewLead = await axios.post(
+                `${routes.front.root}/api/checkAndCreateLead`,
+                formData
+              )
+              if (responseNewLead.status === 200) {
+                // создали юзера
+                console.log('user created')
+              }  
+              // if(responseNewLead.status === 401){
+              //   console.log(400)
+              //   setServerErrorMeassage('Ошибка при создании новой заявки')
+              // }
+            } catch (error) {
+              if (error.response.status === 400) {
+                setServerErrorMeassage('400 Ошибка при создании новой заявки')
+              } else {
+      
+                setServerErrorMeassage(`Другая ошибка при запросе на обмен токенов ${error.response.status}`)
+                console.error('Не удалось обновить токены для записи Amo:', error)
+              }
+            }
+            
+          }
+        } 
+      } catch (error) {
+        if (error.response.status === 400) {
+          setServerErrorMeassage('400 ошибка при запросе на обмен токенов')
+          console.log('400 ошибка, отправляем через смтп')
+        } else {
+
+          setServerErrorMeassage(`Другая ошибка при запросе на обмен токенов ${error.response.status}`)
+          console.error('Не удалось обновить токены для записи Amo:', error)
+        }
+      }
+    } else {
+      console.log(differenceInTime, 'in else')
+      try {
+        formData.access = access_token
+        const responseNewLead = await axios.post(
+          `${routes.front.root}/api/checkAndCreateLead`,
+          formData
+        )
+        console.log(responseNewLead)
+      } catch (error) {
+        setServerErrorMeassage('Не удалось создать лид, но время истечения токена удовлетворяет условиям')
+        console.error('Не удалось создать или обновить лид', error)
+      }
+    }
   }
+  // setIsDisabled(true)
+  // setThanksIsOpen(true)
+  // // handle loader
+  // data.leadPage = router.asPath
+  // const utms = JSON.parse(sessionStorage.getItem('utms'))
+  // data.utms = utms
+  // sessionStorage.removeItem('utms')
+  // const referer = JSON.parse(sessionStorage.getItem('referer'))
+  // data.referer = referer
+  // sessionStorage.removeItem('referer')
+  // const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+  // data.ymUid = ymUid
 
   return (
     <>
-      {/* <Popup
+      <Popup
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
         <PopupThankyou close={() => setThanksIsOpen(false)} />
-      </Popup> */}
-      {/* <form
+      </Popup>
+      <form
         method='post'
         className={classNames({
           [stls.containet]: true,
@@ -140,12 +274,11 @@ const CallMeBackForm = ({
           )}
 
           <div className={stls.btn}>
-            {/* {atFooter ? (
+            {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
               <BtnAlpha text={cta} isDisabled={isDisabled} />
-            )} 
-            <button className={stls.violetButton}>Подобрать программу</button>
+            )}
           </div>
 
           {agreement && (
@@ -154,8 +287,10 @@ const CallMeBackForm = ({
               персональных данных
             </p>
           )}
+          
         </div>
-      </form> */}
+        <p>{serverErrorMeassage}</p>
+      </form>
     </>
   )
 }

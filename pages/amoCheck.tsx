@@ -8,6 +8,7 @@ import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import Gratefull from '@/components/sections/Gratefull'
+import CallMeBackForm from '@/components/forms/CallMeBackForm'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
@@ -23,6 +24,8 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   return (
     <>
       <NextSeo
+        noindex
+        nofollow
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
@@ -44,13 +47,12 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
           
         }}
       />
-      <SeoOrganizationJsonLd />
-      <Gratefull />
+      <CallMeBackForm />
     </>
   )
 }
 
-export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routes.front.gratefull })
+// export const getStaticProps: GetStaticProps = async () =>
+//   await handleGetStaticProps({ page: routes.front.gratefull })
 
 export default PaymentPage

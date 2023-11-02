@@ -10,6 +10,7 @@ import { SeoOrganizationJsonLd } from '@/components/seo'
 import Gratefull from '@/components/sections/Gratefull'
 import CallMeBackForm from '@/components/forms/CallMeBackForm'
 
+
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
 

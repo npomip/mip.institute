@@ -56,7 +56,6 @@ const contact = async (req, res) => {
   // get ip
   const ip =
     req.headers['x-forwarded-for'] ||
-    // req.socket.remoteAddress ||
     req.connection.remoteAddress ||
     null
   console.log(ip, 'ipppppp')

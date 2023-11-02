@@ -1,7 +1,8 @@
+import routes from '@/config/routes';
 import axios from 'axios';
 
 const tokens = async (req, res) => {
-  const {leadId, name, phone,email, access}=req.body 
+  const {name, phone, price, email, promo, access, leadPage, ymUid, utm, blockForAmo, leadId}=req.body 
   console.log('notes req body =====>', req.body)
   // console.log(req.body)
   try {
@@ -18,10 +19,18 @@ const tokens = async (req, res) => {
       {
         note_type: 'common',
         params: {
-          "text": `новый данные:
+          "text": `Новые данные:
           телефон: ${phone}
           имя: ${name}
-          email: ${email}`
+          email: ${email}
+          Страница с которой пришла заявка: ${routes.front.root}${leadPage}
+          utm_source: ${utm?.utm_source}
+          utm_medium: ${utm?.utm_medium}
+          utm_campaign: ${utm?.utm_campaign}
+          utm_content: ${utm?.utm_content}
+          Yandex Metrics ID: ${ymUid}
+          Раздел сайта: ${blockForAmo}
+          `
         }
       }
     ]

@@ -12,6 +12,7 @@ import apolloClient from '@/lib/apolloClient'
 import moment from 'moment'
 import axios from 'axios'
 import routes from '@/config/routes'
+import { getCookie } from 'cookies-next'
 
 const CHECK_TOKENS = gql`
   query amoTokens($title: String!) {
@@ -49,6 +50,7 @@ type FormValues = {
 
 const CallMeBackForm = ({
   cta = 'Подобрать программу',
+  blockForAmo = 'Подобрать программу',
   question = false,
   popup = false,
   atFooter = false,
@@ -81,11 +83,10 @@ const CallMeBackForm = ({
   const refresh_token = data?.amos[0]?.refresh
   const nowUNIXtime = moment().unix()
   const differenceInTime = expireTime - nowUNIXtime
-  // if(differenceInTime < 1800)
   console.log(data, error)
   const [updateTokens] = useMutation(UPDATE_TOKEN)
 
- const [serverErrorMeassage, setServerErrorMeassage] = useState('')
+  const [serverErrorMeassage, setServerErrorMeassage] = useState('')
 
   const onSubmit = async formData => {
     setServerErrorMeassage('')
@@ -99,6 +100,16 @@ const CallMeBackForm = ({
     sessionStorage.removeItem('referer')
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     formData.ymUid = ymUid
+    const clickId = getCookie('utm'); 
+    // console.log('clickId', clickId)
+
+    formData.blockForAmo = blockForAmo
+
+    if (typeof clickId === 'string') {
+      formData.utm = JSON.parse(clickId);
+    } else {
+      formData.utm = null; // или какое-то другое значение по умолчанию
+    }
     if (differenceInTime < 1800) {
       try {
         // отправляем запрос на обновление токенов, нам нужен из базы рефреш токен

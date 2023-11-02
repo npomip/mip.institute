@@ -4,7 +4,7 @@ const patchLead = async (req, res) => {
   // const {id, name, price, phone} = req.body
   // console.log('patch id', id, price)
   try {
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjY0ZjIxZDJjODkzM2JiNzM2ZWU1MGJlNDcwOTYxOGMyZWU4MjdiMDhhYWFmZGNhZTQxZjc5MTYxMjc3YTFkNWY3Mjg3NGRkNjhlYmM3MzJlIn0.eyJhdWQiOiIzNGE0ZmNiZC1jZTM4LTQ0MmUtOGYxZC04Nzg1NzhmMThmMjAiLCJqdGkiOiI2NGYyMWQyYzg5MzNiYjczNmVlNTBiZTQ3MDk2MThjMmVlODI3YjA4YWFhZmRjYWU0MWY3OTE2MTI3N2ExZDVmNzI4NzRkZDY4ZWJjNzMyZSIsImlhdCI6MTY5ODc0MjEwOCwibmJmIjoxNjk4NzQyMTA4LCJleHAiOjE2OTg4Mjg1MDgsInN1YiI6Ijc4MDM3NDUiLCJncmFudF90eXBlIjoiIiwiYWNjb3VudF9pZCI6Mjk5MzExOTAsImJhc2VfZG9tYWluIjoiYW1vY3JtLnJ1IiwidmVyc2lvbiI6Miwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImZpbGVzIiwiY3JtIiwiZmlsZXNfZGVsZXRlIiwibm90aWZpY2F0aW9ucyJdfQ.aW3GwXP5VSHDiQhjEO_GLb7bgO3_ey4oiPDRv5lv8ec2woT-12v8hYi4F4imCC_UftnWRvL80wjZFoCgpcrmNPC9KIU8QH0t3uNmE8w7ZqPIFqTMULRfAxA7Vow0T6_wEo3hce7DCd3Nksa7DJZPGe2Ugyv9Aq0RJyg-if1gD72dD5bGrnMYtgv1RBcsi70We8McViI5E07yPKaL7svj8I78x0lDrYG1R7p8NKaW43g7c6z-kr22PI9maqjmiaEyrAfvpVrzxNdogXqdWcwUMYzXaymaYqKSchAzy0DlBWvYN4HlDVvQn6ADXYIf7DgHEiNvYjQoOJeqx_87rWzedQ';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA0NWFhZTc1NTU0NGI2YWYyNjE3OTM1MjBiOWVlM2FkYmFlNDA2OGM3NzgxNjE1MmViZjk3MjAwYjJmMDM3ODU2YWZlMmRkODBhZjVlNWU5In0.eyJhdWQiOiIzNGE0ZmNiZC1jZTM4LTQ0MmUtOGYxZC04Nzg1NzhmMThmMjAiLCJqdGkiOiIwNDVhYWU3NTU1NDRiNmFmMjYxNzkzNTIwYjllZTNhZGJhZTQwNjhjNzc4MTYxNTJlYmY5NzIwMGIyZjAzNzg1NmFmZTJkZDgwYWY1ZTVlOSIsImlhdCI6MTY5ODg0MTg0MiwibmJmIjoxNjk4ODQxODQyLCJleHAiOjE2OTg5MjgyNDIsInN1YiI6Ijc4MDM3NDUiLCJncmFudF90eXBlIjoiIiwiYWNjb3VudF9pZCI6Mjk5MzExOTAsImJhc2VfZG9tYWluIjoiYW1vY3JtLnJ1IiwidmVyc2lvbiI6Miwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImZpbGVzIiwiY3JtIiwiZmlsZXNfZGVsZXRlIiwibm90aWZpY2F0aW9ucyJdfQ.lQNyVlknGbWR0UeEmucrXaNCXMTVXyF8Ot2Nms_wSXs0lZofIkGMqMDv2dPDHO5UJE0FP-F4FaHkQlkpyj2EXMALYN5dS-WpWC6AquaNH_Xo1lcr8T0M_44uGL7obp6cq3J8nOhNAVmx8uv0edb96-nq8GSuiLBBI7WLWB_3tZf_yuUrY0FLEVJpeMOrbVuijAyA2CY5uJq5X1I1krWYM7H2Gqvwfi5mo_nnZT76hEci180eln3Eu83-9PoPcIckHcBaUeerbJ3v714SNq1Ha0WSwj4G6Y-aoUZ-WD3QL6uV5Y4TlxH9zRg-kQwsiU6j7CHLq0601mz3jzW0FYdECg';
 
     const checkContactUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads`
 
@@ -14,14 +14,102 @@ const patchLead = async (req, res) => {
         id: 20717327,
         name: 'New integration',
         custom_fields_values: [
+          // конкретная программа
           {
             field_id: 704681,
             values: [
               {
-                value: "Гештальт-терапевт"
+                enum_id: 427011
               }
             ]
           },
+          {
+            // источник рекламы(utm_source)
+            field_id: 705917,
+            values: [
+              {
+                value: 'источник рекламы'
+              }
+            ]
+          },
+          {
+            // тип трафика (utm_medium)
+            field_id: 705919,
+            values: [
+              {
+                value: 'med'
+              }
+            ]
+          },
+          {
+            // название рекламной компании (utm_campaign)
+            field_id: 705921,
+            values: [
+              {
+                value: 'camp'
+              }
+            ]
+          },
+          {
+            // Баннер (utm_content)
+            field_id: 705925,
+            values: [
+              {
+                value: 'utm_content'
+              }
+            ]
+          },
+          {
+            // ключевое слово (utm_term)
+            field_id: 705927,
+            values: [
+              {
+                value: 'utm_term'
+              }
+            ]
+          },
+          {
+            // страница на которой оставлена заявка
+            field_id: 997743,
+            values: [
+              {
+                value: 'mip.com'
+              }
+            ]
+          },
+          {
+            // Calltouch click_id
+            field_id: 1045313,
+            values: [
+              {
+                value: 'click_id from form'
+              }
+            ]
+          },
+          {
+            field_id: 705913,
+            values: [
+              {
+                value: 'yandex_metric'
+              }
+            ]
+          },
+          // {
+          //   field_id: 1043321,
+          //   values: [
+          //     {
+          //       value: 'camp'
+          //     }
+          //   ]
+          // },
+          // {
+          //   field_id: 1043321,
+          //   values: [
+          //     {
+          //       value: 'camp'
+          //     }
+          //   ]
+          // },
         ]
         // price: '1000',
       }

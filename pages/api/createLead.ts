@@ -1,12 +1,9 @@
+import routes from '@/config/routes';
 import axios from 'axios'
 
 const createLead = async (req, res) => {
-  const { name, phone, price, email, promo, access, leadPage, ymUid } = req.body;
-  console.log('in createLead', phone)
-
-  // Замените на ваш access_token
-  // const accessToken =
-  //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE2ZTMxZTZhNzg2YTgwZjUyZTAyOWNkMWI4MDg2YTE5YzBmMDcyMTI3M2UxZDcxYjY1YWI0MmM0OTdmZjZhYzg4ZmM0OWYxODE3NTRiMjM2In0.eyJhdWQiOiIzNGE0ZmNiZC1jZTM4LTQ0MmUtOGYxZC04Nzg1NzhmMThmMjAiLCJqdGkiOiIxNmUzMWU2YTc4NmE4MGY1MmUwMjljZDFiODA4NmExOWMwZjA3MjEyNzNlMWQ3MWI2NWFiNDJjNDk3ZmY2YWM4OGZjNDlmMTgxNzU0YjIzNiIsImlhdCI6MTY5ODU5MzMyMiwibmJmIjoxNjk4NTkzMzIyLCJleHAiOjE2OTg2Nzk3MjIsInN1YiI6Ijc4MDM3NDUiLCJncmFudF90eXBlIjoiIiwiYWNjb3VudF9pZCI6Mjk5MzExOTAsImJhc2VfZG9tYWluIjoiYW1vY3JtLnJ1IiwidmVyc2lvbiI6Miwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImZpbGVzIiwiY3JtIiwiZmlsZXNfZGVsZXRlIiwibm90aWZpY2F0aW9ucyJdfQ.QP5jroQh_WegYwYLB1p7ELwStNsjrYhssHeLH_RgcwDgWQnuHxQS8hlxanG4rmuHEIPLu2jKXT1cFOFxHrIUgnKUS3a_80oSvftRyrRgN9UjpHu1zOo3w6_RxbaYtxAWau-2e-LW_vnuSq1p9WoG38uHViROQlM0R6p7enTR8uctAW0Y7z52_mC8ReobSKSANWioAivgVKOLaYOtTFK8a-mEuzXw9SArFqq56lOTyeEABBAXBmoVKFerHKtetEDzEHQHvlBASrDVv5Gr2TENBa_oJgiLspiLkf7rNTbQoL0qQlGvB9oF0mDRIOt4b1nlh4353TyfkqoX3sYgB4Q4DQ'
+  const { name, phone, price, email, promo, access, leadPage, ymUid, utm, blockForAmo } = req.body;
+  console.log('in createLead', utm)
 
   // URL для запроса сделки по ID
   const apiUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/complex`
@@ -18,29 +15,128 @@ const createLead = async (req, res) => {
         // price: price,
         custom_fields_values: [
           {
+            // Промокод
             field_id: 705109,
             values: [
               {
-                value: promo
+                value: promo || null
               }
             ]
           },
           {
+            // раздел сайта
             field_id: 1050833,
             values: [
               {
-                value: 'Main'
+                value: blockForAmo || null
               }
             ]
           },
           {
-            field_id: 1043325,
+          // конкретная программа из списка
+            field_id: 704681,
             values: [
               {
-                value: 'check_utm'
+                // enum_id: 427011
               }
             ]
           },
+          {
+            // источник рекламы(utm_source)
+            field_id: 705917,
+            values: [
+              {
+                value: utm?.utm_source || null
+              }
+            ]
+          },
+          {
+            // тип трафика (utm_medium)
+            field_id: 705919,
+            values: [
+              {
+                value: utm?.utm_medium || null
+              }
+            ]
+          },
+          {
+            // название рекламной компании (utm_campaign)
+            field_id: 705921,
+            values: [
+              {
+                value: utm?.utm_campaign || null
+              }
+            ]
+          },
+          {
+            // Баннер (utm_content)
+            field_id: 705925,
+            values: [
+              {
+                value: utm?.utm_content || null
+              }
+            ]
+          },
+          {
+            // ключевое слово (utm_term)
+            field_id: 705927,
+            values: [
+              {
+                value: utm?.utm_term || null
+              }
+            ]
+          },
+          {
+            // страница на которой оставлена заявка
+            field_id: 997743,
+            values: [
+              {
+                value: `${routes.front.root}${leadPage}` || null
+              }
+            ]
+          },
+          {
+            // Calltouch click_id
+            field_id: 1045313,
+            values: [
+              {
+                value: utm.cl_uid || null
+              }
+            ]
+          },
+          {
+            field_id: 705913,
+            values: [
+              {
+                value: ymUid || null
+              }
+            ]
+          },
+          // {
+          //   field_id: 1043321,
+          //   values: [
+          //     {
+          //       value: 'camp'
+          //     }
+          //   ]
+          // },
+          // {
+          //   field_id: 1043321,
+          //   values: [
+          //     {
+          //       value: 'camp'
+          //     }
+          //   ]
+          // },
+          // {
+          //   field_id: 1043325,
+          //   values: [
+          //     {
+          //       value: 'check_utm'
+          //     }
+          //   ]
+          // },
+
         ],
         _embedded: {
           tags: [

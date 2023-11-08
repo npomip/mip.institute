@@ -80,7 +80,7 @@ const FormAlpha = ({
     const ipCheck = await ipCheckFunc()
     if( ipCheck === 200) {
       console.log('IP 200')
-      // setIsDisabled(true)
+      setIsDisabled(true)
       // setThanksIsOpen(true)
 
     // window.open(routes.front.gratefull, '_blank');
@@ -109,11 +109,13 @@ const FormAlpha = ({
     const req = await hitContactRoute(data)
     console.log('req Alpha =====>', req)
     if (req === 200) {
+
       // router.push('/gratefull')
       console.log('Success')
+      window.open(routes.front.gratefull, '_blank');
       setIsIpCheckFailed(false)
       // setIsDisabled(true)
-      // setThanksIsOpen(true)
+      setThanksIsOpen(true)
     } else {
       console.log('err')
       setIsIpCheckFailed(true)
@@ -243,7 +245,7 @@ const FormAlpha = ({
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
               // <BtnAlpha text={cta} isDisabled={!captchaIsDone} />
-              <BtnAlpha text={cta}  />
+              <BtnAlpha text={cta}  isDisabled={isDisabled}/>
             )}
           </div>
           {dirtyFields.phone && <ReCAPTCHA

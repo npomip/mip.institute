@@ -107,7 +107,7 @@ const NewForm = ({
     } else {
       console.log('err')
     }
-    const calltouch = await sendToCalltouch(data)
+    // const calltouch = await sendToCalltouch(data)
   }
 
   const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY

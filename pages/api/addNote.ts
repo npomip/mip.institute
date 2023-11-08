@@ -2,7 +2,7 @@ import routes from '@/config/routes';
 import axios from 'axios';
 
 const tokens = async (req, res) => {
-  const {id, name, phone, price, email, promocode, access, leadPage, ymUid, utm, blockForAmo, leadId, edPartners}=req.body 
+  const {id, name, phone, price, email, question, promocode, access, leadPage, ymUid, utm, blockForAmo, leadId, edPartners}=req.body 
   console.log('notes req body =====>', req.body)
   // console.log(req.body)
   try {
@@ -21,17 +21,18 @@ const tokens = async (req, res) => {
           "text": `Новые данные:
           телефон: ${phone|| null}
           имя: ${name|| null}
-          email: ${email|| null}
-          Промокод: ${promocode || null}
+          ${email ? `email: ${email}` : 'Email не оставил'}
           Страница с которой пришла заявка: ${routes.front.root}${leadPage}
-          utm_source: ${utm?.utm_source|| null}
-          utm_medium: ${utm?.utm_medium|| null}
-          utm_campaign: ${utm?.utm_campaign|| null}
-          utm_content: ${utm?.utm_content|| null}
-          Yandex Metrics ID: ${ymUid|| null}
           Раздел сайта: ${blockForAmo|| null}
           id заявки: ${id || null}
-          Отправка в edPartners: ${edPartners || null}
+          Yandex Metrics ID: ${ymUid|| null}
+          Отправка в edPartners: ${edPartners }
+          ${promocode ? `Промокод: ${promocode}` : ''}
+          ${question ? `Обращение: ${question}` : ''}
+          ${utm ? `utm_medium: ${utm.utm_medium}` : ''}
+          ${utm ? `utm_source: ${utm.utm_source}` : ''}
+          ${utm ? `utm_campaign: ${utm.utm_campaign}` : ''}
+          ${utm ? `utm_content: ${utm.utm_content}` : ''}
           `
         }
       }

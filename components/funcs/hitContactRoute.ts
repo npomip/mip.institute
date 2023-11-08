@@ -40,12 +40,12 @@ const hitContactRoute = async values => {
       fetchPolicy: 'network-only'
     });
 
-    // if(values.utm.utm_source
-    //   === 'edpartners'){
+    if(values?.utm?.utm_source
+      === 'edpartners'){
     const edPartners = await axios.post(`${routes.front.root}/api/edPartners`, values)
     console.log(edPartners.data.success)
     values.edPartners = edPartners.data.success
-    // }
+    }
     
     const tokenId = checkTokenData?.amos[0]?.id
     const expireTime = checkTokenData?.amos[0]?.expired_in

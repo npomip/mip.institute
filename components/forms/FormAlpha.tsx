@@ -77,8 +77,8 @@ const FormAlpha = ({
 
 
   const onSubmit = async data => {
-    const ipCheck = await ipCheckFunc()
-    if( ipCheck === 200) {
+    // const ipCheck = await ipCheckFunc()
+    // if( ipCheck === 200) {
       console.log('IP 200')
       setIsDisabled(true)
       // setThanksIsOpen(true)
@@ -122,10 +122,10 @@ const FormAlpha = ({
     }
     // const calltouch = await sendToCalltouch(data)
 
-    } else {
-      setIsIpCheckFailed(true)
-      console.log(errors)
-    }
+    // } else {
+    //   setIsIpCheckFailed(true)
+    //   console.log(errors)
+    // }
     
   }
 

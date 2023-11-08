@@ -84,6 +84,7 @@ const CallMeBackForm = ({
   const nowUNIXtime = moment().unix()
   const differenceInTime = expireTime - nowUNIXtime
   console.log(data, error)
+
   const [updateTokens] = useMutation(UPDATE_TOKEN)
 
   const [serverErrorMeassage, setServerErrorMeassage] = useState('')
@@ -97,6 +98,7 @@ const CallMeBackForm = ({
     formData.leadPage = router.asPath
     const referer = JSON.parse(sessionStorage.getItem('referer'))
     formData.referer = referer
+    formData.differenceInTime = differenceInTime
     sessionStorage.removeItem('referer')
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     formData.ymUid = ymUid
@@ -110,6 +112,8 @@ const CallMeBackForm = ({
     } else {
       formData.utm = null; // или какое-то другое значение по умолчанию
     }
+
+    
     if (differenceInTime < 1800) {
       try {
         // отправляем запрос на обновление токенов, нам нужен из базы рефреш токен

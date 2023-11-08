@@ -2,11 +2,10 @@ import routes from '@/config/routes';
 import axios from 'axios';
 
 const tokens = async (req, res) => {
-  const {name, phone, price, email, promo, access, leadPage, ymUid, utm, blockForAmo, leadId}=req.body 
+  const {id, name, phone, price, email, promocode, access, leadPage, ymUid, utm, blockForAmo, leadId, edPartners}=req.body 
   console.log('notes req body =====>', req.body)
   // console.log(req.body)
   try {
-    // const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE2ZTMxZTZhNzg2YTgwZjUyZTAyOWNkMWI4MDg2YTE5YzBmMDcyMTI3M2UxZDcxYjY1YWI0MmM0OTdmZjZhYzg4ZmM0OWYxODE3NTRiMjM2In0.eyJhdWQiOiIzNGE0ZmNiZC1jZTM4LTQ0MmUtOGYxZC04Nzg1NzhmMThmMjAiLCJqdGkiOiIxNmUzMWU2YTc4NmE4MGY1MmUwMjljZDFiODA4NmExOWMwZjA3MjEyNzNlMWQ3MWI2NWFiNDJjNDk3ZmY2YWM4OGZjNDlmMTgxNzU0YjIzNiIsImlhdCI6MTY5ODU5MzMyMiwibmJmIjoxNjk4NTkzMzIyLCJleHAiOjE2OTg2Nzk3MjIsInN1YiI6Ijc4MDM3NDUiLCJncmFudF90eXBlIjoiIiwiYWNjb3VudF9pZCI6Mjk5MzExOTAsImJhc2VfZG9tYWluIjoiYW1vY3JtLnJ1IiwidmVyc2lvbiI6Miwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImZpbGVzIiwiY3JtIiwiZmlsZXNfZGVsZXRlIiwibm90aWZpY2F0aW9ucyJdfQ.QP5jroQh_WegYwYLB1p7ELwStNsjrYhssHeLH_RgcwDgWQnuHxQS8hlxanG4rmuHEIPLu2jKXT1cFOFxHrIUgnKUS3a_80oSvftRyrRgN9UjpHu1zOo3w6_RxbaYtxAWau-2e-LW_vnuSq1p9WoG38uHViROQlM0R6p7enTR8uctAW0Y7z52_mC8ReobSKSANWioAivgVKOLaYOtTFK8a-mEuzXw9SArFqq56lOTyeEABBAXBmoVKFerHKtetEDzEHQHvlBASrDVv5Gr2TENBa_oJgiLspiLkf7rNTbQoL0qQlGvB9oF0mDRIOt4b1nlh4353TyfkqoX3sYgB4Q4DQ';
 
     const checkContactUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/${leadId}/notes`
     // Опции для GET-запроса, включая заголовок с access_token
@@ -20,16 +19,19 @@ const tokens = async (req, res) => {
         note_type: 'common',
         params: {
           "text": `Новые данные:
-          телефон: ${phone}
-          имя: ${name}
-          email: ${email}
+          телефон: ${phone|| null}
+          имя: ${name|| null}
+          email: ${email|| null}
+          Промокод: ${promocode || null}
           Страница с которой пришла заявка: ${routes.front.root}${leadPage}
-          utm_source: ${utm?.utm_source}
-          utm_medium: ${utm?.utm_medium}
-          utm_campaign: ${utm?.utm_campaign}
-          utm_content: ${utm?.utm_content}
-          Yandex Metrics ID: ${ymUid}
-          Раздел сайта: ${blockForAmo}
+          utm_source: ${utm?.utm_source|| null}
+          utm_medium: ${utm?.utm_medium|| null}
+          utm_campaign: ${utm?.utm_campaign|| null}
+          utm_content: ${utm?.utm_content|| null}
+          Yandex Metrics ID: ${ymUid|| null}
+          Раздел сайта: ${blockForAmo|| null}
+          id заявки: ${id || null}
+          Отправка в edPartners: ${edPartners || null}
           `
         }
       }

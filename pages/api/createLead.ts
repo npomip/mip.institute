@@ -3,8 +3,10 @@ import axios from 'axios'
 
 const createLead = async (req, res) => {
 
-  const { id, name, phone, price, email, promocode, access, leadPage, ymUid, utm, blockForAmo,edPartners } = req.body;
+  const { id, name, phone, price, email, question, promocode, access, leadPage, ymUid, utm, blockForAmo,edPartners } = req.body;
   console.log('in createLead', utm)
+
+  console.log('CREATELEAD',question,promocode)
 
   // URL для запроса сделки по ID
   const apiUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/complex`
@@ -34,6 +36,15 @@ const createLead = async (req, res) => {
             ]
           },
           {
+            // Вопрос
+            field_id: 704895,
+            values: [
+              {
+                value: question || null
+              }
+            ]
+          },
+          {
             // раздел сайта
             field_id: 1050833,
             values: [
@@ -56,7 +67,7 @@ const createLead = async (req, res) => {
             field_id: 705917,
             values: [
               {
-                value: utm?.utm_source || null
+                value: utm &&utm?.utm_source || null
               }
             ]
           },
@@ -65,7 +76,7 @@ const createLead = async (req, res) => {
             field_id: 705919,
             values: [
               {
-                value: utm?.utm_medium || null
+                value: utm &&utm?.utm_medium || null
               }
             ]
           },
@@ -74,7 +85,7 @@ const createLead = async (req, res) => {
             field_id: 705921,
             values: [
               {
-                value: utm?.utm_campaign || null
+                value: utm &&utm?.utm_campaign || null
               }
             ]
           },
@@ -83,7 +94,7 @@ const createLead = async (req, res) => {
             field_id: 705925,
             values: [
               {
-                value: utm?.utm_content || null
+                value: utm &&utm?.utm_content || null
               }
             ]
           },
@@ -92,7 +103,7 @@ const createLead = async (req, res) => {
             field_id: 705927,
             values: [
               {
-                value: utm?.utm_term || null
+                value: utm && utm?.utm_term || null
               }
             ]
           },
@@ -110,7 +121,7 @@ const createLead = async (req, res) => {
             field_id: 1045313,
             values: [
               {
-                value: utm.cl_uid || null
+                value: utm && utm?.cl_uid || null
               }
             ]
           },
@@ -127,7 +138,7 @@ const createLead = async (req, res) => {
             field_id: 1052927,
             values: [
               {
-                value: edPartners.toString() || null
+                value: edPartners?.toString() || null
               }
             ]
           },
@@ -207,8 +218,8 @@ const createLead = async (req, res) => {
       res.status(200).json({ status: 200, msg: 'Lead created' })
     } 
   } catch (error) {
-    console.error('Ошибка при создании нового лида:', error.response.data )
-    res.status(400).json(error.response.data)
+    console.error('Ошибка при создании нового лида:', error )
+    res.status(400).json(error.response)
   }
 }
 

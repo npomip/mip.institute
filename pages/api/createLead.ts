@@ -2,7 +2,8 @@ import routes from '@/config/routes';
 import axios from 'axios'
 
 const createLead = async (req, res) => {
-  const { name, phone, price, email, promo, access, leadPage, ymUid, utm, blockForAmo } = req.body;
+
+  const { id, name, phone, price, email, promocode, access, leadPage, ymUid, utm, blockForAmo,edPartners } = req.body;
   console.log('in createLead', utm)
 
   // URL для запроса сделки по ID
@@ -15,11 +16,20 @@ const createLead = async (req, res) => {
         // price: price,
         custom_fields_values: [
           {
+            // ID заявки
+            field_id: 705911,
+            values: [
+              {
+                value: id || null
+              }
+            ]
+          },
+          {
             // Промокод
             field_id: 705109,
             values: [
               {
-                value: promo || null
+                value: promocode || null
               }
             ]
           },
@@ -112,6 +122,15 @@ const createLead = async (req, res) => {
               }
             ]
           },
+          // edPartners
+          {
+            field_id: 1052927,
+            values: [
+              {
+                value: edPartners.toString() || null
+              }
+            ]
+          },
           // {
           //   field_id: 1043321,
           //   values: [
@@ -186,13 +205,10 @@ const createLead = async (req, res) => {
       const leadData = response.data
       console.log(response.status)
       res.status(200).json({ status: 200, msg: 'Lead created' })
-    } else {
-      console.log(response.data.error)
-      res.status(response.status).json({ status: 500, msg: 'Unexpected server error' })
-    }
+    } 
   } catch (error) {
-    console.error('Ошибка при выполнении запроса:', error)
-    res.status(500).json({ error: error })
+    console.error('Ошибка при создании нового лида:', error.response.data )
+    res.status(400).json(error.response.data)
   }
 }
 

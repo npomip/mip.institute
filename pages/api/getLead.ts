@@ -5,26 +5,11 @@ const tokens = async (req, res) => {
   // console.log(moment().unix())
   
   try {
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA0NWFhZTc1NTU0NGI2YWYyNjE3OTM1MjBiOWVlM2FkYmFlNDA2OGM3NzgxNjE1MmViZjk3MjAwYjJmMDM3ODU2YWZlMmRkODBhZjVlNWU5In0.eyJhdWQiOiIzNGE0ZmNiZC1jZTM4LTQ0MmUtOGYxZC04Nzg1NzhmMThmMjAiLCJqdGkiOiIwNDVhYWU3NTU1NDRiNmFmMjYxNzkzNTIwYjllZTNhZGJhZTQwNjhjNzc4MTYxNTJlYmY5NzIwMGIyZjAzNzg1NmFmZTJkZDgwYWY1ZTVlOSIsImlhdCI6MTY5ODg0MTg0MiwibmJmIjoxNjk4ODQxODQyLCJleHAiOjE2OTg5MjgyNDIsInN1YiI6Ijc4MDM3NDUiLCJncmFudF90eXBlIjoiIiwiYWNjb3VudF9pZCI6Mjk5MzExOTAsImJhc2VfZG9tYWluIjoiYW1vY3JtLnJ1IiwidmVyc2lvbiI6Miwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImZpbGVzIiwiY3JtIiwiZmlsZXNfZGVsZXRlIiwibm90aWZpY2F0aW9ucyJdfQ.lQNyVlknGbWR0UeEmucrXaNCXMTVXyF8Ot2Nms_wSXs0lZofIkGMqMDv2dPDHO5UJE0FP-F4FaHkQlkpyj2EXMALYN5dS-WpWC6AquaNH_Xo1lcr8T0M_44uGL7obp6cq3J8nOhNAVmx8uv0edb96-nq8GSuiLBBI7WLWB_3tZf_yuUrY0FLEVJpeMOrbVuijAyA2CY5uJq5X1I1krWYM7H2Gqvwfi5mo_nnZT76hEci180eln3Eu83-9PoPcIckHcBaUeerbJ3v714SNq1Ha0WSwj4G6Y-aoUZ-WD3QL6uV5Y4TlxH9zRg-kQwsiU6j7CHLq0601mz3jzW0FYdECg';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImExMGMxZjNlZWFhYjZlODQ3YjI3NzA0NDVkMWZkOTdhMWMyZjcxNDdjZDRmN2E0OTlkYjlmYmI4MWQ5YWIwYWEwN2U3YzliYmY1MDUwZWU5In0.eyJhdWQiOiIzNGE0ZmNiZC1jZTM4LTQ0MmUtOGYxZC04Nzg1NzhmMThmMjAiLCJqdGkiOiJhMTBjMWYzZWVhYWI2ZTg0N2IyNzcwNDQ1ZDFmZDk3YTFjMmY3MTQ3Y2Q0ZjdhNDk5ZGI5ZmJiODFkOWFiMGFhMDdlN2M5YmJmNTA1MGVlOSIsImlhdCI6MTY5OTI2NTA1NywibmJmIjoxNjk5MjY1MDU3LCJleHAiOjE2OTkzNTE0NTcsInN1YiI6Ijc4MDM3NDUiLCJncmFudF90eXBlIjoiIiwiYWNjb3VudF9pZCI6Mjk5MzExOTAsImJhc2VfZG9tYWluIjoiYW1vY3JtLnJ1IiwidmVyc2lvbiI6Miwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImZpbGVzIiwiY3JtIiwiZmlsZXNfZGVsZXRlIiwibm90aWZpY2F0aW9ucyJdfQ.LIQhWsv5HUj_xxV3j90upKVn9tUO-W-M_pUxC5jcUKi5sogGcgh9WdRZ1ggP9SlF8UXGuBtEat1LHbv_zCSdNX4spDvVAdtTOCiD1FxczfZO3NcZKMbWRUNGrRajxcLt8gyVTnskh8Mbcx8QQV0C2PYYQCweWzOmxLlSQdklvZylufPehRBGDCDGfr9lrChFTJIb1rir2mKQRMrCh6n-oYV8mnTAQ72cHyNJV_P8M_kj4DfYJCLuciisFPpE8iLyUHF6Sjp3IqFKmyuhScLyrIYHRwl0RMV8Wdlh_xaHMQSIKMt4qUeBavbb1y-EVxtxHRExYZcXxvP-TEE-8wgOBQ';
 
-    const checkContactUrl = 'https://crmamomipinstitute.amocrm.ru/api/v4/leads/20717327'
+    const checkContactUrl = 'https://crmamomipinstitute.amocrm.ru/api/v4/leads/20744349'
     // https://crmamomipinstitute.amocrm.ru/api/v4/leads/custom_fields/704681- список программа доступных
     // Опции для GET-запроса, включая заголовок с access_token
-    const options = {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-      },
-    };
-    const phone = 777
-    const addNote= [
-      {
-        note_type: 'common',
-        params: {
-          "text": `новый данные:
-          телефон: ${phone}`
-        }
-      }
-    ]
 
     // Выполните GET-запрос к amoCRM API
     const response = await axios.get(checkContactUrl, {
@@ -46,8 +31,12 @@ const tokens = async (req, res) => {
       res.status(response.status).json({ error: response });
     }
   } catch (error) {
-    console.error('Ошибка при выполнении запроса:', error);
-    res.status(500).json({ error: 'Внутренняя ошибка сервера' });
+    console.log('Ошибка при выполнении запроса:', error.response.status);
+    if (error.response.status === 401) {
+      console.log('asdasdas', error.response.data)
+      res.status(200).json( error.response.data )
+    }
+    // res.status(500).json({ error });
   }
 };
 

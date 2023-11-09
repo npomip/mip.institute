@@ -62,10 +62,8 @@ const FormAlpha = ({
   const [captchaIsDone, setCaptchaIsDone] = useState(false)
 
   const onChange = async (value) =>  {
-    // const captchaToken = await recaptchaRef.current.executeAsync();
-    // console.log(captchaToken)
     const req = await verifyCaptcha({token: value})
-    // recaptchaRef.current.reset();
+
     if(req === 200){
       console.log('Set true')
       setCaptchaIsDone(true)

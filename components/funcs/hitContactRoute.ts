@@ -54,7 +54,7 @@ const hitContactRoute = async values => {
     const nowUNIXtime = moment().unix()
     const differenceInTime = expireTime - nowUNIXtime
     console.log(checkTokenData?.amos[0])
-    if(differenceInTime < 180000) {
+    if(differenceInTime < 1800) {
       console.log('Time to upd token')
       const exchangeTokensResponse = await axios.post(
         `${routes.front.root}/api/amoCRMexchangeToken`,

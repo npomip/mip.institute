@@ -244,8 +244,8 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              // <BtnAlpha text={cta} isDisabled={!captchaIsDone} />
-              <BtnAlpha text={cta}  isDisabled={isDisabled}/>
+              <BtnAlpha text={cta} isDisabled={!captchaIsDone} />
+              // <BtnAlpha text={cta}  isDisabled={isDisabled}/>
             )}
           </div>
           {dirtyFields.phone && <ReCAPTCHA

@@ -1,12 +1,12 @@
+import routes from '@/config/routes';
 import axios from 'axios'
 
 const createLead = async (req, res) => {
-  const { name, phone, price, email, promo, access, leadPage, ymUid } = req.body;
-  console.log('in createLead', phone)
 
-  // Замените на ваш access_token
-  // const accessToken =
-  //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE2ZTMxZTZhNzg2YTgwZjUyZTAyOWNkMWI4MDg2YTE5YzBmMDcyMTI3M2UxZDcxYjY1YWI0MmM0OTdmZjZhYzg4ZmM0OWYxODE3NTRiMjM2In0.eyJhdWQiOiIzNGE0ZmNiZC1jZTM4LTQ0MmUtOGYxZC04Nzg1NzhmMThmMjAiLCJqdGkiOiIxNmUzMWU2YTc4NmE4MGY1MmUwMjljZDFiODA4NmExOWMwZjA3MjEyNzNlMWQ3MWI2NWFiNDJjNDk3ZmY2YWM4OGZjNDlmMTgxNzU0YjIzNiIsImlhdCI6MTY5ODU5MzMyMiwibmJmIjoxNjk4NTkzMzIyLCJleHAiOjE2OTg2Nzk3MjIsInN1YiI6Ijc4MDM3NDUiLCJncmFudF90eXBlIjoiIiwiYWNjb3VudF9pZCI6Mjk5MzExOTAsImJhc2VfZG9tYWluIjoiYW1vY3JtLnJ1IiwidmVyc2lvbiI6Miwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImZpbGVzIiwiY3JtIiwiZmlsZXNfZGVsZXRlIiwibm90aWZpY2F0aW9ucyJdfQ.QP5jroQh_WegYwYLB1p7ELwStNsjrYhssHeLH_RgcwDgWQnuHxQS8hlxanG4rmuHEIPLu2jKXT1cFOFxHrIUgnKUS3a_80oSvftRyrRgN9UjpHu1zOo3w6_RxbaYtxAWau-2e-LW_vnuSq1p9WoG38uHViROQlM0R6p7enTR8uctAW0Y7z52_mC8ReobSKSANWioAivgVKOLaYOtTFK8a-mEuzXw9SArFqq56lOTyeEABBAXBmoVKFerHKtetEDzEHQHvlBASrDVv5Gr2TENBa_oJgiLspiLkf7rNTbQoL0qQlGvB9oF0mDRIOt4b1nlh4353TyfkqoX3sYgB4Q4DQ'
+  const { id, name, phone, price, email, question, promocode, access, leadPage, ymUid, utm, blockForAmo,edPartners } = req.body;
+  console.log('in createLead', utm)
+
+  console.log('CREATELEAD',question,promocode)
 
   // URL для запроса сделки по ID
   const apiUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/complex`
@@ -18,29 +18,155 @@ const createLead = async (req, res) => {
         // price: price,
         custom_fields_values: [
           {
+            // ID заявки
+            field_id: 705911,
+            values: [
+              {
+                value: id || null
+              }
+            ]
+          },
+          {
+            // Промокод
             field_id: 705109,
             values: [
               {
-                value: promo
+                value: promocode || null
               }
             ]
           },
           {
+            // Вопрос
+            field_id: 704895,
+            values: [
+              {
+                value: question || null
+              }
+            ]
+          },
+          {
+            // раздел сайта
             field_id: 1050833,
             values: [
               {
-                value: 'Main'
+                value: blockForAmo || null
               }
             ]
           },
           {
-            field_id: 1043325,
+          // конкретная программа из списка
+            field_id: 704681,
             values: [
               {
-                value: 'check_utm'
+                // enum_id: 427011
               }
             ]
           },
+          {
+            // источник рекламы(utm_source)
+            field_id: 705917,
+            values: [
+              {
+                value: utm &&utm?.utm_source || null
+              }
+            ]
+          },
+          {
+            // тип трафика (utm_medium)
+            field_id: 705919,
+            values: [
+              {
+                value: utm &&utm?.utm_medium || null
+              }
+            ]
+          },
+          {
+            // название рекламной компании (utm_campaign)
+            field_id: 705921,
+            values: [
+              {
+                value: utm &&utm?.utm_campaign || null
+              }
+            ]
+          },
+          {
+            // Баннер (utm_content)
+            field_id: 705925,
+            values: [
+              {
+                value: utm &&utm?.utm_content || null
+              }
+            ]
+          },
+          {
+            // ключевое слово (utm_term)
+            field_id: 705927,
+            values: [
+              {
+                value: utm && utm?.utm_term || null
+              }
+            ]
+          },
+          {
+            // страница на которой оставлена заявка
+            field_id: 997743,
+            values: [
+              {
+                value: `${routes.front.root}${leadPage}` || null
+              }
+            ]
+          },
+          {
+            // Calltouch click_id
+            field_id: 1045313,
+            values: [
+              {
+                value: utm && utm?.cl_uid || null
+              }
+            ]
+          },
+          {
+            field_id: 705913,
+            values: [
+              {
+                value: ymUid || null
+              }
+            ]
+          },
+          // edPartners
+          {
+            field_id: 1052927,
+            values: [
+              {
+                value: edPartners?.toString() || null
+              }
+            ]
+          },
+          // {
+          //   field_id: 1043321,
+          //   values: [
+          //     {
+          //       value: 'camp'
+          //     }
+          //   ]
+          // },
+          // {
+          //   field_id: 1043321,
+          //   values: [
+          //     {
+          //       value: 'camp'
+          //     }
+          //   ]
+          // },
+          // {
+          //   field_id: 1043325,
+          //   values: [
+          //     {
+          //       value: 'check_utm'
+          //     }
+          //   ]
+          // },
+
         ],
         _embedded: {
           tags: [
@@ -90,13 +216,10 @@ const createLead = async (req, res) => {
       const leadData = response.data
       console.log(response.status)
       res.status(200).json({ status: 200, msg: 'Lead created' })
-    } else {
-      console.log(response.data.error)
-      res.status(response.status).json({ status: 500, msg: 'Unexpected server error' })
-    }
+    } 
   } catch (error) {
-    console.error('Ошибка при выполнении запроса:', error)
-    res.status(500).json({ error: error })
+    console.error('Ошибка при создании нового лида:', error )
+    res.status(400).json(error.response)
   }
 }
 

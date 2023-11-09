@@ -2,12 +2,10 @@ import unwantedIps from '@/helpers/unwantedIps';
 
 export default async function handler(req, res) {
 
-  console.log(req.connection)
   const ip =
     req.headers['x-forwarded-for'] ||
     // req.socket.remoteAddress ||
     req.connection.remoteAddress
-  console.log(ip)
 
   try {
     if (unwantedIps.includes(ip)) {
@@ -18,7 +16,7 @@ export default async function handler(req, res) {
     }
     
   } catch (err) {
-    console.log(err);
+    // console.log('errrrrrrrr',err);
     res.status(500).json({ success: false });
   }
 }

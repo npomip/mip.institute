@@ -26,7 +26,8 @@ const contact = async (req, res) => {
     utms,
     referer,
     ymUid,
-    blockForAmo
+    blockForAmo,
+    error
   } = req.body
 
   console.log(req.body)
@@ -56,7 +57,6 @@ const contact = async (req, res) => {
   // get ip
   const ip =
     req.headers['x-forwarded-for'] ||
-    // req.socket.remoteAddress ||
     req.connection.remoteAddress ||
     null
   console.log(ip, 'ipppppp')
@@ -139,7 +139,9 @@ const contact = async (req, res) => {
     clickid: (utm && utm.cl_uid) || null,
     utmCampaign: (utm && utm.utm_campaign) || (utms && utms.utm_campaign) || null,
     utmContent: (utm && utm.utm_content) || (utms && utms.utm_content) || null,
-    utmTerm: (utm && utm.utm_medium) ||(utms && utms.utm_term) || null
+    utmTerm: (utm && utm.utm_medium) ||(utms && utms.utm_term) || null,
+  errorStatus: (error && error.status) || null,
+  errorDetail: (error && error.detail) || null
   }
 
   const subject = 'Новая заявка с mip.institute'
@@ -323,7 +325,14 @@ const contact = async (req, res) => {
         tdKey: 'Дубль',
         tdVal: null
       },
-      
+        {
+          tdKey: 'Код ошибки',
+          tdVal: data.errorStatus
+        },
+        {
+          tdKey: 'Описание ошибки ',
+          tdVal: data.errorDetail
+        },
     ]
 
     const output = /* html */ `
@@ -431,6 +440,7 @@ const contact = async (req, res) => {
         html
       })
       console.log('Message sent: %s', emailRes.messageId)
+      console.log('CONTACT', req.body)
       res.status(200).json({ status: 200, msg: 'Email is sent' })
   } catch (err) {
     res.status(500).json({ status: 500, err, msg: 'Unexpected server error' })

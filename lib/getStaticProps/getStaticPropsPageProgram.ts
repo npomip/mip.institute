@@ -168,7 +168,7 @@ const getStaticPropsPageProgram = async ({
     }
   })
   const reviewsData = res?.data?.reviews || []
-  console.log('RRRRRR', reviewsData)
+  // console.log('RRRRRR', reviewsData)
   return {
     props: {
       ...res?.data,

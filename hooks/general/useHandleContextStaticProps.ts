@@ -16,6 +16,7 @@ const useHandleContextStaticProps = ({
   curProgramsStudyFieldSlug
 }: THandleContextStaticPropsProps) => {
   const {
+    setBlogs,
     setProgram,
     setPrograms,
     setCourses,

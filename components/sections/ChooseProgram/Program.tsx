@@ -20,7 +20,6 @@ const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenList
     professions,
   } = useContext(ContextStaticProps)
 
-  // console.log(courses)
   // const [openCardIndex, setOpenCardIndex] = useState(-1);
 
   const coursesFiltered =
@@ -37,7 +36,6 @@ const Program = ({ setHoveredSlug, slug, label, href, ofType, index, setOpenList
       studyFieldSlug: slug
     })
 
-  // console.log(slug)
 
   const contentStyle = {
     background: '#ffffff',

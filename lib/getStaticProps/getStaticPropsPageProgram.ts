@@ -16,6 +16,7 @@ const getStaticPropsPageProgram = async ({
   props: TypePageProgramProps
   revalidate: number | boolean
 }> => {
+  // console.log('context', context)
   const studyFieldSlug = context?.params?.studyFieldSlug?.toString() || null
   const slug = context?.params?.slug?.toString() || null
 
@@ -168,7 +169,6 @@ const getStaticPropsPageProgram = async ({
     }
   })
   const reviewsData = res?.data?.reviews || []
-  // console.log('RRRRRR', reviewsData)
   return {
     props: {
       ...res?.data,

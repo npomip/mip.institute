@@ -10,6 +10,7 @@ type TypeSortBasedOnNumericOrderProps = {
   reviews?: TypeLibReviews
   teachers?: TypeLibTeachers
   webinars?: TypeLibWebinars
+  uniqueReviews?: TypeLibReviews
 }
 
 // TODO: figure out better types
@@ -17,9 +18,10 @@ const sortBasedOnNumericOrder = ({
   programs,
   reviews,
   teachers,
-  webinars
+  webinars,
+  uniqueReviews
 }: TypeSortBasedOnNumericOrderProps): any => {
-  const arr = programs || reviews || teachers || webinars || []
+  const arr = programs || reviews || teachers || webinars || uniqueReviews || []
 
   return [...arr].sort(
     (a, b) =>

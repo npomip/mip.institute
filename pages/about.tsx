@@ -34,7 +34,6 @@ const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
     courses,
     professions,
   } = useContext(ContextStaticProps)
-  console.log(courses)
   return (
     <>
       <NextSeo

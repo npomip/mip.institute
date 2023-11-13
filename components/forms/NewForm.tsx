@@ -58,7 +58,6 @@ const NewForm = ({
     popup && setFocus('name')
   }, [setFocus, popup])
 
-  console.log(dirtyFields)
 
   const router = useRouter()
   const [captchaIsDone, setCaptchaIsDone] = useState(false)
@@ -76,7 +75,7 @@ const NewForm = ({
       setCaptchaIsDone(false)
     }
   }
-  console.log(captchaIsDone)
+
 
   const onSubmit = async data => {
     const ipCheck = await ipCheckFunc()

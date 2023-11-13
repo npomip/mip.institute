@@ -19,6 +19,8 @@ import {
   getStaticPropsPagePrograms,
   getStaticPropsPageProgram
 } from '@/lib/index'
+import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
+import getStaticPropsPageJournal from '../getStaticProps/getStaticPropsJournal'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -38,6 +40,7 @@ const handleGetStaticProps = async ({
     | TypePageWebinarsProps
     | TypePageProgramsProps
     | TypePageProgramProps
+    | TypePageJournalProps
     | {}
   revalidate: number | boolean
 }> => {
@@ -75,6 +78,9 @@ const handleGetStaticProps = async ({
 
       case routes.front.program:
         return await getStaticPropsPageProgram({ context, type })
+
+      case routes.front.journal:
+        return await getStaticPropsPageJournal({ context })
 
       default:
         return {

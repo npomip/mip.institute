@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import {
   sortBasedOnNumericOrder,
-  sortReviewsCreatedAtASC
+  sortUniqueReviewsCreatedAtASC
 } from '@/helpers/index'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
@@ -13,12 +13,13 @@ import Reviews from '@/components/sections/Reviews'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import ReviewList from '@/components/sections/Reviews/ReviewList'
 
-const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews }) => {
+const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews, uniqueReviews }) => {
   useHandleContextStaticProps({ programs })
 
   const reviewsSorted = sortBasedOnNumericOrder({
-    reviews: sortReviewsCreatedAtASC({ reviews })
+    reviews: sortUniqueReviewsCreatedAtASC({ uniqueReviews })
   })
+  console.log(uniqueReviews)
 
   const seoParams = {
     title: `Отзывы и статьи наших студентов | ${company.desc} | ${company.name}

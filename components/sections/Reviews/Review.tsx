@@ -17,15 +17,20 @@ export default function Review({ review }) {
   return (
     <div
       className={styles.container}
-      onMouseEnter={handleMouseEvent}
-      onMouseLeave={handleLeaveEvent}>
+      // onMouseEnter={handleMouseEvent}
+      // onMouseLeave={handleLeaveEvent}
+      >
+      <div className={styles.upper}>
       <div className={styles.img}>
+        
+
+        
         <ImgReview
           src={review?.picture?.[0]?.url}
           alt={review.name}
-          width={400}
+          width={250}
           height={getImageHeight({
-            width: 450,
+            width: 250,
             widthInitial: review?.picture?.[0]?.width,
             heightInitial: review?.picture?.[0]?.height
           })}
@@ -36,10 +41,11 @@ export default function Review({ review }) {
 
         <p>{review.name}</p>
         <p>{review.profession}</p>
+        </div>
       </div>
       <div className={styles.review}>
-        <p>{review.story.slice(0, 160).concat('...')}</p>
-        <div className={styles.trigger}>
+        <p>{review.story}</p>
+        {/* <div className={styles.trigger}>
           { isHover &&
             <Popup
               trigger={
@@ -57,9 +63,9 @@ export default function Review({ review }) {
                     <ImgReview
                       src={review?.picture?.[0]?.url}
                       alt={review.name}
-                      width={110}
+                      width={50}
                       height={getImageHeight({
-                        width: 110,
+                        width: 50,
                         widthInitial: review?.picture?.[0]?.width,
                         heightInitial: review?.picture?.[0]?.height
                       })}
@@ -73,7 +79,7 @@ export default function Review({ review }) {
               )}
             </Popup>
           }
-        </div>
+        </div> */}
       </div>
     </div>
   )

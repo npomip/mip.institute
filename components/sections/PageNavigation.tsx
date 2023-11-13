@@ -20,8 +20,6 @@ const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachers
     faq: faqRef,
   }
 
-  // console.log(activeSection)
-
   const handleScrollToSection = section => {
     sectionRefs[section].current.scrollIntoView({ behavior: 'smooth' })
   }

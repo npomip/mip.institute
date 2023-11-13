@@ -46,7 +46,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       programs?.length > 0
         ? filterProgramsByType({ programs, type: 'profession' })
         : []
-
+    const blogs = pageProps.blogs
     const studyFields = programs?.length > 0 ? getStudyFields(programs) : []
 
     const studyFieldsProfessions =
@@ -74,7 +74,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       curProgramsType,
       curProgramsStudyFieldSlug,
       searchTerm,
-      filteredPrograms
+      filteredPrograms,
+      blogs
     }
   }
 
@@ -86,6 +87,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [reviews, setReviews] = useState(defaultStateProps.reviews)
   const [professions, setProfessions] = useState(defaultStateProps.professions)
   const [studyFields, setStudyFields] = useState(defaultStateProps.studyFields)
+
   const [studyFieldsProfessions, setStudyFieldsProfessions] = useState(
     defaultStateProps.studyFieldsProfessions
   )
@@ -102,6 +104,8 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [filteredPrograms, setFilteredPrograms] = useState(
     defaultStateProps.filteredPrograms
   )
+
+  const [blogs, setBlogs] = useState(defaultStateProps.blogs)
 
   const [loading, setLoading] = useState(false)
   //cookie for edPartners
@@ -207,6 +211,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           curProgramsStudyFieldSlug,
           searchTerm,
           filteredPrograms,
+          blogs,
+          setBlogs,
           setProgram,
           setPrograms,
           setCourses,

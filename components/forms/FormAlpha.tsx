@@ -62,10 +62,8 @@ const FormAlpha = ({
   const [captchaIsDone, setCaptchaIsDone] = useState(false)
 
   const onChange = async (value) =>  {
-    // const captchaToken = await recaptchaRef.current.executeAsync();
-    // console.log(captchaToken)
     const req = await verifyCaptcha({token: value})
-    // recaptchaRef.current.reset();
+
     if(req === 200){
       console.log('Set true')
       setCaptchaIsDone(true)
@@ -244,7 +242,7 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={!captchaIsDone} />
+              <BtnAlpha text={cta} isDisabled={!captchaIsDone || isDisabled} />
               // <BtnAlpha text={cta}  isDisabled={isDisabled}/>
             )}
           </div>

@@ -21,7 +21,6 @@ import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 import Logo from '../general/Logo'
 import BtnDzen from '../btns/BtnDzen'
 import SearchProgram from '../general/SearchProgram'
-import sendToEddu from '../funcs/sendToEddu'
 import PopupFooterReviews from '../popups/PopupFooterReviews'
 
 const Footer = () => {
@@ -86,11 +85,7 @@ const Footer = () => {
     }, 300)
   }, [isEdpartners, partCookie])
   
-{/* for test only */}
-  const edduSend= () => {
-    sendToEddu()
-  }
-  {/* for test only */}
+
   return (
     <footer className={stls.container}>
       <Wrapper>

@@ -12,6 +12,7 @@ import { getCookie } from 'cookies-next'
 import ReCAPTCHA from "react-google-recaptcha";
 import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
+import ipCheckFunc from '../funcs/ipCheckFunc'
 
 
 type FormValues = {
@@ -31,6 +32,7 @@ const NewForm = ({
   agreement = false,
   promo = false,
   inProfessions=false,
+  blockForAmo = 'Подобрать программу'
 }) => {
   const {
     register,
@@ -49,6 +51,7 @@ const NewForm = ({
 
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
+  const [isIpCheckFailed, setIsIpCheckFailed] = useState(false);
   const [token, setToken] = useState(null)
 
   useEffect(() => {
@@ -63,10 +66,8 @@ const NewForm = ({
   const recaptchaRef = useRef(null)
 
   const onChange = async (value) =>  {
-    // const captchaToken = await recaptchaRef.current.executeAsync();
-    // console.log(captchaToken)
+
     const req = await verifyCaptcha({token: value})
-    // recaptchaRef.current.reset();
     if(req === 200){
       console.log('Set true')
       setCaptchaIsDone(true)
@@ -78,10 +79,14 @@ const NewForm = ({
   console.log(captchaIsDone)
 
   const onSubmit = async data => {
-    setIsDisabled(true)
-    setThanksIsOpen(true)
+    const ipCheck = await ipCheckFunc()
+    if( ipCheck === 200) {
+      console.log('IP 200')
+      setIsDisabled(true)
+      // setThanksIsOpen(true)
+
+    // window.open(routes.front.gratefull, '_blank');
     // handle loader
-    window.open(routes.front.gratefull, '_blank');
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     data.utms = utms
@@ -92,22 +97,38 @@ const NewForm = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
-    console.log('clickId', clickId)
-    // const clickId = parse(document.cookie).utm || null;
+    // console.log('clickId', clickId)
+
+    data.blockForAmo = blockForAmo
+
     if (typeof clickId === 'string') {
       data.utm = JSON.parse(clickId);
     } else {
       data.utm = null; // или какое-то другое значение по умолчанию
     }
-    // document.cookie = "utm=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    console.log(data)
+
+    // console.log(data)
     const req = await hitContactRoute(data)
+    console.log('req Alpha =====>', req)
     if (req === 200) {
+
+      // router.push('/gratefull')
       console.log('Success')
+      window.open(routes.front.gratefull, '_blank');
+      setIsIpCheckFailed(false)
+      // setIsDisabled(true)
+      setThanksIsOpen(true)
     } else {
       console.log('err')
+      setIsIpCheckFailed(true)
     }
     // const calltouch = await sendToCalltouch(data)
+
+    } else {
+      setIsIpCheckFailed(true)
+      console.log(errors)
+    }
+    
   }
 
   const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
@@ -200,7 +221,7 @@ const NewForm = ({
             ) : (
               <BtnAlpha text={cta} isDisabled={isDisabled} />
             )} */}
-            <button disabled={!captchaIsDone} className={stls.violetButton}>Подобрать программу</button>
+            <button disabled={!captchaIsDone || isDisabled} className={stls.violetButton}>Подобрать программу</button>
           </div>
           
           {agreement && (

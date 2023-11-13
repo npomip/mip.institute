@@ -7,7 +7,7 @@ import {
   sortBasedOnNumericOrder,
   sortReviewsCreatedAtASC
 } from '@/helpers/index'
-import { routes, company } from '@/config/index'
+import { routes, company, prod } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import {
@@ -75,6 +75,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
+        nofollow={prod ? false : true}
+        noindex={prod ? false : true}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

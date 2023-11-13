@@ -28,7 +28,7 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
       studyField => studyField.slug === curProgramsStudyFieldSlug
     )[0]?.label || 'Программы'
 
-    console.log(ofType, curProgramsStudyFieldSlug)
+    // console.log(ofType, curProgramsStudyFieldSlug)
 
   const seoParams = {
     title: getSeoTitle(ofType, curProgramsStudyFieldSlug, studyFieldLabel),

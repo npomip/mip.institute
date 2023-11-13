@@ -24,6 +24,19 @@ const getStaticPropsPageReviews = async ({
             idx
           }
         }
+        uniqueReviews{
+          id
+          name
+          profession
+          title
+          story
+          createdAt
+          picture {
+            url
+            width
+            height
+            } 
+          }
         reviews {
           id
           name
@@ -43,7 +56,7 @@ const getStaticPropsPageReviews = async ({
       }
     `
   })
-
+console.log(res)
   return {
     props: res.data,
     revalidate: revalidate.default

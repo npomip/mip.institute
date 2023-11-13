@@ -28,6 +28,7 @@ import { useEffect, useRef } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
+import listOnCourses from '@/data/general/listOnCourses'
 
 interface Breadcrumb {
   label: string;
@@ -63,7 +64,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
-
+console.log(ofType)
   const subtitle = 
     <>
       <p className={stls.leftTitle}>
@@ -111,7 +112,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       <WhatYouWillLearn title={'Чему вы научитесь'}  />
       </>
       )}
-      <HowProcessGoes processRef={processRef} list={list} subtitle={subtitle} />
+      <HowProcessGoes processRef={processRef} list={ofType === 'course'? listOnCourses : list} subtitle={subtitle} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />

@@ -34,7 +34,6 @@ import TopCourses from '@/components/sections/TopCourses'
 const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) => {
   useHandleContextStaticProps({ programs })
 
-  // console.log(teachers)
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
       'Косина Алла Александровна',

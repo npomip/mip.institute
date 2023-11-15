@@ -263,6 +263,21 @@ const MyApp = ({ Component, pageProps, router }) => {
             `
         }}
       />
+      <Script
+        id='google pixel'
+        dangerouslySetInnerHTML={{
+          __html: `
+          (function (d, w) {
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://ngl-pixel.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
+                n.parentNode.insertBefore(s, n);
+        })(document, window);
+            `
+        }}
+      />
       <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77"
                   height="0" width="0" style={{display: 'none', visibility: 'hidden'}}></iframe>

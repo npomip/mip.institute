@@ -67,22 +67,19 @@
   list-style: none
 
 .item
+  @include m.flex($ai: center)
+  &::before
+    content: '•'
+    color: #F87E1B
+    font-size: f.px(35)
+    line-height: 10%
+    @include m.gap($mr: f.px(14))
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(8))
+    
   @include m.media(laptop, desktop)
-    @include m.flex($ai: center)
     @include m.gap($mb: f.px(12))
     font-size: f.px(18)
-    &::before
-      content: '•'
-      color: #F87E1B
-      font-size: f.px(35)
-      line-height: 10%
-      @include m.gap($mr: f.px(14))
-
-  & > .p
-    @include m.media(phone, tablet)
-      @include m.gap($pl: f.px(12))
 
 .description
   color: #6F01C6

@@ -1,0 +1,29 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(laptop, desktop)
+  @include m.media(phone, tablet)
+    // @include m.gap($pb: f.px(90), $pt: f.px(90))
+
+.innerContainer
+  display: flex
+  flex-wrap: nowrap
+  overflow-x: auto
+
+.one
+  min-width: 366px
+  max-width: 366px
+  height: 300px
+  background: black
+
+.two
+  min-width: 470px
+  max-width: 470px
+  background: green
+
+.three
+  min-width: 270px
+  max-width: 270px
+  background: blue

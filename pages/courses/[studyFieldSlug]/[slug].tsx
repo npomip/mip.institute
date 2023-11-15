@@ -34,8 +34,6 @@ const CoursePage: NextPage<TypePageProgramProps> = ({
   });
 
 const slug = program.slug
-// console.log(curProgramsType)
-
 
   return (
     <>

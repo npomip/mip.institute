@@ -29,6 +29,7 @@ import ButtonToTop from '../sections/ButtonToTop'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import listOnCourses from '@/data/general/listOnCourses'
+import WhyYouShouldStartPsychology from '../sections/WhyYouShouldStartPsychology'
 
 interface Breadcrumb {
   label: string;
@@ -96,6 +97,7 @@ console.log(ofType)
       costRef={costRef}
       reviewsRef={reviewsRef}
       faqRef={faqRef}/>
+      {/* <WhyYouShouldStartPsychology /> */}
       {programOverview && <ProgramOverview />}
       {/* <WhatYouWillLearn title={'Чему вы научитесь'}  />
       <ForWhom /> */}

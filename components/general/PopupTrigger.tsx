@@ -42,6 +42,7 @@ type PopupTriggerType = {
     | 'learnMore'
     | 'consultMe'
     | 'programQuestion'
+    | '2for1'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
@@ -84,6 +85,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Хочу консультацию'
         : cta === 'programQuestion'
         ? 'Вопрос по программе'
+        : cta === '2for1'
+        ? 'Получить 2 по цене 1'
         : '',
     title:
       cta === 'askQuestion'
@@ -120,6 +123,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Хочу консультацию'
         : cta ==='programQuestion'
         ? 'Вопрос по программе'
+        : cta === '2for1'
+        ? 'Оставить заявку'
         : '',
     desc:
       cta === 'askQuestion' ? (
@@ -219,6 +224,13 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           У вас появились вопросы по программе или конкретному модулю?{' '}
           <br className={stls.phonetablet} /> Напишите нам в форме обратной связи
         </>
+      ) :
+      cta === '2for1' ? (
+        <>
+          Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
       ) : (
         ''
       ),
@@ -257,6 +269,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Получить консультацию'
         : cta === 'programQuestion'
         ? 'Задать вопрос'
+        : cta === '2for1'
+        ? 'Оставить заявку'
         : '',
       blockForAmo:
         cta === 'askQuestion'
@@ -293,6 +307,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           ? 'Получить консультацию'
           : cta === 'programQuestion'
           ? 'Вопрос по программе'
+          : cta === '2for1'
+          ? 'Баннер 2 по цене одного'
           : ''
   }
 

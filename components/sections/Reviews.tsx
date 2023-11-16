@@ -45,7 +45,7 @@ const Reviews = ({ standalone = false, reviews, reviewsRef, onMain }: ReviewsTyp
   ))
 
   const desktopSwiperOptions = {
-    slidesNum: 1.7,
+    slidesNum: 2,
     spaceBetween: 20
   }
   const laptopSwiperOptions = {

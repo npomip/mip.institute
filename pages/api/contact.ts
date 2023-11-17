@@ -439,8 +439,8 @@ const contact = async (req, res) => {
         `, // plain text body
         html
       })
-      console.log('Message sent: %s', emailRes.messageId)
-      console.log('CONTACT', req.body)
+      // console.log('Message sent: %s', emailRes.messageId)
+      // console.log('CONTACT', req.body)
       res.status(200).json({ status: 200, msg: 'Email is sent' })
   } catch (err) {
     res.status(500).json({ status: 500, err, msg: 'Unexpected server error' })

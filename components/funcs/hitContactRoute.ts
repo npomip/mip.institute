@@ -87,14 +87,11 @@ const hitContactRoute = async values => {
 
     } else {
       console.log('token life time is suffficient')
-
       values.access = oldAccess_token
       const newLead =  await createOrUpdateLead(values)
       console.log('newLead', newLead)
-      // if(newLead.data.status === 200) {
       console.log('newlead success')
       return newLead.data.status
-      // } 
     }
 
     // 
@@ -110,52 +107,16 @@ const hitContactRoute = async values => {
     // return { res, edPartnersRes };
   } catch (err) {
     // console.log(err)
-    
-    console.log('asdasfasdf', err)
-    return err
+    try {
+      const res = await axios.post(`${routes.front.root}/api/contact`, values)
+    console.log('asdasfasdf', res)
+    return res.status
+    } catch (error) {
+      console.log(error)
+      return error
+    }
   }
 }
 
-// async function main() {
-//   try {
-//     // Проверка токена
-//     // const isTokenValid = await checkToken();
-//     const { data } = await updateTokens({
-//       variables: {
-//         input: {
-//           where: { id: tokenId },
-//           data: {
-//             access: exchangeTokensResponse.data.access_token,
-//             refresh: exchangeTokensResponse.data.refresh_token,
-//             expired_in: nowUNIXtime + 84400
-//           }
-//         }
-//       }
-//     })
-
-//     if (isTokenValid) {
-//       // Сделка еще не создана
-//       const isDealCreated = await createOrUpdateLead();
-//     } else {
-//       // Обновление токена
-//       const tokenRefreshed = await refreshToken();
-
-//       if (tokenRefreshed) {
-//         // Повторная попытка создания сделки после обновления токена
-//         const isDealCreated = await createDeal();
-//         if (!isDealCreated) {
-//           // Обновление существующей сделки
-//           await updateDeal();
-//         }
-//       } else {
-//         // Если обновление токена не удалось, выполнение через SMTP
-//         sendEmail();
-//       }
-//     }
-//   } catch (error) {
-//     // Обработка ошибок
-//     console.error(error);
-//   }
-// }
 
 export default hitContactRoute

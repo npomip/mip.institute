@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
-import { PopupThankyou } from '@/components/popups'
+import { PopupLoading, PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
 import ReCAPTCHA from "react-google-recaptcha";
@@ -52,6 +52,7 @@ const FormAlpha = ({
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     popup && setFocus('name')
@@ -79,6 +80,7 @@ const FormAlpha = ({
     if( ipCheck === 200) {
       console.log('IP 200')
       setIsDisabled(true)
+      setLoading(true)
       // setThanksIsOpen(true)
 
     // window.open(routes.front.gratefull, '_blank');
@@ -107,7 +109,7 @@ const FormAlpha = ({
     const req = await hitContactRoute(data)
     console.log('req Alpha =====>', req)
     if (req === 200) {
-
+      setLoading(false)
       // router.push('/gratefull')
       console.log('Success')
       window.open(routes.front.gratefull, '_blank');
@@ -116,6 +118,7 @@ const FormAlpha = ({
       setThanksIsOpen(true)
     } else {
       console.log('err')
+      setLoading(false)
       setIsIpCheckFailed(true)
     }
     // const calltouch = await sendToCalltouch(data)
@@ -136,6 +139,12 @@ const FormAlpha = ({
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
         <PopupThankyou close={() => setThanksIsOpen(false)} />
+      </Popup>
+      <Popup
+        open={loading}
+        closeOnDocumentClick
+        onClose={() => setLoading(false)}>
+        <PopupLoading />
       </Popup>
       <form
         method='post'
@@ -243,7 +252,7 @@ const FormAlpha = ({
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
               <BtnAlpha text={cta} isDisabled={!captchaIsDone || isDisabled} />
-              // <BtnAlpha text={cta}  isDisabled={isDisabled}/>
+              // <BtnAlpha text={cta}  />
             )}
           </div>
           {dirtyFields.phone && <ReCAPTCHA

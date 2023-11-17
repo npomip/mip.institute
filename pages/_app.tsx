@@ -32,6 +32,7 @@ import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
 import { getCookie, setCookie } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
+import StickyBottomBlackFriday from '@/components/layout/StickyBottomBlackFriday'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -233,7 +234,7 @@ const MyApp = ({ Component, pageProps, router }) => {
               <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <StickyBottom />
+            <StickyBottomBlackFriday />
             <Footer />
           </FieldsTooltipState>
         </MenuState>

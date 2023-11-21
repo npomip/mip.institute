@@ -10,7 +10,8 @@
   background: #FCF7FF
   @include m.media(laptop, desktop) 
     @include m.gap($pb: f.px(60))
-  @include m.media(laptop, desktop)
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(30))
   @include m.media(phone, tablet)
     display: flex
     flex-direction: column

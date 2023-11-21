@@ -3,10 +3,14 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  position: relative
-  z-index: 3
+  transform: translateY(0%)
+  transition: transform 0.3s ease-in-out
+  // position: relative
+  opacity: 0.9
   background: #fbf4ff
-  padding-bottom: 0
+  @include m.gap($pb: f.px(60))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(30))
   & h2
     font-size: f.px(44)
     font-weight: 500
@@ -14,6 +18,15 @@
     @include m.media(phone, tablet)
       @include m.gap($mb: f.px(15))
       font-size: f.px(26)
+
+.showDescription
+  // z-index: 10000
+  opacity: 0
+  transform: translateY(100%)
+  // top: 0
+  width: 100%
+  position: absolute
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out
 
 
 .flexContainer
@@ -36,7 +49,7 @@
 .right
   flex-basis: 45%
   align-self: center
-  @include m.gap($mt: f.px(35), $mb: f.px(15))
+  @include m.gap($mt: f.px(35))
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(12))
   
@@ -81,3 +94,16 @@
   font-weight: 350
   @include m.media(phone, tablet)
       font-size: f.px(15)
+
+.switchSection
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+  cursor: pointer
+  &:hover
+    color: #7104C4
+  // @include m.gap($pt: f.px(12))
+  text-decoration: underline
+  text-underline-offset: f.px(4)
+  font-weight: 500
+  p
+    margin: 0

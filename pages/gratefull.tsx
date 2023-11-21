@@ -45,6 +45,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         }}
       />
       <SeoOrganizationJsonLd />
+      {/* <div className="i-flocktory" data-fl-action="exchange" data-fl-user-email="xname@flocktory.com"></div> */}
       <Gratefull />
     </>
   )

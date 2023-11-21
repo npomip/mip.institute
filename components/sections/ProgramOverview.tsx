@@ -8,8 +8,9 @@ import CloudHead from '../imgs/programs/courses/CloudHead'
 import IconBackOfOverview from '../icons/IconBackOfOverview'
 import parse from 'html-react-parser'
 import { IconCircleCheck } from '../icons'
+import classNames from 'classnames'
 
-const ProgramOverview = () => {
+const ProgramOverview = ({toggleOverview,showDescription}) => {
   const { program } = useContext(ContextStaticProps)
 
   const programOverview = program?.programOverview
@@ -19,8 +20,12 @@ const ProgramOverview = () => {
     getListItemsInnerHtml(marked(programOverview))
     const parseTitle = program?.programOverviewTitle?.length > 0 &&
     title
+
   return (
-    <section className={stls.container}>
+    <section className={classNames({
+      [stls.container]: true,
+      [stls.showDescription]: showDescription
+    })}>
       <Wrapper>
         <h2>Описание программы</h2>
         <div className={stls.flexContainer}>
@@ -48,7 +53,9 @@ const ProgramOverview = () => {
             ))}
         </div>
         </div>
-        
+        <div className={stls.switchSection} onClick={toggleOverview}>
+          <p>Зачем осваивать профессию психолога?</p>
+        </div>
       </Wrapper>
     </section>
   )

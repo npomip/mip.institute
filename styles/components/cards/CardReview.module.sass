@@ -5,7 +5,7 @@
 .container
   @include m.flex
   // align-items: center
-  // height: 270px
+  // height: f.px(310)
   @include m.flex($fg: 0, $fs: 0, $fb: f.px(569))
   background: #6F01C6
   color: white
@@ -74,9 +74,11 @@
   display: flex
 
 .bottom
-  height: f.px(161)
+  height: f.px(181)
+  @include m.media(laptop)
+    height: f.px(256)
   @include m.media(phone, tablet)
-    height: f.px(130)
+    height: f.px(170)
   @include m.gap($mt: f.px(15))
 
 .fullBottom

@@ -1,9 +1,9 @@
 import React from 'react';
 import stls from '@/styles/components/general/CustomPrevButton.module.sass'
-import IconNextButton from '../icons/IconNextButton';
+import IconNextButton from '@/components/icons/IconNextButton';
 import classNames from 'classnames';
 
-const CustomNextButton = ({reviewNextBtn}) => {
+const CustomNextButton = ({reviewNextBtn = false}) => {
   return (
     <div className={classNames({
       [stls.containerNext]: true,

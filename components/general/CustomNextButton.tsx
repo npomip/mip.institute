@@ -11,7 +11,6 @@ const CustomNextButton = ({reviewNextBtn = false}) => {
     })}>
     <button 
     className="custom-next-button">
-      {/* Здесь можете добавить свои кастомные стили или иконку */}
       <IconNextButton />
     </button>
     </div>

@@ -31,7 +31,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
   return breadcrumb;
 });
 
-const slug = program.slug
+const slug = program?.slug
 
   return (
     <>

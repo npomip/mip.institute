@@ -5,7 +5,6 @@
 .container
   transform: translateY(0%)
   transition: transform 0.3s ease-in-out
-  // position: relative
   opacity: 1
   background: #fbf4ff
   @include m.gap($pb: f.px(60))
@@ -31,6 +30,7 @@
 
 .flexContainer
   display: flex
+  justify-content: space-between
   @include m.media(phone, tablet)
     flex-direction: column
 
@@ -47,9 +47,9 @@
       font-size: f.px(15)
 
 .right
-  flex-basis: 45%
-  align-self: center
-  @include m.gap($mt: f.px(35))
+  flex-basis: 43%
+  align-self: flex-end
+  // @include m.gap($mt: f.px(35))
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(12))
   
@@ -78,16 +78,16 @@
   // justify-content: center
 
 .itemIcon
-  height: max-content
-  scale: 2
+  // height: max-content
+  // scale: 2
   @include m.media(phone, tablet)
-    scale: 1.5
+    // scale: 1.5
   align-self: baseline
   &>*
     @include m.gap($pt: f.px(7))
 
 .p
-  @include m.gap($pl: f.px(35))
+  @include m.gap($pl: f.px(18))
   line-height: 130%
   font-size: f.px(18)
   font-style: normal
@@ -107,3 +107,4 @@
   font-weight: 500
   p
     margin: 0
+    @include m.gap($pt: f.px(12))

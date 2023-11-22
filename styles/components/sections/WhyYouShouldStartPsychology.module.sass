@@ -7,7 +7,7 @@
   opacity: 1
   transform: translateY(0%)
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out
-  background: #FCF7FF
+  background: #fbf4ff
   @include m.media(laptop, desktop) 
     @include m.gap($pb: f.px(60))
   @include m.media(phone, tablet)
@@ -32,7 +32,8 @@
       font-weight: 500
       // font-family: Stem
     @include m.media(phone, tablet)
-      @include m.gap($pt: f.px(33), $mb: f.px(26))
+      font-size: f.px(26)
+      @include m.gap($pt: f.px(28), $mb: f.px(26))
 
 .hideSection
   // z-index: 10000

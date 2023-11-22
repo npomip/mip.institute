@@ -134,15 +134,17 @@ const FormAlpha = ({
 
   return (
     <>
+    {/* {thanksIsOpen && <div className="i-flocktory" data-fl-action="exchange" data-fl-user-email="xname@flocktory.com"></div>} */}
       <Popup
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
         <PopupThankyou close={() => setThanksIsOpen(false)} />
       </Popup>
+
       <Popup
         open={loading}
-        closeOnDocumentClick
+        // closeOnDocumentClick
         onClose={() => setLoading(false)}>
         <PopupLoading />
       </Popup>

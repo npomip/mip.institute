@@ -49,11 +49,11 @@ const Reviews = ({ standalone = false, reviews, reviewsRef, onMain }: ReviewsTyp
     spaceBetween: 20
   }
   const laptopSwiperOptions = {
-    slidesNum: 1.2,
+    slidesNum: 2,
     spaceBetween: 20
   }
   const tabletSwiperOptions = {
-    slidesNum: 1.3,
+    slidesNum: 1,
     spaceBetween: 10
   }
   const mobileSwiperOptions = {

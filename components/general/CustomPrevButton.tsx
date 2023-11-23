@@ -1,6 +1,6 @@
 import React from 'react';
 import stls from '@/styles/components/general/CustomPrevButton.module.sass'
-import IconPrevButton from '../icons/IconPrevButton';
+import IconPrevButton from '@/components/icons/IconPrevButton';
 import classNames from 'classnames';
 
 const CustomPrevButton = ({reviewPrevBtn=false}) => {

@@ -17,7 +17,7 @@ export default function MoneySaving() {
           <span>Остались вопросы?</span>
           <p>Позвоните нам:
             <br />
-            <a className={styles.phoneNumber} href='tel:+7(499) 110-86-32'>+7(499) 110-86-32</a>
+            <a className={styles.phoneNumber} href='tel:+7(499)110-86-32'>+7(499) 110-86-32</a>
             <br />
               Или напишите на
               {/* <br/> */}
@@ -29,7 +29,7 @@ export default function MoneySaving() {
         <div className={styles.one}>
           <span>Остались вопросы?</span>
           <p>Позвоните нам:
-            <a className={styles.phoneNumber} href='tel:+7(499) 110-86-32'>+7(499) 110-86-32</a>
+            <a className={styles.phoneNumber} href='tel:+7(499)110-86-32'>+7(499) 110-86-32</a>
             <br/>
               Или напишите на
               {' '}

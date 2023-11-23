@@ -7,16 +7,9 @@ import Wrapper from '@/components/layout/Wrapper'
 import SwiperContainer from '@/components/general/SwiperContainer'
 import TagOrange from '../general/TagOrange'
 import classNames from 'classnames'
-import ImgTopCourse from '../imgs/programs/ImgTopCourse'
-import CardTopProgram from '../cards/CardTopProgram'
+import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
+import CardTopProgram from '@/components/cards/CardTopProgram'
 import routes from '@/config/routes'
-
-type TeacherProps = {
-  teachersRef?: React.RefObject<HTMLElement | null>
-  teachersFromMain?: TypeLibTeachers
-  title: string
-  onMain?: boolean
-}
 
 const TopCourses = () => {
   const { programs } = useContext(ContextStaticProps)
@@ -57,13 +50,13 @@ const TopCourses = () => {
       )
     }))
 
-  const teachersSlides = list[0]?.title && list.map((teacher, idx) => (
+  const topCoursesSlides = list[0]?.title && list.map((course, idx) => (
     <CardTopProgram
-      href={`${routes.front.professions}/${teacher.studyFieldSlug}/${teacher.slug}`}
-      key={teacher.name + idx}
-      portrait={teacher?.image}
-      title={teacher.title}
-      studyHours={teacher.studyHours}
+      href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
+      key={course.name + idx}
+      portrait={course?.image}
+      title={course.title}
+      studyHours={course.studyHours}
     />
   ))
   const mobileSwiperOptions = {
@@ -102,7 +95,7 @@ const TopCourses = () => {
             <SwiperContainer
             autoHeight
             topCourses
-            slides={teachersSlides}
+            slides={topCoursesSlides}
             mobileOptions={mobileSwiperOptions}
             tabletOptions={tabletSwiperOptions}
             laptopOptions={laptopSwiperOptions}

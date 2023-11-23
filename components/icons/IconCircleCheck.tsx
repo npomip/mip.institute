@@ -13,7 +13,7 @@ onMain=false}) => {
         [stls.violetItems]: violetItems,
         [stls.onMain]: onMain
       })}>
-      <svg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg viewBox='-1 -0.5 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Галочка</title>
         <path
           d='M8.10815 10.2701L9.45951 11.6214L12.4325 8.64844'

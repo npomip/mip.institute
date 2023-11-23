@@ -21,10 +21,9 @@ import {
 import list from '@/data/general/list'
 import { discount } from '@/data/price'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
-import styles from '@/styles/pages/PagesProgram.module.sass'
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import { TypeLibReviews } from '@/types/index'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
@@ -54,18 +53,17 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
 
-  const handleScroll = () => {
-  }
+  const [showDescription, setShowDescription] = useState(true)
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const toggleOverview = () => {
+    setShowDescription(!showDescription);
+  };
+console.log(showDescription)
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
-console.log(ofType)
+
   const subtitle = 
     <>
       <p className={stls.leftTitle}>
@@ -85,8 +83,6 @@ console.log(ofType)
     <>
     <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
-      {/* <Opportunities /> */}
-      {/* <Desc /> */}
       <PageNavigation 
       ofType={ofType}
       processRef={processRef} 
@@ -97,11 +93,11 @@ console.log(ofType)
       costRef={costRef}
       reviewsRef={reviewsRef}
       faqRef={faqRef}/>
-      {/* <WhyYouShouldStartPsychology /> */}
-      {programOverview && <ProgramOverview />}
+      <WhyYouShouldStartPsychology programOverview={programOverview} toggleOverview={toggleOverview} showDescription={showDescription}/>
+      {programOverview && <ProgramOverview showDescription={showDescription} toggleOverview={toggleOverview}/>}
+
       {/* <WhatYouWillLearn title={'Чему вы научитесь'}  />
       <ForWhom /> */}
-      
       {checkSlug.includes(slug) ? (
         <>
         
@@ -121,7 +117,6 @@ console.log(ofType)
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
       <RequestsCard />
-      
       
       <Cta
         title={'Начните обучаться со скидкой'}

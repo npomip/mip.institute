@@ -1,21 +1,20 @@
-import stls from '@/styles/components/imgs/general/HeadHunter.module.sass'
+import stls from '@/styles/components/imgs/programs/courses/PsyPic.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/general/hhRed.png'
+import pic from '@/public/assets/imgs/programs/courses/psyPicPng.png'
 
-const HeadHunter = ({ width = 101, height = 100 }) => {
+const PsyPic = ({ width = 0, height = 0 }) => {
   return (
     <div className={stls.container}>
       <Image
         src={pic}
-        alt='clip'
+        alt='Psychology'
         className={stls.img}
         width={width !== 0 && width}
         height={height !== 0 && height}
         placeholder='blur'
-        quality={100}
       />
     </div>
   )
 }
 
-export default HeadHunter
+export default PsyPic

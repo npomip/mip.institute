@@ -40,6 +40,10 @@
         @include m.dye(stroke, #6F01C6)
     
   &.violetItems
+    @include m.sizeIcon($w: 40, $h: 40)
+    @include m.media(phone, tablet)
+      @include m.sizeIcon($w: 27, $h: 27)
+    padding-top: 0
     border-radius: 50%
     @include m.dye(bg, #FBF4FF)
     & path

@@ -28,7 +28,7 @@ const WhyYouShouldStartPsychology = ({toggleOverview,showDescription,programOver
       [stls.hideSection]: !showDescription
     })}>
       <Wrapper>
-        <h1>Почему стоит осваивать профессию психолога?</h1>
+        <h2>Почему стоит осваивать профессию психолога?</h2>
         <div className={stls.btns}>
           <div className={stls.prev}  onClick={() => showContainer(currentContainer === 1 ? 3 : currentContainer - 1)}>
             <IconPrevButton fourtyPxViolet/>

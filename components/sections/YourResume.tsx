@@ -26,7 +26,7 @@ const YourResume = ({resumeRef=null}) => {
         
         <div className={stls.content}>
         <div className={stls.upperRound}>
-          <p>Твое резюме</p>
+          <p>Ваше резюме</p>
         </div>
         <div className={stls.upperRightRound}></div>
         <div className={stls.bg}></div>

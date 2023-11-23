@@ -1,6 +1,6 @@
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Popup from 'reactjs-popup'
 import { useForm } from 'react-hook-form'
 import hitContactRoute from '@/components/funcs/hitContactRoute'
@@ -13,6 +13,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
+import { ContextStaticProps } from '@/context/index'
 
 
 type FormValues = {
@@ -53,6 +54,8 @@ const FormAlpha = ({
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false);
   const [loading, setLoading] = useState(false)
+  const { program } = useContext(ContextStaticProps)
+
 
   useEffect(() => {
     popup && setFocus('name')
@@ -95,6 +98,8 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
+    const price = program?.price
+    data.price = price
     // console.log('clickId', clickId)
 
     data.blockForAmo = blockForAmo
@@ -121,7 +126,6 @@ const FormAlpha = ({
       setLoading(false)
       setIsIpCheckFailed(true)
     }
-    // const calltouch = await sendToCalltouch(data)
 
     } else {
       setIsIpCheckFailed(true)

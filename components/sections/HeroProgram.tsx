@@ -74,11 +74,11 @@ const HeroProgram = ({breadcrumbs}) => {
               </div>
               <div
                 className={stls.descriptionMobile}>
-                <span className={stls.mobiledesc}>{cut < descriptionLength ?
+                <div className={stls.mobiledesc}>{cut < descriptionLength ?
                 (program?.description &&
                   parse(marked(program.description.slice(0, cut).concat('...')))) : (program?.description &&
                     parse(marked(program.description.slice(0, cut))))
-                  }</span>
+                  }</div>
                 {/* {cut < descriptionLength && (
                   <>
                     <span>...</span>

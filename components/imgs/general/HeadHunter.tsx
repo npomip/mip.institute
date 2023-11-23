@@ -1,6 +1,6 @@
 import stls from '@/styles/components/imgs/general/HeadHunter.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/general/hh.png'
+import pic from '@/public/assets/imgs/general/hhRed.png'
 
 const HeadHunter = ({ width = 101, height = 100 }) => {
   return (

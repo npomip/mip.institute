@@ -58,7 +58,7 @@ const StickyBottomBlackFriday = () => {
               Скидка-Терапия:
             </span>{' '}
             <br className={stls.smallMobileOnly} /> второй курс в подарок  <br className={stls.smallMobileOnly} />в честь черной пятницы!
-            <span className={stls.date}>{' '}до 26.11</span>
+            <span className={stls.date}>{' '}до 30.11</span>
           </p>
           <div className={stls.btn}>
             <PopupTrigger btn='theta' cta='2for1' />

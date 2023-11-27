@@ -6,8 +6,6 @@ const createLead = async (req, res) => {
   const { id, name, phone, price, email, question, promocode, access, leadPage, ymUid, utm, blockForAmo,edPartners } = req.body;
   console.log('in createLead', utm)
 
-  console.log('CREATELEAD',question,promocode)
-
   // URL для запроса сделки по ID
   const apiUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/complex`
   try {

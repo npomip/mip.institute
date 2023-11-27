@@ -84,9 +84,7 @@ const FormAlpha = ({
       console.log('IP 200')
       setIsDisabled(true)
       setLoading(true)
-      // setThanksIsOpen(true)
 
-    // window.open(routes.front.gratefull, '_blank');
     // handle loader
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
@@ -110,9 +108,9 @@ const FormAlpha = ({
       data.utm = null; // или какое-то другое значение по умолчанию
     }
 
-    // console.log(data)
+
     const req = await hitContactRoute(data)
-    console.log('req Alpha =====>', req)
+
     if (req === 200) {
       setLoading(false)
       // router.push('/gratefull')

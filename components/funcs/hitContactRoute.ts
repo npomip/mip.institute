@@ -73,16 +73,13 @@ const hitContactRoute = async values => {
             }
           }
         },
-        
       })
       
       values.access = data.updateAmo.amo.access
 
-      // values.access = oldAccess_token
       console.log(values)
       const newLead =  await createOrUpdateLead(values)
       console.log(newLead)
-      // console.log('refreshhh', data.updateAmo.amo.access)
       return newLead.data.status
 
     } else {

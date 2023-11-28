@@ -14,3 +14,7 @@ export { default as getStaticPropsPageWebinars } from '@/lib/getStaticProps/getS
 // handlers
 export { default as handleGetStaticPaths } from '@/lib/handlers/handleGetStaticPaths'
 export { default as handleGetStaticProps } from '@/lib/handlers/handleGetStaticProps'
+
+//graphQL
+export { default as CHECK_TOKENS } from '@/lib/graphQL/CHECK_TOKENS'
+export { default as UPDATE_TOKEN } from '@/lib/graphQL/UPDATE_TOKENS'

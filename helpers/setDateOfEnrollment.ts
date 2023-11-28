@@ -4,32 +4,44 @@ const setDateOfEnrollment = (day: number, month: number): string => {
   const selectorDate = (item) => {
     switch (true) {
   
-      case (item < new Date(2023, 9, 19)) :
-        return new Date(2023, 9, 18).toLocaleString('ru-RU', {
+      case (item < new Date(2023, 10, 30)) :
+        return new Date(2023, 10, 29).toLocaleString('ru-RU', {
           day: 'numeric',
           month: 'long'
         })
 
-        case (item < new Date(2023, 9, 30)) :
-        return new Date(2023, 9, 29).toLocaleString('ru-RU', {
+        case (item < new Date(2023, 11, 6)) :
+        return new Date(2023, 11, 5).toLocaleString('ru-RU', {
           day: 'numeric',
           month: 'long'
         })
         
-        case (item < new Date(2023, 10, 9)) :
-        return new Date(2023, 10, 8).toLocaleString('ru-RU', {
+        case (item < new Date(2023, 11, 20)) :
+        return new Date(2023, 11, 19).toLocaleString('ru-RU', {
           day: 'numeric',
           month: 'long'
         })
 
-        case (item < new Date(2023, 10, 22)) :
-        return new Date(2023, 10, 21).toLocaleString('ru-RU', {
+        case (item < new Date(2023, 11, 27)) :
+        return new Date(2023, 11, 26).toLocaleString('ru-RU', {
           day: 'numeric',
           month: 'long'
         })
       
-        case (item < new Date(2023, 10, 30)) :
-        return new Date(2023, 10, 29).toLocaleString('ru-RU', {
+        case (item < new Date(2024, 0, 17)) :
+        return new Date(2024, 0, 16).toLocaleString('ru-RU', {
+          day: 'numeric',
+          month: 'long'
+        })
+
+        case (item < new Date(2024, 0, 25)) :
+        return new Date(2024, 0, 24).toLocaleString('ru-RU', {
+          day: 'numeric',
+          month: 'long'
+        })
+
+        case (item < new Date(2024, 0, 31)) :
+        return new Date(2024, 0, 30).toLocaleString('ru-RU', {
           day: 'numeric',
           month: 'long'
         })

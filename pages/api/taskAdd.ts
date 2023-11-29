@@ -35,10 +35,10 @@ const taskAdd = async (req, res) => {
 
     if (response.status === 200) {
       const leadData = response.data;
-      console.log(leadData)
+      // console.log(leadData)
       res.status(200).json({ status: 200, msg: 'Таск added in addNode' })
     } else {
-      console.log(response)
+      // console.log(response)
       res.status(response.status).json({ error: response });
     }
   } catch (error) {

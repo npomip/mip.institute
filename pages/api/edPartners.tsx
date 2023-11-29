@@ -16,6 +16,7 @@ export default async function handler(req, res) {
     const response = await axios.get(
       `https://offers-edpartners.affise.com/postback?secure=${AFFISE_SECURE}&goal=1&clickid=${utm.cl_uid}&comment=offer&action_id=${id}&sum=${price}`
     )
+    console.log('Success', response.data);
       res.status(200).json({ success: true });
       // console.log(response)
   } catch (err) {

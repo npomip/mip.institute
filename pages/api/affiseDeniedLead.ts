@@ -23,12 +23,12 @@ export default async function handler(req, res) {
   //   'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   // );
   try {
-    const decodedData = decodeURIComponent(req.body)
-    const parsedData = Object.fromEntries(new URLSearchParams(req.body))
-    const id = req.body &&  parsedData['leads[status][0][id]']
+    // console.log('reqqq', req.body)
+
+    const id = req.body &&  req.body['leads[status][0][id]']
 
     // console.log('----------')
-    console.log('res', parsedData)
+    // console.log('IDDDDDD', id)
     // console.log('----------')
 
     if(req.body) {
@@ -57,12 +57,12 @@ export default async function handler(req, res) {
     const newresponse =await axios.get(
       `https://edpartners.scaletrk.com/track/conv-change?click_id=${click_id}&amount=${amount}&token=${AFFISE_NEW}&adv_order_id=${lead_id}&conv_status=rejected&goal_alias=1`
     )
-    console.log('EDPARTENRS', newresponse)
+    console.log('EDPARTENRS', newresponse.data)
     }
     
     res.status(200).json({ message: 'Данные успешно обработаны' })
   } catch (err) {
-    // console.log('errrrr', err)
+    console.log('errrrr', err)
     res.status(500).json({ message: 'Ошибка обработки данных' })
   }
 }

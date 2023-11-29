@@ -24,13 +24,7 @@ export default async function handler(req, res) {
   //   'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   // );
   try {
-    const decodedData = decodeURIComponent(req.body)
-    const parsedData = Object.fromEntries(new URLSearchParams(req.body))
-    const id = req.body &&  parsedData['leads[status][0][id]']
-
-    // console.log('----------')
-    console.log('res', parsedData)
-    // console.log('----------')
+    const id = req.body &&  req.body['leads[status][0][id]']
 
     if(req.body) {
       const newLead =  await checkOrUpdateTokens()

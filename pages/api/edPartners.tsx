@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     console.log('UTM CATCHHHHH',utm)
     console.log(err.data);
     const newresponse =await axios.get(
-      `https://edpartners.scaletrk.com/track/conv?click_id=${utm.cl_uid}&amount=${price}&token=${AFFISE_NEW}&adv_order_id=${id}&conv_status=pending&goal_alias=1`
+      `https://edpartners.scaletrk.com/track/conv?click_id=${utm.cl_uid}&amount=${price}&token=47e706c4&adv_order_id=${id}&conv_status=pending&goal_alias=1`
     )
     console.log('Success', newresponse.data);
     res.status(200).json({ success: true, data: newresponse?.data });

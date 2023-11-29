@@ -28,9 +28,9 @@ export default function Review({ review }) {
         <ImgReview
           src={review?.picture?.[0]?.url}
           alt={review.name}
-          width={250}
+          width={100}
           height={getImageHeight({
-            width: 250,
+            width: 100,
             widthInitial: review?.picture?.[0]?.width,
             heightInitial: review?.picture?.[0]?.height
           })}

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const tokens = async (req, res) => {
   const {id, name, phone, price, email, question, promocode, access, leadPage, ymUid, utm, blockForAmo, leadId, edPartners}=req.body 
-  console.log('notes req body =====>', req.body)
+  // console.log('notes req body =====>', req.body)
   // console.log(req.body)
   try {
 
@@ -48,10 +48,10 @@ const tokens = async (req, res) => {
 
     if (response.status === 200) {
       const leadData = response.data;
-      console.log(leadData)
+      // console.log(leadData)
       res.status(200).json({ status: 200, msg: 'Note added in addNode' })
     } else {
-      console.log(response)
+      // console.log(response)
       res.status(response.status).json({ error: response });
     }
   } catch (error) {

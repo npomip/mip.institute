@@ -234,7 +234,7 @@ const MyApp = ({ Component, pageProps, router }) => {
               <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <StickyBottomBlackFriday />
+            <StickyBottom />
             <Footer />
           </FieldsTooltipState>
         </MenuState>

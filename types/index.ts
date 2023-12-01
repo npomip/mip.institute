@@ -39,6 +39,9 @@ export type { default as TypeLibWebinar } from '@/types/lib/webinar/TypeLibWebin
 // lib/webinars
 export type { default as TypeLibWebinars } from '@/types/lib/webinars/TypeLibWebinars'
 
+// lib/seminars
+export type { default as TypeLibSeminars } from '@/types/lib/seminars/TypeLibSeminars'
+
 // ./page/default
 export type { default as TypePageDefaultProps } from '@/types/page/default/props/TypePageDefaultProps'
 export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/query/TypePageDefaultPropsQuery'
@@ -70,6 +73,10 @@ export type { default as TypePageTeachersPropsQuery } from '@/types/page/teacher
 // ./page/webinars
 export type { default as TypePageWebinarsProps } from '@/types/page/webinars/props/TypePageWebinarsProps'
 export type { default as TypePageWebinarsPropsQuery } from '@/types/page/webinars/query/TypePageWebinarsPropsQuery'
+
+// .page/seminars
+export type { default as TypePageSeminarsProps } from '@/types/page/seminars/props/TypePageSeminarsProps'
+export type { default as TypePageSeminarsPropsQuery } from '@/types/page/seminars/query/TypePageSeminarsPropsQuery'
 
 // ./props
 export type { default as TPropClassNames } from '@/types/props/TPropClassNames'

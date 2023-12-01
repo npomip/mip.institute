@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   //   'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   // );
   try {
-    // console.log('reqqq', req.body)
+    console.log('reqqq', req.body)
 
     const id = req.body &&  req.body['leads[status][0][id]']
 
@@ -58,11 +58,10 @@ export default async function handler(req, res) {
       `https://edpartners.scaletrk.com/track/conv-change?click_id=${click_id}&amount=${amount}&token=47e706c4&adv_order_id=${lead_id}&conv_status=rejected&goal_alias=1`
     )
     console.log('EDPARTENRS', newresponse.data)
+    res.status(200).json({ message: 'Данные успешно обработаны', response: newresponse.data })
     }
-    
-    res.status(200).json({ message: 'Данные успешно обработаны' })
   } catch (err) {
     console.log('errrrr', err)
-    res.status(500).json({ message: 'Ошибка обработки данных' })
+    res.status(500).json({ message: 'Ошибка обработки данных', err: err.response.data })
   }
 }

@@ -40,6 +40,8 @@ const hitContactRoute = async values => {
       fetchPolicy: 'network-only'
     });
 
+    console.log('token', checkTokenData, values)
+
     if(values?.utm?.utm_source
       === 'edpartners'){
     const edPartners = await axios.post(`${routes.front.root}/api/edPartners`, values)

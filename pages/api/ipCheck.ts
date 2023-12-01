@@ -1,6 +1,7 @@
 import unwantedIps from '@/helpers/unwantedIps';
 
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
 
   const ip =
     req.headers['x-forwarded-for'] ||

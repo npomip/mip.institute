@@ -25,10 +25,10 @@ const SeminarsSlugPage = (
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () =>
-  await handleGetStaticPaths({ page: routes.front.seminar })
+// export const getStaticPaths: GetStaticPaths = async () =>
+//   await handleGetStaticPaths({ page: routes.front.seminar })
 
-export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.seminar })
+// export const getStaticProps: GetStaticProps = async context =>
+//   await handleGetStaticProps({ context, page: routes.front.seminar })
 
 export default SeminarsSlugPage

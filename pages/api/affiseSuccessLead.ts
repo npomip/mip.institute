@@ -49,7 +49,7 @@ export default async function handler(req, res) {
     // console.log('leaaad =====>', click_id, lead_id)
     // console.log('EEEEEENDDDDDD')
     const newresponse =await axios.get(
-      `https://edpartners.scaletrk.com/track/conv-change?click_id=${click_id}&amount=${amount}&token=${AFFISE_NEW}&adv_order_id=${lead_id}&conv_status=approved&goal_alias=1`
+      `https://edpartners.scaletrk.com/track/conv-change?click_id=${click_id}&amount=${amount}&token=47e706c4&adv_order_id=${lead_id}&conv_status=approved&goal_alias=1`
     )
     console.log('EDPARTENRS АПРУВ', newresponse.data)
     }

@@ -10,6 +10,7 @@ import {
   getStaticPathsPagePrograms,
   getStaticPathsPageProgram
 } from '@/lib/index'
+import getStaticPathsPageSeminar from '../getStaticPaths/getStaticPathsPageSeminar'
 
 type TypeHandleGetStaticPathsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -29,6 +30,9 @@ const handleGetStaticPaths = async ({
 
     case routes.front.program:
       return await getStaticPathsPageProgram({ type })
+
+    case routes.front.seminar:
+      return await getStaticPathsPageSeminar()
 
     default:
       return {

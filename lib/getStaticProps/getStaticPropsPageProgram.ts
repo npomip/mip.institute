@@ -168,6 +168,11 @@ const getStaticPropsPageProgram = async ({
       type
     }
   })
+  // console.log('PROGRAM PROPS', {
+  //   ...res?.data,
+  //   studyFieldSlug,
+  //   program: res?.data?.program?.[0] || null,
+  // })
   const reviewsData = res?.data?.reviews || []
   return {
     props: {

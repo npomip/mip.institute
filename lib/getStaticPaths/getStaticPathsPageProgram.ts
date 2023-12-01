@@ -24,7 +24,16 @@ const getStaticPathsPageProgram = async ({
       type
     }
   })
-
+  // console.log('programPATHS', Array.from(
+  //   new Set(
+  //     res.data?.programs?.map(program => ({
+  //       params: {
+  //         studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
+  //         slug: program?.slug || 'program'
+  //       }
+  //     }))
+  //   )
+  // ))
   return {
     paths: Array.from(
       new Set(

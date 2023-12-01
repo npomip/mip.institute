@@ -7,7 +7,8 @@ import {
   TypePageTeachersProps,
   TypePageWebinarsProps,
   TypePageProgramsProps,
-  TypePageProgramProps
+  TypePageProgramProps,
+  TypePageSeminarsProps
 } from '@/types/index'
 import { routes, revalidate } from '@/config/index'
 import {
@@ -21,6 +22,9 @@ import {
 } from '@/lib/index'
 import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
 import getStaticPropsPageJournal from '../getStaticProps/getStaticPropsJournal'
+import getStaticPropsPageSeminars from '../getStaticProps/getStaticPropsPageSeminars'
+import getStaticPropsPageSeminar from '../getStaticProps/getStaticPropsPageSeminar'
+import TypePageSeminarProps from '@/types/page/seminar/props/TypePageSeminarProps'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -41,6 +45,8 @@ const handleGetStaticProps = async ({
     | TypePageProgramsProps
     | TypePageProgramProps
     | TypePageJournalProps
+    | TypePageSeminarsProps
+    | TypePageSeminarProps
     | {}
   revalidate: number | boolean
 }> => {
@@ -82,6 +88,12 @@ const handleGetStaticProps = async ({
       case routes.front.journal:
         return await getStaticPropsPageJournal({ context })
 
+      case routes.front.seminars:
+        return await getStaticPropsPageSeminars({ context })
+
+        case routes.front.seminar:
+          return await getStaticPropsPageSeminar({ context })
+
       default:
         return {
           props: {},
@@ -89,7 +101,7 @@ const handleGetStaticProps = async ({
         }
     }
   } catch (err) {
-    console.log(err)
+    console.log('catch static props',err)
     return {
       props: {},
       revalidate: revalidate.default

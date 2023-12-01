@@ -21,6 +21,8 @@ const routes = {
     programs: '/programs',
     professions: '/professions',
     journal: '/journal',
+    seminars: '/seminars',
+    seminar: '/seminars/studyField/slug',
     courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',

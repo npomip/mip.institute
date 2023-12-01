@@ -44,7 +44,7 @@ const getStaticPropsPageJournal = async ({
 }
     `
   })
-  // console.log('asd', res.data)
+  
   return {
     props: res.data,
     revalidate: revalidate.default

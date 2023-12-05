@@ -5,19 +5,34 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
+import Wrapper from '@/components/layout/Wrapper'
+import SeminarsFilter from '@/components/general/SeminarsFilter'
+import Seminars from '@/components/sections/Seminars'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const SeminarsStudyFieldPage = ({
   seminars
 }) => {
+  const router = useRouter();
+  const { studyFieldSlug } = router.query;
 
-
+  // Фильтрация семинаров по studyFieldSlug
+  const filteredSeminars = seminars?.filter((seminar) => seminar.studyFieldSlug === studyFieldSlug);
   return (
     <>
-      {/* <SeoPagesPrograms
-        programs={programs}
-        curProgramsStudyFieldSlug={studyFieldSlug}
-      />
-      <PagesPrograms /> */}
+      <Wrapper>
+      <SeminarsFilter seminars={seminars} />
+      {/* <h1>Seminars with studyFieldSlug: {studyFieldSlug}!</h1> */}
+      {/* {filteredSeminars.map((seminar) => (
+        <div key={seminar.id}>
+          <h2>{seminar.title}</h2>
+          <p>Text: {seminar.text}</p>
+          <p>Price: {seminar.price}</p>
+        </div>
+      ))} */}
+      <Seminars seminars={filteredSeminars}/>
+    </Wrapper>
     </>
   )
 }

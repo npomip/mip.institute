@@ -6,6 +6,10 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import Seminars from '@/components/sections/Seminars'
+import { useRouter } from 'next/router'
+import Wrapper from '@/components/layout/Wrapper'
+import SeminarsFilter from '@/components/general/SeminarsFilter'
+import { useState } from 'react'
 
 const CoursesPage = ({ seminars }) => {
   // useHandleContextStaticProps({
@@ -19,10 +23,10 @@ const CoursesPage = ({ seminars }) => {
 // console.log(studyFields)
 
   return (
-    <>
-        <Seminars seminars={seminars}/>
-      
-    </>
+    <Wrapper>
+      <SeminarsFilter seminars={seminars} />
+      <Seminars seminars={seminars}/>
+    </Wrapper>
   )
 }
 

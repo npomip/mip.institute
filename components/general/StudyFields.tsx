@@ -21,7 +21,7 @@ const StudyFields = ({
   close = null,
   flexend = false,
   orang = false,
-  smallText,
+  smallText
 }: StudyFieldsType) => {
   const {
     studyFields,
@@ -30,21 +30,20 @@ const StudyFields = ({
     curProgramsType
   } = useContext(ContextStaticProps)
 
-
   const list =
     ofType === 'course'
       ? studyFieldsCourses
       : ofType === 'profession'
       ? studyFieldsProfessions
       : studyFields
-      
+
   return (
     <ul
       className={cn({
         [stls.container]: true,
         [stls.aside]: aside,
         [stls.tooltip]: !aside,
-        [stls.flexend]: flexend,
+        [stls.flexend]: flexend
         // [stls.orang]: orang,
       })}>
       {list.map(({ label, slug }, idx) => (
@@ -68,14 +67,14 @@ const StudyFields = ({
           )} */}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
-            smallText={smallText}
-            orang={orang}
+              smallText={smallText}
+              orang={orang}
               href={`${
-                   curProgramsType === 'course'
-                    ? routes.front.courses
-                    : curProgramsType === 'profession'
-                    ? routes.front.professions
-                    : routes.front.programs
+                curProgramsType === 'course'
+                  ? routes.front.courses
+                  : curProgramsType === 'profession'
+                  ? routes.front.professions
+                  : routes.front.programs
               }/${slug}`}
               aside={aside}
               slug={slug}>

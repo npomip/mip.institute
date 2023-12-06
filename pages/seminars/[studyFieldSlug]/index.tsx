@@ -10,6 +10,7 @@ import SeminarsFilter from '@/components/general/SeminarsFilter'
 import Seminars from '@/components/sections/Seminars'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import SeminarCard from '@/components/sections/Seminars'
 
 const SeminarsStudyFieldPage = ({
   seminars
@@ -25,7 +26,7 @@ const SeminarsStudyFieldPage = ({
       <Wrapper>
         <h1>Семинары слаг</h1>
       <SeminarsFilter seminars={seminars} />
-      <Seminars seminars={filteredSeminars}/>
+      <SeminarCard seminars={filteredSeminars}/>
     </Wrapper>
     </>
   )

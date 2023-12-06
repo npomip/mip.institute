@@ -1,6 +1,7 @@
-import stls from '@/styles/components/sections/Reviews.module.sass'
+import stls from '@/styles/components/sections/Seminars.module.sass'
 import Link from 'next/link'
 import routes from '@/config/routes'
+import SeminarCard from '../cards/SeminarCard'
 
 type ReviewsType = {
   standalone?: boolean
@@ -9,19 +10,19 @@ type ReviewsType = {
   onMain?: boolean
 }
 
-const Seminars = ({seminars}) => {
-  // console.log(seminars)
+const Seminars = ({ seminars }) => {
+  console.log(seminars)
+  // const newDate = new Date(seminars.date)
+  // console.log(newDate)
   return (
     <>
-    <div>
-      <h2>Seminars:</h2>
+    <h2>Seminars:</h2>
+    <div className={stls.seminarsContainer}>
+      
         {seminars?.map(seminar => (
-          <Link key={seminar.id} passHref
-          href={`${routes.front.seminars}/${seminar.studyFieldSlug || 'studyfield'}/${
-            seminar.slug
-          }`}>
-          <p >{seminar.title}</p>
-          </Link>
+          <div key={seminar.id} className={stls.seminarsContainer}>
+            <SeminarCard seminar={seminar}/>
+          </div>
         ))}
     </div>
     </>

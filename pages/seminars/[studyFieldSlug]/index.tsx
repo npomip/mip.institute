@@ -16,21 +16,15 @@ const SeminarsStudyFieldPage = ({
 }) => {
   const router = useRouter();
   const { studyFieldSlug } = router.query;
+  // console.log(seminars)
 
   // Фильтрация семинаров по studyFieldSlug
-  const filteredSeminars = seminars?.filter((seminar) => seminar.studyFieldSlug === studyFieldSlug);
+  const filteredSeminars = seminars.filter((seminar) => seminar.studyFieldSlug === studyFieldSlug);
   return (
     <>
       <Wrapper>
+        <h1>Семинары слаг</h1>
       <SeminarsFilter seminars={seminars} />
-      {/* <h1>Seminars with studyFieldSlug: {studyFieldSlug}!</h1> */}
-      {/* {filteredSeminars.map((seminar) => (
-        <div key={seminar.id}>
-          <h2>{seminar.title}</h2>
-          <p>Text: {seminar.text}</p>
-          <p>Price: {seminar.price}</p>
-        </div>
-      ))} */}
       <Seminars seminars={filteredSeminars}/>
     </Wrapper>
     </>

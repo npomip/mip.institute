@@ -37,7 +37,6 @@ const SeminarsFilter = ({ seminars }: { seminars: Seminar[] }) => {
 // console.log(studyFieldSlug)
   return (
     <div>
-      <h3>Фильтр по категории:</h3>
       <div className={stls.container}>
         {cat?.map(el => (
           <p onClick={() => handleFilter(el)} className={classNames({

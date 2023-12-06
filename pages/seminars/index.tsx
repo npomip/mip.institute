@@ -1,10 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
-import { TypePageProgramsProps, TypePageSeminarsProps } from '@/types/index'
 import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { PagesPrograms } from '@/components/pages'
-import { SeoPagesPrograms } from '@/components/seo'
 import Seminars from '@/components/sections/Seminars'
 import { useRouter } from 'next/router'
 import Wrapper from '@/components/layout/Wrapper'
@@ -24,6 +20,7 @@ const CoursesPage = ({ seminars }) => {
 
   return (
     <Wrapper>
+      <h1>Семинары</h1>
       <SeminarsFilter seminars={seminars} />
       <Seminars seminars={seminars}/>
     </Wrapper>

@@ -5,10 +5,11 @@
 .container
   display: flex
   // width: 50%
-  justify-content: space-between
+  // justify-content: space-between
   align-content: center
   margin-bottom: f.px(20)
-
+  flex-wrap: wrap
+  // margin: 0 auto
   & > *
     margin: 0
     font-size: f.px(18) 
@@ -17,7 +18,7 @@
     border-radius: f.px(24)
     letter-spacing: 1.8px
     text-transform: uppercase
-    @include m.gap($p: f.px(18))
+    @include m.gap($p: f.px(18), $mr: f.px(40), $mb: f.px(20))
     cursor: pointer
     &:hover
       color: white

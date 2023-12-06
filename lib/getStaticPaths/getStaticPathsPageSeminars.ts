@@ -2,7 +2,8 @@ import { TypePageProgramPaths, TypePageProgramPathsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import TypePageSeminarPathsQuery from '@/types/page/seminars/query/TypePageSeminarPathsQuery'
-import TypePageSeminarsPaths from '@/types/page/seminars/paths/TypePageSeminarsPaths'
+import TypePageSeminarsPaths from '@/types/page/seminar/paths/TypePageSeminarsPaths'
+
 
 const getStaticPathsPageSeminars = async (): Promise<{
   paths: TypePageSeminarsPaths

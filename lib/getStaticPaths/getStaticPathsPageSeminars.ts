@@ -2,10 +2,10 @@ import { TypePageProgramPaths, TypePageProgramPathsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import TypePageSeminarPathsQuery from '@/types/page/seminars/query/TypePageSeminarPathsQuery'
-import TypePageSeminarPaths from '@/types/page/seminar/paths/TypePageSeminarPaths'
+import TypePageSeminarsPaths from '@/types/page/seminars/paths/TypePageSeminarsPaths'
 
-const getStaticPathsPageSeminar = async (): Promise<{
-  paths: TypePageSeminarPaths
+const getStaticPathsPageSeminars = async (): Promise<{
+  paths: TypePageSeminarsPaths
   fallback: boolean | 'blocking'
 }> => {
   const res = await apolloClient.query<TypePageSeminarPathsQuery>({
@@ -13,7 +13,6 @@ const getStaticPathsPageSeminar = async (): Promise<{
       query GetStaticPathsPageSeminar {
         seminars {
           studyFieldSlug
-          slug
         }
       }
     `
@@ -23,7 +22,6 @@ const getStaticPathsPageSeminar = async (): Promise<{
       res.data?.seminars?.map(program => ({
         params: {
           studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
-          slug: program?.slug || 'program'
         }
       }))
     )
@@ -33,14 +31,13 @@ const getStaticPathsPageSeminar = async (): Promise<{
       new Set(
         res.data?.seminars?.map(program => ({
           params: {
-            studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
-            slug: program?.slug || 'program'
+            studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug'
           }
         }))
       )
-    ) || [{ params: { studyFieldSlug: 'studyFieldSlug', slug: 'program' } }],
+    ) || [{ params: { studyFieldSlug: 'studyFieldSlug' } }],
     fallback: 'blocking'
   }
 }
 
-export default getStaticPathsPageSeminar
+export default getStaticPathsPageSeminars

@@ -7,7 +7,6 @@ import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 import { PopupLoading, PopupThankyou } from '@/components/popups'
-import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
 import ReCAPTCHA from "react-google-recaptcha";
 import verifyCaptcha from '../funcs/verifyCaptcha'

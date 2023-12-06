@@ -99,6 +99,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({ programs, reviews, teachers }) 
       <ButtonToTop />
       <WhyBother />
       <About />
+      {/* <div className="i-flocktory" data-fl-action="exchange" data-fl-user-email="xname@flocktory.com"></div> */}
       <HowProcessGoes onMain subtitle={subtitle} list={mainList} />
       <Cta
         title={'Подберите программу'}

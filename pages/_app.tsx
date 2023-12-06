@@ -35,6 +35,7 @@ import { ApolloProvider } from '@apollo/client'
 import StickyBottomBlackFriday from '@/components/layout/StickyBottomBlackFriday'
 
 const MyApp = ({ Component, pageProps, router }) => {
+  // console.log(pageProps)
   const getDefaultStateProps = pageProps => {
     const program = pageProps.program || null
     const programs =

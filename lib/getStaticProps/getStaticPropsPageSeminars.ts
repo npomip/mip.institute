@@ -26,7 +26,14 @@ const getStaticPropsPageSeminars = async ({
           studyFieldSlug
           date
           text
-          
+          tickets_quantity
+          price
+          related_seminars {
+            title
+            text
+            date
+            price
+          }
         }
       }
     `

@@ -1,5 +1,5 @@
 type TypePageSeminarPathsQuery = {
-  readonly seminars:
+  readonly events:
     | {
         studyFieldSlug: string | null
         slug: string | null

@@ -31,7 +31,7 @@ const SeminarsFilter = ({ seminars }: { seminars: Seminar[] }) => {
   const handleFilter = (el) => {
     const selectedSlug = el;
     setStudyFieldSlug(selectedSlug);
-    console.log(selectedSlug)
+    // console.log(selectedSlug)
     router.push(`/seminars/${selectedSlug.studyFieldSlug}`);
   };
 // console.log(studyFieldSlug)

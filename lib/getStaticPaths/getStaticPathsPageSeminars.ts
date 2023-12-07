@@ -12,17 +12,27 @@ const getStaticPathsPageSeminars = async (): Promise<{
   const res = await apolloClient.query<TypePageSeminarPathsQuery>({
     query: gql`
       query GetStaticPathsPageSeminar {
-        seminars {
+        events {
           studyFieldSlug
         }
       }
     `
   })
+  console.log('pathsSeminarsssss', Array.from(
+    new Set(
+      res.data?.events?.map(program => ({
+        params: {
+          studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
+          slug: program?.slug || 'program'
+        }
+      }))
+    )
+  ))
 
   return {
     paths: Array.from(
       new Set(
-        res.data?.seminars?.map(program => ({
+        res.data?.events?.map(program => ({
           params: {
             studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug'
           }

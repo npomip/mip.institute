@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import Wrapper from '@/components/layout/Wrapper'
 import SeminarsFilter from '@/components/general/SeminarsFilter'
 import { useState } from 'react'
+import SeminarCard from '@/components/sections/Seminars'
 
 const CoursesPage = ({ seminars }) => {
   // useHandleContextStaticProps({
@@ -22,7 +23,7 @@ const CoursesPage = ({ seminars }) => {
     <Wrapper>
       <h1>Семинары</h1>
       <SeminarsFilter seminars={seminars} />
-      <Seminars seminars={seminars}/>
+      <SeminarCard seminars={seminars}/>
     </Wrapper>
   )
 }

@@ -18,15 +18,7 @@ const getStaticPathsPageSeminars = async (): Promise<{
       }
     `
   })
-  console.log('paths', Array.from(
-    new Set(
-      res.data?.seminars?.map(program => ({
-        params: {
-          studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
-        }
-      }))
-    )
-  ))
+
   return {
     paths: Array.from(
       new Set(

@@ -16,7 +16,7 @@ const text = seminar[0].text
 
   const router = useRouter();
   const {slug, studyFieldSlug} = router.query
-  console.log(router,slug)
+  // console.log(router,slug)
 
   return (
     <Wrapper>

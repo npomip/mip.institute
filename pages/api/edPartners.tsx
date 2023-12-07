@@ -14,22 +14,31 @@ export default async function handler(req, res) {
   const AFFISE_NEW = process.env.AFFISE_NEW
   console.log('edPArtenrs price', price)
   try {
-    console.log('UTM TRYYYYY',utm)
-    const newresponse =await axios.get(
-      `https://edpartners.scaletrk.com/track/conv?click_id=${utm?.cl_uid}&amount=${price}&token=47e706c4&adv_order_id=${id}&conv_status=pending&goal_alias=1`
-    )
-    console.log('Success', newresponse.data);
-    res.status(200).json({ success: true, data: newresponse?.data });
-      // console.log(response)
+    console.log('UTM TRYYYYY',utm?.cl_uid.length)
+    if(utm?.cl_uid.length === 32) {
+      console.log('SCARLETTTTTTT',utm?.cl_uid.length)
+      const newresponse =await axios.get(
+        `https://edpartners.scaletrk.com/track/conv?click_id=${utm?.cl_uid}&amount=${price}&token=47e706c4&adv_order_id=${id}&conv_status=pending&goal_alias=1`
+      )
+      console.log('Success', newresponse.data);
+      res.status(200).json({ success: true, data: newresponse?.data });
+    } else {
+      console.log('AFFFFFISE',utm?.cl_uid.length)
+      const response = await axios.get(
+        `https://offers-edpartners.affise.com/postback?secure=${AFFISE_SECURE}&goal=1&clickid=${utm?.cl_uid}&comment=offer&action_id=${id}&sum=${price}`
+      )
+      console.log('Success', response.data);
+      res.status(200).json({ success: true, data: response?.data});
+    }
+
   } catch (err) {
     console.log('UTM CATCHHHHH',utm)
     console.log(err.data);
     
-
-    const response = await axios.get(
-      `https://offers-edpartners.affise.com/postback?secure=${AFFISE_SECURE}&goal=1&clickid=${utm?.cl_uid}&comment=offer&action_id=${id}&sum=${price}`
-    )
-    console.log('Success', response.data);
-    res.status(200).json({ success: true, data: response?.data});
+    // const response = await axios.get(
+    //   `https://offers-edpartners.affise.com/postback?secure=${AFFISE_SECURE}&goal=1&clickid=${utm?.cl_uid}&comment=offer&action_id=${id}&sum=${price}`
+    // )
+    // console.log('Success', response.data);
+    res.status(200).json({ success: false});
   }
 }

@@ -13,19 +13,19 @@ import { useState } from 'react'
 import SeminarCard from '@/components/sections/Seminars'
 
 const SeminarsStudyFieldPage = ({
-  seminars
+  events
 }) => {
   const router = useRouter();
   const { studyFieldSlug } = router.query;
   // console.log(seminars)
 
   // Фильтрация семинаров по studyFieldSlug
-  const filteredSeminars = seminars.filter((seminar) => seminar.studyFieldSlug === studyFieldSlug);
+  const filteredSeminars = events?.filter((seminar) => seminar.studyFieldSlug === studyFieldSlug);
   return (
     <>
       <Wrapper>
         <h1>Семинары слаг</h1>
-      <SeminarsFilter seminars={seminars} />
+      <SeminarsFilter seminars={events} />
       <SeminarCard seminars={filteredSeminars}/>
     </Wrapper>
     </>

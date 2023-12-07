@@ -20,9 +20,9 @@ const Seminars = ({ seminars }) => {
     <div className={stls.seminarsContainer}>
       
         {seminars?.map(seminar => (
-          <div key={seminar.id} className={stls.seminarsContainer}>
-            <SeminarCard seminar={seminar}/>
-          </div>
+          // <div key={seminar.id} className={stls.seminarsContainer}>
+            <SeminarCard key={seminar.id} seminar={seminar}/>
+          // </div>
         ))}
     </div>
     </>

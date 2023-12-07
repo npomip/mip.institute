@@ -8,7 +8,7 @@ import SeminarsFilter from '@/components/general/SeminarsFilter'
 import { useState } from 'react'
 import SeminarCard from '@/components/sections/Seminars'
 
-const CoursesPage = ({ seminars }) => {
+const CoursesPage = ({ events }) => {
   // useHandleContextStaticProps({
   //   seminars,
   //   curProgramsType: 'course'
@@ -18,12 +18,13 @@ const CoursesPage = ({ seminars }) => {
 
 // console.log(titles); // Массив всех значений title
 // console.log(studyFields)
+console.log(events)
 
   return (
     <Wrapper>
       <h1>Семинары</h1>
-      <SeminarsFilter seminars={seminars} />
-      <SeminarCard seminars={seminars}/>
+      <SeminarsFilter seminars={events} />
+      <SeminarCard seminars={events}/>
     </Wrapper>
   )
 }

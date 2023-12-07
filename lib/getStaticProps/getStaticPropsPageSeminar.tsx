@@ -27,7 +27,7 @@ const getStaticPropsPageSeminar = async ({
         $slug: String!
         $studyFieldSlug: String!
       ) {
-        seminar: seminars(
+        seminar: events(
           where: { slug: $slug, studyFieldSlug: $studyFieldSlug}
         ) {
           id
@@ -43,7 +43,7 @@ const getStaticPropsPageSeminar = async ({
       studyFieldSlug
     }
   })
-  // console.log('SEMINAR PROPS', res?.data)
+  console.log('SEMINAR PROPS', res?.data)
   return {
     props: res?.data || null ,
     revalidate: revalidate.default

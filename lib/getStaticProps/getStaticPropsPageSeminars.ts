@@ -18,7 +18,7 @@ const getStaticPropsPageSeminars = async ({
   const res = await apolloClient.query<TypePageSeminarsPropsQuery>({
     query: gql`
       query GetStaticPropsPageSeminars {
-        seminars {
+        events {
           id
           title
           slug
@@ -28,16 +28,12 @@ const getStaticPropsPageSeminars = async ({
           text
           tickets_quantity
           price
-          related_seminars {
-            title
-            text
-            date
-            price
-          }
+
         }
       }
     `
   })
+  console.log('SEMINAR PROPS', res?.data)
   return {
     
     props: {

@@ -33,6 +33,7 @@ import client from '@/lib/apolloClient'
 import { getCookie, setCookie } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
 import StickyBottomBlackFriday from '@/components/layout/StickyBottomBlackFriday'
+// import { cookies } from 'next/headers'
 
 const MyApp = ({ Component, pageProps, router }) => {
   // console.log(pageProps)
@@ -112,31 +113,48 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [loading, setLoading] = useState(false)
   //cookie for edPartners
   useEffect(() => {
-    const utmCookie = getCookie('utm')
-    let arr
+    const utmCookie = getCookie('utm');
+    let arr;
     if (typeof utmCookie === 'string') {
-      arr = JSON.parse(utmCookie)
+      arr = JSON.parse(utmCookie);
     }
+    const previousCookieSource = arr?.utm_source;
+    const urlUtmsArr = router.asPath.split('?')[1]
+    console.log(urlUtmsArr)
 
-    const previousCookie = arr?.utm_source
-
-    if (router.query.utm_source && router.query.utm_source != previousCookie) {
-      const urlUtmsArr = router.asPath.split('?')[1]
-      let utms = {}
+    // переписываем куку если клик айди у едпартнерс отличается от предыдущего
+    // if(previousCookieSource === 'edpartners'){
+    //   console.log('ED PARTNERS')
+    //   const urlUtmsArr = router.asPath.split('?')[1];
+    //   let utms = {utm_source: '', utm_medium: '', utm_campaign: '', cl_uid: ''};
+    //   urlUtmsArr &&
+    //     urlUtmsArr.split('&').forEach(utm => {
+    //       const [key, value] = utm.split('=');
+    //       utms[key] = decodeURIComponent(value); // Декодирование URL-кодированной строки
+    //     });
+    //     if(utms.cl_uid !== arr.cl_uid){
+    //       console.log('CL_UID not equal')
+    //       setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
+    //     }
+    // }
+  // переписываем куку если отличается сурс от того, что был до этого 
+    if (urlUtmsArr) {
+      const urlUtmsArr = router.asPath.split('?')[1];
+      let utms = {};
       urlUtmsArr &&
         urlUtmsArr.split('&').forEach(utm => {
-          utms[utm.split('=')[0]] = utm.split('=')[1]
-        })
-
-      if (
-        router.query.utm_source &&
-        router.query.utm_source != previousCookie
-      ) {
-        setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
-      }
+          const [key, value] = utm.split('=');
+          utms[key] = decodeURIComponent(value); // Декодирование URL-кодированной строки
+        });
+  
+        setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
     }
-  }, [router.query])
+  }, [router.query]);
+  
   //cookie for edPartners
+// ?utm_source=yandex_alexej&utm_medium=cpc&utm_campaign=компания&utm_content=[Поиск] Логопед с доп. квалификацией - GZ / RF / CPC&utm_term=ключ
+// ?utm_source=yandex-Feed&utm_medium=free&utm_campaign=psychology&utm_content=professions
+// ?utm_source=edpartners&utm_medium=cpa&utm_campaign=affiliate&cl_uid=7a61af20124c1918ac49130334cd03c8
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
@@ -281,6 +299,42 @@ const MyApp = ({ Component, pageProps, router }) => {
             `
         }}
       />
+      <Script 
+      id='edpartners_scaletrk'
+      dangerouslySetInnerHTML={{
+        __html: `
+        function sclClickPixelFn() {
+          const url = new URL(document.location.href).searchParams;
+          if (url.get('a')) {
+              const availableParams = ['aff_click_id', 'sub_id1', 'sub_id2', 'sub_id3', 'sub_id4', 'sub_id5', 'aff_param1', 'aff_param2', 'aff_param3', 'aff_param4', 'aff_param5', 'idfa', 'gaid'];
+              const t = new URL('https://edpartners.scaletrk.com/click');
+              const r = t.searchParams;
+              console.log(url);
+              r.append('a', url.get('a'));
+              r.append('o', url.get('o'));
+              r.append('return', 'click_id');
+              if (availableParams?.length > 0) {
+                  availableParams.forEach((key) => {
+                      const value = url.get(key);
+                      if (value) {
+                          r.append(key, value);
+                      }
+                  });
+              }
+              fetch(t.href).then((e) => e.json()).then((e) => {
+                  const c = e.click_id;
+                  if (c) {
+                      const expiration = 864e5 * 90;
+                      const o = new Date(Date.now() + expiration);
+                      document.cookie = 'cl_uid=' + c + ';expires=' + o;
+                      document.cookie = 'utm_source=' + url.get('utm_source') + ';expires=' + o;
+                  }
+              });
+          }
+      }
+      sclClickPixelFn();
+          `
+      }} />
       <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77"
                   height="0" width="0" style={{display: 'none', visibility: 'hidden'}}></iframe>

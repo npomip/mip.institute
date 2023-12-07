@@ -18,7 +18,7 @@ const getStaticPropsPageSeminar = async ({
   
   const studyFieldSlug = context?.params?.studyFieldSlug?.toString() || null
   const slug = context?.params?.slug?.toString() || null
-  console.log('context', slug, studyFieldSlug)
+  // console.log('context', slug, studyFieldSlug)
   try {
 
   const res = await apolloClient.query<TypePageSeminarPropsQuery>({

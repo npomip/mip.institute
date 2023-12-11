@@ -1,7 +1,7 @@
 import TypeLibSeminar from '@/types/lib/seminar/TypeLibSeminar'
 
 type TypePageSeminarProps = {
-  readonly event: TypeLibSeminar | null
+  readonly seminar: TypeLibSeminar | null
 
 
 }

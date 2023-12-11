@@ -13,31 +13,31 @@ import { BtnAlpha } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import SeminarTickets from '@/components/sections/SeminarTickets'
 
-const SeminarsSlugPage = (
-  { seminar }
+const JournalSlugPage = (
+  { blog }
 ) => {
 
-  useHandleContextStaticProps({
-    seminar
-  })
-// const title = seminar[0].title
-// const text = seminar[0].text
+  // useHandleContextStaticProps({
+  //   blogs
+  // })
+// const title = blogs[0].title
+// const text = blogs[0].text
 
-  const router = useRouter();
-  const {slug, studyFieldSlug} = router.query
-  const date = new Date(seminar.date)
-  console.log(seminar)
+  // const router = useRouter();
+  // const {slug, studyFieldSlug} = router.query
+  // const date = new Date(blogs?.date)
+  console.log(blog)
 
   return (
     <Wrapper>
-    <p>{seminar.title}</p>
-    <p>{seminar.text}</p>
+    {/* <p>{blogs?.title}</p>
+    <p>{blogs?.text}</p>
     <SeminarTickets />
-    <p>{seminar.price} рублей</p>
+    <p>{blogs?.price} рублей</p>
     <PopupTrigger btn='eta' cta='buyTicket' />
-    {seminar.article.map((module, idx) => (
+    {blogs?.article.map((module, idx) => (
       <ArticlesDynamicZones key={idx} props={module} />
-    ))}
+    ))} */}
       {/* <SeoPagesPrograms
         programs={programs}
         curProgramsStudyFieldSlug={studyFieldSlug}
@@ -48,9 +48,9 @@ const SeminarsSlugPage = (
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
-  await handleGetStaticPaths({ page: routes.front.seminar })
+  await handleGetStaticPaths({ page: routes.front.journal })
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.seminar })
+  await handleGetStaticProps({ context, page: routes.front.journal })
 
-export default SeminarsSlugPage
+export default JournalSlugPage

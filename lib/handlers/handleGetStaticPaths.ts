@@ -8,10 +8,12 @@ import apolloClient from '@/lib/apolloClient'
 import { routes, revalidate } from '@/config/index'
 import {
   getStaticPathsPagePrograms,
-  getStaticPathsPageProgram
+  getStaticPathsPageProgram,
+  getStaticPathsPageSeminar,
+  getStaticPathsPageSeminars,
+  getStaticPathsPageJournal,
+  getStaticPathsPageJournals
 } from '@/lib/index'
-import getStaticPathsPageSeminar from '../getStaticPaths/getStaticPathsPageSeminar'
-import getStaticPathsPageSeminars from '../getStaticPaths/getStaticPathsPageSeminars'
 
 type TypeHandleGetStaticPathsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -35,8 +37,14 @@ const handleGetStaticPaths = async ({
     case routes.front.seminar:
       return await getStaticPathsPageSeminar()
 
-      case routes.front.seminars:
-        return await getStaticPathsPageSeminars()
+    case routes.front.seminars:
+      return await getStaticPathsPageSeminars()
+
+    case routes.front.journal:
+      return await getStaticPathsPageJournal()
+
+    case routes.front.journals:
+      return await getStaticPathsPageJournals()
 
     default:
       return {

@@ -43,10 +43,11 @@ type PopupTriggerType = {
     | 'consultMe'
     | 'programQuestion'
     | '2for1'
+    | 'buyTicket'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
-  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve' || cta === 'askQuestion';
+  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve' || cta === 'askQuestion' || cta === 'buyTicket';
   const question = cta === 'askQuestion' || cta === 'programQuestion'
 
   const strs = {
@@ -87,6 +88,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Вопрос по программе'
         : cta === '2for1'
         ? 'Получить 2 по цене 1'
+        : cta === 'buyTicket'
+        ? 'Купить билет'
         : '',
     title:
       cta === 'askQuestion'
@@ -124,6 +127,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         : cta ==='programQuestion'
         ? 'Вопрос по программе'
         : cta === '2for1'
+        ? 'Оставить заявку'
+        : cta === 'buyTicket'
         ? 'Оставить заявку'
         : '',
     desc:
@@ -231,6 +236,13 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
           минут!
         </>
+      ) :
+      cta === 'buyTicket' ? (
+        <>
+          Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
+          минут!
+        </>
       ) : (
         ''
       ),
@@ -271,6 +283,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Задать вопрос'
         : cta === '2for1'
         ? 'Оставить заявку'
+        : cta === 'buyTicket'
+        ? 'Выбрать билеты'
         : '',
       blockForAmo:
         cta === 'askQuestion'

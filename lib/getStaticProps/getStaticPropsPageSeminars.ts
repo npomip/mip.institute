@@ -28,12 +28,11 @@ const getStaticPropsPageSeminars = async ({
           text
           tickets_quantity
           price
-
         }
       }
     `
   })
-  console.log('SEMINAR PROPS', res?.data)
+  // console.log('SEMINAR PROPS', res?.data)
   return {
     
     props: {

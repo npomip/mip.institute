@@ -6,13 +6,13 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
-import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
 import TypePageJournalPropsQuery from '@/types/page/journal/query/TypePageJournalPropsQuery'
+import TypePageJournalsProps from '@/types/page/journals/props/TypePageJournalsProps'
 
-const getStaticPropsPageJournal = async ({
+const getStaticPropsPageJournals = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
-  props: TypePageJournalProps
+  props: TypePageJournalsProps
   revalidate: number | boolean
 }> => {
   // console.log('context', context)
@@ -24,6 +24,8 @@ const getStaticPropsPageJournal = async ({
     title
     slug
     subtitle
+    studyField
+    studyFieldSlug
     article {
       __typename
       ... on  ComponentBlogTextImageBlock {
@@ -51,4 +53,4 @@ const getStaticPropsPageJournal = async ({
   }
 }
 
-export default getStaticPropsPageJournal
+export default getStaticPropsPageJournals

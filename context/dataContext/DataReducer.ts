@@ -1,4 +1,3 @@
-// Создание редуктора
 const programsReducer = (state, action) => {
   switch (action.type) {
     case 'SET_PROGRAMS':

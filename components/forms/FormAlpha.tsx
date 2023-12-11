@@ -13,6 +13,7 @@ import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
 import { ContextStaticProps } from '@/context/index'
+import getTicket from '../funcs/getTicket'
 
 
 type FormValues = {
@@ -53,8 +54,11 @@ const FormAlpha = ({
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false);
   const [loading, setLoading] = useState(false)
-  const { program } = useContext(ContextStaticProps)
+  const { program, seminar } = useContext(ContextStaticProps)
+  const [tickets, setTickets] = useState(1)
+  const { updateTicketsQuantity } = useContext(ContextStaticProps);
 
+  // console.log(seminar)
 
   useEffect(() => {
     popup && setFocus('name')
@@ -107,21 +111,34 @@ const FormAlpha = ({
       data.utm = null; // или какое-то другое значение по умолчанию
     }
 
-
-    const req = await hitContactRoute(data)
-
-    if (req === 200) {
-      setLoading(false)
-      // router.push('/gratefull')
-      console.log('Success')
-      window.open(routes.front.gratefull, '_blank');
-      setIsIpCheckFailed(false)
-      // setIsDisabled(true)
-      setThanksIsOpen(true)
+    if(cta === 'Выбрать билеты') {
+      data.tickets = tickets
+      const seminar_date = new Date(seminar.date)
+      data.date = seminar_date.getTime()
+      data.seminar_id = seminar.id
+      data.seminar_tickets_quantity = seminar.tickets_quantity
+      data.price = seminar.price * tickets
+      data.seminar_title = seminar.title
+      console.log(data)
+      const req = await getTicket(data)
+      updateTicketsQuantity(req)
+      
     } else {
-      console.log('err')
-      setLoading(false)
-      setIsIpCheckFailed(true)
+      const req = await hitContactRoute(data)
+  
+      if (req === 200) {
+        setLoading(false)
+        // router.push('/gratefull')
+        console.log('Success')
+        window.open(routes.front.gratefull, '_blank');
+        setIsIpCheckFailed(false)
+        // setIsDisabled(true)
+        setThanksIsOpen(true)
+      } else {
+        console.log('err')
+        setLoading(false)
+        setIsIpCheckFailed(true)
+      }
     }
 
     } else {
@@ -232,6 +249,13 @@ const FormAlpha = ({
             <p className={stls.err}>{errors.email && errors.email.message}</p>
           </div>
           )}
+          {cta === 'Выбрать билеты' && (
+            <div className={stls.tickets}>
+              <p style={{visibility: tickets > 1 ? 'visible' : 'hidden'}} onClick={() => setTickets(prev => prev -1)}>-</p>
+              <p>{tickets}</p>
+              <p style={{visibility: seminar?.tickets_quantity > tickets ? 'visible' : 'hidden'}} onClick={() => setTickets(prev => prev +1)}>+</p>
+            </div>
+          )}
           {question && (
             <div className={classNames(stls.inpt, stls.question)}>
               <textarea
@@ -254,7 +278,7 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={!captchaIsDone || isDisabled} />
+              <BtnAlpha text={cta} />
               // <BtnAlpha text={cta}  />
             )}
           </div>

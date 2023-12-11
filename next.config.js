@@ -447,6 +447,12 @@ module.exports = /* withPWA( */ {
         '/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
         permanent: true
       },
+      {
+        source: '/professions/konsultirovanie/prakticheskij-psiholog-s-dop.-kvalifikaciej-psiholog-psihoterapevt',
+        destination:
+        '/professions/konsultirovanie/prakticheskij-psiholog',
+        permanent: true
+      },
     ]
   }
 }

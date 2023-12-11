@@ -4,19 +4,23 @@ import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
 type THandleContextStaticPropsProps = {
   program?: any
+  seminar?: any
   programs?: any[]
   curProgramsType?: string | null
   curProgramsStudyFieldSlug?: string | null
+  tickets_quantity?: number
 }
 
 const useHandleContextStaticProps = ({
   program,
   programs,
+  seminar,
   curProgramsType,
-  curProgramsStudyFieldSlug
+  curProgramsStudyFieldSlug,
+  tickets_quantity
 }: THandleContextStaticPropsProps) => {
   const {
-    setBlogs,
+    setSeminar,
     setProgram,
     setPrograms,
     setCourses,
@@ -37,7 +41,7 @@ const useHandleContextStaticProps = ({
       programs?.length > 0
         ? filterProgramsByType({ programs, type: 'profession' })
         : []
-
+    setSeminar(seminar || null)
     setProgram(program || null)
     setPrograms(programs || null)
     setCourses(courses || null)
@@ -52,7 +56,7 @@ const useHandleContextStaticProps = ({
 
     setCurProgramsType(curProgramsType || null)
     setCurProgramsStudyFieldSlug(curProgramsStudyFieldSlug || null)
-  }, [curProgramsStudyFieldSlug, curProgramsType, program, programs])
+  }, [curProgramsStudyFieldSlug, curProgramsType, program, programs, seminar])
 }
 
 export default useHandleContextStaticProps

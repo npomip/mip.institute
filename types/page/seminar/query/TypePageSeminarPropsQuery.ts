@@ -1,7 +1,7 @@
 import { TypeLibSeminars } from '@/types/index'
 
 type TypePageSeminarPropsQuery = {
-  readonly event : | {
+  readonly seminar : | {
     studyFieldSlug: string | null
     slug: string | null
   }

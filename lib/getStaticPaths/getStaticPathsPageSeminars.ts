@@ -18,16 +18,16 @@ const getStaticPathsPageSeminars = async (): Promise<{
       }
     `
   })
-  console.log('pathsSeminarsssss', Array.from(
-    new Set(
-      res.data?.events?.map(program => ({
-        params: {
-          studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
-          slug: program?.slug || 'program'
-        }
-      }))
-    )
-  ))
+  // console.log('pathsSeminarsssss', Array.from(
+  //   new Set(
+  //     res.data?.events?.map(program => ({
+  //       params: {
+  //         studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
+  //         slug: program?.slug || 'program'
+  //       }
+  //     }))
+  //   )
+  // ))
 
   return {
     paths: Array.from(

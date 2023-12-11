@@ -1,6 +1,10 @@
 // getStaticPaths
 export { default as getStaticPathsPageProgram } from '@/lib/getStaticPaths/getStaticPathsPageProgram'
 export { default as getStaticPathsPagePrograms } from '@/lib/getStaticPaths/getStaticPathsPagePrograms'
+export { default as getStaticPathsPageSeminar } from '@/lib/getStaticPaths/getStaticPathsPageSeminar'
+export { default as getStaticPathsPageSeminars } from '@/lib/getStaticPaths/getStaticPathsPageSeminars'
+export { default as getStaticPathsPageJournal } from '@/lib/getStaticPaths/getStaticPathsPageJournal'
+export { default as getStaticPathsPageJournals } from '@/lib/getStaticPaths/getStaticPathsPageJournals'
 
 // getStaticProps
 export { default as getStaticPropsDefault } from '@/lib/getStaticProps/getStaticPropsDefault'

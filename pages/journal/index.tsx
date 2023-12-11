@@ -13,7 +13,7 @@ const JournalPage: NextPage<TypePageJournalProps> = ({ blogs }) => {
   //   blogs,
   // })
   // const articles = blogs?.map((el, index) => el)
-  // console.log(blogs)
+  console.log(blogs)
   return (
     <>
       {/* <SeoPagesPrograms programs={programs} ofType='course' /> */}
@@ -36,6 +36,6 @@ const JournalPage: NextPage<TypePageJournalProps> = ({ blogs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.journal })
+  await handleGetStaticProps({ context, page: routes.front.journals })
 
 export default JournalPage

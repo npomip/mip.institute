@@ -21,10 +21,11 @@ import {
   getStaticPropsPageProgram
 } from '@/lib/index'
 import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
-import getStaticPropsPageJournal from '../getStaticProps/getStaticPropsJournal'
+import getStaticPropsPageJournal from '../getStaticProps/getStaticPropsPageJournal'
 import getStaticPropsPageSeminars from '../getStaticProps/getStaticPropsPageSeminars'
 import getStaticPropsPageSeminar from '../getStaticProps/getStaticPropsPageSeminar'
 import TypePageSeminarProps from '@/types/page/seminar/props/TypePageSeminarProps'
+import getStaticPropsPageJournals from '../getStaticProps/GetStaticPropsPageJournals'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -84,6 +85,9 @@ const handleGetStaticProps = async ({
 
       case routes.front.program:
         return await getStaticPropsPageProgram({ context, type })
+
+      case routes.front.journals:
+        return await getStaticPropsPageJournals({ context })
 
       case routes.front.journal:
         return await getStaticPropsPageJournal({ context })

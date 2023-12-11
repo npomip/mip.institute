@@ -36,7 +36,6 @@ import StickyBottomBlackFriday from '@/components/layout/StickyBottomBlackFriday
 // import { cookies } from 'next/headers'
 
 const MyApp = ({ Component, pageProps, router }) => {
-  // console.log(pageProps)
   const getDefaultStateProps = pageProps => {
     const program = pageProps.program || null
     const programs =
@@ -49,7 +48,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       programs?.length > 0
         ? filterProgramsByType({ programs, type: 'profession' })
         : []
-    const blogs = pageProps.blogs
+    const blogs = pageProps.seminars
+    const seminar = pageProps.seminar || null
     const studyFields = programs?.length > 0 ? getStudyFields(programs) : []
 
     const studyFieldsProfessions =
@@ -78,7 +78,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       curProgramsStudyFieldSlug,
       searchTerm,
       filteredPrograms,
-      blogs
+      blogs,
+      seminar
     }
   }
 
@@ -109,18 +110,24 @@ const MyApp = ({ Component, pageProps, router }) => {
   )
 
   const [blogs, setBlogs] = useState(defaultStateProps.blogs)
+  const [seminar, setSeminar] = useState(defaultStateProps.seminar)
+  const updateTicketsQuantity = newQuantity => {
+    setSeminar(prevSeminar => ({
+      ...prevSeminar,
+      tickets_quantity: newQuantity
+    }))
+  }
 
   const [loading, setLoading] = useState(false)
   //cookie for edPartners
   useEffect(() => {
-    const utmCookie = getCookie('utm');
-    let arr;
+    const utmCookie = getCookie('utm')
+    let arr
     if (typeof utmCookie === 'string') {
-      arr = JSON.parse(utmCookie);
+      arr = JSON.parse(utmCookie)
     }
-    const previousCookieSource = arr?.utm_source;
+    const previousCookieSource = arr?.utm_source
     const urlUtmsArr = router.asPath.split('?')[1]
-    console.log(urlUtmsArr)
 
     // переписываем куку если клик айди у едпартнерс отличается от предыдущего
     // if(previousCookieSource === 'edpartners'){
@@ -137,24 +144,24 @@ const MyApp = ({ Component, pageProps, router }) => {
     //       setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
     //     }
     // }
-  // переписываем куку если отличается сурс от того, что был до этого 
+    // переписываем куку если отличается сурс от того, что был до этого
     if (urlUtmsArr) {
-      const urlUtmsArr = router.asPath.split('?')[1];
-      let utms = {};
+      const urlUtmsArr = router.asPath.split('?')[1]
+      let utms = {}
       urlUtmsArr &&
         urlUtmsArr.split('&').forEach(utm => {
-          const [key, value] = utm.split('=');
-          utms[key] = decodeURIComponent(value); // Декодирование URL-кодированной строки
-        });
-  
-        setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
+          const [key, value] = utm.split('=')
+          utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
+        })
+
+      setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
     }
-  }, [router.query]);
-  
+  }, [router.query])
+
   //cookie for edPartners
-// ?utm_source=yandex_alexej&utm_medium=cpc&utm_campaign=компания&utm_content=[Поиск] Логопед с доп. квалификацией - GZ / RF / CPC&utm_term=ключ
-// ?utm_source=yandex-Feed&utm_medium=free&utm_campaign=psychology&utm_content=professions
-// ?utm_source=edpartners&utm_medium=cpa&utm_campaign=affiliate&cl_uid=7a61af20124c1918ac49130334cd03c8
+  // ?utm_source=yandex_alexej&utm_medium=cpc&utm_campaign=компания&utm_content=[Поиск] Логопед с доп. квалификацией - GZ / RF / CPC&utm_term=ключ
+  // ?utm_source=yandex-Feed&utm_medium=free&utm_campaign=psychology&utm_content=professions
+  // ?utm_source=edpartners&utm_medium=cpa&utm_campaign=affiliate&cl_uid=7a61af20124c1918ac49130334cd03c8
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
@@ -233,6 +240,9 @@ const MyApp = ({ Component, pageProps, router }) => {
           filteredPrograms,
           blogs,
           setBlogs,
+          seminar,
+          setSeminar,
+          updateTicketsQuantity,
           setProgram,
           setPrograms,
           setCourses,
@@ -250,7 +260,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             <Header />
             <main>
               <ApolloProvider client={client}>
-              <Component {...pageProps} />
+                <Component {...pageProps} />
               </ApolloProvider>
             </main>
             <StickyBottom />
@@ -258,7 +268,11 @@ const MyApp = ({ Component, pageProps, router }) => {
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>
-      <Script type="text/javascript" src="https://api.flocktory.com/v2/loader.js?site_id=4762"  async/>
+      <Script
+        type='text/javascript'
+        src='https://api.flocktory.com/v2/loader.js?site_id=4762'
+        async
+      />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       {/* <Script id='calltouch' src='/assets/js/vendors/calltouchScript.js' />
       <Script id='botfaq' src='/assets/js/vendors/faq.js' /> */}
@@ -299,10 +313,23 @@ const MyApp = ({ Component, pageProps, router }) => {
             `
         }}
       />
-      <Script 
-      id='edpartners_scaletrk'
-      dangerouslySetInnerHTML={{
-        __html: `
+      <Script
+        id='roistat counter'
+        dangerouslySetInnerHTML={{
+          __html: `
+(function(w, d, s, h, id) {
+    w.roistatProjectId = id; w.roistatHost = h;
+    var p = d.location.protocol == "https:" ? "https://" : "http://";
+    var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
+    var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
+})(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
+            `
+        }}
+      />
+      <Script
+        id='edpartners_scaletrk'
+        dangerouslySetInnerHTML={{
+          __html: `
         function sclClickPixelFn() {
           const url = new URL(document.location.href).searchParams;
           if (url.get('a')) {
@@ -334,13 +361,16 @@ const MyApp = ({ Component, pageProps, router }) => {
       }
       sclClickPixelFn();
           `
-      }} />
+        }}
+      />
       <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77"
-                  height="0" width="0" style={{display: 'none', visibility: 'hidden'}}></iframe>
+        <iframe
+          src='https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77'
+          height='0'
+          width='0'
+          style={{ display: 'none', visibility: 'hidden' }}></iframe>
       </noscript>
       {/* <script type="text/javascript" src="https://api.flocktory.com/v2/loader.js?site_id=4762" async ></script> */}
-      
     </>
   )
 }

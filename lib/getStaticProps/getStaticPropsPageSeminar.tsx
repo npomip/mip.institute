@@ -1,7 +1,6 @@
 import {
   TypeGeneralGetStaticPropsContext,
-  TypePageProgramProps,
-
+  TypePageProgramProps
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
@@ -15,47 +14,59 @@ const getStaticPropsPageSeminar = async ({
   props: TypePageSeminarProps
   revalidate: number | boolean
 }> => {
-  
   const studyFieldSlug = context?.params?.studyFieldSlug?.toString() || null
   const slug = context?.params?.slug?.toString() || null
-  // console.log('context', slug, studyFieldSlug)
+
   try {
-
-  const res = await apolloClient.query<TypePageSeminarPropsQuery>({
-    query: gql`
-      query GetStaticPropsPageSeminar(
-        $slug: String!
-        $studyFieldSlug: String!
-      ) {
-        seminar: events(
-          where: { slug: $slug, studyFieldSlug: $studyFieldSlug}
+    const res = await apolloClient.query<TypePageSeminarPropsQuery>({
+      query: gql`
+        query GetStaticPropsPageSeminar(
+          $slug: String!
+          $studyFieldSlug: String!
         ) {
-          id
-          title
-          slug
-          studyFieldSlug
-          text
+          seminar: events(
+            where: { slug: $slug, studyFieldSlug: $studyFieldSlug }
+          ) {
+            id
+            title
+            slug
+            studyFieldSlug
+            text
+            tickets_quantity
+            price
+            date
+            article {
+              __typename
+              ... on ComponentBlogContentBlock {
+                content
+              }
+              __typename
+              ... on ComponentBlogTextBlock {
+                text
+              }
+            }
+          }
         }
+      `,
+      variables: {
+        slug,
+        studyFieldSlug
       }
-    `,
-    variables: {
-      slug,
-      studyFieldSlug
+    })
+    // console.log('SEMINAR PROPS', res?.data)
+    return {
+      props: {
+        seminar: res?.data?.seminar?.[0] || null
+      },
+      revalidate: revalidate.default
     }
-  })
-  console.log('SEMINAR PROPS', res?.data)
-  return {
-    props: res?.data || null ,
-    revalidate: revalidate.default
-  }
-} catch (error) {
-  console.error('Ошибка запроса:', error);
-  console.error('Статус код:', error.statusCode);
-  console.error('Результат:', error.result);
-    console.log('errrrrrr',error.networkError.result)
+  } catch (error) {
+    console.error('Ошибка запроса:', error)
+    console.error('Статус код:', error.statusCode)
+    console.error('Результат:', error.result)
+    console.log('errrrrrr', error.networkError.result)
     return error
+  }
 }
-}
-
 
 export default getStaticPropsPageSeminar

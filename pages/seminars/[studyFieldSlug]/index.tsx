@@ -7,10 +7,11 @@ import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import Wrapper from '@/components/layout/Wrapper'
 import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
-import Seminars from '@/components/sections/Seminars'
+import Seminars from '@/components/sections/SlugTags'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import SeminarCard from '@/components/sections/Seminars'
+import SeminarCard from '@/components/sections/SlugTags'
+import SlugTags from '@/components/sections/SlugTags'
 
 const SeminarsStudyFieldPage = ({
   events
@@ -26,7 +27,7 @@ const SeminarsStudyFieldPage = ({
       <Wrapper>
         <h1>Семинары слаг</h1>
       <StudyFieldSlugFilter props={events} slug='seminars'/>
-      <SeminarCard seminars={filteredSeminars}/>
+      <SlugTags props={filteredSeminars} slug='seminars' withDate/>
     </Wrapper>
     </>
   )

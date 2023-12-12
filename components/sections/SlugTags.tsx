@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/Seminars.module.sass'
 import Link from 'next/link'
 import routes from '@/config/routes'
-import SeminarCard from '../cards/SeminarCard'
+import SlugCard from '../cards/SlugCard'
 
 type ReviewsType = {
   standalone?: boolean
@@ -10,8 +10,8 @@ type ReviewsType = {
   onMain?: boolean
 }
 
-const Seminars = ({ seminars }) => {
-  // console.log(seminars)
+const SlugTags = ({ props, slug, withDate=false }) => {
+  console.log(props)
   // const newDate = new Date(seminars.date)
   // console.log(newDate)
   return (
@@ -19,9 +19,9 @@ const Seminars = ({ seminars }) => {
     <h2>Seminars:</h2>
     <div className={stls.seminarsContainer}>
       
-        {seminars?.map(seminar => (
+        {props?.map(item => (
           // <div key={seminar.id} className={stls.seminarsContainer}>
-            <SeminarCard key={seminar.id} seminar={seminar}/>
+            <SlugCard key={item.id} item={item} slug={slug} withDate={withDate}/>
           // </div>
         ))}
     </div>
@@ -29,4 +29,4 @@ const Seminars = ({ seminars }) => {
   )
 }
 
-export default Seminars
+export default SlugTags

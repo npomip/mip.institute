@@ -5,9 +5,8 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import Wrapper from '@/components/layout/Wrapper'
 import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
-import Seminars from '@/components/sections/Seminars'
 import { useRouter } from 'next/router'
-import SeminarCard from '@/components/sections/Seminars'
+import SlugTags from '@/components/sections/SlugTags'
 
 const JournalStudyFieldPage = ({
   blogs
@@ -23,7 +22,7 @@ const JournalStudyFieldPage = ({
       <Wrapper>
         <h1>Журнал слаг</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
-      <SeminarCard seminars={filteredSeminars}/>
+      <SlugTags props={filteredSeminars} slug = 'journal'/>
     </Wrapper>
     </>
   )

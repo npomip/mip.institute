@@ -58,7 +58,6 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
   const toggleOverview = () => {
     setShowDescription(!showDescription);
   };
-console.log(showDescription)
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })

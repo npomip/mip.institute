@@ -12,7 +12,6 @@ const ipCheckFunc = async () => {
     
     res.status === 403 && (output = 403)
     res.status === 500 && (output = 500)
-    console.log(output, 'oputput')
     return output
   } catch (err) {
     // console.log('errrrr=====>',err)

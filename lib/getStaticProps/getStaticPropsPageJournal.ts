@@ -18,7 +18,7 @@ const getStaticPropsPageJournal = async ({
 
   const studyFieldSlug = context?.params?.studyFieldSlug?.toString() || null
   const slug = context?.params?.slug?.toString() || null
-  console.log('context', context)
+
   try {
   const res = await apolloClient.query<TypePageJournalPropsQuery>({
     query: gql`
@@ -44,7 +44,6 @@ const getStaticPropsPageJournal = async ({
         studyFieldSlug
       }
   })
-  console.log('JOURNAL PROPS', res?.data)
   return {
     props: res.data,
     revalidate: revalidate.default

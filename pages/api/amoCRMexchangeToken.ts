@@ -3,7 +3,6 @@ import axios from 'axios';
 const exchangeTokens = async (req, res) => {
   
   const {refresh} = req.body
-  console.log('refreshtoken========>', refresh)
   // res.status(200).json({status: 'ok'});
 
   // const clientId = ; // Замените на ваш реальный client_id

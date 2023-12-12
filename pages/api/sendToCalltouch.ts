@@ -19,7 +19,6 @@ export default async function handler(req, res) {
       `https://api.calltouch.ru/calls-service/RestAPI/requests/${ct_site_id}/register/`,
       ct_data,
     );
-      console.log('Success');
       res.status(200).json({ success: true });
   } catch (err) {
     console.log(err);

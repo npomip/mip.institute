@@ -18,15 +18,7 @@ const getStaticPathsPageJournals = async (): Promise<{
       }
     `
   })
-  console.log('pathsJOURNAL', Array.from(
-    new Set(
-      res.data?.blogs?.map(program => ({
-        params: {
-          studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
-        }
-      }))
-    )
-  ))
+
   return {
     paths: Array.from(
       new Set(

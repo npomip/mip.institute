@@ -20,8 +20,6 @@ const WhyYouShouldStartPsychology = ({toggleOverview,showDescription,programOver
     setCurrentContainer(containerNumber);
   };
 
-  // console.log(currentContainer)
-
   return (
     <section className={classNames({
       [stls.container]: true,

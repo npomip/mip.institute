@@ -72,10 +72,8 @@ const FormAlpha = ({
     const req = await verifyCaptcha({token: value})
 
     if(req === 200){
-      console.log('Set true')
       setCaptchaIsDone(true)
     } else {
-      console.log('Set false')
       setCaptchaIsDone(false)
     }
   }
@@ -84,7 +82,6 @@ const FormAlpha = ({
   const onSubmit = async data => {
     const ipCheck = await ipCheckFunc()
     if( ipCheck === 200) {
-      console.log('IP 200')
       setIsDisabled(true)
       setLoading(true)
 
@@ -99,9 +96,9 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
+    const roistat_visit = getCookie('roistat_visit')
     const price = program?.price
     data.price = price
-    // console.log('clickId', clickId)
 
     data.blockForAmo = blockForAmo
 
@@ -119,17 +116,16 @@ const FormAlpha = ({
       data.seminar_tickets_quantity = seminar.tickets_quantity
       data.price = seminar.price * tickets
       data.seminar_title = seminar.title
-      console.log(data)
       const req = await getTicket(data)
       updateTicketsQuantity(req)
       
     } else {
+      data.roistat_visit = roistat_visit
       const req = await hitContactRoute(data)
   
       if (req === 200) {
         setLoading(false)
         // router.push('/gratefull')
-        console.log('Success')
         window.open(routes.front.gratefull, '_blank');
         setIsIpCheckFailed(false)
         // setIsDisabled(true)
@@ -278,7 +274,7 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} />
+              <BtnAlpha text={cta} isDisabled={!captchaIsDone || isDisabled}/>
               // <BtnAlpha text={cta}  />
             )}
           </div>

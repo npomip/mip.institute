@@ -15,7 +15,7 @@ const getStaticPropsPageJournals = async ({
   props: TypePageJournalsProps
   revalidate: number | boolean
 }> => {
-  // console.log('context', context)
+
   const res = await apolloClient.query<TypePageJournalPropsQuery>({
     query: gql`
       query GetStaticPropsPageJournal {

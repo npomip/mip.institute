@@ -26,7 +26,7 @@ const getStaticPathsPagePrograms = async ({
       type
     }
   })
-  // console.log('programSSSSSSPATHS', res.data?.programs)
+
   return {
     paths: Array.from(
       new Set(

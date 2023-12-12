@@ -3,8 +3,7 @@ import axios from 'axios'
 
 const createLead = async (req, res) => {
 
-  const { id, name, phone, price, email, question, promocode, access, leadPage, ymUid, utm, blockForAmo,edPartners } = req.body;
-  console.log('in createLead', utm)
+  const { id, name, phone, price, email, question, promocode, access, leadPage, ymUid, utm, blockForAmo,edPartners, roistat_visit } = req.body;
 
   // URL для запроса сделки по ID
   const apiUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/complex`
@@ -140,14 +139,14 @@ const createLead = async (req, res) => {
               }
             ]
           },
-          // {
-          //   field_id: 1043321,
-          //   values: [
-          //     {
-          //       value: 'camp'
-          //     }
-          //   ]
-          // },
+          {
+            field_id: 1054565,
+            values: [
+              {
+                value: roistat_visit
+              }
+            ]
+          },
           // {
           //   field_id: 1043321,
           //   values: [
@@ -216,7 +215,7 @@ const createLead = async (req, res) => {
       res.status(200).json({ status: 200, msg: 'Lead created' })
     } 
   } catch (error) {
-    console.error('Ошибка при создании нового лида:', error )
+    console.error('Ошибка при создании нового лида:', error.response.data )
     res.status(400).json(error.response)
   }
 }

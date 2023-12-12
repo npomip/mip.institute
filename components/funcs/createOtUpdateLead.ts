@@ -4,12 +4,10 @@ import axios from "axios";
 async function createOrUpdateLead(formData) {
   
   try {
-    console.log('FOOOOOOOORM',formData)
     const responseNewLead = await axios.post(
       `${routes.front.root}/api/checkAndCreateLead`,
       formData
     );
-    console.log(responseNewLead);
     return { success: true, data: responseNewLead.data };
     
   } catch (error) {

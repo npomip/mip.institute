@@ -3,10 +3,10 @@ import axios from 'axios';
 
 const checkLead = async (req, res) => {
 
-  const {id, name, phone, email, question, utms, leadPage, referer, ymUid, access, utm, blockForAmo, promocode,edPartners} = req.body
+  const {id, name, phone, email, question, utms, leadPage, referer, ymUid, access, utm, blockForAmo, promocode,edPartners, roistat_visit} = req.body
   console.log('inCHECKcreateLead', req.body)
 
-  const data = {id, name, phone, email, question, price: null, leadId: '', promocode , responsible_user_id: '', text: '', access, utm, ymUid, leadPage, blockForAmo, edPartners}
+  const data = {id, name, phone, email, question, price: null, leadId: '', promocode , responsible_user_id: '', text: '', access, utm, ymUid, leadPage, blockForAmo, edPartners, roistat_visit}
 
 
     const checkPhoneNumber = `https://crmamomipinstitute.amocrm.ru/api/v4/contacts?query=${phone}&with=leads`
@@ -24,7 +24,6 @@ const checkLead = async (req, res) => {
     const checkPhoneResponse = await axios.get(checkPhoneNumber, options);
 
     if (checkPhoneResponse.status === 200) {
-      console.log('status 200')
 
       const leadData = checkPhoneResponse.data;
 
@@ -43,9 +42,7 @@ const checkLead = async (req, res) => {
       res.status(200).json({ status: 200, msg: 'Note added in check' })
       
     } else if (checkPhoneResponse.status === 204) {
-      console.log(checkPhoneResponse.status)
       const resp = await axios.post(`${routes.front.root}/api/createLead`, data)
-      console.log('resp after create lead')
       res.status(200).json({ status: 200, msg: 'Lead created' })
     } 
   } catch (error) {

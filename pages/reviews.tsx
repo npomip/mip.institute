@@ -19,7 +19,7 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews, unique
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortUniqueReviewsCreatedAtASC({ uniqueReviews })
   })
-  console.log(uniqueReviews)
+
 
   const seoParams = {
     title: `Отзывы и статьи наших студентов | ${company.desc} | ${company.name}

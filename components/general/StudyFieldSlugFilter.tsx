@@ -4,22 +4,22 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import StudyFields from './StudyFields';
 
-interface Seminar {
-  studyField: string;
-  studyFieldSlug: string;
-  // другие поля
+interface PropsFilter {
+    studyField: string;
+    studyFieldSlug: string;
 }
 
-const SeminarsFilter = ({ seminars }: { seminars: Seminar[] }) => {
+const StudyFieldSlugFilter = ({ props, slug }: { props: PropsFilter[], slug: string}) => {
   const router = useRouter();
+  // console.log(slug)
 
-  let uniqueCategories = [...new Set(seminars?.map((seminar) => seminar.studyFieldSlug))];
+  let uniqueCategories = [...new Set(props?.map((seminar) => seminar.studyFieldSlug))];
   const uniqueCategoriesWithField = uniqueCategories.map((slug) => ({
     studyFieldSlug: slug,
-    studyField: seminars.find((seminar) => seminar.studyFieldSlug === slug)?.studyField || ''
+    studyField: props.find((seminar) => seminar.studyFieldSlug === slug)?.studyField || ''
   }));
   const firstEl = [{studyFieldSlug: '', studyField: 'Все'}]
-  // console.log(uniqueCategoriesWithField.concat({studyFieldSlug: '', studyField: 'Все'}));
+
   let cat = firstEl.concat(uniqueCategoriesWithField)
   // console.log(uniqueCategories)
 
@@ -31,8 +31,7 @@ const SeminarsFilter = ({ seminars }: { seminars: Seminar[] }) => {
   const handleFilter = (el) => {
     const selectedSlug = el;
     setStudyFieldSlug(selectedSlug);
-    // console.log(selectedSlug)
-    router.push(`/seminars/${selectedSlug.studyFieldSlug}`);
+    router.push(`/${slug}/${selectedSlug.studyFieldSlug}`);
   };
 // console.log(studyFieldSlug)
   return (
@@ -49,4 +48,4 @@ const SeminarsFilter = ({ seminars }: { seminars: Seminar[] }) => {
   );
 };
 
-export default SeminarsFilter;
+export default StudyFieldSlugFilter;

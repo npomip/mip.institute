@@ -4,7 +4,6 @@ import axios from 'axios'
 const createLead = async (req, res) => {
 
   const { id, name, phone, price, email, promocode, access, leadPage, ymUid, utm, blockForAmo, seminar_title, tickets, date } = req.body;
-  console.log('in createLead', req.body)
 
   // URL для запроса сделки по ID
   const apiUrl = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/complex`
@@ -240,7 +239,7 @@ const createLead = async (req, res) => {
 
     if (response.status === 200) {
       const leadData = response.data
-      console.log(response.status)
+
       res.status(200).json({ status: 200, msg: 'Lead created' })
     } 
   } catch (error) {

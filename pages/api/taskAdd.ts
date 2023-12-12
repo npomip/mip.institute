@@ -3,7 +3,6 @@ import moment from 'moment';
 
 const taskAdd = async (req, res) => {
   const {leadId, name, phone,email, responsible_user_id, access}=req.body 
-  // console.log(req.body)
   try {
 
     const checkContactUrl = 'https://crmamomipinstitute.amocrm.ru/api/v4/tasks'
@@ -35,10 +34,8 @@ const taskAdd = async (req, res) => {
 
     if (response.status === 200) {
       const leadData = response.data;
-      // console.log(leadData)
       res.status(200).json({ status: 200, msg: 'Таск added in addNode' })
     } else {
-      // console.log(response)
       res.status(response.status).json({ error: response });
     }
   } catch (error) {

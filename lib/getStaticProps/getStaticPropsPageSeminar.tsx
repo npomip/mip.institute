@@ -53,7 +53,7 @@ const getStaticPropsPageSeminar = async ({
         studyFieldSlug
       }
     })
-    // console.log('SEMINAR PROPS', res?.data)
+
     return {
       props: {
         seminar: res?.data?.seminar?.[0] || null

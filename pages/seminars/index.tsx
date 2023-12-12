@@ -4,7 +4,7 @@ import { handleGetStaticProps } from '@/lib/index'
 import Seminars from '@/components/sections/Seminars'
 import { useRouter } from 'next/router'
 import Wrapper from '@/components/layout/Wrapper'
-import SeminarsFilter from '@/components/general/SeminarsFilter'
+import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import { useState } from 'react'
 import SeminarCard from '@/components/sections/Seminars'
 
@@ -23,7 +23,7 @@ console.log(events)
   return (
     <Wrapper>
       <h1>Семинары</h1>
-      <SeminarsFilter seminars={events} />
+      <StudyFieldSlugFilter props={events} slug='seminars' />
       <SeminarCard seminars={events}/>
     </Wrapper>
   )

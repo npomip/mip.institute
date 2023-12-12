@@ -48,7 +48,6 @@ const checkOrUpdateTokens = async () => {
       return {access_token: oldAccess_token}
     }
   } catch (error) {
-    console.log("error")
     console.error('tokenss=======>',error)
     return 
   }

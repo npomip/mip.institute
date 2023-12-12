@@ -32,7 +32,7 @@ const getStaticPropsPageSeminars = async ({
       }
     `
   })
-  // console.log('SEMINAR PROPS', res?.data)
+
   return {
     
     props: {

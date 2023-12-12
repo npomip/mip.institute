@@ -20,21 +20,16 @@ const tokens = async (req, res) => {
     if (response.status === 200) {
       const leadData = response.data;
       res.status(200).json(leadData);
-      console.log(leadData)
     } else if (response.status === 204) {
-      console.log(response)
       res.status(200).json( response.data )
     } else {
-      console.log(response)
       res.status(response.status).json({ error: response });
     }
   } catch (error) {
     console.log('Ошибка при выполнении запроса:', error.response.status);
     if (error.response.status === 401) {
-      console.log('asdasdas', error.response.data)
       res.status(200).json( error.response.data )
     }
-    // res.status(500).json({ error });
   }
 };
 

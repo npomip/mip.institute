@@ -23,17 +23,11 @@ export default async function handler(req, res) {
   //   'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   // );
   try {
-    console.log('reqqq', req.body)
 
     const id = req.body &&  req.body['leads[status][0][id]']
 
-    // console.log('----------')
-    // console.log('IDDDDDD', id)
-    // console.log('----------')
-
     if(req.body) {
       const newLead =  await checkOrUpdateTokens()
-      // console.log('NNNNNNEWWWW LEEEEAD', newLead.access_token)
       const checkLeadId = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/${id}`
       
       const access_token = newLead.access_token
@@ -51,17 +45,13 @@ export default async function handler(req, res) {
     const click_id = leadData.custom_fields_values.find(item => item.field_name === 'clickid').values[0].value
     const lead_id = leadData.custom_fields_values.find(item => item.field_name === 'id заявки').values[0].value
     const amount = leadData.price
-    console.log('leaaad =====>', click_id, lead_id, amount)
-    // console.log(leadData)
     // постбек на отклонить
     const newresponse =await axios.get(
       `https://edpartners.scaletrk.com/track/conv-change?click_id=${click_id}&amount=${amount}&token=47e706c4&adv_order_id=${lead_id}&conv_status=rejected&goal_alias=1`
     )
-    console.log('EDPARTENRS', newresponse.data)
     res.status(200).json({ message: 'Данные успешно обработаны', response: newresponse?.data })
     }
   } catch (err) {
-    console.log('errrrr', err)
     res.status(500).json({ message: 'Ошибка обработки данных', err: err?.response?.data })
   }
 }

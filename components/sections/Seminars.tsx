@@ -11,7 +11,7 @@ type ReviewsType = {
 }
 
 const Seminars = ({ seminars }) => {
-  console.log(seminars)
+  // console.log(seminars)
   // const newDate = new Date(seminars.date)
   // console.log(newDate)
   return (

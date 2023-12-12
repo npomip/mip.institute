@@ -13,13 +13,11 @@ export default async function handler(req, res) {
 
     if (response.data.success) {
       res.status(200).json({ success: true });
-      console.log(response.data)
     } else {
-      console.log('Error');
+
       res.status(500).json({ success: false });
     }
   } catch (err) {
-    console.log(err);
     res.status(500).json({ success: false });
   }
 }

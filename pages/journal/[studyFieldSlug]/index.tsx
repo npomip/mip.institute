@@ -3,13 +3,10 @@ import { TypePageProgramsProps } from '@/types/index'
 import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
-import { PagesPrograms } from '@/components/pages'
-import { SeoPagesPrograms } from '@/components/seo'
 import Wrapper from '@/components/layout/Wrapper'
-import SeminarsFilter from '@/components/general/SeminarsFilter'
+import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import Seminars from '@/components/sections/Seminars'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import SeminarCard from '@/components/sections/Seminars'
 
 const JournalStudyFieldPage = ({
@@ -24,8 +21,8 @@ const JournalStudyFieldPage = ({
   return (
     <>
       <Wrapper>
-        <h1>Семинары слаг</h1>
-      <SeminarsFilter seminars={blogs} />
+        <h1>Журнал слаг</h1>
+      <StudyFieldSlugFilter props={blogs} slug='journal' />
       <SeminarCard seminars={filteredSeminars}/>
     </Wrapper>
     </>

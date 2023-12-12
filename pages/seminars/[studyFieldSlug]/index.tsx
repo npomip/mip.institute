@@ -6,7 +6,7 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import Wrapper from '@/components/layout/Wrapper'
-import SeminarsFilter from '@/components/general/SeminarsFilter'
+import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import Seminars from '@/components/sections/Seminars'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -25,7 +25,7 @@ const SeminarsStudyFieldPage = ({
     <>
       <Wrapper>
         <h1>Семинары слаг</h1>
-      <SeminarsFilter seminars={events} />
+      <StudyFieldSlugFilter props={events} slug='seminars'/>
       <SeminarCard seminars={filteredSeminars}/>
     </Wrapper>
     </>

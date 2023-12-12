@@ -30,8 +30,6 @@ const contact = async (req, res) => {
     error
   } = req.body
 
-  console.log(req.body)
-
   if (name?.includes('@')) {
     email = name
     name = ''
@@ -59,7 +57,7 @@ const contact = async (req, res) => {
     req.headers['x-forwarded-for'] ||
     req.connection.remoteAddress ||
     null
-  console.log(ip, 'ipppppp')
+
   const getUserLocation = async () => {
     try {
       const res = await geoip2.city(ip.toString())
@@ -439,8 +437,7 @@ const contact = async (req, res) => {
         `, // plain text body
         html
       })
-      // console.log('Message sent: %s', emailRes.messageId)
-      // console.log('CONTACT', req.body)
+
       res.status(200).json({ status: 200, msg: 'Email is sent' })
   } catch (err) {
     res.status(500).json({ status: 500, err, msg: 'Unexpected server error' })

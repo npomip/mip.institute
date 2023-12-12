@@ -1,7 +1,7 @@
 import { TypeLibGeneralPicture, TypeLibTeachers, TypeLibReviews } from '@/types/index'
 
 type TypeLibJournal = {
-  [x: string]: any
+  // [x: string]: any
   id: string | null
   title?: string | null
   subtitle?: string | null

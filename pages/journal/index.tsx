@@ -7,8 +7,9 @@ import { SeoPagesPrograms } from '@/components/seo'
 import PagesJournal from '@/components/pages/PagesJournal'
 import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
 import Image from 'next/image'
+import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 
-const JournalPage: NextPage<TypePageJournalProps> = ({ blogs }) => {
+const JournalPage = ({ blogs }) => {
   // useHandleContextStaticProps({
   //   blogs,
   // })
@@ -30,7 +31,8 @@ const JournalPage: NextPage<TypePageJournalProps> = ({ blogs }) => {
         
         </>
       ))} */}
-      <PagesJournal />
+      <StudyFieldSlugFilter props={blogs} slug='journal' />
+      {/* <PagesJournal /> */}
     </>
   )
 }

@@ -13,7 +13,6 @@ const getStudyFields = (programs: any[]) => {
   const output = labels
     .map((item, idx) => slugs[idx] && { label: item, slug: slugs[idx] })
     .filter(item => item)
-// console.log('getStudyFields', output)
   return output
 }
 

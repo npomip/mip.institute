@@ -8,6 +8,8 @@ import PagesJournal from '@/components/pages/PagesJournal'
 import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
 import Image from 'next/image'
 import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import SlugTags from '@/components/sections/SlugTags'
+import Wrapper from '@/components/layout/Wrapper'
 
 const JournalPage = ({ blogs }) => {
   // useHandleContextStaticProps({
@@ -16,7 +18,7 @@ const JournalPage = ({ blogs }) => {
   // const articles = blogs?.map((el, index) => el)
   console.log(blogs)
   return (
-    <>
+    <Wrapper>
       {/* <SeoPagesPrograms programs={programs} ofType='course' /> */}
       {/* {articles.map((el,index) => (
         <>
@@ -31,9 +33,11 @@ const JournalPage = ({ blogs }) => {
         
         </>
       ))} */}
+      <h1>Журнал</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
+      <SlugTags props={blogs} slug = 'journal'/>
       {/* <PagesJournal /> */}
-    </>
+    </Wrapper>
   )
 }
 

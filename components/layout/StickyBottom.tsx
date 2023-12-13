@@ -13,21 +13,22 @@ import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
 const StickyBottom = () => {
   const router = useRouter()
 
-  const [isShown, setIsShown] = useState(false)
+  const [isShown, setIsShown] = useState(true)
   const [isClosed, setIsClosed] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     if (router.asPath !== routes.front.payment) {
-      document.addEventListener('scroll', () => {
-        const scrollHeight = document.body.scrollHeight
-        const pageYOffset = window.pageYOffset
-        pageYOffset > (scrollHeight * 10) / 100 &&
-        pageYOffset + window.innerHeight < (scrollHeight * 90) / 100 &&
-        !isClosed
-          ? setIsShown(true)
-          : setIsShown(false)
-      })
+      // document.addEventListener('scroll', () => {
+      //   const scrollHeight = document.body.scrollHeight
+      //   const pageYOffset = window.pageYOffset
+      //   console.log(pageYOffset, scrollHeight)
+      //   pageYOffset > (scrollHeight * 10) / 1000 &&
+      //   pageYOffset + window.innerHeight < (scrollHeight * 90) / 100 &&
+      //   !isClosed
+      //     ? setIsShown(true)
+      //     : setIsShown(false)
+      // })
     }
     setIsLoaded(true)
   }, [router, setIsShown, isClosed])

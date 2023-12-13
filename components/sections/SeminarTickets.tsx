@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/Seminars.module.sass'
 import Link from 'next/link'
 import routes from '@/config/routes'
-import SeminarCard from '../cards/SeminarCard'
+import SeminarCard from '../cards/SlugCard'
 import { useContext } from 'react'
 import { ContextStaticProps } from '@/context/index'
 

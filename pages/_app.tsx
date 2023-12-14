@@ -32,7 +32,7 @@ import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
 import { getCookie, setCookie } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
-import StickyBottomBlackFriday from '@/components/layout/StickyBottomBlackFriday'
+import StickyBottomNewYear from '@/components/layout/StickyBottomNewYear'
 // import { cookies } from 'next/headers'
 
 const MyApp = ({ Component, pageProps, router }) => {
@@ -217,6 +217,8 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
+  console.log(prod)
+
   return (
     <>
       <DefaultSeo {...SEO} />
@@ -263,7 +265,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <StickyBottom />
+            <StickyBottomNewYear />
             <Footer />
           </FieldsTooltipState>
         </MenuState>
@@ -314,7 +316,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             `
         }}
       />
-      <Script
+      {prod && (<Script
         id='roistat counter'
         dangerouslySetInnerHTML={{
           __html: `
@@ -326,7 +328,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
           `
         }}
-      />
+      />)}
       <Script
         id='edpartners_scaletrk'
         dangerouslySetInnerHTML={{

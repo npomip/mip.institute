@@ -44,6 +44,7 @@ type PopupTriggerType = {
     | 'programQuestion'
     | '2for1'
     | 'buyTicket'
+    | 'participate'
 }
 
 const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
@@ -90,6 +91,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Получить 2 по цене 1'
         : cta === 'buyTicket'
         ? 'Купить билет'
+        : cta === 'participate'
+        ? 'Участвовать'
         : '',
     title:
       cta === 'askQuestion'
@@ -130,55 +133,49 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Оставить заявку'
         : cta === 'buyTicket'
         ? 'Оставить заявку'
+        : cta === 'participate'
+        ? 'Узнайте как поучаствовать в акции'
         : '',
     desc:
       cta === 'askQuestion' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'callMeBack' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'signUpForCourse' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'signUpForProfession' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'signUp' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'chooseProgram' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'learnAboutUs' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'submitApplication' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'getFullProgram' ? (
         <>
@@ -188,14 +185,12 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
       ): cta === 'reserve' ? (
         <>
           {/* У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут! */}
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности */}
         </>
       ) : cta === 'learnAboutTeachers' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) : cta === 'help' ? (
         <>
@@ -220,8 +215,7 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
       ) : cta === 'consultMe' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) :
       cta === 'programQuestion' ? (
@@ -233,17 +227,22 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
       cta === '2for1' ? (
         <>
           Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
       ) :
       cta === 'buyTicket' ? (
         <>
           Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И мы перезвоним Вам в течение 5
-          минут!
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все подробности
         </>
-      ) : (
+      ) : 
+      cta === 'participate' ? (
+        <>
+          Оставьте заявку!{' '}
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, что бы рассказать все условия акции!
+        </>
+      ) :
+      (
         ''
       ),
     cta:
@@ -285,6 +284,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Оставить заявку'
         : cta === 'buyTicket'
         ? 'Выбрать билеты'
+        : cta === 'participate'
+        ? 'Участвовать'
         : '',
       blockForAmo:
         cta === 'askQuestion'
@@ -323,6 +324,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           ? 'Вопрос по программе'
           : cta === '2for1'
           ? 'Баннер 2 по цене одного'
+          : cta === 'participate'
+          ? 'Участвовать'
           : ''
   }
 

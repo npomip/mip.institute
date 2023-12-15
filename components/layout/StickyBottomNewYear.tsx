@@ -94,6 +94,9 @@ const StickyBottomNewYear = () => {
                 </span>{' '}
                 Подарки <span className={stls.spanBrown}>всем</span> поступившим <br className={stls.smallMobileOnly} /> до 26.12 <br className={stls.mobileOnly} /> от 15000 рублей
                 {/* </p> */}
+                <div className={stls.trigger}>
+                <PopupTrigger btn='gamma' cta='participate' />
+                </div>
                 
               </div>
               <IconNewYearToy />

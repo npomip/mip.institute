@@ -219,5 +219,26 @@
     left: f.px(55)
     bottom: f.px(-19)
 
+.trigger
+  position: absolute
+  display: inline-block
+  &>*
+    display: flex
+    white-space: nowrap
+    &>*
+      text-transform: uppercase
+      @include m.gap($ptb: f.px(8), $ml: f.px(10))
+  @include m.media(phone, tablet)
+    position: static 
+    display: block
+    &>*
+      // width: 50%
+      justify-content: center
+      @include m.gap( $plr: f.px(50))
+      &>*
+        font-size: f.px(8)
+        @include m.gap($ptb: f.px(6), $plr: f.px(10), $m: 0)
+        
+
 
 

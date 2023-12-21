@@ -217,8 +217,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
-  console.log(prod)
-
   return (
     <>
       <DefaultSeo {...SEO} />

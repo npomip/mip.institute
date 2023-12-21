@@ -35,9 +35,9 @@ const SeminarsSlugPage = (
     <SeminarTickets />
     <p>{seminar.price} рублей</p>
     <PopupTrigger btn='eta' cta='buyTicket' />
-    {seminar.article.map((module, idx) => (
+    {/* {seminar.article.map((module, idx) => (
       <ArticlesDynamicZones key={idx} props={module} />
-    ))}
+    ))} */}
       {/* <SeoPagesPrograms
         programs={programs}
         curProgramsStudyFieldSlug={studyFieldSlug}

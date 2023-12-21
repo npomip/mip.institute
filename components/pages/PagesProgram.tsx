@@ -95,8 +95,6 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       <WhyYouShouldStartPsychology programOverview={programOverview} toggleOverview={toggleOverview} showDescription={showDescription}/>
       {programOverview && <ProgramOverview showDescription={showDescription} toggleOverview={toggleOverview}/>}
 
-      {/* <WhatYouWillLearn title={'Чему вы научитесь'}  />
-      <ForWhom /> */}
       {checkSlug.includes(slug) ? (
         <>
         
@@ -124,9 +122,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
         )}`}
         cta='reserve'
       />
-      
-      {/* <HelpWithEmployment /> */}
-      {/* {ofType !== 'course' && <YourFutureJob />} */}
+
       <StudyCost costRef={costRef} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <Faq faqRef={faqRef}/>

@@ -35,16 +35,7 @@ const getStaticPropsPageSeminar = async ({
             tickets_quantity
             price
             date
-            article {
-              __typename
-              ... on ComponentBlogContentBlock {
-                content
-              }
-              __typename
-              ... on ComponentBlogTextBlock {
-                text
-              }
-            }
+
           }
         }
       `,

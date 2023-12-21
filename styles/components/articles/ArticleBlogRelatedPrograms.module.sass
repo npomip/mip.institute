@@ -1,0 +1,96 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.relatedPrograms
+  border-radius: f.px(40)
+  @include m.gap($mtb: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($mtb: f.px(45))
+
+.innerBox
+  @include m.gap($pt: f.px(60), $pl: f.px(50), $pb: f.px(8))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(37), $pl: f.px(0), $pb: f.px(8))
+
+.relatedProgramsTitle
+  @include m.media(phone, tablet)
+    display: flex
+    justify-content: center
+  p
+    font-size: f.px(40)
+    @include m.media(phone, tablet)
+      font-size: f.px(20)
+    
+
+.title
+  max-width: f.px(920)
+  @include m.media(phone, tablet)
+    justify-self: center
+    // width: 100%
+    max-width: f.px(260)
+    text-align: center
+
+.relatedProgramsProgram
+  display: flex
+  justify-content: space-between
+  @include m.gap($mb: f.px(70), $mr: f.px(35))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(42), $mr: f.px(0))
+    justify-content: center
+    // align-items: flex-end
+
+.programTitle
+  width: 100%
+  @include m.gap($mb: f.px(0), $plr: f.px(30))
+  @include m.media(phone, tablet)
+    display: none
+    // width: f.px(170)
+    @include m.gap($plr: f.px(0), $mb: f.px(10))
+    
+
+.imgBox
+  min-width: f.px(200)
+  @include m.media( tablet)
+    min-width: f.px(100)
+    max-width: f.px(150)
+    @include m.gap($mr: f.px(15))
+  @include m.media(phone)
+    min-width: f.px(100)
+    max-width: f.px(100)
+    @include m.gap($mr: f.px(15))
+.img
+  
+  border-radius: f.px(10)
+  object-fit: cover
+
+.link
+  white-space: nowrap
+  background: #F87E1B
+  align-self: center
+  @include m.gap($plr: f.px(70), $ptb: f.px(16))
+  @include m.media(laptop )
+    @include m.gap($plr: f.px(40))
+
+  color: white
+  font-size: f.px(18)
+  font-weight: 500
+  border-radius: f.px(4)
+  height: fit-content
+  @include m.media(phone, tablet)
+    display: none
+    // width: 100%
+    align-self: flex-start
+    @include m.gap($plr: f.px(22), $ptb: f.px(6))
+    font-size: f.px(10)
+
+.contentBoxMobile
+  display: none
+  @include m.media(phone, tablet)
+    width: f.px(150)
+    display: flex
+    @include m.gap($ml: f.px(15))
+    flex-direction: column
+    // align-items: 
+    &>*
+      display: block

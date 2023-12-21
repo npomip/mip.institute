@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { TypePageProgramsProps } from '@/types/index'
+import stls from '@/styles/pages/JournalSlug.module.sass'
 import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -16,7 +17,7 @@ import SeminarTickets from '@/components/sections/SeminarTickets'
 const JournalSlugPage = (
   { blog }
 ) => {
-
+// console.log('BLOG PROPS',blog)
   // useHandleContextStaticProps({
   //   blogs
   // })
@@ -26,18 +27,15 @@ const JournalSlugPage = (
   // const router = useRouter();
   // const {slug, studyFieldSlug} = router.query
   // const date = new Date(blogs?.date)
-  console.log(blog)
+  // console.log('Jouranl PAge',blog.article)
 
   return (
     <Wrapper>
-    {/* <p>{blogs?.title}</p>
-    <p>{blogs?.text}</p>
-    <SeminarTickets />
-    <p>{blogs?.price} рублей</p>
-    <PopupTrigger btn='eta' cta='buyTicket' />
-    {blogs?.article.map((module, idx) => (
+    <article className={stls.article}>
+    {blog?.article?.map((module, idx) => (
       <ArticlesDynamicZones key={idx} props={module} />
-    ))} */}
+    ))}
+    </article>
       {/* <SeoPagesPrograms
         programs={programs}
         curProgramsStudyFieldSlug={studyFieldSlug}

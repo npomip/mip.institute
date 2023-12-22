@@ -13,10 +13,20 @@ import { Cta } from '@/components/sections'
 import { BtnAlpha } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import SeminarTickets from '@/components/sections/SeminarTickets'
+import ArticleTitle from '@/components/articles/ArticleTitle'
 
 const JournalSlugPage = (
   { blog }
 ) => {
+  // console.log(blog)
+  const articleHeading = {
+    color: blog?.color,
+    studyField: blog?.studyField,
+    picture: blog?.picture,
+    title: blog?.title,
+    teacher: blog?.teacher
+
+  }
 // console.log('BLOG PROPS',blog)
   // useHandleContextStaticProps({
   //   blogs
@@ -31,6 +41,7 @@ const JournalSlugPage = (
 
   return (
     <Wrapper>
+    {articleHeading && <ArticleTitle props={articleHeading} />}
     <article className={stls.article}>
     {blog?.article?.map((module, idx) => (
       <ArticlesDynamicZones key={idx} props={module} />

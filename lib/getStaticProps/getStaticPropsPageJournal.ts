@@ -32,7 +32,21 @@ const getStaticPropsPageJournal = async ({
             studyFieldSlug
             studyField
             subtitle
-            
+            color
+            picture {
+              url
+              width
+              height
+            }
+            teacher {
+              name
+              achievements
+              portrait {
+                url
+                width
+                height
+              }
+            }
             article {
               __typename
               ... on ComponentBlogTextImageBlock {

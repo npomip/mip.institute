@@ -6,11 +6,11 @@ import { useForm } from 'react-hook-form'
 import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
-import { PopupThankyou } from '@/components/popups'
+import { PopupLoading, PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
-import ReCAPTCHA from "react-google-recaptcha";
-import verifyCaptcha from '../funcs/verifyCaptcha'
+// import ReCAPTCHA from "react-google-recaptcha";
+// import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
 
@@ -52,7 +52,7 @@ const NewForm = ({
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false);
-  const [token, setToken] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     popup && setFocus('name')
@@ -60,21 +60,21 @@ const NewForm = ({
 
 
   const router = useRouter()
-  const [captchaIsDone, setCaptchaIsDone] = useState(false)
-  const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
-  const recaptchaRef = useRef(null)
+  // const [captchaIsDone, setCaptchaIsDone] = useState(false)
+  // const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
+  // const recaptchaRef = useRef(null)
 
-  const onChange = async (value) =>  {
+  // const onChange = async (value) =>  {
 
-    const req = await verifyCaptcha({token: value})
-    if(req === 200){
-      console.log('Set true')
-      setCaptchaIsDone(true)
-    } else {
-      console.log('Set false')
-      setCaptchaIsDone(false)
-    }
-  }
+  //   const req = await verifyCaptcha({token: value})
+  //   if(req === 200){
+  //     console.log('Set true')
+  //     setCaptchaIsDone(true)
+  //   } else {
+  //     console.log('Set false')
+  //     setCaptchaIsDone(false)
+  //   }
+  // }
 
 
   const onSubmit = async data => {
@@ -96,6 +96,7 @@ const NewForm = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm'); 
+    const roistat_visit = getCookie('roistat_visit')
     // console.log('clickId', clickId)
 
     data.blockForAmo = blockForAmo
@@ -107,10 +108,11 @@ const NewForm = ({
     }
 
     // console.log(data)
+    data.roistat_visit = roistat_visit
     const req = await hitContactRoute(data)
     console.log('req Alpha =====>', req)
     if (req === 200) {
-
+      setLoading(false)
       // router.push('/gratefull')
       console.log('Success')
       window.open(routes.front.gratefull, '_blank');
@@ -118,6 +120,7 @@ const NewForm = ({
       // setIsDisabled(true)
       setThanksIsOpen(true)
     } else {
+      setLoading(false)
       console.log('err')
       setIsIpCheckFailed(true)
     }
@@ -130,7 +133,7 @@ const NewForm = ({
     
   }
 
-  const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
+  // const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
 
   return (
     <>
@@ -139,6 +142,13 @@ const NewForm = ({
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
         <PopupThankyou close={() => setThanksIsOpen(false)} />
+      </Popup>
+
+      <Popup
+        open={loading}
+        // closeOnDocumentClick
+        onClose={() => setLoading(false)}>
+        <PopupLoading />
       </Popup>
       <form
         method='post'
@@ -155,6 +165,11 @@ const NewForm = ({
               placeholder='Ваше имя'
               disabled={isDisabled}
               {...register('name', {
+                required: `*Введите ваше имя`,
+                minLength: {
+                  value: 2,
+                  message: `*Введите ваше имя`
+                },
                 maxLength: {
                   value: 32,
                   message: `*Не больше 32 символов`
@@ -220,7 +235,7 @@ const NewForm = ({
             ) : (
               <BtnAlpha text={cta} isDisabled={isDisabled} />
             )} */}
-            <button disabled={!captchaIsDone || isDisabled} className={stls.violetButton}>Подобрать программу</button>
+            <button disabled={isDisabled} className={stls.violetButton}>Подобрать программу</button>
           </div>
           
           {agreement && (
@@ -232,12 +247,12 @@ const NewForm = ({
           
         </div>
         <br />
-          {dirtyFields.phone && <ReCAPTCHA
+          {/* {dirtyFields.phone && <ReCAPTCHA
           // ref={recaptchaRef}
             sitekey={key}
             onChange={onChange}
             
-    />}
+    />} */}
       </form>
     </>
   )

@@ -8,7 +8,7 @@ import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 import { PopupLoading, PopupThankyou } from '@/components/popups'
 import { getCookie } from 'cookies-next'
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
@@ -62,19 +62,19 @@ const TicketForm = ({
 
 
   const router = useRouter()
-  const [captchaIsDone, setCaptchaIsDone] = useState(false)
+  // const [captchaIsDone, setCaptchaIsDone] = useState(false)
 
-  const onChange = async (value) =>  {
-    const req = await verifyCaptcha({token: value})
+  // const onChange = async (value) =>  {
+  //   const req = await verifyCaptcha({token: value})
 
-    if(req === 200){
-      console.log('Set true')
-      setCaptchaIsDone(true)
-    } else {
-      console.log('Set false')
-      setCaptchaIsDone(false)
-    }
-  }
+  //   if(req === 200){
+  //     console.log('Set true')
+  //     setCaptchaIsDone(true)
+  //   } else {
+  //     console.log('Set false')
+  //     setCaptchaIsDone(false)
+  //   }
+  // }
 
 
   const onSubmit = async data => {
@@ -131,7 +131,7 @@ const TicketForm = ({
     
   }
 
-  const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
+  // const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
 
   return (
     <>
@@ -258,14 +258,14 @@ const TicketForm = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={!captchaIsDone || isDisabled} />
+              <BtnAlpha text={cta} isDisabled={isDisabled} />
               // <BtnAlpha text={cta}  />
             )}
           </div>
-          {dirtyFields.phone && <ReCAPTCHA
+          {/* {dirtyFields.phone && <ReCAPTCHA
             sitekey={key}
             onChange={onChange}
-    />}
+    />} */}
 
           {agreement && (
             <p className={stls.agreement}>

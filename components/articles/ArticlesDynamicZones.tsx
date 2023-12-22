@@ -1,6 +1,3 @@
-import styles from '@/styles/components/articles/ArticlesDynamicZones.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
 import ArticleBlogBigSizeText from './ArticleBlogBigSizeText'
 import ArticleBlogCommentBlock from './ArticleBlogCommentBlock'
 import ArticleBlogList from './ArticleBlogList'

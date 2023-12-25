@@ -1,0 +1,103 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.seminarCard
+  cursor: pointer
+  display: flex
+  flex-direction: column
+  align-items: center
+  border-radius: f.px(10)
+  position: relative
+  &:hover
+    .img
+      transform: scale(1.1)
+
+.firstCard
+  display: flex
+  width: 100%
+  cursor: pointer
+  @include m.media(phone, tablet)
+    flex-direction: column
+
+  // .seminarCardTag
+  //   @include m.gap($mb: f.px(0))
+
+  .articleTitle
+    @include m.gap($pt: f.px(40))
+    font-size: f.px(25)
+    font-weight: 500
+
+  .articleSubtitle
+    font-size: f.px(18)
+    @include m.gap($mb: f.px(70))
+
+  .date
+    font-size: f.px(13)
+    @include m.gap($pl: f.px(170))
+  &:hover
+    border-radius: f.px(10)
+    .seminarImg
+      border-radius: f.px(10)
+      .img
+        scale: 1.1
+  .seminarText
+    flex: 1
+    margin-top: 0
+    border: f.px(2) solid #6F01C6
+    margin-left: f.px(26)
+    @include m.media(phone, tablet)
+      margin-left: f.px(0)
+      @include m.gap($mt: f.px(-30))
+    
+
+.articleTitle
+  @include m.gap($pt: f.px(20))
+  font-size: f.px(25)
+  font-weight: 500
+
+.seminarCardTag
+  display: inline-block
+  color: #6F01C6
+  @include m.gap($ptb: f.px(9), $plr: f.px(17),$mb: f.px(0))
+  border: f.px(1) solid #6F01C6
+  border-radius: f.px(24)
+  background: #FFF
+  letter-spacing: 1.3px
+  text-transform: uppercase
+  font-weight: 500
+  font-size: f.px(13)
+
+.seminarImg
+  display: flex
+  // height: fit-content
+  &>*
+    border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    // display: flex
+    // height: 220px
+    // // width: 100%
+    object-fit: fill
+    &>*
+      // height: 500px
+      // width: 600px
+      // &>*
+      //   height: 500px
+      //   width: 500px
+  // border: 1px solid red
+
+
+.img
+  // display: flex
+  
+  border-radius: f.px(10)
+  object-fit: cover
+
+.seminarText
+  // margin-top: f.px(-30)
+  // padding-top: f.px(40)
+  border: f.px(1) solid #6F01C6
+  border-radius: f.px(10)
+  background: #F8F9F8
+  @include m.gap($mt: f.px(-30), $pt: f.px(35), $pl: f.px(35))
+  // position: absolute

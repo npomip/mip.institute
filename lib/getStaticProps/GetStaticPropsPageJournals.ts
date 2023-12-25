@@ -1,6 +1,4 @@
-import {
-  TypeGeneralGetStaticPropsContext,
-} from '@/types/index'
+import { TypeGeneralGetStaticPropsContext } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
@@ -13,23 +11,27 @@ const getStaticPropsPageJournals = async ({
   props: TypePageJournalsProps
   revalidate: number | boolean
 }> => {
-
   const res = await apolloClient.query<TypePageJournalsPropsQuery>({
     query: gql`
       query GetStaticPropsPageJournal {
-  blogs {
-    id
-    title
-    slug
-    subtitle
-    studyField
-    studyFieldSlug
-    
-  }
-}
+        blogs {
+          id
+          title
+          slug
+          subtitle
+          studyField
+          studyFieldSlug
+          date
+          picture {
+            url
+            width
+            height
+          }
+        }
+      }
     `
   })
-  
+
   return {
     props: res.data,
     revalidate: revalidate.default

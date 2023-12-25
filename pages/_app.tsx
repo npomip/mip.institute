@@ -263,7 +263,19 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <StickyBottomNewYear />
+            {new Date(2023, 11, 26).toLocaleString('ru-RU', {
+              day: 'numeric',
+              month: 'long'
+            }) <
+            new Date().toLocaleString('ru-RU', {
+              day: 'numeric',
+              month: 'long'
+            }) ? (
+              <StickyBottom />
+            ) : (
+              <StickyBottomNewYear />
+            )}
+
             <Footer />
           </FieldsTooltipState>
         </MenuState>
@@ -314,10 +326,11 @@ const MyApp = ({ Component, pageProps, router }) => {
             `
         }}
       />
-      {prod && (<Script
-        id='roistat counter'
-        dangerouslySetInnerHTML={{
-          __html: `
+      {prod && (
+        <Script
+          id='roistat counter'
+          dangerouslySetInnerHTML={{
+            __html: `
             (function(w, d, s, h, id) {
               w.roistatProjectId = id; w.roistatHost = h;
               var p = d.location.protocol == "https:" ? "https://" : "http://";
@@ -325,8 +338,9 @@ const MyApp = ({ Component, pageProps, router }) => {
               var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
             })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
           `
-        }}
-      />)}
+          }}
+        />
+      )}
       <Script
         id='edpartners_scaletrk'
         dangerouslySetInnerHTML={{

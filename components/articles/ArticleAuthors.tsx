@@ -1,4 +1,4 @@
-import stls from '@/styles/components/articles/ArticleTitle.module.sass'
+import stls from '@/styles/components/articles/ArticleAuthors.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import classNames from 'classnames'
 import marked from 'marked'
@@ -6,7 +6,7 @@ import parse, { domToReact, attributesToProps } from 'html-react-parser'
 import Image from 'next/image'
 import base64pixel from '@/config/base64pixel'
 
-type ArticleTitleType = {
+type ArticleAuthorsType = {
   props: {
     color: string
     title?: string
@@ -28,7 +28,7 @@ type ArticleTitleType = {
   }
 }
 
-const ArticleTitle = ({ props }: ArticleTitleType) => {
+const ArticleAuthors = ({ props }: ArticleAuthorsType) => {
   console.log(props)
   // const renderer = new marked.Renderer();
   // renderer.paragraph = (text) => {
@@ -50,7 +50,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
         <p><strong>Психолог:</strong> {props.teacher && props.teacher.name}</p>
       </div>
       
-      <h1 className={stls.articleTitle}>{props.title}</h1>
+      <h1 className={stls.articleAuthors}>{props.title}</h1>
       <div className={stls.imgBox}>
         <div className={stls.imgTitleContainer}>
           <Image
@@ -64,7 +64,6 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             blurDataURL={base64pixel}
           />
         </div>
-        {props.teacher && 
         <div className={stls.imgTeacherWithAchievements}>
           <div className={stls.imgTeacherContainer}>
             <Image
@@ -85,10 +84,9 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
           </div>
           
         </div>
-        }
       </div>
     </>
   )
 }
 
-export default ArticleTitle
+export default ArticleAuthors

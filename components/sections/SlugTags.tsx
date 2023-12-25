@@ -5,26 +5,28 @@ import SlugCard from '../cards/SlugCard'
 
 type ReviewsType = {
   standalone?: boolean
-  reviews: any,
-  reviewsRef?: any,
+  reviews: any
+  reviewsRef?: any
   onMain?: boolean
 }
 
-const SlugTags = ({ props, slug, withDate=false }) => {
+const SlugTags = ({ props, slug, withDate = false }) => {
   console.log(props)
   // const newDate = new Date(seminars.date)
   // console.log(newDate)
+  const title = slug === 'journal' ? 'Все статьи' : 'Все семинары'
   return (
     <>
-    <h2>Seminars:</h2>
-    <div className={stls.seminarsContainer}>
-      
-        {props?.map(item => (
+      <div className={stls.seminarsContainer}>
+        {/* первый слайд на всю ширину */}
+        <SlugCard item={props?.[0]} slug={slug} withDate={withDate} firstCard/>
+        <h2>{title}</h2>
+        {props?.filter((el,i) => i > 0).map(item => (
           // <div key={seminar.id} className={stls.seminarsContainer}>
-            <SlugCard key={item.id} item={item} slug={slug} withDate={withDate}/>
+          <SlugCard key={item.id} item={item} slug={slug} withDate={withDate} />
           // </div>
         ))}
-    </div>
+      </div>
     </>
   )
 }

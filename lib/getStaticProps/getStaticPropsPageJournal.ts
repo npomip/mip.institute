@@ -32,7 +32,10 @@ const getStaticPropsPageJournal = async ({
             studyFieldSlug
             studyField
             subtitle
-            color
+            color {
+              code
+              }
+            date
             picture {
               url
               width

@@ -20,6 +20,9 @@ import IconNewYearCross from '../icons/IconNewYearCross'
 import IconNewYearCircle from '../icons/IconNewYearCircle'
 import IconNewYearStar from '../icons/IconNewYearStar'
 import IconNewYearRowStar from '../icons/IconNewYearRowStar'
+import Snowfall from 'react-snowfall'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+
 
 const StickyBottomNewYear = () => {
   const router = useRouter()
@@ -44,16 +47,21 @@ const StickyBottomNewYear = () => {
     setIsLoaded(true)
   }, [router, setIsShown, isClosed])
 
+  const isMobileLayout = useBetterMediaQuery( '(max-width: 768px)')
+
   if (isLoaded)
     return (
       <FullWrapper>
+        
       <div
         className={cn({
           [stls.container]: true,
           [stls.isShown]: isShown,
           [stls.isClosed]: isClosed
         })}>
-          
+          <Snowfall
+          snowflakeCount={isMobileLayout ? 40 : 200}
+          />
           <div className={stls.innerBox}>
             <div className={stls.circleLeftContainer}>
               <IconNewYearCircle small/>
@@ -83,7 +91,7 @@ const StickyBottomNewYear = () => {
                 <span className={stls.cursive}>
                 Новогодние чудеса <br className={stls.mobileOnly} />от МИП! <br className={stls.smallMobileOnly} />
                 </span>{' '}
-                Подарки <span className={stls.spanBrown}>всем</span> поступившим <br className={stls.smallMobileOnly} /> до 26.12 <br className={stls.mobileOnly} /> от 15000 рублей
+                Подарки <span className={stls.spanBrown}>всем</span> поступившим <br className={stls.smallMobileOnly} /> до 28.12 <br className={stls.mobileOnly} /> от 15000 рублей
                 {/* </p> */}
                 <div className={stls.trigger}>
                 <PopupTrigger btn='gamma' cta='participate' />

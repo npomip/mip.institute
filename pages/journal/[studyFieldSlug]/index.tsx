@@ -17,18 +17,18 @@ const JournalStudyFieldPage = ({
 
   // Фильтрация семинаров по studyFieldSlug
   const filteredSeminars = blogs?.filter((seminar) => seminar.studyFieldSlug === studyFieldSlug);
-  // const sortedBlogs = [...filteredSeminars].sort((a, b) => {
-  //   // Предположим, что a.date и b.date содержат строки с датами
-  //   const dateA = new Date(a.date);
-  //   const dateB = new Date(b.date);
-  //   return dateB.getTime() - dateA.getTime(); // Сортировка от самой поздней даты к более ранней
-  // });
+  const sortedBlogs = [...filteredSeminars].sort((a, b) => {
+    // Предположим, что a.date и b.date содержат строки с датами
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime(); // Сортировка от самой поздней даты к более ранней
+  });
   return (
     <>
       <Wrapper>
         <h1>Блог МИП</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
-      <SlugTags props={filteredSeminars} slug = 'journal'/>
+      <SlugTags props={sortedBlogs} slug = 'journal'/>
     </Wrapper>
     </>
   )

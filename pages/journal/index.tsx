@@ -17,19 +17,19 @@ const JournalPage = ({ blogs }) => {
   // })
   // const articles = blogs?.map((el, index) => el)
   // console.log(blogs)
-  // const sortedBlogs = [...blogs].sort((a, b) => {
-  //   // Предположим, что a.date и b.date содержат строки с датами
-  //   const dateA = new Date(a.date);
-  //   const dateB = new Date(b.date);
-  //   return dateB.getTime() - dateA.getTime(); // Сортировка от самой поздней даты к более ранней
-  // });
-  // console.log(sortedBlogs)
+  const sortedBlogs = [...blogs].sort((a, b) => {
+    // Предположим, что a.date и b.date содержат строки с датами
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime(); // Сортировка от самой поздней даты к более ранней
+  });
+  console.log(sortedBlogs)
   return (
     <Wrapper>
       {/* <SeoPagesPrograms programs={programs} ofType='course' /> */}
       <h1>Блог МИП</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
-      <SlugTags props={blogs} slug = 'journal'/>
+      <SlugTags props={sortedBlogs} slug = 'journal'/>
       {/* <PagesJournal /> */}
     </Wrapper>
   )

@@ -6,9 +6,13 @@
   cursor: pointer
   display: flex
   flex-direction: column
-  align-items: center
+  // align-items: space-between
   border-radius: f.px(10)
   position: relative
+  height: 430px
+  @include m.media(phone, tablet)
+    height: auto
+  // align-items: center
   &:hover
     .img
       transform: scale(1.1)
@@ -35,6 +39,8 @@
   .date
     font-size: f.px(13)
     @include m.gap($pl: f.px(170))
+    // align-self: flex-start
+    justify-self: flex-end
   &:hover
     border-radius: f.px(10)
     .seminarImg
@@ -52,14 +58,14 @@
     
 
 .articleTitle
-  @include m.gap($pt: f.px(20))
+  @include m.gap($mb: f.px(0))
   font-size: f.px(25)
   font-weight: 500
 
 .seminarCardTag
-  display: inline-block
+  width: fit-content
   color: #6F01C6
-  @include m.gap($ptb: f.px(9), $plr: f.px(17),$mb: f.px(0))
+  @include m.gap($ptb: f.px(9), $plr: f.px(17),$mb: f.px(20))
   border: f.px(1) solid #6F01C6
   border-radius: f.px(24)
   background: #FFF
@@ -70,25 +76,23 @@
 
 .seminarImg
   display: flex
+  position: relative
   // height: fit-content
   &>*
     border-radius: f.px(10)
-  @include m.media(phone, tablet)
-    // display: flex
-    // height: 220px
-    // // width: 100%
-    object-fit: fill
+    height: 100px
+    width: 100%
     &>*
-      // height: 500px
-      // width: 600px
-      // &>*
-      //   height: 500px
-      //   width: 500px
-  // border: 1px solid red
+      height: 100px
+      width: 100%
+  @include m.media(phone, tablet)
+    object-fit: fill
 
 
 .img
-  // display: flex
+  display: flex
+  height: 100px
+  width: 100px
   
   border-radius: f.px(10)
   object-fit: cover
@@ -99,5 +103,15 @@
   border: f.px(1) solid #6F01C6
   border-radius: f.px(10)
   background: #F8F9F8
-  @include m.gap($mt: f.px(-30), $pt: f.px(35), $pl: f.px(35))
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-content: baseline
+  @include m.gap($mt: f.px(-30), $pt: f.px(42), $pl: f.px(35))
   // position: absolute
+
+.date
+  display: flex
+  height: 100%
+  @include m.gap($mb: f.px(0), $pb: f.px(30))
+  align-items: flex-end

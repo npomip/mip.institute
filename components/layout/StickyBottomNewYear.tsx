@@ -83,7 +83,7 @@ const StickyBottomNewYear = () => {
                 <span className={stls.cursive}>
                 Новогодние чудеса <br className={stls.mobileOnly} />от МИП! <br className={stls.smallMobileOnly} />
                 </span>{' '}
-                Подарки <span className={stls.spanBrown}>всем</span> поступившим <br className={stls.smallMobileOnly} /> до 26.12 <br className={stls.mobileOnly} /> от 15000 рублей
+                Подарки <span className={stls.spanBrown}>всем</span> поступившим <br className={stls.smallMobileOnly} /> до 28.12 <br className={stls.mobileOnly} /> от 15000 рублей
                 {/* </p> */}
                 <div className={stls.trigger}>
                 <PopupTrigger btn='gamma' cta='participate' />

@@ -13,20 +13,13 @@ type ReviewsType = {
 }
 
 const SlugCard = ({ item, slug, withDate, firstCard = false }) => {
-  console.log(item)
+  // console.log(item)
   const newDate = new Date(item?.date)
   const dateOfCourse = new Date(item?.date).toLocaleString('ru-RU', {
     day: 'numeric',
     month: 'long'
   })
 
-  console.log(
-    new Date().toLocaleString('ru-RU', {
-      day: 'numeric',
-      month: 'long'
-    }) === dateOfCourse
-  )
-  // console.log(`${slug}/${item.studyFieldSlug || 'studyfield'}/${item.slug}`)
   return (
     <>
       <Link
@@ -44,9 +37,11 @@ const SlugCard = ({ item, slug, withDate, firstCard = false }) => {
               src={item?.picture?.url}
               alt={'alt'}
               className={stls.img}
-              // layout='fill'
-              width={firstCard ? 760 : 450}
-              height={firstCard ? 430 : 220}
+              // width={firstCard ? 760 : 450}
+              // height={firstCard ? 430 : 250}
+              width={760}
+              height={430}
+              // layout='responsive'
               placeholder='blur'
               blurDataURL={base64pixel}
             />

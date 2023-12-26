@@ -5,8 +5,12 @@
 
 .seminarsContainer
   display: grid
+  height: 100%
   grid-template-columns: repeat(3, 1fr)
-  gap: 10px
+  gap: f.px(20)
+  // grid-template-rows: repeat(auto-fill, 460px)
+  align-items: stretch
+  justify-self: stretch
   & > *
     margin-bottom: 10px
     &:nth-of-type(1)

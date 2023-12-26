@@ -1,5 +1,4 @@
 import { GetStaticProps, NextPage } from 'next'
-import { TypePageProgramsProps } from '@/types/index'
 import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -7,6 +6,7 @@ import { SeoPagesPrograms } from '@/components/seo'
 import PagesJournal from '@/components/pages/PagesJournal'
 import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
 import Image from 'next/image'
+import stls from '@/styles/pages/JournalSlug.module.sass'
 import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import SlugTags from '@/components/sections/SlugTags'
 import Wrapper from '@/components/layout/Wrapper'
@@ -27,7 +27,7 @@ const JournalPage = ({ blogs }) => {
   return (
     <Wrapper>
       {/* <SeoPagesPrograms programs={programs} ofType='course' /> */}
-      <h1>Блог МИП</h1>
+      <h1 className={stls.title}>Блог МИП</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
       <SlugTags props={sortedBlogs} slug = 'journal'/>
       {/* <PagesJournal /> */}

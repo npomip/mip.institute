@@ -41,8 +41,31 @@ const getStaticPropsPageJournal = async ({
               width
               height
             }
+            blogs {
+            date
+            picture {
+              width
+              height
+              url
+              }
+            slug
+            studyField
+            studyFieldSlug
+            subtitle
+            title
+            }
+            blogAuthor {
+              name
+              position
+              portrait {
+                url
+                width
+                height
+              }
+            }
             teacher {
               name
+              position
               achievements
               portrait {
                 url

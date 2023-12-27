@@ -23,7 +23,6 @@ type ArticleBlogListWithTitleType = {
 }
 
 const ArticleBlogListWithTitle = ({props} : ArticleBlogListWithTitleType) => {
-  console.log(props)
   const list = props.item || [];
 
   return (

@@ -7,6 +7,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import { useRouter } from 'next/router'
 import SlugTags from '@/components/sections/SlugTags'
+import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 
 const JournalStudyFieldPage = ({
   blogs
@@ -26,6 +27,7 @@ const JournalStudyFieldPage = ({
   return (
     <>
       <Wrapper>
+        <SeoPagesJournal />
         <h1>Блог МИП</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
       <SlugTags props={sortedBlogs} slug = 'journal'/>

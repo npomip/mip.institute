@@ -42,7 +42,7 @@ const JoinTgChannel = () => {
             window.location.href = 'https://watbot.ru/w/beDi'
           }}>
           <Link href='https://watbot.ru/w/beDi'>
-            <a>Перейти на канал</a>
+            <a>Перейти в канал</a>
           </Link>
         </div>
         <div className={stls.img}>

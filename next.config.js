@@ -453,6 +453,18 @@ module.exports = /* withPWA( */ {
         '/professions/konsultirovanie/prakticheskij-psiholog',
         permanent: true
       },
+      {
+        source: '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        destination:
+        '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/prakticheskaya-konfliktologiya-i-mediaciya',
+        destination:
+        '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
+        permanent: true
+      },
     ]
   }
 }

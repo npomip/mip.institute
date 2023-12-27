@@ -5,14 +5,27 @@ import Image from 'next/image'
 import base64pixel from '@/config/base64pixel'
 import classNames from 'classnames'
 
-type ReviewsType = {
-  standalone?: boolean
-  reviews: any
-  reviewsRef?: any
-  onMain?: boolean
+type CardType = {
+  item: {
+    date: string
+    id: string
+    picture: {
+      height: string
+      width: string
+      url: string
+    }
+    slug: string
+    studyField: string
+    studyFieldSlug: string
+    subtitle: string
+    title: string
+  }
+  slug: string
+  withDate?: boolean
+  firstCard?: boolean
 }
 
-const SlugCard = ({ item, slug, withDate, firstCard = false }) => {
+const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
   // console.log(item)
   const newDate = new Date(item?.date)
   const dateOfCourse = new Date(item?.date).toLocaleString('ru-RU', {

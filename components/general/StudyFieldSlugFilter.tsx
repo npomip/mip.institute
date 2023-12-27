@@ -1,4 +1,4 @@
-import stls from '@/styles/components/general/SeminarsFilter.module.sass'
+import stls from '@/styles/components/general/StudyFieldSlugFilter.module.sass'
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -18,7 +18,7 @@ const StudyFieldSlugFilter = ({ props, slug }: { props: PropsFilter[], slug: str
     studyFieldSlug: slug,
     studyField: props.find((seminar) => seminar.studyFieldSlug === slug)?.studyField || ''
   }));
-  const firstEl = [{studyFieldSlug: '', studyField: 'Все'}]
+  const firstEl = [{studyFieldSlug: '', studyField: 'Все cтатьи'}]
 
   let cat = firstEl.concat(uniqueCategoriesWithField)
   // console.log(uniqueCategories)

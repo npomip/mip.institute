@@ -9,9 +9,9 @@
   // align-items: space-between
   border-radius: f.px(10)
   position: relative
-  height: 430px
+  min-height: 430px
   @include m.media(phone, tablet)
-    height: auto
+    min-height: auto
   // align-items: center
   &:hover
     .img
@@ -28,7 +28,7 @@
   //   @include m.gap($mb: f.px(0))
 
   .articleTitle
-    @include m.gap($pt: f.px(40))
+    @include m.gap($mb: f.px(20))
     font-size: f.px(25)
     font-weight: 500
 
@@ -38,9 +38,9 @@
 
   .date
     font-size: f.px(13)
-    @include m.gap($pl: f.px(170))
+    @include m.gap($pr: f.px(30))
     white-space: nowrap
-    // align-self: flex-start
+    align-self: flex-end
     justify-self: flex-end
   &:hover
     border-radius: f.px(10)
@@ -60,8 +60,11 @@
 
 .articleTitle
   @include m.gap($mb: f.px(0))
-  font-size: f.px(25)
-  font-weight: 500
+  font-size: f.px(20) !important
+  font-weight: 500 !important
+  line-height: 110% !important
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
 
 .seminarCardTag
   width: fit-content
@@ -70,10 +73,13 @@
   border: f.px(1) solid #6F01C6
   border-radius: f.px(24)
   background: #FFF
-  letter-spacing: 1.3px
+  letter-spacing: 1.3px !important
   text-transform: uppercase
-  font-weight: 500
-  font-size: f.px(13)
+  font-weight: 500 !important
+  font-size: f.px(13) !important
+  @include m.media(phone, tablet)
+    font-weight: 700 !important
+    font-size: f.px(9) !important
 
 .seminarImg
   display: flex
@@ -106,7 +112,8 @@
   display: flex
   flex-direction: column
   align-content: baseline
-  @include m.gap($mt: f.px(-30), $pt: f.px(42), $pl: f.px(35), $mlr: f.px(1))
+  
+  @include m.gap($mt: f.px(-30), $pt: f.px(52), $pl: f.px(35),$pr: f.px(10), $mlr: f.px(1))
   @include m.media(laptop)
     @include m.gap( $plr: f.px(15))
 
@@ -115,5 +122,6 @@
 .date
   display: flex
   height: 100%
+  font-size: f.px(12) !important
   @include m.gap($mb: f.px(0), $pb: f.px(30))
   align-items: flex-end

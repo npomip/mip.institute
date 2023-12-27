@@ -14,39 +14,40 @@ import { BtnAlpha } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import SeminarTickets from '@/components/sections/SeminarTickets'
 import ArticleTitle from '@/components/articles/ArticleTitle'
+import SlugCard from '@/components/cards/SlugCard'
+import ArticleRelatedBlogs from '@/components/articles/ArticleRelatedBlogs'
+import ArticleAuthors from '@/components/articles/ArticleAuthors'
+import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 
-const JournalSlugPage = (
-  { blog }
-) => {
+const JournalSlugPage = ({ blog }) => {
   // console.log(blog)
   const articleHeading = {
     color: blog?.color,
     studyField: blog?.studyField,
     picture: blog?.picture,
     title: blog?.title,
-    teacher: blog?.teacher
-
+    teacher: blog?.teacher,
+    blogAuthor: blog?.blogAuthor
   }
-// console.log('BLOG PROPS',blog)
-  // useHandleContextStaticProps({
-  //   blogs
-  // })
-// const title = blogs[0].title
-// const text = blogs[0].text
-
-  // const router = useRouter();
-  // const {slug, studyFieldSlug} = router.query
-  // const date = new Date(blogs?.date)
-  // console.log('Jouranl PAge',blog.article)
+  // const teacherAuthor = blog?.teacher
+  // teacherAuthor.arg = 'Психолог'
+  // const writtingAuthor = blog?.blogAuthor
+  // writtingAuthor.arg = 'Автор'
+  const articleAuthors = [blog?.teacher, blog?.blogAuthor]
+  console.log(articleAuthors)
+  // console.log('BLOG PROPS', blog)
 
   return (
     <Wrapper>
-    {articleHeading && <ArticleTitle props={articleHeading} />}
-    <article className={stls.article}>
-    {blog?.article?.map((module, idx) => (
-      <ArticlesDynamicZones key={idx} props={module} />
-    ))}
-    </article>
+      <SeoPagesJournal />
+      {articleHeading && <ArticleTitle props={articleHeading} />}
+      <article className={stls.article}>
+        {blog?.article?.map((module, idx) => (
+          <ArticlesDynamicZones key={idx} props={module} />
+        ))}
+        {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
+        {blog?.blogs.length && <ArticleRelatedBlogs blogs={blog?.blogs} />}
+      </article>
       {/* <SeoPagesPrograms
         programs={programs}
         curProgramsStudyFieldSlug={studyFieldSlug}

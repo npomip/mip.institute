@@ -16,6 +16,14 @@ type ArticleTitleType = {
       width: string
       height: string
     }
+    blogAuthor : {
+      name: string
+      portrait: {
+        url: string
+        width: string
+        height: string
+      }
+    }
     teacher: {
       name: string
       achievements: string
@@ -29,7 +37,7 @@ type ArticleTitleType = {
 }
 
 const ArticleTitle = ({ props }: ArticleTitleType) => {
-  console.log(props)
+
   // const renderer = new marked.Renderer();
   // renderer.paragraph = (text) => {
   //   return `<h2>${text}</h2>`;
@@ -44,9 +52,9 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
 
   return (
     <>
-      <span style={{color: props.color, border: `1px solid ${props.color}`}} className={stls.tag}>{props.studyField}</span>
+      <span className={stls.tag}>{props.studyField}</span>
       <div className={stls.authors}>
-        <p><strong>Автор:</strong></p>
+        <p><strong>Автор:</strong> {props.blogAuthor && props.blogAuthor.name}</p>
         <p><strong>Психолог:</strong> {props.teacher && props.teacher.name}</p>
       </div>
       

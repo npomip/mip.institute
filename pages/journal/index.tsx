@@ -10,6 +10,7 @@ import stls from '@/styles/pages/JournalSlug.module.sass'
 import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import SlugTags from '@/components/sections/SlugTags'
 import Wrapper from '@/components/layout/Wrapper'
+import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 
 const JournalPage = ({ blogs }) => {
   // useHandleContextStaticProps({
@@ -26,7 +27,7 @@ const JournalPage = ({ blogs }) => {
   console.log(sortedBlogs)
   return (
     <Wrapper>
-      {/* <SeoPagesPrograms programs={programs} ofType='course' /> */}
+      <SeoPagesJournal />
       <h1 className={stls.title}>Блог МИП</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
       <SlugTags props={sortedBlogs} slug = 'journal'/>

@@ -29,7 +29,6 @@ type ArticleBlogListWithBackgroundAndTitleType = {
 }
 
 const ArticleBlogListWithBackgroundAndTitle = ({props} : ArticleBlogListWithBackgroundAndTitleType) => {
-  console.log(props)
   const title = marked(props.title)
   const list = props.item || [];
 

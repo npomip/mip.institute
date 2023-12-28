@@ -5,7 +5,7 @@
 .container
   position: relative
   width: 100%
-  h1
+  h2
     font-size: 44px
     font-weight: 500
     @include m.gap($mb: f.px(13))
@@ -15,10 +15,16 @@
 
 .insideContainer
   max-width: 500px
+  // added in NY
+  color: white
+  // added in NY
 
 .icon
   @include m.gap($pr: f.px(11))
-
+  // added in NY
+  &>*
+    stroke: white
+  // added in NY
 .homePage
   color: #302D2D
   font-family: Inter
@@ -26,7 +32,6 @@
   font-weight: 400
   margin: 0 auto
 .toHome
-  // @include m.media(laptop, desktop)
   @include m.gap($mt: f.px(32), $ptb: f.px(5), $plr: f.px(10))
   width: fit-content
   display: flex
@@ -34,6 +39,9 @@
   cursor: pointer
   border-radius: 15px
   transition: color 0.3s ease-in-out, background 0.3s ease-in-out, stroke 0.3s ease-in-out
+  // added in NY
+  color: white
+  // added in NY
   &:hover
     background: #6f01c6
     color: white
@@ -60,12 +68,10 @@
     stroke-width: 20px
     & > *
       transform: scale(1.5)
-      stroke: black
+      // added in NY
+      // stroke: black
+      // added in NY
       stroke-width: 20px
-      & > *
-        // transform: scale(2)
-        // stroke: black
-        // stroke-width: 4px
 
 .content
   @include m.gap($mb: f.px(22))
@@ -76,8 +82,11 @@
     @include m.media( tablet, phone)
       font-size: f.px(15)
   span
-    color: #7104C4
+    // color: #7104C4
     font-weight: 500
+    // added in NY
+    color: #F87E1B
+    // added in NY
 
 .upperPortalSmall
   position: absolute

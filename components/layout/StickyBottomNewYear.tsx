@@ -31,8 +31,13 @@ const StickyBottomNewYear = () => {
   const [isClosed, setIsClosed] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
+  console.log(router.asPath == (routes.front.gratefull))
+
   useEffect(() => {
-    if (router.asPath !== routes.front.payment) {
+    setIsLoaded(true)
+    if (router.asPath == (routes.front.gratefull)) {
+      // console.log('YESSS')
+      // setIsShown(false)
       // document.addEventListener('scroll', () => {
       //   const scrollHeight = document.body.scrollHeight
       //   const pageYOffset = window.pageYOffset
@@ -44,7 +49,7 @@ const StickyBottomNewYear = () => {
       //     : setIsShown(false)
       // })
     }
-    setIsLoaded(true)
+    
   }, [router, setIsShown, isClosed])
 
   const isMobileLayout = useBetterMediaQuery( '(max-width: 768px)')

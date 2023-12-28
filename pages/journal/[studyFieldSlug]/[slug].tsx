@@ -34,8 +34,8 @@ const JournalSlugPage = ({ blog }) => {
   // const writtingAuthor = blog?.blogAuthor
   // writtingAuthor.arg = 'Автор'
   const articleAuthors = [blog?.teacher, blog?.blogAuthor]
-  console.log(articleAuthors)
-  // console.log('BLOG PROPS', blog)
+  // console.log(articleAuthors)
+  console.log('BLOG PROPS', blog)
 
   return (
     <Wrapper>

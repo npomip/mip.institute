@@ -263,19 +263,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            {new Date(2023, 11, 28).toLocaleString('ru-RU', {
-              day: 'numeric',
-              month: 'long'
-            }) <
-            new Date().toLocaleString('ru-RU', {
-              day: 'numeric',
-              month: 'long'
-            }) ? (
               <StickyBottom />
-            ) : (
-              <StickyBottomNewYear />
-            )}
-
             <Footer />
           </FieldsTooltipState>
         </MenuState>

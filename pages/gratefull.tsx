@@ -45,6 +45,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         }}
       />
       <SeoOrganizationJsonLd />
+      
       <Gratefull />
     </>
   )

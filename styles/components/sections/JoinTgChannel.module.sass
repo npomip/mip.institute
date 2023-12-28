@@ -8,14 +8,16 @@
   
   // @include m.gap($ml: f.px(30))
   @include m.media(laptop, desktop)
-    height: 750px
+  // added in NY
+    // height: 750px
+  // added in NY
   @include m.media(laptop)
     display: flex
     flex-wrap: wrap
     justify-content: center
   color: white
   position: relative
-  h1
+  h2
     font-size: 44px
     font-weight: 500
     @include m.gap($mb: f.px(0))
@@ -37,7 +39,10 @@
   display: flex
   text-align: center
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(10), $plr: f.px(16), $mt: f.px(99), $mb: f.px(20))
+  // added in NY
+  @include m.gap($ptb: f.px(10), $plr: f.px(16), $mt: f.px(40), $mb: f.px(20))
+  // added in NY
+    // @include m.gap($ptb: f.px(10), $plr: f.px(16), $mt: f.px(99), $mb: f.px(20))
   @include m.media( tablet, phone)
     @include m.gap($ptb: f.px(10), $plr: f.px(16),$mb: f.px(20))
   display: inline-block

@@ -8,6 +8,7 @@ import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import { useRouter } from 'next/router'
 import SlugTags from '@/components/sections/SlugTags'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
+import stls from '@/styles/pages/JournalSlug.module.sass'
 
 const JournalStudyFieldPage = ({
   blogs
@@ -28,7 +29,7 @@ const JournalStudyFieldPage = ({
     <>
       <Wrapper>
         <SeoPagesJournal />
-        <h1>Блог МИП</h1>
+        <h1 className={stls.title}>Блог МИП</h1>
       <StudyFieldSlugFilter props={blogs} slug='journal' />
       <SlugTags props={sortedBlogs} slug = 'journal'/>
     </Wrapper>

@@ -8,9 +8,10 @@ import IconWaves from '../icons/IconWaves'
 const JoinTgChannel = () => {
   return (
     <section className={stls.container}>
-      {/* <Wrapper> */}
+      
       <div className={stls.insidecontainer}>
-        <div className={stls.upperPortalSmall}>
+        {/* // added in NY */}
+        {/* <div className={stls.upperPortalSmall}>
           <IconGratefullPortal xsmall />
         </div>
         <div className={stls.upperPortalMedium}>
@@ -18,14 +19,12 @@ const JoinTgChannel = () => {
         </div>
         <div className={stls.midPortalSmall}>
           <IconGratefullPortal xsmall />
-        </div>
+        </div> */}
+        {/* // added in NY */}
         <div className={stls.label}>
           <p>Тайные знания</p>
         </div>
-        <h1 className={stls.title}>Телеграм-канал</h1>
-        {/* <div data-text="xxxxxxxxxxxxxx" className={stls.wavyLine}>
-
-        </div> */}
+        <h2 className={stls.title}>Телеграм-канал</h2>
         <div className={stls.iconWaves}>
           <IconWaves />
         </div>
@@ -45,16 +44,19 @@ const JoinTgChannel = () => {
             <a>Перейти в канал</a>
           </Link>
         </div>
-        <div className={stls.img}>
+        {/* // added in NY */}
+        {/* <div className={stls.img}>
           <HandsForGratefull />
-        </div>
+        </div> */}
+
+        {/* // added in NY */}
       </div>
 
-      {/* </Wrapper> */}
       <div className={stls.icontg}>
         <IconDirrectionTg />
       </div>
-      <div className={stls.iconMidPortal}>
+      {/* // added in NY */}
+      {/* <div className={stls.iconMidPortal}>
         <IconGratefullPortal medium />
       </div>
       <div className={stls.iconSmallPortal}>
@@ -62,7 +64,8 @@ const JoinTgChannel = () => {
       </div>
       <div className={stls.iconLargePortal}>
         <IconGratefullPortal />
-      </div>
+      </div> */}
+      {/* // added in NY */}
     </section>
   )
 }

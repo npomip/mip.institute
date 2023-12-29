@@ -9,8 +9,8 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import Gratefull from '@/components/sections/Gratefull'
 
-const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  useHandleContextStaticProps({ programs })
+const GratefullPage: NextPage<TypePageDefaultProps> = () => {
+  // useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Спасибо за заявку | ${company.name}`,
@@ -51,7 +51,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routes.front.gratefull })
+// export const getStaticProps: GetStaticProps = async () =>
+//   await handleGetStaticProps({ page: routes.front.gratefull })
 
-export default PaymentPage
+export default GratefullPage

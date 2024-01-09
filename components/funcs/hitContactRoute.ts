@@ -40,12 +40,12 @@ const hitContactRoute = async values => {
       fetchPolicy: 'network-only'
     });
 
-    console.log('token', checkTokenData, values)
+    // console.log('values', values)
 
     if(values?.utm?.utm_source
       === 'edpartners'){
     const edPartners = await axios.post(`${routes.front.root}/api/edPartners`, values)
-    console.log(edPartners.data.success)
+    
     values.edPartners = edPartners.data.success
     }
     
@@ -55,8 +55,7 @@ const hitContactRoute = async values => {
     const oldRefresh_token = checkTokenData?.amos[0]?.refresh
     const nowUNIXtime = moment().unix()
     const differenceInTime = expireTime - nowUNIXtime
-    console.log(checkTokenData?.amos[0])
-    console.log(oldAccess_token)
+    
     if(differenceInTime < 1800) {
       console.log('Time to upd token')
       const exchangeTokensResponse = await axios.post(

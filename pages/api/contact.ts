@@ -27,7 +27,8 @@ const contact = async (req, res) => {
     referer,
     ymUid,
     blockForAmo,
-    error
+    error,
+    roistat_visit
   } = req.body
 
   if (name?.includes('@')) {
@@ -139,7 +140,8 @@ const contact = async (req, res) => {
     utmContent: (utm && utm.utm_content) || (utms && utms.utm_content) || null,
     utmTerm: (utm && utm.utm_medium) ||(utms && utms.utm_term) || null,
   errorStatus: (error && error.status) || null,
-  errorDetail: (error && error.detail) || null
+  errorDetail: (error && error.detail) || null,
+  roistat_visit: roistat_visit || null
   }
 
   const subject = 'Новая заявка с mip.institute'
@@ -330,6 +332,10 @@ const contact = async (req, res) => {
         {
           tdKey: 'Описание ошибки ',
           tdVal: data.errorDetail
+        },
+        {
+          tdKey: 'roistat_visit',
+          tdVal: data.roistat_visit
         },
     ]
 

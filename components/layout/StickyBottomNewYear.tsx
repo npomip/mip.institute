@@ -20,8 +20,6 @@ import IconNewYearCross from '../icons/IconNewYearCross'
 import IconNewYearCircle from '../icons/IconNewYearCircle'
 import IconNewYearStar from '../icons/IconNewYearStar'
 import IconNewYearRowStar from '../icons/IconNewYearRowStar'
-import Snowfall from 'react-snowfall'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 
 const StickyBottomNewYear = () => {
@@ -52,8 +50,6 @@ const StickyBottomNewYear = () => {
     
   }, [router, setIsShown, isClosed])
 
-  const isMobileLayout = useBetterMediaQuery( '(max-width: 768px)')
-
   if (isLoaded)
     return (
       <FullWrapper>
@@ -64,9 +60,6 @@ const StickyBottomNewYear = () => {
           [stls.isShown]: isShown,
           [stls.isClosed]: isClosed
         })}>
-          <Snowfall
-          snowflakeCount={isMobileLayout ? 40 : 200}
-          />
           <div className={stls.innerBox}>
             <div className={stls.circleLeftContainer}>
               <IconNewYearCircle small/>

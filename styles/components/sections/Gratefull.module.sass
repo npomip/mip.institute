@@ -5,69 +5,8 @@
   
 .container
   padding-bottom: 0
-  // added in NY
-  background: #0D1633
-  h1
-    // background: red
-    z-index: 1
-    font-size: f.px(44)
-    color: #fff
-    font-style: italic
-    text-transform: uppercase
-    text-align: center
-    @include m.gap($mt: f.px(45))
-    @include m.media(tablet, phone)
-      font-size: f.px(36)
-      @include m.gap($mt: f.px(35))
-    // added in NY
-
-    // added in NY
-  // @include m.media(laptop, desktop)
-  //   background: linear-gradient(to left, #6F01C6 50%, white 50%)
-  // @include m.media(tablet, phone)
-  //   background: linear-gradient(to top, #6F01C6 52%, white 48%)
-  // added in NY
+  @include m.media(laptop, desktop)
+    background: linear-gradient(to left, #6F01C6 50%, white 50%)
+  @include m.media(tablet, phone)
+    background: linear-gradient(to top, #6F01C6 52%, white 48%)
   
-
-.toHome
-  @include m.gap($pt: f.px(22), $plr: f.px(10))
-  width: fit-content
-  display: flex
-  align-items: center
-  cursor: pointer
-  border-radius: 15px
-  transition: color 0.3s ease-in-out, background 0.3s ease-in-out, stroke 0.3s ease-in-out
-  // added in NY
-  color: white
-  // added in NY
-  &:hover
-    // background: #6f01c6
-    color: #F87E1B
-    .icon
-      & > *
-      stroke: #F87E1B
-
-.icon
-  @include m.gap($pr: f.px(11))
-  // added in NY
-  &>*
-    stroke: white
-  // added in NY
-
-.heading
-  position: relative
-  width: fit-content
-  margin: 0 auto
-  // display: flex
-  // justify-content: center
-  
-.iconHat
-  position: absolute
-  top: -10px
-  right: f.px(-20)
-  @include m.media(tablet)
-    top: f.px(-50)
-    right: f.px(70)
-  @include m.media(phone)
-    top: -40px
-    right: f.px(70)

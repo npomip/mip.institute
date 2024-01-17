@@ -275,7 +275,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         id='advcakeAsync'
         src='/assets/js/vendors/advCake.js'
       />
-      <Script
+      {/* <Script
         id='google tag manager'
         dangerouslySetInnerHTML={{
           __html: `
@@ -296,8 +296,8 @@ const MyApp = ({ Component, pageProps, router }) => {
               })(window, document, 'script', 'dataLayer', 'GTM-5L6T2K77');
             `
         }}
-      />
-      <Script
+      /> */}
+      {/* <Script
         id='google pixel'
         dangerouslySetInnerHTML={{
           __html: `
@@ -311,7 +311,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         })(document, window);
             `
         }}
-      />
+      /> */}
       {prod && (
         <Script
           id='roistat counter'
@@ -365,13 +365,13 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}
       />
 
-      <noscript>
+      {/* <noscript>
         <iframe
           src='https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77'
           height='0'
           width='0'
           style={{ display: 'none', visibility: 'hidden' }}></iframe>
-      </noscript>
+      </noscript> */}
     </>
   )
 }

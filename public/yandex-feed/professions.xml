@@ -847,29 +847,26 @@
           </description>  
       </offer>
 
-      <offer id="13_psychologist_psychotherapist">
+      <!-- <offer id="13_psychologist_psychotherapist">
         <name>Практический психолог с доп. квалификацией Психолог-психотерапевт</name>
         <url>https://mip.institute/professions/konsultirovanie/prakticheskij-psiholog-s-dop.-kvalifikaciej-psiholog-psihoterapevt?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
-        <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
+        <categoryId>800</categoryId>
         <param name="Дополнительная категория">802</param>
-        <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
+        <set-ids>s1</set-ids>
 
-        <!--Общая цена курса-->
         <price>185700</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">130000</param>
         <param name="Дата окончания скидки">2024-01-24</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <!--Цена за месяц-->
         <param name="Ежемесячная цена">15500</param>
         <param name="Ежемесячная цена по скидке">10800</param>
         <param name="Дата окончания ежемесячной скидки">2024-01-24</param>
 
-        <!--Сроки курсов-->
         <param name="Ближайшая дата">2024-01-24</param>
         <param name="Продолжительность" unit="месяц">12</param>
-        <!--Программа обучения-->
+
         <param name="План" order="1" unit="Модуль 1. Основы современной психологии" >
             <![CDATA[Вы научитесь понимать сущность психической формы отражения,
             природу и закономерности психической деятельности человека, узнаете
@@ -897,19 +894,16 @@
         ]]>
       </param>
 
-        <!--Формат и методы обучения-->
-        <param name="Формат обучения">Самостоятельно с наставником</param><!--Возможные значения - "Самостоятельно", "Самостоятельно с наставником", "Самостоятельно с наставником", "С преподавателем"-->
+        <param name="Формат обучения">Самостоятельно с наставником</param>
         <param name="Есть вебинары">true</param>
         <param name="Есть домашние работы">true</param>
         <param name="Есть видеоуроки">true</param>
         <param name="Есть тренажеры">false</param>
 
-        <!--Параметры курса-->
-        <param name="Сложность">Для новичков</param><!--Возможные значения - "Для новичков" или "Для опытных"-->
-        <param name="Тип обучения">Профессия</param><!--Возможные значения - "Курс" или "Профессия"-->
-        <param name="Результат обучения">Диплом</param><!--Возможные значения - "Сертификат", "Диплом", "Удостоверение"-->
+        <param name="Сложность">Для новичков</param>
+        <param name="Тип обучения">Профессия</param>
+        <param name="Результат обучения">Диплом</param>
         <param name="Часы в неделю">36</param>
-        <!--Описание курса-->
         <picture>https://mip.institute/yandex-feed/icon.png</picture>
         <description>          
           В результате обучения вы научитесь: 
@@ -921,7 +915,7 @@
               - Разрабатывать и реализовывать диагностические мероприятия, профилактические и коррекционные занятия
           </description>  
 
-      </offer>
+      </offer> -->
 
       <offer id="14_sexology">
         <name>Сексология в психологическом консультировании</name>

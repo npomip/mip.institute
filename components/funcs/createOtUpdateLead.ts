@@ -2,7 +2,6 @@ import routes from "@/config/routes";
 import axios from "axios";
 
 async function createOrUpdateLead(formData) {
-  
   try {
     const responseNewLead = await axios.post(
       `${routes.front.root}/api/checkAndCreateLead`,

@@ -263,20 +263,18 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-              <StickyBottom />
+            <StickyBottom />
             <Footer />
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>
-      {/* <Script
-        type='text/javascript'
-        src='https://api.flocktory.com/v2/loader.js?site_id=4762'
-        async
-      /> */}
 
       <Script src='/assets/js/vendors/swiped-events.min.js' />
-      {/* <Script id='calltouch' src='/assets/js/vendors/calltouchScript.js' />
-      <Script id='botfaq' src='/assets/js/vendors/faq.js' /> */}
+      <Script
+        type='text/javascript'
+        id='advcakeAsync'
+        src='/assets/js/vendors/advCake.js'
+      />
       <Script
         id='google tag manager'
         dangerouslySetInnerHTML={{
@@ -366,6 +364,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           `
         }}
       />
+
       <noscript>
         <iframe
           src='https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77'
@@ -373,7 +372,6 @@ const MyApp = ({ Component, pageProps, router }) => {
           width='0'
           style={{ display: 'none', visibility: 'hidden' }}></iframe>
       </noscript>
-      {/* <script type="text/javascript" src="https://api.flocktory.com/v2/loader.js?site_id=4762" async ></script> */}
     </>
   )
 }

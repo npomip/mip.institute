@@ -141,7 +141,7 @@ const contact = async (req, res) => {
     utmTerm: (utm && utm.utm_medium) ||(utms && utms.utm_term) || null,
   errorStatus: (error && error.status) || null,
   errorDetail: (error && error.detail) || null,
-  roistat_visit: roistat_visit || null
+  roistat_visit: roistat_visit || ''
   }
 
   const subject = 'Новая заявка с mip.institute'

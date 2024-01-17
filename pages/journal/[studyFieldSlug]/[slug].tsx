@@ -1,26 +1,17 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { TypePageProgramsProps } from '@/types/index'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import stls from '@/styles/pages/JournalSlug.module.sass'
 import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { PagesPrograms } from '@/components/pages'
-import { SeoPagesPrograms } from '@/components/seo'
-import { useRouter } from 'next/router'
 import Wrapper from '@/components/layout/Wrapper'
 import ArticlesDynamicZones from '@/components/articles/ArticlesDynamicZones'
-import { Cta } from '@/components/sections'
-import { BtnAlpha } from '@/components/btns'
-import PopupTrigger from '@/components/general/PopupTrigger'
-import SeminarTickets from '@/components/sections/SeminarTickets'
 import ArticleTitle from '@/components/articles/ArticleTitle'
-import SlugCard from '@/components/cards/SlugCard'
 import ArticleRelatedBlogs from '@/components/articles/ArticleRelatedBlogs'
 import ArticleAuthors from '@/components/articles/ArticleAuthors'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
+import ArticleContentLinks from '@/components/articles/ArticleContentLinks'
 
 const JournalSlugPage = ({ blog }) => {
-  // console.log(blog)
+
   const articleHeading = {
     color: blog?.color,
     studyField: blog?.studyField,
@@ -29,18 +20,25 @@ const JournalSlugPage = ({ blog }) => {
     teacher: blog?.teacher,
     blogAuthor: blog?.blogAuthor
   }
-  // const teacherAuthor = blog?.teacher
-  // teacherAuthor.arg = 'Психолог'
-  // const writtingAuthor = blog?.blogAuthor
-  // writtingAuthor.arg = 'Автор'
+
   const articleAuthors = [blog?.teacher, blog?.blogAuthor]
-  // console.log(articleAuthors)
+
+  const headingLinks = blog?.article?.filter(el => (el.__typename === 'ComponentBlogSubtitle'))
+  
   console.log('BLOG PROPS', blog)
 
   return (
     <Wrapper>
       <SeoPagesJournal />
+      <div className={stls.in}>
+
+      
+      
       {articleHeading && <ArticleTitle props={articleHeading} />}
+      {/* <Link href='#a'>
+        asda
+      </Link> */}
+      <ArticleContentLinks props={headingLinks} />
       <article className={stls.article}>
         {blog?.article?.map((module, idx) => (
           <ArticlesDynamicZones key={idx} props={module} />
@@ -48,11 +46,13 @@ const JournalSlugPage = ({ blog }) => {
         {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
         {blog?.blogs.length && <ArticleRelatedBlogs blogs={blog?.blogs} />}
       </article>
+      </div>
       {/* <SeoPagesPrograms
         programs={programs}
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
       <PagesPrograms /> */}
+      {/* <a id='a'>asdasda</a> */}
     </Wrapper>
   )
 }

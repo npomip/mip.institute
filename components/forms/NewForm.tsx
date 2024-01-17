@@ -9,8 +9,6 @@ import classNames from 'classnames'
 import { PopupLoading, PopupThankyou } from '@/components/popups'
 import sendToCalltouch from '../funcs/sendToCalltouchFunc'
 import { getCookie } from 'cookies-next'
-// import ReCAPTCHA from "react-google-recaptcha";
-// import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
 
@@ -60,21 +58,6 @@ const NewForm = ({
 
 
   const router = useRouter()
-  // const [captchaIsDone, setCaptchaIsDone] = useState(false)
-  // const [captchaIsVisible, setCaptchaIsVisible] = useState(false)
-  // const recaptchaRef = useRef(null)
-
-  // const onChange = async (value) =>  {
-
-  //   const req = await verifyCaptcha({token: value})
-  //   if(req === 200){
-  //     console.log('Set true')
-  //     setCaptchaIsDone(true)
-  //   } else {
-  //     console.log('Set false')
-  //     setCaptchaIsDone(false)
-  //   }
-  // }
 
 
   const onSubmit = async data => {
@@ -133,7 +116,6 @@ const NewForm = ({
     
   }
 
-  // const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
 
   return (
     <>
@@ -247,12 +229,6 @@ const NewForm = ({
           
         </div>
         <br />
-          {/* {dirtyFields.phone && <ReCAPTCHA
-          // ref={recaptchaRef}
-            sitekey={key}
-            onChange={onChange}
-            
-    />} */}
       </form>
     </>
   )

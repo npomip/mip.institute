@@ -17,7 +17,6 @@ type ArticleAuthorsType = {
 }
 
 const ArticleAuthors = ({ authors }: ArticleAuthorsType) => {
-  console.log(authors)
 
   return (
     <>

@@ -8,8 +8,6 @@ import { BtnAlpha, BtnBeta } from '@/components/btns'
 import classNames from 'classnames'
 import { PopupLoading, PopupThankyou } from '@/components/popups'
 import { getCookie } from 'cookies-next'
-// import ReCAPTCHA from "react-google-recaptcha";
-import verifyCaptcha from '../funcs/verifyCaptcha'
 import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
 import { ContextStaticProps } from '@/context/index'
@@ -62,19 +60,6 @@ const TicketForm = ({
 
 
   const router = useRouter()
-  // const [captchaIsDone, setCaptchaIsDone] = useState(false)
-
-  // const onChange = async (value) =>  {
-  //   const req = await verifyCaptcha({token: value})
-
-  //   if(req === 200){
-  //     console.log('Set true')
-  //     setCaptchaIsDone(true)
-  //   } else {
-  //     console.log('Set false')
-  //     setCaptchaIsDone(false)
-  //   }
-  // }
 
 
   const onSubmit = async data => {
@@ -131,11 +116,8 @@ const TicketForm = ({
     
   }
 
-  // const key = process.env.REACT_APP_RECAPTCHA_SITE_KEY
-
   return (
     <>
-    {/* {thanksIsOpen && <div className="i-flocktory" data-fl-action="exchange" data-fl-user-email="xname@flocktory.com"></div>} */}
       <Popup
         open={thanksIsOpen}
         closeOnDocumentClick
@@ -262,10 +244,6 @@ const TicketForm = ({
               // <BtnAlpha text={cta}  />
             )}
           </div>
-          {/* {dirtyFields.phone && <ReCAPTCHA
-            sitekey={key}
-            onChange={onChange}
-    />} */}
 
           {agreement && (
             <p className={stls.agreement}>

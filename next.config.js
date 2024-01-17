@@ -9,10 +9,6 @@ module.exports = /* withPWA( */ {
   //   register: true,
   //   scope: '/'
   // },
-  env: {
-    REACT_APP_RECAPTCHA_SITE_KEY: '6LfAojkoAAAAAAYOS84pvM_40VWaDT879vtjKF1A',
-    REACT_APP_RECAPTCHA_SECRET_KEY: '6LfAojkoAAAAANp4Uyz3xcZga_NMrApOsg5N4V31'
-  },
   poweredByHeader: false,
   i18n: {
     locales: ['ru', 'kz', 'uz'],

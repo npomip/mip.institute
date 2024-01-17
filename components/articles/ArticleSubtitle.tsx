@@ -4,9 +4,10 @@ import classNames from 'classnames'
 import marked from 'marked'
 import parse, {domToReact, attributesToProps } from 'html-react-parser'
 
-type ArticleSubtitleType = {
+export type ArticleSubtitleType = {
   props: {
     subtitle?: string
+    subtitleSlug?: string
     color : {
       code: string
       name: string
@@ -19,7 +20,7 @@ const ArticleSubtitle = ({props} : ArticleSubtitleType) => {
   
   const renderer = new marked.Renderer();
   renderer.paragraph = (text) => {
-    return `<h2>${text}</h2>`;
+    return `<h2 id=${props.subtitleSlug}>${text}</h2>`;
   };
 
   renderer.em = (text) => {
@@ -33,7 +34,6 @@ const ArticleSubtitle = ({props} : ArticleSubtitleType) => {
   return (
       <>
         {parse(h2text)}
-        
       </>
   )
 }

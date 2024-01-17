@@ -86,6 +86,7 @@ const getStaticPropsPageJournal = async ({
               __typename
               ... on ComponentBlogSubtitle {
                 subtitle
+                subtitleSlug
                 color {
                   name
                   code

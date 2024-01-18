@@ -23,7 +23,6 @@ const TopCourses = () => {
     'Когнитивно-поведенческий психотерапевт',
     'Психолог-диетолог. Нутрициолог',
     'Гештальт-терапевт',
-    'Практический психолог с доп. квалификацией Психолог-психотерапевт',
     'Клиническая психология',
     'Детский психолог',
     'Психосоматика и телесная психотерапия',
@@ -92,7 +91,7 @@ const TopCourses = () => {
           <TagOrange>ТОП</TagOrange>
         </div>
         <div className={stls.teachers}>
-            <SwiperContainer
+          <SwiperContainer
             autoHeight
             topCourses
             slides={topCoursesSlides}

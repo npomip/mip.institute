@@ -3,10 +3,10 @@ import axios from 'axios';
 
 const checkLead = async (req, res) => {
 
-  const {id, name, phone, email, question, utms, leadPage, referer, ymUid, access, utm, blockForAmo, promocode,edPartners, roistat_visit} = req.body
+  const {id, name, phone, email, question, utms, leadPage, referer, ymUid, access, utm, blockForAmo, promocode,edPartners, roistat_visit, advcake_track_id, price} = req.body
   console.log('inCHECKcreateLead', req.body)
 
-  const data = {id, name, phone, email, question, price: null, leadId: '', promocode , responsible_user_id: '', text: '', access, utm, ymUid, leadPage, blockForAmo, edPartners, roistat_visit}
+  const data = {id, name, phone, email, question, price , leadId: '', promocode , responsible_user_id: '', text: '', access, utm, ymUid, leadPage, blockForAmo, edPartners, roistat_visit, advcake_track_id}
 
 
     const checkPhoneNumber = `https://crmamomipinstitute.amocrm.ru/api/v4/contacts?query=${phone}&with=leads`
@@ -23,6 +23,8 @@ const checkLead = async (req, res) => {
     // Выполните GET-запрос к amoCRM API
     const checkPhoneResponse = await axios.get(checkPhoneNumber, options);
 
+
+    // 200 код значит такой телефон уже есть в базе амо
     if (checkPhoneResponse.status === 200) {
 
       const leadData = checkPhoneResponse.data;
@@ -33,7 +35,11 @@ const checkLead = async (req, res) => {
       data.leadId = leadId
       data.responsible_user_id = responsible_user_id
 
+      // постбэк в адвКейк о старом клиенте
+      await axios.post(`${routes.front.root}/api/advCakeOld`, data)
+
       //Добавить заметку
+
       await axios.post(`${routes.front.root}/api/addNote`, data)
 
       // Добавить задачу
@@ -41,7 +47,12 @@ const checkLead = async (req, res) => {
 
       res.status(200).json({ status: 200, msg: 'Note added in check' })
       
+    // создается новая заявка
     } else if (checkPhoneResponse.status === 204) {
+
+      // постбэк в адвКейк о новом клиенте
+      await axios.post(`${routes.front.root}/api/advCakeNew`, data)
+
       const resp = await axios.post(`${routes.front.root}/api/createLead`, data)
       res.status(200).json({ status: 200, msg: 'Lead created' })
     } 

@@ -45,11 +45,14 @@ const ArticleBlogRelatedPrograms = ({props} : ArticleBlogRelatedProgramsType) =>
   const programs = props?.programs
 
   return (
-      <div style={{border: `1px solid ${props.borderColor.code}`}} className={stls.relatedPrograms}>
+      <div 
+      // style={{border: `1px solid ${props.borderColor.code}`}} 
+      className={stls.relatedPrograms}>
         <div className={stls.innerBox}>
           <div className={stls.relatedProgramsTitle}>
             {parse(title)}
           </div>
+          <p>Курсы:</p>
           
           <div className={stls.programs}>
             {programs.map((program) => (

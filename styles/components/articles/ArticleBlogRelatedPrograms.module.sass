@@ -3,15 +3,25 @@
 @use '@/styles/themes/default/colors' as c
 
 .relatedPrograms
+  background-color: #FFFAEB
   border-radius: f.px(40)
   @include m.gap($mtb: f.px(90))
   @include m.media(phone, tablet)
     @include m.gap($mtb: f.px(45))
 
 .innerBox
-  @include m.gap($pt: f.px(60), $pl: f.px(50), $pb: f.px(8))
+  
+  background: url('/assets/imgs/article/articleBgRelatedPrograms.png')
+  background-position: center center
+  background-size: cover
+  // object-fit: contain
+  background-repeat: no-repeat
+  // aspect-ratio: 6 / 10
+  // overflow: hidden
+  border-radius: f.px(40)
+  @include m.gap($pt: f.px(230), $pl: f.px(50), $pb: f.px(174))
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(37), $pl: f.px(0), $pb: f.px(8))
+    @include m.gap($pt: f.px(75), $pl: f.px(0), $pb: f.px(34))
 
 .relatedProgramsTitle
   @include m.media(phone, tablet)
@@ -33,20 +43,23 @@
 
 .relatedProgramsProgram
   display: flex
-  justify-content: space-between
-  @include m.gap($mb: f.px(70), $mr: f.px(35))
+  justify-content: center
+  @include m.gap($mb: f.px(15), $mr: f.px(35))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(42), $mr: f.px(0))
+    @include m.gap($mb: f.px(10), $mlr: f.px(15))
     justify-content: center
     // align-items: flex-end
 
 .programTitle
   width: 100%
-  @include m.gap($mb: f.px(0), $plr: f.px(30))
+  font-size: f.px(20) !important
+  max-width: f.px(300)
+  @include m.gap($mb: f.px(0), $pl: f.px(23), $mr: f.px(120))
   @include m.media(phone, tablet)
-    display: none
-    // width: f.px(170)
-    @include m.gap($plr: f.px(0), $mb: f.px(10))
+    font-size: f.px(10) !important
+    font-weight: 100 !important
+    max-width: f.px(150)
+    @include m.gap($plr: f.px(0), $mb: f.px(10), $mr: f.px(0))
     
 
 .imgBox
@@ -56,11 +69,10 @@
     max-width: f.px(150)
     @include m.gap($mr: f.px(15))
   @include m.media(phone)
-    min-width: f.px(100)
-    max-width: f.px(100)
-    @include m.gap($mr: f.px(15))
+    min-width: f.px(80)
+    max-width: f.px(80)
+    @include m.gap($mr: f.px(10))
 .img
-  
   border-radius: f.px(10)
   object-fit: cover
 
@@ -78,19 +90,13 @@
   border-radius: f.px(4)
   height: fit-content
   @include m.media(phone, tablet)
-    display: none
+    // display: none
     // width: 100%
     align-self: flex-start
-    @include m.gap($plr: f.px(22), $ptb: f.px(6))
+    @include m.gap($plr: f.px(22), $ptb: f.px(10))
     font-size: f.px(10)
 
-.contentBoxMobile
-  display: none
-  @include m.media(phone, tablet)
-    width: f.px(150)
-    display: flex
-    @include m.gap($ml: f.px(15))
-    flex-direction: column
-    // align-items: 
-    &>*
-      display: block
+.linkBox
+  display: flex
+  height: 100%
+  // align-self: baseline

@@ -22,34 +22,18 @@ type RelatedProgramsListType = {
       width: string
     }
   }
-  
 }
 
-const RelatedProgramsList = ({program} : RelatedProgramsListType) => {
+const RelatedProgramsList = ({ program }: RelatedProgramsListType) => {
   // console.log(program)
 
-  const href = (program) => program === 'Profession' ? 'professions' : 'courses'
+  const href = program => (program === 'Profession' ? 'professions' : 'courses')
 
   const ofType = href(program.type)
 
-  // console.log(ofType)
-  // const text = props.text;
-  // const title = props.title
-
-  // const renderer = new marked.Renderer();
-  // renderer.html = (text) => {
-  //   return `<div classname=${stls.icon}>${text}</div>`;
-  // };
-  // renderer.paragraph = (text) => {
-  //   return `<p>${text}</p>`
-  // }
-  // marked.setOptions({ renderer });
-
-  // const icon = marked(props.icon.code);
-
   return (
-      <div className={stls.relatedProgramsProgram}>
-        <div className={stls.imgBox}>
+    <div className={stls.relatedProgramsProgram}>
+      <div className={stls.imgBox}>
         <Image
           src={program?.heroPicture?.url}
           alt={'alt'}
@@ -59,24 +43,16 @@ const RelatedProgramsList = ({program} : RelatedProgramsListType) => {
           height={104}
           placeholder='blur'
           blurDataURL={base64pixel}
-          />
-        </div>
-        <p className={stls.programTitle}>{program.title}</p>
-          <Link href={`${routes.front.professions}/${program.studyFieldSlug}/${program.slug}`}>
-            <a className={stls.link}>
-              Узнать больше
-            </a>
-          </Link>
-        <div className={stls.contentBoxMobile}>
-        <p className={stls.programTitle}>{program.title}</p>
-          <Link href={`${routes.front.professions}/${program.studyFieldSlug}/${program.slug}`}>
-            <a className={stls.link}>
-              Узнать больше
-            </a>
-          </Link>
-        </div>
-          
+        />
       </div>
+      <p className={stls.programTitle}>{program.title}</p>
+      <div className={stls.linkBox}>
+      <Link
+        href={`${routes.front.professions}/${program.studyFieldSlug}/${program.slug}`}>
+        <a className={stls.link}>Узнать больше</a>
+      </Link>
+      </div>
+    </div>
   )
 }
 

@@ -275,12 +275,12 @@ const MyApp = ({ Component, pageProps, router }) => {
         id='advcakeAsync'
         src='/assets/js/vendors/advCake.js'
       />
-      <Script 
+      {/* <Script 
       id='btn'
       dangerouslySetInnerHTML={{
         __html: `(function () { var widget = document.createElement('script'); widget.dataset.pfId = 'dc787d77-5204-45d4-aa0f-5265b0e7f7a7'; widget.src = 'https://widget.yourgood.app/script/widget.js?id=dc787d77-5204-45d4-aa0f-5265b0e7f7a7&now='+Date.now(); document.head.appendChild(widget); })()`
       }}
-      />
+      /> */}
       {/* <Script
         id='google tag manager'
         dangerouslySetInnerHTML={{

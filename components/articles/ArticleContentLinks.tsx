@@ -1,11 +1,8 @@
-import React from "react"
-import classNames from 'classnames'
 import styles from '@/styles/components/articles/ArticleContentLinks.module.sass'
-
-import ArticleOneContentLink from "./ArticleOneContentLink"
+import ArticleOneContentLink from './ArticleOneContentLink'
 
 interface ArticleContentLinksProps {
-  props : {
+  props: {
     subtitle: string
     subtitleSlug: string
     color: {
@@ -14,16 +11,14 @@ interface ArticleContentLinksProps {
     }
   }[]
 }
-const ArticleContentLinks = ({ props }:ArticleContentLinksProps) => {
-
+const ArticleContentLinks = ({ props }: ArticleContentLinksProps) => {
   return (
     <div className={styles.container}>
-      <p>Содержание</p>
       {props.map(el => (
         <ArticleOneContentLink key={el.subtitle} props={el} />
       ))}
     </div>
   )
-};
+}
 
-export default ArticleContentLinks;
+export default ArticleContentLinks

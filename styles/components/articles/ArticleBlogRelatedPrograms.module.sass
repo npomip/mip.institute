@@ -3,42 +3,58 @@
 @use '@/styles/themes/default/colors' as c
 
 .relatedPrograms
-  background-color: #FFFAEB
+  & > *
+    // font-family: Stem !important
   border-radius: f.px(40)
   @include m.gap($mtb: f.px(90))
   @include m.media(phone, tablet)
     @include m.gap($mtb: f.px(45))
 
+
 .innerBox
-  
+  // font-family: Stem !important
+  background: url('/assets/imgs/article/articleBgRelatedProgramsBig.png')
+  background-position: center center
+  background-size: cover
+  background-repeat: no-repeat
+  border-radius: f.px(40)
+  @include m.gap($pt: f.px(230), $pb: f.px(174))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(75), $pl: f.px(0), $pb: f.px(34))
+
+.innerBoxOneProgram
   background: url('/assets/imgs/article/articleBgRelatedPrograms.png')
   background-position: center center
   background-size: cover
-  // object-fit: contain
   background-repeat: no-repeat
-  // aspect-ratio: 6 / 10
-  // overflow: hidden
   border-radius: f.px(40)
-  @include m.gap($pt: f.px(230), $pl: f.px(50), $pb: f.px(174))
+  @include m.gap($pt: f.px(140), $pb: f.px(124))
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(75), $pl: f.px(0), $pb: f.px(34))
+    @include m.gap($pt: f.px(55), $pl: f.px(0), $pb: f.px(34))
 
 .relatedProgramsTitle
   @include m.media(phone, tablet)
     display: flex
     justify-content: center
   p
-    font-size: f.px(40)
+    // text-align: center
+    // font-size: f.px(40)
     @include m.media(phone, tablet)
       font-size: f.px(20)
     
 
 .title
-  max-width: f.px(920)
+  font-family: Stem !important
+  max-width: f.px(970)
+  margin: 0 auto
+  text-align: center
+  @include m.gap( $mb: f.px(40))
   @include m.media(phone, tablet)
+    @include m.gap( $mb: f.px(10))
+    font-size: f.px(12) !important
     justify-self: center
-    // width: 100%
-    max-width: f.px(260)
+    line-height: 110% !important
+    max-width: f.px(310)
     text-align: center
 
 .relatedProgramsProgram
@@ -51,6 +67,7 @@
     // align-items: flex-end
 
 .programTitle
+  font-family: Stem !important
   width: 100%
   font-size: f.px(20) !important
   max-width: f.px(300)
@@ -77,6 +94,7 @@
   object-fit: cover
 
 .link
+  text-transform: uppercase
   white-space: nowrap
   background: #F87E1B
   align-self: center
@@ -90,13 +108,82 @@
   border-radius: f.px(4)
   height: fit-content
   @include m.media(phone, tablet)
-    // display: none
-    // width: 100%
     align-self: flex-start
-    @include m.gap($plr: f.px(22), $ptb: f.px(10))
+    @include m.gap($plr: f.px(15), $ptb: f.px(10))
     font-size: f.px(10)
 
 .linkBox
   display: flex
   height: 100%
-  // align-self: baseline
+
+.linkOnly
+  text-transform: uppercase
+  @include m.gap($plr: f.px(50))
+  a
+    font-size: f.px(26)
+    @include m.media(phone, tablet)
+      font-size: f.px(11)
+      @include m.gap($plr: f.px(25), $mt: f.px(15))
+.discount
+  text-align: center
+  @include m.gap( $mb: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap( $mb: f.px(0))
+
+
+.discountBox
+  p
+    font-family: Stem
+    font-size: f.px(40)
+    font-weight: 500 
+    @include m.media(phone, tablet)
+      font-size: f.px(16)
+  .discountNum
+    color: #F87E1B
+    font-size: f.px(60)
+    @include m.media(phone, tablet)
+      font-size: f.px(19)
+  .course
+    text-transform: uppercase
+    font-size: f.px(50)
+    text-align: center
+    @include m.gap( $mb: f.px(15))
+    @include m.media(phone, tablet)
+      font-size: f.px(16)
+      @include m.gap( $mb: f.px(0))
+  .discountUntil
+    @include m.media(phone, tablet)
+      font-size: f.px(10)
+
+.mobileOnly
+  font-size: f.px(10)
+  @include m.media(laptop, desktop )
+    display: none
+
+.courses
+  text-transform: uppercase
+  text-align: center
+  font-weight: 900 !important
+
+.courseWithDiscount
+  display: inline-flex
+  width: 100%
+  justify-content: center
+  position: relative
+  font-weight: 500
+  // &::after
+  //   content: '-30%'
+
+.discountWithDate
+  & > *
+    @include m.media(phone, tablet)
+      font-size: f.px(8)
+  position: absolute
+  top: 0
+  transform: translateX(90%)
+  @include m.media(phone, tablet)
+    transform: translateX(80%)
+//   right: f.px(150)
+  .date
+    
+

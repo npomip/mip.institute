@@ -10,6 +10,7 @@ import routes from '@/config/routes'
 import Link from 'next/link'
 
 type RelatedProgramsListType = {
+  linkOnly?: boolean
   program: {
     id: string
     title: string
@@ -24,7 +25,7 @@ type RelatedProgramsListType = {
   }
 }
 
-const RelatedProgramsList = ({ program }: RelatedProgramsListType) => {
+const RelatedProgramsList = ({ program, linkOnly=false }: RelatedProgramsListType) => {
   // console.log(program)
 
   const href = program => (program === 'Profession' ? 'professions' : 'courses')
@@ -33,12 +34,13 @@ const RelatedProgramsList = ({ program }: RelatedProgramsListType) => {
 
   return (
     <div className={stls.relatedProgramsProgram}>
+      {!linkOnly && (
+        <>
       <div className={stls.imgBox}>
         <Image
           src={program?.heroPicture?.url}
           alt={'alt'}
           className={stls.img}
-          // layout='fill'
           width={200}
           height={104}
           placeholder='blur'
@@ -46,12 +48,19 @@ const RelatedProgramsList = ({ program }: RelatedProgramsListType) => {
         />
       </div>
       <p className={stls.programTitle}>{program.title}</p>
-      <div className={stls.linkBox}>
+      </>
+      )}
+
+      <div
+      // className=classNames({stls.linkBox})
+      className={classNames({ [stls.linkBox]: true, [stls.linkOnly]: linkOnly })}
+      >
       <Link
-        href={`${routes.front.professions}/${program.studyFieldSlug}/${program.slug}`}>
-        <a className={stls.link}>Узнать больше</a>
+        href={`${routes.front.root}/${ofType}/${program.studyFieldSlug}/${program.slug}`}>
+        <a className={stls.link}>{linkOnly ? 'Узнать подробнее' : 'Узнать больше'}</a>
       </Link>
       </div>
+
     </div>
   )
 }

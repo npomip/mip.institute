@@ -188,6 +188,10 @@ const getStaticPropsPageJournal = async ({
               __typename
               ... on ComponentBlogRelatedPrograms {
                 title
+                textItem {
+                  id
+                  text
+                }
                 programs {
                   id
                   title

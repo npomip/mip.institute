@@ -9,9 +9,9 @@ import ArticleRelatedBlogs from '@/components/articles/ArticleRelatedBlogs'
 import ArticleAuthors from '@/components/articles/ArticleAuthors'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 import ArticleContentLinks from '@/components/articles/ArticleContentLinks'
+import { Accordion } from '@/components/general/Accordion'
 
 const JournalSlugPage = ({ blog }) => {
-
   const articleHeading = {
     color: blog?.color,
     studyField: blog?.studyField,
@@ -23,29 +23,29 @@ const JournalSlugPage = ({ blog }) => {
 
   const articleAuthors = [blog?.teacher, blog?.blogAuthor]
 
-  const headingLinks = blog?.article?.filter(el => (el.__typename === 'ComponentBlogSubtitle'))
-  
-  console.log('BLOG PROPS', blog)
+  const headingLinks = blog?.article?.filter(
+    el => el.__typename === 'ComponentBlogSubtitle'
+  )
+
 
   return (
     <Wrapper>
       <SeoPagesJournal />
       <div className={stls.in}>
-
-      
-      
-      {articleHeading && <ArticleTitle props={articleHeading} />}
-      {/* <Link href='#a'>
+        {articleHeading && <ArticleTitle props={articleHeading} />}
+        {/* <Link href='#a'>
         asda
       </Link> */}
-      <ArticleContentLinks props={headingLinks} />
-      <article className={stls.article}>
-        {blog?.article?.map((module, idx) => (
-          <ArticlesDynamicZones key={idx} props={module} />
-        ))}
-        {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
-        {blog?.blogs.length && <ArticleRelatedBlogs blogs={blog?.blogs} />}
-      </article>
+        <Accordion>
+          <ArticleContentLinks props={headingLinks} />
+        </Accordion>
+        <article className={stls.article}>
+          {blog?.article?.map((module, idx) => (
+            <ArticlesDynamicZones key={idx} props={module} />
+          ))}
+          {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
+          {blog?.blogs.length && <ArticleRelatedBlogs blogs={blog?.blogs} />}
+        </article>
       </div>
       {/* <SeoPagesPrograms
         programs={programs}

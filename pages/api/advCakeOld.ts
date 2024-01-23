@@ -1,6 +1,4 @@
-import routes from '@/config/routes';
 import axios from 'axios';
-import { parse } from 'cookie';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -15,7 +13,6 @@ export default async function handler(req, res) {
   } = req.body;
 
   try {
-
     const now = new Date();
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -26,9 +23,10 @@ export default async function handler(req, res) {
 
     const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 
+    const advCakeEncoded = encodeURIComponent(advcake_track_url)
     
       const newresponse =await axios.post(
-        `https://api.ekacvda.com/postback/mipinstitute?id=${id}&totalPrice=${price || 0}&coupon=${promocode || ''}&clientType=old&trackId=${advcake_track_id}&url=${advcake_track_url}&email=${email}&timeLastChanged=${formattedDate}&status=1`
+        `https://api.ekacvda.com/postback/mipinstitute?id=${id}&totalPrice=${price || 0}&coupon=${promocode || ''}&clientType=old&trackId=${advcake_track_id}&url=${advCakeEncoded}&email=${email}&timeLastChanged=${formattedDate}&status=1`
       )
 
       res.status(200).json({ 

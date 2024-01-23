@@ -41,7 +41,7 @@ const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
     return `<span  style="color: ${props?.borderColor?.code}">${text}</span>`
   }
   renderer.paragraph = text => {
-    return `<p className=${stls.title}>${text}</p>`
+    return `<p id=${stls.title}>${text}</p>`
   }
   marked.setOptions({ renderer })
 
@@ -55,22 +55,16 @@ const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
       <div className={stls.innerBoxOneProgram}>
         <div className={stls.discountBox}>
           <div className={stls.courseWithDiscount}>
-            <p className={stls.course}>
-              Курс 
-            </p>
+            <p className={stls.course}>Курс</p>
             <div className={stls.discountWithDate}>
-              <span className={stls.discountNum}>{discount}</span>{' '}
-              <span className={stls.date}>
-              <ProgramDiscountUntil />
+              <span className={stls.discountNum}>{discount}</span>&nbsp;
+              <span id={stls.date}>
+                <ProgramDiscountUntil />
               </span>
-              
             </div>
-            
           </div>
-          
-          <p className={stls.discount}>
-            {props.programs[0].title}
-          </p>
+
+          <p className={stls.discount}>{props.programs[0].title}</p>
         </div>
         <div>
           {props.textItem.map(item => (

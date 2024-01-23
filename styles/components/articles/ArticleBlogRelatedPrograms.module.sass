@@ -43,17 +43,17 @@
       font-size: f.px(20)
     
 
-.title
-  font-family: Stem !important
+#title
+  font-family: Stem
   max-width: f.px(970)
   margin: 0 auto
   text-align: center
   @include m.gap( $mb: f.px(40))
   @include m.media(phone, tablet)
     @include m.gap( $mb: f.px(10))
-    font-size: f.px(12) !important
+    font-size: f.px(12) 
     justify-self: center
-    line-height: 110% !important
+    line-height: 110%
     max-width: f.px(310)
     text-align: center
 
@@ -66,15 +66,15 @@
     justify-content: center
     // align-items: flex-end
 
-.programTitle
-  font-family: Stem !important
+#programTitle
+  font-family: Stem 
   width: 100%
-  font-size: f.px(20) !important
+  font-size: f.px(20) 
   max-width: f.px(300)
   @include m.gap($mb: f.px(0), $pl: f.px(23), $mr: f.px(120))
   @include m.media(phone, tablet)
-    font-size: f.px(10) !important
-    font-weight: 100 !important
+    font-size: f.px(10) 
+    font-weight: 100 
     max-width: f.px(150)
     @include m.gap($plr: f.px(0), $mb: f.px(10), $mr: f.px(0))
     
@@ -160,10 +160,12 @@
   @include m.media(laptop, desktop )
     display: none
 
-.courses
-  text-transform: uppercase
+#courses
+  font-family: Stem
   text-align: center
-  font-weight: 900 !important
+  font-size: f.px(30)
+  font-weight: 500
+  text-transform: uppercase
 
 .courseWithDiscount
   display: inline-flex
@@ -184,6 +186,9 @@
   @include m.media(phone, tablet)
     transform: translateX(80%)
 //   right: f.px(150)
-  .date
-    
+
+#date
+    font-size: f.px(18)
+    @include m.media(phone, tablet)
+      font-size: f.px(10)
 

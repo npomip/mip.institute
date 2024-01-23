@@ -8,13 +8,14 @@ export default async function handler(req, res) {
   const {
     id, 
     price,
-    leadPage,
     email,
     advcake_track_id,
+    advcake_track_url,
+    promocode
   } = req.body;
 
   try {
-    console.log('ADV OLD', req.body)
+
     const now = new Date();
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -27,9 +28,9 @@ export default async function handler(req, res) {
 
     
       const newresponse =await axios.post(
-        `https://api.ekacvda.com/postback/mipinstitute?id=${id}&totalPrice=${price || 0}&clientType=old&trackId=${advcake_track_id}&url=${routes.front.root}${leadPage}&email=${email}&timeLastChanged=${formattedDate}&status=1`
+        `https://api.ekacvda.com/postback/mipinstitute?id=${id}&totalPrice=${price || 0}&coupon=${promocode || ''}&clientType=old&trackId=${advcake_track_id}&url=${advcake_track_url}&email=${email}&timeLastChanged=${formattedDate}&status=1`
       )
-      console.log(newresponse)
+
       res.status(200).json({ 
         success: true, 
         data: newresponse?.data

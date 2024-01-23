@@ -47,7 +47,7 @@ const RelatedProgramsList = ({ program, linkOnly=false }: RelatedProgramsListTyp
           blurDataURL={base64pixel}
         />
       </div>
-      <p className={stls.programTitle}>{program.title}</p>
+      <p id={stls.programTitle}>{program.title}</p>
       </>
       )}
 

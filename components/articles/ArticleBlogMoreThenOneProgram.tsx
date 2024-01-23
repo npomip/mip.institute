@@ -32,13 +32,12 @@ import { ArticleBlogRelatedProgramsType } from './ArticleBlogRelatedPrograms'
 const ArticleBlogMoreThenOneProgram = ({
   props
 }: ArticleBlogRelatedProgramsType) => {
-
   const renderer = new marked.Renderer()
   renderer.em = text => {
-    return `<span  style="color: ${props?.borderColor?.code}">${text}</span>`
+    return `<span style="color: ${props?.borderColor?.code}">${text}</span>`
   }
   renderer.paragraph = text => {
-    return `<p className=${stls.title}>${text}</p>`
+    return `<p id=${stls.title}>${text}</p>`
   }
   marked.setOptions({ renderer })
 
@@ -46,30 +45,30 @@ const ArticleBlogMoreThenOneProgram = ({
   const programs = props?.programs
 
   return (
-    <div
-      className={stls.relatedPrograms}>
+    <div className={stls.relatedPrograms}>
       <div className={stls.innerBox}>
         <div className={stls.discountBox}>
           <p className={stls.discount}>
-            Обучение в МИП со скидкой{' '}
+            Обучение в МИП со скидкой&nbsp;
             <span className={stls.discountNum}>{discountNum}%</span>
             <span className={stls.mobileOnly}>
-              <br /> 
-              *
-            </span>{' '}
-            <span className={stls.discountUntil}>
-            <ProgramDiscountUntil />
+              <br />*
             </span>
-            
+            &nbsp;
+            <span className={stls.discountUntil}>
+              <ProgramDiscountUntil />
+            </span>
           </p>
         </div>
 
-        <div className={stls.list}>
+        <div>
           {props.textItem.map(item => (
-            <div className={stls.row} key={item.id}>{parse(marked(item.text))}</div>
+            <div key={item.id}>
+              {parse(marked(item.text))}
+            </div>
           ))}
         </div>
-        <p className={stls.courses}>Курсы:</p>
+        <p id={stls.courses}>Курсы:</p>
         <div className={stls.programs}>
           {programs.map(program => (
             <RelatedProgramsList program={program} key={program.id} />

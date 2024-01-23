@@ -3,10 +3,10 @@ import axios from 'axios';
 
 const checkLead = async (req, res) => {
 
-  const {id, name, phone, email, question, utms, leadPage, referer, ymUid, access, utm, blockForAmo, promocode,edPartners, roistat_visit, advcake_track_id, price} = req.body
+  const {id, name, phone, email, question, utms, leadPage, referer, ymUid, access, utm, blockForAmo, promocode,edPartners, roistat_visit, advcake_track_id, advcake_track_url,price} = req.body
   console.log('inCHECKcreateLead', req.body)
 
-  const data = {id, name, phone, email, question, price , leadId: '', promocode , responsible_user_id: '', text: '', access, utm, ymUid, leadPage, blockForAmo, edPartners, roistat_visit, advcake_track_id}
+  const data = {id, name, phone, email, question, price , leadId: '', promocode , responsible_user_id: '', text: '', access, utm, ymUid, leadPage, blockForAmo, edPartners, roistat_visit, advcake_track_id,advcake_track_url}
 
 
     const checkPhoneNumber = `https://crmamomipinstitute.amocrm.ru/api/v4/contacts?query=${phone}&with=leads`

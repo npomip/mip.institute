@@ -85,6 +85,7 @@ const FormAlpha = ({
     const clickId = getCookie('utm'); 
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')
+    const advcake_track_url = getCookie('advcake_track_url')
     const price = program?.price
     data.price = price
 
@@ -109,12 +110,13 @@ const FormAlpha = ({
       
     } else {
       data.advcake_track_id = advcake_track_id
+      data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
       const req = await hitContactRoute(data)
   
       if (req === 200) {
         setLoading(false)
-        // window.open(routes.front.gratefull, '_blank');
+        window.open(routes.front.gratefull, '_blank');
         setIsIpCheckFailed(false)
         // setIsDisabled(true)
         setThanksIsOpen(true)
@@ -262,7 +264,7 @@ const FormAlpha = ({
               />
             ) : (
               <BtnAlpha text={cta} 
-              // isDisabled={isDisabled}
+              isDisabled={isDisabled}
               />
 
             )}

@@ -2,6 +2,7 @@ import { FormAlpha } from '@/components/forms'
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/EntryForm.module.sass'
 import IconGratefullPortal from '../icons/IconGratefullPortal'
+import Horn from '../imgs/general/Horn'
 import ImgEntryForm from '../imgs/general/ImgEntryForm'
 import TwoColumns from '../layout/TwoColumns'
 
@@ -41,12 +42,13 @@ const EntryForm = () => {
                 <ImgEntryForm />
               </div>
             </div>
-            <div className={stls.form}>
-              <FormAlpha inProfessions promo cta='Записаться' />
-            </div>
+              <div className={stls.form}>
+                <FormAlpha inProfessions promo cta='Записаться' />
+              </div>
+              <Horn />
           </TwoColumns>
-          <ImgEntryForm tablet />
-          <ImgEntryForm mobile />
+          {/* <ImgEntryForm tablet />
+          <ImgEntryForm mobile /> */}
         </div>
       </Wrapper>
     </section>

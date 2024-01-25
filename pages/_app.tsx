@@ -275,50 +275,8 @@ const MyApp = ({ Component, pageProps, router }) => {
         id='advcakeAsync'
         src='/assets/js/vendors/advCake.js'
       />
-      {/* <Script 
-      id='btn'
-      dangerouslySetInnerHTML={{
-        __html: `(function () { var widget = document.createElement('script'); widget.dataset.pfId = 'dc787d77-5204-45d4-aa0f-5265b0e7f7a7'; widget.src = 'https://widget.yourgood.app/script/widget.js?id=dc787d77-5204-45d4-aa0f-5265b0e7f7a7&now='+Date.now(); document.head.appendChild(widget); })()`
-      }}
-      /> */}
-      {/* <Script
-        id='google tag manager'
-        dangerouslySetInnerHTML={{
-          __html: `
-              (function(w, d, s, l, i) {
-              w[l] = w[l] || [];
-              w[l].push({
-              'gtm.start':
-              new Date().getTime(),
-              event: 'gtm.js'
-              });
-              var f = d.getElementsByTagName(s)[0],
-              j = d.createElement(s),
-              dl = l != 'dataLayer' ? '&l=' + l : '';
-              j.async = true;
-              j.src =
-              'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-              f.parentNode.insertBefore(j, f);
-              })(window, document, 'script', 'dataLayer', 'GTM-5L6T2K77');
-            `
-        }}
-      /> */}
-      {/* <Script
-        id='google pixel'
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function (d, w) {
-            var n = d.getElementsByTagName("script")[0],
-                s = d.createElement("script");
-                s.type = "text/javascript";
-                s.async = true;
-                s.src = "https://ngl-pixel.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
-                n.parentNode.insertBefore(s, n);
-        })(document, window);
-            `
-        }}
-      /> */}
       {prod && (
+        <>
         <Script
           id='roistat counter'
           dangerouslySetInnerHTML={{
@@ -332,6 +290,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           `
           }}
         />
+        <Script src='/assets/js/vendors/roistatWA.js' />
+        </>
       )}
       <Script
         id='edpartners_scaletrk'
@@ -370,14 +330,6 @@ const MyApp = ({ Component, pageProps, router }) => {
           `
         }}
       />
-
-      {/* <noscript>
-        <iframe
-          src='https://www.googletagmanager.com/ns.html?id=GTM-5L6T2K77'
-          height='0'
-          width='0'
-          style={{ display: 'none', visibility: 'hidden' }}></iframe>
-      </noscript> */}
     </>
   )
 }

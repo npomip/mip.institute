@@ -16,12 +16,13 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 import FooterBottom from '@/components/general/FooterBottom'
 import { GeneralAddress } from '@/components/general'
 import { useRouter } from 'next/router'
-import { getCookie, setCookie } from 'cookies-next'
+import { getCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 import Logo from '../general/Logo'
 import BtnDzen from '../btns/BtnDzen'
 import SearchProgram from '../general/SearchProgram'
 import PopupFooterReviews from '../popups/PopupFooterReviews'
+
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
@@ -84,12 +85,15 @@ const Footer = () => {
       setIsEdpartners(utmSource === 'edpartners')
     }, 300)
   }, [isEdpartners, partCookie])
-  
 
+  const roistat_visit = getCookie('roistat_visit')
+  
   return (
     <footer className={stls.container}>
       <Wrapper>
+      
         <div className={stls.left}>
+        
           <div className={stls.top}>
             <ul
               className={classNames({
@@ -186,7 +190,7 @@ const Footer = () => {
             ) : (
               <PopupFooterReviews />
             )}
-            {/*  */}
+            
             <div className={stls.newRight}>
               <div className={stls.leaveApp}>
                 <PopupTrigger btn='alpha' cta='submitApplication' />
@@ -217,21 +221,11 @@ const Footer = () => {
             <FooterBottom />
           </div>
         </div>
-        {/* NEw */}
 
-        {/* <div className={stls.right}>
-          <div className={stls.formTitles}>
-            <p className={stls.formTitle}>Остались вопросы?</p>
-            <p className={stls.formTitle}>Свяжитесь с нами!</p>
-          </div>
-
-          <FormAlpha cta={'Связаться'} atFooter agreement />
-        </div> */}
       </Wrapper>
       <div className={stls.footerBottom}>
         <FooterBottom />
       </div>
-      {/* <div className={stls.bgRight}></div> */}
     </footer>
   )
 }

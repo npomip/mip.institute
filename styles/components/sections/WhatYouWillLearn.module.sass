@@ -46,7 +46,7 @@
     @include m.gap($mb: f.px(20), $p: f.px(20))
     border: 0.7px solid
     @include m.dye(border, c.$alpha)
-    min-height: f.px(100)
+    min-height: f.px(150)
     @include m.flex
     & > *
       max-width: f.px(420)
@@ -64,12 +64,16 @@
 .firstWord
   font-weight: 500
   font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
 
 .p
   font-size: f.px(20)
   font-weight: 350
   line-height: 130%
   @include m.gap($mb: 0)
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
 
 .tag
   z-index: 2

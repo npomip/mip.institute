@@ -1,27 +1,20 @@
 import Router from 'next/router'
-
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 import { ContextStaticProps } from '@/context/index'
-import { parse } from 'cookie'
-
 import TagManager from 'react-gtm-module'
-
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
-
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-
 import {
   filterProgramsByType,
   getStudyFields,
   sortBasedOnNumericOrder
 } from '@/helpers/index'
 import { prod, gtmId, routes } from '@/config/index'
-
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -32,8 +25,6 @@ import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
 import { getCookie, setCookie } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
-import StickyBottomNewYear from '@/components/layout/StickyBottomNewYear'
-// import { cookies } from 'next/headers'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -217,6 +208,7 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
+
   return (
     <>
       <DefaultSeo {...SEO} />
@@ -261,6 +253,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             <main>
               <ApolloProvider client={client}>
                 <Component {...pageProps} />
+                {/* <div className="js-whatsapp-message-container" style={{display:"none"}}>Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения: {roistat_visit}</div> */}
               </ApolloProvider>
             </main>
             <StickyBottom />
@@ -275,7 +268,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         id='advcakeAsync'
         src='/assets/js/vendors/advCake.js'
       />
-      {prod && (
+      {/* {prod && ( */}
         <>
         <Script
           id='roistat counter'
@@ -290,9 +283,11 @@ const MyApp = ({ Component, pageProps, router }) => {
           `
           }}
         />
-        <Script src='/assets/js/vendors/roistatWA.js' />
+        
+        <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
-      )}
+      {/* )} */}
+          
       <Script
         id='edpartners_scaletrk'
         dangerouslySetInnerHTML={{

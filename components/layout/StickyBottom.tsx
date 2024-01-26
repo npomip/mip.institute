@@ -9,6 +9,7 @@ import IconWavyShape from '@/components/icons/IconWavyShape'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import { IconCloseCircle } from '@/components/icons'
 import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
+import { getCookie } from 'cookies-next'
 
 const StickyBottom = () => {
   const router = useRouter()
@@ -16,6 +17,8 @@ const StickyBottom = () => {
   const [isShown, setIsShown] = useState(true)
   const [isClosed, setIsClosed] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
+
+  const roistat_visit = getCookie('roistat_visit')
 
   useEffect(() => {
     if (router.asPath !== routes.front.payment) {
@@ -58,6 +61,9 @@ const StickyBottom = () => {
             <div className={stls.btn2}>
               <PopupTrigger btn='alpha' cta='consultMe' />
             </div>
+          </div>
+          <div className="js-whatsapp-message-container" style={{display:"none"}}>
+            <p>Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения: {roistat_visit}</p>
           </div>
           <div className={stls.btnMobile}>
             <PopupTrigger btn='theta' cta='learnMore' />

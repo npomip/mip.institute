@@ -7,17 +7,20 @@
   @include m.media(phone, tablet)
     display: none
   @include m.gap($pt: f.px(1))
-  // color: white
   ul
     li
-      // padding-right: 30px
       a
-        color: white
+        color: #FFF
         font-size: f.px(12)
         font-weight: 350
         &:hover
-          color: #F87E1B
-        // text-decoration: none
+          color: #F87E1B 
+
+.isJournal
+  a
+    color: #000 !important
+    &:hover
+      color: #F87E1B !important
 
 .linkList
   @include m.gap($pl: f.px(0))
@@ -33,3 +36,8 @@
   border-style: solid
   border-width: 4px 0 4px 6px
   border-color: transparent transparent transparent #FFF
+
+.isJournal
+  @include m.gap($mt: f.px(45), $mb: f.px(0))
+  .triangle
+    border-color: transparent transparent transparent #000  

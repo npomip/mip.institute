@@ -1,16 +1,14 @@
-import stls from '@/styles/components/articles/ArticleTitle.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
-import marked from 'marked'
-import parse, { domToReact, attributesToProps } from 'html-react-parser'
-import Image from 'next/image'
 import base64pixel from '@/config/base64pixel'
+import stls from '@/styles/components/articles/ArticleTitle.module.sass'
+import Image from 'next/image'
+import { IconClock } from '../icons'
 
 type ArticleTitleType = {
   props: {
     color: string
     title?: string
     studyField?: string
+    date?: Date
     picture: {
       url: string
       width: string
@@ -38,24 +36,21 @@ type ArticleTitleType = {
 
 const ArticleTitle = ({ props }: ArticleTitleType) => {
 
-  // const renderer = new marked.Renderer();
-  // renderer.paragraph = (text) => {
-  //   return `<h2>${text}</h2>`;
-  // };
+  const date = new Date(props?.date)
 
-  // renderer.em = (text) => {
-  //   return `<span style="color: ${props?.color?.code}">${text}</span>`;
-  // };
-  // marked.setOptions({ renderer });
-
-  // const h2text = marked(props?.subtitle);
+  console.log(props.date)
 
   return (
     <>
       <span className={stls.tag}>{props.studyField}</span>
       <div className={stls.authors}>
-        <p><strong>Автор:</strong> {props.blogAuthor && props.blogAuthor.name}</p>
-        <p><strong>Психолог:</strong> {props.teacher && props.teacher.name}</p>
+        <p className={stls.author}><strong>Автор:</strong> {props.blogAuthor && props.blogAuthor.name}</p>
+        <div className={stls.dateAndTime}>
+          <p className={stls.date}>{date.toLocaleDateString()}</p>
+          <IconClock colorCode='#545454' size='22'/>
+          <p>10 мин</p>
+        </div>
+        
       </div>
       
       <h1 className={stls.articleTitle}>{props.title}</h1>
@@ -65,7 +60,6 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             src={props?.picture?.url}
             alt={'alt'}
             className={stls.imgTitle}
-            // layout='fill'
             width={750}
             height={430}
             placeholder='blur'
@@ -78,9 +72,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             <Image
               src={props.teacher.portrait.url}
               alt={'alt'}
-              // style={{top: '20px'}}
               className={stls.imgTeacher}
-              // layout='fill'
               width={227}
               height={292}
               placeholder='blur'

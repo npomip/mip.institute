@@ -14,7 +14,7 @@ import marked from 'marked'
 const ForWhom = () => {
   const { program } = useContext(ContextStaticProps)
 
-  const subtitle = program?.forWhomSubtitle &&  marked(program?.forWhomSubtitle)
+  const subtitle = program?.forWhomSubtitle && program?.forWhomSubtitle
 
   const list =
     program?.ForWhom?.length > 0 &&

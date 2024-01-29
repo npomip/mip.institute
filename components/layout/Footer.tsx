@@ -86,7 +86,7 @@ const Footer = () => {
     }, 300)
   }, [isEdpartners, partCookie])
 
-  const roistat_visit = getCookie('roistat_visit')
+
   
   return (
     <footer className={stls.container}>

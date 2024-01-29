@@ -3,16 +3,13 @@ import { useContext, useState } from 'react'
 import Wrapper from '@/components/layout/Wrapper'
 import ProgramLabel from '@/components/program/ProgramLabel'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
-import { ImgCourse2 } from '@/components/imgs'
 import ProgramInfo from '@/components/program/ProgramInfo'
 import { ContextStaticProps } from '@/context/index'
-import parse from 'html-react-parser'
-import marked from 'marked'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import Breadcrumbs from '../general/Breadcrumbs'
 import ForPopup from '../imgs/general/ForPopup'
 
-const HeroProgram = ({breadcrumbs}) => {
+const HeroProgram = ({ breadcrumbs }) => {
   const { curProgramsType, program } = useContext(ContextStaticProps)
   const [cut, setCut] = useState(210)
   const [showFullText, setShowFullText] = useState(false)
@@ -29,20 +26,18 @@ const HeroProgram = ({breadcrumbs}) => {
     <>
       <section className={stls.container}>
         <Wrapper>
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
           <div className={stls.top}>
             <div className={stls.heading}>
-              
               <div className={stls.label}>
                 <ProgramLabel />
               </div>
               <h1 className={stls.title}>{program?.title}</h1>
               <div className={stls.descriptionDesktop}>
-                {program?.description && parse(marked(program.description))}
+                <p>{program?.description}</p>
               </div>
               <div className={stls.btnsDesktop}>
                 <PopupTrigger
-                  
                   btn='alpha'
                   cta={
                     curProgramsType === 'course'
@@ -62,28 +57,31 @@ const HeroProgram = ({breadcrumbs}) => {
                 </div>
                 {program?.heroPicture && (
                   <>
-                  <div className={stls.img}>
-                  <ForPopup src={program?.heroPicture?.url} alt={program?.title} height={402} width={402}/>
-                </div>
-                <div className={stls.imgMobile}>
-                  <ForPopup src={program?.heroPicture?.url} alt={program?.title} height={600} width={700}/>
-                </div>
-                </>
-                )}
-                
-              </div>
-              <div
-                className={stls.descriptionMobile}>
-                <div className={stls.mobiledesc}>{cut < descriptionLength ?
-                (program?.description &&
-                  parse(marked(program.description.slice(0, cut).concat('...')))) : (program?.description &&
-                    parse(marked(program.description.slice(0, cut))))
-                  }</div>
-                {/* {cut < descriptionLength && (
-                  <>
-                    <span>...</span>
+                    <div className={stls.img}>
+                      <ForPopup
+                        src={program?.heroPicture?.url}
+                        alt={program?.title}
+                        height={402}
+                        width={402}
+                      />
+                    </div>
+                    <div className={stls.imgMobile}>
+                      <ForPopup
+                        src={program?.heroPicture?.url}
+                        alt={program?.title}
+                        height={600}
+                        width={700}
+                      />
+                    </div>
                   </>
-                )} */}
+                )}
+              </div>
+              <div className={stls.descriptionMobile}>
+                <p className={stls.mobiledesc}>
+                  {cut < descriptionLength
+                    ? program?.description?.slice(0, cut).concat('...')
+                    : program?.description?.slice(0, cut)}
+                </p>
                 <p onClick={cutHandler} className={stls.moreText}>
                   {showFullText ? 'Скрыть описание' : 'Читать далее'}
                 </p>

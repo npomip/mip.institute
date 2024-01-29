@@ -7,7 +7,6 @@ import parse from 'html-react-parser'
 const FaqAnswer = ({ question = null, answer = null }) => {
   const [isOpen, setOpen] = useState(false)
 
-
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
@@ -17,7 +16,9 @@ const FaqAnswer = ({ question = null, answer = null }) => {
           {question}
         </p>
       </div>
-      <div className={stls.answer}>{parse(answer)}</div>
+      <div className={stls.answer}>
+        <p>{parse(answer)}</p>
+      </div>
     </li>
   )
 }

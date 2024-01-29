@@ -19,7 +19,12 @@
 
 .authors
   font-size: f.px(18)
+  display: flex
+  width: fit-content
+  justify-content: space-between
   @include m.media(phone, tablet)
+    width: f.px(300)
+    flex-direction: column
     font-size: f.px(14)
   p
     @include m.gap($mb: f.px(10))
@@ -28,7 +33,7 @@
   display: inline-block
   color: #6F01C6
   border: f.px(1) solid #6F01C6
-  @include m.gap($mtb: f.px(50), $plr: f.px(17), $ptb: f.px(9))
+  @include m.gap($mtb: f.px(30), $plr: f.px(17), $ptb: f.px(9))
   border-radius: f.px(24)
   font-size: f.px(18)
   font-weight: 500
@@ -55,7 +60,6 @@
     display: none
 
 .imgTeacherContainer
-  // display: flex
   @include m.gap($mt: f.px(30))
   @include m.media(laptop)
     @include m.gap($mt: f.px(0))
@@ -63,7 +67,6 @@
 
 
 .achievements, .teacherName
-  // max-width: f.px(300)
   text-align: center
   margin: 0 auto
   @include m.gap($mb: f.px(10))
@@ -89,3 +92,18 @@
 .imgTeacher
   clip-path: circle(32% at 50% 30%)
   object-fit: cover
+
+.dateAndTime
+  align-items: flex-start
+  display: flex
+  justify-content: space-between
+  @include m.media(tablet, phone)
+    width: f.px(190)
+    @include m.gap($pr: f.px(0))
+
+.date
+  @include m.gap($pr: f.px(70))
+  @include m.media(tablet, phone)
+    @include m.gap($pr: f.px(50))
+.author
+  @include m.gap($pr: f.px(70))

@@ -10,6 +10,8 @@ import ArticleAuthors from '@/components/articles/ArticleAuthors'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 import ArticleContentLinks from '@/components/articles/ArticleContentLinks'
 import { Accordion } from '@/components/general/Accordion'
+import Breadcrumbs from '@/components/general/Breadcrumbs'
+import { useRouter } from 'next/router'
 
 const JournalSlugPage = ({ blog }) => {
   const articleHeading = {
@@ -18,8 +20,11 @@ const JournalSlugPage = ({ blog }) => {
     picture: blog?.picture,
     title: blog?.title,
     teacher: blog?.teacher,
-    blogAuthor: blog?.blogAuthor
+    blogAuthor: blog?.blogAuthor,
+    date: blog?.date
   }
+
+  console.log(blog)
 
   const articleAuthors = [blog?.teacher, blog?.blogAuthor]
 
@@ -27,11 +32,24 @@ const JournalSlugPage = ({ blog }) => {
     el => el.__typename === 'ComponentBlogSubtitle'
   )
 
+  const router = useRouter()
+  const segments = router.asPath.split("/").filter(segment => segment !== "");
+
+  const labels =['Журнал', blog?.studyField, blog?.title]
+  const breadcrumbs = segments.map((segment, index) => {
+    const breadcrumb = {
+      label: labels[index],
+      path: "/" + segments.slice(0, index + 1).join("/")
+    };
+    return breadcrumb;
+  });
+
 
   return (
     <Wrapper>
       <SeoPagesJournal />
       <div className={stls.in}>
+        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
         {articleHeading && <ArticleTitle props={articleHeading} />}
         {/* <Link href='#a'>
         asda

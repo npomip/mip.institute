@@ -1,6 +1,4 @@
 import stls from '@/styles/components/sections/Seminars.module.sass'
-import Link from 'next/link'
-import routes from '@/config/routes'
 import SlugCard from '../cards/SlugCard'
 
 type ReviewsType = {
@@ -10,10 +8,7 @@ type ReviewsType = {
   onMain?: boolean
 }
 
-const SlugTags = ({ props, slug, withDate = false }) => {
-  console.log(props)
-  // const newDate = new Date(seminars.date)
-  // console.log(newDate)
+const SlugTags = ({ props, slug, withDate = false, studyFieldSlug }) => {
   const title = slug === 'journal' ? 'Все статьи' : 'Все семинары'
   return (
     <>
@@ -22,9 +17,7 @@ const SlugTags = ({ props, slug, withDate = false }) => {
         <SlugCard item={props?.[0]} slug={slug} withDate={withDate} firstCard/>
         <h2 className={stls.slugTitle}>{title}</h2>
         {props?.filter((el,i) => i > 0).map(item => (
-          // <div key={seminar.id} className={stls.seminarsContainer}>
           <SlugCard key={item.id} item={item} slug={slug} withDate={withDate} />
-          // </div>
         ))}
       </div>
     </>

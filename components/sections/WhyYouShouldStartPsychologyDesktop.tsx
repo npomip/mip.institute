@@ -56,8 +56,8 @@ const WhyYouShouldStartPsychologyDesktop = ({
             </div>
             <p>к психологам на 15%</p>
             <div className={stls.imgScope}>
-              {studentsImg.map(el => (
-                <div className={stls.img}>
+              {studentsImg.map((el, i) => (
+                <div key={i} className={stls.img}>
                   <Image src={el} height={113} width={92} alt={'студент'} />
                 </div>
               ))}

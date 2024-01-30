@@ -2,15 +2,14 @@
 @use '@/styles/utils/funcs' as f
 
 .container
-  @include m.media(phone, tablet)
-    @include m.flex($fd: column)
+  width: 100%
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between)
-  width: 100%
-  min-height: 100%
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
 
   &.slidable
-    @include m.media(phone, tablet)
-      @include m.flex($fd: row)
     @include m.gap($mtb: f.px(-40), $ptb: f.px(40))
     overflow-x: auto
+    @include m.media(phone, tablet)
+      @include m.flex($fd: row)

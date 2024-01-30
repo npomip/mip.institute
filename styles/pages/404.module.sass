@@ -1,0 +1,84 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.bg
+  background: #D9D9D9
+  height: 100vh
+  text-align: center
+  @include m.media(desktop, laptop)
+    @include m.gap($pt: f.px(150))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(50))
+
+.mobile
+  @include m.media(desktop,laptop)
+    display: none
+  @include m.media(phone, tablet)
+    display: block
+    text-align: center
+    span
+      font-size: f.px(36)
+    p
+      font-size: f.px(16)
+      max-width: f.px(170)
+      margin: 0 auto 20px auto
+
+.image
+  position: relative
+
+.errorNum
+  color: #DADADA
+  text-shadow: -30px 30px 30px rgba(0, 0, 0, 0.20), -10px 10px 10px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)
+  font-size: f.px(594)
+  font-weight: 350
+  line-height: 120%
+  filter: blur(3px)
+
+.errorText
+  @include m.flex($jc: center, $ai: flex-end)
+  width: 100%
+  color: black
+
+.message
+  top: 0
+  transform: translate(f.px(20), f.px(320))
+  position: absolute
+  font-weight: 350
+  font-family: Stem
+  @include m.media(phone, tablet)
+    transform: translate(0, f.px(220))
+
+.oops
+  font-size: f.px(85)
+  @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+    display: none
+
+.notFound
+  max-width: f.px(500)
+  font-size: f.px(35)
+  @include m.media(phone, tablet)
+    display: none
+
+.desktopBtn
+  text-transform: uppercase
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    display: none
+
+.mobileBtn a
+  display: none
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(16), $plr: f.px(15), $mt: f.px(200))
+    border: f.px(2) solid
+    @include m.dye(border, c.$beta)
+    border-radius: f.px(4)
+    display: block
+    @include m.dye(bg, c.$beta)
+    @include m.dye(c, c.$nu)
+    color: white
+    text-transform: uppercase
+    text-decoration: none
+    font-size: f.px(16)
+    font-weight: 500

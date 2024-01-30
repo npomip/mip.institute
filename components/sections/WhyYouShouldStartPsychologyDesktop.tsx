@@ -17,10 +17,12 @@ import IconSoftStar from '../icons/IconSoftStar'
 interface WhyYouShouldStartPsychologyDesktopProps {
   toggleOverview: () => void
   showDescription: boolean
+  programOverview: string
 }
 const WhyYouShouldStartPsychologyDesktop = ({
   toggleOverview,
-  showDescription
+  showDescription,
+  programOverview
 }: WhyYouShouldStartPsychologyDesktopProps) => {
   const studentsImg = [student1, student2, student3, student4, student5]
   return (
@@ -81,9 +83,12 @@ const WhyYouShouldStartPsychologyDesktop = ({
             </div>
           </div>
         </div>
-        <div className={stls.switchSection} onClick={toggleOverview}>
-          <p>Посмотреть описание программы</p>
-        </div>
+        {programOverview && (
+            <div className={stls.switchSection} onClick={toggleOverview}>
+            <p>Посмотреть описание программы</p>
+          </div>
+        )}
+        
       </Wrapper>
     </section>
   )

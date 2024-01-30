@@ -96,7 +96,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       costRef={costRef}
       reviewsRef={reviewsRef}
       faqRef={faqRef}/>
-      {isDesktopLayout &&<WhyYouShouldStartPsychologyDesktop toggleOverview={toggleOverview} showDescription={showDescription} />} 
+      {isDesktopLayout &&<WhyYouShouldStartPsychologyDesktop toggleOverview={toggleOverview} showDescription={showDescription} programOverview={programOverview} />} 
       {!isDesktopLayout && <WhyYouShouldStartPsychology programOverview={programOverview} toggleOverview={toggleOverview} showDescription={showDescription}/>}
       {programOverview && <ProgramOverview showDescription={showDescription} toggleOverview={toggleOverview}/>}
 

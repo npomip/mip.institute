@@ -4,17 +4,15 @@
 
 .block
   position: relative
-  z-index: 2
 .container
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(50), $pb: f.px(43))
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(90))
-  @include m.dye(bg, #FFF)
+  @include m.dye(bg, c.$nu)
 
 .title
   display: inline-block
-  z-index: 2
   white-space: nowrap
   position: inherit
   @include m.media(phone, tablet)
@@ -27,63 +25,55 @@
   @include m.dye(c, c.$theta)
 
 .list
-  z-index: 2
   position: inherit
   margin: 0
   padding: 0
+  @include m.flex($jc: space-between)
   @include m.media(laptop, desktop)
     @include m.flex($fw: wrap)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
 
 .item
-  z-index: 3
-  text-align: center
-  justify-content: center
-  border: 1px solid #6F01C6
+  text-align: start
   border-radius: f.px(25)
-  max-height: f.px(140)
-  min-height: f.px(140)
-  align-items: center
-  background: #FFF
+  min-height: f.px(214)
+  max-height: fit-content
+  @include m.flex($jc: flex-start, $ai: flex-start, $fd: column)
+  border: 1px solid
+  @include m.dye(border, c.$alpha)
   @include m.media(phone, tablet)
-    border: 0.7px solid #6F01C6
-    // max-height: f.px(120)
-    min-height: f.px(100)
+    @include m.gap($mb: f.px(20), $p: f.px(20))
+    border: 0.7px solid
+    @include m.dye(border, c.$alpha)
+    min-height: f.px(150)
     @include m.flex
-    @include m.gap($mb: f.px(15), $plr: f.px(35), $ptb: f.px(10))
     & > *
-        max-width: f.px(420)
+      max-width: f.px(420)
 
   @include m.media(laptop, desktop)
-    @include m.flex($fb: 31%)
-    @include m.gap($mr: 3%, $mb: f.px(20), $ptb: f.px(15), $plr: f.px(40))
+    @include m.flex($fb: 32%)
+    @include m.gap($mr: 1%, $mb: f.px(20), $ptb: f.px(30), $pl: f.px(35))
     &:nth-child(3n)
       @include m.gap($mr: 0)
 
+.description
+  @include m.media(laptop, desktop)
+    max-width: 300px
+
+.firstWord
+  font-weight: 500
+  font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
 .p
-  font-size: f.px(14)
+  font-size: f.px(20)
   font-weight: 350
   line-height: 130%
   @include m.gap($mb: 0)
-    
-
-.learnIcon, .learnIconMain
-  position: absolute
-  z-index: 0
-  // overflow: hidden
-  @include m.media(laptop, desktop)
-    top: f.px(-200)
-    right: f.px(-150)
   @include m.media(phone, tablet)
-    // overflow: hidden
-    z-index: 1
-    top: f.px(-105)
-
-.learnIconMain
-  top: f.px(-155)
-  right: f.px(-156)
-  transform: rotate(-35deg)
-  @include m.media(phone, tablet)
-    display: none
+    font-size: f.px(14)
 
 .tag
   z-index: 2

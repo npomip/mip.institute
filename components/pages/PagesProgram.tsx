@@ -29,6 +29,8 @@ import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import listOnCourses from '@/data/general/listOnCourses'
 import WhyYouShouldStartPsychology from '../sections/WhyYouShouldStartPsychology'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import WhyYouShouldStartPsychologyDesktop from '../sections/WhyYouShouldStartPsychologyDesktop'
 
 interface Breadcrumb {
   label: string;
@@ -77,6 +79,8 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
     'nejropsiholog'
   ]
 
+  const isDesktopLayout = useBetterMediaQuery('(min-width: 769px)')
+
   
   return (
     <>
@@ -92,7 +96,8 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       costRef={costRef}
       reviewsRef={reviewsRef}
       faqRef={faqRef}/>
-      <WhyYouShouldStartPsychology programOverview={programOverview} toggleOverview={toggleOverview} showDescription={showDescription}/>
+      {isDesktopLayout &&<WhyYouShouldStartPsychologyDesktop toggleOverview={toggleOverview} showDescription={showDescription} programOverview={programOverview} />} 
+      {!isDesktopLayout && <WhyYouShouldStartPsychology programOverview={programOverview} toggleOverview={toggleOverview} showDescription={showDescription}/>}
       {programOverview && <ProgramOverview showDescription={showDescription} toggleOverview={toggleOverview}/>}
 
       {checkSlug.includes(slug) ? (

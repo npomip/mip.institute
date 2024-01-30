@@ -22,7 +22,6 @@ const ProgramModules = () => {
         title: topic,
         topics: topics?.[idx]
       }))
-      // .filter((item, idx) => idx < 5)
 
   return (
     <ul className={stls.container}>

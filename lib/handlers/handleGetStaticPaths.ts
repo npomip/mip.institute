@@ -14,6 +14,7 @@ import {
   getStaticPathsPageJournal,
   getStaticPathsPageJournals
 } from '@/lib/index'
+import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPaths'
 
 type TypeHandleGetStaticPathsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -24,7 +25,7 @@ const handleGetStaticPaths = async ({
   page,
   type
 }: TypeHandleGetStaticPathsProps): Promise<{
-  paths: TypePageProgramsPaths | TypePageProgramPaths | []
+  paths: TypePageProgramsPaths | TypePageProgramPaths | TypePageJournalPaths | []
   fallback: boolean | 'blocking'
 }> => {
   switch (page) {

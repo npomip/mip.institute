@@ -208,7 +208,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
-
   return (
     <>
       <DefaultSeo {...SEO} />
@@ -268,12 +267,12 @@ const MyApp = ({ Component, pageProps, router }) => {
         id='advcakeAsync'
         src='/assets/js/vendors/advCake.js'
       />
-      {/* {prod && ( */}
+      {prod && (
         <>
-        <Script
-          id='roistat counter'
-          dangerouslySetInnerHTML={{
-            __html: `
+          <Script
+            id='roistat counter'
+            dangerouslySetInnerHTML={{
+              __html: `
             (function(w, d, s, h, id) {
               w.roistatProjectId = id; w.roistatHost = h;
               var p = d.location.protocol == "https:" ? "https://" : "http://";
@@ -281,13 +280,13 @@ const MyApp = ({ Component, pageProps, router }) => {
               var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
             })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
           `
-          }}
-        />
-        
-        <Script async src='/assets/js/vendors/roistatWA.js' />
+            }}
+          />
+
+          <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
-      {/* )} */}
-          
+      )}
+
       <Script
         id='edpartners_scaletrk'
         dangerouslySetInnerHTML={{
@@ -326,9 +325,9 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}
       />
       <Script
-      id='vk script'
-      dangerouslySetInnerHTML={{
-        __html: `var _tmr = window._tmr || (window._tmr = []);
+        id='vk script'
+        dangerouslySetInnerHTML={{
+          __html: `var _tmr = window._tmr || (window._tmr = []);
         _tmr.push({id: "3477294", type: "pageView", start: (new Date()).getTime()});
         (function (d, w, id) {
           if (d.getElementById(id)) return;
@@ -336,9 +335,18 @@ const MyApp = ({ Component, pageProps, router }) => {
           ts.src = "https://top-fwz1.mail.ru/js/code.js";
           var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
           if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-        })(document, window, "tmr-code");`}}
+        })(document, window, "tmr-code");`
+        }}
       />
-      <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3477294;js=na" style={{"position":"absolute", "left":"-9999px"}} alt="Top.Mail.Ru" /></div></noscript>
+      <noscript>
+        <div>
+          <img
+            src='https://top-fwz1.mail.ru/counter?id=3477294;js=na'
+            style={{ position: 'absolute', left: '-9999px' }}
+            alt='Top.Mail.Ru'
+          />
+        </div>
+      </noscript>
     </>
   )
 }

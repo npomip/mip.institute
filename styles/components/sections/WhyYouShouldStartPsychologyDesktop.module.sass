@@ -8,6 +8,7 @@
   h2
     @include m.gap($mt: f.px(45), $mb: f.px(30))
     font-size: f.px(44)
+    font-weight: 500
 
 .content
   display: flex
@@ -28,7 +29,6 @@
     @include m.gap($m: f.px(0))
     line-height: 120%
     font-size: f.px(30)
-  
 
 .text
   font-size: f.px(30)
@@ -63,12 +63,11 @@
   top: 0
   left: 0
 
-
 .bbcText
   max-width: f.px(220)
   font-size: f.px(25)
   text-align: center
-  p 
+  p
     @include m.gap($m: f.px(0))
 .hh
   max-width: f.px(270)
@@ -76,7 +75,6 @@
 .imgScope
   display: flex
   @include m.gap($mt: f.px(20))
-
 
 .img
   &>*
@@ -89,7 +87,7 @@
   &:nth-of-type(4)
     @media (max-width: 860px) and (min-width: 769px)
       display: none
-      
+
 .switchSection
   @include m.media(laptop, desktop)
     font-size: f.px(20)
@@ -109,6 +107,3 @@
     @include m.gap($ml: f.px(20))
     &:nth-of-type(2)
       @include m.gap($ml: f.px(5))
-      
-
-  

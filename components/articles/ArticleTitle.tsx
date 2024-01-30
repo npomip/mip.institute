@@ -38,7 +38,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
 
   const date = new Date(props?.date)
 
-  console.log(props.date)
+  // console.log(props.date)
 
   return (
     <>

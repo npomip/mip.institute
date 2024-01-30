@@ -26,7 +26,7 @@ type CardType = {
 }
 
 const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
-  // console.log(item)
+
   const newDate = new Date(item?.date)
   const dateOfCourse = new Date(item?.date).toLocaleString('ru-RU', {
     day: 'numeric',
@@ -37,9 +37,7 @@ const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
     <>
       <Link
         passHref
-        href={`${routes.front.root}/${slug}/${
-          item.studyFieldSlug || 'studyfield'
-        }/${item.slug}`}>
+        href={`${routes.front.root}/${slug}/${item?.slug}`}>
         <div
           className={classNames({
             [stls.seminarCard]: !firstCard,
@@ -50,21 +48,18 @@ const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
               src={item?.picture?.url}
               alt={'alt'}
               className={stls.img}
-              // width={firstCard ? 760 : 450}
-              // height={firstCard ? 430 : 250}
               width={760}
               height={430}
-              // layout='responsive'
               placeholder='blur'
               blurDataURL={base64pixel}
             />
           </div>
 
           <div className={stls.seminarText}>
-            <p className={stls.seminarCardTag}>{item.studyField}</p>
-            <p className={stls.articleTitle}>{item.title}</p>
+            <p className={stls.seminarCardTag}>{item?.studyField}</p>
+            <p className={stls.articleTitle}>{item?.title}</p>
             {firstCard && (
-              <p className={stls.articleSubtitle}>{item.subtitle}</p>
+              <p className={stls.articleSubtitle}>{item?.subtitle}</p>
             )}
             {/* проверка на то, опубликовано ли сегодня? */}
             <p className={stls.date}>

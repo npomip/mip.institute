@@ -1,12 +1,10 @@
-import { TypePageProgramPaths, TypePageProgramPathsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
-import TypePageSeminarPathsQuery from '@/types/page/seminars/query/TypePageSeminarPathsQuery'
-import TypePageSeminarPaths from '@/types/page/seminar/paths/TypePageSeminarPaths'
 import TypePageJournalPathsQuery from '@/types/page/journal/query/TypePageSeminarPathsQuery'
+import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPaths'
 
 const getStaticPathsPageJournal = async (): Promise<{
-  paths: TypePageSeminarPaths
+  paths: TypePageJournalPaths
   fallback: boolean | 'blocking'
 }> => {
   const res = await apolloClient.query<TypePageJournalPathsQuery>({
@@ -25,12 +23,12 @@ const getStaticPathsPageJournal = async (): Promise<{
       new Set(
         res.data?.blogs?.map(program => ({
           params: {
-            studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
+            // studyFieldSlug: program?.studyFieldSlug || 'studyFieldSlug',
             slug: program?.slug || 'program'
           }
         }))
       )
-    ) || [{ params: { studyFieldSlug: 'studyFieldSlug', slug: 'program' } }],
+    ) || [{ params: { slug: 'program' } }],
     fallback: 'blocking'
   }
 }

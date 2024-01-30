@@ -23,9 +23,8 @@ const getStaticPropsPageJournal = async ({
       query: gql`
         query GetStaticPropsPageJournal(
           $slug: String!
-          $studyFieldSlug: String!
         ) {
-          blog: blogs(where: { slug: $slug, studyFieldSlug: $studyFieldSlug }) {
+          blog: blogs(where: { slug: $slug}) {
             id
             title
             slug
@@ -231,7 +230,7 @@ const getStaticPropsPageJournal = async ({
       `,
       variables: {
         slug,
-        studyFieldSlug
+        // studyFieldSlug
       }
     })
     return {

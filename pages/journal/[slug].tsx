@@ -33,17 +33,16 @@ const JournalSlugPage = ({ blog }) => {
   )
 
   const router = useRouter()
-  const segments = router.asPath.split("/").filter(segment => segment !== "");
+  const segments = router.asPath.split('/').filter(segment => segment !== '')
 
-  const labels =['Журнал', blog?.studyField, blog?.title]
+  const labels = ['Журнал', blog?.title]
   const breadcrumbs = segments.map((segment, index) => {
     const breadcrumb = {
       label: labels[index],
-      path: "/" + segments.slice(0, index + 1).join("/")
-    };
-    return breadcrumb;
-  });
-
+      path: '/' + segments.slice(0, index + 1).join('/')
+    }
+    return breadcrumb
+  })
 
   return (
     <Wrapper>
@@ -51,9 +50,6 @@ const JournalSlugPage = ({ blog }) => {
       <div className={stls.in}>
         <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
         {articleHeading && <ArticleTitle props={articleHeading} />}
-        {/* <Link href='#a'>
-        asda
-      </Link> */}
         <Accordion>
           <ArticleContentLinks props={headingLinks} />
         </Accordion>

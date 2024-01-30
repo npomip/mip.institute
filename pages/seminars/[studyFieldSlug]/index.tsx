@@ -26,8 +26,8 @@ const SeminarsStudyFieldPage = ({
     <>
       <Wrapper>
         <h1>Семинары слаг</h1>
-      <StudyFieldSlugFilter props={events} slug='seminars'/>
-      <SlugTags props={filteredSeminars} slug='seminars' withDate/>
+      {/* <StudyFieldSlugFilter props={events} slug='seminars'/>
+      <SlugTags props={filteredSeminars} slug='seminars' withDate/> */}
     </Wrapper>
     </>
   )

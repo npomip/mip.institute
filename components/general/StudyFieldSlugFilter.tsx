@@ -1,8 +1,6 @@
 import stls from '@/styles/components/general/StudyFieldSlugFilter.module.sass'
 import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import StudyFields from './StudyFields'
+import { Dispatch, SetStateAction } from 'react'
 
 interface PropsFilter {
   studyField: string
@@ -11,14 +9,23 @@ interface PropsFilter {
 
 const StudyFieldSlugFilter = ({
   props,
-  slug
+  slug,
+  setStudyFieldSlug,
+  studyFieldSlug
 }: {
   props: PropsFilter[]
   slug: string
+  studyFieldSlug: {
+    studyField: string | string[]
+    studyFieldSlug: string | string[]
+  }
+  setStudyFieldSlug: Dispatch<
+    SetStateAction<{
+      studyFieldSlug: string | string[]
+      studyField: string | string[]
+    }>
+  >
 }) => {
-  const router = useRouter()
-  // console.log(slug)
-
   let uniqueCategories = [
     ...new Set(props?.map(seminar => seminar.studyFieldSlug))
   ]
@@ -31,19 +38,12 @@ const StudyFieldSlugFilter = ({
   const firstEl = [{ studyFieldSlug: '', studyField: 'Все cтатьи' }]
 
   let cat = firstEl.concat(uniqueCategoriesWithField)
-  // console.log(uniqueCategories)
-
-  const [studyFieldSlug, setStudyFieldSlug] = useState({
-    studyFieldSlug: router.query.studyFieldSlug || '',
-    studyField: router.query.studyField || 'Все'
-  })
 
   const handleFilter = el => {
     const selectedSlug = el
     setStudyFieldSlug(selectedSlug)
-    router.push(`/${slug}/${selectedSlug.studyFieldSlug}`)
   }
-  // console.log(studyFieldSlug)
+
   return (
     <div>
       <div className={stls.container}>

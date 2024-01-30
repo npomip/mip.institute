@@ -23,8 +23,8 @@ console.log(events)
   return (
     <Wrapper>
       <h1>Семинары</h1>
-      <StudyFieldSlugFilter props={events} slug='seminars' />
-      <SeminarCard props={events} slug='seminars' withDate/>
+      {/* <StudyFieldSlugFilter props={events} slug='seminars' />
+      <SeminarCard props={events} slug='seminars' withDate/> */}
     </Wrapper>
   )
 }

@@ -1,37 +1,42 @@
-import { GetStaticProps, NextPage } from 'next'
+import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import Wrapper from '@/components/layout/Wrapper'
+import SlugTags from '@/components/sections/SlugTags'
+import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { SeoPagesPrograms } from '@/components/seo'
-import PagesJournal from '@/components/pages/PagesJournal'
-import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
-import Image from 'next/image'
 import stls from '@/styles/pages/JournalSlug.module.sass'
-import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
-import SlugTags from '@/components/sections/SlugTags'
-import Wrapper from '@/components/layout/Wrapper'
-import SeoPagesJournal from '@/components/seo/SeoPageJournal'
+import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const JournalPage = ({ blogs }) => {
-  // useHandleContextStaticProps({
-  //   blogs,
-  // })
-  // const articles = blogs?.map((el, index) => el)
-  // console.log(blogs)
+  const router = useRouter()
+
   const sortedBlogs = [...blogs].sort((a, b) => {
     // Предположим, что a.date и b.date содержат строки с датами
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateB.getTime() - dateA.getTime(); // Сортировка от самой поздней даты к более ранней
-  });
-  console.log(sortedBlogs)
+    const dateA = new Date(a.date)
+    const dateB = new Date(b.date)
+    return dateB.getTime() - dateA.getTime() // Сортировка от самой поздней даты к более ранней
+  })
+  const [studyFieldSlug, setStudyFieldSlug] = useState({
+    studyFieldSlug: router.query.studyFieldSlug || '',
+    studyField: router.query.studyField || 'Все cтатьи'
+  })
+
+  const blogsFilter = studyFieldSlug.studyField == 'Все cтатьи' ? sortedBlogs : sortedBlogs.filter(el => el.studyFieldSlug === studyFieldSlug.studyFieldSlug)
+
+  console.log(studyFieldSlug)
   return (
     <Wrapper>
       <SeoPagesJournal />
       <h1 className={stls.title}>Блог МИП</h1>
-      <StudyFieldSlugFilter props={blogs} slug='journal' />
-      <SlugTags props={sortedBlogs} slug = 'journal'/>
-      {/* <PagesJournal /> */}
+      <StudyFieldSlugFilter
+        studyFieldSlug={studyFieldSlug}
+        setStudyFieldSlug={setStudyFieldSlug}
+        props={blogs}
+        slug='journal'
+      />
+      <SlugTags studyFieldSlug={studyFieldSlug} props={blogsFilter} slug='journal' />
     </Wrapper>
   )
 }

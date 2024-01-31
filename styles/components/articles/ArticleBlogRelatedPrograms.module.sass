@@ -4,7 +4,6 @@
 
 .relatedPrograms
   & > *
-    // font-family: Stem !important
   border-radius: f.px(40)
   @include m.gap($mtb: f.px(90))
   @include m.media(phone, tablet)
@@ -12,7 +11,6 @@
 
 
 .innerBox
-  // font-family: Stem !important
   background: url('/assets/imgs/article/articleBgRelatedProgramsBig.png')
   background-position: center center
   background-size: cover
@@ -37,8 +35,6 @@
     display: flex
     justify-content: center
   p
-    // text-align: center
-    // font-size: f.px(40)
     @include m.media(phone, tablet)
       font-size: f.px(20)
     
@@ -48,9 +44,9 @@
   max-width: f.px(970)
   margin: 0 auto
   text-align: center
-  @include m.gap( $mb: f.px(40))
+  @include m.gap($mb: f.px(40))
   @include m.media(phone, tablet)
-    @include m.gap( $mb: f.px(10))
+    @include m.gap($mt: f.px(10), $mb: f.px(10))
     font-size: f.px(12) 
     justify-self: center
     line-height: 110%
@@ -64,7 +60,6 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(10), $mlr: f.px(15))
     justify-content: center
-    // align-items: flex-end
 
 #programTitle
   font-family: Stem 
@@ -166,6 +161,8 @@
   font-size: f.px(30)
   font-weight: 500
   text-transform: uppercase
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
 
 .courseWithDiscount
   display: inline-flex
@@ -173,8 +170,6 @@
   justify-content: center
   position: relative
   font-weight: 500
-  // &::after
-  //   content: '-30%'
 
 .discountWithDate
   & > *
@@ -185,7 +180,6 @@
   transform: translateX(90%)
   @include m.media(phone, tablet)
     transform: translateX(80%)
-//   right: f.px(150)
 
 #date
     font-size: f.px(18)

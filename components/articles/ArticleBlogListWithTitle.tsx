@@ -1,36 +1,32 @@
 import stls from '@/styles/components/articles/ArticleBlogListWithTitle.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
-import marked from 'marked'
-import parse from 'html-react-parser'
 import ArticleBlogListWithTitleItem from './ArticleBlogListWithTitleItem'
 
 type ArticleBlogListWithTitleType = {
   props: {
-    icon : {
+    icon: {
       code: string
     }
-    item? : {
+    item?: {
       id?: string
       text?: string
       title: string
       icon?: {
-        code?: string 
+        code?: string
       }
     }[]
   }
-  
 }
 
-const ArticleBlogListWithTitle = ({props} : ArticleBlogListWithTitleType) => {
-  const list = props.item || [];
+const ArticleBlogListWithTitle = ({ props }: ArticleBlogListWithTitleType) => {
+  const list = props.item || []
 
   return (
-      <div className={stls.contentBox}>
-      {list && list.map((el, i) => (
-        <ArticleBlogListWithTitleItem key={el.id} props={el}/>
-      ))}
-      </div>
+    <div className={stls.contentBox}>
+      {list &&
+        list.map((el, i) => (
+          <ArticleBlogListWithTitleItem key={el.id} props={el} />
+        ))}
+    </div>
   )
 }
 

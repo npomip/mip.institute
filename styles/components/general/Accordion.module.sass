@@ -16,6 +16,9 @@
     font-size: f.px(25)
     font-weight: 500
     @include m.gap($mt: f.px(20), $mb: f.px(25), $ml: f.px(20))
+    @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(15), $mb: f.px(15), $ml: f.px(20))
+    font-size: f.px(16)
 
 .icon
     width: f.px(10)
@@ -35,9 +38,11 @@
     grid-template-rows: 0fr
     transition: grid-template-rows 500ms
     @include m.gap($mt: 0, $mr: f.px(20), $ml: f.px(20))
+    @include m.media(phone, tablet)
+      font-size: f.px(12)
 
 .content > div
     overflow: hidden
-    
+
 .show
     grid-template-rows: 1fr

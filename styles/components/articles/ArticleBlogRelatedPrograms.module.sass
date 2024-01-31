@@ -56,21 +56,27 @@
 .relatedProgramsProgram
   display: flex
   justify-content: center
-  @include m.gap($mb: f.px(15), $mr: f.px(35))
+  @include m.gap($mb: f.px(15), $mr: f.px(35), $ml: f.px(80))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10), $mlr: f.px(15))
+    @include m.gap($mb: f.px(10), $mlr: f.px(5))
     justify-content: center
+
+.programTitle
+  width: 100%
+  max-width: f.px(400)
+  @include m.media(phone, tablet)
+    max-width: f.px(160)
 
 #programTitle
   font-family: Stem 
   width: 100%
   font-size: f.px(20) 
-  max-width: f.px(300)
+  max-width: f.px(310)
   @include m.gap($mb: f.px(0), $pl: f.px(23), $mr: f.px(120))
   @include m.media(phone, tablet)
     font-size: f.px(10) 
     font-weight: 100 
-    max-width: f.px(150)
+    max-width: f.px(120)
     @include m.gap($plr: f.px(0), $mb: f.px(10), $mr: f.px(0))
     
 

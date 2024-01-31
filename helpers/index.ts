@@ -5,7 +5,6 @@ export { default as sortReviewsCreatedAtASC } from '@/helpers/general/sortReview
 export { default as sortUniqueReviewsCreatedAtASC } from '@/helpers/general/sortUniqueReviewsCreatedAtASC'
 
 // ./
-export { default as calculateClosestAdmission } from '@/helpers/calculateClosestAdmission'
 export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'
 export { default as convertMdToHtml } from '@/helpers/convertMdToHtml'
 export { default as filterProgramsByStudyField } from '@/helpers/filterProgramsByStudyField'

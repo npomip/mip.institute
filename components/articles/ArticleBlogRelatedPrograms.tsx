@@ -9,7 +9,7 @@ export type ArticleBlogRelatedProgramsType = {
     }
     textItem: {
       id
-      text :string
+      text: string
     }[]
     programs: {
       id: string
@@ -17,7 +17,7 @@ export type ArticleBlogRelatedProgramsType = {
       slug: string
       studyFieldSlug: string
       title: string
-      
+
       heroPicture: {
         height: string
         url: string
@@ -30,17 +30,15 @@ export type ArticleBlogRelatedProgramsType = {
 const ArticleBlogRelatedPrograms = ({
   props
 }: ArticleBlogRelatedProgramsType) => {
-
   const programs = props?.programs
-
 
   return (
     <>
-    {programs.length === 1 ? (
-      <ArticleBlogOneProgram props={props} />
-    ) : (
-      <ArticleBlogMoreThenOneProgram props={props} />
-    )}
+      {programs.length === 1 ? (
+        <ArticleBlogOneProgram props={props} />
+      ) : (
+        <ArticleBlogMoreThenOneProgram props={props} />
+      )}
     </>
   )
 }

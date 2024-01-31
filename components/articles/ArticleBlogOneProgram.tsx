@@ -1,41 +1,12 @@
+import { discount } from '@/data/price'
 import stls from '@/styles/components/articles/ArticleBlogRelatedPrograms.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
-import marked from 'marked'
 import parse from 'html-react-parser'
-import RelatedProgramsList from './RelatedProgramsList'
-import { discount, discountNum } from '@/data/price'
+import marked from 'marked'
 import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
 import { ArticleBlogRelatedProgramsType } from './ArticleBlogRelatedPrograms'
-
-// type ArticleBlogRelatedProgramsType = {
-//   props: {
-//     title: string
-//     borderColor?: {
-//       code?: string
-//     }
-//     textItem: {
-//       text :string
-//     }[]
-//     programs: {
-//       id: string
-//       type: string
-//       slug: string
-//       studyFieldSlug: string
-//       title: string
-//       heroPicture: {
-//         height: string
-//         url: string
-//         width: string
-//       }
-//     }[]
-//   }
-// }
+import RelatedProgramsList from './RelatedProgramsList'
 
 const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
-  // const text = props.text;
-  // console.log(props)
-
   const renderer = new marked.Renderer()
   renderer.em = text => {
     return `<span  style="color: ${props?.borderColor?.code}">${text}</span>`
@@ -45,13 +16,10 @@ const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
   }
   marked.setOptions({ renderer })
 
-  const title = marked(props?.title)
   const programs = props?.programs
 
   return (
-    <div
-      // style={{border: `1px solid ${props.borderColor.code}`}}
-      className={stls.relatedPrograms}>
+    <div className={stls.relatedPrograms}>
       <div className={stls.innerBoxOneProgram}>
         <div className={stls.discountBox}>
           <div className={stls.courseWithDiscount}>

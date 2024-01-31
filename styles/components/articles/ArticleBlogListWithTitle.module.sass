@@ -9,6 +9,8 @@
 
 .icon
   @include m.sizeIcon($w: 41, $h: 41)
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 25, $h: 25)
 
 .innerBox
   @include m.gap($mb: f.px(34))
@@ -18,21 +20,18 @@
     @include m.gap($mb: f.px(0))
   p
     margin: 0
-    // font-weight: 350
-    // font-size: f.px(50)
-  
 
 .iconBox
   @include m.gap($pl: f.px(35), $pr: f.px(22))
   @include m.media(phone, tablet)
     @include m.gap($pl: f.px(0), $pr: f.px(22))
 
-
 .titleBox
   display: flex
   align-items: center
+  @include m.gap($pb: f.px(20))
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(20))
+    @include m.gap($pb: f.px(0))
   p
     font-size: f.px(35)
     font-weight: 500
@@ -41,7 +40,6 @@
 
 .title
   margin: 0
-  
 
 .text
   font-size: f.px(40)

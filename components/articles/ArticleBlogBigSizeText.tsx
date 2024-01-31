@@ -1,40 +1,27 @@
 import stls from '@/styles/components/articles/ArticleBlogBigSizeText.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
+import parse from 'html-react-parser'
 import marked from 'marked'
-import parse, {domToReact, attributesToProps } from 'html-react-parser'
 
 type ArticleBlogBigSizeTextType = {
   props: {
     text?: string
-    textColor : {
+    textColor: {
       code: string
     }
   }
-  
 }
 
-const ArticleBlogBigSizeText = ({props} : ArticleBlogBigSizeTextType) => {
-  
-  const renderer = new marked.Renderer();
-  renderer.em = (text) => {
-    return `<span style="color: ${props?.textColor?.code}">${text}</span>`;
-  };
+const ArticleBlogBigSizeText = ({ props }: ArticleBlogBigSizeTextType) => {
+  const renderer = new marked.Renderer()
+  renderer.em = text => {
+    return `<span style="color: ${props?.textColor?.code}">${text}</span>`
+  }
 
-  // renderer.em = (text) => {
-  //   return `<span style="color: ${props?.color?.code}">${text}</span>`;
-  // };
-  marked.setOptions({ renderer });
+  marked.setOptions({ renderer })
 
-  const text = marked(props?.text);
+  const text = marked(props?.text)
 
-
-  return (
-      <div className={stls.text}>
-        {parse(text)}
-        
-      </div>
-  )
+  return <div className={stls.text}>{parse(text)}</div>
 }
 
 export default ArticleBlogBigSizeText

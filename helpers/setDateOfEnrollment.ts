@@ -1,4 +1,4 @@
-const setDateOfEnrollment = (day: number, month: number): string => {
+const setDateOfEnrollment = (): string => {
   const dateItem = new Date()
   const selectorDate = item => {
     switch (true) {

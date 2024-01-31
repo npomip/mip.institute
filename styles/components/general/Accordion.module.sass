@@ -3,46 +3,46 @@
 @use '@/styles/themes/default/colors' as c
 
 .accordion
-    border: f.px(1) solid
-    @include m.dye(border, c.$alpha)
-    border-radius: f.px(10)
-    @include m.gap($mt: f.px(25))
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  border-radius: f.px(10)
+  @include m.gap($mt: f.px(25))
 
 .header
-    cursor: pointer
-    @include m.flex($display: true, $ai:center, $jc: space-between)
+  cursor: pointer
+  @include m.flex($display: true, $ai:center, $jc: space-between)
 
 .title
-    font-size: f.px(25)
-    font-weight: 500
-    @include m.gap($mt: f.px(20), $mb: f.px(25), $ml: f.px(20))
-    @include m.media(phone, tablet)
+  font-size: f.px(25)
+  font-weight: 500
+  @include m.gap($mt: f.px(20), $mb: f.px(25), $ml: f.px(20))
+  @include m.media(phone, tablet)
     @include m.gap($mt: f.px(15), $mb: f.px(15), $ml: f.px(20))
     font-size: f.px(16)
 
 .icon
-    width: f.px(10)
-    @include m.gap($mr: f.px(20))
-    transform: rotate(90deg)
-    transition: all .3s
-    & > *
-        stroke
-        @include m.dye(stroke, c.$alpha)
+  width: f.px(10)
+  @include m.gap($mr: f.px(20))
+  transform: rotate(90deg)
+  transition: all .3s
+  & > *
+    stroke
+    @include m.dye(stroke, c.$alpha)
 
 .isOpen
-    transform: rotate(-90deg)
+  transform: rotate(-90deg)
 
 .content
-    display: grid
-    overflow: hidden
-    grid-template-rows: 0fr
-    transition: grid-template-rows 500ms
-    @include m.gap($mt: 0, $mr: f.px(20), $ml: f.px(20))
-    @include m.media(phone, tablet)
-      font-size: f.px(12)
+  display: grid
+  overflow: hidden
+  grid-template-rows: 0fr
+  transition: grid-template-rows 500ms
+  @include m.gap($mt: 0, $mr: f.px(20), $ml: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
 
 .content > div
-    overflow: hidden
+  overflow: hidden
 
 .show
-    grid-template-rows: 1fr
+  grid-template-rows: 1fr

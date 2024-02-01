@@ -4,7 +4,6 @@
 
 .contentBox
   @include m.gap($mb: f.px(50))
-  // height: f.px(480)
 
 .blogList
   box-shadow: 4px 4px 10px 0px rgba(192, 192, 192, 0.70)
@@ -17,6 +16,8 @@
     @include m.media(phone, tablet)
       max-width: f.px(281)
       font-size: f.px(14)
+    span,.strongText
+      font-weight: 500
 
 
 .icon
@@ -26,7 +27,6 @@
   @include m.media(phone, tablet)
     @include m.sizeIcon($w: 17, $h: 17)
     min-width: f.px(17)
-    // align-self: baseline
 
 
   align-content: center

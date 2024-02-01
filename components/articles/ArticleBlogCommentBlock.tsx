@@ -1,41 +1,31 @@
 import stls from '@/styles/components/articles/ArticleBlogCommentBlock.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
+import parse from 'html-react-parser'
 import marked from 'marked'
-import parse, {domToReact, attributesToProps } from 'html-react-parser'
-
+import styles from '@/styles/pages/JournalSlug.module.sass'
 type ArticleBlogCommentBlockType = {
   props: {
     text?: string
-    lineColor : {
+    lineColor: {
       code: string
       name: string
     }
   }
-  
 }
 
-const ArticleBlogCommentBlock = ({props} : ArticleBlogCommentBlockType) => {
-  // console.log(props)
-  
-  // const renderer = new marked.Renderer();
-  // renderer.paragraph = (text) => {
-  //   return `<p>${text}</p>`;
-  // };
+const ArticleBlogCommentBlock = ({ props }: ArticleBlogCommentBlockType) => {
+  const text = marked(props?.text)
+  const renderer = new marked.Renderer()
 
-  // renderer.em = (text) => {
-  //   return `<span style="color: ${props?.lineColor?.code}">${text}</span>`;
-  // };
-  // marked.setOptions({ renderer });
-
-  const text = marked(props?.text);
-
+  renderer.strong = text => {
+    return `<span className=${styles.strongText}>${text}</span>`
+  }
 
   return (
-      <div style={{borderLeft: ` 2px solid ${props?.lineColor?.code}`}} className={stls.commentBlock}>
-        {parse(text)}
-        
-      </div>
+    <div
+      style={{ borderLeft: `2px solid ${props?.lineColor?.code}` }}
+      className={stls.commentBlock}>
+      {parse(text)}
+    </div>
   )
 }
 

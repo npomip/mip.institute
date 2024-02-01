@@ -11,37 +11,35 @@ import ArticleFullColoredTextBlock from './ArticleFullColoredTextBlock'
 import ArticleSubtitle from './ArticleSubtitle'
 import ArticleTextBlockWithBackground from './ArticleTextBlockWithBackground'
 
-export default function ArticlesDynamicZones({props}) {
-  // console.log('DYNAMIC',props)
-
-  switch(props.__typename) {
+export default function ArticlesDynamicZones({ props }) {
+  switch (props.__typename) {
     case 'ComponentBlogTextImageBlock':
-      return <ArticleBlogTextImageBlock props={props}/>
+      return <ArticleBlogTextImageBlock props={props} />
     case 'ComponentBlogContentBlock':
       return <p>{props.content}</p>
     case 'ComponentBlogSubtitle':
-      return <ArticleSubtitle props={props}/>
+      return <ArticleSubtitle props={props} />
     case 'ComponentBlogFullColoredTextBlock':
-      return <ArticleFullColoredTextBlock props={props}/>
+      return <ArticleFullColoredTextBlock props={props} />
     case 'ComponentBlogTextBlockWithBackground':
-      return <ArticleTextBlockWithBackground props={props}/>
+      return <ArticleTextBlockWithBackground props={props} />
     case 'ComponentBlogList':
-      return <ArticleBlogList props={props}/>
+      return <ArticleBlogList props={props} />
     case 'ComponentBlogTeacherComment':
-      return <ArticleBlogTeacherComment props={props}/>
+      return <ArticleBlogTeacherComment props={props} />
     case 'ComponentBlogSingleImageBlock':
-      return <ArticleBlogSingleImageBlock props={props}/>
+      return <ArticleBlogSingleImageBlock props={props} />
     case 'ComponentBlogCommentBlock':
-      return <ArticleBlogCommentBlock props={props}/>
+      return <ArticleBlogCommentBlock props={props} />
     case 'ComponentBlogListWithTitle':
-      return <ArticleBlogListWithTitle props={props}/>
+      return <ArticleBlogListWithTitle props={props} />
     case 'ComponentBlogRelatedPrograms':
-      return <ArticleBlogRelatedPrograms props={props}/>
+      return <ArticleBlogRelatedPrograms props={props} />
     case 'ComponentBlogListWithBackgroundAndTitle':
-      return <ArticleBlogListWithBackgroundAndTitle props={props}/>
+      return <ArticleBlogListWithBackgroundAndTitle props={props} />
     case 'ComponentBlogBigSizeText':
       'ArticleBlogBigSizeTexte'
-      return <ArticleBlogBigSizeText props={props}/>
+      return <ArticleBlogBigSizeText props={props} />
     default:
       break
   }

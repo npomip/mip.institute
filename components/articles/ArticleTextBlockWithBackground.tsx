@@ -1,48 +1,49 @@
 import stls from '@/styles/components/articles/ArticleTextBlockWithBackground.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
+import styles from '@/styles/pages/JournalSlug.module.sass'
+import parse from 'html-react-parser'
 import marked from 'marked'
-import parse, {domToReact, attributesToProps } from 'html-react-parser'
 
 type ArticleTextBlockWithBackgroundType = {
   props: {
     text?: string
-    borderColor : {
+    borderColor: {
       code: string
       name: string
     }
-    backgroundColor : {
+    backgroundColor: {
       code: string
       name: string
     }
-    textColor : {
+    textColor: {
       code: string
       name: string
     }
   }
-  
 }
 
-const ArticleTextBlockWithBackground = ({props} : ArticleTextBlockWithBackgroundType) => {
+const ArticleTextBlockWithBackground = ({
+  props
+}: ArticleTextBlockWithBackgroundType) => {
+  const renderer = new marked.Renderer()
+  renderer.paragraph = text => {
+    return `<p classname=${stls.paragraph} style="color: ${props?.textColor?.code}">${text}</p>`
+  }
+  renderer.strong = text => {
+    return `<span className=${styles.strongText}>${text}</span>`
+  }
+  marked.setOptions({ renderer })
 
-  
-  const renderer = new marked.Renderer();
-  renderer.paragraph = (text) => {
-    return `<p classname=${stls.paragraph} style="color: ${props?.textColor?.code}">${text}</p>`;
-  };
-
-  // renderer.strong = (text) => {
-  //   return `<strong style="color: ${props?.color?.code}">${text}</strong>`;
-  // };
-  marked.setOptions({ renderer });
-
-  const text = marked(props.text);
-
+  const text = marked(props.text)
 
   return (
-      <div className={stls.content} style={{background: props?.backgroundColor?.code, border: `1px solid ${props?.borderColor?.code}` }}>
-        {parse(text)}
-      </div>
+    <div
+      className={stls.content}
+      style={{
+        background: props?.backgroundColor?.code,
+        border: `1px solid ${props?.borderColor?.code}`
+      }}>
+      {parse(text)}
+    </div>
   )
 }
 

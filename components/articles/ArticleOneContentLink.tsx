@@ -1,16 +1,11 @@
-import React from 'react'
-import classNames from 'classnames'
-import styles from '@/styles/components/articles/ArticleOneContentLink.module.sass'
+import parse from 'html-react-parser'
 import marked from 'marked'
-import parse, { domToReact, attributesToProps } from 'html-react-parser'
-import { title } from 'process'
-import { ArticleSubtitleType } from './ArticleSubtitle'
 import Link from 'next/link'
+import { ArticleSubtitleType } from './ArticleSubtitle'
 
 const ArticleOneContentLink = ({ props }: ArticleSubtitleType) => {
-  // console.log(props)
   const renderer = new marked.Renderer()
-  
+
   renderer.paragraph = text => {
     return `<p>${text}</p>`
   }

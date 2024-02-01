@@ -1,40 +1,43 @@
 import stls from '@/styles/components/articles/ArticleBlogListWithBackgroundAndTitle.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
-import marked from 'marked'
+import styles from '@/styles/pages/JournalSlug.module.sass'
 import parse from 'html-react-parser'
+import marked from 'marked'
 
 type ArticleBlogListWithBackgroundAndTitleItemType = {
   props: {
-      id?: string
-      text?: string
-      icon?: {
-        code?: string 
-      }
+    id?: string
+    text?: string
+    icon?: {
+      code?: string
+    }
   }
-  
 }
 
-const ArticleBlogListWithBackgroundAndTitleItem = ({props} : ArticleBlogListWithBackgroundAndTitleItemType) => {
-  const text = props.text;
+const ArticleBlogListWithBackgroundAndTitleItem = ({
+  props
+}: ArticleBlogListWithBackgroundAndTitleItemType) => {
+  const text = props.text
 
-  const renderer = new marked.Renderer();
-  renderer.html = (text) => {
-    return `<div classname=${stls.icon}>${text}</div>`;
-  };
-  renderer.paragraph = (text) => {
+  const renderer = new marked.Renderer()
+  renderer.html = text => {
+    return `<div classname=${stls.icon}>${text}</div>`
+  }
+  renderer.paragraph = text => {
     return `<p>${text}</p>`
   }
-  marked.setOptions({ renderer });
+  marked.setOptions({ renderer })
 
-  const icon = marked(props.icon.code);
+  const icon = marked(props.icon.code)
 
+  renderer.strong = title => {
+    return `<span className=${styles.strongText}>${title}</span>`
+  }
 
   return (
-      <div className={stls.innerBox}>
+    <div className={stls.innerBox}>
       {parse(icon)}
       <p>{text}</p>
-      </div>
+    </div>
   )
 }
 

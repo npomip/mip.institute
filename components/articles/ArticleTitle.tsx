@@ -42,7 +42,8 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
       <span className={stls.tag}>{props.studyField}</span>
       <div className={stls.authors}>
         <p className={stls.author}>
-          <strong>Автор:</strong> {props.blogAuthor && props.blogAuthor.name}
+          <span className={stls.strongText}>Автор:</span>{' '}
+          {props.blogAuthor && props.blogAuthor.name}
         </p>
         <div className={stls.dateAndTime}>
           <p className={stls.date}>{date.toLocaleDateString()}</p>

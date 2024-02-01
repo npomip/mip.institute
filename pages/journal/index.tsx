@@ -2,6 +2,7 @@ import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import Wrapper from '@/components/layout/Wrapper'
 import SlugTags from '@/components/sections/SlugTags'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
+import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
@@ -28,7 +29,7 @@ const JournalPage = ({ blogs }) => {
   console.log(studyFieldSlug)
   return (
     <Wrapper>
-      <SeoPagesJournal />
+      <SeoPagesJournals />
       <h1 className={stls.title}>Блог МИП</h1>
       <StudyFieldSlugFilter
         studyFieldSlug={studyFieldSlug}

@@ -82,7 +82,6 @@ const TicketForm = ({
     const clickId = getCookie('utm'); 
     const price = program?.price
     data.price = price
-    // console.log('clickId', clickId)
 
     data.blockForAmo = blockForAmo
 

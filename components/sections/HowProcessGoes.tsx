@@ -41,7 +41,8 @@ const HowProcessGoes = ({processRef, list, subtitle, onMain=false}: ProcessType)
               <Image
               width={569}
               height={328}
-              src={gif} alt='gif' />
+              src={gif} alt='gif' 
+              />
             </div>
             <p className={stls.leftDesc}>
               <span>Дистанционное образование</span> — это обучение в комфортном темпе из любой точки мира 

@@ -12,6 +12,7 @@ import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
 import { ContextStaticProps } from '@/context/index'
 import getTicket from '../funcs/getTicket'
+import genezis from '../funcs/genezis'
 
 
 type FormValues = {
@@ -112,6 +113,7 @@ const FormAlpha = ({
       data.advcake_track_id = advcake_track_id
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
+      // await genezis(data)
       const req = await hitContactRoute(data)
   
       if (req === 200) {

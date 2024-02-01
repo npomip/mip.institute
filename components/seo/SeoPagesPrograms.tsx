@@ -21,12 +21,15 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
   programs
 }) => {
   const { asPath } = useRouter()
+  
 
   const studyFields = getStudyFields(programs)
   const studyFieldLabel =
     studyFields.filter(
       studyField => studyField.slug === curProgramsStudyFieldSlug
     )[0]?.label || 'Программы'
+
+    console.log(studyFields)
 
   const seoParams = {
     title: getSeoTitle(ofType, curProgramsStudyFieldSlug, studyFieldLabel),

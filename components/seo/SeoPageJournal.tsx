@@ -1,12 +1,11 @@
 import { TypeLibProgram } from '@/types/index'
 import { FC } from 'react'
-import { NextSeo, CourseJsonLd } from 'next-seo'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company, themeColor, dev } from '@/config/index'
 import { AdditionalRobotsProps } from 'next-seo/lib/types'
 
 type TSeoPagesProgram = {
-  // ofType: 'course' | 'profession'
   // program: TypeLibProgram
   // curProgramsStudyFieldSlug?: string
 }
@@ -106,14 +105,20 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({
         //   site_name: company.name
         // }}
       />
-      {/* <CourseJsonLd
-        courseName={seoParams.programTitle}
-        description={seoParams.desc}
-        provider={{
-          name: company.name,
-          url: seoParams.canonical
-        }}
-      /> */}
+      {/* <ArticleJsonLd
+      type="BlogPosting"
+      url="https://example.com/blog"
+      title="Blog headline"
+      images={[
+        'https://example.com/photos/1x1/photo.jpg',
+        'https://example.com/photos/4x3/photo.jpg',
+        'https://example.com/photos/16x9/photo.jpg',
+      ]}
+      datePublished="2015-02-05T08:00:00+08:00"
+      dateModified="2015-02-05T09:00:00+08:00"
+      authorName="Jane Blogs"
+      description="This is a mighty good description of this blog."
+    /> */}
     </>
   )
 }

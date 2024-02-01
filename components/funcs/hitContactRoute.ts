@@ -34,6 +34,7 @@ const UPDATE_TOKEN = gql`
 const hitContactRoute = async values => {
   try {
     values.id = uuidv4()
+    await axios.post(`${routes.front.root}/api/genezis`, values)
     const { data: checkTokenData } = await client.query({
       query: CHECK_TOKENS,
       variables: { title: 'amo' },

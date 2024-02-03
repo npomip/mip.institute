@@ -6,6 +6,11 @@ const genezis = async values => {
     console.log(values)
     const res = await axios.post(`${routes.front.root}/api/genezis`, values)
 
+    await axios.post(`${routes.front.root}/api/advCakeNew`, values)
+
+    if (values?.utm?.utm_source === 'edpartners') {
+      await axios.post(`${routes.front.root}/api/edPartners`, values)
+    }
 
     let output
     res.status === 200 && (output = 200)

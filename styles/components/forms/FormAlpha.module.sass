@@ -14,19 +14,16 @@
     color: #808080
     &:hover
       color: #6F01C6
-  // text-align: flex-start
-
 
 .atFooter
   & .name,
-  & .phone,
   & .email,
   & .promocode,
   & .btn
     @include m.media(laptop, desktop)
       @include m.flex($display: false, $fb: 100%)
   & .name,
-  & .phone,
+  // & .phone,
   & .email,
   & .promocode
     & input
@@ -59,10 +56,16 @@
         border: f.px(1) solid
         @include m.dye(border, c.$phi)
         border-radius: f.px(4)
-        // background-color: transparent
-        // @include m.dye(c, c.$nu)
         &::placeholder
           @include m.dye(c, #B3B3B3)
+  & .dropdown
+    width: 460px !important
+    @include m.media(laptop)
+      width: 350px !important
+    @include m.media(tablet)
+      width: 600px !important
+    @include m.media(phone)
+      width: 300px !important
 
 .inpt
   & input,
@@ -106,3 +109,33 @@
   flex-basis: 48%
   display: flex
   justify-content: center
+
+.containerInput
+  & input
+    @include m.gap($ptb: f.px(17), $plr: f.px(20))
+    border-radius: f.px(4)
+    font-weight: 300
+    width: 100% !important
+    height: 54px !important
+    @include m.media(laptop)
+      height: 47px !important
+    @include m.media(tablet)
+      height: 68px !important
+  @include m.media(laptop, desktop)
+    font-size: f.px(16)
+    border-radius: f.px(4)
+
+.phoneInput,.dropdown
+  font-family: Stem !important
+
+.flagButton
+  background-color: white !important
+
+.dropdown
+  width: 280px !important
+  @include m.media(laptop)
+    width: 250px !important
+  @include m.media(tablet)
+    width: 320px !important
+  @include m.media(phone)
+    width: 265px !important

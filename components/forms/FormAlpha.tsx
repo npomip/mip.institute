@@ -109,8 +109,8 @@ const FormAlpha = ({
         data.advcake_track_id = advcake_track_id
         data.advcake_track_url = advcake_track_url
         data.roistat_visit = roistat_visit
-        // await genezis(data)
-        const req = await hitContactRoute(data)
+        const req = await genezis(data)
+        // const req = await hitContactRoute(data)
 
         if (req === 200) {
           setLoading(false)
@@ -191,8 +191,9 @@ const FormAlpha = ({
                   value={value}
                   onChange={onChange}
                   country='ru'
+                  // regions={['ex-ussr']}
                   localization={ru}
-                  placeholder=''
+                  placeholder='Ваш телефон'
                   containerClass={stls.containerInput}
                   inputClass={stls.phoneInput}
                   buttonClass={stls.flagButton}

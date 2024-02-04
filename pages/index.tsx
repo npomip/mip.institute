@@ -1,3 +1,4 @@
+import { PopupCta } from '@/components/popups'
 import {
   About,
   Cta,
@@ -27,6 +28,9 @@ import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import { TypePageHomeProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import Popup from 'reactjs-popup'
 import truncate from 'truncate'
 
 const HomePage: NextPage<TypePageHomeProps> = ({
@@ -75,6 +79,22 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </p>
     </>
   )
+  const desc = (
+    <>
+      У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} /> И
+      сотрудник приемной комиссии свяжется с вами, чтобы рассказать все
+      подробности
+    </>
+  )
+
+  const [open, setOpen] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.query.utm_source === 'direct_link') {
+      setOpen(true)
+    }
+  }, [router.query])
 
   return (
     <>
@@ -101,6 +121,19 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         }}
       />
       <SeoOrganizationJsonLd />
+      <Popup open={open} modal nested>
+        {close => (
+          <PopupCta
+            title='Задать вопрос'
+            desc={desc}
+            cta='Задать вопрос'
+            question
+            close={close}
+            blockForAmo='Переход по ссылке'
+          />
+        )}
+      </Popup>
+
       <Hero />
       <Directions />
       <TopCourses />

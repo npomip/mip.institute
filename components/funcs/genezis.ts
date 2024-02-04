@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { routes } from '@/config/index'
+import { v4 as uuidv4 } from 'uuid'
 
 const genezis = async values => {
   try {
+    values.id = uuidv4()
     console.log(values)
     const res = await axios.post(`${routes.front.root}/api/genezis`, values)
 

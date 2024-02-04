@@ -46,7 +46,7 @@ const JournalSlugPage = ({ blog }) => {
 
   return (
     <Wrapper>
-      <SeoPagesJournal />
+      <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
         <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
         {articleHeading && <ArticleTitle props={articleHeading} />}

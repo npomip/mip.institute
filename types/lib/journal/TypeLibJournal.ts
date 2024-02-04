@@ -1,4 +1,4 @@
-import { TypeLibGeneralPicture, TypeLibTeachers, TypeLibReviews } from '@/types/index'
+import { TypeLibGeneralPicture, TypeLibTeacher, TypeLibReviews } from '@/types/index'
 
 type TypeLibJournal = {
   // [x: string]: any
@@ -6,6 +6,7 @@ type TypeLibJournal = {
   title?: string | null
   subtitle?: string | null
   slug?: string | null
+  date?: Date | null
   // studyField?: string | null
   // studyFieldSlug: string | null
   // heroPicture?: TypeLibGeneralPicture | null
@@ -17,7 +18,7 @@ type TypeLibJournal = {
         image?: TypeLibGeneralPicture | null
       }[]
     | null
-  // teachers?: TypeLibTeachers | null
+  teacher?: TypeLibTeacher | null
   // index_number?: {
   //   idx?: number | null
   // } | null

@@ -26,12 +26,12 @@ const createLead = async (req, res) => {
         { key: 'phone', value: phone },
         { key: 'name', value: name },
         { key: 'email', value: email },
-        { key: 'promocode', value: promocode },
+        { key: 'promocode', value: promocode || '' },
         { key: 'id', value: id || '' },
         { key: 'price', value: price || '' },
         { key: 'question', value: question || '' },
         { key: 'leadPage', value: `${routes.front.root}${leadPage}` || '' },
-        { key: 'Раздел сайта', value: blockForAmo },
+        { key: 'site block', value: blockForAmo || '' },
         { key: 'utm_source', value: utm?.utm_source || '' },
         { key: 'utm_medium', value: utm?.utm_medium || '' },
         { key: 'utm_content', value: utm?.utm_content || '' },
@@ -53,7 +53,6 @@ const createLead = async (req, res) => {
 
     if (response.status === 200) {
       const leadData = response.data
-      // console.log('genezis',response)
       res.status(200).json({ status: 200, msg: 'Lead created' })
     }
   } catch (error) {

@@ -20,6 +20,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 
   const { seo } = program
 
+  console.log(seo)
+
   const additionalMetaRobotsKeys = [
     'nosnippet',
     'maxSnippet',

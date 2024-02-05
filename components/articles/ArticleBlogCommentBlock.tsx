@@ -16,20 +16,15 @@ type ArticleBlogCommentBlockType = {
 }
 
 const ArticleBlogCommentBlock = ({props} : ArticleBlogCommentBlockType) => {
-  // console.log(props)
   
-  // const renderer = new marked.Renderer();
-  // renderer.paragraph = (text) => {
-  //   return `<p>${text}</p>`;
-  // };
+  const renderer = new marked.Renderer();
+  renderer.strong = (text) => {
+    return `<span>${text}</span>`;
+  };
 
-  // renderer.em = (text) => {
-  //   return `<span style="color: ${props?.lineColor?.code}">${text}</span>`;
-  // };
-  // marked.setOptions({ renderer });
+  marked.setOptions({ renderer });
 
   const text = marked(props?.text);
-
 
   return (
       <div style={{borderLeft: ` 2px solid ${props?.lineColor?.code}`}} className={stls.commentBlock}>

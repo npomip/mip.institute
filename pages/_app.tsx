@@ -338,6 +338,21 @@ const MyApp = ({ Component, pageProps, router }) => {
         })(document, window, "tmr-code");`
         }}
       />
+      <Script
+        id='WA AMO script'
+        src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
+        
+      />
+      <Script
+        id='WA AMO second script'
+        
+        dangerouslySetInnerHTML={{
+          __html: `window.addEventListener('DOMContentLoaded', function () {
+            new GnzsRoiStatClass().init()
+          })`
+      }}
+      />
+
       <noscript>
         <div>
           <img

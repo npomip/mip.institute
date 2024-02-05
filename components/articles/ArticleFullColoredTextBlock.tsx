@@ -1,40 +1,36 @@
-import stls from '@/styles/components/articles/ArticleFullColoredTextBlock.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
+import parse from 'html-react-parser'
 import marked from 'marked'
-import parse, {domToReact, attributesToProps } from 'html-react-parser'
-
+import styles from '@/styles/pages/JournalSlug.module.sass'
 type ArticleFullColoredTextBlockType = {
   props: {
     text?: string
-    textColor? : {
+    textColor?: {
       code: string
       name: string
     }
   }
-  
 }
 
-const ArticleFullColoredTextBlock = ({props} : ArticleFullColoredTextBlockType) => {
-  // console.log(marked(props.text))
-  const renderer = new marked.Renderer();
-  renderer.paragraph = (text) => {
-    return `<p>${text}</p>`;
-  };
+const ArticleFullColoredTextBlock = ({
+  props
+}: ArticleFullColoredTextBlockType) => {
+  const renderer = new marked.Renderer()
+  renderer.paragraph = text => {
+    return `<p>${text}</p>`
+  }
   renderer.em = function (text) {
-    return `<span style="color: ${props?.textColor?.code}">${text}</span>`;
-  };
+    return `<span style="color: ${props?.textColor?.code}">${text}</span>`
+  }
 
-  marked.setOptions({ renderer });
+  renderer.strong = text => {
+    return `<span className=${styles.strongText}>${text}</span>`
+  }
 
-  const text = marked(props.text);
+  marked.setOptions({ renderer })
 
+  const text = marked(props.text)
 
-  return (
-      <>
-        {parse(text)}
-      </>
-  )
+  return <>{parse(text)}</>
 }
 
 export default ArticleFullColoredTextBlock

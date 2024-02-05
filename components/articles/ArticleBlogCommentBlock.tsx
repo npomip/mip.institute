@@ -1,18 +1,15 @@
 import stls from '@/styles/components/articles/ArticleBlogCommentBlock.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
+import parse from 'html-react-parser'
 import marked from 'marked'
-import parse, {domToReact, attributesToProps } from 'html-react-parser'
-
+import styles from '@/styles/pages/JournalSlug.module.sass'
 type ArticleBlogCommentBlockType = {
   props: {
     text?: string
-    lineColor : {
+    lineColor: {
       code: string
       name: string
     }
   }
-  
 }
 
 const ArticleBlogCommentBlock = ({props} : ArticleBlogCommentBlockType) => {
@@ -27,10 +24,11 @@ const ArticleBlogCommentBlock = ({props} : ArticleBlogCommentBlockType) => {
   const text = marked(props?.text);
 
   return (
-      <div style={{borderLeft: ` 2px solid ${props?.lineColor?.code}`}} className={stls.commentBlock}>
-        {parse(text)}
-        
-      </div>
+    <div
+      style={{ borderLeft: `2px solid ${props?.lineColor?.code}` }}
+      className={stls.commentBlock}>
+      {parse(text)}
+    </div>
   )
 }
 

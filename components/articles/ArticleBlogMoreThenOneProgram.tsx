@@ -1,33 +1,11 @@
+import { discountNum } from '@/data/price'
 import stls from '@/styles/components/articles/ArticleBlogRelatedPrograms.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
-import marked from 'marked'
 import parse from 'html-react-parser'
-import RelatedProgramsList from './RelatedProgramsList'
-import { discount, discountNum } from '@/data/price'
+import marked from 'marked'
+import styles from '@/styles/pages/JournalSlug.module.sass'
 import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
 import { ArticleBlogRelatedProgramsType } from './ArticleBlogRelatedPrograms'
-
-// type ArticleBlogRelatedProgramsType = {
-//   props: {
-//     title: string
-//     borderColor?: {
-//       code?: string
-//     }
-//     programs: {
-//       id: string
-//       type: string
-//       slug: string
-//       studyFieldSlug: string
-//       title: string
-//       heroPicture: {
-//         height: string
-//         url: string
-//         width: string
-//       }
-//     }[]
-//   }
-// }
+import RelatedProgramsList from './RelatedProgramsList'
 
 const ArticleBlogMoreThenOneProgram = ({
   props
@@ -41,7 +19,10 @@ const ArticleBlogMoreThenOneProgram = ({
   }
   marked.setOptions({ renderer })
 
-  // const title = marked(props?.textItem)
+  renderer.strong = text => {
+    return `<span className=${styles.strongText}>${text}</span>`
+  }
+
   const programs = props?.programs
 
   return (
@@ -63,9 +44,7 @@ const ArticleBlogMoreThenOneProgram = ({
 
         <div>
           {props.textItem.map(item => (
-            <div key={item.id}>
-              {parse(marked(item.text))}
-            </div>
+            <div key={item.id}>{parse(marked(item.text))}</div>
           ))}
         </div>
         <p id={stls.courses}>Курсы:</p>

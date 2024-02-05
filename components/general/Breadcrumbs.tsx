@@ -3,25 +3,32 @@ import Link from 'next/link'
 import classNames from 'classnames'
 
 const Breadcrumbs = ({ breadcrumbs, isJournal = false }) => {
+  const handleClick = (bcrumbs) => {
+    console.log(bcrumbs)
+    localStorage.setItem('selectedFieldSlug', bcrumbs.slug)
+  }
   return (
     <div className={stls.container}>
       <ul
         className={classNames({
           [stls.linkList]: true,
           [stls.isJournal]: isJournal
-        })}
-        // className={stls.linkList}
-      >
+        })}>
         <li>
           <Link href='/'>Главная</Link>
         </li>
         {breadcrumbs.map(el => (
-          <li
-            // className={classNames({ [stls.isJournalLi]: isJournal })}
-            key={el.path}>
+          <li key={el.label}>
             <span className={stls.triangle}></span>
             <Link className={stls.links} href={el.path}>
-              {el.label}
+              <a
+                onClick={() => {
+                  if (isJournal) {
+                    handleClick(el)
+                  }
+                }}>
+                {el.label}
+              </a>
             </Link>
           </li>
         ))}

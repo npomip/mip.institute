@@ -8,7 +8,7 @@ type ReviewsType = {
   onMain?: boolean
 }
 
-const SlugTags = ({ props, slug, withDate = false, studyFieldSlug }) => {
+const SlugTags = ({ props, slug, withDate = false, selectedField }) => {
   const title = slug === 'journal' ? 'Все статьи' : 'Все семинары'
   return (
     <>

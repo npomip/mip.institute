@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/StudyFieldSlugFilter.module.sass'
 import classNames from 'classnames'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 interface PropsFilter {
   studyField: string
@@ -10,22 +10,24 @@ interface PropsFilter {
 const StudyFieldSlugFilter = ({
   props,
   slug,
-  setStudyFieldSlug,
-  studyFieldSlug
+  setSelectedField,
+  selectedField
 }: {
   props: PropsFilter[]
   slug: string
-  studyFieldSlug: {
+  selectedField: {
     studyField: string | string[]
     studyFieldSlug: string | string[]
   }
-  setStudyFieldSlug: Dispatch<
+  setSelectedField: Dispatch<
     SetStateAction<{
       studyFieldSlug: string | string[]
       studyField: string | string[]
     }>
   >
 }) => {
+
+  const [fieldInLocalStore, setFieldInLocalStore] = useState('')
   let uniqueCategories = [
     ...new Set(props?.map(seminar => seminar.studyFieldSlug))
   ]
@@ -34,14 +36,16 @@ const StudyFieldSlugFilter = ({
     studyField:
       props.find(seminar => seminar.studyFieldSlug === slug)?.studyField || ''
   }))
-
+  
   const firstEl = [{ studyFieldSlug: '', studyField: 'Все cтатьи' }]
 
   let cat = firstEl.concat(uniqueCategoriesWithField)
 
   const handleFilter = el => {
     const selectedSlug = el
-    setStudyFieldSlug(selectedSlug)
+    localStorage.setItem('selectedField', selectedSlug.studyField);
+    localStorage.setItem('selectedFieldSlug', selectedSlug.studyFieldSlug);
+    setSelectedField(selectedSlug)
   }
 
   return (
@@ -52,7 +56,7 @@ const StudyFieldSlugFilter = ({
             onClick={() => handleFilter(el)}
             className={classNames({
               [stls.category]: true,
-              [stls.active]: el.studyFieldSlug === studyFieldSlug.studyFieldSlug
+              [stls.active]: el.studyFieldSlug === selectedField.studyFieldSlug
             })}
             key={el.studyField}>
             {el.studyField}

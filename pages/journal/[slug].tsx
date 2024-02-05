@@ -24,26 +24,30 @@ const JournalSlugPage = ({ blog }) => {
     date: blog?.date
   }
 
-  console.log(blog)
-
   const articleAuthors = [blog?.teacher, blog?.blogAuthor]
 
   const headingLinks = blog?.article?.filter(
     el => el.__typename === 'ComponentBlogSubtitle'
   )
 
-  const router = useRouter()
-  const segments = router.asPath.split('/').filter(segment => segment !== '')
+  const slug = ['', blog?.studyFieldSlug]
 
-  const labels = ['Журнал', blog?.title]
+  const router = useRouter()
+  const segments = ['journal', 'journal']
+  // const segments = router.asPath.split('/').filter(segment => segment !== '')
+  
+
+  const labels = ['Журнал', blog?.studyField]
   const breadcrumbs = segments.map((segment, index) => {
     const breadcrumb = {
       label: labels[index],
-      path: '/' + segments.slice(0, index + 1).join('/')
+      path: '/' + segments[index],
+      // path: '/' + segments.slice(0, index + 1).join('/'),
+      slug: slug[index]
     }
     return breadcrumb
   })
-
+  
   return (
     <Wrapper>
       <SeoPagesJournal blog={blog} />
@@ -61,12 +65,6 @@ const JournalSlugPage = ({ blog }) => {
           {blog?.blogs.length && <ArticleRelatedBlogs blogs={blog?.blogs} />}
         </article>
       </div>
-      {/* <SeoPagesPrograms
-        programs={programs}
-        curProgramsStudyFieldSlug={studyFieldSlug}
-      />
-      <PagesPrograms /> */}
-      {/* <a id='a'>asdasda</a> */}
     </Wrapper>
   )
 }

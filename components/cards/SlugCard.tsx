@@ -37,7 +37,7 @@ const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
     <>
       <Link
         passHref
-        href={`${routes.front.root}/${slug}/${item?.slug}`}>
+        href={`/${slug}/${item?.slug}`}>
         <div
           className={classNames({
             [stls.seminarCard]: !firstCard,

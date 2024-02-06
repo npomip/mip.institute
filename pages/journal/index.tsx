@@ -19,7 +19,7 @@ const JournalPage = ({ blogs }) => {
 
   useEffect(() => {
     setSelectedField({studyFieldSlug: localStorage.getItem('selectedFieldSlug') || '',
-    studyField: localStorage.getItem('selectedField') || ''
+    studyField: localStorage.getItem('selectedField') || 'Все cтатьи'
   })
 
   }, [selectedField.studyField])

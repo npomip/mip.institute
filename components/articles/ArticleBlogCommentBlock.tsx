@@ -12,13 +12,16 @@ type ArticleBlogCommentBlockType = {
   }
 }
 
-const ArticleBlogCommentBlock = ({ props }: ArticleBlogCommentBlockType) => {
-  const text = marked(props?.text)
-  const renderer = new marked.Renderer()
+const ArticleBlogCommentBlock = ({props} : ArticleBlogCommentBlockType) => {
+  
+  const renderer = new marked.Renderer();
+  renderer.strong = (text) => {
+    return `<span>${text}</span>`;
+  };
 
-  renderer.strong = text => {
-    return `<span className=${styles.strongText}>${text}</span>`
-  }
+  marked.setOptions({ renderer });
+
+  const text = marked(props?.text);
 
   return (
     <div

@@ -1,6 +1,4 @@
 import stls from '@/styles/components/articles/ArticleAuthors.module.sass'
-import Image from 'next/image'
-import base64pixel from '@/config/base64pixel'
 import CardImgWithAchievements from '../cards/CardImgWithAchievements'
 
 type ArticleAuthorsType = {
@@ -17,16 +15,15 @@ type ArticleAuthorsType = {
 }
 
 const ArticleAuthors = ({ authors }: ArticleAuthorsType) => {
-
   return (
     <>
-    <h2>Автор и психолог статьи:</h2>
-  <div className={stls.authorsList}>
-  {authors.map((el,i) => (
-    <CardImgWithAchievements key={i} person={el} />
-  ))}
-  </div>
-  </>
+      <h2>Автор и психолог статьи:</h2>
+      <div className={stls.authorsList}>
+        {authors.map((el, i) => (
+          <CardImgWithAchievements key={i} person={el} />
+        ))}
+      </div>
+    </>
   )
 }
 

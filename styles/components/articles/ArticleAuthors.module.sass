@@ -5,7 +5,8 @@
 .authorsList
   display: grid
   grid-template-columns: repeat(3,1fr)
-  column-gap: 20px
+  column-gap: f.px(20)
+  @include m.gap($mb: f.px(20))
   @include m.media(phone, tablet)
     display: flex
     flex-direction: column

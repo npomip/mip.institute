@@ -1,21 +1,20 @@
-import stls from '@/styles/components/forms/FormAlpha.module.sass'
-import { useRouter } from 'next/router'
-import { useState, useEffect, useContext } from 'react'
-import Popup from 'reactjs-popup'
-import { Controller, useForm } from 'react-hook-form'
-import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
-import classNames from 'classnames'
 import { PopupLoading, PopupThankyou } from '@/components/popups'
-import { getCookie } from 'cookies-next'
 import routes from '@/config/routes'
-import ipCheckFunc from '../funcs/ipCheckFunc'
 import { ContextStaticProps } from '@/context/index'
-import getTicket from '../funcs/getTicket'
-import genezis from '../funcs/genezis'
+import stls from '@/styles/components/forms/FormAlpha.module.sass'
+import classNames from 'classnames'
+import { getCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
+import { useContext, useEffect, useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
+import Popup from 'reactjs-popup'
+import genezis from '../funcs/genezis'
+import getTicket from '../funcs/getTicket'
+import ipCheckFunc from '../funcs/ipCheckFunc'
 
 type FormValues = {
   name: string
@@ -65,6 +64,8 @@ const FormAlpha = ({
   const router = useRouter()
 
   const onSubmit = async data => {
+    console.log(data);
+    
     const ipCheck = await ipCheckFunc()
     if (ipCheck === 200) {
       setIsDisabled(true)
@@ -85,6 +86,7 @@ const FormAlpha = ({
       const advcake_track_id = getCookie('advcake_track_id')
       const advcake_track_url = getCookie('advcake_track_url')
       const price = program?.price
+      const admitad_uid = utms.admitad_uid
       data.price = price
 
       data.blockForAmo = blockForAmo
@@ -109,6 +111,7 @@ const FormAlpha = ({
         data.advcake_track_id = advcake_track_id
         data.advcake_track_url = advcake_track_url
         data.roistat_visit = roistat_visit
+        data.admitad_uid = admitad_uid
         const req = await genezis(data)
         // const req = await hitContactRoute(data)
 

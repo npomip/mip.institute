@@ -23,8 +23,9 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
-import { getCookie, setCookie } from 'cookies-next'
+import { getCookie, setCookie, getCookies } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
+import setAdmitadCookie from '@/components/funcs/admitad'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -204,6 +205,14 @@ const MyApp = ({ Component, pageProps, router }) => {
     }
   }, [])
 
+  //cookie for Admitad
+  useEffect(() => {
+    const admitadCookie = getCookie('admitad_uid')
+    if (!admitadCookie) {
+      setAdmitadCookie(router.asPath, 'admitad_uid')
+    }
+  }, [])
+
   if (prod) {
     console.log = () => {}
   }
@@ -341,16 +350,14 @@ const MyApp = ({ Component, pageProps, router }) => {
       <Script
         id='WA AMO script'
         src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
-        
       />
       <Script
         id='WA AMO second script'
-        
         dangerouslySetInnerHTML={{
           __html: `window.addEventListener('DOMContentLoaded', function () {
             new GnzsRoiStatClass().init()
           })`
-      }}
+        }}
       />
 
       <noscript>

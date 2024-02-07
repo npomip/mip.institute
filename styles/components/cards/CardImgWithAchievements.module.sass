@@ -7,12 +7,9 @@
   object-fit: fill
 
 .imgAuthorWithAchievements
-  // flex: 0.33
-  // border: f.px(1) solid #6F01C6
   background: #FCF6FF
   box-shadow: 3.72px 3.72px 9.299px 0px rgba(192, 192, 192, 0.70)
   border-radius: f.px(10)
-  // @include m.gap($mb: f.px(4), $mr: f.px(20))
   display: flex
   justify-content: center
   height: f.px(430)
@@ -20,17 +17,12 @@
   @include m.media(phone, tablet)
     height: f.px(340)
     @include m.gap($mb: f.px(24))
-    // display: none
 
 .imgAuthorContainer
   @include m.gap($mt: f.px(30))
-  @include m.media(laptop)
-    @include m.gap($mt: f.px(0))
 
 .achievements, .authorName
-  // font-size: f.px(15) !important
   text-align: center
-  margin: 0 auto
   @include m.gap($mb: f.px(10))
 
 .authorName
@@ -54,5 +46,6 @@
     font-size: f.px(16)
 
 .imgAuthor
-  clip-path: circle(32% at 50% 30%)
-  object-fit: cover
+  transform: scaleX(1.4) scale(0.5) translateY(-40%)
+  @include m.media(phone, tablet)
+    transform: scaleX(1.6) scale(0.6) translateY(-30%)

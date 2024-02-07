@@ -63,8 +63,6 @@
 
 .imgTeacherContainer
   @include m.gap($mt: f.px(30))
-  @include m.media(laptop)
-    @include m.gap($mt: f.px(0))
 
 .achievements, .teacherName
   text-align: center
@@ -94,8 +92,9 @@
   @include m.media(phone, tablet)
 
 .imgTeacher
-  clip-path: circle(32% at 50% 30%)
-  object-fit: cover
+  transform: scaleX(1.4) scale(0.7) translateY(-20%)
+  @include m.media(laptop)
+    transform: scaleX(1.4) scale(0.55) translateY(-35%)
 
 .dateAndTime
   align-items: flex-start

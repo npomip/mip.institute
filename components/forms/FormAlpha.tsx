@@ -64,7 +64,6 @@ const FormAlpha = ({
   const router = useRouter()
 
   const onSubmit = async data => {
-    console.log(data);
     
     const ipCheck = await ipCheckFunc()
     if (ipCheck === 200) {
@@ -86,7 +85,6 @@ const FormAlpha = ({
       const advcake_track_id = getCookie('advcake_track_id')
       const advcake_track_url = getCookie('advcake_track_url')
       const price = program?.price
-      const admitad_uid = utms.admitad_uid
       data.price = price
 
       data.blockForAmo = blockForAmo
@@ -111,7 +109,6 @@ const FormAlpha = ({
         data.advcake_track_id = advcake_track_id
         data.advcake_track_url = advcake_track_url
         data.roistat_visit = roistat_visit
-        data.admitad_uid = admitad_uid
         const req = await genezis(data)
         // const req = await hitContactRoute(data)
 

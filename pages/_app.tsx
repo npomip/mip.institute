@@ -25,7 +25,6 @@ import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
 import { getCookie, setCookie, getCookies } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
-import setAdmitadCookie from '@/components/funcs/admitad'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -118,24 +117,8 @@ const MyApp = ({ Component, pageProps, router }) => {
     if (typeof utmCookie === 'string') {
       arr = JSON.parse(utmCookie)
     }
-    const previousCookieSource = arr?.utm_source
     const urlUtmsArr = router.asPath.split('?')[1]
 
-    // переписываем куку если клик айди у едпартнерс отличается от предыдущего
-    // if(previousCookieSource === 'edpartners'){
-
-    //   const urlUtmsArr = router.asPath.split('?')[1];
-    //   let utms = {utm_source: '', utm_medium: '', utm_campaign: '', cl_uid: ''};
-    //   urlUtmsArr &&
-    //     urlUtmsArr.split('&').forEach(utm => {
-    //       const [key, value] = utm.split('=');
-    //       utms[key] = decodeURIComponent(value); // Декодирование URL-кодированной строки
-    //     });
-    //     if(utms.cl_uid !== arr.cl_uid){
-
-    //       setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
-    //     }
-    // }
     // переписываем куку если отличается сурс от того, что был до этого
     if (urlUtmsArr) {
       const urlUtmsArr = router.asPath.split('?')[1]
@@ -202,14 +185,6 @@ const MyApp = ({ Component, pageProps, router }) => {
       Router.events.off('routeChangeStart', start)
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
-    }
-  }, [])
-
-  //cookie for Admitad
-  useEffect(() => {
-    const admitadCookie = getCookie('admitad_uid')
-    if (!admitadCookie) {
-      setAdmitadCookie(router.asPath, 'admitad_uid')
     }
   }, [])
 

@@ -31,9 +31,7 @@ const getStaticPropsPageJournal = async ({
             studyFieldSlug
             studyField
             subtitle
-            color {
-              code
-              }
+            readTime
             date
             picture {
               url
@@ -66,6 +64,11 @@ const getStaticPropsPageJournal = async ({
               name
               position
               achievements
+              portraitForBlog {
+                url
+                width
+                height
+              }
               portrait {
                 url
                 width

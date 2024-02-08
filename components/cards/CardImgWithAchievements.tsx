@@ -8,7 +8,12 @@ type PersonType = {
     name: string
     achievements?: string
     position: string
-    portrait: {
+    portrait?: {
+      url: string
+      width: string
+      height: string
+    }
+    portraitForBlog?: {
       url: string
       width: string
       height: string
@@ -23,7 +28,7 @@ const CardImgWithAchievements = ({ person }: PersonType) => {
     <div className={stls.imgAuthorWithAchievements}>
       <div className={stls.imgAuthorContainer}>
         <Image
-          src={person.portrait.url}
+          src={person?.portraitForBlog?.url || person?.portrait?.url}
           alt={'alt'}
           // style={{top: '20px'}}
           className={stls.imgAuthor}

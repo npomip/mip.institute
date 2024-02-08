@@ -12,6 +12,8 @@ import ArticleContentLinks from '@/components/articles/ArticleContentLinks'
 import { Accordion } from '@/components/general/Accordion'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import { useRouter } from 'next/router'
+import ReadingProgressbar from '@/components/general/ReadingProgressbar'
+import ButtonToTop from '@/components/sections/ButtonToTop'
 
 const JournalSlugPage = ({ blog }) => {
   const articleHeading = {
@@ -35,7 +37,6 @@ const JournalSlugPage = ({ blog }) => {
   const router = useRouter()
   const segments = ['journal', 'journal']
   // const segments = router.asPath.split('/').filter(segment => segment !== '')
-  
 
   const labels = ['Журнал', blog?.studyField]
   const breadcrumbs = segments.map((segment, index) => {
@@ -47,10 +48,12 @@ const JournalSlugPage = ({ blog }) => {
     }
     return breadcrumb
   })
+
   return (
     <Wrapper>
       <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
+        <ReadingProgressbar />
         <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
         {articleHeading && <ArticleTitle props={articleHeading} />}
         <Accordion>
@@ -61,7 +64,10 @@ const JournalSlugPage = ({ blog }) => {
             <ArticlesDynamicZones key={idx} props={module} />
           ))}
           {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
-          {blog?.blogs.length && <ArticleRelatedBlogs blogs={blog?.blogs} />}
+          {blog?.blogs.length > 0 && (
+            <ArticleRelatedBlogs blogs={blog?.blogs} />
+          )}
+          <ButtonToTop />
         </article>
       </div>
     </Wrapper>

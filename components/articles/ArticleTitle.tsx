@@ -5,7 +5,7 @@ import { IconClock } from '@/components/icons'
 
 type ArticleTitleType = {
   props: {
-    color: string
+    readTime: number
     title?: string
     studyField?: string
     date?: Date
@@ -25,7 +25,12 @@ type ArticleTitleType = {
     teacher: {
       name: string
       achievements: string
-      portrait: {
+      portraitForBlog?: {
+        url: string
+        width: string
+        height: string
+      }
+      portrait?: {
         url: string
         width: string
         height: string
@@ -36,6 +41,8 @@ type ArticleTitleType = {
 
 const ArticleTitle = ({ props }: ArticleTitleType) => {
   const date = new Date(props?.date)
+
+  console.log(props)
 
   return (
     <>
@@ -48,7 +55,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
         <div className={stls.dateAndTime}>
           <p className={stls.date}>{date.toLocaleDateString()}</p>
           <IconClock colorCode='#545454' size='22' />
-          <p>10 мин</p>
+          <p>{props.readTime} мин</p>
         </div>
       </div>
 
@@ -69,7 +76,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
               <Image
-                src={props.teacher.portrait.url}
+                src={props.teacher?.portraitForBlog?.url || props.teacher?.portrait?.url}
                 alt={'alt'}
                 className={stls.imgTeacher}
                 width={227}

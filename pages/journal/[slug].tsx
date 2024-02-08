@@ -17,13 +17,13 @@ import ButtonToTop from '@/components/sections/ButtonToTop'
 
 const JournalSlugPage = ({ blog }) => {
   const articleHeading = {
-    color: blog?.color,
     studyField: blog?.studyField,
     picture: blog?.picture,
     title: blog?.title,
     teacher: blog?.teacher,
     blogAuthor: blog?.blogAuthor,
-    date: blog?.date
+    date: blog?.date,
+    readTime: blog?.readTime
   }
 
   const articleAuthors = [blog?.teacher, blog?.blogAuthor]

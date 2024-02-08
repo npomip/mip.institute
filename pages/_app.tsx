@@ -23,7 +23,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
-import { getCookie, setCookie } from 'cookies-next'
+import { getCookie, setCookie, getCookies } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
 
 const MyApp = ({ Component, pageProps, router }) => {
@@ -117,24 +117,8 @@ const MyApp = ({ Component, pageProps, router }) => {
     if (typeof utmCookie === 'string') {
       arr = JSON.parse(utmCookie)
     }
-    const previousCookieSource = arr?.utm_source
     const urlUtmsArr = router.asPath.split('?')[1]
 
-    // переписываем куку если клик айди у едпартнерс отличается от предыдущего
-    // if(previousCookieSource === 'edpartners'){
-
-    //   const urlUtmsArr = router.asPath.split('?')[1];
-    //   let utms = {utm_source: '', utm_medium: '', utm_campaign: '', cl_uid: ''};
-    //   urlUtmsArr &&
-    //     urlUtmsArr.split('&').forEach(utm => {
-    //       const [key, value] = utm.split('=');
-    //       utms[key] = decodeURIComponent(value); // Декодирование URL-кодированной строки
-    //     });
-    //     if(utms.cl_uid !== arr.cl_uid){
-
-    //       setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
-    //     }
-    // }
     // переписываем куку если отличается сурс от того, что был до этого
     if (urlUtmsArr) {
       const urlUtmsArr = router.asPath.split('?')[1]
@@ -341,16 +325,14 @@ const MyApp = ({ Component, pageProps, router }) => {
       <Script
         id='WA AMO script'
         src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
-        
       />
       <Script
         id='WA AMO second script'
-        
         dangerouslySetInnerHTML={{
           __html: `window.addEventListener('DOMContentLoaded', function () {
             new GnzsRoiStatClass().init()
           })`
-      }}
+        }}
       />
 
       <noscript>

@@ -66,7 +66,7 @@
       
           <set id="s1">
         <name>Программы профессиональной переподготовки для полного погружения в профессию психолога</name>
-        <url>https://mip.institute/professions?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions</url>
       </set>
 
     </sets>
@@ -74,7 +74,7 @@
 
     <offer id="1_practical_psychologist">
         <name>Практический психолог</name>
-        <url>https://mip.institute/professions/konsultirovanie/prakticheskij-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/prakticheskij-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -155,7 +155,7 @@
 
 <offer id="2_ava_terapist">
         <name>ABA-терапевт</name>
-        <url>https://mip.institute/professions/detskaya-psihologiya/ava-terapevt?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/detskaya-psihologiya/ava-terapevt</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -218,7 +218,7 @@
 
 <offer id="3_geshtalt_terapist">
         <name>Гештальт-терапевт</name>
-        <url>https://mip.institute/professions/psihoterapiya/geshtalt-terapevt?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/psihoterapiya/geshtalt-terapevt</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -282,7 +282,7 @@
 
       <offer id="4_art_therapist">
         <name>Арт-терапевт</name>
-        <url>https://mip.institute/professions/konsultirovanie/art-terapevt?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/art-terapevt</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -343,7 +343,7 @@
 
       <offer id="5_child_psychologist">
         <name>Детский психолог</name>
-        <url>https://mip.institute/professions/detskaya-psihologiya/detskij-psiholog?utm_source=yandex-Feed«&amp;»utm_medium=free«&amp;»utm_campaign=psychology&amp;»utm_content=professions</url>
+        <url>https://mip.institute/professions/detskaya-psihologiya/detskij-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -409,7 +409,7 @@
 
       <offer id="6_clinical_psychologist">
         <name>Клинический психолог </name>
-        <url>https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskij-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskij-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -485,7 +485,7 @@
 
       <offer id="7_defectologist">
         <name>Дефектолог</name>
-        <url>https://mip.institute/professions/detskaya-psihologiya/defektolog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/detskaya-psihologiya/defektolog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -553,7 +553,7 @@
 
       <offer id="8_Cognitive_Behavioral_Psychotherapist">
         <name>Когнитивно-поведенческий психотерапевт</name>
-        <url>https://mip.institute/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -622,7 +622,7 @@
 
       <offer id="9_neuropsychologist">
         <name>Нейропсихолог</name>
-        <url>https://mip.institute/professions/detskaya-psihologiya/defektolog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/detskaya-psihologiya/defektolog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -688,7 +688,7 @@
 
       <offer id="10_business_coach">
         <name>Психолог бизнес-консультант. Коуч</name>
-        <url>https://mip.institute/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -760,7 +760,7 @@
 
       <offer id="11_psychologist-consultant">
         <name>Психолог-консультант</name>
-        <url>https://mip.institute/professions/konsultirovanie/psiholog-konsultant?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/psiholog-konsultant</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -833,7 +833,7 @@
 
       <offer id="12_family_psychologist">
         <name>Семейный психолог</name>
-        <url>https://mip.institute/professions/obshaya-psihologiya/semejnyj-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/obshaya-psihologiya/semejnyj-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -900,7 +900,7 @@
 
       <!-- <offer id="13_psychologist_psychotherapist">
         <name>Практический психолог с доп. квалификацией Психолог-психотерапевт</name>
-        <url>https://mip.institute/professions/konsultirovanie/prakticheskij-psiholog-s-dop.-kvalifikaciej-psiholog-psihoterapevt?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/prakticheskij-psiholog-s-dop.-kvalifikaciej-psiholog-psihoterapevt</url>
         <categoryId>800</categoryId>
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids>
@@ -970,7 +970,7 @@
 
       <offer id="14_sexology">
         <name>Сексология в психологическом консультировании</name>
-        <url>https://mip.institute/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1040,7 +1040,7 @@
 
       <offer id="15_pediatric neuropsychologist">
         <name>Детский нейропсихолог</name>
-        <url>https://mip.institute/professions/klinicheskaya-psihologiya/detskij-nejropsiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/klinicheskaya-psihologiya/detskij-nejropsiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1102,7 +1102,7 @@
 
       <offer id="16_corporate_psychologist">
         <name>Корпоративный психолог</name>
-        <url>https://mip.institute/professions/organizacionnaya-psihologiya/korporativnyj-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/organizacionnaya-psihologiya/korporativnyj-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1171,7 +1171,7 @@
 
       <offer id="17_educational psychologist">
         <name>Педагог-психолог</name>
-        <url>https://mip.institute/professions/detskaya-psihologiya/pedagog-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/detskaya-psihologiya/pedagog-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1238,7 +1238,7 @@
 
       <offer id="18_social psyhologist">
         <name>Социальный психолог</name>
-        <url>https://mip.institute/professions/obshaya-psihologiya/socialnyj-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/obshaya-psihologiya/socialnyj-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1308,7 +1308,7 @@
 
       <offer id="19_nutritionist">
         <name>Психолог-диетолог. Нутрициолог</name>
-        <url>https://mip.institute/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1376,7 +1376,7 @@
 
       <offer id="20_mediator">
         <name>Медиатор</name>
-        <url>https://mip.institute/professions/organizacionnaya-psihologiya/mediator?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/organizacionnaya-psihologiya/mediator</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1441,7 +1441,7 @@
 
       <offer id="21_metaphorical cards">
         <name>Метафорические карты в психологическом консультировании</name>
-        <url>https://mip.institute/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1508,7 +1508,7 @@
 
       <offer id="22_sports psyhologist">
         <name>Спортивный психолог</name>
-        <url>https://mip.institute/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1577,7 +1577,7 @@
 
       <offer id="23_crisis psychologist">
         <name>Кризисный психолог</name>
-        <url>https://mip.institute/professions/konsultirovanie/krizisnyj-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/krizisnyj-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1646,7 +1646,7 @@
 
       <offer id="24_psyhoanalisis">
         <name>Психоанализ и психологическая психотерапия</name>
-        <url>https://mip.institute/professions/psihoterapiya/psihoanaliz-i-psihologicheskaya-psihoterapiya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/psihoterapiya/psihoanaliz-i-psihologicheskaya-psihoterapiya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1728,7 +1728,7 @@
 
       <offer id="25_perinatal psychologist">
         <name>Перинатальный психолог</name>
-        <url>https://mip.institute/professions/detskaya-psihologiya/perinatalnyj-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/detskaya-psihologiya/perinatalnyj-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1798,7 +1798,7 @@
 
       <offer id="26_psychosomatics">
         <name>Психосоматика и телесная психотерапия</name>
-        <url>https://mip.institute/professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1866,7 +1866,7 @@
 
       <offer id="27_psychodiagnostics">
         <name>Психодиагностика в психологическом консультировании</name>
-        <url>https://mip.institute/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -1936,7 +1936,7 @@
 
       <offer id="28_body-oriented therapy">
         <name>Телесно-ориентированная терапия</name>
-        <url>https://mip.institute/professions/psihoterapiya/telesno-orientirovannaya-terapiya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/psihoterapiya/telesno-orientirovannaya-terapiya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2008,7 +2008,7 @@
 
       <offer id="29_hypnosis psychological counseling">
         <name>Суггестивная психология. Гипноз в психологическом консультировании</name>
-        <url>https://mip.institute/professions/konsultirovanie/suggestivnaya-psihologiya.-gipnoz-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/suggestivnaya-psihologiya.-gipnoz-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2080,7 +2080,7 @@
 
       <offer id="30_psychology">
         <name>Психология</name>
-        <url>https://mip.institute/professions/obshaya-psihologiya/psihologiya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/obshaya-psihologiya/psihologiya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2151,7 +2151,7 @@
 
       <offer id="30_brief psychotherapy">
         <name>Краткосрочная психотерапия</name>
-        <url>https://mip.institute/professions/obshaya-psihologiya/psihologiya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/obshaya-psihologiya/psihologiya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2223,7 +2223,7 @@
 
       <offer id="31_psychological online counseling">
         <name>Психологическое интернет-консультирование</name>
-        <url>https://mip.institute/professions/konsultirovanie/psihologicheskoe-internet-konsultirovanie?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/psihologicheskoe-internet-konsultirovanie</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2297,7 +2297,7 @@
 
       <offer id="32_projective methods in psychological counseling">
         <name>Проективные методики в психологическом консультировании</name>
-        <url>https://mip.institute/professions/konsultirovanie/proektivnye-metodiki-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/proektivnye-metodiki-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2358,7 +2358,7 @@
 
       <offer id="33_psychological counseling and personality diagnostics">
         <name>Психологическое консультирование и диагностика личности</name>
-        <url>https://mip.institute/professions/konsultirovanie/psihologicheskoe-konsultirovanie-i-diagnostika-lichnosti?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/psihologicheskoe-konsultirovanie-i-diagnostika-lichnosti</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2429,7 +2429,7 @@
 
       <offer id="34_psychological counseling using art therapy methods">
         <name>Психологическое консультирование с использованием методов арт-терапии</name>
-        <url>https://mip.institute/professions/konsultirovanie/psihologicheskoe-konsultirovanie-s-ispolzovaniem-metodov-art-terapii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/psihologicheskoe-konsultirovanie-s-ispolzovaniem-metodov-art-terapii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2488,7 +2488,7 @@
 
       <offer id="35_psychosynthesis in psychotherapeutic practice">
         <name>Психосинтез в психотерапевтической практике</name>
-        <url>https://mip.institute/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2559,7 +2559,7 @@
 
       <offer id="36_family psychological counseling">
         <name>Семейное психологическое консультирование</name>
-        <url>https://mip.institute/professions/konsultirovanie/semejnoe-psihologicheskoe-konsultirovanie?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/semejnoe-psihologicheskoe-konsultirovanie</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2632,7 +2632,7 @@
 
       <offer id="37_psychodiagnostics of children and adults in practical psychology">
         <name>Психодиагностика детей и взрослых в практической психологии</name>
-        <url>https://mip.institute/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2702,7 +2702,7 @@
 
       <offer id="38_theory and practice of individual and family counseling">
         <name>Теория и практика индивидуального и семейного консультирования</name>
-        <url>https://mip.institute/professions/konsultirovanie/teoriya-i-praktika-individualnogo-i-semejnogo-konsultirovaniya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/teoriya-i-praktika-individualnogo-i-semejnogo-konsultirovaniya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2777,7 +2777,7 @@
 
       <offer id="38_sexual relations counseling">
         <name>Консультирование в сфере сексуальных отношений</name>
-        <url>https://mip.institute/professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2853,7 +2853,7 @@
 
       <offer id="39_speech therapist">
         <name>Логопед с доп. квалификацией Специальный психолог</name>
-        <url>https://mip.institute/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2921,7 +2921,7 @@
 
       <offer id="40_nutriciology">
         <name>Нутрициология</name>
-        <url>https://mip.institute/professions/dietologiya-i-nutriciologiya/nutriciologiya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/dietologiya-i-nutriciologiya/nutriciologiya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2990,7 +2990,7 @@
 
       <offer id="41_professional coaching">
         <name>Основы психологического консультирования и профессиональный коучинг</name>
-        <url>https://mip.institute/professions/konsultirovanie/osnovy-psihologicheskogo-konsultirovaniya-i-professionalnyj-kouching?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/osnovy-psihologicheskogo-konsultirovaniya-i-professionalnyj-kouching</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -3061,7 +3061,7 @@
 
       <offer id="42_conflictology">
         <name>Практическая конфликтология и медиация</name>
-        <url>https://mip.institute/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -3132,7 +3132,7 @@
 
       <offer id="43_psychology of personality">
         <name>Психология личности</name>
-        <url>https://mip.institute/professions/obshaya-psihologiya/psihologiya-lichnosti?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/obshaya-psihologiya/psihologiya-lichnosti</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -3206,7 +3206,7 @@
 
       <offer id="43_sand therapy">
         <name>Песочная терапия в психологическом консультировании</name>
-        <url>https://mip.institute/professions/konsultirovanie/pesochnaya-terapiya-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/pesochnaya-terapiya-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -3274,7 +3274,7 @@
 
       <offer id="44_fairytale therapy">
         <name>Сказкотерапия в психологическом консультировании</name>
-        <url>https://mip.institute/professions/konsultirovanie/skazkoterapiya-v-psihologicheskom-konsultirovanii?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/konsultirovanie/skazkoterapiya-v-psihologicheskom-konsultirovanii</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -3342,7 +3342,7 @@
 
       <offer id="45_psychology of communication">
         <name>Психология общения в деловой сфере</name>
-        <url>https://mip.institute/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
+        <url>https://mip.institute/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->

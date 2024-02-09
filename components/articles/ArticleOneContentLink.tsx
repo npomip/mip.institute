@@ -19,7 +19,11 @@ const ArticleOneContentLink = ({ props }: ArticleSubtitleType) => {
 
   const h2text = marked(props?.subtitle)
 
-  return <Link href={`#${props.subtitleSlug}`}>{parse(h2text)}</Link>
+  return (
+    <li>
+      <Link href={`#${props.subtitleSlug}`}>{parse(h2text)}</Link>
+    </li>
+  )
 }
 
 export default ArticleOneContentLink

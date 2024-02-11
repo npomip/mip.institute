@@ -6,14 +6,13 @@
   opacity: 0
   z-index: 10
   position: fixed
-  right: f.px(40)
+  
   @include m.media(laptop, desktop)
     bottom: f.px(200)
-  @include m.media(tablet)
-    right: f.px(20)
-    bottom: f.px(170)
-  @include m.media(phone)
-    right: f.px(10)
+    right: f.px(55)
+  @include m.media(tablet, phone)
+    right: f.px(0)
+    bottom: f.px(160)
 
   &.show
     opacity: 1

@@ -4,11 +4,13 @@
 
 .block
   position: relative
+  display: grid
+
 .container
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(50), $pb: f.px(43))
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(90))
+    @include m.gap($ptb: f.px(60))
   @include m.dye(bg, c.$nu)
 
 .title
@@ -21,45 +23,40 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(35))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
   @include m.dye(c, c.$theta)
 
 .list
-  position: inherit
   margin: 0
   padding: 0
-  @include m.flex($jc: space-between)
-  @include m.media(laptop, desktop)
-    @include m.flex($fw: wrap)
-  @include m.media(phone, tablet)
-    @include m.flex($fd: column)
+  display: grid
+  grid-template-columns: auto auto auto
+  gap: f.px(20)
+  @include m.media(tablet)
+    grid-template-columns: auto auto
+    gap: f.px(10)
+  @include m.media(phone)
+    grid-template-columns: auto
 
 .item
   text-align: start
   border-radius: f.px(25)
-  min-height: f.px(214)
-  max-height: fit-content
   @include m.flex($jc: flex-start, $ai: flex-start, $fd: column)
   border: 1px solid
   @include m.dye(border, c.$alpha)
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20), $p: f.px(20))
+    @include m.gap($p: f.px(20))
     border: 0.7px solid
     @include m.dye(border, c.$alpha)
-    min-height: f.px(150)
-    @include m.flex
     & > *
       max-width: f.px(420)
 
   @include m.media(laptop, desktop)
-    @include m.flex($fb: 32%)
-    @include m.gap($mr: 1%, $mb: f.px(20), $ptb: f.px(30), $pl: f.px(35))
-    &:nth-child(3n)
-      @include m.gap($mr: 0)
+    @include m.gap($ptb: f.px(30), $pl: f.px(30), $pr: f.px(15))
 
 .description
   @include m.media(laptop, desktop)
-    max-width: 300px
+    max-width: f.px(300)
 
 .firstWord
   font-weight: 500
@@ -70,7 +67,6 @@
 .p
   font-size: f.px(20)
   font-weight: 350
-  line-height: 130%
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
     font-size: f.px(14)

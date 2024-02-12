@@ -4,15 +4,16 @@
 
 .in
   scroll-behavior: smooth
-  
+
 .article
-  
+
   p
     font-size: f.px(30)
     font-weight: 350
     line-height: 130%
     @include m.media(phone, tablet)
       font-size: f.px(16)
+      line-height: 150%
     span.strongText
       font-weight: 500
   h2
@@ -21,13 +22,13 @@
     line-height: 110%
     @include m.gap($mt: f.px(90), $mb: f.px(35))
     @include m.media(phone, tablet)
-      @include m.gap($mt: f.px(45), $mb: f.px(20))
-      font-size: f.px(33)
+      @include m.gap($mt: f.px(35), $mb: f.px(20))
+      font-size: f.px(26)
 
 .title
   @include m.gap($mt: f.px(112), $mb: f.px(30))
   font-size: f.px(44)
   font-weight: 500
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(70), $mb: f.px(25))
+    @include m.gap($mt: f.px(70), $mb: f.px(20))
     font-size: f.px(33)

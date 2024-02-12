@@ -42,8 +42,6 @@ type ArticleTitleType = {
 const ArticleTitle = ({ props }: ArticleTitleType) => {
   const date = new Date(props?.date)
 
-  console.log(props)
-
   return (
     <>
       <span className={stls.tag}>{props.studyField}</span>
@@ -76,7 +74,10 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
               <Image
-                src={props.teacher?.portraitForBlog?.url || props.teacher?.portrait?.url}
+                src={
+                  props.teacher?.portraitForBlog?.url ||
+                  props.teacher?.portrait?.url
+                }
                 alt={'alt'}
                 className={stls.imgTeacher}
                 width={227}

@@ -57,7 +57,7 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
                     <span
                       className={stls.firstWord}
                       style={{
-                        display: idx === 0 && !onMain ? 'block' : 'inline'
+                        display: onMain ? 'inline' : 'block'
                       }}>
                       {`${item.split(' ')[0]} `}
                     </span>

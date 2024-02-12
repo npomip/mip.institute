@@ -12,12 +12,14 @@
 
 .articleTitle
   font-size: f.px(65)
+  line-height: 110%
   font-weight: 500
   @include m.gap($mt: f.px(17), $mb: f.px(30))
-  @include m.media(phone, tablet)
+  @include m.media(tablet)
     font-size: f.px(33)
-    @include m.gap($mtb: f.px(16))
-
+  @include m.media(phone)
+    font-size: f.px(30)
+    
 .authors
   font-size: f.px(18)
   display: flex

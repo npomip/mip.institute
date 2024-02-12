@@ -33,8 +33,8 @@ const CardImgWithAchievements = ({ person }: PersonType) => {
           // style={{top: '20px'}}
           className={stls.imgAuthor}
           // layout='fill'
-          width={isMobileLayout ? 175 : 260}
-          height={isMobileLayout ? 255 : 340}
+          width={isMobileLayout ? 155 : 180}
+          height={isMobileLayout ? 155 : 180}
           placeholder='blur'
           blurDataURL={base64pixel}
         />

@@ -10,14 +10,12 @@
 
 .header
   cursor: pointer
-  @include m.flex($display: true, $ai:center, $jc: space-between)
-
-.title
+  @include m.flex($ai:center, $jc: space-between)
   font-size: f.px(25)
   font-weight: 500
-  @include m.gap($mt: f.px(20), $mb: f.px(25), $ml: f.px(20))
+  @include m.gap($pt: f.px(20), $pb: f.px(25), $pl: f.px(20))
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(15), $mb: f.px(15), $ml: f.px(20))
+    @include m.gap($pt: f.px(15), $pb: f.px(15), $pl: f.px(20))
     font-size: f.px(16)
 
 .icon

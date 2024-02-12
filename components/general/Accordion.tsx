@@ -19,7 +19,7 @@ export const Accordion: FC<Props> = ({ title = 'Содержание', children 
   return (
     <div className={styles.accordion}>
       <header onClick={handleOpen} className={styles.header}>
-        <p className={styles.title}>{title}</p>
+        {title}
         <div className={`${styles.icon} ${isOpen ? styles.isOpen : ''}`}>
           <IconArrowRight />
         </div>

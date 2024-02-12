@@ -3,39 +3,17 @@
 @use '@/styles/themes/default/colors' as c
 
 .scrollToTop
-  
+  opacity: 0
   z-index: 10
   position: fixed
+  
   @include m.media(laptop, desktop)
-    right: f.px(62)
-    bottom: f.px(210)
-  @include m.media(tablet)
-    right: f.px(21)
-    bottom: f.px(170)
-  @include m.media(phone)
-    right: f.px(34)
-    bottom: f.px(190)
-  // background: red
-  display: flex
-  justify-content: center
-  align-items: center
-  border: 2px solid black
-  border-radius: f.px(5)
-  opacity: 0
-  transition: background 0.5s ease
-  &:hover
-    background: black
-    & > *
-      & > *
-        transition: stroke 0.5s ease
-        stroke: white
+    bottom: f.px(200)
+    right: f.px(55)
+  @include m.media(tablet, phone)
+    right: f.px(0)
+    bottom: f.px(160)
 
   &.show
     opacity: 1
     cursor: pointer
-
-.icon
-  @include m.gap($ptb: f.px(5.7), $plr: f.px(10))
-  transform: rotate(-90deg)
-  & > *
-    stroke: black

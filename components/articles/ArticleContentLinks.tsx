@@ -13,11 +13,11 @@ interface ArticleContentLinksProps {
 }
 const ArticleContentLinks = ({ props }: ArticleContentLinksProps) => {
   return (
-    <div className={styles.container}>
+    <ul className={styles.container}>
       {props.map(el => (
         <ArticleOneContentLink key={el.subtitle} props={el} />
       ))}
-    </div>
+    </ul>
   )
 }
 

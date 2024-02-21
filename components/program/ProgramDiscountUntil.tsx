@@ -1,9 +1,11 @@
-import ProgramAdmission from '@/components/program/ProgramAdmission'
+// import ProgramAdmission from '@/components/program/ProgramAdmission'
 
 const ProgramDiscountUntil = () => {
+  //TODO: 1 марта
   return (
     <>
-      до <ProgramAdmission />
+      до 29 февраля
+      {/* до <ProgramAdmission /> */}
     </>
   )
 }

@@ -1,8 +1,8 @@
 import stls from '@/styles/components/program/ProgramInfo.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext, useState } from 'react'
-import ProgramAdmission from '@/components/program/ProgramAdmission'
-import { setDateOfEnrollment } from '@/helpers/index'
+// import ProgramAdmission from '@/components/program/ProgramAdmission'
+// import { setDateOfEnrollment } from '@/helpers/index'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import {
   IconCalendarAlt,
@@ -22,8 +22,6 @@ const ProgramInfo = () => {
   const studyMounthsDuration = program?.studyMounthsDuration || 0
   const type = program?.type || ''
 
-  // вручную проставляет дату ближайшего зачисления
-  // const dateOfEnrollment = setDateOfEnrollment(20, 5);
 
   const vals = [
     {
@@ -38,8 +36,9 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      // val: setDateOfEnrollment(20,6),
-      val: <ProgramAdmission />,
+      val: '27 февраля',
+      //TODO: 1 марта
+      // val: <ProgramAdmission />,
       icon: <IconMap />
     },
     {
@@ -66,7 +65,14 @@ const ProgramInfo = () => {
         {vals.map(({ key, val, icon, iconInfo }, idx) => (
           <li key={key + val + idx} className={stls.item}>
             <div className={stls.icon}>{icon}</div>
-            {iconInfo && <div onMouseEnter={infoHandler} onMouseLeave={infoHandler} className={stls.anotherIcon}>{iconInfo}</div>}
+            {iconInfo && (
+              <div
+                onMouseEnter={infoHandler}
+                onMouseLeave={infoHandler}
+                className={stls.anotherIcon}>
+                {iconInfo}
+              </div>
+            )}
 
             <div>
               <p className={stls.key}>{key}</p>
@@ -76,12 +82,16 @@ const ProgramInfo = () => {
         ))}
       </ul>
       <div>
-        {info && (<p className={stls.licenseInfo}>
-          Диплом о переподготовке —это официальный документ, который даёт право
-          вести профессиональную деятельность по полученной специальности. Все
-          выданные дипломы вносятся в <span>ФРДО — Федеральный реестр сведений о
-          документах об образовании.</span>
-        </p>)}
+        {info && (
+          <p className={stls.licenseInfo}>
+            Диплом о переподготовке —это официальный документ, который даёт
+            право вести профессиональную деятельность по полученной
+            специальности. Все выданные дипломы вносятся в{' '}
+            <span>
+              ФРДО — Федеральный реестр сведений о документах об образовании.
+            </span>
+          </p>
+        )}
       </div>
     </>
   )

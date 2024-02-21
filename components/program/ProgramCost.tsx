@@ -12,8 +12,10 @@ const ProgramCost = ({ withPerMonth = false }) => {
   const price = (program && program.price) || 0
   const discount = (program && program.discount) || discountNum
 
-  const rprice =
-    Math.round(Math.ceil((price / (100 - discount)) * 100) / 1000) * 1000
+  // const rprice =
+  //   Math.round(Math.ceil((price / (100 - discount)) * 100) / 1000) * 1000
+    const rprice =
+    Math.round(Math.ceil((price / (100 - 37)) * 100) / 1000) * 1000
 
   const perMonthPrice = Math.round(Math.round(price && +price / 12) / 100) * 100
   const perMonthPriceRegular =

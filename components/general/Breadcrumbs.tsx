@@ -4,7 +4,6 @@ import classNames from 'classnames'
 
 const Breadcrumbs = ({ breadcrumbs, isJournal = false }) => {
   const handleClick = (bcrumbs) => {
-    console.log(bcrumbs)
     localStorage.setItem('selectedFieldSlug', bcrumbs.slug)
   }
   return (

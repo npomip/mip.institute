@@ -15,6 +15,7 @@ import ButtonToTop from '@/components/sections/ButtonToTop'
 import Directions from '@/components/sections/Directions'
 import EntryForm from '@/components/sections/EntryForm'
 import TopCourses from '@/components/sections/TopCourses'
+import YouTubeVideo from '@/components/sections/YouTubeVideo'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, prod, routes } from '@/config/index'
 import mainList from '@/data/general/mainList'
@@ -136,6 +137,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 
       <Hero />
       <Directions />
+      <YouTubeVideo videoId="Voc_dKGqhFE" />
       <TopCourses />
       <ButtonToTop />
       <WhyBother />

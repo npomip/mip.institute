@@ -134,7 +134,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
           />
         )}
       </Popup>
-
       <Hero />
       <Directions />
       <YouTubeVideo videoId="Voc_dKGqhFE" />

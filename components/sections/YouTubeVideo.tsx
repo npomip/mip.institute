@@ -1,29 +1,35 @@
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery';
 import React from 'react';
 import YouTube from 'react-youtube';
 import Wrapper from '../layout/Wrapper';
+import stls from '@/styles/components/sections/YouTubeVideo.module.sass'
 
 const YouTubeVideo = ({ videoId }) => {
-  // Set up event handlers
-  const onReady = (event) => {
-    // Access the player instance
-    const player = event.target;
 
-    // For example, you can automatically play the video
-    player.playVideo();
-  };
+  const isMobileLayout = useBetterMediaQuery( '(max-width: 480px)')
+  const isTabletLayout = useBetterMediaQuery( '(min-width: 481px) and (max-width: 768px)')
 
   const onError = (error) => {
     console.error('YouTube Player Error:', error);
   };
 
+  const opts = {
+    height: isTabletLayout ? '350' : isMobileLayout ? '210' : '600',
+    width: '100%',
+    borderRadius: '20px'
+  };
+
   return (
+    <section>
     <Wrapper>
+      <h1 className={stls.title}>Знакомство с институтом</h1>
     <YouTube
       videoId={videoId}
-      onReady={onReady}
       onError={onError}
+      opts={opts}
     />
     </Wrapper>
+    </section>
   );
 };
 

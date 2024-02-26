@@ -32,8 +32,8 @@ const setDateOfEnrollment = (): string => {
           month: 'long'
         })
 
-      case item < new Date(2024, 2, 1):
-        return new Date(2024, 1, 29).toLocaleString('ru-RU', {
+      case item < new Date(2024, 2, 6):
+        return new Date(2024, 2, 5).toLocaleString('ru-RU', {
           day: 'numeric',
           month: 'long'
         })

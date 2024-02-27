@@ -23,7 +23,6 @@ import BtnDzen from '../btns/BtnDzen'
 import SearchProgram from '../general/SearchProgram'
 import PopupFooterReviews from '../popups/PopupFooterReviews'
 
-
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
 
@@ -57,6 +56,11 @@ const Footer = () => {
       href: routes.front.about
     },
     {
+      val: 'Партнерская программа',
+      href: routes.external.advCake,
+      target: '_blank'
+    },
+    {
       val: 'Сведения об образовательной организации',
       href: routes.front.legal
     },
@@ -86,14 +90,10 @@ const Footer = () => {
     }, 300)
   }, [isEdpartners, partCookie])
 
-
-  
   return (
     <footer className={stls.container}>
       <Wrapper>
-      
         <div className={stls.left}>
-        
           <div className={stls.top}>
             <ul
               className={classNames({
@@ -109,6 +109,7 @@ const Footer = () => {
                   })}>
                   <Link href={link.href}>
                     <a
+                      target={link.target || '_self'}
                       className={classNames({
                         [stls.link]: true,
                         [stls.staticLink]: true
@@ -143,7 +144,7 @@ const Footer = () => {
                 </li>
               ))}
               <li className={stls.logo}>
-                <Logo atFooter/>
+                <Logo atFooter />
               </li>
             </ul>
             {!isEdpartners ? (
@@ -179,7 +180,7 @@ const Footer = () => {
                   <BtnTelegram dark />
                   <BtnYt dark />
                   <BtnOk dark />
-                  <BtnDzen/>
+                  <BtnDzen />
                 </div>
                 <PopupFooterReviews />
 
@@ -190,12 +191,16 @@ const Footer = () => {
             ) : (
               <PopupFooterReviews />
             )}
-            
+
             <div className={stls.newRight}>
               <div className={stls.leaveApp}>
                 <PopupTrigger btn='alpha' cta='submitApplication' />
               </div>
-              <a href='https://lms.mip.institute/' className={stls.enterToPortal}>Вход</a>
+              <a
+                href='https://lms.mip.institute/'
+                className={stls.enterToPortal}>
+                Вход
+              </a>
               <SearchProgram />
               <p className={stls.primary}>
                 Государственный контроль (надзор) в сфере образования:
@@ -204,16 +209,20 @@ const Footer = () => {
                   служба по надзору в сфере образования и науки
                 </span>
               </p>
-              
+
               <p className={stls.primary}>
-                Научная автономная некоммерческая организация «Московский институт
-                психологии» (НАНО «МИП»)
-                ИНН 9725041321 ОГРН 1207700479260 Лицензия департамента
-                образования города Москвы на осуществление образовательной
-                деятельности №041363 от 14.04.21.
+                Научная автономная некоммерческая организация «Московский
+                институт психологии» (НАНО «МИП») ИНН 9725041321 ОГРН
+                1207700479260 Лицензия департамента образования города Москвы на
+                осуществление образовательной деятельности №041363 от 14.04.21.
               </p>
-              <a className={stls.linkToLicense} href={routes.external.license} target='_blank'  rel="noreferrer nofollow noindex" >
-                Лицензия на образовательную деятельность №041363 от 14.04.2021 г.
+              <a
+                className={stls.linkToLicense}
+                href={routes.external.license}
+                target='_blank'
+                rel='noreferrer nofollow noindex'>
+                Лицензия на образовательную деятельность №041363 от 14.04.2021
+                г.
               </a>
             </div>
           </div>
@@ -221,7 +230,6 @@ const Footer = () => {
             <FooterBottom />
           </div>
         </div>
-
       </Wrapper>
       <div className={stls.footerBottom}>
         <FooterBottom />

@@ -159,9 +159,10 @@
     @include m.gap($mt: f.px(20),$mb: f.px(0), $ml: f.px(15))
 
 .img
-  width: 700px
+  // width: 700px
+  object-fit: cover
   & > *
-    object-fit: scale-down
+    object-fit: cover
     border-radius: 25px
 
 .leftTitle

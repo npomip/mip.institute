@@ -22,9 +22,9 @@ const CoursePage: NextPage<TypePageProgramProps> = ({
 
   const programOverview = program?.programOverview
   const router = useRouter()
-  const segments = router.asPath.split("/").filter(segment => segment !== "");
+  const segments = router.asPath.split("/").filter(segment => segment !== "").slice(0,2);
 
-  const labels =['Повышение квалификации', program?.studyField, program?.title]
+  const labels =['Повышение квалификации', program?.studyField]
   const breadcrumbs = segments.map((segment, index) => {
     const breadcrumb = {
       label: labels[index],

@@ -14,7 +14,10 @@ import {
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import Directions from '@/components/sections/Directions'
 import EntryForm from '@/components/sections/EntryForm'
+import HappyStudents from '@/components/sections/HappyStudents'
+import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
+import YouTubeVideo from '@/components/sections/YouTubeVideo'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, prod, routes } from '@/config/index'
 import mainList from '@/data/general/mainList'
@@ -121,6 +124,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         }}
       />
       <SeoOrganizationJsonLd />
+      
       <Popup open={open} modal nested>
         {close => (
           <PopupCta
@@ -133,14 +137,14 @@ const HomePage: NextPage<TypePageHomeProps> = ({
           />
         )}
       </Popup>
-
       <Hero />
       <Directions />
+      
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
+      <YouTubeVideo videoId="Voc_dKGqhFE" />
       <About />
-      {/* <div className="i-flocktory" data-fl-action="exchange" data-fl-user-email="xname@flocktory.com"></div> */}
       <HowProcessGoes onMain subtitle={subtitle} list={mainList} />
       <Cta
         title={'Подберите программу'}
@@ -148,12 +152,14 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
+      <SalaryCounter />
       <Teachers
         onMain
         title={'Преподаватели – наставники'}
         teachersFromMain={teachersFromMain}
       />
       <YourDiploma onMain ofType='profession' />
+      <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
       <EntryForm />
       <Faq />

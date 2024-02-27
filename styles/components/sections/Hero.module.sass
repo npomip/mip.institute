@@ -3,7 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/utils/mixin/media' as bp
 
-
 .container
   @include m.dye(bg, c.$alpha)
   position: relative
@@ -17,7 +16,6 @@
   position: relative
 .bg
   z-index: 0
-  // position: absolute
   top: 0
   right: 0
   @include m.media(phone, tablet)
@@ -27,37 +25,29 @@
   width: 100%
   @include m.dye(bg, c.$alpha)
 
-// .leftbg
-//   position: absolute
-//   top: 4%
-//   // left: -10px
-//   overflow: hidden
-//   transform: translate(-145%, f.px(0))
-//   // left: 0
-//   width: 300px
-//   height: 100%
-//   background: #52049E
-
 .title,
 .desc
   @include m.dye(c, c.$nu)
 
 .title
   position: relative
-  @include m.media(phone, tablet)
-    font-size: f.px(36)
-    max-width: f.px(500)
-    @include m.gap($mb: f.px(15))
+  font-weight: 500
+  line-height: 110%
+  z-index: 1
   @include m.media(laptop, desktop)
     max-width: 13ch
     @include m.gap($mb: f.px(20))
     font-size: f.px(64)
-  font-weight: 500
-  line-height: 110%
-  z-index: 1
+  @include m.media(phone, tablet)
+    font-size: f.px(36)
+    max-width: f.px(500)
+    @include m.gap($mb: f.px(15))
 
 .desc
   position: relative
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+    font-weight: 500
   @include m.media(phone, tablet)
     color: #EAEAEA
     font-weight: 350
@@ -65,15 +55,10 @@
     line-height: 130%
     @include m.gap($mb: f.px(35))
     font-size: f.px(15)
-  @include m.media(laptop, desktop)
-    max-width: 35ch
-    font-size: f.px(20)
-    font-weight: 300
-  @include m.gap($mb: f.px(30))
+  @include m.gap($mb: f.px(50))
   font-family: Stem, sans-serif
-  
   line-height: 130%
-  z-index: 1
+  z-index: 2
 
 .btns
   @include m.media(phone, tablet)
@@ -82,12 +67,10 @@
     @include m.flex
 
 .btn
-  @include m.media(desktop)
-    @include m.flex($fb: 55%)
-  @include m.media(laptop)
-    @include m.flex($fb: 45%)
+  @include m.media(desktop, laptop)
+    @include m.flex($fb: 30%)
   @include m.media(phone, tablet)
-      display: none
+    display: none
   & > *
     width: 100%
     & > *
@@ -109,35 +92,32 @@
 .right
   @include m.media(laptop, desktop)
     position: relative
-    // @include m.gap($pb: f.px(315))
     display: flex
     align-items: flex-start
   @include m.media(phone, tablet)
     height: f.px(400)
-    // display: flex
     align-items: flex-end
     justify-content: stretch
+
 .img
   position: absolute
-  @include m.media(phone)
-    transform: translate(10%, f.px(-255))
-    position: absolute
-    z-index: 1
-    overflow: hidden
+  z-index: 1
   @include m.media(laptop, desktop)
-    transform: translate(8%, f.px(-205))
+    transform: scale(1.2) translate(15%, f.px(-205))
     right: 0
     width: f.px(454)
     height: f.px(437)
-    z-index: 2
   @include m.media(laptop)
     transform: translate(20%, f.px(-100))
   @include m.media(tablet)
-    z-index: 1
     right: f.px(-30)
     transform: translate(5%, f.px(-355))
     width: f.px(380)
     height: f.px(477)
+  @include m.media(phone)
+    transform: translate(10%, f.px(-255))
+    position: absolute
+    overflow: hidden
 
 .prosList
   @include m.media(phone, tablet)
@@ -147,22 +127,7 @@
     left: 0
     right: 0
     position: absolute
-    // top: 500px
     transform: translate(0%, f.px(-235))
-
-// .hiddenGem
-//   animation: rotating 6s linear infinite
-
-// @keyframes rotating
-//   0%
-//     transform: translateX(54%) rotate(0deg)
-
-//   50%
-//     transform: translateX(0%) rotate(180deg)
-
-//   100%
-//     transform: translateX(54%) rotate(360deg)
-
 
 .mobileBtns
   position: relative
@@ -178,7 +143,6 @@
 
 .portals
   position: relative
-
 
 .smallOne
   z-index: 2
@@ -288,11 +252,8 @@
   @include m.media(laptop)
     transform: translate(-17%, f.px(22))
   @include m.media( tablet)
-    // top: f.px(157)
-    // left: 15%
     transform: translate(-5%, f.px(156))
     -webkit-transform: translate(-5%, f.px(156))
   @include m.media(phone)
     transform: translate(-12%, f.px(210))
     -webkit-transform: translate(-12%, f.px(209))
-

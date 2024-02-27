@@ -5,7 +5,6 @@
 
 .container
   position: relative
-  // z-index: 4
   background: white
   @include m.gap($pb: f.px(0), $pt: f.px(90))
   @include m.media(phone, tablet)
@@ -14,11 +13,6 @@
     & > *
       @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
         @include m.flex($display: false, $fd: column)
-
-.onMain
-  @include m.gap( $pb: f.px(90))
-  @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(15))
 
 .onProfession
   @include m.gap($pt: f.px(0))
@@ -30,39 +24,11 @@
     @include m.gap($mb: 0)
   @include m.media(laptop, desktop)
     @include m.gap($mb: 0, $mr: f.px(19))
-    // min-width: 10ch
-    // max-width: 10ch
     font-size: f.px(44)
   font-weight: 500
   @include m.dye(c, c.$theta)
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
-    // min-width: 100%
-    // max-width: 100%
     @include m.gap($mb: f.px(37))
-
-.tag
-  z-index: 2
-  height: 100%
-  display: inline-block
-  position: relative
-  @include m.gap( $mb: f.px(20))
-  align-self: center
-  & > *
-    position: absolute
-    @include m.media(laptop, desktop)
-      top: -10px
-      left: 25px
-      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
-    @include m.media(phone, tablet)
-      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
-      top: f.px(-30)
-      left: f.px(-295)
-
-.br
-  @include m.media(phone, tablet)
-    display: none
-  @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
-    display: none
 
 .left
   @include m.media(laptop, desktop)
@@ -80,10 +46,8 @@
     @include m.gap($mt: 0)
     border-radius: f.px(15)
 .list
-  // @include m.flex($fd: column)
   @include m.gap( $p: 0, $mt: f.px(35))
   @include m.media(laptop, desktop)
-    // width: 700px
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
     max-width: f.px(630)
     @include m.gap($ml: f.px(40))
@@ -96,7 +60,6 @@
   @include m.media(laptop)
     @include m.gap($mb: f.px(22.5))
   position: relative
-  // @include m.gap($mb: f.px(50))
   &:not(:nth-last-child(1))::before
     content: ''
     position: absolute
@@ -106,7 +69,6 @@
       top: f.px(27)
       left: f.px(27.5)
       height: 100%
-    // transform: translateY(-50%)
     width: f.px(1)
     height: 90%
     background: #C1A5D3
@@ -167,8 +129,7 @@
   @include m.gap($mt: f.px(30), $mb: f.px(45))
   color: #131313
   font-size: f.px(20)
-  font-style: normal
-  font-weight: 300
+  font-weight: 350
   line-height: 130%
   @include m.media(phone, tablet)
     font-size: f.px(15)

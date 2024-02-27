@@ -100,7 +100,7 @@ const HappyStudents = () => {
               modules={[Pagination]}
               className={stls.mySwiper}>
               {list.map((el, i) => (
-                <SwiperSlide className={stls.slide}>
+                <SwiperSlide key={i} className={stls.slide}>
                   <CardReviewsPlatform el={el} />
                 </SwiperSlide>
               ))}

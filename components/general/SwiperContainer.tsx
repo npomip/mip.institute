@@ -28,8 +28,7 @@ const SwiperContainer = ({
   autoHeight=false
 }) => {
   const isMobileLayout = useBetterMediaQuery( '(max-width: 480px)')
-  const isTabletLayout = useBetterMediaQuery( '(min-width: 481px) and (max-width: 768px)'
-  )
+  const isTabletLayout = useBetterMediaQuery( '(min-width: 481px) and (max-width: 768px)')
   const isLaptopLayout = useBetterMediaQuery('(min-width: 768px) and (max-width: 1200px)')
   const isDesktopLayout = useBetterMediaQuery('(min-width: 1201px)')
 

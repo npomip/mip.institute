@@ -43,8 +43,8 @@ const HowProcessGoes = ({
             {subtitle}
             <div className={stls.img}>
               <Image
-                // width={569}
-                // height={328}
+                width={569}
+                height={328}
                 src={img}
                 alt='Как учатся студенты'
               />

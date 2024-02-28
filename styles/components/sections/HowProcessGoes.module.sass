@@ -93,9 +93,10 @@
 .item
   @include m.flex
   @include m.gap($mb: f.px(30))
+  position: relative
   @include m.media(laptop)
+  
     @include m.gap($mb: f.px(22.5))
-    position: relative
   // @include m.gap($mb: f.px(50))
   &:not(:nth-last-child(1))::before
     content: ''
@@ -113,6 +114,7 @@
 
 .counter
   @include m.flex($jc: center, $ai: center)
+  border-radius: 50%
   @include m.media(phone, tablet)
     @include m.gap($mlr: f.px(16), $p: f.px(12))
     max-width: f.px(24)
@@ -123,7 +125,7 @@
     max-width: f.px(30)
     max-height: f.px(30)
     font-size: f.px(18)
-    border-radius: 50%
+    
     font-family: TTFirsNeue, sans-serif
   @include m.dye(bg, #6F01C6)
   @include m.dye(c, c.$nu)

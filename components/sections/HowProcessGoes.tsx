@@ -45,6 +45,7 @@ const HowProcessGoes = ({
               <Image
                 width={569}
                 height={328}
+                layout={'responsive'}
                 src={img}
                 alt='Как учатся студенты'
               />

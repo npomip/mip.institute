@@ -78,6 +78,8 @@ const TopCourses = () => {
     spaceBetween: 30
   }
 
+  console.log(topCoursesSlides)
+
   return (
     <section
       className={classNames({

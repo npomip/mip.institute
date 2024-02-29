@@ -8,8 +8,6 @@ const CardReviewsPlatform = ({el} ) => {
     quantity
   } = el
 
-  console.log({el})
-
   return (
       <div className={stls.contentSlide}>
         <p className={stls.rating}>рейтинг</p>

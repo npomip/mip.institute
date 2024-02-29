@@ -16,6 +16,7 @@ import { DistanceEducation } from '@/components/sections/DistanceEducation'
 import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
+import PayLater from '@/components/sections/PayLater'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
 import YouTubeVideo from '@/components/sections/YouTubeVideo'
@@ -126,11 +127,10 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
-
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
-      <YouTubeVideo videoId='Voc_dKGqhFE' />
+      {/* <YouTubeVideo videoId="Voc_dKGqhFE" /> */}
       <About />
       <EducationProcess />
       <DistanceEducation />
@@ -141,15 +141,16 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
-      <SalaryCounter />
+      {/* <SalaryCounter /> */}
       <Teachers
         onMain
         title={'Преподаватели – наставники'}
         teachersFromMain={teachersFromMain}
       />
       <YourDiploma onMain ofType='profession' />
-      <HappyStudents />
+      {/* <HappyStudents /> */}
       <Reviews onMain reviews={reviewsSorted} />
+      {/* <PayLater /> */}
       <EntryForm />
       <Faq />
     </>

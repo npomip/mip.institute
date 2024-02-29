@@ -1,10 +1,10 @@
 import TwoColumns from '@/components/layout/TwoColumns'
 import Wrapper from '@/components/layout/Wrapper'
-import gif from '@/public/assets/imgs/gif/howProcessGoes.gif'
 import stls from '@/styles/components/sections/EducationProcess.module.sass'
 import Image from 'next/image'
 import { useState } from 'react'
 import TagOrange from '../general/TagOrange'
+import img from '@/public/assets/imgs/howProcessGoes.png'
 
 const text = [
   'Обучение в МИП осуществляется по заочной форме ',
@@ -58,7 +58,12 @@ const EducationProcess = () => {
             {showFullText ? 'Скрыть описание' : 'Читать далее'}
           </button>
           <div className={stls.img}>
-            <Image width={569} height={300} src={gif} alt='gif' />
+            <Image
+              width={500}
+              height={300}
+              src={img}
+              alt='Как идет обучение?'
+            />
           </div>
         </TwoColumns>
       </Wrapper>

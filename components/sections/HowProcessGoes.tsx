@@ -1,7 +1,7 @@
 import TwoColumns from '@/components/layout/TwoColumns'
 import Wrapper from '@/components/layout/Wrapper'
-import gif from '@/public/assets/imgs/gif/howProcessGoes.gif'
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
+import img from '@/public/assets/imgs/howProcessGoes.png'
 import Image from 'next/image'
 
 interface listType {
@@ -32,7 +32,13 @@ const HowProcessGoes = ({ processRef, list }: ProcessType) => {
           <div className={stls.left}>
             {subtitle}
             <div className={stls.img}>
-              <Image width={569} height={328} src={gif} alt='gif' />
+              <Image
+                width={569}
+                height={328}
+                layout={'responsive'}
+                src={img}
+                alt='Как учатся студенты'
+              />
             </div>
             <p className={stls.leftDesc}>
               <span>Дистанционное образование</span> — это обучение в комфортном

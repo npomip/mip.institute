@@ -25,7 +25,7 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: 0, $mr: f.px(19))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
   @include m.dye(c, c.$theta)
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
     @include m.gap($mb: f.px(37))
@@ -57,9 +57,10 @@
 .item
   @include m.flex
   @include m.gap($mb: f.px(30))
-  @include m.media(laptop)
-    @include m.gap($mb: f.px(22.5))
   position: relative
+  @include m.media(laptop)
+  
+    @include m.gap($mb: f.px(22.5))
   &:not(:nth-last-child(1))::before
     content: ''
     position: absolute
@@ -73,9 +74,9 @@
     height: 90%
     background: #C1A5D3
 
-
 .counter
   @include m.flex($jc: center, $ai: center)
+  border-radius: 50%
   @include m.media(phone, tablet)
     @include m.gap($mlr: f.px(16), $p: f.px(12))
     max-width: f.px(24)
@@ -86,8 +87,8 @@
     max-width: f.px(30)
     max-height: f.px(30)
     font-size: f.px(18)
-  border-radius: 50%
-  font-family: TTFirsNeue, sans-serif
+    
+    font-family: TTFirsNeue, sans-serif
   @include m.dye(bg, #6F01C6)
   @include m.dye(c, c.$nu)
 
@@ -122,7 +123,10 @@
     @include m.gap($mt: f.px(20),$mb: f.px(0), $ml: f.px(15))
 
 .img
+  // width: 700px
+  object-fit: cover
   & > *
+    object-fit: cover
     border-radius: 25px
 
 .leftTitle
@@ -134,7 +138,6 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($mtb: f.px(10))
-
 
 .leftDesc
   @include m.gap($ptb: f.px(35), $plr: f.px(20), $mt: f.px(45), $mb: f.px(0))

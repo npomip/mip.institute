@@ -1,7 +1,9 @@
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/DistanceEducation.module.sass'
-import IconPortalViolet from '../icons/IconPortalViolet'
+import CardDistanceEducation from '../cards/CardDistanceEducation'
 import SwiperContainer from '../general/SwiperContainer'
+import classNames from 'classnames'
+import { IconFinger } from '../icons'
 
 const list = [
   'Смотрите лекции, проходите тесты на платформе',
@@ -14,53 +16,34 @@ const list = [
 ]
 
 export const DistanceEducation = () => {
-  const list =
-    teachersSorted &&
-    [...teachersSorted]?.map(teacher => ({
-      ...teacher,
-      image: (
-        <ImgTeacher
-          src={teacher?.portrait?.url}
-          alt={teacher.name}
-          width={160}
-          height={getImageHeight({
-            width: 160,
-            widthInitial: teacher?.portrait?.width,
-            heightInitial: teacher?.portrait?.height
-          })}
-        />
-      )
-    }))
-
-  const teachersSlides = list?.map((teacher, idx) => (
-    <CardTeacher
-      key={teacher.name + idx}
-      portrait={teacher.image}
-      name={teacher.name}
-      specialization={teacher.specialization}
-      achievements={teacher.achievements}
+  const slides = list.map((item, idx) => (
+    <CardDistanceEducation
+      key={item + idx}
+      item={item}
+      purpleBlock={idx === 1 || idx === 4}
     />
   ))
-  const mobileSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 40
-  }
 
-  const tabletSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 40
+  const desktopSwiperOptions = {
+    slidesNum: 5,
+    spaceBetween: 15
   }
 
   const laptopSwiperOptions = {
-    slidesNum: 1.5,
-    spaceBetween: 30
+    slidesNum: 4,
+    spaceBetween: 15
   }
 
-  const desktopSwiperOptions = {
+  const tabletSwiperOptions = {
     slidesNum: 2,
-    spaceBetween: 30
+    spaceBetween: 15
   }
-  
+
+  const mobileSwiperOptions = {
+    slidesNum: 1.5,
+    spaceBetween: 20
+  }
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -68,25 +51,16 @@ export const DistanceEducation = () => {
           В программу дистанционного обучения входит:
         </h2>
         <SwiperContainer
-          // teachers
-          slides={teachersSlides}
+          slides={slides}
           mobileOptions={mobileSwiperOptions}
           tabletOptions={tabletSwiperOptions}
           laptopOptions={laptopSwiperOptions}
           desktopOptions={desktopSwiperOptions}
-          // alwaysDisabledOnDesktop
-          // isMultiRow
+          hideNavigation
         />
-        {/* <ul className={stls.list}>
-          {list.map((item, idx) => (
-            <li key={item + idx} className={stls.item}>
-              <IconPortalViolet />
-              <div className={stls.description}>
-                <span className={stls.p}>{item}</span>
-              </div>
-            </li>
-          ))}
-        </ul> */}
+        <div className={stls.orangeBlock}>
+          <IconFinger />
+        </div>
       </Wrapper>
     </section>
   )

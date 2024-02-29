@@ -3,54 +3,76 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  position: relative
+  z-index: 1
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(50), $pb: f.px(43))
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(60))
+    @include m.gap($pt: f.px(60), $pb: f.px(80))
   @include m.dye(bg, c.$nu)
 
 .title
-  display: inline-block
+  display: block
   max-width: f.px(700)
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
-    font-size: f.px(26)
+  @include m.dye(c, c.$theta)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(35))
     font-size: f.px(44)
     font-weight: 500
-  @include m.dye(c, c.$theta)
-
-.list
-  margin: 0
-  padding: 0
-  display: flex
-
-.item
-  text-align: start
-  max-width: f.px(230)
-  max-height: f.px(175)
-  border-radius: f.px(25)
-  @include m.flex($jc: flex-start, $ai: flex-start, $fd: column)
-  border: 1px solid
-  @include m.dye(border, c.$alpha)
   @include m.media(phone, tablet)
-    @include m.gap($p: f.px(20))
-    border: 0.7px solid
-    @include m.dye(border, c.$alpha)
-    & > *
-      max-width: f.px(420)
-
-  @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(10), $pl: f.px(15), $pr: f.px(15))
-
-.description
-  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(26)
+  @include m.media(phone)
     max-width: f.px(300)
 
-.p
-  font-size: f.px(15)
-  font-weight: 350
-  @include m.gap($mb: 0)
-  @include m.media(phone, tablet)
-    font-size: f.px(14)
+.orangeBlock
+  z-index: 2
+  position: absolute
+  display: flex
+  justify-content: center
+  align-items: center
+  @include m.dye(bg, c.$beta)
+  width: 60px
+  height: 60px
+  border-radius: 50%
+  animation: 3s infinite normal slideDesktop
+  @include m.media(laptop)
+    animation: 3s infinite normal slideLaptop
+  @include m.media(tablet)
+    animation: 3s infinite normal slideTablet
+  @include m.media(phone)
+    animation: 3s infinite normal slidePhone
+
+
+@keyframes slidePhone
+  0% 
+    transform: translate(f.px(250), f.px(-30))
+  50%
+    transform: translate(f.px(200), f.px(-30))
+  100% 
+    transform: translate(f.px(250), f.px(-30))
+
+@keyframes slideTablet
+  0% 
+    transform: translate(f.px(300), f.px(-30))
+  50%
+    transform: translate(f.px(250), f.px(-30))
+  100% 
+    transform: translate(f.px(300), f.px(-30))
+
+@keyframes slideLaptop
+  0% 
+    transform: translate(f.px(520), f.px(-30))
+  50%
+    transform: translate(f.px(480), f.px(-30))
+  100% 
+    transform: translate(f.px(520), f.px(-30))
+
+@keyframes slideDesktop
+  0% 
+    transform: translate(f.px(675), f.px(-30))
+  50%
+    transform: translate(f.px(640), f.px(-30))
+  100% 
+    transform: translate(f.px(675), f.px(-30))
+

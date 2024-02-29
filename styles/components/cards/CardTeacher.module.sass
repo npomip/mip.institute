@@ -1,31 +1,28 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
-  
+
 .container
-  @include m.flex
-  align-items: flex-end
-  height: f.px(295)
-  // box-shadow: 3px 4px 40px 0px rgba(0, 0, 0, 0.05)
   @include m.media(phone, tablet)
-    @include m.gap( $mt: f.px(2), $mlr: f.px(2))
-    height: f.px(140)
+    @include m.gap($mt: f.px(2), $mlr: f.px(2))
     background: white
-    // @include m.flex($fd: column)
 
 .innerContainer
-  display: flex
-  align-items: center
-  // @include m.gap( $mlr: f.px(10))
-  height: f.px(230)
+  min-height: f.px(220)
   border-radius: f.px(25)
-  border: f.px(0.5) solid #6F01C6
+  border: f.px(1) solid #DCA8FF
   @include m.media(phone, tablet)
-    height: f.px(140)
-  // box-shadow: 3px 4px 40px 0px rgba(0, 0, 0, 0.1)
+    min-height: f.px(150)
+
+.twoColumns
+  width: 100%
+  height: 100%
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: row)
 
 .portrait
-  // object-fit: contain
   border-radius: 50%
   overflow: hidden
   min-width: 160px
@@ -33,50 +30,87 @@
   min-height: 160px
   max-height: 160px
   border-radius: 25px
-  @include m.media(phone, tablet)
-    // @include m.gap($mb: f.px(18))
-    @include m.gap($mlr: f.px(12))
-    min-width: 100px
-    max-width: 100px
-    min-height: 100px
-    max-height: 100px
-  @include m.media(laptop, desktop)
-    @include m.gap($mlr: f.px(18))
-    
+  @include m.gap($mb: f.px(15))
+  @include m.media(laptop)
+    @include m.gap($mb: f.px(10))
+    min-width: 120px
+    max-width: 120px
+    min-height: 120px
+    max-height: 120px
+  @include m.media(tablet)
+    @include m.gap($mb: f.px(10))
+    min-width: 120px
+    max-width: 120px
+    min-height: 120px
+    max-height: 120px
+  @include m.media(phone)
+    @include m.gap($mb: f.px(10))
+    min-width: 90px
+    max-width: 90px
+    min-height: 90px
+    max-height: 90px
 
-.content
-  @include m.gap($pr: f.px(20))
-  height: 100%
-  @include m.flex($fd: column)
-  justify-content: center
-
+.leftBlock
+  width: f.px(160)
+  @include m.gap($p:f.px(25))
+  @include m.media(laptop)
+    @include m.gap($p:f.px(20))
+  @include m.media(phone)
+    width: f.px(100)
+    @include m.gap($p:f.px(15))
 
 .name
-  @include m.media(phone, tablet)
+  font-weight: 500
+  margin-bottom: 0
+  line-height: 120%
+  @include m.media(laptop, desktop)
+    font-size: f.px(16)
+  @include m.media(tablet)
     font-size: f.px(14)
-    line-height: 120%
-    @include m.gap($mb: f.px(5))
-  @include m.media(laptop, desktop)
-    font-size: f.px(22)
-    @include m.gap($mb: f.px(10))
-  font-weight: 500
+  @include m.media(phone)
+    font-size: f.px(12)
 
-.specialization
-  
-  @include m.media(phone, tablet)
-    font-size: f.px(10)
-    @include m.gap($mb: f.px(10))
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(20))
-    font-size: f.px(18)
-  font-weight: 500
+.rightBlock
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-height: f.px(230)
+  @include m.dye(bg, c.$omega)
+  border-top-right-radius: f.px(25)
+  border-bottom-right-radius: f.px(25)
+  @include m.gap($p: f.px(25))
+  @include m.media(laptop)
+    @include m.gap($p:f.px(20))
+  @include m.media(tablet)
+    min-height: f.px(160)
+  @include m.media(phone)
+    @include m.gap($p:f.px(15))
+    min-height: f.px(150)
 
 .achievements
+  font-weight: 400
+  font-style: normal
+  line-height: 130%
+  font-size: f.px(14)
+  @include m.dye(c, c.$chi)
   @include m.gap($mb: 0)
-  @include m.media(phone, tablet)
-    font-size: f.px(9)
-    color: #808080
-    font-weight: 500
-  @include m.media(laptop, desktop)
-    font-size: f.px(13)
-  @include m.dye(c, c.$kappa)
+  @include m.media(tablet)
+    font-size: f.px(12)
+  @include m.media(phone)
+    font-size: f.px(10)
+
+.experience
+  display: flex
+  align-items: center
+  flex-direction: row
+  font-size: f.px(14)
+  @include m.media(tablet)
+    font-size: f.px(12)
+  @include m.media(phone)
+    font-size: f.px(10)
+
+.icon
+  width: 20px
+  @include m.gap($pr: f.px(10))
+  & path
+    @include m.dye(fill, #6F01C6)

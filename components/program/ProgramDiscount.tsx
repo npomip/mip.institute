@@ -17,9 +17,7 @@ const ProgramDiscount = ({
   violet = null
 }: TypeProgramDiscount) => {
   const { program } = useContext(ContextStaticProps)
-  //TODO: 1 марта
-  // const programDiscount = program?.discount || 0
-  const programDiscount = 37
+  const programDiscount = program?.discount || 0
 
   const elDiscount = <>{programDiscount ? `-${programDiscount}%` : discount}</>
 

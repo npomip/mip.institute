@@ -1,6 +1,5 @@
 import stls from '@/styles/components/sections/HappyStudents.module.sass'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperContainer from '../general/SwiperContainer'
 import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
 import IconCurveLineReview from '../icons/IconCurveLineReview'
 import Otzovic from '../imgs/footerReviews/Otzovic'
@@ -13,6 +12,8 @@ import FooterReviews from '../popups/FooterReviews'
 import routes from '@/config/routes'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import CardReviewsPlatform from '../cards/CardReviewsPlatform'
+import CustomPrevButton from '../general/CustomPrevButton'
+import CustomNextButton from '../general/CustomNextButton'
 SwiperCore.use([Navigation, Pagination])
 
 const HappyStudents = () => {
@@ -92,6 +93,10 @@ const HappyStudents = () => {
           <div className={stls.reviews}>
             <p className={stls.reviewsSubtitle}>Больше 250 отзывов на различных независимых площадках!</p>
             <Swiper
+            navigation={{
+              prevEl: '.custom-prev-button',
+              nextEl: '.custom-next-button',
+            }}
               slidesPerView={isMobileAndTabletLayout ? 1 : 1.6}
               spaceBetween={30}
               pagination={{
@@ -104,6 +109,14 @@ const HappyStudents = () => {
                   <CardReviewsPlatform el={el} />
                 </SwiperSlide>
               ))}
+              <div className="custom-prev-button-container">
+        <CustomPrevButton happyStudents
+          />
+      </div>
+        <div className="custom-next-button-container">
+        <CustomNextButton happyStudents
+          />
+      </div> 
             </Swiper>
           </div>
         </div>

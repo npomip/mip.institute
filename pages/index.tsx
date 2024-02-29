@@ -15,6 +15,7 @@ import ButtonToTop from '@/components/sections/ButtonToTop'
 import Directions from '@/components/sections/Directions'
 import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
+import PayLater from '@/components/sections/PayLater'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
 import YouTubeVideo from '@/components/sections/YouTubeVideo'
@@ -139,7 +140,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
-      
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
@@ -161,6 +161,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <YourDiploma onMain ofType='profession' />
       {/* <HappyStudents /> */}
       <Reviews onMain reviews={reviewsSorted} />
+      {/* <PayLater /> */}
       <EntryForm />
       <Faq />
     </>

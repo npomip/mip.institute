@@ -21,6 +21,7 @@ import TopCourses from '@/components/sections/TopCourses'
 import YouTubeVideo from '@/components/sections/YouTubeVideo'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, prod, routes } from '@/config/index'
+import preview from '@/config/preview'
 import mainList from '@/data/general/mainList'
 import {
   sortBasedOnNumericOrder,
@@ -106,8 +107,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={prod ? false : true}
-        noindex={prod ? false : true}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

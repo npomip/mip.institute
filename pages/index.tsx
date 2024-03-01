@@ -47,11 +47,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
       'Косина Алла Александровна',
-      'Гиль Людмила Владимировна',
+      'Смыслов Дмитрий Анатольевич',
       'Шавырина Анна Алексеевна',
       'Перемолотова Ирина Александровна',
       'Катасонова Юлия Викторовна',
-      'Волкова Анастасия Михайловна'
+      'Харитонцева Елена Олеговна'
     ]
 
     return allowedNames.includes(teacher.name)

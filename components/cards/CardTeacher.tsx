@@ -11,7 +11,14 @@ const CardTeacher = ({ portrait, name, achievements }) => {
             <h3 className={stls.name}>{name}</h3>
           </div>
           <div className={stls.rightBlock}>
-            <p className={stls.achievements}>{achievements}</p>
+            <ul className={stls.achievements}>
+              {achievements
+                .trim()
+                .split('\n')
+                .map((el, i) => (
+                  <li key={el + i}>{el}</li>
+                ))}
+            </ul>
             <div className={stls.experience}>
               <div className={stls.icon}>
                 <IconPortalViolet />

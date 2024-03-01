@@ -25,19 +25,13 @@
 .portrait
   border-radius: 50%
   overflow: hidden
-  min-width: 160px
-  max-width: 160px
-  min-height: 160px
-  max-height: 160px
+  min-width: 140px
+  max-width: 140px
+  min-height: 140px
+  max-height: 140px
   border-radius: 25px
   @include m.gap($mb: f.px(15))
-  @include m.media(laptop)
-    @include m.gap($mb: f.px(10))
-    min-width: 120px
-    max-width: 120px
-    min-height: 120px
-    max-height: 120px
-  @include m.media(tablet)
+  @include m.media(laptop,tablet)
     @include m.gap($mb: f.px(10))
     min-width: 120px
     max-width: 120px
@@ -54,7 +48,9 @@
   width: f.px(160)
   @include m.gap($p:f.px(25))
   @include m.media(laptop)
-    @include m.gap($p:f.px(20))
+    @include m.gap($p:f.px(15))
+  @include m.media(tablet)
+    @include m.gap($p:f.px(15))
   @include m.media(phone)
     width: f.px(100)
     @include m.gap($p:f.px(15))
@@ -72,38 +68,42 @@
 
 .rightBlock
   display: flex
+  width: 100%
   flex-direction: column
   justify-content: space-between
-  min-height: f.px(230)
+  min-height: f.px(240)
   @include m.dye(bg, c.$omega)
   border-top-right-radius: f.px(25)
   border-bottom-right-radius: f.px(25)
-  @include m.gap($p: f.px(25))
+  @include m.gap($p: f.px(25),$pt:0)
   @include m.media(laptop)
-    @include m.gap($p:f.px(20))
+    @include m.gap($p:f.px(20),$pt:0)
   @include m.media(tablet)
-    min-height: f.px(160)
+    min-height: f.px(170)
   @include m.media(phone)
-    @include m.gap($p:f.px(15))
-    min-height: f.px(150)
+    @include m.gap($p:f.px(15),$pt:0)
+    min-height: f.px(160)
 
 .achievements
   font-weight: 400
   font-style: normal
   line-height: 130%
-  font-size: f.px(14)
+  font-size: f.px(16)
+  @include m.gap($pl:f.px(10))
   @include m.dye(c, c.$chi)
   @include m.gap($mb: 0)
   @include m.media(tablet)
     font-size: f.px(12)
   @include m.media(phone)
+    font-size: f.px(11)
+  & > li::marker
     font-size: f.px(10)
 
 .experience
   display: flex
   align-items: center
   flex-direction: row
-  font-size: f.px(14)
+  font-size: f.px(16)
   @include m.media(tablet)
     font-size: f.px(12)
   @include m.media(phone)

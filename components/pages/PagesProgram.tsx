@@ -65,15 +65,6 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
 
-  const subtitle = 
-    <>
-      <p className={stls.leftTitle}>
-        Обучение осуществляется по заочной форме с применением
-        дистанционных<span className={stls.star}>*</span> технологий. Лекции, общение, тестирование проходят
-        в онлайн формате через образовательную платформу
-      </p>
-    </>
-
   const checkSlug = [
     'pedagog-psiholog',
     'nejropsiholog'
@@ -112,7 +103,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
       <WhatYouWillLearn title={'Чему вы научитесь'}  />
       </>
       )}
-      <HowProcessGoes processRef={processRef} list={ofType === 'course'? listOnCourses : list} subtitle={subtitle} />
+      <HowProcessGoes processRef={processRef} list={ofType === 'course'? listOnCourses : list} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />

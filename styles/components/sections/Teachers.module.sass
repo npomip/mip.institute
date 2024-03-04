@@ -5,7 +5,6 @@
   @include m.gap($pb: f.px(0), $pt: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(50))
-  background: #FDFDFD
 
 .onProfessions
   @include m.gap($pt: f.px(90))
@@ -19,6 +18,7 @@
 
 .title
   display: inline-block
+  font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
@@ -26,7 +26,6 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
     font-size: f.px(44)
-  font-weight: 500
   @include m.dye(c, c.$theta)
 
 .tag
@@ -50,7 +49,7 @@
 .desc
   @include m.media(phone, tablet)
     font-size: f.px(15)
-    @include m.gap($mb: f.px(7))
+    @include m.gap($mb: f.px(20))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
     font-size: f.px(20)
@@ -62,16 +61,12 @@
 
 .teachers
   position: relative
-  @include m.media(laptop, desktop)
-    // @include m.gap($mb: f.px(50, em))
-  @include m.media(phone, tablet)
-    // @include m.gap($mb: f.px(30))
-    height: f.px(170)
-    & > *
-      height: f.px(170)
 
 .btnContainer
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
     text-align: center
+
+.slide
+  border-radius: f.px(10)

@@ -14,10 +14,14 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import CardReviewsPlatform from '../cards/CardReviewsPlatform'
 import CustomPrevButton from '../general/CustomPrevButton'
 import CustomNextButton from '../general/CustomNextButton'
+import React from 'react'
 SwiperCore.use([Navigation, Pagination])
 
 const HappyStudents = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
+  const navigationPrevRef = React.useRef(null)
+  const navigationNextRef = React.useRef(null)
 
   const list = [
     {
@@ -56,7 +60,7 @@ const HappyStudents = () => {
       quantity: '7',
       rating: '5.0'
     },
-    
+
     {
       node: (
         <FooterReviews href={routes.external.ucheba}>
@@ -67,6 +71,16 @@ const HappyStudents = () => {
       rating: '5.0'
     }
   ]
+
+  const onBeforeInit = (Swiper: SwiperCore): void => {
+    if (typeof Swiper.params.navigation !== "boolean") {
+      const navigation = Swiper.params.navigation;
+      if (navigation !== undefined) {
+        navigation.prevEl = navigationPrevRef.current;
+        navigation.nextEl = navigationNextRef.current;
+      }
+    }
+  };
 
   return (
     <section className={stls.section}>
@@ -91,17 +105,17 @@ const HappyStudents = () => {
             </div>
           </div>
           <div className={stls.reviews}>
-            <p className={stls.reviewsSubtitle}>Больше 250 отзывов на различных независимых площадках!</p>
+            <p className={stls.reviewsSubtitle}>
+              Больше 250 отзывов на различных независимых площадках!
+            </p>
             <Swiper
-            navigation={{
-              prevEl: '.custom-prev-button',
-              nextEl: '.custom-next-button',
-            }}
+              onBeforeInit={onBeforeInit}
+              // navigation={{
+              //   prevEl: navigationPrevRef.current,
+              //   nextEl: navigationNextRef.current,
+              // }}
               slidesPerView={isMobileAndTabletLayout ? 1 : 1.6}
               spaceBetween={30}
-              pagination={{
-                clickable: true
-              }}
               modules={[Pagination]}
               className={stls.mySwiper}>
               {list.map((el, i) => (
@@ -109,14 +123,12 @@ const HappyStudents = () => {
                   <CardReviewsPlatform el={el} />
                 </SwiperSlide>
               ))}
-              <div className="custom-prev-button-container">
-        <CustomPrevButton happyStudents
-          />
-      </div>
-        <div className="custom-next-button-container">
-        <CustomNextButton happyStudents
-          />
-      </div> 
+              <div ref={navigationPrevRef} className={stls.prevBtn}>
+              <CustomPrevButton showOnMobile happyStudents/>
+              </div>
+              <div ref={navigationNextRef} className={stls.prevBtn}>
+                <CustomNextButton showOnMobile happyStudents />
+              </div>
             </Swiper>
           </div>
         </div>

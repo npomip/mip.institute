@@ -82,14 +82,22 @@
     font-size: f.px(18)
 
 .mySwiper
-  height: f.px(300)
+  height: f.px(350)
   @include m.gap($pl: f.px(71), $ml: f.px(10))
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(13), $ml: f.px(0))
+    height: f.px(350)
 
 .slide
   background: #FBF4FF
   // @include m.gap($ml: f.px(71))
+  @include m.gap( $mb: f.px(30))
   height: f.px(250)
   border-radius: f.px(10)
       
+
+.prevBtn
+  width: 10px
+  height: 10px
+  background: red
+  z-index: 100000

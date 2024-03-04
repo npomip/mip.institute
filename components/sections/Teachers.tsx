@@ -83,6 +83,7 @@ const Teachers = ({
             }}
             slidesPerView={isMobileAndTabletLayout ? 1 : 2}
             spaceBetween={30}
+            autoHeight={true}
             // pagination={{
             //   clickable: true
             // }}

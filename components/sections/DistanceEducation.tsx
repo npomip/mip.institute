@@ -4,6 +4,7 @@ import CardDistanceEducation from '../cards/CardDistanceEducation'
 import SwiperContainer from '../general/SwiperContainer'
 import classNames from 'classnames'
 import { IconFinger } from '../icons'
+import { useEffect, useRef, useState } from 'react'
 
 const list = [
   'Смотрите лекции, проходите тесты на платформе',
@@ -44,8 +45,40 @@ export const DistanceEducation = () => {
     spaceBetween: 20
   }
 
+  const fingerRef = useRef(null)
+
+  const [isIntersecting, setIntersecting] = useState(false);
+  const [isVisible, setIsVisible] = useState('flex')
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(([entry]) =>
+  //     setIntersecting(entry.isIntersecting)
+  //   );
+
+  //   observer.observe(fingerRef.current);
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+
+  // }, [fingerRef]);
+
+
+  // useEffect(() => {
+  //   if(isIntersecting){
+  //     setTimeout(() => {
+  //       setIsVisible('none')
+  //     }, 15000);
+  //   } else {
+  //     setIsVisible('flex')
+  //   }
+    
+    
+  // }, [isIntersecting])
+
+  // console.log('ВИЖУ ПАЛЕЦ', isIntersecting)
+
   return (
-    <section className={stls.container}>
+    <section ref={fingerRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
           В программу дистанционного обучения входит:
@@ -58,10 +91,12 @@ export const DistanceEducation = () => {
           desktopOptions={desktopSwiperOptions}
           hideNavigation
         />
-        <div className={stls.orangeBlock}>
+        <div style={{display: `${isVisible}`}}  className={stls.orangeBlock}>
           <IconFinger />
         </div>
       </Wrapper>
     </section>
   )
 }
+
+export default DistanceEducation

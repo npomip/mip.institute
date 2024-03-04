@@ -1,7 +1,7 @@
 import stls from '@/styles/components/cards/CardTeacher.module.sass'
 import IconPortalViolet from '../icons/IconPortalViolet'
 
-const CardTeacher = ({ portrait, name, achievements }) => {
+const CardTeacher = ({ portrait, name, achievements, experience }) => {
   return (
     <article className={stls.container}>
       <div className={stls.innerContainer}>
@@ -19,12 +19,14 @@ const CardTeacher = ({ portrait, name, achievements }) => {
                   <li key={el + i}>{el}</li>
                 ))}
             </ul>
-            <div className={stls.experience}>
+            {experience && (
+              <div className={stls.experience}>
               <div className={stls.icon}>
                 <IconPortalViolet />
               </div>
-              <span>Опыт 10 лет</span>
+              <span>{experience}</span>
             </div>
+            )}
           </div>
         </div>
       </div>

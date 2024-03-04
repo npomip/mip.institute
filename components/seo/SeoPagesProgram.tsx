@@ -4,6 +4,7 @@ import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { routes, company, themeColor, dev } from '@/config/index'
 import { AdditionalRobotsProps } from 'next-seo/lib/types'
+import preview from '@/config/preview'
 
 type TSeoPagesProgram = {
   ofType: 'course' | 'profession'
@@ -87,8 +88,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
         description={seoParams.desc}
         canonical={seoParams.canonical}
         themeColor={themeColor}
-        nofollow={dev ? true : isNofollow}
-        noindex={dev ? true : isNoindex}
+        nofollow={preview ? true : isNofollow}
+        noindex={preview ? true : isNoindex}
         {...((parsedMetaRobots && { robotsProps: parsedMetaRobots }) || {})}
         openGraph={{
           url: seoParams.canonical,

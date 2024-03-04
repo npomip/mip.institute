@@ -12,7 +12,7 @@ import {
 } from '@/components/sections'
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import Directions from '@/components/sections/Directions'
-import { DistanceEducation } from '@/components/sections/DistanceEducation'
+import  DistanceEducation  from '@/components/sections/DistanceEducation'
 import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
@@ -22,6 +22,8 @@ import TopCourses from '@/components/sections/TopCourses'
 import YouTubeVideo from '@/components/sections/YouTubeVideo'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, prod, routes } from '@/config/index'
+import preview from '@/config/preview'
+import mainList from '@/data/general/mainList'
 import {
   sortBasedOnNumericOrder,
   sortReviewsCreatedAtASC
@@ -93,8 +95,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={prod ? false : true}
-        noindex={prod ? false : true}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,
@@ -130,7 +132,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
-      {/* <YouTubeVideo videoId="Voc_dKGqhFE" /> */}
+      <YouTubeVideo videoId="Voc_dKGqhFE" />
       <About />
       <EducationProcess />
       <DistanceEducation />
@@ -141,16 +143,16 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
-      {/* <SalaryCounter /> */}
+      <SalaryCounter />
       <Teachers
         onMain
         title={'Преподаватели – наставники'}
         teachersFromMain={teachersFromMain}
       />
       <YourDiploma onMain ofType='profession' />
-      {/* <HappyStudents /> */}
+      <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
-      {/* <PayLater /> */}
+      <PayLater />
       <EntryForm />
       <Faq />
     </>

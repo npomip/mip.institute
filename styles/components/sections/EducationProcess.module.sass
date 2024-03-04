@@ -8,7 +8,7 @@
   background: white
   @include m.gap($pb: f.px(0), $pt: f.px(90))
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(15))
+    @include m.gap($pt: f.px(15))
   & > *
     & > *
       @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
@@ -44,6 +44,7 @@
       @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
       top: f.px(-30)
       left: f.px(-295)
+      display: none
 
 .text
   @include m.media(laptop, desktop)

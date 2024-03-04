@@ -27,6 +27,18 @@ const SalaryCounter = () => {
     setPrice(e.target.value)
   }
 
+  // const inputPrice = (e) => {
+  //   setPrice(e.target.value)
+  // }
+
+  // const inputDays = (e) => {
+  //   setPrice(e.target.value)
+  // }
+
+  // const inputConsultations = (e) => {
+  //   setConsultation(e.target.value)
+  // }
+
   return (
     <section>
       <Wrapper>
@@ -36,7 +48,7 @@ const SalaryCounter = () => {
           <div className={stls.calculatorContainer}>
             <div className={stls.innerContainer}>
               <p className={stls.subtitle}>Количество консультаций в день</p>
-              <p className={stls.value}>{consultation}</p>
+              <input max={10} value={consultation} onChange={consultationHandler} className={stls.value}/>
               <input
                 className={stls.range}
                 min={consultationsRange.min}
@@ -51,7 +63,7 @@ const SalaryCounter = () => {
               </div>
 
               <p className={stls.subtitle}>Количество рабочих дней в месяц</p>
-              <p className={stls.value}>{days}</p>
+              <input value={days} onChange={daysHandler} className={stls.value}/>
               <input
                 className={stls.range}
                 min={daysRange.min}
@@ -66,7 +78,7 @@ const SalaryCounter = () => {
               </div>
 
               <p className={stls.subtitle}>Стоимость одной консультации</p>
-              <p className={stls.value}>{price} ₽</p>
+              <input value={price} onChange={priceHandler} className={stls.value}/>
               <input
                 className={stls.range}
                 step={100}

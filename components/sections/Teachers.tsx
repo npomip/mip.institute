@@ -8,12 +8,13 @@ import stls from '@/styles/components/sections/Teachers.module.sass'
 import { TypeLibTeachers } from '@/types/index'
 import classNames from 'classnames'
 import { useContext } from 'react'
-import SwiperCore, { Navigation, Pagination } from 'swiper'
+import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import TagOrange from '../general/TagOrange'
 import CustomPrevButton from '../general/CustomPrevButton'
 import CustomNextButton from '../general/CustomNextButton'
-SwiperCore.use([Navigation, Pagination])
+import 'swiper/css/scrollbar';
+SwiperCore.use([Navigation, Pagination, Scrollbar])
 
 type TeacherProps = {
   teachersRef?: React.RefObject<HTMLElement | null>
@@ -82,7 +83,11 @@ const Teachers = ({
             }}
             slidesPerView={isMobileAndTabletLayout ? 1 : 2}
             spaceBetween={30}
-            modules={[Pagination]}
+            // pagination={{
+            //   clickable: true
+            // }}
+            scrollbar={{ draggable: true }}
+            modules={[ Scrollbar]}
             className={stls.mySwiper}>
             {list?.map((teacher, idx) => (
               <SwiperSlide key={teacher.name + idx} className={stls.slide}>
@@ -90,15 +95,17 @@ const Teachers = ({
                   portrait={teacher.image}
                   name={teacher.name}
                   achievements={teacher.achievements}
+                  experience={teacher.experience}
                 />
               </SwiperSlide>
             ))}
-            {/* <div className='custom-prev-button-container'>
-              <CustomPrevButton happyStudents/>
+            
+            <div className='custom-prev-button-container'>
+              <CustomPrevButton showOnMobile left={10} top={-10} mobileTop={-30} mobileLeft={100} reviewPrevBtn/>
             </div>
             <div className='custom-next-button-container'>
-              <CustomNextButton happyStudents />
-            </div> */}
+              <CustomNextButton showOnMobile left={15} top={-10} mobileTop={-30} mobileLeft={-100} reviewNextBtn/>
+            </div>
           </Swiper>
         </div>
       </Wrapper>

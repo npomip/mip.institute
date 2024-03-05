@@ -50,7 +50,7 @@
   @include m.media(laptop, desktop)
     flex-basis: 48.8%
     margin-right: 0px
-    max-width: f.px(520)
+    max-width: f.px(500)
   @include m.media(phone, tablet)
     display: none
 
@@ -77,8 +77,10 @@
 
 .img
   @include m.gap($mt: f.px(30), $mb: f.px(25))
-  & > *
-    border-radius: 25px
+
+.rightImg
+  object-fit: cover
+  border-radius: f.px(25)
 
 .leftTitle
   @include m.gap($mt: f.px(30), $mb: f.px(45))

@@ -59,8 +59,9 @@ const EducationProcess = () => {
           </button>
           <div className={stls.img}>
             <Image
-              width={500}
-              height={300}
+            className={stls.rightImg}
+              width={575}
+              height={260}
               src={img}
               alt='Как идет обучение?'
             />

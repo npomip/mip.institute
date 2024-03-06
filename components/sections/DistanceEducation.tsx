@@ -26,7 +26,7 @@ export const DistanceEducation = () => {
   ))
 
   const desktopSwiperOptions = {
-    slidesNum: 5,
+    slidesNum: 4.7,
     spaceBetween: 15
   }
 

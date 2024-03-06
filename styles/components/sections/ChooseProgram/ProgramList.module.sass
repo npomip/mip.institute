@@ -3,19 +3,33 @@
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/utils/mixin/media' as bp
 
-
 .program
   @include m.media(laptop, desktop)
     width: 100%
-    display: grid
-    grid-template: f.px(40) repeat(3, f.px(60)) / repeat(2, 1fr)
-    grid-column-gap: f.px(29)
-    grid-auto-flow: column
+    @include m.gap($mb: f.px(20))
   @include m.media(phone, tablet)
     display: flex
     flex-direction: column
     margin: 0 auto
-    @include m.gap($mb: f.px(20))
     width: 100%
-    // max-width: f.px(350)
-    // 
+
+.all
+  @include m.media(desktop, laptop)
+    height: 100%
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border-bottom: f.px(1) solid #B250FF
+  font-weight: 500
+  font-family: Stem, sans-serif
+  font-size: f.px(18)
+  @include m.gap($mt: f.px(20), $pt: f.px(10), $pb: f.px(15))
+  &:visited
+    color: black
+    cursor: pointer
+  &:hover
+    color: #B250FF
+    cursor: pointer
+  @include m.media(phone, tablet)
+    margin: 0 auto
+    font-size: f.px(16)

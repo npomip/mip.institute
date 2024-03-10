@@ -97,7 +97,7 @@ const SwiperContainer = ({
         prevEl: '.custom-prev-button',
         nextEl: '.custom-next-button'
       }}
-      loop={slides?.length > 1 ? true : false}
+      
       speed={250}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}

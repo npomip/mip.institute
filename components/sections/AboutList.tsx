@@ -4,7 +4,7 @@ import stls from '@/styles/components/sections/AboutList.module.sass'
 
 const AboutList = () => {
   const list = [
-    {title:'2 500 ', desc:'Студентов уже обучили'},
+    {title:'4 000', desc:'Студентов уже обучили'},
     {title:'', desc:''},
     {title:'ТОП 5', desc:'Входим в пятерку лучших институтов  по направлению психология'},
     {title:'15 лет ', desc:'На рынке образования'},

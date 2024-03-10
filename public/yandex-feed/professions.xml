@@ -3,7 +3,7 @@
   <shop>
     <name>Московский институт психологии</name>
     <company>Московский институт психологии</company>
-    <url>https://mip.institute/professions?utm_source=yandex-Feed«&amp;»utm_medium=free«&amp;»utm_campaign=psychology&amp;»utm_content=professions</url>
+    <url>https://mip.institute/professions?utm_source=yandex-Feed&amp;utm_medium=free&amp;utm_campaign=psychology&amp;utm_content=professions</url>
     <email>info@mip.institute</email>
     <picture>https://mip.institute/yandex-feed/icon.png</picture>
     <description>Освойте востребованную профессию психолога или повысьте квалификацию онлайн вместе с Московским Институтом Психологии</description>
@@ -1505,7 +1505,7 @@
 
       <offer id="22_sports psyhologist">
         <name>Спортивный психолог</name>
-        <url>https://mip.institute/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii</url>
+        <url>https://mip.institute/professions/obshaya-psihologiya/sportivnyj-psiholog</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->
@@ -2148,7 +2148,7 @@
 
       <offer id="30_brief psychotherapy">
         <name>Краткосрочная психотерапия</name>
-        <url>https://mip.institute/professions/obshaya-psihologiya/psihologiya</url>
+        <url>https://mip.institute/professions/konsultirovanie/kratkosrochnaya-psihoterapiya</url>
         <categoryId>800</categoryId><!--Обязательная ссылка на категорию. Можно указать до 2х значений категории-->
         <param name="Дополнительная категория">802</param>
         <set-ids>s1</set-ids><!--Можно указать несколько наборов через запятую-->

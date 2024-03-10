@@ -60,8 +60,9 @@ const Program = ({
           )}
           {...{ contentStyle }}
           on={'hover'}
-          position={ofType === 'professions' ? 'left center' : 'right center'}
-          offsetX={showIcon ? -20 : -40}
+          position={ofType === 'course' ? 'left center' : 'right center'}
+          offsetX={showIcon ? -20 : 20}
+          offsetY={-5}
           mouseLeaveDelay={200}
           mouseEnterDelay={200}
           arrowStyle={{

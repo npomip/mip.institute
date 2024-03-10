@@ -4,7 +4,7 @@ const IconForBottomDirections = () => {
   return (
     <span className={stls.container}>
       <svg
-        width='1539'
+        width='1239'
         height='73'
         viewBox='0 0 1539 73'
         fill='none'

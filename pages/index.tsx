@@ -132,7 +132,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
-      <YouTubeVideo videoId="Voc_dKGqhFE" />
+      {/* <YouTubeVideo videoId="Voc_dKGqhFE" /> */}
       <About />
       <EducationProcess />
       <DistanceEducation />
@@ -143,7 +143,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
-      <SalaryCounter />
+      {/* <SalaryCounter /> */}
       <Teachers
         onMain
         title={'Преподаватели – наставники'}

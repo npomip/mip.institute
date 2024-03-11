@@ -29,17 +29,14 @@ const StickyBottomNewYear = () => {
   const [isClosed, setIsClosed] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
-  console.log(router.asPath == (routes.front.gratefull))
 
   useEffect(() => {
     setIsLoaded(true)
     if (router.asPath == (routes.front.gratefull)) {
-      // console.log('YESSS')
       // setIsShown(false)
       // document.addEventListener('scroll', () => {
       //   const scrollHeight = document.body.scrollHeight
       //   const pageYOffset = window.pageYOffset
-      //   console.log(pageYOffset, scrollHeight)
       //   pageYOffset > (scrollHeight * 10) / 1000 &&
       //   pageYOffset + window.innerHeight < (scrollHeight * 90) / 100 &&
       //   !isClosed

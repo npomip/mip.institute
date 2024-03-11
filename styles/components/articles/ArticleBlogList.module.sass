@@ -4,9 +4,13 @@
 
 .icon
   @include m.sizeIcon($w: 64, $h: 64)
-  min-width: f.px(50)
+  min-width: f.px(64)
+  max-width: f.px(64)
   @include m.media(phone, tablet)
     @include m.sizeIcon($w: 40, $h: 40)
+    min-width: f.px(40)
+    max-width: f.px(40)
+    // width: f.px(40)
 
 .contentBox
   @include m.gap($mtb: f.px(50))

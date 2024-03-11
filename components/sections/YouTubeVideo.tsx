@@ -3,6 +3,7 @@ import React from 'react';
 import YouTube from 'react-youtube';
 import Wrapper from '../layout/Wrapper';
 import stls from '@/styles/components/sections/YouTubeVideo.module.sass'
+import { IconClock } from '../icons';
 
 const YouTubeVideo = ({ videoId }) => {
 
@@ -14,7 +15,7 @@ const YouTubeVideo = ({ videoId }) => {
   };
 
   const opts = {
-    height: isTabletLayout ? '350' : isMobileLayout ? '210' : '600',
+    height: isTabletLayout ? '350' : isMobileLayout ? '210' : '550',
     width: '100%',
     borderRadius: '20px'
   };
@@ -23,6 +24,11 @@ const YouTubeVideo = ({ videoId }) => {
     <section>
     <Wrapper>
       <h1 className={stls.title}>Знакомство с институтом</h1>
+      <div className={stls.time}>
+        <IconClock colorCode='#DADADA' />
+        <p>Длительность 2 минуты</p>
+      </div>
+      
     <YouTube
       videoId={videoId}
       onError={onError}

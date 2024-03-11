@@ -120,6 +120,7 @@ const getStaticPropsPageProgram = async ({
             name
             achievements
             specialization
+            experience
             portrait {
               url
               width

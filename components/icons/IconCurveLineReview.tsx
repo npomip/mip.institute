@@ -24,6 +24,8 @@ const IconCurveLineReview = ({height=241, width=517, left=0}) => {
             className={stls.text}
             startOffset='10px'
             method='stretch'
+            // textAnchor='end'
+            baselineShift='-4px'
             style={{ fontWeight: 500 }}
             href='#my_path'>
               <animate attributeName="startOffset" from="-70px" to="61px" begin="0s" dur="40s" repeatCount="indefinite"></animate>

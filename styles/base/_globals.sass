@@ -100,6 +100,16 @@ section
 .swiper-wrapper
   max-width: max-content !important
 
+.swiper-scrollbar
+  @include m.media(phone, tablet)
+    display: none
+  // width: 100% !important
+
+.swiper-scrollbar-drag
+  top: -8px !important
+  background: #6F01C6 !important
+
+
 .swiper-slide
   height: auto
 

@@ -6,6 +6,7 @@ type TypeLibTeacher = {
   achievements: string | null
   specialization: string | null
   portrait: TypeLibGeneralPicture | null
+  experience: string | null
   index_number?: {
     idx?: number | null
   } | null

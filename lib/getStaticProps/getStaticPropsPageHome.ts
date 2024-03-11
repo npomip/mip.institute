@@ -40,6 +40,7 @@ const getStaticPropsPageHome = async ({
           name
           achievements
           specialization
+          experience
           portrait {
             url
             width
@@ -68,6 +69,7 @@ const getStaticPropsPageHome = async ({
       }
     `
   })
+  console.log(res.data)
 
   return {
     props: res.data,

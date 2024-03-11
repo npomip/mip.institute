@@ -69,7 +69,6 @@ const getStaticPropsPageHome = async ({
       }
     `
   })
-  console.log(res.data)
 
   return {
     props: res.data,

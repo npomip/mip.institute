@@ -1,13 +1,12 @@
-import stls from '@/styles/components/sections/Directions.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { useState } from 'react'
-import ProgramList from './ChooseProgram/ProgramList'
-import DirectionsSelector from './DirectionsSelector'
+import stls from '@/styles/components/sections/Directions.module.sass'
 import TagOrange from '../general/TagOrange'
 import IconForBottomDirections from '../icons/IconForBottomDirections'
+import ProgramList from './ChooseProgram/ProgramList'
+import DirectionsSelector from './DirectionsSelector'
+import { useState } from 'react'
 
 const Directions = () => {
-
   const [currentType, setCurrentType] = useState('profession')
 
   return (
@@ -20,23 +19,31 @@ const Directions = () => {
               <div className={stls.tag}>
                 <TagOrange>Выбор</TagOrange>
               </div>
-
             </div>
             <div className={stls.flexContainer}>
-              <DirectionsSelector currentType={currentType} setCurrentType={setCurrentType} />
-              <ProgramList currentType={currentType} ofType={currentType === 'course' ? 'course' : currentType === 'profession' ? 'profession' : null} />
+              <div className={stls.leftBlock}>
+                <p className={stls.professions}>
+                  Профессиональная переподготовка
+                </p>
+                <ProgramList ofType={'profession'} />
+              </div>
+              <div className={stls.rightBlock}>
+                <p className={stls.courses}>Повышение квалификации</p>
+                <ProgramList ofType={'course'} />
+              </div>
+            </div>
+            <div className={stls.icon}>
+              <IconForBottomDirections />
             </div>
             <div className={stls.flexContainerMobile}>
-              <DirectionsSelector currentType={currentType} setCurrentType={setCurrentType} />
+              <DirectionsSelector
+                currentType={currentType}
+                setCurrentType={setCurrentType}
+              />
             </div>
           </div>
-          
         </div>
-        
       </Wrapper>
-      <div className={stls.icon}>
-            <IconForBottomDirections />
-          </div>
     </section>
   )
 }

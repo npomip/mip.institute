@@ -9,17 +9,18 @@
     max-width: f.px(500)
     position: relative
     transform-style: preserve-3d
+    @include m.gap($mb: f.px(30))
     @include m.media(phone, tablet)
       font-size: f.px(33)
       max-width: f.px(400)
-      @include m.gap($mb: f.px(0), $mt: f.px(81))
+      @include m.gap($mb: f.px(0), $mt: f.px(45))
     &::after
       content: ''
       position: absolute
-      border-bottom: f.px(11) solid #F87E1B
+      border-bottom: f.px(10) solid #F87E1B
       width: 63%
       left: 0
-      bottom: f.px(3)
+      bottom: f.px(5)
       transform: translateZ(-1px)
       @include m.media(phone, tablet)
         width: f.px(240)
@@ -58,7 +59,7 @@
   position: relative
   display: flex
   flex: 1 1 25%
-  @include m.gap($mt: f.px(33))
+  @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
     justify-content: baseline
   &:nth-of-type(3)
@@ -76,7 +77,7 @@
       display: none
 
 .payMonth
-  @include m.gap($ptb: f.px(33))
+  @include m.gap($pb: f.px(22), $mb: f.px(0))
   border-bottom: f.px(1) solid #B6B6B6
   color: #6F01C6
   font-weight: 500

@@ -1,33 +1,41 @@
+import CardTeacher from '@/components/cards/CardTeacher'
+import { ImgTeacher } from '@/components/imgs'
+import Wrapper from '@/components/layout/Wrapper'
+import { ContextStaticProps } from '@/context/index'
+import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/Teachers.module.sass'
 import { TypeLibTeachers } from '@/types/index'
-import { useContext } from 'react'
-import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
-import { ContextStaticProps } from '@/context/index'
-import Wrapper from '@/components/layout/Wrapper'
-import SwiperContainer from '@/components/general/SwiperContainer'
-import CardTeacher from '@/components/cards/CardTeacher'
-import {
-  ImgTeacher,
-} from '@/components/imgs'
-import TagOrange from '../general/TagOrange'
 import classNames from 'classnames'
+import { useContext } from 'react'
+import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import TagOrange from '../general/TagOrange'
+import CustomPrevButton from '../general/CustomPrevButton'
+import CustomNextButton from '../general/CustomNextButton'
+import 'swiper/css/scrollbar';
+SwiperCore.use([Navigation, Pagination, Scrollbar])
 
-type TeacherProps ={
+type TeacherProps = {
   teachersRef?: React.RefObject<HTMLElement | null>
   teachersFromMain?: TypeLibTeachers
   title: string
   onMain?: boolean
 }
 
-const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherProps) => {
+const Teachers = ({
+  teachersRef,
+  teachersFromMain,
+  title,
+  onMain = false
+}: TeacherProps) => {
   const { program, curProgramsType } = useContext(ContextStaticProps)
-  // const teachers: TypeLibTeachers =
-  //   sortBasedOnNumericOrder({ teachers: program?.teachers }) || []
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
   let teachers = program?.teachers
-  if(teachersFromMain) {
+  if (teachersFromMain) {
     teachers = teachersFromMain
   }
-  
 
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
   const list =
@@ -48,66 +56,58 @@ const Teachers = ({teachersRef, teachersFromMain, title, onMain=false}: TeacherP
       )
     }))
 
-  const teachersSlides = list?.map((teacher, idx) => (
-    <CardTeacher
-      key={teacher.name + idx}
-      portrait={teacher.image}
-      name={teacher.name}
-      specialization={teacher.specialization}
-      achievements={teacher.achievements}
-    />
-  ))
-  const mobileSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 40
-  }
-
-  const tabletSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 40
-  }
-
-  const laptopSwiperOptions = {
-    slidesNum: 1.5,
-    spaceBetween: 30
-  }
-
-  const desktopSwiperOptions = {
-    slidesNum: 2,
-    spaceBetween: 30
-  }
-
   return (
-    <section ref={teachersRef} className={classNames({
-      [stls.container]: true,
-      [stls.onProfessions]: !onMain,
-      [stls.course]: curProgramsType === 'course'
-    })}>
+    <section
+      ref={teachersRef}
+      className={classNames({
+        [stls.container]: true,
+        [stls.onProfessions]: !onMain,
+        [stls.course]: curProgramsType === 'course'
+      })}>
       <Wrapper>
         <h2 className={stls.title}>{title}</h2>
         {onMain && (
           <div className={stls.tag}>
-            <TagOrange>
-              Опыт
-            </TagOrange>
+            <TagOrange>Опыт</TagOrange>
           </div>
-          
         )}
         <p className={stls.desc}>
           Преподают ведущие практикующие психологи и психотерапевты России{' '}
           <span className={stls.highlight}>с опытом от 7 до 25 лет</span>
         </p>
         <div className={stls.teachers}>
-          <SwiperContainer
-            // teachers
-            slides={teachersSlides}
-            mobileOptions={mobileSwiperOptions}
-            tabletOptions={tabletSwiperOptions}
-            laptopOptions={laptopSwiperOptions}
-            desktopOptions={desktopSwiperOptions}
-            // alwaysDisabledOnDesktop
-            // isMultiRow
-          />
+          <Swiper
+            navigation={{
+              prevEl: '.custom-prev-button',
+              nextEl: '.custom-next-button'
+            }}
+            slidesPerView={isMobileAndTabletLayout ? 1 : 2}
+            spaceBetween={30}
+            autoHeight={true}
+            // pagination={{
+            //   clickable: true
+            // }}
+            scrollbar={{ draggable: true }}
+            modules={[ Scrollbar]}
+            className={stls.mySwiper}>
+            {list?.map((teacher, idx) => (
+              <SwiperSlide key={teacher.name + idx} className={stls.slide}>
+                <CardTeacher
+                  portrait={teacher.image}
+                  name={teacher.name}
+                  achievements={teacher.achievements}
+                  experience={teacher.experience}
+                />
+              </SwiperSlide>
+            ))}
+            
+            <div className='custom-prev-button-container'>
+              <CustomPrevButton showOnMobile left={10} top={-10} mobileTop={-30} mobileLeft={100} reviewPrevBtn/>
+            </div>
+            <div className='custom-next-button-container'>
+              <CustomNextButton showOnMobile left={15} top={-10} mobileTop={-30} mobileLeft={-100} reviewNextBtn/>
+            </div>
+          </Swiper>
         </div>
       </Wrapper>
     </section>

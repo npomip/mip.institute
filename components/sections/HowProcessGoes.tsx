@@ -1,10 +1,8 @@
-import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
 import TwoColumns from '@/components/layout/TwoColumns'
+import Wrapper from '@/components/layout/Wrapper'
+import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import img from '@/public/assets/imgs/howProcessGoes.png'
 import Image from 'next/image'
-import TagOrange from '../general/TagOrange'
-import classNames from 'classnames'
 
 interface listType {
   desc: string
@@ -13,31 +11,23 @@ interface listType {
 type ProcessType = {
   processRef?: any
   list: listType[]
-  subtitle: any
-  onMain?: boolean
 }
 
-const HowProcessGoes = ({
-  processRef,
-  list,
-  subtitle,
-  onMain = false
-}: ProcessType) => {
+const HowProcessGoes = ({ processRef, list }: ProcessType) => {
+  const subtitle = (
+    <>
+      <p className={stls.leftTitle}>
+        Обучение осуществляется по заочной форме с применением дистанционных
+        <span className={stls.star}>*</span> технологий. Лекции, общение,
+        тестирование проходят в онлайн формате через образовательную платформу
+      </p>
+    </>
+  )
+
   return (
-    <section
-      ref={processRef}
-      className={classNames({
-        [stls.container]: true,
-        [stls.onProfession]: !onMain,
-        [stls.onMain]: onMain
-      })}>
+    <section ref={processRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Как проходит обучение</h2>
-        {onMain && (
-          <div className={stls.tag}>
-            <TagOrange>Процесс</TagOrange>
-          </div>
-        )}
         <TwoColumns>
           <div className={stls.left}>
             {subtitle}

@@ -9,7 +9,7 @@
   right: 0
   z-index: 3
   @include m.media(phone, tablet)
-    z-index: 0
+    // z-index: 0
     top: -100px
   & > *
     & > *
@@ -38,7 +38,7 @@
             transition: stroke 0.5s ease
             stroke: #6F01C6
             @include m.media(phone, tablet)
-                display: none
+                // display: none
     &:hover
       
       & > *
@@ -51,19 +51,22 @@
   &.happyStudentsNextBtn
     transition: stroke 2s ease
     position: absolute
-    bottom: 10px
-    right: 20px
+    top: f.px(260)
+    right: f.px(370)
+    // transform: translate(f.px(20), f.px(140))
+    // float: left
     @include m.media(phone, tablet)
-      top: 90%
-      right: 5%
+      top: f.px(260)
+      right: f.px(110)
     & > *
       & > *
         & > *
           & > *
             transition: stroke 0.5s ease
             stroke: #6F01C6
+            fill: #FBF4FF
             @include m.media(phone, tablet)
-                display: none
+                // display: none
     &:hover
       & > *
         & > *
@@ -78,7 +81,7 @@
   right: 50px
   z-index: 3
   @include m.media(phone, tablet)
-    z-index: 0
+    // z-index: 0
     top: -100px
   & > *
     & > *
@@ -106,7 +109,7 @@
             transition: stroke 0.5s ease
             stroke: #6F01C6
             @include m.media(phone, tablet)
-              display: none
+              // display: none
     &:hover
       & > *
         & > *
@@ -117,18 +120,21 @@
   
   &.happyStudentsPrevBtn
     @include m.media(laptop, desktop)
-      // transform: translate(f.px(-350), f.px(260))
-    // right: 70px 
+      top: f.px(260)
+      right: f.px(420)
     @include m.media(phone, tablet)
+      top: f.px(260)
+      left: f.px(120)
       // transform: translate(f.px(20), f.px(40))
     & > *
       & > *
         & > *
           & > *
             transition: stroke 0.5s ease
-
+            stroke: #6F01C6
+            fill: #FBF4FF
             @include m.media(phone, tablet)
-              display: none
+              // display: none
     &:hover
       & > *
         & > *

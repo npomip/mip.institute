@@ -1,6 +1,10 @@
 import stls from '@/styles/components/sections/PsyTest.module.sass'
-import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
+import { useState } from 'react'
 import Wrapper from '../layout/Wrapper'
+import QuizResults from './QuizResults'
+SwiperCore.use([Navigation, Pagination])
 
 const PsyTest = () => {
   const [result, setResult] = useState({
@@ -16,70 +20,128 @@ const PsyTest = () => {
     psyAnalisys: 0,
     shortTerm: 0,
     ktp: 0
-  });
-  const [inputs, setInputs] = useState([]);
+  })
+  const [inputs, setInputs] = useState('')
 
-  console.log(result)
+  const [showResult, setShowResult] = useState(false)
 
-  const handleChange = (e) => {
-    setInputs(e.target.value);
-  };
+  const [category, setCategory] = useState('')
 
-  const handleAnswer = (categories) => {
-    console.log(categories)
-    categories.forEach(category => {
+  const quiz = [
+    {
+      idx: 1,
+      title: 'Что для Вас более предпочтительно?',
+      question1: 'Разбираться в глубинных проблемах и сложных случаях',
+      value1: ['clinic', 'art', 'sand', 'psySomatic', 'geshtalt'],
+      question2: 'Вдохновлять и мотивировать',
+      value2: ['organization', 'art', 'coach'],
+      question3: 'Работать с детско-родительскими отношениями',
+      value3: ['childrenPsy', 'ktp', 'sand', 'psyAnalisys'],
+      question4: 'Помогать в решении жизненных сложностей',
+      value4: ['psyCons', 'art', 'ktp', 'shortTerm', 'psySomatic', 'geshtalt']
+    },
+    {
+      idx: 2,
+      title:
+        'Вы спринтер (бегун на короткие дистанции) или сайер (бегун на длинные дистанции)?',
+      question1: 'Спринтер',
+      value1: ['organization', 'childrenPsy', 'psyCons', 'shortTerm'],
+      question2: 'Стайер',
+      value2: ['clinic', 'psyCons', 'psyAnalisys']
+    }
+  ]
+  
+
+  const handleChange = e => {
+    setInputs(e.target.value)
+  }
+
+  const handleAnswer = e => {
+    e.preventDefault()
+    const val = inputs.split(',')
+    console.log(val)
+    setInputs('')
+    val.forEach(category => {
       setResult(prevResult => ({
         ...prevResult,
         [category]: prevResult[category] + 1
-      }));
-    });
-  };
+      }))
+    })
+  }
+  let maxKey = '';
+  const handleLastSlide = () => {
+    console.log(result)
+    setInputs('')
+    setShowResult(true)
+    let max = 0;
 
-  console.log(inputs)
+    Object.keys(result).forEach(key => {
+      result[key] = result[key] + 1;
+      if (result[key] > max) {
+          max = result[key];
+          maxKey = key;
+      }
+  });
+  setCategory(maxKey)
+  console.log('Элемент с наибольшим количеством баллов: ', maxKey)
+  }
+
+  if(showResult)
+  return (
+    <QuizResults result={category}/>
+  )
 
   return (
-    <section >
+    <section>
       <Wrapper>
-        <button onClick={() => handleAnswer(['clinic', 'organization'])}>Вариант ответа 1</button>
-        <button onClick={() => handleAnswer(['clinic'])}>Вариант ответа 2</button>
-        <p className={stls.question}>Что для Вас более предпочтительно?</p>
-        <div>
-      <input
-        type="radio"
-        name="input"
-        value={['clinic', 'art', 'sand', 'psySomatic', 'geshtalt']}
-        onChange={handleChange}
-      />
-      <label>Разбираться в глубинных проблемах и сложных случаях</label>
-      <br />
-      <input
-        type="radio"
-        name="input"
-        value={['organization', 'art', 'coach']}
-        onChange={handleChange}
-      />
-      
-      <label>Вдохновлять и мотивировать</label>
-      <br />
-      <input
-        type="radio"
-        name="input"
-        value={['childrenPsy', 'ktp', 'sand', 'psyAnalisys']}
-        onChange={handleChange}
-      />
-      <label>Работать с детско-родительскими отношениями</label>
-      <br />
-      <input
-        type="radio"
-        name="input"
-        value={['psyCons', 'art', 'ktp', 'shortTerm', 'psySomatic', 'geshtalt']}
-        onChange={e => handleChange(e)}
-      />
-      <label>Помогать в решении жизненных сложностей</label>
-    </div>
-    <button onClick={() => handleAnswer(result)}>Подтвердить</button>
+        <Swiper
+        onTouchEnd={(swiper) => console.log(swiper)}
+        navigation={{
+          prevEl: '.back',
+          nextEl: '.quiz',
+      }}
+      swipeHandler='.quiz'
+        >
+        {quiz.map((el, i) => (
+          <SwiperSlide virtualIndex={el.idx}  key={i}>
+            <h3>{el.title}</h3>
+            <br />
+            <input
+              type='radio'
+              name='input'
+              value={el.value1}
+              onChange={value => handleChange(value)}
+            />
+            <label>{el.question1}</label>
+            <br />
+            <input
+              type='radio'
+              name='input'
+              value={el.value2}
+              onChange={value => handleChange(value)}
+            />
+            <label>{el.question2}</label>
+            <br />
+            <input
+              type='radio'
+              name='input'
+              value={el?.value3}
+              onChange={value => handleChange(value)}
+            />
+            <label>{el?.question3}</label>
+            <br />
+            <button
+            onClick={handleAnswer}
+            className='back'>BAACK</button>
+            <button
+            disabled={!inputs}
+            // disabled={el.idx === quiz[quiz.length-1].idx}
+            onClick={(el.idx === quiz[quiz.length-1].idx) ? handleLastSlide : handleAnswer} className='quiz'>Подтвердить</button>
+          </SwiperSlide>
+        ))}
+        </Swiper>
       </Wrapper>
     </section>
-  );
+  )
 }
 export default PsyTest

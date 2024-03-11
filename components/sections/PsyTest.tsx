@@ -106,16 +106,20 @@ const PsyTest = () => {
           <SwiperSlide virtualIndex={el.idx}  key={i}>
             <h3>{el.title}</h3>
             <br />
+            {/* <div className={stls.inputLbl}></div> */}
             <input
               type='radio'
+              className={stls.radio}
               name='input'
               value={el.value1}
               onChange={value => handleChange(value)}
             />
+            {/* <div className={stls.indicator}></div> */}
             <label>{el.question1}</label>
             <br />
             <input
               type='radio'
+              className={stls.radio}
               name='input'
               value={el.value2}
               onChange={value => handleChange(value)}
@@ -124,6 +128,7 @@ const PsyTest = () => {
             <br />
             <input
               type='radio'
+              className={stls.radio}
               name='input'
               value={el?.value3}
               onChange={value => handleChange(value)}

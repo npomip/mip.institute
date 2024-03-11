@@ -40,6 +40,7 @@ export default function ProgramList({ ofType, currentType }: Props) {
   const list = ofType === 'course' ? studyFieldsCourses : studyFieldsProfessions
 
   const [openListIndex, setOpenListIndex] = useState(-1)
+  console.log(ofType)
 
   return (
     <div className={styles.program}>

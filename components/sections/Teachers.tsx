@@ -84,18 +84,18 @@ const Teachers = ({
             slidesPerView={isMobileAndTabletLayout ? 1 : 2}
             spaceBetween={30}
             autoplay={{
-              delay: 5000,
+              delay: 4000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true
             }}
-            speed={3000}
+            speed={2000}
             loop={true}
             autoHeight={true}
             // pagination={{
             //   clickable: true
             // }}
-            // scrollbar={{ draggable: true }}
-            // modules={[Pagination, Navigation]}
+            scrollbar={{ draggable: true }}
+            modules={[Scrollbar]}
             className={stls.mySwiper}>
             {list?.map((teacher, idx) => (
               <SwiperSlide key={teacher.name + idx} className={stls.slide}>

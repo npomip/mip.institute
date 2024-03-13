@@ -13,9 +13,11 @@
   display: flex
   @include m.media(phone, tablet)
     flex-direction: column
-  
+
 .title
   font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
   max-width: f.px(470)
   @include m.gap($mt: f.px(90), $mb: f.px(30))
   @include m.media(phone, tablet)
@@ -58,7 +60,7 @@
     font-size: f.px(16)
 
 .portal
-  font-size:  f.px(14)
+  font-size: f.px(14)
   color: #808080
   @include m.gap($mt: f.px(121), $mb: f.px(78))
   @include m.media(phone, tablet)
@@ -90,11 +92,9 @@
 
 .slide
   background: #FBF4FF
-  // @include m.gap($ml: f.px(71))
   @include m.gap( $mb: f.px(30))
   height: f.px(250)
   border-radius: f.px(10)
-      
 
 .prevBtn
   width: 10px

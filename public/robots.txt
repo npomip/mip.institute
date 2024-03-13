@@ -11,7 +11,6 @@ Disallow: *test
 Disallow: /kz
 Disallow: /ru
 Disallow: /uz
-Disallow: *?calltouch_
 
 # Host
 Host: https://mip.institute

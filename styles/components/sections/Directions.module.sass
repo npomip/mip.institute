@@ -12,11 +12,6 @@
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(50))
 
-.flexContainer
-  display: flex
-  @include m.media(phone, tablet)
-    display: none
-
 .flexContainerMobile
   @include m.media(laptop, desktop)
     display: none
@@ -36,8 +31,7 @@
     font-size: f.px(33)
     @include m.gap($pt: f.px(5), $pb: f.px(25), $mb: f.px(0))
 
-
-.tag  
+.tag
   display: inline-block
   @include m.gap($pl: f.px(25), $pt: f.px(24))
   @include m.media(phone, tablet)
@@ -45,22 +39,62 @@
   & > *
     @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
-.fullContainer
+.flexContainer
   display: flex
-  justify-content: space-between
+  justify-content: flex-start
+  align-items: baseline
+  gap: 100px
+  @include m.media(laptop)
+    justify-content: space-between
   @include m.media(phone, tablet)
-    // justify-content: center
-    display: block
+    display: none
 
-.content
-  flex-basis: 90%
+.leftBlock
+  width: 40%
+
+.rightBlock
+  width: 40%
+
+.professions
+  background: white
+  @include m.gap($ptb: f.px(19), $plr: f.px(20), $mb: f.px(20))
+  border-radius: f.px(25)
+  border: f.px(1) solid #B250FF
+  width: f.px(400)
+  font-size: f.px(20)
+  text-align: center
+  font-weight: 500
+  @include m.media(laptop)
+    font-size: f.px(15)
+    @include m.gap($ptb: f.px(15), $plr: f.px(10))
+  @include m.media(phone, tablet)
+    display: flex
+    width: 100%
+    font-size: f.px(20)
+    white-space: pre-wrap
+    text-align: center
+    @include m.gap($mb: f.px(10))
+
+.courses
+  background: #B250FF
+  @include m.gap($ptb: f.px(19), $plr: f.px(20), $mb: f.px(20))
+  border-radius: f.px(25)
+  color: white
+  border: none
+  width: f.px(320)
+  font-size: f.px(20)
+  text-align: center
+  @include m.media(laptop)
+    font-size: f.px(15)
+    @include m.gap($ptb: f.px(15), $plr: f.px(10))
+  @include m.media(phone, tablet)
+    display: flex
+    width: 100%
+    font-size: f.px(20)
+    white-space: pre-wrap
+    @include m.gap($mb: f.px(10))
 
 .icon
-  // position: absolute
-  // flex-basis: 10%
-  // max-height: f.px(600)
-  @include m.gap($pt: f.px(87))
-  display: flex
-  justify-content: center
+  transform: rotate(90deg) translateY(-550px) scale(1.2)
   @include m.media(phone, tablet)
     display: none

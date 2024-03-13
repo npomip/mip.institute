@@ -79,7 +79,7 @@ a, button
 input
   border: f.px(2) solid transparent
   &:focus-visible
-    border: f.px(2) solid 
+    border: f.px(2) solid
     @include m.dye(border, c.$beta)
 
 section
@@ -88,8 +88,6 @@ section
   @include m.media(laptop, desktop)
     @include m.gap($pb: f.px(90))
     overflow: hidden
-// body
-//   background-color: #333
 
 .popup-content
   max-width: max-content !important
@@ -102,13 +100,12 @@ section
 
 .swiper-scrollbar
   @include m.media(phone, tablet)
-    display: none
+    // display: none
   // width: 100% !important
 
 .swiper-scrollbar-drag
   top: -8px !important
   background: #6F01C6 !important
-
 
 .swiper-slide
   height: auto

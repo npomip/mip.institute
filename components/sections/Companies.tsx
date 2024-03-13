@@ -60,7 +60,7 @@ const Companies = () => {
           <Swiper
             slidesPerView={isMobileAndTabletLayout ? 2 : 4}
             spaceBetween={isMobileAndTabletLayout ? 20 : 30}
-            autoHeight={true}
+            // autoHeight={true}
             scrollbar={{ draggable: true }}
             modules={[Scrollbar]}
             className={stls.mySwiper}>
@@ -69,6 +69,7 @@ const Companies = () => {
                 <Image
                   src={block.src}
                   alt={block.alt}
+                  className={stls.img}
                   width={isMobileAndTabletLayout ? block.mobWidth : block.width}
                   height={
                     isMobileAndTabletLayout ? block.mobHeight : block.height

@@ -8,13 +8,13 @@ import stls from '@/styles/components/sections/Teachers.module.sass'
 import { TypeLibTeachers } from '@/types/index'
 import classNames from 'classnames'
 import { useContext } from 'react'
-import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper'
+import SwiperCore, { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import TagOrange from '../general/TagOrange'
 import CustomPrevButton from '../general/CustomPrevButton'
 import CustomNextButton from '../general/CustomNextButton'
-import 'swiper/css/scrollbar';
-SwiperCore.use([Navigation, Pagination, Scrollbar])
+// import 'swiper/css/scrollbar'
+SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay])
 
 type TeacherProps = {
   teachersRef?: React.RefObject<HTMLElement | null>
@@ -77,18 +77,25 @@ const Teachers = ({
         </p>
         <div className={stls.teachers}>
           <Swiper
-            navigation={{
-              prevEl: '.custom-prev-button',
-              nextEl: '.custom-next-button'
-            }}
+            // navigation={{
+            //   prevEl: '.custom-prev-button',
+            //   nextEl: '.custom-next-button'
+            // }}
             slidesPerView={isMobileAndTabletLayout ? 1 : 2}
             spaceBetween={30}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            speed={2000}
+            loop={true}
             autoHeight={true}
             // pagination={{
             //   clickable: true
             // }}
             scrollbar={{ draggable: true }}
-            modules={[ Scrollbar]}
+            modules={[Scrollbar]}
             className={stls.mySwiper}>
             {list?.map((teacher, idx) => (
               <SwiperSlide key={teacher.name + idx} className={stls.slide}>
@@ -100,13 +107,27 @@ const Teachers = ({
                 />
               </SwiperSlide>
             ))}
-            
-            <div className='custom-prev-button-container'>
-              <CustomPrevButton showOnMobile left={10} top={-10} mobileTop={-30} mobileLeft={100} reviewPrevBtn/>
+
+            {/* <div className='custom-prev-button-container'>
+              <CustomPrevButton
+                showOnMobile
+                left={10}
+                top={-10}
+                mobileTop={-30}
+                mobileLeft={100}
+                reviewPrevBtn
+              />
             </div>
             <div className='custom-next-button-container'>
-              <CustomNextButton showOnMobile left={15} top={-10} mobileTop={-30} mobileLeft={-100} reviewNextBtn/>
-            </div>
+              <CustomNextButton
+                showOnMobile
+                left={15}
+                top={-10}
+                mobileTop={-30}
+                mobileLeft={-100}
+                reviewNextBtn
+              />
+            </div> */}
           </Swiper>
         </div>
       </Wrapper>

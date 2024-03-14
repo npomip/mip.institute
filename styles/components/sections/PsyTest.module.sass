@@ -3,17 +3,37 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  background: linear-gradient(180deg, #FDF8FF 0%, #D4C8FF 100%)
+  @include m.flex($fd: column, $jc: space-between)
+
+.questionTitle
+  font-size: f.px(30)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  @include m.gap($mt: f.px(70))
+
+.card
+  display: flex
+  gap: f.px(10)
+
+.leftBlock
+  @include m.flex($fd: column, $jc: space-between)
+  gap: f.px(30)
+
+.rightBlock
+  @include m.flex($fd: column, $jc: space-between)
 
 .answer
 
 .quiz
-  background: red
 
-.radio 
-  width: 30px
-  height: 30px
+.radio
+  width: f.px(30)
+  height: f.px(30)
   background: #947AFF !important
   cursor: pointer
+  @include m.gap($mr: f.px(30))
   // position: absolute
   // opacity: 0
   // accent-color: #947AFF
@@ -21,3 +41,9 @@
   // box-shadow:4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset
   &:checked
     accent-color: #947AFF
+
+.label
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%

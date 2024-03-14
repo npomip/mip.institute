@@ -43,14 +43,13 @@ const PsyTest = () => {
     {
       idx: 2,
       title:
-        'Вы спринтер (бегун на короткие дистанции) или сайер (бегун на длинные дистанции)?',
+        'Вы спринтер (бегун на короткие дистанции) или стайер (бегун на длинные дистанции)?',
       question1: 'Спринтер',
       value1: ['organization', 'childrenPsy', 'psyCons', 'shortTerm'],
       question2: 'Стайер',
       value2: ['clinic', 'psyCons', 'psyAnalisys']
     }
   ]
-  
 
   const handleChange = e => {
     setInputs(e.target.value)
@@ -68,82 +67,93 @@ const PsyTest = () => {
       }))
     })
   }
-  let maxKey = '';
+  let maxKey = ''
   const handleLastSlide = () => {
     console.log(result)
     setInputs('')
     setShowResult(true)
-    let max = 0;
+    let max = 0
 
     Object.keys(result).forEach(key => {
-      result[key] = result[key] + 1;
+      result[key] = result[key] + 1
       if (result[key] > max) {
-          max = result[key];
-          maxKey = key;
+        max = result[key]
+        maxKey = key
       }
-  });
-  setCategory(maxKey)
-  console.log('Элемент с наибольшим количеством баллов: ', maxKey)
+    })
+    setCategory(maxKey)
+    console.log('Элемент с наибольшим количеством баллов: ', maxKey)
   }
 
-  if(showResult)
-  return (
-    <QuizResults result={category}/>
-  )
+  if (showResult) return <QuizResults result={category} />
 
   return (
-    <section>
+    <section className={stls.container}>
       <Wrapper>
         <Swiper
-        onTouchEnd={(swiper) => console.log(swiper)}
-        navigation={{
-          prevEl: '.back',
-          nextEl: '.quiz',
-      }}
-      swipeHandler='.quiz'
-        >
-        {quiz.map((el, i) => (
-          <SwiperSlide virtualIndex={el.idx}  key={i}>
-            <h3>{el.title}</h3>
-            <br />
-            {/* <div className={stls.inputLbl}></div> */}
-            <input
-              type='radio'
-              className={stls.radio}
-              name='input'
-              value={el.value1}
-              onChange={value => handleChange(value)}
-            />
-            {/* <div className={stls.indicator}></div> */}
-            <label>{el.question1}</label>
-            <br />
-            <input
-              type='radio'
-              className={stls.radio}
-              name='input'
-              value={el.value2}
-              onChange={value => handleChange(value)}
-            />
-            <label>{el.question2}</label>
-            <br />
-            <input
-              type='radio'
-              className={stls.radio}
-              name='input'
-              value={el?.value3}
-              onChange={value => handleChange(value)}
-            />
-            <label>{el?.question3}</label>
-            <br />
-            <button
-            onClick={handleAnswer}
-            className='back'>BAACK</button>
-            <button
-            disabled={!inputs}
-            // disabled={el.idx === quiz[quiz.length-1].idx}
-            onClick={(el.idx === quiz[quiz.length-1].idx) ? handleLastSlide : handleAnswer} className='quiz'>Подтвердить</button>
-          </SwiperSlide>
-        ))}
+          onTouchEnd={swiper => console.log(swiper)}
+          navigation={{
+            prevEl: '.back',
+            nextEl: '.quiz'
+          }}
+          swipeHandler='.quiz'>
+          {quiz.map((el, i) => (
+            <SwiperSlide virtualIndex={el.idx} key={el.idx}>
+              <h3 className={stls.questionTitle}>{el.title}</h3>
+              {/* <div className={stls.inputLbl}></div> */}
+              <div className={stls.card}>
+                <div className={stls.leftBlock}>
+                  <input
+                    type='radio'
+                    className={stls.radio}
+                    name='input'
+                    value={el.value1}
+                    onChange={value => handleChange(value)}
+                  />
+                  <input
+                    type='radio'
+                    className={stls.radio}
+                    name='input'
+                    value={el.value2}
+                    onChange={value => handleChange(value)}
+                  />
+                  {el.idx === 1 && (
+                    <input
+                      type='radio'
+                      className={stls.radio}
+                      name='input'
+                      value={el?.value3}
+                      onChange={value => handleChange(value)}
+                    />
+                  )}
+                </div>
+                {/* <div className={stls.indicator}></div> */}
+                <div className={stls.rightBlock}>
+                  <label className={stls.label}>{el.question1}</label>
+                  <label className={stls.label}>{el.question2}</label>
+                  {el.idx === 1 && (
+                    <label className={stls.label}>{el?.question3}</label>
+                  )}
+                </div>
+              </div>
+              <div>
+                <button onClick={handleAnswer} className='back'>
+                  BACK
+                </button>
+                <button
+                  disabled={!inputs}
+                  // disabled={el.idx === quiz[quiz.length-1].idx}
+                  onClick={
+                    el.idx === quiz[quiz.length - 1].idx
+                      ? handleLastSlide
+                      : handleAnswer
+                  }
+                  className='quiz'>
+                  Подтвердить
+                </button>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </Wrapper>
     </section>

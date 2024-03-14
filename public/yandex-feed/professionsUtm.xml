@@ -81,7 +81,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">110000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">13100</param>
@@ -162,7 +162,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">40000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">4750</param>
@@ -225,7 +225,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">100000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">11900</param>
@@ -289,7 +289,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">80000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">9500</param>
@@ -350,7 +350,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">80000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">9500</param>
@@ -416,7 +416,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">120000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">14250</param>
@@ -492,7 +492,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">60000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7100</param>
@@ -560,7 +560,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">90000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">10600</param>
@@ -629,7 +629,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">90000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">10700</param>
@@ -695,7 +695,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">70000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">8300</param>
@@ -767,7 +767,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">125000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">14880</param>
@@ -840,7 +840,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">80000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">9500</param>
@@ -906,7 +906,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">130000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <param name="Ежемесячная цена">15500</param>
         <param name="Ежемесячная цена по скидке">10800</param>
@@ -977,7 +977,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">90000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">10700</param>
@@ -1047,7 +1047,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">80000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">9500</param>
@@ -1109,7 +1109,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">70000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">8300</param>
@@ -1178,7 +1178,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">40000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">4800</param>
@@ -1245,7 +1245,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">70000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">8300</param>
@@ -1315,7 +1315,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">90000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">10700</param>
@@ -1383,7 +1383,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">55000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">6500</param>
@@ -1448,7 +1448,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">65000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7700</param>
@@ -1515,7 +1515,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">75000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">8900</param>
@@ -1584,7 +1584,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">40000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">4700</param>
@@ -1653,7 +1653,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">155000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">18400</param>
@@ -1735,7 +1735,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">70000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">8300</param>
@@ -1805,7 +1805,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">80000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">9500</param>
@@ -1873,7 +1873,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">65000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7700</param>
@@ -1943,7 +1943,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">80000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">9500</param>
@@ -2015,7 +2015,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5900</param>
@@ -2087,7 +2087,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">55000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">6500</param>
@@ -2158,7 +2158,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5900</param>
@@ -2230,7 +2230,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">55000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">6500</param>
@@ -2304,7 +2304,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>
@@ -2365,7 +2365,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>
@@ -2436,7 +2436,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>
@@ -2495,7 +2495,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>
@@ -2566,7 +2566,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">60000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7100</param>
@@ -2639,7 +2639,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">60000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7150</param>
@@ -2709,7 +2709,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">60000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7100</param>
@@ -2784,7 +2784,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">65000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7700</param>
@@ -2860,7 +2860,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">55000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">6500</param>
@@ -2928,7 +2928,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">65000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">7700</param>
@@ -2997,7 +2997,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>
@@ -3068,7 +3068,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>
@@ -3139,7 +3139,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>
@@ -3213,7 +3213,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">40000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">4800</param>
@@ -3281,7 +3281,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">40000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">4800</param>
@@ -3349,7 +3349,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">50000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
 
         <!--Цена за месяц-->
         <param name="Ежемесячная цена">5950</param>

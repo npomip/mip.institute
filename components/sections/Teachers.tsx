@@ -84,7 +84,7 @@ const Teachers = ({
             slidesPerView={isMobileAndTabletLayout ? 1 : 2}
             spaceBetween={30}
             autoplay={{
-              delay: 2000,
+              delay: 5000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true
             }}

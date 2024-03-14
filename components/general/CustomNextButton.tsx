@@ -7,6 +7,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 const CustomNextButton = ({
   reviewNextBtn = false,
   happyStudents = false,
+  teachers=false,
   left = 0,
   top = 0,
   mobileTop = 0,
@@ -25,7 +26,8 @@ const CustomNextButton = ({
       className={classNames({
         [stls.containerNext]: true,
         [stls.reviewNextBtn]: reviewNextBtn,
-        [stls.happyStudentsNextBtn]: happyStudents
+        [stls.happyStudentsNextBtn]: happyStudents,
+        [stls.teachersNextBtn]: teachers
       })}>
       <button className='custom-next-button'>
         <IconNextButton />

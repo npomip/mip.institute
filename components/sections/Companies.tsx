@@ -5,11 +5,11 @@ import rfs from '@/public/assets/imgs/companies/rfs.png'
 import zdorove from '@/public/assets/imgs/companies/zdorove.png'
 import stls from '@/styles/components/sections/Companies.module.sass'
 import Image from 'next/image'
-import SwiperCore, { Pagination, Scrollbar } from 'swiper'
+import SwiperCore, { Autoplay, Pagination, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Wrapper from '../layout/Wrapper'
 import 'swiper/css/scrollbar'
-SwiperCore.use([Pagination, Scrollbar])
+SwiperCore.use([Pagination, Scrollbar, Autoplay])
 
 const Companies = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -60,7 +60,12 @@ const Companies = () => {
           <Swiper
             slidesPerView={isMobileAndTabletLayout ? 2 : 4}
             spaceBetween={isMobileAndTabletLayout ? 20 : 30}
-            // autoHeight={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            speed={2000}
             scrollbar={{ draggable: true }}
             modules={[Scrollbar]}
             className={stls.mySwiper}>

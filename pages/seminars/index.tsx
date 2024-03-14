@@ -7,6 +7,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import { useState } from 'react'
 import SeminarCard from '@/components/sections/SlugTags'
+import { NextSeo } from 'next-seo'
 
 const CoursesPage = ({ events }) => {
   // useHandleContextStaticProps({
@@ -22,6 +23,10 @@ console.log(events)
 
   return (
     <Wrapper>
+      <NextSeo 
+      nofollow={true}
+      noindex={true}
+      />
       <h1>Семинары</h1>
       {/* <StudyFieldSlugFilter props={events} slug='seminars' />
       <SeminarCard props={events} slug='seminars' withDate/> */}

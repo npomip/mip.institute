@@ -130,11 +130,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
-      <PsyTest />
+      {/* <PsyTest /> */}
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
-      <YouTubeVideo videoId="Voc_dKGqhFE" />
+      {/* <YouTubeVideo videoId="Voc_dKGqhFE" /> */}
       <YouTubeVideo videoId='Voc_dKGqhFE' />
       <About />
       <EducationProcess />

@@ -107,6 +107,25 @@ section
   top: -8px !important
   background: #6F01C6 !important
 
+.quiz
+  @include m.gap($mt: f.px(30), $ptb: f.px(20), $plr: f.px(30))
+  border: f.px(2) solid #D4C8FF
+  border-radius: f.px(10)
+  display: inline-block
+  color: white
+  background: #947AFF
+  font-size: f.px(18)
+  cursor: pointer
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($mt: f.px(30), $ptb: f.px(15), $plr: f.px(25))
+  &:hover
+    background: #6F01C6
+  &:disabled
+    background: #acacac
+    cursor: not-allowed
+
+
 .swiper-slide
   height: auto
 

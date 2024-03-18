@@ -18,6 +18,7 @@ import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
 import PayLater from '@/components/sections/PayLater'
+import PsyTest from '@/components/sections/PsyTest'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
 import YouTubeVideo from '@/components/sections/YouTubeVideo'
@@ -129,10 +130,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
+      <PsyTest />
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
-      {/* <YouTubeVideo videoId="Voc_dKGqhFE" /> */}
+      <YouTubeVideo videoId="Voc_dKGqhFE" />
       <YouTubeVideo videoId='Voc_dKGqhFE' />
       <About />
       <EducationProcess />

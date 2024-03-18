@@ -19,7 +19,7 @@ const CardQuizResult = ({ portrait, title, studyHours, href }: Props) => {
         </div>
       )}
       <div className={stls.description}>
-        <div>
+        <div className={stls.innerContainer}>
           <p className={stls.title}>{title}</p>
           <p className={stls.subtitle}>
             Ближайшее зачисление: <br /> <ProgramAdmission />

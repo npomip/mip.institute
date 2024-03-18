@@ -4,7 +4,8 @@ import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/QuizResults.module.sass'
 import { useContext } from 'react'
 import CardQuizResult from '../cards/CardQuizResult'
-import ImgTopCourse from '../imgs/programs/ImgTopCourse'
+import Image from 'next/image'
+import testResultsMarker from '../funcs/testResultsMarker'
 
 interface Props {
   result: string
@@ -13,58 +14,50 @@ interface Props {
 const QuizResults = ({ result }: Props) => {
   const { programs } = useContext(ContextStaticProps)
 
+  console.log(result)
+
   if (!programs || !programs.length) {
     return null // Если нет данных, не рендерим ничего
   }
-  const x =
-    result === 'clinic' || 'childrenPsy'
-      ? 'Детский психолог'
-      : 'Гештальт-психолог'
 
-  const targetTitles = [
-    'Психолог-консультант',
-    'Когнитивно-поведенческий психотерапевт',
-    'Психолог-диетолог. Нутрициолог',
-    'Гештальт-терапевт',
-    'Клиническая психология',
-    'Детский психолог',
-    'Психосоматика и телесная психотерапия'
-  ]
-  const topCourses = targetTitles.map(title =>
+  const marker = testResultsMarker(result)
+
+  console.log(marker)
+  const professionsInResult = marker.map(title =>
     programs.find(profession => profession.title === title)
   )
 
   const list =
     programs &&
-    [...topCourses]?.map(course => ({
+    [...professionsInResult]?.map(course => ({
       ...course,
       image: (
-        <ImgTopCourse
+        <Image
           src={course?.heroPicture?.url}
           alt={course?.title}
-          width={200}
           height={200}
+          width={200}
+          className={stls.img}
         />
       )
     }))
 
-  const topCoursesSlides =
-    list[0]?.title &&
-    list.map((course, idx) => (
+  return (
+    <section className={stls.container}>
+      <Wrapper>
+        <h3 className={stls.result}>{`Вам подойдут профессии`}</h3>
+        <div className={stls.content}>
+          {list.map((course, idx) => (
       <CardQuizResult
+        // class 
         href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
         key={course.name + idx}
         portrait={course?.image}
         title={course.title}
         studyHours={course.studyHours}
-      />
-    ))
-
-  return (
-    <section className={stls.container}>
-      <Wrapper>
-        <h3 className={stls.result}>{`Вам подойдёт профессия ${result}`}</h3>
-        {topCoursesSlides}
+      />))}
+        </div>
+        
       </Wrapper>
     </section>
   )

@@ -128,9 +128,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
           />
         )}
       </Popup>
-      <PsyTest />
       <Hero />
       <Directions />
+      <PsyTest />
       <TopCourses />
       <ButtonToTop />
       <WhyBother />

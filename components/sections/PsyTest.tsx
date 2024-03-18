@@ -1,9 +1,10 @@
 import stls from '@/styles/components/sections/PsyTest.module.sass'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
-import { useState } from 'react'
+import SwiperCore, { Navigation, Pagination, Grid, EffectCards } from 'swiper'
+import { useEffect, useState } from 'react'
 import Wrapper from '../layout/Wrapper'
 import QuizResults from './QuizResults'
+import quiz from '../funcs/quizQuestions'
 SwiperCore.use([Navigation, Pagination])
 
 const PsyTest = () => {
@@ -27,33 +28,10 @@ const PsyTest = () => {
 
   const [category, setCategory] = useState('')
 
-  const quiz = [
-    {
-      idx: 1,
-      title: 'Что для Вас более предпочтительно?',
-      question1: 'Разбираться в глубинных проблемах и сложных случаях',
-      value1: ['clinic', 'art', 'sand', 'psySomatic', 'geshtalt'],
-      question2: 'Вдохновлять и мотивировать',
-      value2: ['organization', 'art', 'coach'],
-      question3: 'Работать с детско-родительскими отношениями',
-      value3: ['childrenPsy', 'ktp', 'sand', 'psyAnalisys'],
-      question4: 'Помогать в решении жизненных сложностей',
-      value4: ['psyCons', 'art', 'ktp', 'shortTerm', 'psySomatic', 'geshtalt']
-    },
-    {
-      idx: 2,
-      title:
-        'Вы спринтер (бегун на короткие дистанции) или стайер (бегун на длинные дистанции)?',
-      question1: 'Спринтер',
-      value1: ['organization', 'childrenPsy', 'psyCons', 'shortTerm'],
-      question2: 'Стайер',
-      value2: ['clinic', 'psyCons', 'psyAnalisys']
-    }
-  ]
-
   const handleChange = e => {
     setInputs(e.target.value)
   }
+  console.log(!inputs)
 
   const handleAnswer = e => {
     e.preventDefault()
@@ -71,6 +49,7 @@ const PsyTest = () => {
   const handleLastSlide = () => {
     console.log(result)
     setInputs('')
+
     setShowResult(true)
     let max = 0
 
@@ -85,13 +64,18 @@ const PsyTest = () => {
     console.log('Элемент с наибольшим количеством баллов: ', maxKey)
   }
 
+  console.log(result)
   if (showResult) return <QuizResults result={category} />
 
   return (
     <section className={stls.container}>
       <Wrapper>
         <Swiper
-          onTouchEnd={swiper => console.log(swiper)}
+          className={stls.a}
+          speed={1000}
+          // modules={[EffectCards]}
+          // effect={'cards'}
+          // onTouchEnd={swiper => console.log(swiper)}
           navigation={{
             prevEl: '.back',
             nextEl: '.quiz'
@@ -100,53 +84,67 @@ const PsyTest = () => {
           {quiz.map((el, i) => (
             <SwiperSlide virtualIndex={el.idx} key={el.idx}>
               <h3 className={stls.questionTitle}>{el.title}</h3>
-              {/* <div className={stls.inputLbl}></div> */}
               <div className={stls.card}>
                 <div className={stls.leftBlock}>
-                  <input
-                    type='radio'
-                    className={stls.radio}
-                    name='input'
-                    value={el.value1}
-                    onChange={value => handleChange(value)}
-                  />
-                  <input
-                    type='radio'
-                    className={stls.radio}
-                    name='input'
-                    value={el.value2}
-                    onChange={value => handleChange(value)}
-                  />
-                  {el.idx === 1 && (
+                  <div className={stls.inputAndQuestion}>
                     <input
                       type='radio'
                       className={stls.radio}
                       name='input'
-                      value={el?.value3}
+                      value={el.value1}
                       onChange={value => handleChange(value)}
                     />
+                    <label className={stls.label}>{el.question1}</label>
+                  </div>
+                  <div className={stls.inputAndQuestion}>
+                    <input
+                      type='radio'
+                      className={stls.radio}
+                      name='input'
+                      value={el.value2}
+                      onChange={value => handleChange(value)}
+                    />
+                    <label className={stls.label}>{el.question2}</label>
+                  </div>
+                  {el.value3 && (
+                    <div className={stls.inputAndQuestion}>
+                      <input
+                        type='radio'
+                        className={stls.radio}
+                        name='input'
+                        value={el?.value3}
+                        onChange={value => handleChange(value)}
+                      />
+                      <label className={stls.label}>{el?.question3}</label>
+                    </div>
                   )}
-                </div>
-                {/* <div className={stls.indicator}></div> */}
-                <div className={stls.rightBlock}>
-                  <label className={stls.label}>{el.question1}</label>
-                  <label className={stls.label}>{el.question2}</label>
-                  {el.idx === 1 && (
-                    <label className={stls.label}>{el?.question3}</label>
+
+                  {el.value4 && (
+                    <div className={stls.inputAndQuestion}>
+                      <input
+                        type='radio'
+                        className={stls.radio}
+                        name='input'
+                        value={el.value4}
+                        onChange={value => handleChange(value)}
+                      />
+                      <label className={stls.label}>{el?.question4}</label>
+                    </div>
                   )}
                 </div>
               </div>
-              <div>
-                <button onClick={handleAnswer} className='back'>
+              <div className={stls.btn}>
+                {/* <button onClick={handleAnswer} className='back'>
                   BACK
-                </button>
+                </button> */}
                 <button
                   disabled={!inputs}
-                  // disabled={el.idx === quiz[quiz.length-1].idx}
+                  // disabled={el.idx === 6}
                   onClick={
-                    el.idx === quiz[quiz.length - 1].idx
-                      ? handleLastSlide
-                      : handleAnswer
+                    // el.idx === quiz[quiz.length - 1].idx
+                    //   ? handleLastSlide
+                    //   : handleAnswer
+                    el.idx === 6 ? handleLastSlide : handleAnswer
                   }
                   className='quiz'>
                   Подтвердить

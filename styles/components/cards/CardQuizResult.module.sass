@@ -4,27 +4,37 @@
 
 .container
   text-decoration: none
-  @include m.flex($fd: row, $jc: flex-start, $ai: flex-start)
+  // @include m.flex($fd: row, $jc: flex-start, $ai: flex-start)
+  display: flex
   cursor: pointer
-  @include m.gap($mt: f.px(70))
   height: fit-content
   width: 100%
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(50))
+    // @include m.gap($mt: f.px(50))
 
 .title
   font-weight: 500
   font-size: f.px(22)
-  @include m.gap($mb: f.px(17))
+  @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(14)
     @include m.gap($mb: f.px(5))
 
 .portrait
   position: relative
-  @include m.gap($mr: f.px(30))
+  min-width: f.px(200)
+  max-width: f.px(200)
+  min-height: f.px(200)
+  max-height: f.px(200)
+  // width: 200px
+  // @include m.gap($mr: f.px(30))
+  // flex-grow: 1
   @include m.media(phone, tablet)
     @include m.gap($mr: f.px(15))
+    min-width: f.px(130)
+    max-width: f.px(130)
+    min-height: f.px(130)
+    max-height: f.px(130)
 
 .filter
   border-radius: f.px(25)
@@ -41,31 +51,43 @@
   color: #505050
   font-size: f.px(16)
   font-weight: 350
-  @include m.gap($mb: f.px(10))
+  @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(12)
     @include m.gap( $mb: f.px(5))
 
 .description
+  padding-left: f.px(20)
   @include m.flex($ai: flex-start, $jc:space-between, $fd: column)
-  height: 200px
+  // width: 50%
+  // height: 200px
   @include m.media(tablet)
-    width: 240px
+    // width: 340px
   @include m.media(phone)
-    width: 240px
-    height: 130px
+    padding-left: 0px
+    // width: 240px
+    // height: 130px
+
+.innerContainer
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
 
 .button
   border-radius: 4px
-  @include m.gap($plr: f.px(28), $ptb: f.px(18))
+  @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
   @include m.flex($ai:center, $jc:center)
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$lambda)
   text-align: center
-  font-size: 18px
+  font-size: f.px(18)
   font-style: normal
   font-weight: 500
+  @include m.media(laptop)
+    @include m.gap($plr: f.px(15))
   @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(18), $ptb: f.px(9))
+    @include m.gap($plr: f.px(10), $ptb: f.px(9))
     font-size: f.px(12)
-    @include m.gap( $mb: f.px(5))
+    // @include m.gap( $mb: f.px(5))

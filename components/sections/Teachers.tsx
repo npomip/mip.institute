@@ -77,24 +77,23 @@ const Teachers = ({
         </p>
         <div className={stls.teachers}>
           <Swiper
-            // navigation={{
-            //   prevEl: '.custom-prev-button',
-            //   nextEl: '.custom-next-button'
-            // }}
+            navigation={{
+              prevEl: '.custom-prev-button',
+              nextEl: '.custom-next-button'
+            }}
             slidesPerView={isMobileAndTabletLayout ? 1 : 2}
             spaceBetween={30}
             autoplay={{
-              delay: 4000,
+              delay: 5000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true
             }}
             speed={2000}
-            loop={true}
             autoHeight={true}
             // pagination={{
             //   clickable: true
             // }}
-            scrollbar={{ draggable: true }}
+            scrollbar={isMobileAndTabletLayout ? false : true}
             modules={[Scrollbar]}
             className={stls.mySwiper}>
             {list?.map((teacher, idx) => (
@@ -108,14 +107,14 @@ const Teachers = ({
               </SwiperSlide>
             ))}
 
-            {/* <div className='custom-prev-button-container'>
+            <div className='custom-prev-button-container'>
               <CustomPrevButton
                 showOnMobile
                 left={10}
                 top={-10}
                 mobileTop={-30}
                 mobileLeft={100}
-                reviewPrevBtn
+                teachers
               />
             </div>
             <div className='custom-next-button-container'>
@@ -124,10 +123,10 @@ const Teachers = ({
                 left={15}
                 top={-10}
                 mobileTop={-30}
-                mobileLeft={-100}
-                reviewNextBtn
+                mobileLeft={-115}
+                teachers
               />
-            </div> */}
+            </div>
           </Swiper>
         </div>
       </Wrapper>

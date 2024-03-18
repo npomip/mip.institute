@@ -12,6 +12,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import SeminarCard from '@/components/sections/SlugTags'
 import SlugTags from '@/components/sections/SlugTags'
+import { NextSeo } from 'next-seo'
 
 const SeminarsStudyFieldPage = ({
   events
@@ -25,6 +26,7 @@ const SeminarsStudyFieldPage = ({
   return (
     <>
       <Wrapper>
+        <NextSeo />
         <h1>Семинары слаг</h1>
       {/* <StudyFieldSlugFilter props={events} slug='seminars'/>
       <SlugTags props={filteredSeminars} slug='seminars' withDate/> */}

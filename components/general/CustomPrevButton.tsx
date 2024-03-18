@@ -7,6 +7,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 const CustomPrevButton = ({
   reviewPrevBtn = false,
   happyStudents = false,
+  teachers=false,
   left = 0,
   top = 0,
   showOnMobile = false,
@@ -23,7 +24,8 @@ const CustomPrevButton = ({
       className={classNames({
         [stls.containerPrev]: true,
         [stls.reviewPrevBtn]: reviewPrevBtn,
-        [stls.happyStudentsPrevBtn]: happyStudents
+        [stls.happyStudentsPrevBtn]: happyStudents ,
+        [stls.teachersPrevBtn]: teachers
       })}>
       <button className='custom-prev-button'>
         <IconPrevButton />

@@ -12,6 +12,7 @@ import { Cta } from '@/components/sections'
 import { BtnAlpha } from '@/components/btns'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import SeminarTickets from '@/components/sections/SeminarTickets'
+import { NextSeo } from 'next-seo'
 
 const SeminarsSlugPage = (
   { seminar }
@@ -30,6 +31,10 @@ const SeminarsSlugPage = (
 
   return (
     <Wrapper>
+      <NextSeo 
+      nofollow={true}
+      noindex={true}
+      />
     <p>{seminar.title}</p>
     <p>{seminar.text}</p>
     <SeminarTickets />

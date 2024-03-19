@@ -47,22 +47,22 @@ const PsyTest = () => {
   }
   const handleLastSlide = () => {
     setInputs('')
-
+    setResult(prevRes => [...prevRes, inputs])
     setShowResult(true)
     let max = 0
 
     result.forEach(key => {
+      
       const splitKeys = key.split(',')
       splitKeys.forEach(splitKey => {
         options[splitKey] = options[splitKey] + 1
         if (options[splitKey] > max) {
           max = options[splitKey]
-          maxKey = key
+          maxKey = splitKey
         }
       })
     })
     setCategory(maxKey)
-    console.log('Элемент с наибольшим количеством баллов: ', maxKey)
   }
   if (showResult) return <QuizResults result={category} />
 

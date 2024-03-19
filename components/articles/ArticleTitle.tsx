@@ -22,7 +22,7 @@ type ArticleTitleType = {
         height: string
       }
     }
-    teacher: {
+    teacher?: {
       name: string
       achievements: string
       portraitForBlog?: {
@@ -70,7 +70,25 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             blurDataURL={base64pixel}
           />
         </div>
-        {props.teacher ? (
+        {props.blogAuthor ? (
+          <div className={stls.imgTeacherWithAchievements}>
+            <div className={stls.imgTeacherContainer}>
+              <Image
+                src={props.blogAuthor?.portrait?.url || ''}
+                alt={'Фото автора статьи'}
+                className={stls.imgTeacher}
+                width={227}
+                height={292}
+                placeholder='blur'
+                blurDataURL={base64pixel}
+              />
+            </div>
+            <div className={stls.teacherText}>
+              <p className={stls.teacherName}>{props.blogAuthor.name}</p>
+              <p className={stls.achievements}>Автор статьи</p>
+            </div>
+          </div>
+        ) : (
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
               <Image
@@ -87,26 +105,8 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
               />
             </div>
             <div className={stls.teacherText}>
-              <p className={stls.teacherName}>{props.teacher.name}</p>
-              <p className={stls.achievements}>{props.teacher.achievements}</p>
-            </div>
-          </div>
-        ) : (
-          <div className={stls.imgTeacherWithAchievements}>
-            <div className={stls.imgTeacherContainer}>
-              <Image
-                src={props.blogAuthor?.portrait?.url || ''}
-                alt={'Фото автора статьи'}
-                className={stls.imgTeacher}
-                width={227}
-                height={292}
-                placeholder='blur'
-                blurDataURL={base64pixel}
-              />
-            </div>
-            <div className={stls.teacherText}>
-              <p className={stls.teacherName}>{props.blogAuthor.name}</p>
-              <p className={stls.achievements}>Автор статьи</p>
+              <p className={stls.teacherName}>{props?.teacher?.name}</p>
+              <p className={stls.achievements}>{props?.teacher?.achievements}</p>
             </div>
           </div>
         )}

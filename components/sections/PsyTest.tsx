@@ -1,14 +1,37 @@
 import stls from '@/styles/components/sections/PsyTest.module.sass'
+import { useState } from 'react'
+import SwiperCore, { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Grid, EffectCards } from 'swiper'
-import { useEffect, useState } from 'react'
+import quiz from '../funcs/quizQuestions'
 import Wrapper from '../layout/Wrapper'
 import QuizResults from './QuizResults'
-import quiz from '../funcs/quizQuestions'
 SwiperCore.use([Navigation, Pagination])
 
 const PsyTest = () => {
-  const [result, setResult] = useState({
+  const [inputs, setInputs] = useState('')
+  const [result, setResult] = useState<string[]>([])
+  const [showResult, setShowResult] = useState(false)
+
+  const [category, setCategory] = useState('')
+
+  const handleChange = e => {
+    setInputs(e.target.value)
+  }
+
+  const handleAnswer = e => {
+    e.preventDefault()
+    setResult(prevRes => [...prevRes, inputs])
+    setInputs('')
+  }
+
+  const handleBack = e => {
+    e.preventDefault()
+    setResult(prevRes => [...prevRes].slice(0, prevRes.length - 1))
+    setInputs('')
+  }
+
+  let maxKey = ''
+  let options = {
     clinic: 0,
     organization: 0,
     childrenPsy: 0,
@@ -21,50 +44,26 @@ const PsyTest = () => {
     psyAnalisys: 0,
     shortTerm: 0,
     ktp: 0
-  })
-  const [inputs, setInputs] = useState('')
-
-  const [showResult, setShowResult] = useState(false)
-
-  const [category, setCategory] = useState('')
-
-  const handleChange = e => {
-    setInputs(e.target.value)
   }
-  console.log(!inputs)
-
-  const handleAnswer = e => {
-    e.preventDefault()
-    const val = inputs.split(',')
-    console.log(val)
-    setInputs('')
-    val.forEach(category => {
-      setResult(prevResult => ({
-        ...prevResult,
-        [category]: prevResult[category] + 1
-      }))
-    })
-  }
-  let maxKey = ''
   const handleLastSlide = () => {
-    console.log(result)
     setInputs('')
-
+    setResult(prevRes => [...prevRes, inputs])
     setShowResult(true)
     let max = 0
 
-    Object.keys(result).forEach(key => {
-      result[key] = result[key] + 1
-      if (result[key] > max) {
-        max = result[key]
-        maxKey = key
-      }
+    result.forEach(key => {
+      
+      const splitKeys = key.split(',')
+      splitKeys.forEach(splitKey => {
+        options[splitKey] = options[splitKey] + 1
+        if (options[splitKey] > max) {
+          max = options[splitKey]
+          maxKey = splitKey
+        }
+      })
     })
     setCategory(maxKey)
-    console.log('Элемент с наибольшим количеством баллов: ', maxKey)
   }
-
-  console.log(result)
   if (showResult) return <QuizResults result={category} />
 
   return (
@@ -73,15 +72,12 @@ const PsyTest = () => {
         <Swiper
           className={stls.a}
           speed={1000}
-          // modules={[EffectCards]}
-          // effect={'cards'}
-          // onTouchEnd={swiper => console.log(swiper)}
           navigation={{
             prevEl: '.back',
             nextEl: '.quiz'
           }}
           swipeHandler='.quiz'>
-          {quiz.map((el, i) => (
+          {quiz.map(el => (
             <SwiperSlide virtualIndex={el.idx} key={el.idx}>
               <h3 className={stls.questionTitle}>{el.title}</h3>
               <div className={stls.card}>
@@ -134,18 +130,14 @@ const PsyTest = () => {
                 </div>
               </div>
               <div className={stls.btn}>
-                {/* <button onClick={handleAnswer} className='back'>
-                  BACK
-                </button> */}
+                {el.idx !== 1 && (
+                  <button onClick={handleBack} className='quiz'>
+                    Назад
+                  </button>
+                )}
                 <button
                   disabled={!inputs}
-                  // disabled={el.idx === 6}
-                  onClick={
-                    // el.idx === quiz[quiz.length - 1].idx
-                    //   ? handleLastSlide
-                    //   : handleAnswer
-                    el.idx === 6 ? handleLastSlide : handleAnswer
-                  }
+                  onClick={el.idx === 6 ? handleLastSlide : handleAnswer}
                   className='quiz'>
                   Подтвердить
                 </button>

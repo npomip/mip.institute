@@ -37,13 +37,13 @@ const quiz = [
     idx: 4,
     title:
       'Выберите наиболее похожего на Вас персонажа',
-    question1: 'Винни Пух',
+    question1: 'Винни-Пух',
     value1: ['childrenPsy', 'art','psySomatic'],
     question2: 'Сова',
     value2: ['clinic','sand','psyAnalisys', 'psySomatic', 'geshtalt'],
     question3: 'Кролик',
     value3: ['childrenPsy', 'art', 'coach', 'psySomatic'],
-    question4: 'Пяточок',
+    question4: 'Пятачок',
     value4: ['organization', 'shortTerm', 'coach', 'psySomatic']
   },
   {

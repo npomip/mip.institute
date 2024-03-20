@@ -14,15 +14,16 @@ interface Props {
 const QuizResults = ({ result }: Props) => {
   const { programs } = useContext(ContextStaticProps)
 
-  console.log(result)
-
   if (!programs || !programs.length) {
     return null // Если нет данных, не рендерим ничего
   }
+  const resultValues = result.split(',')
+  const marker = []
 
-  const marker = testResultsMarker(result)
+  resultValues.forEach(item => {
+    marker.push(...testResultsMarker(item))
+  })
 
-  console.log(marker)
   const professionsInResult = marker.map(title =>
     programs.find(profession => profession.title === title)
   )
@@ -45,19 +46,18 @@ const QuizResults = ({ result }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h3 className={stls.result}>{`Вам подойдут профессии`}</h3>
+        <h3 className={stls.result}>{`Вам подойдут профессии:`}</h3>
         <div className={stls.content}>
           {list.map((course, idx) => (
-      <CardQuizResult
-        // class 
-        href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
-        key={course.name + idx}
-        portrait={course?.image}
-        title={course.title}
-        studyHours={course.studyHours}
-      />))}
+            <CardQuizResult
+              href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
+              key={ idx}
+              portrait={course?.image}
+              title={course.title}
+              studyHours={course.studyHours}
+            />
+          ))}
         </div>
-        
       </Wrapper>
     </section>
   )

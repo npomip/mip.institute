@@ -1,3 +1,5 @@
+// TO REMOVE
+
 (function() {
     if (window.roistat !== undefined) {
         handler();

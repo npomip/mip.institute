@@ -267,7 +267,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             }}
           />
 
-          <Script async src='/assets/js/vendors/roistatWA.js' />
+          {/* <Script async src='/assets/js/vendors/roistatWA.js' /> */}
         </>
       )}
 

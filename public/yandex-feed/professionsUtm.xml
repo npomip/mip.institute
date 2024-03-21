@@ -906,7 +906,7 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">130000</param>
         <param name="Дата окончания скидки">2024-03-19</param>
-        <!-- <param name="Оплата в рассрочку" unit="месяц">12</param> -->
+        <param name="Оплата в рассрочку" unit="месяц">12</param> 
 
         <param name="Ежемесячная цена">15500</param>
         <param name="Ежемесячная цена по скидке">10800</param>

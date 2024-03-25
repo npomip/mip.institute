@@ -211,6 +211,17 @@ const getStaticPropsPageJournal = async ({
                 }
               }
               __typename
+              ... on ComponentBlogTable {
+                row {
+                  id
+                  record {
+                  id
+                  text
+                  }
+                }
+                
+              }
+              __typename
               ... on ComponentBlogTeacherComment {
                 specialization
                 comment

@@ -29,9 +29,9 @@ const ArticleBlogTable = ({props} : ArticleBlogTableType) => {
         <tbody >
           {row.map(oneColumn => (
             
-              <tr >
+              <tr key={oneColumn.id}>
               {oneColumn.record.map(el => (
-                <td style={{
+                <td key={el.id} style={{
                   // border: '1px solid black',
                   backgroundColor: '#FBF4FF'
                 }} >

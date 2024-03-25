@@ -1,0 +1,46 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  overflow: auto
+  border-radius: f.px(20)
+  @include m.media(phone, tablet)
+    border-radius: f.px(0)
+
+.table
+  margin: f.px(20)
+  border-spacing: 0px
+  overflow: auto
+  border-bottom: 1px solid black
+  @include m.media(phone, tablet)
+    margin: f.px(0)
+  
+  tbody
+    
+    // border-radius: 10px
+    tr
+      border-top: 2px solid red
+      td
+        // border-radius: 10px
+        // border: 2px solid black
+        column-width: f.px(250)
+        @include m.gap($plr: f.px(8), $ptb: f.px(10))
+        text-align: center
+        // &:nth-child(1)
+        border-top: 1px solid black
+        border-left: 1px solid black
+        
+        &:last-child
+          // background: red
+          border-right: 1px solid black
+        &:nth-child(2)
+          border-left: none
+
+        &:first-child
+          // background-color: red
+          border-right: 1px solid black
+          position: sticky
+          left: 0
+          z-index: 1
+  

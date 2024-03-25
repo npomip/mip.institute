@@ -3,16 +3,20 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  display: flex
+  justify-content: center
   overflow: auto
   border-radius: f.px(20)
+  @include m.gap($mtb: f.px(50))
   @include m.media(phone, tablet)
     border-radius: f.px(0)
 
 .table
+  
   margin: f.px(20)
   border-spacing: 0px
   overflow: auto
-  border-bottom: 1px solid black
+  border-bottom: f.px(1) solid black
   @include m.media(phone, tablet)
     margin: f.px(0)
   
@@ -20,11 +24,13 @@
     
     // border-radius: 10px
     tr
-      border-top: 2px solid red
       td
+        // display: flex
+        // white-space: nowrap
         // border-radius: 10px
         // border: 2px solid black
-        column-width: f.px(250)
+        max-width: f.px(350)
+        height: max-content
         @include m.gap($plr: f.px(8), $ptb: f.px(10))
         text-align: center
         // &:nth-child(1)

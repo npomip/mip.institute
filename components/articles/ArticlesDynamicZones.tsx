@@ -5,6 +5,7 @@ import ArticleBlogListWithBackgroundAndTitle from './ArticleBlogListWithBackgrou
 import ArticleBlogListWithTitle from './ArticleBlogListWithTitle'
 import ArticleBlogRelatedPrograms from './ArticleBlogRelatedPrograms'
 import ArticleBlogSingleImageBlock from './ArticleBlogSingleImageBlock'
+import ArticleBlogTable from './ArticleBlogTable'
 import ArticleBlogTeacherComment from './ArticleBlogTeacherComment'
 import ArticleBlogTextImageBlock from './ArticleBlogTextImageBlock'
 import ArticleFullColoredTextBlock from './ArticleFullColoredTextBlock'
@@ -38,8 +39,11 @@ export default function ArticlesDynamicZones({ props }) {
     case 'ComponentBlogListWithBackgroundAndTitle':
       return <ArticleBlogListWithBackgroundAndTitle props={props} />
     case 'ComponentBlogBigSizeText':
-      'ArticleBlogBigSizeTexte'
+      // 'ArticleBlogBigSizeTexte'
       return <ArticleBlogBigSizeText props={props} />
+    case 'ComponentBlogTable':
+      return <ArticleBlogTable props={props}/>
+      // return <ArticleBlogListWithBackgroundAndTitle props={props} />
     default:
       break
   }

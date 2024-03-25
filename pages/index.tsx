@@ -134,7 +134,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
-      {/* <YouTubeVideo videoId="Voc_dKGqhFE" /> */}
       <YouTubeVideo videoId='Voc_dKGqhFE' />
       <About />
       <EducationProcess />

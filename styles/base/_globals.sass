@@ -108,6 +108,17 @@ section
   background: #6F01C6 !important
 
 .quiz
+  width: f.px(30)
+  height: f.px(30)
+  background: #947AFF !important
+  cursor: pointer
+  @include m.gap($mr: f.px(30))
+  border: 1px solid red
+  &:checked
+    accent-color: #947AFF
+  @include m.media(phone, tablet)
+    height: f.px(20)
+.back
   @include m.gap($mt: f.px(30), $ptb: f.px(20), $plr: f.px(30), $mr: f.px(10))
   border: f.px(2) solid #D4C8FF
   border-radius: f.px(10)

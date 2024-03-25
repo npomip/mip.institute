@@ -15,13 +15,18 @@ const PsyTest = () => {
   const [category, setCategory] = useState('')
 
   const handleChange = e => {
+    console.log('change')
     setInputs(e.target.value)
   }
 
-  const handleAnswer = e => {
-    e.preventDefault()
-    setResult(prevRes => [...prevRes, inputs])
+  const handleAnswer = (categories, index) => {
+    // e.preventDefault()
+    console.log(categories.target.value)
+    setInputs(categories.target.value)
+    setResult(prevRes => [...prevRes, categories.target.value])
     setInputs('')
+    index === 6 && handleLastSlide()
+    
   }
 
   const handleBack = e => {
@@ -29,6 +34,7 @@ const PsyTest = () => {
     setResult(prevRes => [...prevRes].slice(0, prevRes.length - 1))
     setInputs('')
   }
+  console.log(result)
 
   let maxKey = ''
   let options = {
@@ -46,8 +52,8 @@ const PsyTest = () => {
     ktp: 0
   }
   const handleLastSlide = () => {
-    setInputs('')
-    setResult(prevRes => [...prevRes, inputs])
+    // setInputs('')
+    // setResult(prevRes => [...prevRes, inputs])
     setShowResult(true)
     let max = 0
 
@@ -76,6 +82,7 @@ const PsyTest = () => {
             prevEl: '.back',
             nextEl: '.quiz'
           }}
+          onSlideNextTransitionStart={() => console.log('swiper')}
           swipeHandler='.quiz'>
           {quiz.map(el => (
             <SwiperSlide virtualIndex={el.idx} key={el.idx}>
@@ -85,20 +92,20 @@ const PsyTest = () => {
                   <div className={stls.inputAndQuestion}>
                     <input
                       type='radio'
-                      className={stls.radio}
+                      className='quiz'
                       name='input'
+                      onClick={value => handleAnswer(value, el.idx)}
                       value={el.value1}
-                      onChange={value => handleChange(value)}
                     />
                     <label className={stls.label}>{el.question1}</label>
                   </div>
                   <div className={stls.inputAndQuestion}>
                     <input
                       type='radio'
-                      className={stls.radio}
+                      className='quiz'
                       name='input'
+                      onClick={value => handleAnswer(value, el.idx)}
                       value={el.value2}
-                      onChange={value => handleChange(value)}
                     />
                     <label className={stls.label}>{el.question2}</label>
                   </div>
@@ -106,10 +113,10 @@ const PsyTest = () => {
                     <div className={stls.inputAndQuestion}>
                       <input
                         type='radio'
-                        className={stls.radio}
+                        className='quiz'
                         name='input'
+                        onClick={value => handleAnswer(value, el.idx)}
                         value={el?.value3}
-                        onChange={value => handleChange(value)}
                       />
                       <label className={stls.label}>{el?.question3}</label>
                     </div>
@@ -119,10 +126,10 @@ const PsyTest = () => {
                     <div className={stls.inputAndQuestion}>
                       <input
                         type='radio'
-                        className={stls.radio}
+                        className='quiz'
                         name='input'
+                        onClick={value => handleAnswer(value, el.idx)}
                         value={el.value4}
-                        onChange={value => handleChange(value)}
                       />
                       <label className={stls.label}>{el?.question4}</label>
                     </div>
@@ -130,17 +137,21 @@ const PsyTest = () => {
                 </div>
               </div>
               <div className={stls.btn}>
-                {el.idx !== 1 && (
-                  <button onClick={handleBack} className='quiz'>
+                {el.idx !== 1 ? (
+                  <button onClick={handleBack} className='back'>
+                    Назад
+                  </button>
+                ) : (
+                  <button disabled className='back'>
                     Назад
                   </button>
                 )}
-                <button
+                {/* <button
                   disabled={!inputs}
                   onClick={el.idx === 6 ? handleLastSlide : handleAnswer}
                   className='quiz'>
                   Подтвердить
-                </button>
+                </button> */}
               </div>
             </SwiperSlide>
           ))}

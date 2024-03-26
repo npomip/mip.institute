@@ -47,6 +47,8 @@
   font-style: normal
   font-weight: 500
   line-height: 130%
+  cursor: pointer
+    
   @include m.media(phone, tablet)
     font-size: f.px(14)
 
@@ -64,3 +66,15 @@
   @include m.gap($ptb: f.px(10), $plr: f.px(30))
   border-radius: f.px(10)
   border: f.px(4) solid #D4C8FF
+
+.radioQuiz
+  width: f.px(20)
+  height: f.px(20)
+  background: #947AFF !important
+  cursor: pointer
+  @include m.gap($mr: f.px(20))
+  border: 1px solid red
+  &:checked
+    accent-color: #947AFF
+  @include m.media(phone, tablet)
+    height: f.px(20)

@@ -9,21 +9,16 @@ SwiperCore.use([Navigation, Pagination])
 
 const PsyTest = () => {
   const [inputs, setInputs] = useState('')
-  const [result, setResult] = useState<string[]>([])
+  const [result, setResult] = useState<Array<Array<string>>>([])
   const [showResult, setShowResult] = useState(false)
 
   const [category, setCategory] = useState('')
 
-  const handleChange = e => {
-    console.log('change')
-    setInputs(e.target.value)
-  }
-
   const handleAnswer = (categories, index) => {
     // e.preventDefault()
-    console.log(categories.target.value)
-    setInputs(categories.target.value)
-    setResult(prevRes => [...prevRes, categories.target.value])
+    console.log(categories)
+    setInputs(categories)
+    setResult(prevRes => [...prevRes, categories])
     setInputs('')
     index === 6 && handleLastSlide()
     
@@ -52,22 +47,18 @@ const PsyTest = () => {
     ktp: 0
   }
   const handleLastSlide = () => {
-    // setInputs('')
-    // setResult(prevRes => [...prevRes, inputs])
     setShowResult(true)
     let max = 0
 
-    result.forEach(key => {
-      
-      const splitKeys = key.split(',')
-      splitKeys.forEach(splitKey => {
-        options[splitKey] = options[splitKey] + 1
-        if (options[splitKey] > max) {
-          max = options[splitKey]
-          maxKey = splitKey
-        }
-      })
-    })
+    result.forEach(array => {
+      array.forEach(word => {
+          if (result.filter(array => array.includes(word)).length > max) {
+              max = result.filter(array => array.includes(word)).length;
+              maxKey = word;
+          }
+      });
+  });
+  console.log(maxKey)
     setCategory(maxKey)
   }
   if (showResult) return <QuizResults result={category} />
@@ -82,27 +73,27 @@ const PsyTest = () => {
             prevEl: '.back',
             nextEl: '.quiz'
           }}
-          onSlideNextTransitionStart={() => console.log('swiper')}
+
           swipeHandler='.quiz'>
           {quiz.map(el => (
             <SwiperSlide virtualIndex={el.idx} key={el.idx}>
               <h3 className={stls.questionTitle}>{el.title}</h3>
               <div className={stls.card}>
                 <div className={stls.leftBlock}>
-                  <div className={stls.inputAndQuestion}>
+                  <div className='quiz' onClick={() =>handleAnswer(el.value1, el.idx)}>
                     <input
                       type='radio'
-                      className='quiz'
+                      className={stls.radioQuiz}
                       name='input'
-                      onClick={value => handleAnswer(value, el.idx)}
+                      // onClick={value => handleAnswer(value, el.idx)}
                       value={el.value1}
                     />
                     <label className={stls.label}>{el.question1}</label>
                   </div>
-                  <div className={stls.inputAndQuestion}>
+                  <div className='quiz' onClick={() =>handleAnswer(el.value2, el.idx)}>
                     <input
                       type='radio'
-                      className='quiz'
+                      className={stls.radioQuiz}
                       name='input'
                       onClick={value => handleAnswer(value, el.idx)}
                       value={el.value2}
@@ -110,10 +101,10 @@ const PsyTest = () => {
                     <label className={stls.label}>{el.question2}</label>
                   </div>
                   {el.value3 && (
-                    <div className={stls.inputAndQuestion}>
+                    <div className='quiz' onClick={() =>handleAnswer(el.value3, el.idx)}>
                       <input
                         type='radio'
-                        className='quiz'
+                        className={stls.radioQuiz}
                         name='input'
                         onClick={value => handleAnswer(value, el.idx)}
                         value={el?.value3}
@@ -123,10 +114,10 @@ const PsyTest = () => {
                   )}
 
                   {el.value4 && (
-                    <div className={stls.inputAndQuestion}>
+                    <div className='quiz' onClick={() =>handleAnswer(el.value4, el.idx)}>
                       <input
                         type='radio'
-                        className='quiz'
+                        className={stls.radioQuiz}
                         name='input'
                         onClick={value => handleAnswer(value, el.idx)}
                         value={el.value4}

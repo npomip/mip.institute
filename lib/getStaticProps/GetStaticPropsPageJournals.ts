@@ -22,6 +22,7 @@ const getStaticPropsPageJournals = async ({
           studyField
           studyFieldSlug
           date
+          previewOnly
           picture {
             url
             width

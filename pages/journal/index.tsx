@@ -2,7 +2,7 @@ import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import Wrapper from '@/components/layout/Wrapper'
 import SlugTags from '@/components/sections/SlugTags'
 import SeoPagesJournals from '@/components/seo/SeoPageJournals'
-import { routes } from '@/config/index'
+import { dev, prod, routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticProps } from 'next'
@@ -12,6 +12,9 @@ import { useEffect, useState } from 'react'
 const JournalPage = ({ blogs }) => {
   const router = useRouter()
 
+  if(prod){
+  blogs = blogs.filter(el => el.previewOnly === false)
+  }
   const [selectedField, setSelectedField] = useState({
     studyFieldSlug: router.query.studyFieldSlug || '',
     studyField: router.query.studyField || 'Все cтатьи'
@@ -30,7 +33,7 @@ const JournalPage = ({ blogs }) => {
     const dateB = new Date(b.date)
     return dateB.getTime() - dateA.getTime() // Сортировка от самой поздней даты к более ранней
   })
-
+console.log(blogs)
 
   const blogsFilter = selectedField.studyField == 'Все cтатьи' ? sortedBlogs : sortedBlogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
 

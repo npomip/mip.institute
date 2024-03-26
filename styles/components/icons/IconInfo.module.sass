@@ -5,7 +5,6 @@
 .container
   @include m.sizeIcon($w: 20, $h: 20)
   @include m.flex
-  // @include m.gap($m: f.px(10, em))
   cursor: pointer
   &:hover
     & path
@@ -16,5 +15,20 @@
 
   & path
     stroke: #808080
-    // &:hover
-      // stroke: #F87E1B
+
+.calpha
+  @include m.sizeIcon($w: 15, $h: 15)
+  &:hover
+    & path
+      stroke: #6F01C6
+  & path
+    @include m.dye(stroke, c.$alpha)
+    stroke-width: f.px(1.1)
+    @include m.media(phone, tablet)
+      stroke-width: f.px(0.5)
+  & rect
+    @include m.dye(stroke, c.$alpha)
+    stroke-width: f.px(0.5)
+    @include m.media(phone, tablet)
+      stroke-width: f.px(0.5)
+

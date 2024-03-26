@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  
   display: flex
   justify-content: center
   overflow: auto
@@ -10,43 +11,50 @@
   @include m.gap($mtb: f.px(50))
   @include m.media(phone, tablet)
     border-radius: f.px(0)
+    justify-content: flex-start
 
 .table
   
   margin: f.px(20)
   border-spacing: 0px
   overflow: auto
-  border-bottom: f.px(1) solid black
+  border: f.px(4) solid black
+  border-radius: 3px
+  // border-bottom: f.px(1) solid black
   @include m.media(phone, tablet)
     margin: f.px(0)
   
   tbody
     
-    // border-radius: 10px
     tr
+      &:first-child
+        font-weight: 500
+      &:nth-child(even)
+        // border: f.px(1) solid black
+        backdrop-filter: invert(0.08)
+        // color: red
       td
+        // backdrop-filter: invert(0.5)
         // display: flex
         // white-space: nowrap
-        // border-radius: 10px
-        // border: 2px solid black
         max-width: f.px(350)
         height: max-content
         @include m.gap($plr: f.px(8), $ptb: f.px(10))
         text-align: center
         // &:nth-child(1)
-        border-top: 1px solid black
-        border-left: 1px solid black
+        // border-top: 1px solid black
+        // border-left: 1px solid black
         
         &:last-child
           // background: red
-          border-right: 1px solid black
+          // border-right: 1px solid black
         &:nth-child(2)
-          border-left: none
+          // border-left: none
 
         &:first-child
-          // background-color: red
-          border-right: 1px solid black
-          position: sticky
-          left: 0
-          z-index: 1
+          // color: violet
+          // background-color: #FBF4FF
+          // border-right: 1px solid black
+          // position: sticky
+          // left: 0
   

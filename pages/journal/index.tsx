@@ -2,7 +2,7 @@ import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import Wrapper from '@/components/layout/Wrapper'
 import SlugTags from '@/components/sections/SlugTags'
 import SeoPagesJournals from '@/components/seo/SeoPageJournals'
-import { dev, prod, routes } from '@/config/index'
+import { dev, preview, prod, routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticProps } from 'next'
@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 const JournalPage = ({ blogs }) => {
   const router = useRouter()
 
-  if(prod){
+  if(prod && !preview){
   blogs = blogs.filter(el => el.previewOnly === false)
   }
   const [selectedField, setSelectedField] = useState({

@@ -65,6 +65,10 @@ const Footer = () => {
       href: routes.front.legal
     },
     {
+      val: 'Информация о правилах использования материала',
+      href: routes.front.regulation
+    },
+    {
       val: 'Контакты',
       href: routes.front.contact
     },

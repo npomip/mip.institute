@@ -134,12 +134,10 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
-      {/* <YouTubeVideo videoId="Voc_dKGqhFE" /> */}
       <YouTubeVideo videoId='Voc_dKGqhFE' />
       <About />
       <EducationProcess />
       <DistanceEducation />
-      {/* <HowProcessGoes onMain subtitle={subtitle} list={mainList} /> */}
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}

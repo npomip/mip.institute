@@ -1,40 +1,38 @@
 import stls from '@/styles/components/articles/ArticleBlogTable.module.sass'
 
-
 type ArticleBlogTableType = {
   props: {
     row?: {
-      id: number,
+      id: number
       record?: {
-        id: number,
+        id: number
         text: string
-      } []
-    } []             
-}
+      }[]
+    }[]
+  }
 }
 
-const ArticleBlogTable = ({props} : ArticleBlogTableType) => {
-
+const ArticleBlogTable = ({ props }: ArticleBlogTableType) => {
   const { row } = props
-  console.log(row)
 
   return (
-      <div style={{backgroundColor: '#FBF4FF'}} className={stls.container}>
-        <table style={{backgroundColor: '#FBF4FF'}} className={stls.table} >
-        <tbody >
-          {row.map(oneColumn => (
-            
-              <tr key={oneColumn.id}>
-              {oneColumn.record.map(el => (
-                <td key={el.id} >
-                  {el.text}
-                </td>
-              ))}
-              </tr>
+    <div className={stls.container}>
+      <table className={stls.table}>
+        <tbody>
+          {row.map((oneColumn, i) => (
+            <tr key={oneColumn.id}>
+              {oneColumn.record.map(el =>
+                i !== 0 ? (
+                  <td key={el.id}>{el.text}</td>
+                ) : (
+                  <th key={el.id}>{el.text}</th>
+                )
+              )}
+            </tr>
           ))}
-          </tbody>
-          </table>
-      </div>
+        </tbody>
+      </table>
+    </div>
   )
 }
 

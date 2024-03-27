@@ -59,36 +59,20 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
 
       <h1 className={stls.articleTitle}>{props.title}</h1>
       <div className={stls.imgBox}>
-        <div className={stls.imgTitleContainer}>
+        <div
+          className={stls.imgTitleContainer}
+          style={{ flex: !props?.teacher && 1 }}>
           <Image
             src={props?.picture?.url}
-            alt={'alt'}
+            alt={'Баннер'}
             className={stls.imgTitle}
-            width={750}
-            height={430}
+            width={props?.teacher ? 750 : 1180}
+            height={props?.teacher ? 430 : 530}
             placeholder='blur'
             blurDataURL={base64pixel}
           />
         </div>
-        {props.blogAuthor ? (
-          <div className={stls.imgTeacherWithAchievements}>
-            <div className={stls.imgTeacherContainer}>
-              <Image
-                src={props.blogAuthor?.portrait?.url || ''}
-                alt={'Фото автора статьи'}
-                className={stls.imgTeacher}
-                width={227}
-                height={292}
-                placeholder='blur'
-                blurDataURL={base64pixel}
-              />
-            </div>
-            <div className={stls.teacherText}>
-              <p className={stls.teacherName}>{props.blogAuthor.name}</p>
-              <p className={stls.achievements}>Автор статьи</p>
-            </div>
-          </div>
-        ) : (
+        {props?.teacher && (
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
               <Image
@@ -106,7 +90,9 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             </div>
             <div className={stls.teacherText}>
               <p className={stls.teacherName}>{props?.teacher?.name}</p>
-              <p className={stls.achievements}>{props?.teacher?.achievements}</p>
+              <p className={stls.achievements}>
+                {props?.teacher?.achievements}
+              </p>
             </div>
           </div>
         )}

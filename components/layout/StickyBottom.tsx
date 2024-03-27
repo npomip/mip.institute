@@ -54,7 +54,10 @@ const StickyBottom = () => {
               {discount}
             </span>{' '}
             <br className={stls.smallMobileOnly} /> на все программы{' '}
-            <br className={stls.mobileOnly} /> <ProgramDiscountUntil />!
+            <br className={stls.mobileOnly} /> 
+            {/* <ProgramDiscountUntil /> */}
+            до 31 марта
+            !
           </p>
           <div className={stls.btns}>
             <PopupTrigger btn='theta' cta='learnAboutUs' />

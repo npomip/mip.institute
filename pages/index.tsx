@@ -138,7 +138,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <About />
       <EducationProcess />
       <DistanceEducation />
-      {/* <HowProcessGoes onMain subtitle={subtitle} list={mainList} /> */}
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}

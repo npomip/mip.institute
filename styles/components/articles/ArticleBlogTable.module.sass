@@ -3,58 +3,55 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  
   display: flex
   justify-content: center
   overflow: auto
   border-radius: f.px(20)
+  @include m.dye(bg, #FBF4FF)
   @include m.gap($mtb: f.px(50))
   @include m.media(phone, tablet)
     border-radius: f.px(0)
     justify-content: flex-start
 
 .table
-  
   margin: f.px(20)
-  border-spacing: 0px
+  border-spacing: 0
   overflow: auto
-  border: f.px(4) solid black
-  border-radius: 3px
-  // border-bottom: f.px(1) solid black
+  border: f.px(1) solid black
   @include m.media(phone, tablet)
-    margin: f.px(0)
-  
+    margin: 0
+
   tbody
-    
-    tr
-      &:first-child
-        font-weight: 500
+    th
+      border: f.px(1) solid black
+      @include m.gap($p: f.px(50))
+      font-size: f.px(20)
+      font-weight: 500
       &:nth-child(even)
-        // border: f.px(1) solid black
-        backdrop-filter: invert(0.08)
-        // color: red
+        @include m.dye(c, white)
+        @include m.dye(bg, #947AFF)
+      @include m.media(phone, tablet)
+        font-size: f.px(16)
+        @include m.gap($p: f.px(25))
+
+    tr
       td
-        // backdrop-filter: invert(0.5)
-        // display: flex
-        // white-space: nowrap
+        font-size: f.px(18)
+        font-weight: 500
+        @include m.dye(c, #4C4545)
+        @include m.gap($p: f.px(32))
+        border: f.px(1) solid black
         max-width: f.px(350)
         height: max-content
-        @include m.gap($plr: f.px(8), $ptb: f.px(10))
         text-align: center
-        // &:nth-child(1)
-        // border-top: 1px solid black
-        // border-left: 1px solid black
+        &:nth-child(1)
+          @include m.dye(c, black)
+          font-size: f.px(20)
         
-        &:last-child
-          // background: red
-          // border-right: 1px solid black
-        &:nth-child(2)
-          // border-left: none
-
-        &:first-child
-          // color: violet
-          // background-color: #FBF4FF
-          // border-right: 1px solid black
-          // position: sticky
-          // left: 0
-  
+        @include m.media(phone, tablet)
+          font-size: f.px(14)
+          @include m.gap($p: f.px(26))
+          &:nth-child(1)
+            @include m.gap($p: f.px(26))
+            @include m.dye(c, black)
+            font-size: f.px(16)

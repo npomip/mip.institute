@@ -1,5 +1,5 @@
 import { SeoOrganizationJsonLd } from '@/components/seo'
-import { company, routes } from '@/config/index'
+import { company, preview, routes } from '@/config/index'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
@@ -17,8 +17,8 @@ const SeoPagesJournals= () => {
   return (
     <>
       <NextSeo
-        nofollow={true}
-        noindex={true}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}

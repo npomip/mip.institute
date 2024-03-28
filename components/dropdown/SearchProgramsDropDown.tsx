@@ -27,10 +27,10 @@ export default function SearchProgramsDropDown() {
         val: 'Вебинары'
       },
       // TODO: когда добавят Журнал
-      // {
-      //   href: routes.front.journals,
-      //   val: 'Журнал'
-      // },
+      {
+        href: routes.front.journals,
+        val: 'Блог МИП'
+      },
       {
         href: routes.front.reviews,
         val: 'Отзывы'

@@ -1,6 +1,7 @@
 import stls from '@/styles/components/cards/CardQuizResult.module.sass'
 import ProgramAdmission from '../program/ProgramAdmission'
 import Link from 'next/link'
+import PopupTrigger from '../general/PopupTrigger'
 
 interface Props {
   portrait: string
@@ -26,9 +27,10 @@ const CardQuizResult = ({ portrait, title, studyHours, href }: Props) => {
           </p>
           <p className={stls.subtitle}>Кол-во часов: {studyHours}</p>
         </div>
-        <Link href={href} passHref>
+        {/* <Link href={href} passHref>
           <button className={stls.button}>Ознакомиться с программой</button>
-        </Link>
+        </Link> */}
+        <PopupTrigger btn='test' cta='familiarize' testProgram={title}/>
       </div>
     </div>
   )

@@ -16,11 +16,6 @@ Disallow: *%
 Disallow: /docs/
 Disallow: /policies/
 
-Disallow: *?calltouch_
-Disallow: *%
-Disallow: /docs/
-Disallow: /policies/
-
 # Host
 Host: https://mip.institute
 

@@ -22,6 +22,22 @@
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$nu)
 
+.test
+  @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
+  @include m.flex($ai:center, $jc:center)
+  @include m.dye(bg, c.$alpha)
+  @include m.dye(c, c.$lambda)
+  text-align: center
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 500
+  @include m.media(laptop)
+    @include m.gap($plr: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(10), $ptb: f.px(9))
+    font-size: f.px(12)
+
+
   &::after
     content: ''
     position: absolute

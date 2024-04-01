@@ -2,7 +2,7 @@ import { TypeLibPrograms } from '@/types/index'
 import { FC } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routes, company } from '@/config/index'
+import { routes, company, preview } from '@/config/index'
 import { getStudyFields } from '@/helpers/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { useRouter } from 'next/router'
@@ -50,6 +50,8 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

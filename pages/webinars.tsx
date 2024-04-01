@@ -3,7 +3,7 @@ import { TypeLibWebinars, TypePageWebinarsProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
-import { routes, company } from '@/config/index'
+import { routes, company, preview } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 // import { WebinarsAlt } from '@/components/sections'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -37,6 +37,8 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

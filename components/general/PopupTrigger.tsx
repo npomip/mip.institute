@@ -24,6 +24,7 @@ type PopupTriggerType = {
     | 'eta'
     | 'theta'
     | 'text'
+    | 'test'
   cta:
     | 'askQuestion'
     | 'callMeBack'
@@ -45,11 +46,14 @@ type PopupTriggerType = {
     | '2for1'
     | 'buyTicket'
     | 'participate'
+    | 'familiarize'
+
+    testProgram?: string
 }
 
-const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
-  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve' || cta === 'buyTicket';
-  const question = cta === 'askQuestion' || cta === 'programQuestion'
+const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
+  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve' || cta === 'buyTicket'|| cta === 'familiarize';
+  const question = cta === 'askQuestion' || cta === 'programQuestion' 
 
   const strs = {
     trigger:
@@ -93,6 +97,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Купить билет'
         : cta === 'participate'
         ? 'Участвовать'
+        : cta === 'familiarize'
+        ? 'Ознакомиться с программой'
         : '',
     title:
       cta === 'askQuestion'
@@ -135,6 +141,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Оставить заявку'
         : cta === 'participate'
         ? 'Узнайте как поучаствовать в акции'
+        : cta === 'familiarize'
+        ? 'Ознакомиться с программой'
         : '',
     desc:
       cta === 'askQuestion' ? (
@@ -241,6 +249,11 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все условия акции!
         </>
       ) :
+      cta === 'familiarize' ? (
+        <>
+          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все o программе
+        </>
+      ) :
       (
         ''
       ),
@@ -285,6 +298,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
         ? 'Выбрать билеты'
         : cta === 'participate'
         ? 'Участвовать'
+        : cta === 'familiarize'
+        ? 'Ознакомиться с программой'
         : '',
       blockForAmo:
         cta === 'askQuestion'
@@ -325,6 +340,8 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
           ? 'Баннер 2 по цене одного'
           : cta === 'participate'
           ? 'Участвовать'
+          : cta === 'familiarize'
+          ? `Психологический тест ${testProgram}`
           : ''
   }
 
@@ -350,7 +367,9 @@ const PopupTrigger = ({ btn, cta }: PopupTriggerType) => {
             <BtnTheta text={strs.trigger} />
           ) : btn === 'text' ? (
             <BtnText text={strs.trigger} ctheta />
-          ) : (
+          ) : btn === 'test' ? (
+            <BtnGamma text={strs.trigger} test />
+          ) :(
             ''
           )}
         </div>

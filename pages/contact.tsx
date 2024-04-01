@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { TypePageDefaultProps } from '@/types/index'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { routes, company } from '@/config/index'
+import { routes, company, preview } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
@@ -30,6 +30,8 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         title={seoParams.title}
         description={truncate(seoParams.desc, 120)}
         canonical={seoParams.canonical}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

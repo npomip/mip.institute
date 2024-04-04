@@ -11,7 +11,9 @@ module.exports = /* withPWA( */ {
   // },
   poweredByHeader: false,
   i18n: {
-    locales: ['ru', 'kz', 'uz'],
+    locales: ['ru', 'kz',
+    //  'uz'
+    ],
     defaultLocale: 'ru',
     localeDetection: false
   },

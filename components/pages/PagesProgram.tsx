@@ -1,51 +1,54 @@
 import {
-  HeroProgram,
-  Opportunities,
-  Desc,
-  HowProcessGoes,
-  WhatYouWillLearn,
-  ForWhom,
-  YourDiploma,
   BriefProgramContents,
-  FullProgram,
-  YourResume,
   Cta,
-  Teachers,
-  HelpWithEmployment,
-  YourFutureJob,
-  StudyCost,
   Faq,
+  ForWhom,
+  FullProgram,
+  HeroProgram,
+  HowProcessGoes,
   PageNavigation,
   Reviews,
+  StudyCost,
+  Teachers,
+  WhatYouWillLearn,
+  WhyBother,
+  YourDiploma,
+  YourResume
 } from '@/components/sections'
 import list from '@/data/general/list'
+import listOnCourses from '@/data/general/listOnCourses'
 import { discount } from '@/data/price'
-import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
-import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
+import {
+  sortBasedOnNumericOrder,
+  sortReviewsCreatedAtASC
+} from '@/helpers/index'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { TypeLibReviews } from '@/types/index'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
-import listOnCourses from '@/data/general/listOnCourses'
-import WhyYouShouldStartPsychology from '../sections/WhyYouShouldStartPsychology'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import WhyYouShouldStartPsychologyDesktop from '../sections/WhyYouShouldStartPsychologyDesktop'
 
 interface Breadcrumb {
-  label: string;
-  path: string;
+  label: string
+  path: string
 }
 
 type PagesProgramType = {
-  ofType: 'course' | 'profession',
-  reviews: TypeLibReviews,
-  programOverview: string,
-  breadcrumbs: Breadcrumb[],
-  slug:string
+  ofType: 'course' | 'profession'
+  reviews: TypeLibReviews
+  programOverview: string
+  breadcrumbs: Breadcrumb[]
+  slug: string
 }
 
-const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, slug }: PagesProgramType) => {
+const PagesProgram = ({
+  ofType = null,
+  reviews,
+  programOverview,
+  breadcrumbs,
+  slug
+}: PagesProgramType) => {
   const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
@@ -58,59 +61,62 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
   const [showDescription, setShowDescription] = useState(true)
 
   const toggleOverview = () => {
-    setShowDescription(!showDescription);
-  };
+    setShowDescription(!showDescription)
+  }
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
 
-  const checkSlug = [
-    'pedagog-psiholog',
-    'nejropsiholog'
-  ]
+  const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
 
   const isDesktopLayout = useBetterMediaQuery('(min-width: 769px)')
 
-  
   return (
     <>
-    <ButtonToTop />
+      <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
-      <PageNavigation 
-      ofType={ofType}
-      processRef={processRef} 
-      diplomaRef={diplomaRef}
-      planRef={planRef}
-      teachersRef={teachersRef}
-      resumeRef={resumeRef}
-      costRef={costRef}
-      reviewsRef={reviewsRef}
-      faqRef={faqRef}/>
-      {isDesktopLayout &&<WhyYouShouldStartPsychologyDesktop toggleOverview={toggleOverview} showDescription={showDescription} programOverview={programOverview} />} 
-      {!isDesktopLayout && <WhyYouShouldStartPsychology programOverview={programOverview} toggleOverview={toggleOverview} showDescription={showDescription}/>}
-      {programOverview && <ProgramOverview showDescription={showDescription} toggleOverview={toggleOverview}/>}
+      <PageNavigation
+        ofType={ofType}
+        processRef={processRef}
+        diplomaRef={diplomaRef}
+        planRef={planRef}
+        teachersRef={teachersRef}
+        resumeRef={resumeRef}
+        costRef={costRef}
+        reviewsRef={reviewsRef}
+        faqRef={faqRef}
+      />
+      <WhyBother />
+      {programOverview && (
+        <ProgramOverview
+          showDescription={showDescription}
+          toggleOverview={toggleOverview}
+        />
+      )}
 
       {checkSlug.includes(slug) ? (
         <>
-        
-      <WhatYouWillLearn title={'Чему вы научитесь'}  />
-      <ForWhom />
+          <WhatYouWillLearn title={'Чему вы научитесь'} />
+          <ForWhom />
         </>
       ) : (
         <>
-        <ForWhom />
-      <WhatYouWillLearn title={'Чему вы научитесь'}  />
-      </>
+          <ForWhom />
+          <WhatYouWillLearn title={'Чему вы научитесь'} />
+        </>
       )}
-      <HowProcessGoes processRef={processRef} list={ofType === 'course'? listOnCourses : list} />
+      <HowProcessGoes
+        processRef={processRef}
+        list={ofType === 'course' ? listOnCourses : list}
+      />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
       <RequestsCard />
-      
+
       <Cta
         title={'Начните обучаться со скидкой'}
         desc={`Забронируйте программу по спеццене — со скидкой ${discount.substring(
@@ -121,8 +127,7 @@ const PagesProgram = ({ ofType = null, reviews, programOverview, breadcrumbs, sl
 
       <StudyCost costRef={costRef} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
-      <Faq faqRef={faqRef}/>
-      
+      <Faq faqRef={faqRef} />
     </>
   )
 }

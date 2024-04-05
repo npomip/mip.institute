@@ -7,7 +7,8 @@ const IconCircleCheck = ({
   violetRound = false,
   violetItems = false,
   onMain = false,
-  distanceSection = false
+  distanceSection = false,
+  programSection = false
 }) => {
   return (
     <span
@@ -18,7 +19,8 @@ const IconCircleCheck = ({
         [stls.violetRound]: violetRound,
         [stls.violetItems]: violetItems,
         [stls.onMain]: onMain,
-        [stls.distanceItem]: distanceSection
+        [stls.distanceItem]: distanceSection,
+        [stls.programItem]: programSection,
       })}>
       <svg
         viewBox='-1 -0.5 22 22'

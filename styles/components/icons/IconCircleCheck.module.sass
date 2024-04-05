@@ -78,3 +78,21 @@
       stroke-width: f.px(0.9)
       @include m.media(phone, tablet)
         stroke-width: f.px(0.9)
+
+  &.programItem
+    @include m.sizeIcon($w: 37, $h: 37)
+    border-radius: 50%
+    @include m.dye(bg, #ffffff)
+    & path
+      @include m.dye(stroke, #6F01C6)
+      stroke-width: f.px(0.8)
+      @include m.media(phone, tablet)
+        stroke-width: f.px(0.5)
+    & rect
+      @include m.dye(stroke, #6F01C6)
+      stroke-width: f.px(0.5)
+      @include m.media(phone, tablet)
+        stroke-width: f.px(0.5)
+    @include m.media(phone, tablet)
+      @include m.sizeIcon($w: 25, $h: 25)
+

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
-import { routes, company, themeColor, dev } from '@/config/index'
+import { routes, company, themeColor, dev, preview } from '@/config/index'
 import { AdditionalRobotsProps } from 'next-seo/lib/types'
 import TypeLibJournal from '@/types/lib/journal/TypeLibJournal'
 
@@ -64,8 +64,8 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
         description={seoParams.desc}
         canonical={seoParams.canonical}
         themeColor={themeColor}
-        nofollow={true}
-        noindex={true}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         // {...((parsedMetaRobots && { robotsProps: parsedMetaRobots }) || {})}
         openGraph={{
           url: seoParams.canonical,

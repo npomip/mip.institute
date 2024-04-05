@@ -6,7 +6,7 @@ import {
   sortBasedOnNumericOrder,
   sortUniqueReviewsCreatedAtASC
 } from '@/helpers/index'
-import { routes, company } from '@/config/index'
+import { routes, company, preview } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import Reviews from '@/components/sections/Reviews'
@@ -40,6 +40,8 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews, unique
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

@@ -13,7 +13,7 @@ const JournalPage = ({ blogs }) => {
   const router = useRouter()
 
   if(prod && !preview){
-  blogs = blogs.filter(el => el.previewOnly === false)
+  blogs = blogs?.filter(el => el.previewOnly === false)
   }
   const [selectedField, setSelectedField] = useState({
     studyFieldSlug: router.query.studyFieldSlug || '',

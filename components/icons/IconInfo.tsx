@@ -1,8 +1,16 @@
 import stls from '@/styles/components/icons/IconInfo.module.sass'
+import classNames from 'classnames'
 
-const IconInfo = () => {
+interface Props {
+  calpha?: boolean
+}
+const IconInfo = ({ calpha }: Props) => {
   return (
-    <span className={stls.container}>
+    <span
+      className={classNames({
+        [stls.container]: true,
+        [stls.calpha]: calpha
+      })}>
       <svg
         width='26'
         height='26'

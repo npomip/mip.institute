@@ -12,7 +12,8 @@ type TSeoPagesProgram = {
 const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
   // TODO: pull the rest of SEO params from API
 
-  // const { seo } = program
+  const { metaTitle, metaDescription } = blog?.seo
+  // console.log(metaDescription, metaTitle)
   const publishDate = new Date(blog?.date)
 
   const additionalMetaRobotsKeys = [
@@ -47,12 +48,12 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
 
   const seoParams = {
     title: `${
-      blog?.title
-        ? blog.title + ' - '
+      metaTitle
+        ? metaTitle + ' - '
         : 'статья Московского Института Психологии'
     }`,
-    desc: blog?.title
-      ? 'Интересная статья о психологии по теме' + ' ' + blog.title
+    desc: metaDescription
+      ? 'Интересная статья о психологии по теме' + ' ' + metaDescription
       : 'Интересная статья о психологии',
     canonical: `${routes.front.root}${routes.front.journals}/${blog?.slug}`
   }

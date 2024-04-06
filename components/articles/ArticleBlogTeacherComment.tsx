@@ -32,6 +32,16 @@ const ArticleBlogTeacherComment = ({
   const specialization = props && marked(props?.specialization)
   const comment = props?.comment
 
+  const renderer = new marked.Renderer()
+
+  renderer.strong = text => {
+    return `<span className=${stls.strongText}>${text}</span>`
+  }
+  marked.setOptions({ renderer })
+
+  const text = marked(props.specialization)
+
+
   return (
     <div className={stls.contentBox}>
       <div className={stls.imgContainer}>
@@ -49,7 +59,7 @@ const ArticleBlogTeacherComment = ({
       </div>
       <div className={stls.textContent}>
         <div className={stls.textContentSpecialization}>
-        {parse(specialization)}
+        {parse(text)}
         </div>
         <div style={{borderLeft: `2px solid ${props.borderColor.code}`}} className={stls.textContentComment}>
           <p>{parse(comment)}</p>

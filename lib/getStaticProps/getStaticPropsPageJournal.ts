@@ -75,6 +75,10 @@ const getStaticPropsPageJournal = async ({
                 height
               }
             }
+            seo {
+              metaTitle
+              metaDescription
+            }
             article {
               __typename
               ... on ComponentBlogTextImageBlock {

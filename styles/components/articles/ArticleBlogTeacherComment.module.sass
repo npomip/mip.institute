@@ -26,7 +26,6 @@
 .textContentSpecialization
   flex: 0.2
   @include m.gap($ml: f.px(30))
-  
   max-width: f.px(550)
   @include m.media(phone, tablet)
     @include m.gap($ml: f.px(11))
@@ -34,6 +33,10 @@
     font-size: f.px(36)
     @include m.media(phone, tablet)
       font-size: f.px(14)
+
+.strongText
+  font-weight: 500
+  max-width: f.px(400)
 
 .textContentComment
   @include m.gap($pl: f.px(30))

@@ -22,9 +22,10 @@ type TypeLibJournal = {
   // index_number?: {
   //   idx?: number | null
   // } | null
-  // seo?: {
-  //   metaTitle?: string | null
-  //   metaDescription?: string | null
+  seo?: {
+    metaTitle?: string | null
+    metaDescription?: string | null
+  }
   //   metaImage?: {
   //     url: string | null
   //     width: string | null

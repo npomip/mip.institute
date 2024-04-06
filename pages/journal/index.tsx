@@ -33,7 +33,6 @@ const JournalPage = ({ blogs }) => {
     const dateB = new Date(b.date)
     return dateB.getTime() - dateA.getTime() // Сортировка от самой поздней даты к более ранней
   })
-console.log(blogs)
 
   const blogsFilter = selectedField.studyField == 'Все cтатьи' ? sortedBlogs : sortedBlogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
 

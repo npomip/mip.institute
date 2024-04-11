@@ -25,6 +25,12 @@
 .playerWrapper
   div
     border-radius: f.px(36)
+    width: 100% !important
+    height: 550px !important
+    @include m.media(tablet)
+      height: 350px !important
+    @include m.media(phone)
+      height: 210px !important
     iframe
       border-radius: f.px(36)
       border: f.px(2) solid

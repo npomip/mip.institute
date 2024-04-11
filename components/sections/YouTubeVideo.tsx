@@ -17,8 +17,6 @@ const YouTubeVideo = ({ videoId }) => {
         <div className={stls.playerWrapper}>
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${videoId}`}
-            width={1170}
-            height={600}
             controls
           />
         </div>

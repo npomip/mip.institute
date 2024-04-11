@@ -1,5 +1,6 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
 
 .title
   @include m.media(phone, tablet)
@@ -8,7 +9,7 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(25))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
 
 .time
   display: flex
@@ -20,3 +21,11 @@
     font-size: f.px(15)
     @include m.media(phone, tablet)
       font-size: f.px(12)
+
+.playerWrapper
+  div
+    border-radius: f.px(36)
+    iframe
+      border-radius: f.px(36)
+      border: f.px(2) solid
+      @include m.dye(border, c.$alpha)

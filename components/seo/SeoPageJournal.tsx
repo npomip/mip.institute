@@ -49,7 +49,7 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
   const seoParams = {
     title: `${
       metaTitle
-        ? metaTitle + ' - '
+        ? metaTitle
         : 'статья Московского Института Психологии'
     }`,
     desc: metaDescription

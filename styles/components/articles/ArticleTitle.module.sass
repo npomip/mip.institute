@@ -19,18 +19,22 @@
     font-size: f.px(33)
   @include m.media(phone)
     font-size: f.px(30)
-    
+
 .authors
   font-size: f.px(18)
-  display: flex
   width: fit-content
-  justify-content: space-between
+  font-weight: 350
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(laptop)
+
   @include m.media(phone, tablet)
     width: f.px(300)
-    flex-direction: column
+    @include m.flex($fd: column, $ai: flex-start)
     font-size: f.px(14)
-  p
-    @include m.gap($mb: f.px(10))
+    gap: f.px(10)
+
+.imgAuthorContainer
+  margin-right: f.px(10)
 
 .tag
   display: inline-block
@@ -57,14 +61,13 @@
   @include m.dye(border, c.$alpha)
   border-radius: f.px(10)
   @include m.gap($mb: f.px(4), $ml: f.px(10))
-  display: flex
-  justify-content: center
+  @include m.flex($jc: center)
   position: relative
   @include m.media(phone, tablet)
     display: none
 
 .imgTeacherContainer
-  @include m.gap($mt: f.px(30))
+  @include m.flex($fd: column)
 
 .achievements, .teacherName
   text-align: center
@@ -72,47 +75,78 @@
   @include m.gap($mb: f.px(10))
 
 .achievements
-  font-size: f.px(20)
+  font-size: f.px(18)
+  font-weight: 350
   @include m.media(laptop,tablet)
-    font-size: f.px(17)
+    font-size: f.px(16)
 
 .teacherName
   font-weight: 500
-  font-size: f.px(25)
+  font-size: f.px(22)
+  @include m.media(laptop)
+    font-size: f.px(18)
 
 .teacherText
-  font-size: f.px(25)
-  display: flex
-  flex-direction: column
-  align-items: center
+  font-size: f.px(18)
+  @include m.flex($ai: center, $fd: column)
   position: absolute
-  bottom: f.px(30)
-  width: f.px(320)
+  bottom: f.px(50)
+  text-align: center
+  font-weight: 350
   @include m.media(laptop)
-    font-size: f.px(16)
-
-  @include m.media(phone, tablet)
+    bottom: f.px(20)
 
 .imgTeacher
-  transform: scaleX(1.4) scale(0.7) translateY(-20%)
+  @include m.gap($mlr: f.px(50))
+  transform: scaleX(0.6) scale(0.7)
   @include m.media(laptop)
-    transform: scaleX(1.4) scale(0.55) translateY(-35%)
+    @include m.gap($mlr: f.px(30))
+    transform: scaleX(0.75) scale(0.6) translateY(-15%)
 
 .dateAndTime
-  align-items: flex-start
-  display: flex
-  justify-content: space-between
+  @include m.flex($ai: center, $jc: space-between)
+  @include m.media(laptop)
+    font-size: f.px(15)
   @include m.media(tablet, phone)
     width: f.px(190)
+    @include m.flex($jc: space-between)
     @include m.gap($pr: f.px(0))
+
+.time
+  @include m.flex($ai: center, $jc: space-between)
 
 .date
   @include m.gap($pr: f.px(70))
+  @include m.media(laptop)
+    @include m.gap($pr: f.px(40))
   @include m.media(tablet, phone)
-    @include m.gap($pr: f.px(50))
+    @include m.gap($pr: f.px(30))
 
 .author
-  @include m.gap($pr: f.px(70))
+  @include m.gap($pr: f.px(50))
+  @include m.flex($fd: row, $ai: center)
+  @include m.media(laptop)
+    font-size: f.px(15)
+    @include m.flex($fd: row, $ai: center)
+  @include m.media(tablet, phone)
+    @include m.gap($pr: f.px(10))
 
 .strongText
   font-weight: 500
+  @include m.gap($mr: f.px(3))
+
+.readTime
+  color: #545454
+  @include m.gap($ml: f.px(10))
+  @include m.media(phone)
+    @include m.gap($ml: 3)
+
+.expert
+  display: inline-block
+  text-align: center
+  font-size: f.px(18)
+  font-weight: 350
+  @include m.gap($plr: f.px(40), $pt: f.px(30), $pb: 0)
+  line-height: f.px(20)
+  @include m.media(laptop)
+    font-size: f.px(16)

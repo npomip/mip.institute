@@ -46,14 +46,34 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
     <>
       <span className={stls.tag}>{props.studyField}</span>
       <div className={stls.authors}>
-        <p className={stls.author}>
-          <span className={stls.strongText}>Автор:</span>{' '}
+        <div className={stls.author}>
+          <div className={stls.imgAuthorContainer}>
+            <Image
+              src={props.blogAuthor?.portrait?.url}
+              alt={'Фото преподавателя'}
+              className={stls.imgAuthor}
+              width={30}
+              height={30}
+              blurDataURL={base64pixel}
+            />
+          </div>
+          <span className={stls.strongText}>Автор:</span>
           {props.blogAuthor && props.blogAuthor.name}
-        </p>
+        </div>
+        {props.teacher && (
+          <div className={stls.author}>
+            <span className={stls.strongText}>Психолог:</span>
+            {props?.teacher?.name}
+          </div>
+        )}
         <div className={stls.dateAndTime}>
-          <p className={stls.date}>{date.toLocaleDateString()}</p>
-          <IconClock colorCode='#545454' size='22' />
-          <p>{props.readTime} мин</p>
+          <div className={stls.date}>
+            {date.toLocaleDateString().replaceAll('/', '.')}
+          </div>
+          <div className={stls.time}>
+            <IconClock colorCode='#545454' size='18' />
+            <span className={stls.readTime}>{props.readTime} минут</span>
+          </div>
         </div>
       </div>
 
@@ -75,6 +95,9 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
         {props?.teacher && (
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
+              <span className={stls.expert}>
+                Статья написана совместно с экспертом:
+              </span>
               <Image
                 src={
                   props.teacher?.portraitForBlog?.url ||
@@ -82,8 +105,8 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
                 }
                 alt={'Фото преподавателя'}
                 className={stls.imgTeacher}
-                width={227}
-                height={292}
+                width={100}
+                height={200}
                 placeholder='blur'
                 blurDataURL={base64pixel}
               />

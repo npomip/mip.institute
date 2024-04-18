@@ -29,7 +29,7 @@ export default function SearchProgramsDropDown() {
       // TODO: когда добавят Журнал
       {
         href: routes.front.journals,
-        val: 'Блог МИП'
+        val: 'Журнал'
       },
       {
         href: routes.front.reviews,

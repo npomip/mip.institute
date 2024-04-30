@@ -5,11 +5,27 @@ import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import { dev, preview, prod, routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
+import { gql, useQuery } from '@apollo/client'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
+// const CHECK_TOKENS = gql`
+//   query Blogs {
+//     blogs {
+//       id
+//       title
+//     }
+//   }
+// `
+
 const JournalPage = ({ blogs }) => {
+
+  // const { loading, error, data } = useQuery(CHECK_TOKENS)
+
+  // console.log(loading, data)
+
+
   const router = useRouter()
 
   if(prod && !preview){
@@ -27,14 +43,18 @@ const JournalPage = ({ blogs }) => {
 
   }, [selectedField.studyField])
 
-  const sortedBlogs = [...blogs].sort((a, b) => {
-    // Предположим, что a.date и b.date содержат строки с датами
-    const dateA = new Date(a.date)
-    const dateB = new Date(b.date)
-    return dateB.getTime() - dateA.getTime() // Сортировка от самой поздней даты к более ранней
-  })
+  // const sortedBlogs = [...blogs].sort((a, b) => {
+  //   // Предположим, что a.date и b.date содержат строки с датами
+  //   const dateA = new Date(a.date)
+  //   const dateB = new Date(b.date)
+  //   return dateB.getTime() - dateA.getTime() // Сортировка от самой поздней даты к более ранней
+  // })
 
-  const blogsFilter = selectedField.studyField == 'Все cтатьи' ? sortedBlogs : sortedBlogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
+  const blogsFilter = selectedField.studyField == 'Все cтатьи' ? blogs : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
+
+  // if(loading) {
+  //   return <p>loading</p>
+  // }
 
   return (
     <Wrapper>

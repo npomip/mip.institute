@@ -14,7 +14,7 @@ const getStaticPropsPageJournals = async ({
   const res = await apolloClient.query<TypePageJournalsPropsQuery>({
     query: gql`
       query GetStaticPropsPageJournal {
-        blogs {
+        blogs(sort: "date:desc") {
           id
           title
           slug

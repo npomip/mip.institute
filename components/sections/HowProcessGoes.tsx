@@ -1,7 +1,7 @@
 import TwoColumns from '@/components/layout/TwoColumns'
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
-import img from '@/public/assets/imgs/howProcessGoes.png'
+import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 import Image from 'next/image'
 
 interface listType {

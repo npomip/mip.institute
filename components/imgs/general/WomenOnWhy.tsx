@@ -1,6 +1,6 @@
 import stls from '@/styles/components/imgs/general/WomenOnWhy.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/general/womenOnWhy.png'
+import pic from '@/public/assets/imgs/general/womenOnWhy.jpeg'
 
 const WomenOnWhy = ({ width = 649, height = 590 }) => {
   return (

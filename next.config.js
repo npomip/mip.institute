@@ -190,7 +190,7 @@ module.exports = /* withPWA( */ {
         source:
           '/professions/prakticheskaya-psihologiya/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
         destination:
-          '/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
+          '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
@@ -543,7 +543,7 @@ module.exports = /* withPWA( */ {
       {
         source: '/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii',
         destination:
-        '/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
+        '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {

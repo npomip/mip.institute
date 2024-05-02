@@ -4,7 +4,7 @@ import stls from '@/styles/components/sections/EducationProcess.module.sass'
 import Image from 'next/image'
 import { useState } from 'react'
 import TagOrange from '../general/TagOrange'
-import img from '@/public/assets/imgs/howProcessGoes.png'
+import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 
 const text = [
   'Обучение в МИП осуществляется по заочной форме ',

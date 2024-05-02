@@ -461,6 +461,151 @@ module.exports = /* withPWA( */ {
         '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
         permanent: true
       },
+      {
+        source: '/professions/konsultirovanie/kratkosrochnaya-psihoterapiya',
+        destination:
+        '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike',
+        destination:
+        '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/pesochnaya-terapiya-v-psihologicheskom-konsultirovanii',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/skazkoterapiya-v-psihologicheskom-konsultirovanii',
+        destination:
+        '/professions/konsultirovanie/art-terapevt',
+        permanent: true
+      },
+      {
+        source: '/professions/detskaya-psihologiya/defektolog',
+        destination:
+        '/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
+        permanent: true
+      },
+
+      {
+        source: '/professions/obshaya-psihologiya/psihologiya-lichnosti',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
+        destination:
+        '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
+        permanent: true
+      },
+      {
+        source: '/professions/dietologiya-i-nutriciologiya/nutriciologiya',
+        destination:
+        '/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/prakticheskij-psiholog',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/obshaya-psihologiya/psihologiya',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/obshaya-psihologiya/socialnyj-psiholog',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/proektivnye-metodiki-v-psihologicheskom-konsultirovanii',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii',
+        destination:
+        '/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
+        destination:
+        '/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/psihologicheskoe-internet-konsultirovanie',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-detej-i-podrostkov',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-i-diagnostika-lichnosti',
+        destination:
+        '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-s-ispolzovaniem-metodov-art-terapii',
+        destination:
+        '/professions/konsultirovanie/art-terapevt',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/osnovy-psihologicheskogo-konsultirovaniya-i-professionalnyj-kouching',
+        destination:
+        '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
+        destination:
+        '/professions/organizacionnaya-psihologiya/mediator',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij',
+        destination:
+        '/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/semejnoe-psihologicheskoe-konsultirovanie',
+        destination:
+        '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        permanent: true
+      },
+      {
+        source: '/professions/konsultirovanie/teoriya-i-praktika-individualnogo-i-semejnogo-konsultirovaniya',
+        destination:
+        '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        permanent: true
+      },
     ]
   }
 }

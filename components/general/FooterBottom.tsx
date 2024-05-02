@@ -3,6 +3,7 @@ import stls from '@/styles/components/general/FooterBottom.module.sass'
 
 const footerLinks = [
   { href: routes.external.advCake, title: 'Партнерская программа' },
+  { href: routes.external.referralProgram, title: 'Пригласи друга' },
   { href: routes.front.policiesTerms, title: 'Договор оферты' },
   { href: routes.front.policiesPrivacy, title: 'Политика конфиденциальности' },
   {

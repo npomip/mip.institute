@@ -61,6 +61,11 @@ const Footer = () => {
       target: '_blank'
     },
     {
+      val: 'Пригласи друга',
+      href: routes.external.referralProgram,
+      target: '_blank'
+    },
+    {
       val: 'Сведения об образовательной организации',
       href: routes.front.legal
     },

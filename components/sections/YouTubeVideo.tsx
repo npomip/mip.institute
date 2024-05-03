@@ -8,7 +8,7 @@ const YouTubeVideo = ({ videoId }) => {
   return (
     <section>
       <Wrapper>
-        <h1 className={stls.title}>Знакомство с институтом</h1>
+        <h2 className={stls.title}>Знакомство с институтом</h2>
         <div className={stls.time}>
           <IconClock colorCode='#DADADA' />
           <p>Длительность 2 минуты</p>

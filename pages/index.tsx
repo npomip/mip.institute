@@ -152,9 +152,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <YourDiploma onMain ofType='profession' />
       <HappyStudents />
-      <Reviews onMain reviews={reviewsSorted} />
+      <Reviews onMain reviews={reviewsSorted} isLiveCourse />
       <PayLater />
-      <Companies/>
+      <Companies />
       <EntryForm />
       <Faq />
     </>

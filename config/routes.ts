@@ -24,6 +24,8 @@ const routes = {
     journal: '/journal/slug',
     seminars: '/seminars',
     seminar: '/seminars/studyField/slug',
+    liveCourses: '/live-courses',
+    liveCourse: '/live-courses/slug',
     courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',

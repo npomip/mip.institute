@@ -2,36 +2,27 @@ import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import TypePageJournalPathsQuery from '@/types/page/journal/query/TypePageSeminarPathsQuery'
 import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPaths'
+import TypePageLiveCoursePaths from '@/types/page/liveCourse/paths/TypePageLiveCoursePaths'
+import TypePageLiveCoursePathsQuery from '@/types/page/liveCourse/query/TypePageLiveCoursePathsQuery'
 
-const getStaticPathsPageJournal = async (): Promise<{
-  paths: TypePageJournalPaths
+const getStaticPathsPageLiveCourse = async (): Promise<{
+  paths: TypePageLiveCoursePaths
   fallback: boolean | 'blocking'
 }> => {
-  const res = await apolloClient.query<TypePageJournalPathsQuery>({
+  const res = await apolloClient.query<TypePageLiveCoursePathsQuery>({
     query: gql`
-      query GetStaticPathsPageSeminar {
-        blogs {
-          studyFieldSlug
+      query getStaticPathsPageLiveCourse {
+        lifeCourses {
           slug
         }
       }
     `
   })
 
-  console.log(Array.from(
-    new Set(
-      res.data?.blogs?.map(program => ({
-        params: {
-          slug: program?.slug || 'program'
-        }
-      }))
-    )
-  ))
-
   return {
     paths: Array.from(
       new Set(
-        res.data?.blogs?.map(program => ({
+        res.data?.lifeCourses?.map(program => ({
           params: {
             slug: program?.slug || 'program'
           }
@@ -42,4 +33,4 @@ const getStaticPathsPageJournal = async (): Promise<{
   }
 }
 
-export default getStaticPathsPageJournal
+export default getStaticPathsPageLiveCourse

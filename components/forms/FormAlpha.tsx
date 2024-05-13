@@ -65,8 +65,8 @@ const FormAlpha = ({
 
   const onSubmit = async data => {
     
-    const ipCheck = await ipCheckFunc()
-    if (ipCheck === 200) {
+    // const ipCheck = await ipCheckFunc()
+    // if (ipCheck === 200) {
       setIsDisabled(true)
       setLoading(true)
 
@@ -116,7 +116,7 @@ const FormAlpha = ({
           setLoading(false)
           window.open(routes.front.gratefull, '_blank')
           setIsIpCheckFailed(false)
-          // setIsDisabled(true)
+          setIsDisabled(true)
           setThanksIsOpen(true)
         } else {
           console.log('err')
@@ -124,10 +124,10 @@ const FormAlpha = ({
           setIsIpCheckFailed(true)
         }
       }
-    } else {
-      setIsIpCheckFailed(true)
-      console.log(errors)
-    }
+    // } else {
+    //   setIsIpCheckFailed(true)
+    //   console.log(errors)
+    // }
   }
 
   return (

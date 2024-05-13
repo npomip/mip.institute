@@ -13,9 +13,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 const JournalPage = ({ lifeCourse }) => {
-console.log(lifeCourse)
-
-// const block = liveCourse.dyn
+// console.log(lifeCourse)
 
   // const router = useRouter()
 

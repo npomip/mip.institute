@@ -18,17 +18,30 @@
   font-size: f.px(44)
   font-weight: 500
   @include m.gap($mb: f.px(30), $pt: f.px(60))
+  @include m.media(phone, tablet)
+    text-align: center
+    font-size: f.px(33)
+    max-width: f.px(300)
+    @include m.gap($mb: f.px(15), $pt: f.px(37))
 
 .subtitle
   font-size: f.px(20)
   font-weight: 500
   @include m.gap($pb: f.px(28))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    font-weight: 350
+    @include m.gap($pb: f.px(0))
 
 .medalionContainer
   display: flex
   position: relative
   justify-content: center
   @include m.gap($mb: f.px(70))
+  @include m.media(phone, tablet)
+    flex-direction: column
+    row-gap: f.px(15)
+    @include m.gap($mb: f.px(40))
 
 .medalion, .medalionAbs
   position: relative
@@ -40,10 +53,20 @@
   display: flex
   align-items: center
   justify-content: center
+  @include m.media(phone, tablet)
+    width: f.px(345)
   p
     font-size: f.px(14)
     max-width: f.px(180)
     @include m.gap($ml: f.px(54), $mr: f.px(34))
+    line-height: 130%
+    @include m.media(laptop)
+      font-size: f.px(12)
+      @include m.gap($ml: f.px(34))
+    @include m.media(phone, tablet)
+      @include m.gap($ml: f.px(64), $mr: f.px(24))
+      max-width: f.px(200)
+
 
 .medalionAbs
   position: absolute
@@ -51,17 +74,27 @@
   height: f.px(109)
   top: f.px(-100)
   transform: rotate(15.123deg)
+  @include m.media(phone, tablet)
+    position: relative
+    transform: rotate(0)
+    top: 0
+    p
+      @include m.gap($mb: f.px(0))
 
 .circle
   position: absolute
-  width: 16px
-  height: 16px
+  width: f.px(16)
+  height: f.px(16)
   border: 1px dashed #5C374C
   border-radius: f.px(50)
-  left: 10px
+  left: f.px(10)
+  @include m.media(phone, tablet)
+    left: f.px(60)
 
 .medalion
   margin-left: f.px(-30)
+  @include m.media(phone, tablet)
+    margin-left: f.px(0)
   &:nth-child(1)
     margin-left: f.px(0)
   p

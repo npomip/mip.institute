@@ -26,11 +26,13 @@ const LiveCorsesTextImage = ({ props }: LiveCorsesTextImageProps) => {
   return (
     <Wrapper>
       <div className={styles.container}>
-        {block?.map(el => (
-          <div className={styles.block}>
-            {el.map(one => (
-              <div className={styles.content}>
-                {/* {console.log(one.photo)} */}
+        {block?.map((el, i) => (
+          // <>
+          // {console.log(el)}
+          // </>
+          <div key={i} className={styles.block}>
+            {el.map((one, idx) => (
+              <div key={idx} className={styles.content}>
                 {one.txt && (
                   <p
                     style={{

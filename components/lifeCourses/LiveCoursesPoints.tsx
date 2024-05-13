@@ -19,7 +19,7 @@ interface LiveCorsesPointsProps {
 }
 const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
   const { title, subtitle, color, medalion } = props
-  console.log(title, subtitle, color, medalion)
+  // console.log(title, subtitle, color, medalion)
   return (
     <div
       style={{ backgroundColor: `${color.code}` }}

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import TagOrange from '../general/TagOrange'
 import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const text = [
   'Обучение в МИП осуществляется по заочной форме ',
@@ -13,8 +14,10 @@ const text = [
   'в работе с задачами по реальным кейсам. Узнаете, как терапия помогает решить внутриличностные проблемы и выйти из стрессовых ситуаций без потерь.'
 ]
 
-const EducationProcess = () => {
+const EducationProcess = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0}) => {
   const [showFullText, setShowFullText] = useState(false)
+
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const subtitleMobile = (
     <>
@@ -43,7 +46,10 @@ const EducationProcess = () => {
   )
 
   return (
-    <section className={stls.container}>
+    <section className={stls.container} style={{ 
+      paddingTop : isMobileAndTabletLayout ? paddingTopMobile : paddingTop, 
+      paddingBottom : isMobileAndTabletLayout ? paddingBottomMobile : paddingBottom
+      }}>
       <Wrapper>
         <h2 className={stls.title}>Как проходит обучение</h2>
         <div className={stls.tag}>

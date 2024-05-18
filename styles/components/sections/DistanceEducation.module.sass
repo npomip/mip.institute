@@ -5,10 +5,11 @@
 .container
   position: relative
   z-index: 1
-  @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(0), $pb: f.px(50))
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(0), $pb: f.px(100))
+  overflow: visible
+  // @include m.media(phone, tablet)
+  //   @include m.gap($pt: f.px(0), $pb: f.px(50))
+  // @include m.media(laptop, desktop)
+  //   @include m.gap($pt: f.px(0), $pb: f.px(100))
   @include m.dye(bg, c.$nu)
 
 .title

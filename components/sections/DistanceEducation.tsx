@@ -5,6 +5,7 @@ import SwiperContainer from '../general/SwiperContainer'
 import classNames from 'classnames'
 import { IconFinger } from '../icons'
 import { useEffect, useRef, useState } from 'react'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const list = [
   'Смотрите лекции, проходите тесты на платформе',
@@ -16,7 +17,9 @@ const list = [
   'На выпуске подготовка к итоговой аттестации при личной поддержке практикующего психолога'
 ]
 
-export const DistanceEducation = () => {
+export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0}) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
   const slides = list.map((item, idx) => (
     <CardDistanceEducation
       key={item + idx}
@@ -78,7 +81,10 @@ export const DistanceEducation = () => {
   // console.log('ВИЖУ ПАЛЕЦ', isIntersecting)
 
   return (
-    <section ref={fingerRef} className={stls.container}>
+    <section ref={fingerRef} className={stls.container} style={{ 
+      paddingTop : isMobileAndTabletLayout ? paddingTopMobile : paddingTop, 
+      paddingBottom : isMobileAndTabletLayout ? paddingBottomMobile : paddingBottom
+      }}>
       <Wrapper>
         <h2 className={stls.title}>
           В программу дистанционного обучения входит:

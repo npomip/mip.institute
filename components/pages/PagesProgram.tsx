@@ -26,6 +26,8 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { TypeLibReviews } from '@/types/index'
 import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
+import DistanceEducation from '../sections/DistanceEducation'
+import EducationProcess from '../sections/EducationProcess'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 
@@ -106,10 +108,13 @@ const PagesProgram = ({
           <WhatYouWillLearn title={'Чему вы научитесь'} />
         </>
       )}
-      <HowProcessGoes
-        processRef={processRef}
-        list={ofType === 'course' ? listOnCourses : list}
+      <EducationProcess 
+        paddingTop={30} 
+        paddingBottom={0} 
+        paddingTopMobile={0} 
+        paddingBottomMobile={0}
       />
+      <DistanceEducation paddingBottomMobile={20}/>
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />

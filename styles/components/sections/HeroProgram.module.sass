@@ -150,8 +150,9 @@
 
 .info
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(46))
+    @include m.gap($mb: f.px(30))
   @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(-68))
     transform: translateY(f.px(-100))
     position: relative
     z-index: 2

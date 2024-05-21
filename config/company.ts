@@ -19,6 +19,8 @@ const company = {
         name: 'Докучаев',
         door: '8'
       },
+      room: '14',
+      officeNum: '4 подъезд, 1 этаж'
     },
     kz: {
       countryCode: 'KZ',

@@ -25,8 +25,8 @@ const LegalInfo = () => {
           д.11, пом.13 <br /> */}
           Фактический адрес: {company.addresses.default.zip}, г.{' '}
           {company.addresses.default.city}, <br />{' '}
-          {`${company.addresses.default.street.type} ${company.addresses.default.street.name}, д.${company.addresses.default.street.door}`}
-          , {company.addresses.default.officeNum}
+          {`${company.addresses.default.street.name} ${company.addresses.default.street.type}, д.${company.addresses.default.street.door}`}
+          
         </>
       )
     },
@@ -54,7 +54,7 @@ const LegalInfo = () => {
     {
       title:
         'Информация о местах осуществления образовательной деятельности, в том числе не указанных в приложении к лицензии (реестре лицензий) на осуществление образовательной деятельности в соответствии с частью 4 статьи 91 Федерального закона от 29.12.2012 №273-ФЗ "Об образовании в Российской Федерации":',
-      content: 'Адрес: 115419, Москва, улица Шаболовка, 34с2'
+      content: 'Адрес: 115419, Москва, Докучаев переулок, 8'
     },
     {
       title: 'ОГРН организации:',

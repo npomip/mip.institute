@@ -3,9 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
+  @include m.flex($jc: space-between, $fw: wrap)
+  border: f.px(1) solid #E8E8E8
   margin: 0
   padding: 0
   @include m.media(laptop, desktop)
@@ -14,29 +13,29 @@
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   border-radius: f.px(20)
   @include m.dye(bg, c.$nu)
-  
+  @include m.media(phone, tablet)
+    box-shadow: none
+    border: none
+
 .item
   position: relative
+  display: flex
   &:last-child
     @include m.media(phone, tablet)
       display: none
-  display: flex
   @include m.media(phone, tablet)
     flex-basis: 50%
     @include m.gap($plr: f.px(15), $ptb: f.px(14))
     &:nth-of-type(3)
-      // order: -1
       .key
         font-size: 0.0001px
-        // color: red
         &::after
           font-size: f.px(15)
           display: block
-          content: 'Зачисления'
+          content: 'Зачислениe:'
+          @include m.gap($ptb: f.px(8))
     &:nth-of-type(1), &:nth-of-type(2)
       @include m.gap($pt: f.px(28))
-    &:nth-of-type(3), &:nth-of-type(4)
-      @include m.gap($pb: f.px(28))
 
     @include m.dye(border, rgba(c.$theta, .1))
   @include m.media(laptop)
@@ -56,7 +55,6 @@
 .icon
   @include m.media(phone, tablet)
     display: none
-    // margin-right: f.px(12)
   @include m.media(laptop, desktop)
     max-width: f.px(24)
     margin-bottom: f.px(12)
@@ -65,10 +63,10 @@
   max-width: 18ch
   margin-bottom: f.px(10)
   @include m.media(phone, tablet)
-    &:nth-of-type(2)
-      background: red
-    
+    color: black !important
     font-size: f.px(15)
+    font-weight: 300
+    line-height: 120%
   @include m.media(laptop, desktop)
     font-size: f.px(14)
   font-weight: 500
@@ -80,7 +78,6 @@
   @include m.media(laptop, desktop)
     font-size: f.px(18)
   font-weight: 500
-
 
 .anotherIcon
   position: absolute
@@ -99,4 +96,4 @@
   color: #808080
   font-weight: 500
   span
-    color: #6F01C6
+    @include m.dye(c, c.$alpha)

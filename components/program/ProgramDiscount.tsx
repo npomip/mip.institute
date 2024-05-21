@@ -5,17 +5,19 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import ProgramDiscountUntil from './ProgramDiscountUntil'
 
-type TypeProgramDiscount = {
+type Props = {
   small?: boolean
   textOnly?: boolean
   violet?: boolean
+  isWhite?: boolean
 }
 
 const ProgramDiscount = ({
-  small = null,
-  textOnly = null,
-  violet = null
-}: TypeProgramDiscount) => {
+  small = false,
+  textOnly = false,
+  violet = false,
+  isWhite = false
+}: Props) => {
   const { program } = useContext(ContextStaticProps)
   const programDiscount = program?.discount || 0
 
@@ -32,7 +34,8 @@ const ProgramDiscount = ({
           className={classNames({
             [stls.container]: true,
             [stls.small]: small,
-            [stls.violet]: violet
+            [stls.violet]: violet,
+            [stls.white]: isWhite
           })}>
           {violet ? (
             <div className={stls.forFlex}>

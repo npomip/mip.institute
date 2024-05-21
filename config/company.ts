@@ -14,13 +14,11 @@ const company = {
       city: 'Москва',
       zip: '115419',
       street: {
-        type: 'улица',
-        typeShort: 'наб.',
-        name: 'Шаболовка',
-        door: '34, строение 2'
+        type: 'переулок',
+        typeShort: 'пер.',
+        name: 'Докучаев',
+        door: '8'
       },
-      room: '14',
-      officeNum: '4 подъезд, 1 этаж'
     },
     kz: {
       countryCode: 'KZ',

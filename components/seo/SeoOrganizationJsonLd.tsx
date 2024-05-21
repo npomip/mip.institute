@@ -11,7 +11,7 @@ const SeoOrganizationJsonLd = () => {
         legalName={company.fullName}
         name={company.name}
         address={{
-          streetAddress: `${company.addresses.default.street.type} ${company.addresses.default.street.name} ${company.addresses.default.street.door}, ${company.addresses.default.room}`,
+          streetAddress: `${company.addresses.default.street.type} ${company.addresses.default.street.name}`,
           addressLocality: company.addresses.default.city,
           postalCode: company.addresses.default.zip,
           addressCountry: company.addresses.default.countryCode

@@ -77,7 +77,7 @@ const MenuMobile = () => {
           
           <PopupTrigger btn='epsilon' cta='callMeBack' />
         </div>
-        <p>Москва, Шаболовка улица 34с2</p>
+        <p>Москва, Докучаев переулок, 8</p>
         <div className={stls.sm}>
           <BtnVk mlzero />
           <BtnWhatsapp />

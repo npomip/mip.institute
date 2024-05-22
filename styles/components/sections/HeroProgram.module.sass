@@ -28,8 +28,7 @@
     display: none
 
 .mobileBg
-  max-width: f.px(768)
-  min-height: f.px(560)
+  height: fit-content
   position: relative
   background-position: center center
   background-size: cover
@@ -132,9 +131,8 @@
   @include m.media(laptop, desktop)
     display: none
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(17))
     & > *:nth-child(1)
-      @include m.gap($mb: f.px(17))
+      @include m.gap($mb: f.px(10))
 
 .btnsDesktop
   @include m.media(laptop, desktop)
@@ -172,6 +170,6 @@
   @include m.gap($mb: f.px(0))
 
 .content
-  min-height: f.px(560)
+  min-height: f.px(473)
   @include m.flex($fd: column, $jc: space-between)
   @include m.gap($pt: f.px(20), $pb: f.px(30), $plr: f.px(15))

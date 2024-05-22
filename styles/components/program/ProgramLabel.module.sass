@@ -8,6 +8,8 @@
   border: 1px solid
   @include m.dye(border, rgba(c.$nu, .3))
   border-radius: f.px(23)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(100))
 
 .p
   @include m.gap($mb: 0)

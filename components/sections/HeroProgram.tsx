@@ -97,7 +97,7 @@ const HeroProgram = ({ breadcrumbs }) => {
               </div>
             </div>
           </div>
-          <div className={stls.info}>
+          <div className={showFullText ? stls.infoDown : stls.info}>
             <ProgramInfo />
           </div>
         </Wrapper>

@@ -16,7 +16,7 @@
 
 .desktopBg
   max-width: f.px(1170)
-  min-height: f.px(760)
+  min-height: f.px(638)
   border-radius: f.px(20)
   position: relative
   background-position: center center
@@ -47,7 +47,7 @@
   height: f.px(660)
   z-index: 1
   @include m.media(laptop, desktop)
-    @include m.gap($plr: f.px(63), $pt: f.px(10), $pb: f.px(30))
+    @include m.gap($plr: f.px(63), $pt: f.px(10), $pb: f.px(200))
     @include m.flex($fd: column, $jc: space-between)
 
 .label
@@ -94,12 +94,16 @@
     display: none
 
 .moreText
-  @include m.dye(c, c.$beta)
+  position: relative
+  z-index: 20 
+  @include m.dye(c, c.$epsilon)
   text-decoration-line: underline
   text-underline-offset: f.px(2)
   font-weight: 500
   line-height: 130%
-  @include m.gap($pb: f.px(20))
+  backdrop-filter: blur(20px)
+  border-radius: 25px
+  @include m.gap($ptb: f.px(10), $mtb: f.px(10), $plr: f.px(10))
   @include m.media(phone, tablet)
     font-size: f.px(15)
 
@@ -148,14 +152,21 @@
   @include m.media(phone, tablet)
     display: none
 
-.info
+.info, .infoDown
+  transition: transform 1s ease-in-out
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(30))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(-68))
-    transform: translateY(f.px(-100))
+    transform: translateY(f.px(-140))
     position: relative
-    z-index: 2
+    z-index: 1
+
+.infoDown
+  
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(8))
+    transform: translateY(f.px(-10))
 
 .mobiledesc
   display: inline-block

@@ -43,7 +43,7 @@ const HeroProgram = ({ breadcrumbs }) => {
         "Психология сексуальности и терапия сексуальных расстройств"
       ];
 
-      const analysis = validTitles.includes(program.title);
+      const analysis = validTitles.includes(program?.title);
 
 
   return (

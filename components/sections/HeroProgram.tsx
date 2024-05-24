@@ -7,6 +7,7 @@ import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/HeroProgram.module.sass'
 import { useContext, useState } from 'react'
 import Breadcrumbs from '../general/Breadcrumbs'
+import classNames from 'classnames'
 
 const HeroProgram = ({ breadcrumbs }) => {
   const { curProgramsType, program } = useContext(ContextStaticProps)
@@ -34,6 +35,17 @@ const HeroProgram = ({ breadcrumbs }) => {
       ? 'signUpForProfession'
       : 'signUp'
 
+      const validTitles = [
+        'Психоанализ и психоаналитическая психотерапия',
+        'Суггестивная психология. Гипноз в психологическом консультировании',
+        "Современные методы саморегуляции психологии здоровья",
+        "Современная мастерская психологического консультирования",
+        "Психология сексуальности и терапия сексуальных расстройств"
+      ];
+
+      const analysis = validTitles.includes(program.title);
+
+
   return (
     <>
       <div
@@ -50,7 +62,7 @@ const HeroProgram = ({ breadcrumbs }) => {
             <ProgramLabel />
           </div>
           <div>
-            <h1 className={stls.title}>{program?.title}</h1>
+            <h1 className={stls.title} >{program?.title}</h1>
             <div className={stls.mobileFlex}>
               <div className={stls.descriptionMobile}>
                 <p className={stls.mobiledesc}>{description}</p>
@@ -83,7 +95,10 @@ const HeroProgram = ({ breadcrumbs }) => {
                 <div className={stls.label}>
                   <ProgramLabel />
                 </div>
-                <h1 className={stls.title}>{program?.title}</h1>
+                <h1 className={classNames({
+          [stls.title]: true,
+          [stls.analysis]: analysis
+        })}  >{program?.title}</h1>
                 <div className={stls.descriptionDesktop}>
                   <p className={stls.mobiledesc}>{description}</p>
                   <button onClick={cutHandler} className={stls.moreText}>

@@ -10,7 +10,7 @@ import Breadcrumbs from '../general/Breadcrumbs'
 
 const HeroProgram = ({ breadcrumbs }) => {
   const { curProgramsType, program } = useContext(ContextStaticProps)
-  const [cut, setCut] = useState(160)
+  const [cut, setCut] = useState(120)
   const [showFullText, setShowFullText] = useState(false)
   const descriptionLength = program?.description?.length
   const cutHandler = () => {
@@ -18,7 +18,7 @@ const HeroProgram = ({ breadcrumbs }) => {
     if (!showFullText) {
       setCut(descriptionLength)
     } else {
-      setCut(160)
+      setCut(120)
     }
   }
 

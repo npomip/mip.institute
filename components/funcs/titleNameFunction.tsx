@@ -52,7 +52,7 @@ const titleName = item => {
         </>
       )
     case '/programs':
-      return <>Курсы психологии</>
+      return <>Психология.</>
     case '/programs/detskaya-psihologiya':
       return <>Курсы по детской психологии</>
     case '/programs/konsultirovanie':
@@ -93,13 +93,15 @@ const titleName = item => {
           Психологическое консультирование. <br /> Повышение квалификации
         </>
       )
-      case '/programs/dietologiya-i-nutriciologiya':
+    case '/programs/dietologiya-i-nutriciologiya':
       return (
         <>
-          Курсы<br />по диетологии и нутрициологии
+          Курсы
+          <br />
+          по диетологии и нутрициологии
         </>
       )
-      case '/programs/klinicheskaya-psihologiya':
+    case '/programs/klinicheskaya-psihologiya':
       return (
         <>
           Курсы <br /> клинической психологии

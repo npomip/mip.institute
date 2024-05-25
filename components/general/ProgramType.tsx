@@ -8,16 +8,14 @@ import { ContextStaticProps } from '@/context/index'
 const ProgramType = ({ close = null }) => {
   const { curProgramsType, curProgramsStudyFieldSlug } =
     useContext(ContextStaticProps)
-
+  const value = curProgramsType === null ? 'profession' : curProgramsType
   const slug = curProgramsStudyFieldSlug ? curProgramsStudyFieldSlug : ''
-
-  // console.log(slug)
 
   return (
     <div className={stls.container}>
-      <p className={stls.p}>Тип обучения:</p>
+      <p className={stls.p}>Выдаваемый документ:</p>
 
-      <Link href={`${routes.front.programs}/${slug}`}>
+      {/* <Link href={`${routes.front.programs}/${slug}`}>
         <a className={stls.item} onClick={close && close}>
           <div
             className={cn({
@@ -26,16 +24,18 @@ const ProgramType = ({ close = null }) => {
             })}></div>{' '}
           <span className={stls.text}>Любой</span>
         </a>
-      </Link>
+      </Link> */}
 
       <Link href={`${routes.front.professions}/${slug}`}>
         <a className={stls.item} onClick={close && close}>
           <div
             className={cn({
               [stls.circle]: true,
-              [stls.active]: curProgramsType === 'profession'
+              [stls.active]: value === 'profession'
             })}></div>
-          <span className={stls.text}>Профессия</span>
+          <span className={stls.text}>
+            Диплом о профессиональной переподготовке
+          </span>
         </a>
       </Link>
 
@@ -44,9 +44,11 @@ const ProgramType = ({ close = null }) => {
           <div
             className={cn({
               [stls.circle]: true,
-              [stls.active]: curProgramsType === 'course'
+              [stls.active]: value === 'course'
             })}></div>
-          <span className={stls.text}>Курс</span>
+          <span className={stls.text}>
+            Удостоверение о повышении квалификации
+          </span>
         </a>
       </Link>
     </div>

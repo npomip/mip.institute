@@ -7,12 +7,10 @@
   &.tooltip
     @include m.flex($fw: wrap)
     & .studyField
-      @include m.gap($mb: f.px(12), $mr: f.px(15))
+      @include m.gap($mr: f.px(15))
   &.aside
     & .studyField
-      @include m.gap($mb: f.px(10))
-  &.orange
-    border: 1px solid #6F01C6
+      @include m.gap($mb: f.px(12))
   &.flexend
     @include m.gap($mt: f.px(25), $mlr: f.px(12))
     @include m.media(phone)
@@ -30,9 +28,17 @@
           justify-content: flex-start
           &::before
             content: ''
-            width:47%
+            width: 47%
             flex-shrink: 200
-        
+  &.row
+    @include m.flex($fd: row, $fw: wrap)
+    column-gap: f.px(20)
+    color: #1A1A1A
+    text-align: center
+    font-size: f.px(14)
+    font-style: normal
+    font-weight: 350
+    line-height: 120%
 
 .studyField
   @include m.flex

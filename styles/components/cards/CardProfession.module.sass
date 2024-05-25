@@ -4,16 +4,99 @@
 @use '@/styles/layout/cards/cardProgram'
 
 .container
-  @include cardProgram.container
+  position: relative
+  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+  @include m.flex($fd: column, $jc: flex-end)
+  @include m.gap($mb: f.px(30))
+  border-radius: f.px(10)
+  @include m.media(laptop, desktop)
+    max-width: f.px(370)
+    min-height: f.px(240)
+    overflow: hidden
+    @include m.flex($fd: column, $fb: 50%, $jc: flex-end)
+    @include m.gap($mr: 2%)
+    &:nth-child(2n)
+      @include m.gap($mr: 0)
+    // &.threerow
+    // &.fourrow
+    //   @include m.flex($fd: column, $fb: 23%)
+    //   @include m.gap($mr: 2.66%)
+    //   &:nth-child(4n)
+    //     @include m.gap($mr: 0)
+  @include m.dye(bg, #f8f9f8)
+  @include m.dye(c, c.$chi)
+  transition: background-color .2s ease-in-out
+  &:hover,
+  &:focus
+    @include m.dye(bg, c.$nu)
+    & .arrowRight
+      @include m.dye(bg, c.$alpha)
+    & .title
+      @include m.dye(c, c.$alpha)
 
 .type
-  @include cardProgram.type
-
-.dur
-  @include cardProgram.dur
+  max-width: max-content
+  @include m.gap($ptb: f.px(4), $plr: f.px(10), $mb: f.px(10))
+  font-weight: 700
+  font-size: f.px(10)
+  border-radius: f.px(23)
+  font-style: normal
+  font-weight: 700
+  letter-spacing: f.px(0.8)
+  text-transform: uppercase
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  @include m.dye(c, c.$alpha)
 
 .title
-  @include cardProgram.title
+  font-weight: 500
+  overflow-wrap: break-word
+  transition: color .2s ease-in-out
+  @include m.gap($mb: 0)
+  @include m.media(laptop, desktop)
+    font-size: f.px(25)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
 
-.arrowRight
-  @include cardProgram.arrowRight
+.content
+  @include m.gap($plr: f.px(30), $pt: f.px(20), $pb: f.px(30))
+  border-top: none !important
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  border-bottom-left-radius: f.px(10)
+  border-bottom-right-radius: f.px(10)
+  min-height: f.px(210)
+  @include m.flex($fd:column, $jc: space-between)
+
+.hot
+  position: absolute
+  z-index: 1
+  width: f.px(60)
+  height: f.px(60)
+  @include m.dye(bg, c.$alpha)
+  @include m.flex($ai:center, $jc: center)
+  border-radius: f.px(10)
+  @include m.dye(c, white)
+  font-weight: 500
+  top: 0
+  right: 0
+
+.duration
+  @include m.gap($mt: f.px(20))
+
+.months
+  @include m.gap($mt: f.px(20))
+  font-size: f.px(12) !important
+  font-weight: 500
+  line-height: 120%
+  @include m.dye(c, black)
+
+.hours
+  font-size: f.px(12)
+  font-style: normal
+  font-weight: 350 !important
+  line-height: 110%
+
+.img
+  border-top-left-radius: f.px(10)
+  border-top-right-radius: f.px(10)

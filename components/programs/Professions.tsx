@@ -23,52 +23,6 @@ const Professions = ({
 }) => {
   return (
     <div className={stls.container}>
-      {biggerTitle ? (
-        <>
-        {/* <div>
-          <SearchProgram />
-        </div> */}
-        <div className={stls.heading}>
-          
-          <h2
-            className={classNames({
-              [stls.title]: true,
-              [stls.bold]: true
-            })}>
-            Программы профессиональной переподготовки
-          </h2>
-          {withQty && (
-            <div className={stls.phonetablet}>
-              <ProgramsQty qty={professions.length} ofType='profession' />
-            </div>
-          )}
-        </div>
-          </>
-      ) : (
-        <div className={stls.heading}>
-          <h3 className={stls.title}>Программы профессиональной переподготовки</h3>
-          {withQty && (
-            <div className={stls.phonetablet}>
-              <ProgramsQty qty={professions.length} ofType='profession' />
-            </div>
-          )}
-        </div>
-      )}
-      <div className={stls.underheading}>
-        <p className={stls.subTitle}>
-          Программы профессиональной переподготовки для полного погружения в
-          профессию
-        </p>
-        {withQty && (
-          <div className={stls.laptopdesktop}>
-            <ProgramsQty
-              qty={professions.length}
-              ofType='profession'
-              dye='bgalpha'
-            />
-          </div>
-        )}
-      </div>
       <div
         className={classNames({
           [stls.professions]: true,
@@ -78,7 +32,6 @@ const Professions = ({
           <CardProfession
             key={profession.title + idx}
             profession={profession}
-            threerow={threerow}
           />
         ))}
       </div>

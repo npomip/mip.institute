@@ -54,6 +54,7 @@ const ProgramInfo = () => {
   const infoHandler = () => {
     setInfo(prev => !prev)
   }
+  console.log({ program })
 
   return (
     <>

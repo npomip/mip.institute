@@ -10,6 +10,7 @@ import Courses from '@/components/programs/Courses'
 import Professions from '@/components/programs/Professions'
 import SearchMobile from '../general/SearchMobile'
 import { useMediaQuery } from 'react-responsive'
+import ProgramType from '../general/ProgramType'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
@@ -56,35 +57,37 @@ const Programs = ({
       studyFieldSlug: curProgramsStudyFieldSlug
     })
 
-    const targetTitles = [
-      "Психолог-консультант",
-      "Психолог-диетолог. Нутрициолог",
-      "Когнитивно-поведенческий психотерапевт",
-      "Практический психолог с доп. квалификацией Психолог-психотерапевт",
-      "Клинический психолог",
-      "Детский психолог",
-      "Психосоматика и телесная психотерапия",
-      "Гештальт-терапевт"
-    ];
-  
-    const rearrangeArray = (professions, targetTitles) => {
-      const resultArray = [];
-      const remainingArray = [];
-    
-      for (const item of professions) {
-        if (targetTitles.includes(item.title)) {
-          resultArray.push(item);
-        } else {
-          remainingArray.push(item);
-        }
+  const targetTitles = [
+    'Психолог-консультант',
+    'Психолог-диетолог. Нутрициолог',
+    'Когнитивно-поведенческий психотерапевт',
+    'Практический психолог с доп. квалификацией Психолог-психотерапевт',
+    'Клинический психолог',
+    'Детский психолог',
+    'Психосоматика и телесная психотерапия',
+    'Гештальт-терапевт'
+  ]
+
+  const rearrangeArray = (professions, targetTitles) => {
+    const resultArray = []
+    const remainingArray = []
+
+    for (const item of professions) {
+      if (targetTitles.includes(item.title)) {
+        resultArray.push(item)
+      } else {
+        remainingArray.push(item)
       }
-    
-      return resultArray.concat(remainingArray);
-    };
+    }
+
+    return resultArray.concat(remainingArray)
+  }
 
   const data = {
     courses: curProgramsStudyFieldSlug ? coursesFiltered : courses,
-    professions: curProgramsStudyFieldSlug ? professionsFiltered : rearrangeArray(professions, targetTitles)
+    professions: curProgramsStudyFieldSlug
+      ? professionsFiltered
+      : rearrangeArray(professions, targetTitles)
   }
 
   // useEffect(() => {
@@ -119,8 +122,7 @@ const Programs = ({
 
   if (max) {
     data.courses = data.courses.filter((item, idx) => idx < max)
-    data.professions =data.professions.filter((item, idx) => idx < max)
-    
+    data.professions = data.professions.filter((item, idx) => idx < max)
   }
   // if (isMobileTabletLayout) {
   //   data.courses = data.courses.filter((item, idx) => idx < 3)
@@ -131,14 +133,17 @@ const Programs = ({
         [stls.container]: true,
         [stls.withFilters]: withFilters
       })}>
+      <div className={stls.sorting}>
+        <ProgramsFilters ofType={ofType} />
+      </div>
       <Wrapper>
         {withFilters && (
           <div className={stls.filters}>
-            <ProgramsFilters ofType={ofType} />
+            <ProgramType />
           </div>
         )}
         <div className={stls.content}>
-        <SearchMobile />
+          <SearchMobile />
           {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
             {ofType === 'profession' &&

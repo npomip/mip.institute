@@ -6,12 +6,12 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(23))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(10))
-  font-size: f.px(18)
-  font-weight: 500
+    @include m.gap($mb: f.px(25))
+    font-size: f.px(18)
+    font-weight: 500
 
 .item
-  @include m.flex
+  @include m.flex($ai: center)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(23))
   @include m.media(laptop, desktop)
@@ -20,7 +20,6 @@
 .circle
   width: f.px(20)
   height: f.px(20)
-  @include m.gap($mr: f.px(8))
   border-radius: 50%
   @include m.dye(bg, c.$omega)
   &.active
@@ -38,6 +37,10 @@
       @include m.dye(bg, c.$nu)
 
 .text
-  font-size: f.px(18)
+  font-size: f.px(16)
   font-weight: 300
   @include m.dye(c, c.$chi)
+  font-style: normal
+  font-weight: 350
+  line-height: 120%
+  @include m.gap($ml: f.px(10))

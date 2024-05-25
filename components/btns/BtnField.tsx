@@ -2,10 +2,29 @@ import stls from '@/styles/components/btns/BtnField.module.sass'
 import Link from 'next/link'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
+import { ReactNode, useContext } from 'react'
 import classNames from 'classnames'
 
-const BtnField = ({ href=null, aside = false, slug = null, children, smallText=false , mainFields=false, orang=false}) => {
+interface Props {
+  href?: any
+  aside?: boolean
+  slug?: any
+  children: ReactNode
+  smallText?: boolean
+  mainFields?: boolean
+  orang?: boolean
+  isViolet?: boolean
+}
+const BtnField = ({
+  href = null,
+  aside = false,
+  slug = null,
+  children,
+  smallText = false,
+  mainFields = false,
+  orang = false,
+  isViolet = false
+}: Props) => {
   const { closeFieldsTooltip } = useContext(FieldsTooltipContext)
   const { curProgramsStudyFieldSlug } = useContext(ContextStaticProps)
 
@@ -13,7 +32,7 @@ const BtnField = ({ href=null, aside = false, slug = null, children, smallText=f
     <Link href={href}>
       <a
         className={classNames({
-          [stls.mainFields]:mainFields,
+          [stls.mainFields]: mainFields,
           [stls.container]: true,
           [stls.tooltip]: !aside && !smallText,
           [stls.aside]: aside,
@@ -23,6 +42,7 @@ const BtnField = ({ href=null, aside = false, slug = null, children, smallText=f
               (!slug && !curProgramsStudyFieldSlug)),
           [stls.smallText]: smallText,
           [stls.orang]: orang,
+          [stls.violet]: isViolet
         })}
         onClick={!aside && closeFieldsTooltip}>
         {children}

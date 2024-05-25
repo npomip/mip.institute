@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.flex($fd: column)
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(90))
     &.withFilters
@@ -10,7 +11,7 @@
       & > *
         @include m.flex
       & .content
-        @include m.flex($display: false, $fb: 75%)
+        @include m.flex($display: false, $fb: 66%)
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(30))
 
@@ -21,12 +22,22 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(25))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
   @include m.dye(c, c.$theta)
 
+.sorting
+  @include m.flex($fd: row)
+  width: 100%
+  @include m.gap($plr: f.px(15, em))
+  @include m.media(desktop, laptop)
+    max-width: f.px(1200, em)
+    @include m.gap($m: 0 auto)
+
 .filters
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 30%)
   @include m.media(phone, tablet)
     display: none
-  @include m.media(laptop, desktop)
-    @include m.flex($display: false, $fb: 22%)
-    @include m.gap($mr: 3%)
+
+.content
+  @include m.gap($mt: f.px(70))

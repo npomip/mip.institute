@@ -1,6 +1,6 @@
-import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
 import StudyFields from '@/components/general/StudyFields'
-import ProgramType from '@/components/general/ProgramType'
+import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
+import ProgramSorting from '../general/ProgramSorting'
 
 type ProgramsFiltersType = {
   ofType?: 'profession' | 'course' | null
@@ -10,9 +10,8 @@ type ProgramsFiltersType = {
 const ProgramsFilters = ({ ofType = null, close }: ProgramsFiltersType) => {
   return (
     <div className={stls.container}>
+      <ProgramSorting />
       <StudyFields aside ofType={ofType} close={close} />
-      <div className={stls.divider}></div>
-      <ProgramType close={close} />
     </div>
   )
 }

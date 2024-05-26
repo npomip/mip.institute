@@ -25,6 +25,18 @@ type FormValues = {
   leadPage: string
 }
 
+interface Props {
+  cta?: string
+  blockForAmo?: string
+  question?: boolean
+  popup?: boolean
+  atFooter?: boolean
+  agreement?: boolean
+  promo?: boolean
+  inProfessions?: boolean
+  isLiveCourse?: boolean
+}
+
 const FormAlpha = ({
   cta = 'Подобрать программу',
   blockForAmo = 'Подобрать программу',
@@ -33,8 +45,9 @@ const FormAlpha = ({
   atFooter = false,
   agreement = false,
   promo = false,
-  inProfessions = false
-}) => {
+  inProfessions = false,
+  isLiveCourse = false
+}: Props) => {
   const {
     register,
     handleSubmit,
@@ -64,7 +77,6 @@ const FormAlpha = ({
   const router = useRouter()
 
   const onSubmit = async data => {
-    
     // const ipCheck = await ipCheckFunc()
     // if (ipCheck === 200) {
       setIsDisabled(true)
@@ -282,7 +294,11 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={isDisabled} />
+              <BtnAlpha
+                text={cta}
+                isDisabled={isDisabled}
+                isLiveCourse={isLiveCourse}
+              />
             )}
           </div>
 

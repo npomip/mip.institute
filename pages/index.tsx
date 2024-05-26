@@ -154,7 +154,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
       <PayLater />
-      <Companies/>
+      <Companies />
       <EntryForm />
       <Faq />
     </>

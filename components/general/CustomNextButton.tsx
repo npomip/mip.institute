@@ -4,16 +4,29 @@ import IconNextButton from '@/components/icons/IconNextButton'
 import classNames from 'classnames'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
+interface Props {
+  reviewNextBtn?: boolean
+  happyStudents?: boolean
+  teachers?: boolean
+  showOnMobile?: boolean
+  isLiveCourse?: boolean
+  top?: number
+  left?: number
+  mobileLeft?: number
+  mobileTop?: number
+}
+
 const CustomNextButton = ({
   reviewNextBtn = false,
   happyStudents = false,
-  teachers=false,
+  teachers = false,
   left = 0,
   top = 0,
   mobileTop = 0,
   mobileLeft = 0,
-  showOnMobile = false
-}) => {
+  showOnMobile = false,
+  isLiveCourse = false
+}: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   return (
     <div
@@ -27,7 +40,8 @@ const CustomNextButton = ({
         [stls.containerNext]: true,
         [stls.reviewNextBtn]: reviewNextBtn,
         [stls.happyStudentsNextBtn]: happyStudents,
-        [stls.teachersNextBtn]: teachers
+        [stls.teachersNextBtn]: teachers,
+        [stls.liveCourses]: isLiveCourse
       })}>
       <button className='custom-next-button'>
         <IconNextButton />

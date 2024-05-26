@@ -1,17 +1,26 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
+import FiltersForLifeCourses from '@/components/general/FiltersForLifeCourses'
 import Wrapper from '@/components/layout/Wrapper'
 import SlugTags from '@/components/sections/SlugTags'
+import SlugTagsLiveCourses from '@/components/sections/SlugTagsLiveCourses'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import { dev, preview, prod, routes } from '@/config/index'
+import { FilterProvider, useFilter } from '@/context/FilterContext/FilterContext'
 import { handleGetStaticProps } from '@/lib/index'
-import stls from '@/styles/pages/JournalSlug.module.sass'
+import stls from '@/styles/pages/LiveCoursesSlug.module.sass'
 import { gql, useQuery } from '@apollo/client'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 const JournalPage = ({ lifeCourses }) => {
-console.log(lifeCourses)
+  const durations = lifeCourses.map(el => el.duration)
+  const prices = lifeCourses.map(el => el.price)
+
+  const minmaxDuration = findMinMaxForSlider(durations)
+
+  const minmaxPrice = findMinMaxForSlider(prices)
   // const router = useRouter()
 
   // if(prod && !preview){
@@ -33,18 +42,24 @@ console.log(lifeCourses)
 
   return (
     <Wrapper>
-      {/* {liveCourses.map(el => (
+      <FilterProvider items={lifeCourses}>
+        {/* {liveCourses.map(el => (
         <p>{el.title}</p>
       ))} */}
-      {/* <SeoPagesJournals />
+        {/* <SeoPagesJournals />
       <h1 className={stls.title}>Блог МИП</h1>
       <StudyFieldSlugFilter
         selectedField={selectedField}
         setSelectedField={setSelectedField}
         props={blogs}
         slug='journal'
-      />
-      <SlugTags selectedField={selectedField} props={blogsFilter} slug='journal' /> */}
+      /> */}
+        <h1 className={stls.title}>LIFE курсы</h1>
+        <div className={stls.withFilter}>
+          <FiltersForLifeCourses cost={minmaxPrice} duration={minmaxDuration} />
+          <SlugTagsLiveCourses slug='live-courses' />
+        </div>
+      </FilterProvider>
     </Wrapper>
   )
 }

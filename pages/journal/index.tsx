@@ -60,7 +60,7 @@ const JournalPage = ({ blogs }) => {
         props={blogs}
         slug='journal'
       />
-      <SlugTags selectedField={selectedField} props={blogsFilter} slug='journal' />
+      <SlugTags isJournal props={blogsFilter} slug='journal' />
     </Wrapper>
   )
 }

@@ -18,6 +18,17 @@ const getStaticPropsPageLiveCourses = async ({
       query GetStaticPropsPageLiveCourses {
         lifeCourses {
           title
+          picture {
+            url
+            width
+            height
+          }
+          date
+          studyField
+          studyFieldSlug
+          slug
+          price
+          duration
         }
       }
     `

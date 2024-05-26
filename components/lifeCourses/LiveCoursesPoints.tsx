@@ -30,7 +30,7 @@ const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
           <p className={styles.subtitle}>{subtitle}</p>
           <div className={styles.medalionContainer}>
             {medalion.map((el, idx) => (
-              <>
+              <div key={idx}>
                 {idx === 5 ? (
                   <div className={styles.medalionAbs}>
                     <div style={{'background': `${color.code}`}} className={styles.circle}></div>
@@ -42,7 +42,7 @@ const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
                     <p>{el.text}</p>
                   </div>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </div>

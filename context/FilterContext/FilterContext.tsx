@@ -4,7 +4,7 @@ const FilterContext = createContext(null);
 const FilterDispatchContext = createContext(null);
 
 export function FilterProvider({ children, items }) {
-  const initialFilters = {};
+  const initialFilters = {bool: false};
 
   const [state, dispatch] = useReducer(filtersReducer, {
     filters: initialFilters,
@@ -60,6 +60,15 @@ function filtersReducer(state, action) {
         }
       };
     }
+    case 'setIsOpenedForRecruitment': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.filterName]: !state.filters[action.filterName]
+        }
+      };
+    }
     case 'setDurationFilter': {
       return {
         ...state,
@@ -93,6 +102,11 @@ function getFilteredItems(items, filters) {
     }
     if (filters.duration) {
       if (item.duration < filters.duration.min || item.duration > filters.duration.max) {
+        return false;
+      }
+    }
+    for (const key in filters) {
+      if (typeof filters[key] === 'boolean' && filters[key] === true && !item[key]) {
         return false;
       }
     }

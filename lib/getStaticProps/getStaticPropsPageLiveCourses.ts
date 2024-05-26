@@ -29,6 +29,7 @@ const getStaticPropsPageLiveCourses = async ({
           slug
           price
           duration
+          courseOpened
         }
       }
     `

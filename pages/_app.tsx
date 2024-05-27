@@ -335,6 +335,27 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}
       />
 
+      {router.asPath === '/' ? (
+        <Script
+        id='advcake_main'
+        dangerouslySetInnerHTML={{
+          __html: `window.advcake_data = window.advcake_data || [];
+          window.advcake_data.push({
+              pageType: 1
+          });`
+        }}
+      />
+      ) : (
+      <Script
+        id='advcake_typeTwo'
+        dangerouslySetInnerHTML={{
+          __html: `window.advcake_data = window.advcake_data || [];
+          window.advcake_data.push({
+              pageType: 2
+          });`
+        }}
+      />)}
+
       <noscript>
         <div>
           <img

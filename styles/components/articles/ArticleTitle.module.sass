@@ -6,9 +6,8 @@
   display: flex
 
 .imgTitleContainer
-  flex: 0.67
-  @include m.media(phone, tablet)
-    flex: 1
+  // @include m.media(phone, tablet)
+  //   flex: 1
 
 .articleTitle
   font-size: f.px(65)
@@ -29,8 +28,7 @@
     width: f.px(300)
     flex-direction: column
     font-size: f.px(14)
-  p
-    @include m.gap($mb: f.px(10))
+    
 
 .tag
   display: inline-block
@@ -49,7 +47,7 @@
 
 .imgTitle
   border-radius: f.px(10)
-  object-fit: fill
+  object-fit: cover
 
 .imgTeacherWithAchievements
   flex: 0.33
@@ -103,7 +101,7 @@
   display: flex
   justify-content: space-between
   @include m.media(tablet, phone)
-    width: f.px(190)
+    width: f.px(210)
     @include m.gap($pr: f.px(0))
 
 .date
@@ -111,8 +109,13 @@
   @include m.media(tablet, phone)
     @include m.gap($pr: f.px(50))
 
+.time
+  @include m.gap($mb: f.px(0))
+  text-align: center
+
 .author
   @include m.gap($pr: f.px(70))
+  @include m.gap($mb: f.px(10))
 
 .strongText
   font-weight: 500

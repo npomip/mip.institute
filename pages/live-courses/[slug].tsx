@@ -1,18 +1,26 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import Wrapper from '@/components/layout/Wrapper'
 import LifeCourseDynamicZones from '@/components/lifeCourses/LifeCoursesDynamicZones'
+import { About, Reviews } from '@/components/sections'
+import EntryForm from '@/components/sections/EntryForm'
 import SlugTags from '@/components/sections/SlugTags'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import { dev, preview, prod, routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
-import { gql, useQuery } from '@apollo/client'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
-const JournalPage = ({ lifeCourse }) => {
+const JournalPage = ({ lifeCourse, reviews }) => {
+
+  // const { reviews } = useContext(ContextStaticProps)
+
+
+  // const reviewsSorted = sortBasedOnNumericOrder({
+  //   reviews: sortReviewsCreatedAtASC({ reviews })
+  // })
 // console.log(lifeCourse)
 
   // const router = useRouter()
@@ -41,7 +49,9 @@ const JournalPage = ({ lifeCourse }) => {
         {lifeCourse?.article?.map((module, idx) => (
             <LifeCourseDynamicZones key={idx} props={module} />
           ))}
-          
+          <About isLiveCourse/>
+          <Reviews reviews={reviews} isLiveCourse/>
+          <EntryForm isLiveCourse/>
       </>
 
   )

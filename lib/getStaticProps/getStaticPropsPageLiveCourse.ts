@@ -21,6 +21,22 @@ const getStaticPropsPageLiveCourse = async ({
         query getStaticPropsPageLiveCourse(
           $slug: String!
         ) {
+          reviews {
+          id
+          name
+          profession
+          title
+          story
+          createdAt
+          picture {
+            url
+            width
+            height
+          }
+          index_number {
+            idx
+          }
+        }
           lifeCourse: lifeCourses(
             where: { slug: $slug }
           ) {
@@ -62,9 +78,11 @@ const getStaticPropsPageLiveCourse = async ({
         slug
       }
     })
+    const reviewsData = res?.data?.reviews || []
     return {
       props: {
-        lifeCourse: res?.data?.lifeCourse?.[0] || null
+        lifeCourse: res?.data?.lifeCourse?.[0] || null,
+        reviews: reviewsData
       },
       revalidate: revalidate.default
     }

@@ -2,9 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.in
-  scroll-behavior: smooth
-
 .article
 
   p
@@ -38,3 +35,4 @@
   justify-content: space-between
   @include m.media(phone, tablet)
     flex-direction: column
+    // gap: f.px(10)

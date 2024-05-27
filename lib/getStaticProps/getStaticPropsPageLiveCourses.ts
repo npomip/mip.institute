@@ -16,6 +16,7 @@ const getStaticPropsPageLiveCourses = async ({
   const res = await apolloClient.query<TypePageLiveCoursesPropsQuery>({
     query: gql`
       query GetStaticPropsPageLiveCourses {
+        
         lifeCourses {
           title
           picture {

@@ -10,7 +10,7 @@ type ReviewsType = {
   onMain?: boolean
 }
 
-const SlugTagsLiveCourses = ({ slug, withDate = false, isJournal=false }) => {
+const SlugTagsLiveCourses = ({ slug, withDate = false }) => {
 
   const filteredItems = useFilteredItems();
   console.log('CONTEXTXTXT', filteredItems)
@@ -20,7 +20,7 @@ const SlugTagsLiveCourses = ({ slug, withDate = false, isJournal=false }) => {
       {filteredItems?.map((item, idx) => (
         <React.Fragment key={idx}>
         {item?.title && 
-        <SlugCard  item={item} slug={slug} withDate={withDate} />
+        <SlugCard isLifeCourses={true}  item={item} slug={slug} withDate={withDate} />
         }
         </React.Fragment>
       ))}

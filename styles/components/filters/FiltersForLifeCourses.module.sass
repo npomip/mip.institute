@@ -3,11 +3,15 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  display: flex
-  flex-direction: column
-  position: relative
-  p
-    @include m.gap($mb: f.px(10))
 
-.interval
-  @include m.gap($pb: f.px(17))
+.filters
+  @include m.gap($mr: f.px(10))
+
+.resetFilterContainer
+  display: flex
+
+
+.resetFilter
+  color: #616161
+  font-size: f.px(14)
+  font-weight: 350

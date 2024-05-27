@@ -7,7 +7,7 @@ import classNames from 'classnames'
 
 type CardType = {
   item: {
-    courseOpened: boolean
+    courseOpened?: boolean
     date: string
     id: string
     picture: {

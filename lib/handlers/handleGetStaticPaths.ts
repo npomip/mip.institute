@@ -15,6 +15,7 @@ import {
   getStaticPathsPageJournals
 } from '@/lib/index'
 import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPaths'
+import getStaticPathsPageLiveCourse from '../getStaticPaths/getStaticPathsPageLiveCourse'
 
 type TypeHandleGetStaticPathsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -46,6 +47,9 @@ const handleGetStaticPaths = async ({
 
     case routes.front.journals:
       return await getStaticPathsPageJournals()
+
+    case routes.front.liveCourse:
+      return await getStaticPathsPageLiveCourse()
 
     default:
       return {

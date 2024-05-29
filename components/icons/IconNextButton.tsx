@@ -1,13 +1,25 @@
 import stls from '@/styles/components/icons/IconPrevButton.module.sass'
 import classNames from 'classnames'
 
-const IconNextButton = ({fourtyPx=false, fourtyPxViolet=false}) => {
+interface Props {
+  fourtyPx?: boolean
+  fourtyPxViolet?: boolean
+  isLiveCourse?: boolean
+}
+
+const IconNextButton = ({
+  fourtyPx = false,
+  fourtyPxViolet = false,
+  isLiveCourse = false
+}: Props) => {
   return (
-    <span className={classNames({
-      [stls.container]: true,
-      [stls.fourtyPx]: fourtyPx,
-      [stls.fourtyPxViolet]: fourtyPxViolet
-    })}>
+    <span
+      className={classNames({
+        [stls.container]: true,
+        [stls.fourtyPx]: fourtyPx,
+        [stls.fourtyPxViolet]: fourtyPxViolet,
+        [stls.whiteStyle]: isLiveCourse
+      })}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='45'
@@ -35,7 +47,6 @@ const IconNextButton = ({fourtyPx=false, fourtyPxViolet=false}) => {
           x2='7.69499'
           y2='-0.445315'
           transform='matrix(-0.924678 -0.38075 -0.38075 0.924678 41.7 24)'
-          
           stroke='#F87E1B'
           strokeWidth='0.990629'
         />

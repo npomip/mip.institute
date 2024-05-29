@@ -124,3 +124,19 @@
   font-size: f.px(12) !important
   @include m.gap($mb: f.px(0), $pb: f.px(30))
   align-items: flex-end
+
+.isLifeCourses
+  .seminarText
+    background: #FFF3ED
+    border: f.px(1) solid #3C251D
+    @include m.gap($pr: f.px(23))
+    .tags
+      display: flex
+      gap: f.px(15)
+      .seminarCardTag
+        font-size: f.px(8) !important
+        color: #3C251D
+        @include m.gap($ptb: f.px(9), $plr: f.px(17),$mb: f.px(20))
+        border: f.px(1) solid #3C251D
+    .date
+      justify-content: flex-end

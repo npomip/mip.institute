@@ -2,7 +2,9 @@ import stls from '@/styles/components/sections/YouTubeVideo.module.sass'
 import dynamic from 'next/dynamic'
 import { IconClock } from '../icons'
 import Wrapper from '../layout/Wrapper'
-const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
+const  _ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
+import {ReactPlayerProps} from "react-player/types/lib";
+const ReactPlayer = _ReactPlayer as unknown as React.FC<ReactPlayerProps>;
 
 const YouTubeVideo = ({ videoId }) => {
   return (
@@ -13,7 +15,6 @@ const YouTubeVideo = ({ videoId }) => {
           <IconClock colorCode='#DADADA' />
           <p>Длительность 2 минуты</p>
         </div>
-
         <div className={stls.playerWrapper}>
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${videoId}`}

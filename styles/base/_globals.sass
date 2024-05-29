@@ -182,3 +182,20 @@ div.popup-content
 .popup-overlay
   overflow-y: auto
   background-color: rgba(0,0,0, .5)
+
+// range slider
+  // slider
+.withBlackThumb
+  .range-slider
+    height: f.px(3)
+    .range-slider__range
+      height: f.px(3)
+      background: #947AFF
+    .range-slider__thumb
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='19' viewBox='3 1 18 18' fill='none' %3E %3Ccircle cx='10' cy='10' r='8' fill='white' stroke='black' /%3E %3Ccircle cx='10' cy='10' r='4' fill='black' /%3E %3C/svg%3E")
+      background-repeat: no-repeat
+    .range-slider__thumb[data-upper]
+      transform: translate(-20%,-40%)
+    .range-slider__thumb[data-lower]
+      transform: translate(-70%,-40%)
+      

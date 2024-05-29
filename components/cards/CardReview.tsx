@@ -3,9 +3,26 @@ import truncate from 'truncate'
 import Popup from 'reactjs-popup'
 import { BtnText } from '@/components/btns'
 import { PopupReview } from '@/components/popups'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
+import classNames from 'classnames'
 
-const CardReview = ({ title, photo, name, occupation, story }) => {
+interface Props {
+  isLiveCourse?: boolean
+  title?: string
+  photo?: ReactNode
+  name?: string
+  occupation?: string
+  story?: string
+}
+
+const CardReview = ({
+  title,
+  photo,
+  name,
+  occupation,
+  story,
+  isLiveCourse
+}: Props) => {
   const [cut, setCut] = useState(355)
   const [isFull, setIsFull] = useState(false)
   const [threePoints, setThreePoints] = useState(false)
@@ -23,26 +40,41 @@ const CardReview = ({ title, photo, name, occupation, story }) => {
   }
   useEffect(() => {
     fullStory > cut && setThreePoints(true)
-  }, [ cut, fullStory, isFull])
+  }, [cut, fullStory, isFull])
+
   return (
-    <div className={stls.container}>
+    <div
+      className={classNames({
+        [stls.container]: true,
+        [stls.liveCourse]: isLiveCourse
+      })}>
       <div className={stls.upperContainer}>
         <div className={stls.img}>{photo}</div>
-      <div className={stls.content}>
-        <p className={stls.title} title={title}>
-          {truncate(title, 65)}
-        </p>
-        <div className={stls.text}>
-          <p className={stls.name}>{name}</p>
-          <p className={stls.occupation}>{occupation}</p>
+        <div className={stls.content}>
+          <p className={stls.title} title={title}>
+            {truncate(title, 65)}
+          </p>
+          <div className={stls.text}>
+            <p className={stls.name}>{name}</p>
+            <p className={stls.occupation}>{occupation}</p>
+          </div>
         </div>
       </div>
-      </div>
       <div className={isFull ? `${stls.fullBottom}` : `${stls.bottom}`}>
-        <p className={stls.story}>{story.slice(0,cut)}{threePoints ? (<span>...</span>) : ('')}</p>
-        {story?.length > cut && 
-        (<p className={stls.moreText} onClick={cutHandler}>Читать полностью</p>)}
-        {isFull && cut === story?.length && <p onClick={shortHandler} className={stls.moreText}>Скрыть историю</p>}
+        <p className={stls.story}>
+          {story.slice(0, cut)}
+          {threePoints ? <span>...</span> : ''}
+        </p>
+        {story?.length > cut && (
+          <p className={stls.moreText} onClick={cutHandler}>
+            Читать полностью
+          </p>
+        )}
+        {isFull && cut === story?.length && (
+          <p onClick={shortHandler} className={stls.moreText}>
+            Скрыть историю
+          </p>
+        )}
       </div>
     </div>
   )

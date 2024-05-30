@@ -8,7 +8,7 @@ import { TypeLibPrograms } from '@/types/index'
 
 type PagesProgramsType = {
   ofType?: 'course' | 'profession'
-  programs: TypeLibPrograms
+  programs?: TypeLibPrograms
 }
 
 const PagesPrograms = ({ ofType, programs }: PagesProgramsType) => {

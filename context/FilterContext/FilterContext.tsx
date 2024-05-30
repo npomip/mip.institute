@@ -40,7 +40,7 @@ export function useFilteredItems() {
   if (context === undefined) {
     throw new Error('useFilteredItems must be used within a FilterProvider')
   }
-  return getFilteredItems(context.items, context.filters)
+  return getFilteredItems(context?.items, context?.filters)
 }
 
 function filtersReducer(state, action) {

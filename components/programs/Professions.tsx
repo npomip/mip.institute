@@ -1,26 +1,23 @@
-import stls from '@/styles/components/programs/Professions.module.sass'
-import { routes } from '@/config/index'
-import CardProfession from '@/components/cards/CardProfession'
 import { BtnDelta } from '@/components/btns'
+import CardProfession from '@/components/cards/CardProfession'
+import { routes } from '@/config/index'
+import { useFilteredItems } from '@/context/FilterContext/FilterContext'
+import stls from '@/styles/components/programs/Professions.module.sass'
 import classNames from 'classnames'
-import ProgramsQty from '@/components/general/ProgramsQty'
-import SearchProgram from '../general/SearchProgram'
 
 type ProfessionsType = {
   biggerTitle?: boolean
   withBtn?: boolean
-  courses: any[]
   withQty?: boolean
   threerow?: boolean
 }
 
 const Professions = ({
-  biggerTitle = false,
   withBtn = false,
-  professions = [],
-  withQty = false,
   threerow = false
-}) => {
+}: ProfessionsType) => {
+  const filteredItems = useFilteredItems()
+
   return (
     <div className={stls.container}>
       <div
@@ -28,7 +25,7 @@ const Professions = ({
           [stls.professions]: true,
           [stls.threerow]: threerow
         })}>
-        {professions.map((profession, idx) => (
+        {filteredItems.map((profession, idx) => (
           <CardProfession
             key={profession.title + idx}
             profession={profession}

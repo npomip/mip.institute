@@ -36,6 +36,7 @@
 .filters
   @include m.media(laptop, desktop)
     @include m.flex($display: false, $fb: 30%)
+    @include m.gap($mt: f.px(40))
   @include m.media(phone, tablet)
     display: none
 

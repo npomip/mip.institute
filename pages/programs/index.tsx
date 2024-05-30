@@ -5,15 +5,16 @@ import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
+import { FilterProvider } from '@/context/FilterContext/FilterContext'
 
 const ProgramsPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
 
   return (
-    <>
+    <FilterProvider items={programs}>
       <SeoPagesPrograms programs={programs} />
-      <PagesPrograms />
-    </>
+      <PagesPrograms programs={programs} />
+    </FilterProvider>
   )
 }
 

@@ -15,12 +15,9 @@ const HeroPrograms = ({ ofType = null }) => {
           <div className={stls.input}>
             <SearchDesktop />
           </div>
-          
-          
         </div>
         <div className={stls.btn}>
           <BtnProgramsField ofType={ofType} />
-          
         </div>
       </Wrapper>
     </section>

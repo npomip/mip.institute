@@ -1,4 +1,4 @@
-import { useFilter, useFilteredItems } from '@/context/FilterContext/FilterContext'
+import { useFilteredItems } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/sections/Seminars.module.sass'
 import React from 'react'
 import SlugCard from '../cards/SlugCard'
@@ -11,20 +11,23 @@ type ReviewsType = {
 }
 
 const SlugTagsLiveCourses = ({ slug, withDate = false }) => {
-
-  const filteredItems = useFilteredItems();
-  console.log('CONTEXTXTXT', filteredItems)
+  const filteredItems = useFilteredItems()
   return (
     <>
       <div className={stls.journalContainer}>
-      {filteredItems?.map((item, idx) => (
-        <React.Fragment key={idx}>
-        {item?.title && 
-        <SlugCard isLifeCourses={true}  item={item} slug={slug} withDate={withDate} />
-        }
-        </React.Fragment>
-      ))}
-      </div>      
+        {filteredItems?.map((item, idx) => (
+          <React.Fragment key={idx}>
+            {item?.title && (
+              <SlugCard
+                isLifeCourses={true}
+                item={item}
+                slug={slug}
+                withDate={withDate}
+              />
+            )}
+          </React.Fragment>
+        ))}
+      </div>
     </>
   )
 }

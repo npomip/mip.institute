@@ -17,17 +17,17 @@
 
 .title
   max-width: 550px
+  font-weight: 500
+  line-height: 110%
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(9))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: 0)
     font-size: f.px(36)
-  font-weight: 500
-  line-height: 110%
 
 .input
-  width: f.px(400)
+  width: f.px(470)
   & > *
     & > input
       color: black

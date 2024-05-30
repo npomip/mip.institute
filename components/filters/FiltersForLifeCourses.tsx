@@ -1,24 +1,13 @@
+import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import { BtnSearch, BtnFilter } from '@/components/btns'
-import RangeSlide from '../general/RangeSlide'
-import {
-  useFilter,
-  useFilterDispatch
-} from '@/context/FilterContext/FilterContext'
-import FilterContainer from './FilterContainer'
-import ToggleBtn from '../btns/ToggleBtn'
-import FilterWithToggle from './FilterWithToggle'
 import { useState } from 'react'
-import { IconClose } from '../icons'
+import RangeSlide from '../general/RangeSlide'
+import FilterContainer from './FilterContainer'
+import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
   const [resetFilters, setResetFilters] = useState(false)
-  const filters = useFilter()
-  console.log('CONTEXTXTXT', filters)
-
   const dispatch = useFilterDispatch()
-
   const handleRecruitment = () => {
     console.log('hand')
     dispatch({
@@ -40,9 +29,7 @@ const Filters = ({ cost, duration }) => {
         <p className={stls.resetFilter} onClick={removeFilters}>
           Сбросить фильтры
         </p>
-        <div className={stls.icon}>
-          {/* <IconClose /> */}
-        </div>
+        <div className={stls.icon}>{/* <IconClose /> */}</div>
       </div>
 
       <FilterContainer>

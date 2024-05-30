@@ -1,25 +1,22 @@
-// import { NextSeo } from 'next-seo'
-// import { useContext } from 'react'
-// import truncate from 'truncate'
-// import { routes, company } from '@/config/index'
 import {
   HeroPrograms,
   FilterSearch,
   Programs,
   ContactForm
 } from '@/components/sections'
-// import { SeoOrganizationJsonLd } from '@/components/seo'
+import { TypeLibPrograms } from '@/types/index'
 
 type PagesProgramsType = {
   ofType?: 'course' | 'profession'
+  programs: TypeLibPrograms
 }
 
-const PagesPrograms = ({ ofType }: PagesProgramsType) => {
+const PagesPrograms = ({ ofType, programs }: PagesProgramsType) => {
   return (
     <>
       <HeroPrograms ofType={ofType} />
       <FilterSearch />
-      <Programs ofType={ofType} withQty threerow withFilters  />
+      <Programs ofType={ofType} withQty threerow programs={programs} />
       <ContactForm />
     </>
   )

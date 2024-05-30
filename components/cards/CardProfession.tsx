@@ -33,7 +33,10 @@ const CardProfession = ({ profession = null }) => {
                   monthsOnly
                 />{' '}
               </span>
-              <span className={stls.hours}>/ 900 часов</span>
+              <span
+                className={
+                  stls.hours
+                }>{`/ ${profession.studyHours} часов`}</span>
             </div>
           )}
         </div>

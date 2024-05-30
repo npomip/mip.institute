@@ -25,6 +25,8 @@ const getStaticPropsPagePrograms = async ({
           type
           typeLabel
           studyMounthsDuration
+          studyHours
+          price
           heroPicture {
             url
             width

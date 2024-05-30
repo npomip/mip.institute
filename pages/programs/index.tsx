@@ -11,10 +11,12 @@ const ProgramsPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
 
   return (
-    <FilterProvider items={programs}>
+    <>
       <SeoPagesPrograms programs={programs} />
-      <PagesPrograms programs={programs} />
-    </FilterProvider>
+      <FilterProvider items={programs}>
+        <PagesPrograms programs={programs} />
+      </FilterProvider>
+    </>
   )
 }
 

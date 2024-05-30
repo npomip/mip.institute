@@ -25,7 +25,7 @@ const Professions = ({
           [stls.professions]: true,
           [stls.threerow]: threerow
         })}>
-        {filteredItems.map((profession, idx) => (
+        {filteredItems?.map((profession, idx) => (
           <CardProfession
             key={profession.title + idx}
             profession={profession}

@@ -24,7 +24,7 @@ export function useFilter() {
   if (context === undefined) {
     throw new Error('useFilter must be used within a FilterProvider')
   }
-  return context.filters
+  return context?.filters
 }
 
 export function useFilterDispatch() {
@@ -91,39 +91,42 @@ function filtersReducer(state, action) {
 }
 
 function getFilteredItems(items, filters) {
-  return items.filter(item => {
-    if (filters.price) {
-      if (item.price < filters.price.min || item.price > filters.price.max) {
-        return false
+  return (
+    items &&
+    items.filter(item => {
+      if (filters.price) {
+        if (item.price < filters.price.min || item.price > filters.price.max) {
+          return false
+        }
       }
-    }
-    if (filters.duration) {
-      if (item.duration) {
+      if (filters.duration) {
+        if (item.duration) {
+          if (
+            item.duration < filters.duration.min ||
+            item.duration > filters.duration.max
+          ) {
+            return false
+          }
+        }
+        if (item.studyMounthsDuration) {
+          if (
+            item.studyMounthsDuration < filters.duration.min ||
+            item.studyMounthsDuration > filters.duration.max
+          ) {
+            return false
+          }
+        }
+      }
+      for (const key in filters) {
         if (
-          item.duration < filters.duration.min ||
-          item.duration > filters.duration.max
+          typeof filters[key] === 'boolean' &&
+          filters[key] === true &&
+          !item[key]
         ) {
           return false
         }
       }
-      if (item.studyMounthsDuration) {
-        if (
-          item.studyMounthsDuration < filters.duration.min ||
-          item.studyMounthsDuration > filters.duration.max
-        ) {
-          return false
-        }
-      }
-    }
-    for (const key in filters) {
-      if (
-        typeof filters[key] === 'boolean' &&
-        filters[key] === true &&
-        !item[key]
-      ) {
-        return false
-      }
-    }
-    return true
-  })
+      return true
+    })
+  )
 }

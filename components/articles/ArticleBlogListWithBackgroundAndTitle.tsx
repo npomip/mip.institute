@@ -31,7 +31,7 @@ const ArticleBlogListWithBackgroundAndTitle = ({
 }: ArticleBlogListWithBackgroundAndTitleType) => {
   const title = marked(props.title)
   const list = props.item || []
- 
+
   return (
     <div
       style={{ background: props.backgroundColor.code }}

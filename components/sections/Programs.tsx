@@ -29,10 +29,12 @@ const Programs = ({
 }: ProgramsType) => {
   const filteredItems = useFilteredItems()
 
-  const prices = programs.map(el => el.price)
-  const programsDuration = programs.map(el => el?.studyMounthsDuration)
-  const minmaxDuration = findMinMaxForSlider(programsDuration)
-  const minmaxPrice = findMinMaxForSlider(prices)
+  const prices = programs && programs.map(el => el.price)
+  const programsDuration =
+    programs && programs.map(el => el?.studyMounthsDuration)
+  const minmaxDuration =
+    programsDuration && findMinMaxForSlider(programsDuration)
+  const minmaxPrice = prices && findMinMaxForSlider(prices)
 
   return (
     <section
@@ -45,7 +47,12 @@ const Programs = ({
       </div>
       <Wrapper>
         <div className={stls.filters}>
-          <FiltersForLifeCourses cost={minmaxPrice} duration={minmaxDuration} />
+          {minmaxDuration && minmaxPrice && (
+            <FiltersForLifeCourses
+              cost={minmaxPrice}
+              duration={minmaxDuration}
+            />
+          )}
           <ProgramType />
         </div>
 
@@ -62,7 +69,7 @@ const Programs = ({
               />
             </div>
 
-            {filteredItems.length === 0 && (
+            {filteredItems?.length === 0 && (
               <>Кажется, что по вашему запросу ничего не нашлось</>
             )}
           </div>

@@ -69,7 +69,7 @@ const routes = {
       'https://tutortop.ru/school-reviews/moskovskij-institut-psihologii/?cid=1685112262621940498',
     otzovic:
       'https://otzovik.com/reviews/nano_moskovskiy_institut_psihologii_russia_moscow',
-    yandex: 'https://yandex.ru/profile/118117434311',
+    yandex: 'https://yandex.ru/profile/-/CDfB5OYg',
     twoGis: 'https://go.2gis.com/y85xl6',
     ucheba: 'https://www.ucheba.ru/uz/107383/opinions#new-comments-panel',
     dzen: 'https://dzen.ru/institute_mip',

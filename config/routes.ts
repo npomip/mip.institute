@@ -62,7 +62,7 @@ const routes = {
       'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
     vk: 'https://m.vk.com/mip_institute',
     whatsapp: 'http://wa.me/+74991108632',
-    telegram: 'https://t.me/mip_institute',
+    telegram: 'https://t.me/institut_mip_bot?start=start3',
     youtube: 'https://www.youtube.com/channel/UCGW-oYT-mquOPy6OY7R6iRA',
     ok: 'https://ok.ru/group/70000001109496',
     turtop:

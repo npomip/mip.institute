@@ -1,7 +1,21 @@
 import stls from '@/styles/components/btns/BtnAlpha.module.sass'
 import classNames from 'classnames'
 
-const BtnAlpha = ({ text, isDisabled = false, href = null, target = null }) => {
+interface Props {
+  text: string
+  isDisabled?: boolean
+  href?: any
+  target?: string | null
+  onClick?: () => void
+}
+
+const BtnAlpha = ({
+  text,
+  isDisabled = false,
+  href = null,
+  target = null,
+  onClick
+}: Props) => {
   return (
     <>
       {href ? (
@@ -20,7 +34,8 @@ const BtnAlpha = ({ text, isDisabled = false, href = null, target = null }) => {
             [stls.container]: true,
             [stls.isDisabled]: isDisabled
           })}
-          disabled={isDisabled}>
+          disabled={isDisabled}
+          onClick={onClick}>
           {text}
         </button>
       )}

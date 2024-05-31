@@ -130,14 +130,24 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
-      {/* <PsyTest /> */}
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />
+      <PsyTest />
       <About />
-      <EducationProcess paddingTop={90} paddingBottom={0} paddingTopMobile={0} paddingBottomMobile={0} />
-      <DistanceEducation paddingTop={0} paddingBottom={100} paddingTopMobile={0} paddingBottomMobile={50}/>
+      <EducationProcess
+        paddingTop={90}
+        paddingBottom={0}
+        paddingTopMobile={0}
+        paddingBottomMobile={0}
+      />
+      <DistanceEducation
+        paddingTop={0}
+        paddingBottom={100}
+        paddingTopMobile={0}
+        paddingBottomMobile={50}
+      />
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
@@ -154,7 +164,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
       <PayLater />
-      <Companies/>
+      <Companies />
       <EntryForm />
       <Faq />
     </>

@@ -20,24 +20,7 @@ const JournalPage = ({ lifeCourses }) => {
   const minmaxDuration = findMinMaxForSlider(durations)
 
   const minmaxPrice = findMinMaxForSlider(prices)
-  // const router = useRouter()
 
-  // if(prod && !preview){
-  // blogs = blogs?.filter(el => el.previewOnly === false)
-  // }
-  // const [selectedField, setSelectedField] = useState({
-  //   studyFieldSlug: router.query.studyFieldSlug || '',
-  //   studyField: router.query.studyField || 'Все cтатьи'
-  // })
-
-  // useEffect(() => {
-  //   setSelectedField({studyFieldSlug: localStorage.getItem('selectedFieldSlug') || '',
-  //   studyField: localStorage.getItem('selectedField') || 'Все cтатьи'
-  // })
-
-  // }, [selectedField.studyField])
-
-  // const blogsFilter = selectedField.studyField == 'Все cтатьи' ? blogs : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
 
   return (
     <Wrapper>

@@ -5,16 +5,14 @@ import marked from 'marked'
 type ArticleBlogBigSizeTextType = {
   props: {
     text?: string
-    textColor: {
-      code: string
-    }
+    textColor: string
   }
 }
 
 const ArticleBlogBigSizeText = ({ props }: ArticleBlogBigSizeTextType) => {
   const renderer = new marked.Renderer()
   renderer.em = text => {
-    return `<span style="color: ${props?.textColor?.code}">${text}</span>`
+    return `<span style="color: ${props?.textColor}">${text}</span>`
   }
 
   marked.setOptions({ renderer })

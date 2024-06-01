@@ -5,10 +5,7 @@ import styles from '@/styles/pages/JournalSlug.module.sass'
 type ArticleBlogCommentBlockType = {
   props: {
     text?: string
-    lineColor: {
-      code: string
-      name: string
-    }
+    lineColor: string
   }
 }
 
@@ -25,7 +22,7 @@ const ArticleBlogCommentBlock = ({props} : ArticleBlogCommentBlockType) => {
 
   return (
     <div
-      style={{ borderLeft: `2px solid ${props?.lineColor?.code}` }}
+      style={{ borderLeft: `2px solid ${props?.lineColor}` }}
       className={stls.commentBlock}>
       {parse(text)}
     </div>

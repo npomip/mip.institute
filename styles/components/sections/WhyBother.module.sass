@@ -10,7 +10,7 @@
   @include m.media(laptop, desktop)
     @include m.gap($pb: f.px(90), $pt: f.px(90))
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(50))
+    @include m.gap($pb: f.px(50))
 
 .filterImg
   position: relative
@@ -39,7 +39,7 @@
   @include m.media(laptop, desktop)
     @include m.gap($mt: f.px(0),$mb: f.px(30))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
   @include m.dye(c, c.$theta)
 
 .points
@@ -108,9 +108,10 @@
     @include m.gap($pb: f.px(14), $mb:f.px(0))
 
 .tagOne
+  display: inline
   & > *
     @include m.gap($plr: f.px(42), $ptb: f.px(8), $ml: f.px(52), $mr: f.px(12))
-  display: inline
+    display: inline
 
 .tagTwo
   display: inline

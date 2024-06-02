@@ -1,17 +1,17 @@
-import stls from '@/styles/components/sections/HeroProgram.module.sass'
-import { useContext, useState } from 'react'
+import PopupTrigger from '@/components/general/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
-import ProgramLabel from '@/components/program/ProgramLabel'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import ProgramInfo from '@/components/program/ProgramInfo'
+import ProgramLabel from '@/components/program/ProgramLabel'
 import { ContextStaticProps } from '@/context/index'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import stls from '@/styles/components/sections/HeroProgram.module.sass'
+import { useContext, useState } from 'react'
 import Breadcrumbs from '../general/Breadcrumbs'
-import ForPopup from '../imgs/general/ForPopup'
+import classNames from 'classnames'
 
 const HeroProgram = ({ breadcrumbs }) => {
   const { curProgramsType, program } = useContext(ContextStaticProps)
-  const [cut, setCut] = useState(210)
+  const [cut, setCut] = useState(120)
   const [showFullText, setShowFullText] = useState(false)
   const descriptionLength = program?.description?.length
   const cutHandler = () => {
@@ -19,89 +19,100 @@ const HeroProgram = ({ breadcrumbs }) => {
     if (!showFullText) {
       setCut(descriptionLength)
     } else {
-      setCut(210)
+      setCut(120)
     }
   }
+
+  const description =
+    cut < descriptionLength
+      ? program?.description?.slice(0, cut).concat('...')
+      : program?.description?.slice(0, cut)
+
+  const cta =
+    curProgramsType === 'course'
+      ? 'signUpForCourse'
+      : curProgramsType === 'profession'
+      ? 'signUpForProfession'
+      : 'signUp'
+
+      const validTitles = [
+        'Психоанализ и психоаналитическая психотерапия',
+        'Суггестивная психология. Гипноз в психологическом консультировании',
+        "Современные методы саморегуляции психологии здоровья",
+        "Современная мастерская психологического консультирования",
+        "Психология сексуальности и терапия сексуальных расстройств"
+      ];
+
+      const analysis = validTitles.includes(program?.title);
+
+
   return (
     <>
+      <div
+        className={stls.mobileBg}
+        style={{
+          backgroundImage: `url(${program?.heroPicture?.url})`
+        }}>
+        <span className={stls.filter}></span>
+        <div className={stls.discount}>
+          <ProgramDiscount isWhite />
+        </div>
+        <div className={stls.content}>
+          <div className={stls.label}>
+            <ProgramLabel />
+          </div>
+          <div>
+            <h1 className={stls.title} >{program?.title}</h1>
+            <div className={stls.mobileFlex}>
+              <div className={stls.descriptionMobile}>
+                <p className={stls.mobiledesc}>{description}</p>
+                <button onClick={cutHandler} className={stls.moreText}>
+                  {showFullText ? 'Скрыть описание' : 'Читать далее'}
+                </button>
+              </div>
+            </div>
+            <div className={stls.btnsMobile}>
+              <PopupTrigger btn='alpha' cta={cta} />
+              <PopupTrigger btn='beta' cta='askQuestion' />
+            </div>
+          </div>
+        </div>
+      </div>
       <section className={stls.container}>
         <Wrapper>
-          <Breadcrumbs breadcrumbs={breadcrumbs} />
-          <div className={stls.top}>
+          <div
+            className={stls.desktopBg}
+            style={{
+              backgroundImage: `url(${program?.heroPicture?.url})`
+            }}>
+            <span className={stls.filter}></span>
+            <div className={stls.discount}>
+              <ProgramDiscount isWhite />
+            </div>
             <div className={stls.heading}>
-              <div className={stls.label}>
-                <ProgramLabel />
-              </div>
-              <h1 className={stls.title}>{program?.title}</h1>
-              <div className={stls.descriptionDesktop}>
-                <p>{program?.description}</p>
-              </div>
-              <div className={stls.btnsDesktop}>
-                <PopupTrigger
-                  btn='alpha'
-                  cta={
-                    curProgramsType === 'course'
-                      ? 'signUpForCourse'
-                      : curProgramsType === 'profession'
-                      ? 'signUpForProfession'
-                      : 'signUp'
-                  }
-                />
-                <PopupTrigger btn='beta' cta='askQuestion' />
-              </div>
-            </div>
-            <div className={stls.mobileFlex}>
-              <div className={stls.pic}>
-                <div className={stls.discount}>
-                  <ProgramDiscount />
+              <Breadcrumbs breadcrumbs={breadcrumbs} />
+              <div>
+                <div className={stls.label}>
+                  <ProgramLabel />
                 </div>
-                {program?.heroPicture && (
-                  <>
-                    <div className={stls.img}>
-                      <ForPopup
-                        src={program?.heroPicture?.url}
-                        alt={program?.title}
-                        height={402}
-                        width={402}
-                      />
-                    </div>
-                    <div className={stls.imgMobile}>
-                      <ForPopup
-                        src={program?.heroPicture?.url}
-                        alt={program?.title}
-                        height={600}
-                        width={700}
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
-              <div className={stls.descriptionMobile}>
-                <p className={stls.mobiledesc}>
-                  {cut < descriptionLength
-                    ? program?.description?.slice(0, cut).concat('...')
-                    : program?.description?.slice(0, cut)}
-                </p>
-                <p onClick={cutHandler} className={stls.moreText}>
-                  {showFullText ? 'Скрыть описание' : 'Читать далее'}
-                </p>
+                <h1 className={classNames({
+          [stls.title]: true,
+          [stls.analysis]: analysis
+        })}  >{program?.title}</h1>
+                <div className={stls.descriptionDesktop}>
+                  <p className={stls.mobiledesc}>{description}</p>
+                  <button onClick={cutHandler} className={stls.moreText}>
+                    {showFullText ? 'Скрыть описание' : 'Читать далее'}
+                  </button>
+                </div>
+                <div className={stls.btnsDesktop}>
+                  <PopupTrigger btn='alpha' cta={cta} />
+                  <PopupTrigger btn='beta' cta='askQuestion' />
+                </div>
               </div>
             </div>
           </div>
-          <div className={stls.btnsMobile}>
-            <PopupTrigger
-              btn='alpha'
-              cta={
-                curProgramsType === 'course'
-                  ? 'signUpForCourse'
-                  : curProgramsType === 'profession'
-                  ? 'signUpForProfession'
-                  : 'signUp'
-              }
-            />
-            <PopupTrigger btn='beta' cta='askQuestion' />
-          </div>
-          <div className={stls.info}>
+          <div className={showFullText ? stls.infoDown : stls.info}>
             <ProgramInfo />
           </div>
         </Wrapper>

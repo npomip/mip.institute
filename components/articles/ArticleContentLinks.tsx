@@ -5,10 +5,7 @@ interface ArticleContentLinksProps {
   props: {
     subtitle: string
     subtitleSlug: string
-    color: {
-      code: string
-      name: string
-    }
+    color: string
   }[]
 }
 const ArticleContentLinks = ({ props }: ArticleContentLinksProps) => {

@@ -7,21 +7,13 @@ import ArticleBlogListWithBackgroundAndTitleItem from './ArticleBlogListWithBack
 type ArticleBlogListWithBackgroundAndTitleType = {
   props: {
     title
-    icon: {
-      code: string
-    }
-    backgroundColor: {
-      code
-    }
-    lineColor: {
-      code
-    }
+    icon: string
+    backgroundColor: string
+    lineColor: string
     item?: {
       id?: string
       text?: string
-      icon?: {
-        code?: string
-      }
+      icon?: string
     }[]
   }
 }
@@ -34,7 +26,7 @@ const ArticleBlogListWithBackgroundAndTitle = ({
  
   return (
     <div
-      style={{ background: props.backgroundColor.code }}
+      style={{ background: props.backgroundColor }}
       className={stls.blogList}>
       {parse(title)}
       <div

@@ -7,35 +7,33 @@ type ArticleBlogListWithBackgroundAndTitleItemType = {
   props: {
     id?: string
     text?: string
-    icon?: {
-      code?: string
-    }
+    icon?: string
   }
 }
 
 const ArticleBlogListWithBackgroundAndTitleItem = ({
   props
 }: ArticleBlogListWithBackgroundAndTitleItemType) => {
-  const text = props.text
+  const { text, icon } = props
 
   const renderer = new marked.Renderer()
-  renderer.html = text => {
-    return `<div classname=${stls.icon}>${text}</div>`
+  renderer.code = html => {
+    return `<div class="${stls.icon}">${html}</div>`
   }
   renderer.paragraph = text => {
     return `<p>${text}</p>`
   }
+  renderer.strong = title => {
+    return `<span class="${styles.strongText}">${title}</span>`
+  }
+  
   marked.setOptions({ renderer })
 
-  const icon = marked(props.icon.code)
-
-  renderer.strong = title => {
-    return `<span className=${styles.strongText}>${title}</span>`
-  }
+  const parsedIcon = parse(marked(icon))
 
   return (
     <div className={stls.innerBox}>
-      {parse(icon)}
+      {parsedIcon}
       <p>{text}</p>
     </div>
   )

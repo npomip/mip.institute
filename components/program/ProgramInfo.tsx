@@ -2,7 +2,6 @@ import stls from '@/styles/components/program/ProgramInfo.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext, useState } from 'react'
 import ProgramAdmission from '@/components/program/ProgramAdmission'
-// import { setDateOfEnrollment } from '@/helpers/index'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import {
   IconCalendarAlt,
@@ -22,7 +21,6 @@ const ProgramInfo = () => {
   const studyMounthsDuration = program?.studyMounthsDuration || 0
   const type = program?.type || ''
 
-
   const vals = [
     {
       key: 'Срок обучения:',
@@ -31,7 +29,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Форма обучения:',
-      val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel,
+      val: studyForm === 'Online' ? 'дистанционно' : studyFormLabel,
       icon: <IconUsers />
     },
     {

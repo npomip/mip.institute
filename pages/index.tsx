@@ -136,8 +136,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />
       <About />
-      <EducationProcess />
-      <DistanceEducation />
+      <EducationProcess paddingTop={90} paddingBottom={0} paddingTopMobile={0} paddingBottomMobile={0} />
+      <DistanceEducation paddingTop={0} paddingBottom={100} paddingTopMobile={0} paddingBottomMobile={50}/>
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}

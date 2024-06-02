@@ -77,6 +77,7 @@ const FormAlpha = ({
   const router = useRouter()
 
   const onSubmit = async data => {
+    
     // const ipCheck = await ipCheckFunc()
     // if (ipCheck === 200) {
       setIsDisabled(true)
@@ -128,7 +129,7 @@ const FormAlpha = ({
           setLoading(false)
           window.open(routes.front.gratefull, '_blank')
           setIsIpCheckFailed(false)
-          // setIsDisabled(true)
+          setIsDisabled(true)
           setThanksIsOpen(true)
         } else {
           console.log('err')

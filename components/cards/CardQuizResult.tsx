@@ -27,10 +27,7 @@ const CardQuizResult = ({ portrait, title, studyHours, href }: Props) => {
           </p>
           <p className={stls.subtitle}>Кол-во часов: {studyHours}</p>
         </div>
-        {/* <Link href={href} passHref>
-          <button className={stls.button}>Ознакомиться с программой</button>
-        </Link> */}
-        <PopupTrigger btn='test' cta='familiarize' testProgram={title}/>
+        <PopupTrigger btn='test' cta='familiarize' testProgram={title} />
       </div>
     </div>
   )

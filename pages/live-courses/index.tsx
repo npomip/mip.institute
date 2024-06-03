@@ -2,25 +2,30 @@
 import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
 import Wrapper from '@/components/layout/Wrapper'
-import SlugTags from '@/components/sections/SlugTags'
 import SlugTagsLiveCourses from '@/components/sections/SlugTagsLiveCourses'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
-import { dev, preview, prod, routes } from '@/config/index'
-import { FilterProvider, useFilter } from '@/context/FilterContext/FilterContext'
+import { routes } from '@/config/index'
+import {
+  FilterProvider,
+  useFilter
+} from '@/context/FilterContext/FilterContext'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/LiveCoursesSlug.module.sass'
 import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import 'reactjs-popup/dist/index.css'
+import FiltersForLifeCoursesMobile from '@/components/filters/FiltersForLifeCoursesMobile'
+import FilterTag from '@/components/filters/FilterTag'
+import FiltersWithTag from '@/components/filters/FiltersWithTags'
 
 const JournalPage = ({ lifeCourses }) => {
   const durations = lifeCourses.map(el => el.duration)
   const prices = lifeCourses.map(el => el.price)
 
   const minmaxDuration = findMinMaxForSlider(durations)
+  console.log(minmaxDuration);
+  
 
   const minmaxPrice = findMinMaxForSlider(prices)
-
 
   return (
     <Wrapper>
@@ -37,8 +42,15 @@ const JournalPage = ({ lifeCourses }) => {
         slug='journal'
       /> */}
         <h1 className={stls.title}>LIFE курсы</h1>
+        <FiltersWithTag minmaxPrice={minmaxPrice} minmaxDuration={minmaxDuration} />
+
         <div className={stls.withFilter}>
-          <FiltersForLifeCourses cost={minmaxPrice} duration={minmaxDuration} />
+          <div className={stls.filtersDesktop}>
+            <FiltersForLifeCourses
+              cost={minmaxPrice}
+              duration={minmaxDuration}
+            />
+          </div>
           <SlugTagsLiveCourses slug='live-courses' />
         </div>
       </FilterProvider>

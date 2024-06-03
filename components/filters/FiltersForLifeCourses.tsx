@@ -14,13 +14,10 @@ import { IconClose } from '../icons'
 
 const Filters = ({ cost, duration }) => {
   const [resetFilters, setResetFilters] = useState(false)
-  const filters = useFilter()
-  console.log('CONTEXTXTXT', filters)
 
   const dispatch = useFilterDispatch()
 
   const handleRecruitment = () => {
-    console.log('hand')
     dispatch({
       type: 'setIsOpenedForRecruitment',
       filterName: 'courseOpened'

@@ -13,7 +13,6 @@ type ReviewsType = {
 const SlugTagsLiveCourses = ({ slug, withDate = false }) => {
 
   const filteredItems = useFilteredItems();
-  console.log('CONTEXTXTXT', filteredItems)
   return (
     <>
       <div className={stls.journalContainer}>

@@ -2,9 +2,10 @@ import React, { createContext, useContext, useReducer } from 'react';
 
 const FilterContext = createContext(null);
 const FilterDispatchContext = createContext(null);
+const initialFilters = {bool: false, input: {text: ''}};
+
 
 export function FilterProvider({ children, items }) {
-  const initialFilters = {bool: false};
 
   const [state, dispatch] = useReducer(filtersReducer, {
     filters: initialFilters,
@@ -60,6 +61,17 @@ function filtersReducer(state, action) {
         }
       };
     }
+    case 'setInputValue' : {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          input: {
+            text: action.payload
+          }
+        }
+      }
+    }
     case 'setIsOpenedForRecruitment': {
       return {
         ...state,
@@ -84,7 +96,7 @@ function filtersReducer(state, action) {
     case 'clearFilters': {
       return {
         ...state,
-        filters: {}
+        filters: initialFilters
       };
     }
     default: {
@@ -102,6 +114,11 @@ function getFilteredItems(items, filters) {
     }
     if (filters.duration) {
       if (item.duration < filters.duration.min || item.duration > filters.duration.max) {
+        return false;
+      }
+    }
+    if(filters.input.text){
+      if(!item.title.toLowerCase().includes(filters.input.text.toLowerCase())){
         return false;
       }
     }

@@ -30,6 +30,7 @@ import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
+import SalaryCounter from '../sections/SalaryCounter'
 
 interface Breadcrumb {
   label: string
@@ -108,18 +109,19 @@ const PagesProgram = ({
           <WhatYouWillLearn title={'Чему вы научитесь'} />
         </>
       )}
-      <EducationProcess 
-        paddingTop={30} 
-        paddingBottom={0} 
-        paddingTopMobile={0} 
+      <EducationProcess
+        paddingTop={30}
+        paddingBottom={0}
+        paddingTopMobile={0}
         paddingBottomMobile={0}
       />
-      <DistanceEducation paddingBottomMobile={20}/>
+      <DistanceEducation paddingBottomMobile={20} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
+      <SalaryCounter />
       <RequestsCard />
 
       <Cta

@@ -27,8 +27,13 @@ type CardType = {
   isLifeCourses?: boolean
 }
 
-const SlugCard = ({ item, slug, withDate, firstCard = false, isLifeCourses=false }: CardType) => {
-
+const SlugCard = ({
+  item,
+  slug,
+  withDate,
+  firstCard = false,
+  isLifeCourses = false
+}: CardType) => {
   const newDate = new Date(item?.date)
   const dateOfCourse = new Date(item?.date).toLocaleString('ru-RU', {
     day: 'numeric',
@@ -37,14 +42,12 @@ const SlugCard = ({ item, slug, withDate, firstCard = false, isLifeCourses=false
 
   return (
     <>
-      <Link
-        passHref
-        href={`/${slug}/${item?.slug}`}>
+      <Link passHref href={`/${slug}/${item?.slug}`}>
         <div
           className={classNames({
             [stls.seminarCard]: !firstCard,
             [stls.firstCard]: firstCard,
-            [stls.isLifeCourses]: isLifeCourses,
+            [stls.isLifeCourses]: isLifeCourses
           })}>
           <div className={stls.seminarImg}>
             <Image
@@ -61,9 +64,11 @@ const SlugCard = ({ item, slug, withDate, firstCard = false, isLifeCourses=false
           <div className={stls.seminarText}>
             <div className={stls.tags}>
               <p className={stls.seminarCardTag}>{item?.studyField}</p>
-              {item.courseOpened && <p className={stls.seminarCardTag}>идет набор</p>}
+              {item?.courseOpened && (
+                <p className={stls.seminarCardTag}>идет набор</p>
+              )}
             </div>
-            
+
             <p className={stls.articleTitle}>{item?.title}</p>
             {firstCard && (
               <p className={stls.articleSubtitle}>{item?.subtitle}</p>

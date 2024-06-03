@@ -4,11 +4,11 @@ import Wrapper from '@/components/layout/Wrapper'
 import Professions from '@/components/programs/Professions'
 import { useFilteredItems } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/sections/Programs.module.sass'
-import { TypeLibPrograms } from '@/types/index'
 import cn from 'classnames'
 import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
 import ProgramType from '../general/ProgramType'
 import SearchMobile from '../general/SearchMobile'
+import { TypeLibPrograms } from '@/types/index'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'

@@ -100,7 +100,6 @@ const PsyTest = () => {
                           type='radio'
                           className={stls.radioQuiz}
                           name='input'
-                          onClick={value => handleAnswer(value, el.idx)}
                           value={el.value2}
                         />
                         <label className={stls.label}>{el.question2}</label>
@@ -113,7 +112,6 @@ const PsyTest = () => {
                             type='radio'
                             className={stls.radioQuiz}
                             name='input'
-                            onClick={value => handleAnswer(value, el.idx)}
                             value={el?.value3}
                           />
                           <label className={stls.label}>{el?.question3}</label>
@@ -128,7 +126,6 @@ const PsyTest = () => {
                             type='radio'
                             className={stls.radioQuiz}
                             name='input'
-                            onClick={value => handleAnswer(value, el.idx)}
                             value={el.value4}
                           />
                           <label className={stls.label}>{el?.question4}</label>

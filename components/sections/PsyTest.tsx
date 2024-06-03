@@ -9,7 +9,7 @@ import PsyTestMain from './PsyTestMain'
 SwiperCore.use([Navigation, Pagination])
 
 const PsyTest = () => {
-  const [inputs, setInputs] = useState('')
+  const [_, setInputs] = useState('')
   const [result, setResult] = useState<Array<Array<string>>>([])
   const [showResult, setShowResult] = useState(false)
   const [isTestStarted, setIsTestStarted] = useState(false)
@@ -17,8 +17,6 @@ const PsyTest = () => {
   const [category, setCategory] = useState('')
 
   const handleAnswer = (categories, index) => {
-    // e.preventDefault()
-    console.log(categories)
     setInputs(categories)
     setResult(prevRes => [...prevRes, categories])
     setInputs('')
@@ -30,7 +28,6 @@ const PsyTest = () => {
     setResult(prevRes => [...prevRes].slice(0, prevRes.length - 1))
     setInputs('')
   }
-  console.log(result)
 
   let maxKey = ''
   let options = {
@@ -59,7 +56,6 @@ const PsyTest = () => {
         }
       })
     })
-    console.log(maxKey)
     setCategory(maxKey)
   }
   if (showResult) return <QuizResults result={category} />
@@ -93,7 +89,6 @@ const PsyTest = () => {
                           type='radio'
                           className={stls.radioQuiz}
                           name='input'
-                          // onClick={value => handleAnswer(value, el.idx)}
                           value={el.value1}
                         />
                         <label className={stls.label}>{el.question1}</label>
@@ -142,21 +137,12 @@ const PsyTest = () => {
                     </div>
                   </div>
                   <div className={stls.btn}>
-                    {el.idx !== 1 ? (
-                      <button onClick={handleBack} className='back'>
-                        Назад
-                      </button>
-                    ) : (
-                      <button disabled className='back'>
-                        Назад
-                      </button>
-                    )}
-                    {/* <button
-                  disabled={!inputs}
-                  onClick={el.idx === 6 ? handleLastSlide : handleAnswer}
-                  className='quiz'>
-                  Подтвердить
-                </button> */}
+                    <button
+                      disabled={el.idx === 1}
+                      onClick={handleBack}
+                      className='back'>
+                      Назад
+                    </button>
                   </div>
                 </SwiperSlide>
               ))}

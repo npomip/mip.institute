@@ -16,6 +16,7 @@
   display: flex
   justify-content: space-between
   align-items: flex-end
+  @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
     flex-direction: column-reverse
     align-items: flex-start

@@ -21,9 +21,7 @@ const FiltersWithTag = ({minmaxPrice,minmaxDuration}:FilterTagProps) => {
 
   const dispatch = useFilterDispatch()
 
-  const { input } = useFilter()
-  console.log(input.text);
-  
+  const { filters } = useFilter()
 
   const changeHandler = (e) => {
     dispatch({
@@ -35,7 +33,7 @@ const FiltersWithTag = ({minmaxPrice,minmaxDuration}:FilterTagProps) => {
     <div className={stls.filtersWithTags}>
           <FilterTag>Все курсы</FilterTag>
           <div className={stls.filtersWithInput}>
-            <input value={input.text} onChange={changeHandler} placeholder='Поиск' className={stls.inp} />
+            <input value={filters.input.text} onChange={changeHandler} placeholder='Поиск' className={stls.inp} />
             <FiltersForLifeCoursesMobile btnTitle={'Показать курсы'}>
               <FiltersForLifeCourses
                 cost={minmaxPrice}

@@ -17,6 +17,8 @@ const Filters = ({ cost, duration }) => {
 
   const dispatch = useFilterDispatch()
 
+  const { filters } = useFilter()
+
   const handleRecruitment = () => {
     dispatch({
       type: 'setIsOpenedForRecruitment',
@@ -24,26 +26,12 @@ const Filters = ({ cost, duration }) => {
     })
   }
 
-  const removeFilters = () => {
-    setResetFilters(true)
-    dispatch({
-      type: 'clearFilters'
-    })
-  }
-
   return (
     <div className={stls.filters}>
-      <div className={stls.resetFilterContainer}>
-        <p className={stls.resetFilter} onClick={removeFilters}>
-          Сбросить фильтры
-        </p>
-        <div className={stls.icon}>
-          {/* <IconClose /> */}
-        </div>
-      </div>
 
       <FilterContainer>
         <FilterWithToggle
+        checked={filters.courseOpened}
           description={'Идет набор'}
           onChange={handleRecruitment}
         />

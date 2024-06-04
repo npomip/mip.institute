@@ -2,17 +2,18 @@ import React, { createContext, useContext, useReducer } from 'react';
 
 const FilterContext = createContext(null);
 const FilterDispatchContext = createContext(null);
-const initialFilters = {bool: false, input: {text: ''}};
+const initialFilters = {bool: false, input: {text: ''}, courseOpened: false};
 
 
 export function FilterProvider({ children, items }) {
 
   const [state, dispatch] = useReducer(filtersReducer, {
     filters: initialFilters,
-    items: items
+    items: items,
+    additional: {reset: false}
   });
 
-  console.log('IN FUNC CONTEXT', items, state.filters, state.items);
+  console.log('IN FUNC CONTEXT', items, state.filters, state.items, state.additional);
 
   return (
     <FilterContext.Provider value={state}>
@@ -28,7 +29,7 @@ export function useFilter() {
   if (context === undefined) {
     throw new Error('useFilter must be used within a FilterProvider');
   }
-  return context.filters;
+  return {filters: context.filters, additional: context.additional};
 }
 
 export function useFilterDispatch() {
@@ -96,7 +97,17 @@ function filtersReducer(state, action) {
     case 'clearFilters': {
       return {
         ...state,
-        filters: initialFilters
+        filters: initialFilters,
+        // bool: true
+      };
+    }
+    case 'setBool': {
+      return {
+        ...state,
+        additional: {
+          ...state.additional,
+          reset: action.payload
+        }
       };
     }
     default: {

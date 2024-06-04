@@ -2,10 +2,16 @@ import React, { useRef } from 'react'
 import stls from '@/styles/components/filters/FiltersForLifeCoursesMobile.module.sass'
 import Popup from 'reactjs-popup'
 import IconFilterOpen from '../icons/IconFilterOpen';
+import { useFilter, useFilterDispatch } from '@/context/FilterContext/FilterContext';
+import ResetFilter from './ResetFilter';
 
 export default function FiltersForLifeCoursesMobile({children, btnTitle}) {
 
   const scrollToRef = useRef(null);
+
+  const { additional } = useFilter()
+  const dispatch = useFilterDispatch()
+  console.log(additional);
 
   return (
     <div ref={scrollToRef} className={stls.container}>
@@ -26,6 +32,7 @@ export default function FiltersForLifeCoursesMobile({children, btnTitle}) {
             overlayStyle={{ background: 'rgba(0, 0, 0, 0.35)' }}>
               {close => (
                 <div className={stls.modal}>
+                <ResetFilter />
                 {children}
             <button className={stls.btn} onClick={()=> {
               scrollToRef.current.scrollIntoView({ behavior: 'smooth' });

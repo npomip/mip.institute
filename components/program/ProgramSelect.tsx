@@ -76,20 +76,17 @@ const customStyles = {
         color: 'white'
       }
     }
-  },
-  input: () => ({
-    display: 'none'
-  }),
-  menuPortalTarget: () => ({
-    width: '100%',
-    zIndex: '9999',
-    position: 'absolute'
-  })
+  }
 }
 
 const ProgramSelect = () => {
   return (
-    <Select options={options} defaultValue={options[0]} styles={customStyles} />
+    <Select
+      options={options}
+      defaultValue={options[0]}
+      styles={customStyles}
+      isSearchable={false}
+    />
   )
 }
 

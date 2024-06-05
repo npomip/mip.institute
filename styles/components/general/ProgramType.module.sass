@@ -2,7 +2,7 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.p
+.title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(23))
   @include m.media(laptop, desktop)
@@ -10,33 +10,24 @@
     font-size: f.px(18)
     font-weight: 500
 
-.item
+.radioButton
   @include m.flex($ai: center)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(23))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(10))
 
-.circle
+.radioBtn
   width: f.px(20)
   height: f.px(20)
   border-radius: 50%
+  appearance: none
   @include m.dye(bg, c.$omega)
-  &.active
-    @include m.dye(bg, c.$beta)
-    position: relative
-    &::after
-      content: ''
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
-      width: 50%
-      height: 50%
-      border-radius: 50%
-      @include m.dye(bg, c.$nu)
+  &:checked
+    border: f.px(5) solid
+    @include m.dye(border, c.$beta)
 
-.text
+.radioLabel
   font-size: f.px(16)
   font-weight: 300
   @include m.dye(c, c.$chi)

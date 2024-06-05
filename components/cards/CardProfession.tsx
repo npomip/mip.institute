@@ -10,20 +10,25 @@ const CardProfession = ({ profession = null }) => {
   const isSmallTablet = useMediaQuery({ minWidth: 426, maxWidth: 600 })
   return (
     <Link
+      passHref
       href={`${routes.front.professions}/${
         profession.studyFieldSlug || 'studyfield'
       }/${profession.slug}`}>
-      <a className={stls.container}>
+      <div className={stls.container}>
         <div className={stls.hot}>ХИТ</div>
-        <Image
-          src={profession.heroPicture.url}
-          width={300}
-          height={isTablet ? 360 : isSmallTablet ? 310 : 230}
-          alt='Фото программы'
-          className={stls.img}
-        />
+        <div className={stls.imgCard}>
+          <Image
+            src={profession.heroPicture.url}
+            width={760}
+            height={430}
+            alt='Фото программы'
+            className={stls.img}
+          />
+        </div>
         <div className={stls.content}>
-          <span className={stls.type}>{profession.typeLabel}</span>
+          <div className={stls.tags}>
+            <span className={stls.type}>{profession.typeLabel}</span>
+          </div>
           <h4 className={stls.title}>{profession.title}</h4>
           {profession.studyMounthsDuration && (
             <div className={stls.duration}>
@@ -40,7 +45,7 @@ const CardProfession = ({ profession = null }) => {
             </div>
           )}
         </div>
-      </a>
+      </div>
     </Link>
   )
 }

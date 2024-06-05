@@ -1,8 +1,27 @@
 import { createContext, useContext, useReducer } from 'react'
 
+interface IFilter {
+  bool: boolean
+  input: {
+    text: string
+  }
+  courseOpened: boolean
+  type: ProgramTypes
+}
+
+export enum ProgramTypes {
+  Professions = 'Profession',
+  Courses = 'Course'
+}
+
 const FilterContext = createContext(null)
 const FilterDispatchContext = createContext(null)
-const initialFilters = { bool: false, input: { text: '' }, courseOpened: false }
+const initialFilters: IFilter = {
+  bool: false,
+  input: { text: '' },
+  courseOpened: false,
+  type: ProgramTypes.Professions
+}
 
 export function FilterProvider({ children, items }) {
   const [state, dispatch] = useReducer(filtersReducer, {
@@ -10,14 +29,6 @@ export function FilterProvider({ children, items }) {
     items: items,
     additional: { reset: false }
   })
-
-  console.log(
-    'IN FUNC CONTEXT',
-    items,
-    state.filters,
-    state.items,
-    state.additional
-  )
 
   return (
     <FilterContext.Provider value={state}>
@@ -86,6 +97,15 @@ function filtersReducer(state, action) {
         }
       }
     }
+    case 'setPrograms': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          type: action.payload
+        }
+      }
+    }
     case 'setDurationFilter': {
       return {
         ...state,
@@ -128,11 +148,21 @@ function getFilteredItems(items, filters) {
       }
     }
     if (filters.duration) {
-      if (
-        item.duration < filters.duration.min ||
-        item.duration > filters.duration.max
-      ) {
-        return false
+      if (item.duration) {
+        if (
+          item.duration < filters.duration.min ||
+          item.duration > filters.duration.max
+        ) {
+          return false
+        }
+      }
+      if (item.studyMounthsDuration) {
+        if (
+          item.studyMounthsDuration < filters.duration.min ||
+          item.studyMounthsDuration > filters.duration.max
+        ) {
+          return false
+        }
       }
     }
     if (filters.input.text) {
@@ -141,6 +171,9 @@ function getFilteredItems(items, filters) {
       ) {
         return false
       }
+    }
+    if (filters.type) {
+      return filters.type === item.type
     }
     for (const key in filters) {
       if (

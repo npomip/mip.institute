@@ -2,21 +2,26 @@ import { useEffect, useState } from 'react'
 import stls from '@/styles/components/general/RangeSlide.module.sass'
 import RangeSlider from 'react-range-slider-input'
 import 'react-range-slider-input/dist/style.css'
-import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
+import { useFilter, useFilterDispatch } from '@/context/FilterContext/FilterContext'
 
 const RangeSlide = ({ min, max, title, dispatchFilterType, measure, step=1, resetFilters, setResetFilters }) => {
   const [value, setValue] = useState([min, max])
 
+  const {additional} = useFilter()
+  console.log(additional);
+  
+
   const dispatch = useFilterDispatch()
 
   useEffect(() => {
-    if(resetFilters) {
+    if(additional.reset) {
       setValue([min, max])
-      console.log('reset')
     }
-  
-    setResetFilters(false)
-  }, [resetFilters])
+    dispatch({
+      type: 'setBool',
+      payload: false
+    })
+  }, [additional.reset])
   
 
   useEffect(() => {

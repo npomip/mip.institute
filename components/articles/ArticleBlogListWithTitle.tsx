@@ -3,16 +3,12 @@ import ArticleBlogListWithTitleItem from './ArticleBlogListWithTitleItem'
 
 type ArticleBlogListWithTitleType = {
   props: {
-    icon: {
-      code: string
-    }
+    icon: string
     item?: {
       id?: string
       text?: string
       title: string
-      icon?: {
-        code?: string
-      }
+      icon?: string
     }[]
   }
 }

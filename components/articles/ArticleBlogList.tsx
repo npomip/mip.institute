@@ -10,9 +10,7 @@ type ArticleBlogListType = {
     listItem? : {
       id?: string
       text?: string
-      icon?: {
-        code?: string 
-      }
+      icon?: string
     }[]
   }
   

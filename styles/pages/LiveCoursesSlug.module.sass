@@ -23,7 +23,7 @@
       font-size: f.px(26)
 
 .title
-  @include m.gap($mt: f.px(76), $mb: f.px(30))
+  @include m.gap($mt: f.px(30), $mb: f.px(11))
   font-size: f.px(44)
   font-weight: 500
   @include m.media(phone, tablet)
@@ -35,4 +35,7 @@
   justify-content: space-between
   @include m.media(phone, tablet)
     flex-direction: column
-    // gap: f.px(10)
+
+.filtersDesktop
+  @include m.media(phone, tablet)
+    display: none

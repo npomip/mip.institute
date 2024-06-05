@@ -1,4 +1,7 @@
-import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
+import {
+  useFilter,
+  useFilterDispatch
+} from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
 import { useState } from 'react'
 import RangeSlide from '../general/RangeSlide'
@@ -7,9 +10,12 @@ import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
   const [resetFilters, setResetFilters] = useState(false)
+
   const dispatch = useFilterDispatch()
+
+  const { filters } = useFilter()
+
   const handleRecruitment = () => {
-    console.log('hand')
     dispatch({
       type: 'setIsOpenedForRecruitment',
       filterName: 'courseOpened'
@@ -34,6 +40,7 @@ const Filters = ({ cost, duration }) => {
 
       <FilterContainer>
         <FilterWithToggle
+          checked={filters.courseOpened}
           description={'Идет набор'}
           onChange={handleRecruitment}
         />

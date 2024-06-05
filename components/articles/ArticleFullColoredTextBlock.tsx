@@ -4,10 +4,7 @@ import styles from '@/styles/pages/JournalSlug.module.sass'
 type ArticleFullColoredTextBlockType = {
   props: {
     text?: string
-    textColor?: {
-      code: string
-      name: string
-    }
+    textColor?: string
   }
 }
 
@@ -19,7 +16,7 @@ const ArticleFullColoredTextBlock = ({
     return `<p>${text}</p>`
   }
   renderer.em = function (text) {
-    return `<span style="color: ${props?.textColor?.code}">${text}</span>`
+    return `<span style="color: ${props?.textColor}">${text}</span>`
   }
 
   renderer.strong = text => {

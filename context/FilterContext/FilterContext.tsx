@@ -2,13 +2,22 @@ import { createContext, useContext, useReducer } from 'react'
 
 const FilterContext = createContext(null)
 const FilterDispatchContext = createContext(null)
+const initialFilters = { bool: false, input: { text: '' }, courseOpened: false }
 
 export function FilterProvider({ children, items }) {
-  const initialFilters = { bool: false }
   const [state, dispatch] = useReducer(filtersReducer, {
     filters: initialFilters,
-    items: items
+    items: items,
+    additional: { reset: false }
   })
+
+  console.log(
+    'IN FUNC CONTEXT',
+    items,
+    state.filters,
+    state.items,
+    state.additional
+  )
 
   return (
     <FilterContext.Provider value={state}>
@@ -24,7 +33,7 @@ export function useFilter() {
   if (context === undefined) {
     throw new Error('useFilter must be used within a FilterProvider')
   }
-  return context?.filters
+  return { filters: context.filters, additional: context.additional }
 }
 
 export function useFilterDispatch() {
@@ -57,6 +66,17 @@ function filtersReducer(state, action) {
         }
       }
     }
+    case 'setInputValue': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          input: {
+            text: action.payload
+          }
+        }
+      }
+    }
     case 'setIsOpenedForRecruitment': {
       return {
         ...state,
@@ -81,7 +101,17 @@ function filtersReducer(state, action) {
     case 'clearFilters': {
       return {
         ...state,
-        filters: {}
+        filters: initialFilters
+        // bool: true
+      }
+    }
+    case 'setBool': {
+      return {
+        ...state,
+        additional: {
+          ...state.additional,
+          reset: action.payload
+        }
       }
     }
     default: {
@@ -91,42 +121,36 @@ function filtersReducer(state, action) {
 }
 
 function getFilteredItems(items, filters) {
-  return (
-    items &&
-    items.filter(item => {
-      if (filters.price) {
-        if (item.price < filters.price.min || item.price > filters.price.max) {
-          return false
-        }
+  return items.filter(item => {
+    if (filters.price) {
+      if (item.price < filters.price.min || item.price > filters.price.max) {
+        return false
       }
-      if (filters.duration) {
-        if (item.duration) {
-          if (
-            item.duration < filters.duration.min ||
-            item.duration > filters.duration.max
-          ) {
-            return false
-          }
-        }
-        if (item.studyMounthsDuration) {
-          if (
-            item.studyMounthsDuration < filters.duration.min ||
-            item.studyMounthsDuration > filters.duration.max
-          ) {
-            return false
-          }
-        }
+    }
+    if (filters.duration) {
+      if (
+        item.duration < filters.duration.min ||
+        item.duration > filters.duration.max
+      ) {
+        return false
       }
-      for (const key in filters) {
-        if (
-          typeof filters[key] === 'boolean' &&
-          filters[key] === true &&
-          !item[key]
-        ) {
-          return false
-        }
+    }
+    if (filters.input.text) {
+      if (
+        !item.title.toLowerCase().includes(filters.input.text.toLowerCase())
+      ) {
+        return false
       }
-      return true
-    })
-  )
+    }
+    for (const key in filters) {
+      if (
+        typeof filters[key] === 'boolean' &&
+        filters[key] === true &&
+        !item[key]
+      ) {
+        return false
+      }
+    }
+    return true
+  })
 }

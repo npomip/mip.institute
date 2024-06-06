@@ -59,7 +59,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       'Гиль Людмила Владимировна',
       'Вера Вячеславовна Гаврилова',
       "Борисов Егор Игоревич",
-      "Бушев Андрей"
+      // "Бушев Андрей"
     ]
 
     return allowedNames.includes(teacher.name)

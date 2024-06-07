@@ -4,9 +4,7 @@ import ArticleBlogMoreThenOneProgram from './ArticleBlogMoreThenOneProgram'
 export type ArticleBlogRelatedProgramsType = {
   props: {
     title: string
-    borderColor?: {
-      code?: string
-    }
+    borderColor?: string
     textItem: {
       id
       text: string

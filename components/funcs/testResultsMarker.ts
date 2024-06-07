@@ -1,14 +1,15 @@
 const testResultsMarker = item => {
   switch (item) {
-    case 'clinic':
-      return [
-        'Клиническая психология'
-      ]
+    // case 'clinic':
+    //   return [
+    //   ]
     case 'organization':
       return [
         'Психолог бизнес - консультант. Коуч',
         'Корпоративный психолог',
         'Медиатор',
+        'Клиническая психология'
+
       ]
     case 'childrenPsy':
       return [
@@ -35,7 +36,9 @@ const testResultsMarker = item => {
     case 'psySomatic':
       return [
         'Психосоматика и телесная психотерапия',
-        'Телесно-ориентированная терапия'
+        'Телесно-ориентированная терапия',
+        'Психоанализ и психоаналитическая психотерапия',
+        'Когнитивно-поведенческий психотерапевт'
       ]
     // case 'geshtalt':
     //   return [
@@ -47,7 +50,6 @@ const testResultsMarker = item => {
     //   ]
     case 'psyAnalisys':
       return [
-        'Психоанализ и психоаналитическая психотерапия'
       ]
     // case 'nutrition':
     //   return [
@@ -55,7 +57,6 @@ const testResultsMarker = item => {
     //   ]
     case 'ktp':
       return [
-        'Когнитивно-поведенческий психотерапевт'
       ]
     default:
       return ['Программа']

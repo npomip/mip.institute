@@ -9,7 +9,7 @@ import RelatedProgramsList from './RelatedProgramsList'
 const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
   const renderer = new marked.Renderer()
   renderer.em = text => {
-    return `<span  style="color: ${props?.borderColor?.code}">${text}</span>`
+    return `<span  style="color: ${props?.borderColor}">${text}</span>`
   }
   renderer.paragraph = text => {
     return `<p id=${stls.title}>${text}</p>`

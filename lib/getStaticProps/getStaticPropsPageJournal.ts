@@ -93,48 +93,34 @@ const getStaticPropsPageJournal = async ({
               ... on ComponentBlogSubtitle {
                 subtitle
                 subtitleSlug
-                color {
-                  name
-                  code
-                }
+                color 
               }
               __typename
               ... on ComponentBlogBigSizeText {
                 text
-                textColor {
-                  code
-                }
+                textColor 
               }
               __typename
               ... on ComponentBlogFullColoredTextBlock {
                 text
-                textColor {
-                  name
-                  code
-                }
+                textColor 
               }
               __typename
               ... on ComponentBlogList {
                 listItem {
                   id
                   text
-                  icon {
-                    code
-                  }
+                  icon 
                 }
               }
               __typename
               ... on ComponentBlogListWithTitle {
-                icon {
-                  code
-                }
+                icon 
                 item {
                   id
                   title
                   text
-                  icon {
-                    code
-                  }
+                  icon 
                 }
               }
               ... on ComponentBlogSingleImageBlock {
@@ -147,47 +133,26 @@ const getStaticPropsPageJournal = async ({
               }
               ... on ComponentBlogCommentBlock {
                 text
-                lineColor {
-                  code
-                }
+                lineColor 
               }
               __typename
               ... on ComponentBlogTextBlockWithBackground {
                 text
-                backgroundColor {
-                  name
-                  code
-                }
-                borderColor {
-                  name
-                  code
-                }
-                textColor {
-                  name
-                  code
-                }
+                backgroundColor 
+                borderColor
+                textColor 
               }
               
               __typename
               ... on ComponentBlogListWithBackgroundAndTitle {
                 title
-                backgroundColor {
-                  name
-                  code
-                }
-                lineColor {
-                  name
-                  code
-                }
-                icon {
-                  code
-                }
+                backgroundColor 
+                lineColor 
+                icon 
                 item {
                   id
                   text
-                  icon {
-                    code
-                  }
+                  icon
                   
                 }
               }
@@ -210,9 +175,7 @@ const getStaticPropsPageJournal = async ({
                     height
                   }
                 }
-                borderColor {
-                  code
-                }
+                borderColor
               }
               __typename
               ... on ComponentBlogTable {
@@ -229,9 +192,7 @@ const getStaticPropsPageJournal = async ({
               ... on ComponentBlogTeacherComment {
                 specialization
                 comment
-                borderColor {
-                  code
-                }
+                borderColor 
                 teacher {
                   name
                   specialization

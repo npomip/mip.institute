@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import stls from '@/styles/components/filters/FiltersWithTag.module.sass'
 import classNames from 'classnames'
 import FiltersForLifeCoursesMobile from './FiltersForLifeCoursesMobile'
@@ -30,9 +30,26 @@ const FiltersWithTag = ({ minmaxPrice, minmaxDuration }: FilterTagProps) => {
       payload: e.target.value
     })
   }
+
   return (
     <div className={stls.filtersWithTags}>
-      <FilterTag>Все курсы</FilterTag>
+      <div className={stls.tags}>
+        <FilterTag
+          onClick={() =>
+            dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
+          }
+          isActive={!filters.isPopular}>
+          Все курсы
+        </FilterTag>
+        <FilterTag
+          onClick={() =>
+            dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
+          }
+          isActive={filters.isPopular}>
+          Популярные курсы
+        </FilterTag>
+      </div>
+
       <div className={stls.filtersWithInput}>
         <input
           value={filters.input.text}

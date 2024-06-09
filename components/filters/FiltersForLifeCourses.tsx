@@ -10,34 +10,25 @@ import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
   const [resetFilters, setResetFilters] = useState(false)
-
   const dispatch = useFilterDispatch()
 
   const { filters } = useFilter()
-
   const handleRecruitment = () => {
-    dispatch({
-      type: 'setIsOpenedForRecruitment',
-      filterName: 'courseOpened'
-    })
-  }
-
-  const removeFilters = () => {
-    setResetFilters(true)
-    dispatch({
-      type: 'clearFilters'
-    })
+    if (!filters.courseOpened) {
+      dispatch({
+        type: 'setBooleanFilter',
+        filterName: 'courseOpened'
+      })
+    } else {
+      dispatch({
+        type: 'clearBooleanFilter',
+        filterName: 'courseOpened'
+      })
+    }
   }
 
   return (
     <div className={stls.filters}>
-      <div className={stls.resetFilterContainer}>
-        <p className={stls.resetFilter} onClick={removeFilters}>
-          Сбросить фильтры
-        </p>
-        <div className={stls.icon}>{/* <IconClose /> */}</div>
-      </div>
-
       <FilterContainer>
         <FilterWithToggle
           checked={filters.courseOpened}
@@ -45,6 +36,7 @@ const Filters = ({ cost, duration }) => {
           onChange={handleRecruitment}
         />
       </FilterContainer>
+
       <FilterContainer>
         <RangeSlide
           setResetFilters={setResetFilters}

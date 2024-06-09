@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer } from 'react'
+import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
+import React, { createContext, useContext, useReducer } from 'react'
 
 interface IFilter {
   bool: boolean
@@ -6,7 +7,9 @@ interface IFilter {
     text: string
   }
   courseOpened: boolean
+  isPopular: boolean
   type: ProgramTypes
+  duration: { min: number; max: number }
 }
 
 export enum ProgramTypes {
@@ -20,7 +23,9 @@ const initialFilters: IFilter = {
   bool: false,
   input: { text: '' },
   courseOpened: false,
-  type: ProgramTypes.Professions
+  isPopular: false,
+  duration: { min: 0, max: 1 },
+  type: ProgramTypes.Professions || ProgramTypes.Courses
 }
 
 export function FilterProvider({ children, items }) {
@@ -29,6 +34,25 @@ export function FilterProvider({ children, items }) {
     items: items,
     additional: { reset: false }
   })
+
+  // const durations = items.map(el => el.duration)
+  // const prices = items.map(el => el.price)
+
+  // const minmaxDuration = findMinMaxForSlider(durations)
+  // console.log(minmaxDuration);
+  // const minmaxPrice = findMinMaxForSlider(prices)
+  // initialFilters.duration = {
+  //   min: minmaxDuration.min,
+  //   max: minmaxDuration.max
+  // }
+
+  console.log(
+    'IN FUNC CONTEXT',
+    items,
+    state.filters,
+    state.items,
+    state.additional
+  )
 
   return (
     <FilterContext.Provider value={state}>
@@ -60,7 +84,7 @@ export function useFilteredItems() {
   if (context === undefined) {
     throw new Error('useFilteredItems must be used within a FilterProvider')
   }
-  return getFilteredItems(context?.items, context?.filters)
+  return getFilteredItems(context.items, context.filters)
 }
 
 function filtersReducer(state, action) {
@@ -88,12 +112,21 @@ function filtersReducer(state, action) {
         }
       }
     }
-    case 'setIsOpenedForRecruitment': {
+    case 'setBooleanFilter': {
       return {
         ...state,
         filters: {
           ...state.filters,
-          [action.filterName]: !state.filters[action.filterName]
+          [action.filterName]: true
+        }
+      }
+    }
+    case 'clearBooleanFilter': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.filterName]: false
         }
       }
     }

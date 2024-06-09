@@ -53,7 +53,7 @@ const Programs = ({
               duration={minmaxDuration}
             />
           )}
-          <ProgramType />
+          {/* <ProgramType /> */}
         </div>
 
         <div className={stls.content}>

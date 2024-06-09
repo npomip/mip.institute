@@ -5,13 +5,7 @@
 .container
 
 .filters
-  @include m.gap($mr: f.px(10), $pt: f.px(30))
-
-// .resetFilterContainer
-//   display: flex
-
-
-// .resetFilter
-//   color: #616161
-//   font-size: f.px(14)
-//   font-weight: 350
+  @include m.gap($mr: f.px(10))
+  @include m.media(phone, tablet)
+    border-bottom: 1px solid #ACACAC
+    

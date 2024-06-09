@@ -1,15 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import stls from '@/styles/components/filters/FilterTag.module.sass'
 import classNames from "classnames";
+import { useFilterDispatch } from "@/context/FilterContext/FilterContext";
 
 interface FilterTagProps {
   children: string;
+  onClick?: () => void;
+  isActive: boolean
 }
-const FilterTag = ({children}:FilterTagProps) => {
+const FilterTag = ({children, onClick, isActive}:FilterTagProps) => {
+
   return (
-    <span className={classNames({
+    <span onClick={onClick} className={classNames({
       [stls.container]: true,
-      // [stls.active]: el.studyFieldSlug === selectedField.studyFieldSlug
+      [stls.active]: isActive
     })}>
       {children}
     </span>

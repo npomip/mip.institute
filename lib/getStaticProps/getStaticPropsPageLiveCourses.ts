@@ -31,6 +31,7 @@ const getStaticPropsPageLiveCourses = async ({
           price
           duration
           courseOpened
+          isPopular
         }
       }
     `

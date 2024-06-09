@@ -81,7 +81,7 @@ export function useFilter() {
   if (context === undefined) {
     throw new Error('useFilter must be used within a FilterProvider')
   }
-  return { filters: context.filters, additional: context.additional, categories: context.categories }
+  return { filters: context?.filters, additional: context?.additional, categories: context?.categories }
 }
 
 export function useFilterDispatch() {

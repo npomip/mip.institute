@@ -23,7 +23,7 @@ const ProfessionsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
         ofType='profession'
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      <PagesPrograms ofType='profession' />
+      {/* <PagesPrograms ofType='profession' /> */}
     </>
   )
 }

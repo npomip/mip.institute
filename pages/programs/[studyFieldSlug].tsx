@@ -21,7 +21,7 @@ const ProgramsStudyFieldPage: NextPage<TypePageProgramsProps> = ({
         programs={programs}
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      <PagesPrograms />
+      {/* <PagesPrograms /> */}
     </>
   )
 }

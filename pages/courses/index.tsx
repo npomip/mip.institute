@@ -15,7 +15,7 @@ const CoursesPage: NextPage<TypePageProgramsProps> = ({ programs }) => {
   return (
     <>
       <SeoPagesPrograms programs={programs} ofType='course' />
-      <PagesPrograms ofType='course' />
+      {/* <PagesPrograms ofType='course' /> */}
     </>
   )
 }

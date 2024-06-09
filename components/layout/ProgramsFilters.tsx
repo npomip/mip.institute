@@ -28,9 +28,11 @@ const ProgramsFilters = ({ ofType = null, close }: ProgramsFiltersType) => {
       <div className={stls.categories}>
         {categories.map(el => (
           <FilterTag 
+          key={el}
           onClick={() => handleTag(el)}
           isActive={category === el}
-          isCategories>
+          isCategories
+          >
             {el}
           </FilterTag>
         ))}

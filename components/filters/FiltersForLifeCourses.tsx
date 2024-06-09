@@ -14,28 +14,33 @@ import { IconClose } from '../icons'
 
 const Filters = ({ cost, duration }) => {
   const [resetFilters, setResetFilters] = useState(false)
-
   const dispatch = useFilterDispatch()
 
   const { filters } = useFilter()
-
   const handleRecruitment = () => {
-    dispatch({
-      type: 'setIsOpenedForRecruitment',
-      filterName: 'courseOpened'
-    })
+    if(!filters.courseOpened){
+      dispatch({
+        type: 'setBooleanFilter',
+        filterName: 'courseOpened'
+      })
+    }else {
+      dispatch({
+        type: 'clearBooleanFilter',
+        filterName: 'courseOpened'
+      })
+    }
   }
 
   return (
-    <div className={stls.filters}>
-
-      <FilterContainer>
+    <div className={stls.filters} >
+      <FilterContainer >
         <FilterWithToggle
-        checked={filters.courseOpened}
+          checked={filters.courseOpened}
           description={'Идет набор'}
           onChange={handleRecruitment}
         />
       </FilterContainer>
+
       <FilterContainer>
         <RangeSlide
           setResetFilters={setResetFilters}

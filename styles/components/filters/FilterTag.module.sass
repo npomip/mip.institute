@@ -11,8 +11,13 @@
   cursor: pointer
   font-weight: 350
   white-space: nowrap
-  // max-height: f.px(40)
-  // display: flex
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+  &.active 
+    // Стили для активного состояния
+    background-color: #947AFF
+    color: white
 
   &:hover
     background: #947AFF

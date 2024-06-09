@@ -16,8 +16,10 @@
   display: flex
   justify-content: space-between
   align-items: flex-end
+  gap: f.px(20)
   @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
     flex-direction: column-reverse
     align-items: flex-start
 
@@ -25,3 +27,12 @@
   width: 100%
   display: flex
   justify-content: flex-end
+
+.tags
+  display: flex
+  column-gap: f.px(14)
+  row-gap: f.px(10)
+  @include m.media(phone, tablet)
+    flex-wrap: wrap
+    column-gap: f.px(14)
+    row-gap: f.px(10)

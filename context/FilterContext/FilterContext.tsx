@@ -167,6 +167,15 @@ function filtersReducer(state, action) {
         }
       }
     }
+    case 'sortFilter': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          sort: action.payload
+        }
+      }
+    }
     default: {
       throw new Error('Unknown action: ' + action.type)
     }
@@ -207,6 +216,13 @@ function getFilteredItems(items, filters) {
     }
     if (filters.type) {
       return filters.type === item.type
+    }
+    if (filters.sort) {
+      console.log('SORT')
+
+      if (filters.sort.direction === 'asc') {
+        console.log('ASC')
+      }
     }
     for (const key in filters) {
       if (

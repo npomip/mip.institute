@@ -1,11 +1,12 @@
+import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
 import Select from 'react-select'
 
 const options = [
   { value: 'default', label: 'Сортировать по умолчанию' },
-  { value: 'priceAsc', label: 'По возрастанию цены' },
-  { value: 'priceDesc', label: 'По убыванию цены' },
-  { value: 'popular', label: 'По популярности' },
-  { value: 'new', label: 'По новизне' }
+  { value: { field: 'price', direction: 'asc' }, label: 'По возрастанию цены' },
+  { value: { field: 'price', direction: 'desc' }, label: 'По убыванию цены' },
+  { value: { field: 'popular' }, label: 'По популярности' },
+  { value: { field: 'date', direction: 'asc' }, label: 'По новизне' }
 ]
 
 const customStyles = {
@@ -80,12 +81,21 @@ const customStyles = {
 }
 
 const ProgramSelect = () => {
+  const dispatch = useFilterDispatch()
+
+  const selectHandle = (value: any) => {
+    dispatch({
+      type: 'sortFilter',
+      payload: value.value
+    })
+  }
   return (
     <Select
       options={options}
       defaultValue={options[0]}
       styles={customStyles}
       isSearchable={false}
+      onChange={value => selectHandle(value)}
     />
   )
 }

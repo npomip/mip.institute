@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive'
 const CardProfession = ({ profession = null }) => {
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 768 })
   const isSmallTablet = useMediaQuery({ minWidth: 426, maxWidth: 600 })
+  
   return (
     <Link
       passHref
@@ -15,7 +16,7 @@ const CardProfession = ({ profession = null }) => {
         profession.studyFieldSlug || 'studyfield'
       }/${profession.slug}`}>
       <div className={stls.container}>
-        <div className={stls.hot}>ХИТ</div>
+        {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
         <div className={stls.imgCard}>
           <Image
             src={profession.heroPicture.url}

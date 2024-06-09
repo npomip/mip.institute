@@ -1,5 +1,6 @@
 import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
-import React, { createContext, useContext, useReducer } from 'react'
+import { getUniqueCategories } from '@/components/funcs/getUniqueCategories'
+import React, { createContext, useContext, useEffect, useReducer } from 'react'
 
 interface IFilter {
   bool: boolean
@@ -9,12 +10,14 @@ interface IFilter {
   courseOpened: boolean
   isPopular: boolean
   type: ProgramTypes
-  duration: { min: number; max: number }
+  duration: { min: number; max: number },
+  // categories: []
 }
 
 export enum ProgramTypes {
   Professions = 'Profession',
-  Courses = 'Course'
+  Courses = 'Course',
+  All = ''
 }
 
 const FilterContext = createContext(null)
@@ -25,15 +28,25 @@ const initialFilters: IFilter = {
   courseOpened: false,
   isPopular: false,
   duration: { min: 0, max: 1 },
-  type: ProgramTypes.Professions || ProgramTypes.Courses
+  type: ProgramTypes.All,
 }
 
 export function FilterProvider({ children, items }) {
   const [state, dispatch] = useReducer(filtersReducer, {
     filters: initialFilters,
     items: items,
-    additional: { reset: false }
+    additional: { reset: false },
+    categories: getUniqueCategories(items)
+
   })
+
+  useEffect(() => {
+    if (!state.filters.category) {
+
+      const filteredItems = getFilteredItems(state.items, state.filters)
+      dispatch({ type: 'updateCategories', categories: getUniqueCategories(filteredItems) })
+    }
+  }, [state.filters])
 
   // const durations = items.map(el => el.duration)
   // const prices = items.map(el => el.price)
@@ -68,7 +81,7 @@ export function useFilter() {
   if (context === undefined) {
     throw new Error('useFilter must be used within a FilterProvider')
   }
-  return { filters: context.filters, additional: context.additional }
+  return { filters: context.filters, additional: context.additional, categories: context.categories }
 }
 
 export function useFilterDispatch() {
@@ -140,6 +153,8 @@ function filtersReducer(state, action) {
       }
     }
     case 'setDurationFilter': {
+      console.log('setDurationFilter');
+      
       return {
         ...state,
         filters: {
@@ -172,7 +187,34 @@ function filtersReducer(state, action) {
         ...state,
         filters: {
           ...state.filters,
-          sort: action.payload
+          sort: {
+            field: action.payload.field,
+            direction: action.payload.direction
+          }
+        }
+      }
+    }
+    case 'updateCategories': {
+      return {
+        ...state,
+        categories: action.categories
+      }
+    }
+    case 'setCategoryFilter': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          category: action.payload
+        }
+      }
+    }
+    case 'resetCategoryFilter': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          category: null
         }
       }
     }
@@ -183,56 +225,59 @@ function filtersReducer(state, action) {
 }
 
 function getFilteredItems(items, filters) {
-  return items.filter(item => {
+  // Apply filters
+  
+  let filteredItems = items.filter(item => {
     if (filters.price) {
       if (item.price < filters.price.min || item.price > filters.price.max) {
         return false
       }
     }
-    if (filters.duration) {
-      if (item.duration) {
-        if (
-          item.duration < filters.duration.min ||
-          item.duration > filters.duration.max
-        ) {
-          return false
-        }
-      }
-      if (item.studyMounthsDuration) {
-        if (
-          item.studyMounthsDuration < filters.duration.min ||
-          item.studyMounthsDuration > filters.duration.max
-        ) {
-          return false
-        }
-      }
-    }
-    if (filters.input.text) {
-      if (
-        !item.title.toLowerCase().includes(filters.input.text.toLowerCase())
-      ) {
+    if (filters.duration && item.duration) {
+      if (item.duration < filters.duration.min || item.duration > filters.duration.max) {
         return false
       }
     }
-    if (filters.type) {
-      return filters.type === item.type
+    if (filters.duration && item.studyMounthsDuration) {
+      if (item.studyMounthsDuration < filters.duration.min || item.studyMounthsDuration > filters.duration.max) {
+        return false
+      }
     }
-    if (filters.sort) {
-      console.log('SORT')
-
-      if (filters.sort.direction === 'asc') {
-        console.log('ASC')
+    if(filters.type){
+      if(item.type !== filters.type){
+        return false
+      }
+    }
+    if (filters.input.text) {
+      if (!item.title.toLowerCase().includes(filters.input.text.toLowerCase())) {
+        return false
+      }
+    }
+    if (filters.category) {
+      if (item.studyField !== filters.category) {
+        return false
       }
     }
     for (const key in filters) {
-      if (
-        typeof filters[key] === 'boolean' &&
-        filters[key] === true &&
-        !item[key]
-      ) {
+      if (typeof filters[key] === 'boolean' && filters[key] === true && !item[key]) {
         return false
       }
     }
     return true
   })
+
+  // Apply sorting
+  if (filters.sort) {
+    filteredItems = filteredItems.sort((a, b) => {
+      const {field, direction} = filters.sort
+      if (filters.sort.field) {
+        return direction === 'asc' ? a[field] - b[field] : b[field] - a[field]
+      } 
+      return 0
+    })
+  }
+
+  return filteredItems
 }
+
+

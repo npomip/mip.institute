@@ -25,7 +25,13 @@ const customStyles = {
       cursor: 'pointer',
       color: 'black',
       '&:hover': {
-        backgroundColor: '#6f01c6'
+        backgroundColor: '#6f01c6',
+        '.react-select__single-value': {
+          color: 'white'
+        },
+        '.react-select__dropdown-indicator': {
+          color: 'white'
+        }
       }
     }
   },
@@ -96,6 +102,7 @@ const ProgramSelect = () => {
       styles={customStyles}
       isSearchable={false}
       onChange={value => selectHandle(value)}
+      classNamePrefix="react-select"
     />
   )
 }

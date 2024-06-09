@@ -7,13 +7,15 @@ interface FilterTagProps {
   children: string;
   onClick?: () => void;
   isActive: boolean
+  isCategories?: boolean
 }
-const FilterTag = ({children, onClick, isActive}:FilterTagProps) => {
+const FilterTag = ({children, onClick, isActive, isCategories=false}:FilterTagProps) => {
 
   return (
     <span onClick={onClick} className={classNames({
       [stls.container]: true,
-      [stls.active]: isActive
+      [stls.active]: isActive,
+      [stls.category]: isCategories
     })}>
       {children}
     </span>

@@ -3,3 +3,11 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  // display: flex
+  // flex-direction: column
+.categories
+  display: flex
+  @include m.gap($mt: f.px(10))
+  flex-wrap: wrap
+  row-gap: f.px(15)
+  column-gap: f.px(24)

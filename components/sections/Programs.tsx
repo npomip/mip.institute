@@ -9,6 +9,7 @@ import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
 import ProgramType from '../general/ProgramType'
 import SearchMobile from '../general/SearchMobile'
 import { TypeLibPrograms } from '@/types/index'
+import ResetFilter from '../filters/ResetFilter'
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
@@ -47,6 +48,8 @@ const Programs = ({
       </div>
       <Wrapper>
         <div className={stls.filters}>
+      <ResetFilter onIndex />
+
           {minmaxDuration && minmaxPrice && (
             <FiltersForLifeCourses
               cost={minmaxPrice}

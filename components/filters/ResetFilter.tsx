@@ -25,7 +25,7 @@ const ResetFilter = ({ onIndex = false, onClick }: ResetFilterProps) => {
         onIndex ? stls.resetFilterContainer : stls.resetFilterContainerMobile
       }>
       <p className={stls.resetFilter} onClick={removeFilters}>
-        Сбросить фильтры
+        Сбросить фильтры х
       </p>
       <div className={stls.icon}>{/* <IconClose /> */}</div>
     </div>

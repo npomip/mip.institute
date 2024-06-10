@@ -1,10 +1,20 @@
-import React, { useRef } from 'react'
+import React, { ReactNode, useRef } from 'react'
 import stls from '@/styles/components/filters/FiltersForLifeCoursesMobile.module.sass'
 import Popup from 'reactjs-popup'
 import IconFilterOpen from '../icons/IconFilterOpen'
 import ResetFilter from './ResetFilter'
+import classNames from 'classnames'
 
-export default function FiltersForLifeCoursesMobile({ children, btnTitle }) {
+type Props = {
+  children: ReactNode
+  btnTitle: string
+  isProgram?: boolean
+}
+export default function FiltersForLifeCoursesMobile({
+  children,
+  btnTitle,
+  isProgram = false
+}: Props) {
   const scrollToRef = useRef(null)
 
   return (
@@ -14,7 +24,11 @@ export default function FiltersForLifeCoursesMobile({ children, btnTitle }) {
         position={'bottom center'}
         lockScroll={true}
         trigger={
-          <button className={stls.trigger}>
+          <button
+            className={classNames({
+              [stls.trigger]: true,
+              [stls.program]: isProgram
+            })}>
             <IconFilterOpen />
           </button>
         }

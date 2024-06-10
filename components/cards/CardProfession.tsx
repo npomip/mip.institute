@@ -3,12 +3,8 @@ import { routes } from '@/config/index'
 import stls from '@/styles/components/cards/CardProfession.module.sass'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useMediaQuery } from 'react-responsive'
 
 const CardProfession = ({ profession = null }) => {
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 768 })
-  const isSmallTablet = useMediaQuery({ minWidth: 426, maxWidth: 600 })
-  
   return (
     <Link
       passHref

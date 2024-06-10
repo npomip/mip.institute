@@ -10,8 +10,7 @@ interface IFilter {
   courseOpened: boolean
   isPopular: boolean
   type: ProgramTypes
-  duration: { min: number; max: number },
-  // categories: []
+  duration: { min: number; max: number }
 }
 
 export enum ProgramTypes {
@@ -28,7 +27,7 @@ const initialFilters: IFilter = {
   courseOpened: false,
   isPopular: false,
   duration: { min: 0, max: 1 },
-  type: ProgramTypes.All,
+  type: ProgramTypes.All
 }
 
 export function FilterProvider({ children, items }) {
@@ -37,14 +36,15 @@ export function FilterProvider({ children, items }) {
     items: items,
     additional: { reset: false },
     categories: getUniqueCategories(items)
-
   })
 
   useEffect(() => {
     if (!state.filters.category) {
-
       const filteredItems = getFilteredItems(state.items, state.filters)
-      dispatch({ type: 'updateCategories', categories: getUniqueCategories(filteredItems) })
+      dispatch({
+        type: 'updateCategories',
+        categories: getUniqueCategories(filteredItems)
+      })
     }
   }, [state.filters])
 
@@ -58,14 +58,6 @@ export function FilterProvider({ children, items }) {
   //   min: minmaxDuration.min,
   //   max: minmaxDuration.max
   // }
-
-  console.log(
-    'IN FUNC CONTEXT',
-    items,
-    state.filters,
-    state.items,
-    state.additional
-  )
 
   return (
     <FilterContext.Provider value={state}>
@@ -81,7 +73,11 @@ export function useFilter() {
   if (context === undefined) {
     throw new Error('useFilter must be used within a FilterProvider')
   }
-  return { filters: context?.filters, additional: context?.additional, categories: context?.categories }
+  return {
+    filters: context?.filters,
+    additional: context?.additional,
+    categories: context?.categories
+  }
 }
 
 export function useFilterDispatch() {
@@ -153,8 +149,6 @@ function filtersReducer(state, action) {
       }
     }
     case 'setDurationFilter': {
-      console.log('setDurationFilter');
-      
       return {
         ...state,
         filters: {
@@ -225,8 +219,6 @@ function filtersReducer(state, action) {
 }
 
 function getFilteredItems(items, filters) {
-  // Apply filters
-  
   let filteredItems = items.filter(item => {
     if (filters.price) {
       if (item.price < filters.price.min || item.price > filters.price.max) {
@@ -234,22 +226,30 @@ function getFilteredItems(items, filters) {
       }
     }
     if (filters.duration && item.duration) {
-      if (item.duration < filters.duration.min || item.duration > filters.duration.max) {
+      if (
+        item.duration < filters.duration.min ||
+        item.duration > filters.duration.max
+      ) {
         return false
       }
     }
     if (filters.duration && item.studyMounthsDuration) {
-      if (item.studyMounthsDuration < filters.duration.min || item.studyMounthsDuration > filters.duration.max) {
+      if (
+        item.studyMounthsDuration < filters.duration.min ||
+        item.studyMounthsDuration > filters.duration.max
+      ) {
         return false
       }
     }
-    if(filters.type){
-      if(item.type !== filters.type){
+    if (filters.type) {
+      if (item.type !== filters.type) {
         return false
       }
     }
     if (filters.input.text) {
-      if (!item.title.toLowerCase().includes(filters.input.text.toLowerCase())) {
+      if (
+        !item.title.toLowerCase().includes(filters.input.text.toLowerCase())
+      ) {
         return false
       }
     }
@@ -259,25 +259,26 @@ function getFilteredItems(items, filters) {
       }
     }
     for (const key in filters) {
-      if (typeof filters[key] === 'boolean' && filters[key] === true && !item[key]) {
+      if (
+        typeof filters[key] === 'boolean' &&
+        filters[key] === true &&
+        !item[key]
+      ) {
         return false
       }
     }
     return true
   })
 
-  // Apply sorting
   if (filters.sort) {
     filteredItems = filteredItems.sort((a, b) => {
-      const {field, direction} = filters.sort
+      const { field, direction } = filters.sort
       if (filters.sort.field) {
         return direction === 'asc' ? a[field] - b[field] : b[field] - a[field]
-      } 
+      }
       return 0
     })
   }
 
   return filteredItems
 }
-
-

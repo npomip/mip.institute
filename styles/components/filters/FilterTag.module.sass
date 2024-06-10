@@ -14,7 +14,7 @@
   @include m.media(phone, tablet)
     font-size: f.px(14)
 
-  &.active 
+  &.active
     // Стили для активного состояния
     background-color: #947AFF
     color: white
@@ -29,8 +29,21 @@
   &:hover
     background: #FD521B
     color: white
-    font-weight: 700
-  &.active 
+    font-weight: 500
+  &.active
     // Стили для активного состояния
     background-color: #FD521B
     // color: white
+
+.program
+  border: 1px solid
+  @include m.dye(border, c.$alpha)
+  &:hover
+    @include m.dye(bg, c.$alpha)
+    font-weight: 500
+
+  &.active
+    // Стили для активного состояния
+    @include m.dye(bg, c.$alpha)
+    font-weight: 500
+    color: white

@@ -51,7 +51,7 @@ const customStyles = {
   dropdownIndicator: base => ({
     ...base,
     color: 'black',
-    width: '35px',
+    width: '30px',
     '&:hover': {
       color: 'white'
     }
@@ -102,7 +102,7 @@ const ProgramSelect = () => {
       styles={customStyles}
       isSearchable={false}
       onChange={value => selectHandle(value)}
-      classNamePrefix="react-select"
+      classNamePrefix='react-select'
     />
   )
 }

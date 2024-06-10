@@ -7,9 +7,6 @@
     @include m.gap($pt: f.px(20), $pb: f.px(0), $mb: f.px(1))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(62), $pt: f.px(48), $pb: f.px(0))
-    // pb 61
-  // @include m.dye(bg, c.$alpha)
-  // @include m.dye(c, c.$nu)
 
 .heading
   @include m.media(laptop, desktop)
@@ -20,26 +17,26 @@
   font-weight: 500
   line-height: 110%
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(9))
-    font-size: f.px(26)
+    @include m.gap($mb: f.px(25))
+    font-size: f.px(27)
   @include m.media(laptop, desktop)
     @include m.gap($mb: 0)
     font-size: f.px(36)
 
 .input
-  width: f.px(470)
+  width: 100%
+  display: flex
+  justify-content: flex-end
   & > *
     & > input
       color: black
       @include m.dye(bg, c.$nude)
       &::placeholder
         color: black
-        font-size: 18px
+        font-size: f.px(18)
         font-family: Stem
         font-style: normal
         font-weight: 200
         line-height: 130%
-
-.btn
-  @include m.media(laptop, desktop)
-    display: none
+        @include m.media(phone, tablet)
+          font-size: f.px(14)

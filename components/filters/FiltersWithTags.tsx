@@ -8,6 +8,7 @@ import {
   useFilter,
   useFilterDispatch
 } from '@/context/FilterContext/FilterContext'
+import InputSearchDesktop from '../general/InputSearchDesktop'
 
 interface FilterTagProps {
   minmaxDuration: {
@@ -51,11 +52,9 @@ const FiltersWithTag = ({ minmaxPrice, minmaxDuration }: FilterTagProps) => {
       </div>
 
       <div className={stls.filtersWithInput}>
-        <input
+        <InputSearchDesktop
           value={filters.input.text}
           onChange={changeHandler}
-          placeholder='Поиск'
-          className={stls.inp}
         />
         <FiltersForLifeCoursesMobile btnTitle={'Показать курсы'}>
           <FiltersForLifeCourses cost={minmaxPrice} duration={minmaxDuration} />

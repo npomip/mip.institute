@@ -1,81 +1,53 @@
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
 import ProgramsFilters from '@/components/layout/ProgramsFilters'
 import Wrapper from '@/components/layout/Wrapper'
-import Professions from '@/components/programs/Professions'
 import { useFilteredItems } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/sections/Programs.module.sass'
-import cn from 'classnames'
-import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
-import ProgramType from '../general/ProgramType'
-import SearchMobile from '../general/SearchMobile'
-import { TypeLibPrograms } from '@/types/index'
+import CardProfession from '../cards/CardProfession'
 import ResetFilter from '../filters/ResetFilter'
+
+type MinMax = {
+  min: number
+  max: number
+}
 
 type ProgramsType = {
   ofType?: 'course' | 'profession'
-  withTitle?: boolean
-  withBtn?: boolean
-  withQty?: boolean
-  threerow?: boolean
-  programs: TypeLibPrograms
+  minmaxDuration: MinMax
+  minmaxPrice: MinMax
 }
 
-const Programs = ({
-  ofType,
-  withTitle = false,
-  withBtn = false,
-  withQty = false,
-  threerow = false,
-  programs
-}: ProgramsType) => {
+const Programs = ({ ofType, minmaxDuration, minmaxPrice }: ProgramsType) => {
   const filteredItems = useFilteredItems()
 
-  const prices = programs && programs.map(el => el.price)
-  const programsDuration =
-    programs && programs.map(el => el?.studyMounthsDuration)
-  const minmaxDuration =
-    programsDuration && findMinMaxForSlider(programsDuration)
-  const minmaxPrice = prices && findMinMaxForSlider(prices)
-
   return (
-    <section
-      className={cn({
-        [stls.container]: true,
-        [stls.withFilters]: true
-      })}>
+    <section className={stls.container}>
       <div className={stls.sorting}>
         <ProgramsFilters ofType={ofType} />
       </div>
       <Wrapper>
         <div className={stls.filters}>
-      <ResetFilter onIndex />
-
+          <ResetFilter onIndex />
           {minmaxDuration && minmaxPrice && (
             <FiltersForLifeCourses
               cost={minmaxPrice}
               duration={minmaxDuration}
             />
           )}
-          {/* <ProgramType /> */}
         </div>
 
         <div className={stls.content}>
-          <SearchMobile />
-          {withTitle && <h2 className={stls.title}>Наши программы</h2>}
           <div className={stls.programs}>
-            <div className={stls.professions}>
-              <Professions
-                biggerTitle={!withTitle}
-                withBtn={withBtn}
-                withQty={withQty}
-                threerow={threerow}
+            {filteredItems?.map((profession, idx) => (
+              <CardProfession
+                key={profession.title + idx}
+                profession={profession}
               />
-            </div>
-
-            {filteredItems?.length === 0 && (
-              <>Кажется, что по вашему запросу ничего не нашлось</>
-            )}
+            ))}
           </div>
+          {filteredItems?.length === 0 && (
+            <>Кажется, что по вашему запросу ничего не нашлось</>
+          )}
         </div>
       </Wrapper>
     </section>

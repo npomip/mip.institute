@@ -2,16 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.inp
-  background: #FFF3ED
-  @include m.gap($ptb: f.px(20), $pl: f.px(28))
-  width: f.px(470)
-  border-radius: f.px(4)
-  @include m.media(phone, tablet)
-    width: 100%
-    @include m.gap($ptb: f.px(15), $pl: f.px(19))
-    font-size: f.px(14)
-
 .filtersWithTags
   display: flex
   justify-content: space-between

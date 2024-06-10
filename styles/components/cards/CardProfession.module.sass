@@ -5,29 +5,27 @@
 
 .container
   position: relative
-  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  @include m.flex($fd: column, $jc: space-between)
-  @include m.gap($mb: f.px(30))
   cursor: pointer
+  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+  @include m.flex($fd: column)
+  // @include m.gap($mb: f.px(30))
   border-radius: f.px(10)
-  @include m.dye(bg, #f8f9f8)
+  @include m.dye(border, c.$alpha)
+  @include m.dye(bg, c.$gray-50)
+  @include m.media(phone, tablet)
+    min-height: auto
   @include m.dye(c, c.$chi)
   transition: background-color .2s ease-in-out
-  @include m.dye(border, c.$alpha)
   @include m.media(laptop, desktop)
     max-width: f.px(370)
     overflow: hidden
-    @include m.flex($fd: column, $fb: 50%, $jc: space-between)
-    @include m.gap($mr: 3%)
+    @include m.flex($fd: column, $fb: 50%)
+    @include m.gap($mr: 1%)
     &:nth-child(2n)
       @include m.gap($mr: 0)
   &:hover,
   &:focus
     @include m.dye(bg, c.$nu)
-    & .arrowRight
-      @include m.dye(bg, c.$alpha)
-    & .title
-      @include m.dye(c, c.$alpha)
 
 .type
   max-width: max-content
@@ -57,6 +55,7 @@
   @include m.gap($plr: f.px(30), $pt: f.px(36), $pb: f.px(30),$mt: f.px(-15))
   border: f.px(1) solid
   @include m.dye(border, c.$alpha)
+  @include m.dye(bg, c.$gray-50)
   border-bottom-left-radius: f.px(10)
   border-bottom-right-radius: f.px(10)
   min-height: f.px(272)
@@ -64,6 +63,9 @@
   .tags
     display: flex
     gap: f.px(15)
+  @include m.media(phone, tablet)
+    height: auto
+    min-height: f.px(200)
 
 .hot
   position: absolute

@@ -6,25 +6,14 @@
   @include m.flex($fd: column)
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(90))
-    &.withFilters
-      @include m.gap($pt: 0)
-      & > *
-        @include m.flex
-      & .content
-        @include m.flex($display: false, $fb: 66%)
-        @include m.gap($ml: f.px(30))
+    @include m.gap($pt: 0)
+    & > *
+      @include m.flex
+    & .content
+      @include m.flex($display: false, $fb: 66%)
+      @include m.gap($ml: f.px(30))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(30))
-
-.title
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10, em))
-    font-size: f.px(26)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(25))
-    font-size: f.px(44)
-    font-weight: 500
-  @include m.dye(c, c.$theta)
 
 .sorting
   @include m.flex($fd: row)
@@ -33,6 +22,8 @@
   @include m.media(desktop, laptop)
     max-width: f.px(1200, em)
     @include m.gap($m: 0 auto)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
 
 .filters
   @include m.media(laptop, desktop)
@@ -43,3 +34,21 @@
 
 .content
   @include m.gap($mt: f.px(70))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(20))
+
+.programs
+  display: grid
+  height: 100%
+  grid-template-columns: repeat(2, minmax(min-content, f.px(371)))
+  gap: f.px(20)
+  align-items: stretch
+  justify-self: stretch
+  @include m.gap($mb: f.px(90))
+
+  & > *
+    margin-bottom: 10px
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(60))
+    display: flex
+    flex-direction: column

@@ -7,7 +7,7 @@
     display: none
 
 .modal
-  background: #F8F9F8
+  @include m.dye(bg, c.$gray-50)
   width: 100vw
   border-radius: f.px(20) f.px(20) 0 0
   @include m.gap($plr: f.px(15))
@@ -33,3 +33,6 @@
   align-items: center
   @include m.gap($ml: f.px(15))
   border-radius: f.px(3)
+
+.program
+  @include m.dye(bg, c.$beta)

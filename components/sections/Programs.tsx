@@ -23,7 +23,7 @@ const Programs = ({ ofType, minmaxDuration, minmaxPrice }: ProgramsType) => {
   return (
     <section className={stls.container}>
       <div className={stls.sorting}>
-        <ProgramsFilters ofType={ofType} />
+        <ProgramsFilters />
       </div>
       <Wrapper>
         <div className={stls.filters}>

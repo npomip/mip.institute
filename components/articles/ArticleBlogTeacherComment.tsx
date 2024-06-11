@@ -19,9 +19,7 @@ type ArticleBlogTeacherCommentType = {
         height: number
       }
     }
-    borderColor: {
-      code: string
-    }
+    borderColor: string
   }
 }
 
@@ -61,7 +59,7 @@ const ArticleBlogTeacherComment = ({
         <div className={stls.textContentSpecialization}>
         {parse(text)}
         </div>
-        <div style={{borderLeft: `2px solid ${props.borderColor.code}`}} className={stls.textContentComment}>
+        <div style={{borderLeft: `2px solid ${props.borderColor}`}} className={stls.textContentComment}>
           <p>{parse(comment)}</p>
         </div>
       </div>

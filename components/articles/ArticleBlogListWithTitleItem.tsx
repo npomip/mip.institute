@@ -7,9 +7,7 @@ type ArticleBlogListWithTitleType = {
     id?: string
     text?: string
     title: string
-    icon?: {
-      code?: string
-    }
+    icon?: string
   }
 }
 
@@ -18,7 +16,7 @@ const ArticleBlogListWithTitle = ({ props }: ArticleBlogListWithTitleType) => {
   const title = props.title
 
   const renderer = new marked.Renderer()
-  renderer.html = text => {
+  renderer.code = text => {
     return `<div classname=${stls.icon}>${text}</div>`
   }
   renderer.paragraph = text => {
@@ -26,7 +24,7 @@ const ArticleBlogListWithTitle = ({ props }: ArticleBlogListWithTitleType) => {
   }
   marked.setOptions({ renderer })
 
-  const icon = marked(props?.icon?.code)
+  const icon = marked(props?.icon)
 
   return (
     <div className={stls.innerBox}>

@@ -194,6 +194,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   return (
     <>
+    <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       <DefaultSeo {...SEO} />
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}

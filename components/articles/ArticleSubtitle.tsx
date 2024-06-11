@@ -8,10 +8,7 @@ export type ArticleSubtitleType = {
   props: {
     subtitle?: string
     subtitleSlug?: string
-    color : {
-      code: string
-      name: string
-    }
+    color : string
   }
   
 }
@@ -24,7 +21,7 @@ const ArticleSubtitle = ({props} : ArticleSubtitleType) => {
   };
 
   renderer.em = (text) => {
-    return `<span style="color: ${props?.color?.code}">${text}</span>`;
+    return `<span style="color: ${props?.color}">${text}</span>`;
   };
   marked.setOptions({ renderer });
 

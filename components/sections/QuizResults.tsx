@@ -27,6 +27,12 @@ const QuizResults = ({ result }: Props) => {
   const professionsInResult = marker.map(title =>
     programs.find(profession => profession.title === title)
   )
+  // let singleTitle
+  // if(professionsInResult.length === 1){
+  //   singleTitle = professionsInResult[0].title
+  // }
+  // console.log(singleTitle);
+  
 
   const list =
     programs &&
@@ -46,12 +52,13 @@ const QuizResults = ({ result }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h3 className={stls.result}>{`Вам подойдут профессии:`}</h3>
+        {/* <h3 className={stls.result}>Вам подойдут {singleTitle ? (<span>{singleTitle}</span>): (<span>профессии</span>)}:</h3> */}
+        <h3 className={stls.result}>Вам подойдут <span>профессии</span>:</h3>
         <div className={stls.content}>
-          {list.map((course, idx) => (
+          {(list.filter(el => el.slug) ?? []).map((course, idx) => (
             <CardQuizResult
               href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
-              key={ idx}
+              key={idx}
               portrait={course?.image}
               title={course.title}
               studyHours={course.studyHours}

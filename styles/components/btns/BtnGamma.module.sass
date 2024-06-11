@@ -5,14 +5,6 @@
 .container
   position: relative
   display: inline-block
-  @include m.media(phone, tablet)
-    min-width: 100%
-    max-width: 100%
-    @include m.gap($ptb: f.px(16, em), $plr: 10%)
-  @include m.media(laptop)
-    @include m.gap($ptb: f.px(16, em), $plr: f.px(46))
-  @include m.media(desktop)
-    @include m.gap($ptb: f.px(16, em), $plr: f.px(46))
   border: f.px(2) solid
   @include m.dye(border, c.$alpha)
   border-radius: f.px(4, em)
@@ -21,12 +13,21 @@
   text-align: center
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$nu)
+  @include m.media(phone, tablet)
+    min-width: 100%
+    max-width: 100%
+    @include m.gap($ptb: f.px(16, em), $plr: 10%)
+  @include m.media(laptop)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(46))
+  @include m.media(desktop)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(46))
 
 .test
   @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
   @include m.flex($ai:center, $jc:center)
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$lambda)
+  border-radius: f.px(4, em)
   text-align: center
   font-size: f.px(18)
   font-style: normal
@@ -36,7 +37,6 @@
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(10), $ptb: f.px(9))
     font-size: f.px(12)
-
 
   &::after
     content: ''

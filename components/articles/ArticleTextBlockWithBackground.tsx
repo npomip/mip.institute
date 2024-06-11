@@ -6,18 +6,9 @@ import marked from 'marked'
 type ArticleTextBlockWithBackgroundType = {
   props: {
     text?: string
-    borderColor: {
-      code: string
-      name: string
-    }
-    backgroundColor: {
-      code: string
-      name: string
-    }
-    textColor: {
-      code: string
-      name: string
-    }
+    borderColor: string
+    backgroundColor: string
+    textColor: string
   }
 }
 
@@ -26,7 +17,7 @@ const ArticleTextBlockWithBackground = ({
 }: ArticleTextBlockWithBackgroundType) => {
   const renderer = new marked.Renderer()
   renderer.paragraph = text => {
-    return `<p classname=${stls.paragraph} style="color: ${props?.textColor?.code}">${text}</p>`
+    return `<p classname=${stls.paragraph} style="color: ${props?.textColor}">${text}</p>`
   }
   renderer.strong = text => {
     return `<span className=${styles.strongText}>${text}</span>`
@@ -39,8 +30,8 @@ const ArticleTextBlockWithBackground = ({
     <div
       className={stls.content}
       style={{
-        background: props?.backgroundColor?.code,
-        border: `1px solid ${props?.borderColor?.code}`
+        background: props?.backgroundColor,
+        border: `1px solid ${props?.borderColor}`
       }}>
       {parse(text)}
     </div>

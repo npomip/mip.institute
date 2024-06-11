@@ -137,7 +137,6 @@ section
     background: #acacac
     cursor: not-allowed
 
-
 .swiper-slide
   height: auto
 
@@ -171,7 +170,7 @@ div.popup-content
     max-width: f.px(708)
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(15))
-  border: none
+    border: none
   @include m.dye(bg, transparent)
   animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards
 
@@ -198,29 +197,30 @@ div.popup-content
       transform: translate(-20%,-40%)
     .range-slider__thumb[data-lower]
       transform: translate(-70%,-40%)
-      
+.eeeeee
+  .range-slider
+    .range-slider__range
+      background: red
+
 .popupOverlay-liveCourses-overlay
   flex-wrap: wrap
   align-content: flex-end
 
-
-@keyframes anvil 
-  0% 
+@keyframes anvil
+  0%
     transform: scale(1) translateY(0px)
     opacity: 0
     box-shadow: 0 0 0 rgba(241, 241, 241, 0)
-  
-  1% 
+
+  1%
     transform: scale(0.96) translateY(500px)
     opacity: 1
     box-shadow: 0 0 0 rgba(241, 241, 241, 0)
-  
-  100% 
+
+  100%
     transform: scale(1) translateY(0px)
     opacity: 1
     box-shadow: 0 0 500px rgba(241, 241, 241, 0)
-  
-
 
 .popupOverlay-liveCourses-content
   animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards

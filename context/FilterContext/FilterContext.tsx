@@ -1,6 +1,5 @@
-import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
 import { getUniqueCategories } from '@/components/funcs/getUniqueCategories'
-import React, { createContext, useContext, useEffect, useReducer } from 'react'
+import { createContext, useContext, useEffect, useReducer } from 'react'
 
 interface IFilter {
   bool: boolean

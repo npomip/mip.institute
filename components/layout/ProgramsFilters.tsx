@@ -14,11 +14,22 @@ const ProgramsFilters = () => {
   const { category } = filters
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
+  const handleSelect = (value: any) => {
+    dispatch({
+      type: 'sortFilter',
+      payload: value.value
+    })
+  }
+
   const handleTag = e => {
-    if (category === e) {
-      dispatch({ type: 'resetCategoryFilter' })
+    if (e.value) {
+      dispatch({ type: 'setCategoryFilter', payload: e.value })
     } else {
-      dispatch({ type: 'setCategoryFilter', payload: e })
+      if (category === e) {
+        dispatch({ type: 'resetCategoryFilter' })
+      } else {
+        dispatch({ type: 'setCategoryFilter', payload: e })
+      }
     }
   }
 
@@ -51,6 +62,7 @@ const ProgramsFilters = () => {
     }
   }
 
+  const options = categories.map(el => ({ value: el, label: el }))
   return (
     <div className={stls.container}>
       <div className={stls.sorting}>
@@ -81,23 +93,30 @@ const ProgramsFilters = () => {
           isProgram>
           Популярные курсы
         </FilterTag>
-        {!isMobileAndTabletLayout && <ProgramSelect />}
+        {!isMobileAndTabletLayout && <ProgramSelect onChange={handleSelect} />}
       </div>
 
       <div className={stls.categories}>
-        {categories.map(el => (
-          <FilterTag
-            key={el}
-            onClick={() => handleTag(el)}
-            isActive={category === el}
-            isCategories>
-            {el}
-          </FilterTag>
-        ))}
+        {!isMobileAndTabletLayout &&
+          categories.map(el => (
+            <FilterTag
+              key={el}
+              onClick={() => handleTag(el)}
+              isActive={category === el}
+              isCategories>
+              {el}
+            </FilterTag>
+          ))}
       </div>
       {isMobileAndTabletLayout && (
         <div className={stls.mobileSelect}>
-          <ProgramSelect />
+          <ProgramSelect
+            options={options}
+            onChange={handleTag}
+            mainColor='#fb6c2e'
+            width='345'
+          />
+          <ProgramSelect onChange={handleSelect} marginTop='10' />
         </div>
       )}
     </div>

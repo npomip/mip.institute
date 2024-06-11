@@ -52,7 +52,7 @@ const titleName = item => {
         </>
       )
     case '/programs':
-      return <>Психология.</>
+      return <>Психология</>
     case '/programs/detskaya-psihologiya':
       return <>Курсы по детской психологии</>
     case '/programs/konsultirovanie':

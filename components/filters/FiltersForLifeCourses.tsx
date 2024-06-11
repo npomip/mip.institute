@@ -9,9 +9,7 @@ import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
-  const [resetFilters, setResetFilters] = useState(false)
   const dispatch = useFilterDispatch()
-
   const { filters } = useFilter()
   const handleRecruitment = () => {
     if (!filters.courseOpened) {
@@ -39,8 +37,6 @@ const Filters = ({ cost, duration }) => {
 
       <FilterContainer>
         <RangeSlide
-          setResetFilters={setResetFilters}
-          resetFilters={resetFilters}
           dispatchFilterType={'setDurationFilter'}
           title={'Длительность программы'}
           min={duration.min}
@@ -51,14 +47,13 @@ const Filters = ({ cost, duration }) => {
 
       <FilterContainer>
         <RangeSlide
-          setResetFilters={setResetFilters}
-          resetFilters={resetFilters}
           dispatchFilterType={'setPriceFilter'}
           title={'Стоимость программы'}
           min={cost.min}
           max={cost.max}
           step={100}
           measure={'руб.'}
+          // classNameStyle='eeeeee'
         />
       </FilterContainer>
     </div>

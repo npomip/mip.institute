@@ -6,7 +6,17 @@ import {
   useFilter,
   useFilterDispatch
 } from '@/context/FilterContext/FilterContext'
+import classNames from 'classnames'
 
+type Props = {
+  classNameStyle?: string
+  min: number
+  max: number
+  title: string
+  dispatchFilterType: string
+  measure: string
+  step?: number
+}
 const RangeSlide = ({
   min,
   max,
@@ -14,9 +24,8 @@ const RangeSlide = ({
   dispatchFilterType,
   measure,
   step = 1,
-  resetFilters,
-  setResetFilters
-}) => {
+  classNameStyle = 'withBlackThumb'
+}: Props) => {
   const [value, setValue] = useState([min, max])
 
   const { additional } = useFilter()
@@ -47,7 +56,11 @@ const RangeSlide = ({
       <span className={stls.interval}>
         от {value[0]} до {value[1]} {measure}
       </span>
-      <div className='withBlackThumb'>
+      <div
+        className={classNames({
+          ['withBlackThumb']: true,
+          [classNameStyle]: Boolean(classNameStyle)
+        })}>
         <RangeSlider
           className={stls.custom}
           min={min}

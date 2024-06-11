@@ -8,9 +8,7 @@ type ArticleBlogListItemType = {
   props: {
       id?: string
       text?: string
-      icon?: {
-        code?: string 
-      }
+      icon?: string
   }
   
 }
@@ -19,7 +17,7 @@ const ArticleBlogListItem = ({props} : ArticleBlogListItemType) => {
   const text = props.text;
 
   const renderer = new marked.Renderer();
-  renderer.html = (text) => {
+  renderer.code = (text) => {
     return `<div classname=${stls.icon}>${text}</div>`;
   };
   renderer.paragraph = (text) => {
@@ -27,7 +25,7 @@ const ArticleBlogListItem = ({props} : ArticleBlogListItemType) => {
   }
   marked.setOptions({ renderer });
 
-  const icon = marked(props.icon.code);
+  const icon = marked(props.icon);
 
 
   return (

@@ -23,6 +23,7 @@
   @include m.sizeIcon($w: 37, $h: 37)
   min-width: f.px(37)
   display: flex
+  
   @include m.media(phone, tablet)
     @include m.sizeIcon($w: 17, $h: 17)
     min-width: f.px(17)
@@ -30,7 +31,9 @@
   align-content: center
   @include m.media(phone, tablet)
     @include m.sizeIcon($w: 17, $h: 17)
-
+  & > *
+    & > *
+      fill: red
 .twoColumns
   display: grid
   grid-gap: 10px

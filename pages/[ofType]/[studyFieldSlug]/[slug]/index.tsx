@@ -15,12 +15,12 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
   reviews,
   studyFieldSlug
 }) => {
-  // useHandleContextStaticProps({
-  //   programs,
-  //   program,
-  //   curProgramsType: 'profession',
-  //   curProgramsStudyFieldSlug: studyFieldSlug
-  // })
+  useHandleContextStaticProps({
+    programs,
+    program,
+    curProgramsType: 'profession',
+    curProgramsStudyFieldSlug: studyFieldSlug
+  })
 
   const programOverview = program?.programOverview
   const router = useRouter()
@@ -36,6 +36,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 });
 
 const slug = program?.slug
+
 
   return (
     <>

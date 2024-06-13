@@ -247,6 +247,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       </ContextStaticProps.Provider>
 
       <Script src='/assets/js/vendors/swiped-events.min.js' />
+      <Script type='text/javascript'
+        id='carrot' src='/assets/js/vendors/carrot.js' />
       <Script
         type='text/javascript'
         id='advcakeAsync'

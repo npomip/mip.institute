@@ -37,7 +37,7 @@ interface Breadcrumb {
 }
 
 type PagesProgramType = {
-  ofType: 'course' | 'profession'
+  ofType: string
   reviews: TypeLibReviews
   programOverview: string
   breadcrumbs: Breadcrumb[]
@@ -119,7 +119,7 @@ const PagesProgram = ({
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
+      {ofType !== 'Course' && <YourResume resumeRef={resumeRef} />}
       <RequestsCard />
 
       <Cta

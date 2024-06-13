@@ -1,6 +1,7 @@
 import React from 'react'
 import stls from '@/styles/components/filters/ResetFilter.module.sass'
 import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
+import { useRouter } from 'next/router'
 
 interface ResetFilterProps {
   // className?: string;
@@ -8,23 +9,13 @@ interface ResetFilterProps {
   onIndex?: boolean
 }
 const ResetFilter = ({ onIndex = false, onClick }: ResetFilterProps) => {
-  const dispatch = useFilterDispatch()
 
-  const removeFilters = () => {
-    dispatch({
-      type: 'clearFilters'
-    })
-    dispatch({
-      type: 'setBool',
-      payload: true
-    })
-  }
   return (
     <div
       className={
         onIndex ? stls.resetFilterContainer : stls.resetFilterContainerMobile
       }>
-      <p className={stls.resetFilter} onClick={removeFilters}>
+      <p className={stls.resetFilter} onClick={onClick}>
         Сбросить фильтры х
       </p>
       <div className={stls.icon}>{/* <IconClose /> */}</div>

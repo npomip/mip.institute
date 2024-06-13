@@ -18,13 +18,15 @@ import FilterTag from '@/components/filters/FilterTag'
 import FiltersWithTag from '@/components/filters/FiltersWithTags'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import ResetFilter from '@/components/filters/ResetFilter'
+import FiltersWithContext from '@/components/filters/FiltersWithContext'
+import ResetWrapper from '@/components/filters/ResetWrapper'
 
 const JournalPage = ({ lifeCourses }) => {
+
   const durations = lifeCourses.map(el => el.duration)
   const prices = lifeCourses.map(el => el.price)
 
   const minmaxDuration = findMinMaxForSlider(durations)
-  console.log(minmaxDuration)
 
   const minmaxPrice = findMinMaxForSlider(prices)
 
@@ -64,10 +66,10 @@ const JournalPage = ({ lifeCourses }) => {
           minmaxPrice={minmaxPrice}
           minmaxDuration={minmaxDuration}
         />
-        <ResetFilter onIndex />
+        <ResetWrapper/>
         <div className={stls.withFilter}>
           <div className={stls.filtersDesktop}>
-            <FiltersForLifeCourses
+            <FiltersWithContext
               cost={minmaxPrice}
               duration={minmaxDuration}
             />

@@ -7,8 +7,9 @@ import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
 import FilterTag from '../filters/FilterTag'
 import ProgramSelect from '../program/ProgramSelect'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { useRouter } from 'next/router'
 
-const ProgramsFilters = () => {
+const ProgramsFilters = ({studyFields=[]}) => {
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
   const { category } = filters
@@ -33,32 +34,57 @@ const ProgramsFilters = () => {
     }
   }
 
-  const handleCourses = () => {
-    dispatch({
-      type: 'setPrograms',
-      payload: ProgramTypes.Courses
-    })
-  }
+  // const handleCourses = () => {
+  //   dispatch({
+  //     type: 'setPrograms',
+  //     payload: ProgramTypes.Courses
+  //   })
+  // }
 
-  const handleProfessions = () => {
-    dispatch({
-      type: 'setPrograms',
-      payload: ProgramTypes.Professions
-    })
-  }
-  const handleAll = () => {
-    dispatch({
-      type: 'setPrograms',
-      payload: ProgramTypes.All
-    })
-    dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
-  }
+  // const handleProfessions = () => {
+  //   dispatch({
+  //     type: 'setPrograms',
+  //     payload: ProgramTypes.Professions
+  //   })
+  // }
+  // const handleAll = () => {
+  //   dispatch({
+  //     type: 'setPrograms',
+  //     payload: ProgramTypes.All
+  //   })
+  //   dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
+  // }
 
+  // const router = useRouter
+
+  
+  const router = useRouter()
+
+  const {asPath, query} = router
+
+
+  const { ofType, studyFieldSlug, filter, opened} = query
+
+  const handleNavigation = (destination: string) => {
+    
+    const { ofType, studyFieldSlug, ...rest } = router.query;
+    router.push({
+      pathname: destination,
+      query: rest,
+  })
+  }
   const handleSetPopularCourses = () => {
-    if (!filters.isPopular) {
-      dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
+    if (filter !== 'popular') {
+      router.push({
+        pathname: router.pathname,
+        query: { ...router.query, filter: 'popular' },
+    });
     } else {
-      dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
+      const { filter, ...rest } = router.query;
+      router.push({
+        pathname: router.pathname,
+        query: rest,
+    });
     }
   }
 
@@ -67,29 +93,29 @@ const ProgramsFilters = () => {
     <div className={stls.container}>
       <div className={stls.sorting}>
         <FilterTag
-          onClick={handleAll}
-          isActive={filters.type === ProgramTypes.All && !filters.isPopular}
+          onClick={() => handleNavigation('/programs')}
+          isActive={ofType === 'programs'}
           isProgram>
           Все курсы
         </FilterTag>
 
         <FilterTag
-          onClick={handleProfessions}
-          isActive={filters.type === ProgramTypes.Professions}
+          onClick={() => handleNavigation('/professions')}
+          isActive={ofType === 'professions'}
           isProgram>
           Профессиональная переподготовка
         </FilterTag>
 
         <FilterTag
-          onClick={handleCourses}
-          isActive={filters.type === ProgramTypes.Courses}
+          onClick={() => handleNavigation('/courses')}
+          isActive={ofType === 'courses'}
           isProgram>
           Повышение квалификации
         </FilterTag>
 
         <FilterTag
           onClick={handleSetPopularCourses}
-          isActive={filters.isPopular}
+          isActive={filter === 'popular'}
           isProgram>
           Популярные курсы
         </FilterTag>
@@ -98,13 +124,13 @@ const ProgramsFilters = () => {
 
       <div className={stls.categories}>
         {!isMobileAndTabletLayout &&
-          categories.map(el => (
+          studyFields.map(el => (
             <FilterTag
               key={el}
-              onClick={() => handleTag(el)}
-              isActive={category === el}
+              onClick={() => handleNavigation(`/${ofType}/${el.studyFieldSlug}`)}
+              isActive={studyFieldSlug === el.studyFieldSlug}
               isCategories>
-              {el}
+              {el.studyField}
             </FilterTag>
           ))}
       </div>

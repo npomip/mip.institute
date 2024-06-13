@@ -3,13 +3,12 @@ import {
   useFilterDispatch
 } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 import RangeSlide from '../general/RangeSlide'
 import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 
-const Filters = ({ cost, duration }) => {
+const FiltersWithContext = ({ cost, duration }) => {
   const dispatch = useFilterDispatch()
   const { filters } = useFilter()
   const handleRecruitment = () => {
@@ -26,34 +25,13 @@ const Filters = ({ cost, duration }) => {
     }
   }
 
-  const router = useRouter()
-
-  const {asPath, query} = router
-
-  const { ofType, studyFieldSlug, filter, opened} = query
-
-  const handleSetPopularCourses = () => {
-    if (!opened) {
-      router.push({
-        pathname: router.pathname,
-        query: { ...router.query, opened: true },
-    });
-    } else {
-      const { opened, ...rest } = router.query;
-      router.push({
-        pathname: router.pathname,
-        query: rest,
-    });
-    }
-  }
-
   return (
     <div className={stls.filters}>
       <FilterContainer>
         <FilterWithToggle
-          checked={opened}
+          checked={filters.courseOpened}
           description={'Идет набор'}
-          onChange={handleSetPopularCourses}
+          onChange={handleRecruitment}
         />
       </FilterContainer>
 
@@ -82,4 +60,4 @@ const Filters = ({ cost, duration }) => {
   )
 }
 
-export default Filters
+export default FiltersWithContext

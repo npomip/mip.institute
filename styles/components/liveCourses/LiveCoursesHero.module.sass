@@ -1,0 +1,44 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  max-width: f.px(1200)
+  margin: 0 auto
+
+.content
+  position: absolute
+  z-index: 2
+  top: f.px(400)
+  left: f.px(300)
+  & > p
+    color: #5C374C
+    font-size: f.px(20)
+    font-style: normal
+    font-weight: 500
+    line-height: 130%
+
+.text
+  width: f.px(400)
+
+.img
+  position: absolute
+  z-index: 2
+  right: f.px(297)
+  top: f.px(321)
+  transform: scaleX(1.2) scale(0.9)
+
+.birds
+  position: absolute
+  right: f.px(600)
+
+.folder
+  // background-color: red
+  // @include m.gap($ptb: f.px(90), $plr: f.px(100))
+  display: block
+  background: url('/assets/imgs/general/folder.jpg')
+  height: f.px(600)
+  background-position: center center
+  background-size: cover
+  background-repeat: no-repeat
+  object-fit: contain

@@ -1,3 +1,5 @@
+import { from } from '@apollo/client'
+
 export { default as IconAtom } from '@/components/icons/IconAtom'
 export { default as IconBell } from '@/components/icons/IconBell'
 export { default as IconBgCircle } from '@/components/icons/IconBgCircle'
@@ -41,3 +43,5 @@ export { default as IconYt } from '@/components/icons/IconYt'
 export { default as IconArrowRight } from '@/components/icons/IconArrowRight'
 export { default as IconArrowUpRound } from '@/components/icons/IconArrowUpRound'
 export { default as IconFinger } from '@/components/icons/IconFinger'
+export { default as IconLiveCoursesFolder } from '@/components/icons/IconLiveCoursesFolder'
+export { default as IconBirds } from '@/components/icons/IconBirds'

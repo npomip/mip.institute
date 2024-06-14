@@ -1,6 +1,7 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import Wrapper from '@/components/layout/Wrapper'
 import LifeCourseDynamicZones from '@/components/lifeCourses/LifeCoursesDynamicZones'
+import LiveCoursesHero from '@/components/lifeCourses/LiveCoursesHero'
 import { About, Reviews } from '@/components/sections'
 import EntryForm from '@/components/sections/EntryForm'
 import SlugTags from '@/components/sections/SlugTags'
@@ -14,14 +15,12 @@ import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
-
   // const { reviews } = useContext(ContextStaticProps)
-
 
   // const reviewsSorted = sortBasedOnNumericOrder({
   //   reviews: sortReviewsCreatedAtASC({ reviews })
   // })
-// console.log(lifeCourse)
+  // console.log(lifeCourse)
 
   // const router = useRouter()
 
@@ -44,16 +43,15 @@ const JournalPage = ({ lifeCourse, reviews }) => {
 
   return (
     // <Wrapper>
-      <>
-        <h1>{lifeCourse.title}</h1>
-        {lifeCourse?.article?.map((module, idx) => (
-            <LifeCourseDynamicZones key={idx} props={module} />
-          ))}
-          <About isLiveCourse/>
-          <Reviews reviews={reviews} isLiveCourse/>
-          <EntryForm isLiveCourse/>
-      </>
-
+    <>
+      <LiveCoursesHero title={lifeCourse.title} />
+      {lifeCourse?.article?.map((module, idx) => (
+        <LifeCourseDynamicZones key={idx} props={module} />
+      ))}
+      <About isLiveCourse />
+      <Reviews reviews={reviews} isLiveCourse />
+      <EntryForm isLiveCourse />
+    </>
   )
 }
 

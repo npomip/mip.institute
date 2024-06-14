@@ -1,0 +1,10 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.sizeIcon($w: 1200, $h: 620)
+  display: block
+  @include m.gap($mtb: f.px(90), $mlr: auto)
+  position: relative
+  z-index: 1

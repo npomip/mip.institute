@@ -62,11 +62,9 @@ const ProgramsFilters = ({studyFields=[]}) => {
 
   const {asPath, query} = router
 
-
   const { ofType, studyFieldSlug, filter, opened} = query
 
   const handleNavigation = (destination: string) => {
-    
     const { ofType, studyFieldSlug, ...rest } = router.query;
     router.push({
       pathname: destination,

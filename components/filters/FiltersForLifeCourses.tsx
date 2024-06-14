@@ -1,30 +1,24 @@
-import {
-  useFilter,
-  useFilterDispatch
-} from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import RangeSlide from '../general/RangeSlide'
 import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
-  const dispatch = useFilterDispatch()
-  const { filters } = useFilter()
-  const handleRecruitment = () => {
-    if (!filters.courseOpened) {
-      dispatch({
-        type: 'setBooleanFilter',
-        filterName: 'courseOpened'
-      })
-    } else {
-      dispatch({
-        type: 'clearBooleanFilter',
-        filterName: 'courseOpened'
-      })
-    }
-  }
+
+  // const handleRecruitment = () => {
+  //   if (!filters.courseOpened) {
+  //     dispatch({
+  //       type: 'setBooleanFilter',
+  //       filterName: 'courseOpened'
+  //     })
+  //   } else {
+  //     dispatch({
+  //       type: 'clearBooleanFilter',
+  //       filterName: 'courseOpened'
+  //     })
+  //   }
+  // }
 
   const router = useRouter()
 

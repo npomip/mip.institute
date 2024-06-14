@@ -16,9 +16,9 @@ const quiz = [
     title:
       'Вы спринтер (бегун на короткие дистанции) или стайер (бегун на длинные дистанции)?',
     question1: 'Спринтер',
-    value1: ['organization', 'childrenPsy', 'psyConsSingle', 'psySomatic'],
+    value1: ['organization', 'childrenPsy', 'psyCons', 'psySomatic'],
     question2: 'Стайер',
-    value2: [ 'clinic','psyCons', 'psyAnalisys']
+    value2: [ 'clinic','psyConsSingle', 'psyAnalisys']
   },
   {
     idx: 3,
@@ -29,7 +29,7 @@ const quiz = [
     question2: 'Структурный',
     value2: ['clinic', 'psySomatic'],
     question3: 'Дружелюбный',
-    value3: ['childrenPsy','psyConsSingle','organization', 'psySomatic'],
+    value3: ['childrenPsy','psyCons','organization', 'psySomatic'],
     question4: 'Дипломатичный',
     value4: ['organization', 'psySomatic']
   },
@@ -38,13 +38,13 @@ const quiz = [
     title:
       'Выберите наиболее похожего на Вас персонажа',
     question1: 'Винни-Пух',
-    value1: ['childrenPsy','psySomatic', 'psyConsSingle'],
+    value1: ['childrenPsy','psySomatic', 'psyCons'],
     question2: 'Сова',
     value2: [ 'clinic', 'psyCons','psyAnalisys', 'psySomatic', 'psyConsSingle'],
     question3: 'Кролик',
-    value3: ['organization', 'psySomatic', 'psyConsSingle'],
+    value3: ['organization', 'psySomatic', 'psyCons'],
     question4: 'Пятачок',
-    value4: ['psyCons','psyConsSingle','organization', 'psySomatic']
+    value4: ['psyCons','psyCons','organization', 'psySomatic']
   },
   {
     idx: 5,
@@ -57,7 +57,7 @@ const quiz = [
       question3: 'Сложные, логические',
       value3: ['clinic', 'psySomatic'],
       question4: 'Развивающие, игровые',
-      value4: ['childrenPsy', 'psyConsSingle']
+      value4: ['childrenPsy', 'psyCons']
   },
   {
     idx: 6,

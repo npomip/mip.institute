@@ -56,6 +56,8 @@ const PsyTest = () => {
         }
       })
     })
+    console.log(maxKey);
+    
     setCategory(maxKey)
   }
   if (showResult) return <QuizResults result={category} />

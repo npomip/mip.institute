@@ -245,7 +245,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>
-
+      <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css" />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script type='text/javascript'
         id='carrot' src='/assets/js/vendors/carrot.js' />

@@ -37,15 +37,23 @@ export function FilterProvider({ children, items }) {
     categories: getUniqueCategories(items)
   })
 
+  console.log(state.items);
+  
+
+  // useEffect(() => {
+  //   if (!state.filters.category) {
+  //     const filteredItems = getFilteredItems(state.items, state.filters)
+  //     dispatch({
+  //       type: 'updateCategories',
+  //       categories: getUniqueCategories(filteredItems)
+  //     })
+  //   }
+  // }, [state.filters])
+
   useEffect(() => {
-    if (!state.filters.category) {
-      const filteredItems = getFilteredItems(state.items, state.filters)
-      dispatch({
-        type: 'updateCategories',
-        categories: getUniqueCategories(filteredItems)
-      })
-    }
-  }, [state.filters])
+    console.log('changedItems', state.filters);
+    getFilteredItems(items, state.filters)
+  }, [items])
 
   // const durations = items.map(el => el.duration)
   // const prices = items.map(el => el.price)

@@ -65,7 +65,7 @@ export const getStaticProps = async ({ params }) => {
   } 
 
   const studyFieldMap = {}
-  programs.forEach(program => {
+  filteredPrograms.forEach(program => {
     if (!studyFieldMap[program.studyFieldSlug]) {
       studyFieldMap[program.studyFieldSlug] = {
         studyField: program.studyField,

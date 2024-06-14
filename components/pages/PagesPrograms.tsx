@@ -65,7 +65,7 @@ const PagesPrograms = ({ ofType, programs,studyFields }: PagesProgramsType) => {
 
           <div className={stls.content}>
             <div className={stls.programs}>
-              {programs?.map((profession, idx) => (
+              {filteredItems?.map((profession, idx) => (
                 <CardProfession
                   key={profession.title + idx}
                   profession={profession}

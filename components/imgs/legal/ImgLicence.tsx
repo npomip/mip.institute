@@ -9,7 +9,7 @@ type Props = {
   isOchuVoMip?: boolean
 }
 
-const ImgLicence = ({ width = 0, height = 0, isOchuVoMip }) => {
+const ImgLicence = ({ width = 0, height = 0, isOchuVoMip }: Props) => {
   return (
     <span className={stls.container}>
       <Image

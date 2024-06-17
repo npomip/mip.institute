@@ -12,3 +12,9 @@ export { default as dataDocsRegulationsRight } from '@/data/docs/regulations/dat
 
 // ./general
 export { default as pros } from '@/data/general/pros'
+
+// ./docs/ochu_vo_mip/constituent
+export { default as dataOchuVoMipDocsConstituentLeft } from '@/data/docs/ochu_vo_mip/constituent/dataOchuVoMipDocsConstituentLeft'
+export { default as dataOchuVoMipDocsConstituentRight } from '@/data/docs/ochu_vo_mip/constituent/dataOchuVoMipDocsConstituentRight'
+// ./docs/ochu_vo_mip/regulations
+// ./docs/ochu_vo_mip/general

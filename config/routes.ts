@@ -31,10 +31,14 @@ const routes = {
     about: '/about',
     reviews: '/reviews',
     legal: '/legal',
+    legal_edu: '/legal_edu',
     payment: '/payment_edu_mip',
     gratefull: '/gratefull',
     contact: '/contact',
     docs: '/docs',
+    ochuvomipConstituent: '/docs/ochu_vo_mip/constituent',
+    ochuvomipRegulations: '/docs/ochu_vo_mip/regulations',
+    ochuvomipGeneral: '/docs/ochu_vo_mip/general',
     docsConstituent: '/docs/constituent',
     docsRegulations: 'docs/regulations',
     docsGeneral: '/docs/general',
@@ -58,6 +62,7 @@ const routes = {
     users: '/users'
   },
   external: {
+    ochuVoMipLicense: 'https://islod.obrnadzor.gov.ru/rlic/details/0B110A13-100E-130E-0C13-130F0F100E100E0F100D/',
     license:
       'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
     vk: 'https://m.vk.com/mip_institute',

@@ -1,45 +1,45 @@
 import stls from '@/styles/components/sections/LegalInfo.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import { company } from '@/config/index'
+import { company, ochuVoMip } from '@/config/index'
 
-const LegalInfo = () => {
+type Props = {
+  isOchuVoMip?: boolean
+}
+
+const LegalInfo = ({ isOchuVoMip }: Props) => {
   const listLeft = [
     {
       title: 'Полное наименование организации:',
-      content:
-        'Научная автономная некоммерческая организация «Московский институт психологии»'
+      content: <>{isOchuVoMip ? ochuVoMip.fullName : company.fullName}</>
     },
     {
       title: 'Сокращенное наименование образовательной организации:',
-      content: 'НАНО «МИП»'
+      content: <>{isOchuVoMip ? ochuVoMip.shortName : company.shortName}</>
     },
     {
-      title: 'Ректор:',
-      content: 'Столяренко Марина Ивановна'
+      title: `${isOchuVoMip ? 'Исполнительный директор:' : 'Ректор:'}`,
+      content: <>{isOchuVoMip ? ochuVoMip.head : company.head}</>
     },
     {
       title: 'Информация о месте нахождения образовательной организации:',
       content: (
         <>
-          {/* Юридический адрес: 115114, г. Москва, <br /> набережная Дербеневская,
-          д.11, пом.13 <br /> */}
           Фактический адрес: {company.addresses.default.zip}, г.{' '}
           {company.addresses.default.city}, <br />{' '}
           {`${company.addresses.default.street.name} ${company.addresses.default.street.type}, д.${company.addresses.default.street.door}`}
-          
         </>
       )
     },
     {
       title: 'ИНН организации:',
-      content: '9725041321'
+      content: <>{isOchuVoMip ? ochuVoMip.inn : company.inn}</>
     }
   ]
   const listRight = [
     {
       title:
         'Информация о режиме и графике работы образовательной организации:',
-      content: 'ПН-ПТ с 10:00 до 19:00 (UTC/GTM + 3ч)'
+      content: `ПН-ПТ с ${isOchuVoMip ? '09' : '10'}:00 до 19:00 (UTC/GTM + 3ч)`
     },
     {
       title:
@@ -58,7 +58,7 @@ const LegalInfo = () => {
     },
     {
       title: 'ОГРН организации:',
-      content: '1207700479260'
+      content: <>{isOchuVoMip ? ochuVoMip.ogrn : company.ogrn}</>
     }
   ]
   return (

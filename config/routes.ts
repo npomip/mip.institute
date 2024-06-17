@@ -31,7 +31,7 @@ const routes = {
     about: '/about',
     reviews: '/reviews',
     legal: '/legal',
-    payment: '/payment',
+    payment: '/payment_edu_mip',
     gratefull: '/gratefull',
     contact: '/contact',
     docs: '/docs',

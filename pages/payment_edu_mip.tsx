@@ -14,6 +14,8 @@ import {
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import Wrapper from '@/components/layout/Wrapper'
+import { useState } from 'react'
+import PopupTrigger from '@/components/general/PopupTrigger'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
@@ -26,8 +28,70 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
     ),
     canonical: `${routes.front.root}${routes.front.payment}`
   }
+
+  const [formValues, setFormValues] = useState({
+    sum: '',
+    name: '',
+    email: ''
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value
+    });
+  };
+
+  const [name, setName] = useState('');
+  const [dog, setDog] = useState('')
+
+  const [email, setEmail] = useState('')
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleDogovor = (e) => {
+    setDog(e.target.value);
+  };
+  
   return (
+    <>
+      <NextSeo
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        nofollow={true}
+        noindex={true}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
+      />
+      <SeoOrganizationJsonLd />
+      <PageTitle>Оплата</PageTitle>
+      <PaymentDebitCard />
+      <PaymentInfo />
+      
     <Wrapper>
+    <div className={stls.helpBtn}>
+            <PopupTrigger btn='delta' cta='help' />
+          </div>
       <div className='contumaoney'>
         <br />
         <form
@@ -42,7 +106,8 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
               className='ym-input'
               placeholder='Email'
               type='text'
-              value=''
+              value={email}
+              onChange={handleEmail}
             />
 
             <input
@@ -50,14 +115,16 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
               className='ym-input'
               placeholder='ФИО'
               type='text'
-              value=''
+              value={name}
+              onChange={handleName}
             />
 
             <textarea
               className='ym-textarea'
               name='orderDetails'
               placeholder='Номер договора'
-              value=''></textarea>
+              onChange={handleDogovor}
+              value={dog}></textarea>
           </div>
 
           <div className='ym-hidden-inputs'></div>
@@ -78,9 +145,9 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
               />
             </div>
             <button
-              data-text='Заплатить'
+              data-text='Оплатить'
               className='ym-btn-pay ym-result-price'>
-              <span className='ym-text-crop'>Заплатить</span>{' '}
+              <span className='ym-text-crop'>Оплатить обучение</span>{' '}
               <span className='ym-price-output'></span>
             </button>
             <svg
@@ -126,7 +193,9 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         </form>
         <script src='https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js'></script>
       </div>
+      
     </Wrapper>
+    </>
   )
 }
 

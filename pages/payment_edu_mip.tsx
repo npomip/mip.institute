@@ -102,6 +102,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
           <div className='ym-customer-info'>
             <div className='ym-block-title'>О покупателе</div>
             <input
+              required
               name='cps_email'
               className='ym-input'
               placeholder='Email'
@@ -111,6 +112,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
             />
 
             <input
+              required
               name='custName'
               className='ym-input'
               placeholder='ФИО'
@@ -120,6 +122,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
             />
 
             <textarea
+            required
               className='ym-textarea'
               name='orderDetails'
               placeholder='Номер договора'

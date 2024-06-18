@@ -1,19 +1,3 @@
-import stls from '@/styles/pages/Legal.module.sass'
-import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
-import {
-  dataOchuVoMipDocsConstituentLeft,
-  dataOchuVoMipDocsConstituentRight,
-  dataDocsGeneralLeft,
-  dataDocsGeneralRight,
-  dataDocsRegulationsLeft,
-  dataDocsRegulationsRight
-} from '@/data/index'
-import { routes, company, preview } from '@/config/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import {
   ActiveLicenses,
@@ -21,7 +5,21 @@ import {
   LegalDocs,
   LegalInfo
 } from '@/components/sections'
-import { SeoOrganizationJsonLd } from '@/components/seo'
+import { company, routes } from '@/config/index'
+import {
+  dataDocsRegulationsLeft,
+  dataDocsRegulationsRight,
+  dataOchuVoMipDocsConstituentLeft,
+  dataOchuVoMipDocsConstituentRight,
+  dataOchuVoMipDocsGeneralLeft,
+  dataOchuVoMipDocsGeneralRight
+} from '@/data/index'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
+import stls from '@/styles/pages/Legal.module.sass'
+import { TypePageDefaultProps } from '@/types/index'
+import { GetStaticProps, NextPage } from 'next'
+import truncate from 'truncate'
 
 const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
@@ -79,8 +77,8 @@ const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
       />
       <LegalDocs
         title='Документы, приказы, положения'
-        listLeft={dataDocsGeneralLeft}
-        listRight={dataDocsGeneralRight}
+        listLeft={dataOchuVoMipDocsGeneralLeft}
+        listRight={dataOchuVoMipDocsGeneralRight}
       />
     </>
   )

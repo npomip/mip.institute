@@ -16,5 +16,8 @@ export { default as pros } from '@/data/general/pros'
 // ./docs/ochu_vo_mip/constituent
 export { default as dataOchuVoMipDocsConstituentLeft } from '@/data/docs/ochu_vo_mip/constituent/dataOchuVoMipDocsConstituentLeft'
 export { default as dataOchuVoMipDocsConstituentRight } from '@/data/docs/ochu_vo_mip/constituent/dataOchuVoMipDocsConstituentRight'
-// ./docs/ochu_vo_mip/regulations
+
 // ./docs/ochu_vo_mip/general
+export { default as dataOchuVoMipDocsGeneralLeft } from '@/data/docs/ochu_vo_mip/general/dataOchuVoMipDocsGeneralLeft'
+export { default as dataOchuVoMipDocsGeneralRight } from '@/data/docs/ochu_vo_mip/general/dataOchuVoMipDocsGeneralRight'
+// ./docs/ochu_vo_mip/regulations

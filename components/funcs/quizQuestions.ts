@@ -3,74 +3,65 @@ const quiz = [
     idx: 1,
     title: 'Что для Вас более предпочтительно?',
     question1: 'Разбираться в глубинных проблемах и сложных случаях',
-    value1: ['clinic', 'psyConsSingle', 'psyCons', 'psySomatic'],
+    value1: ['clinic', 'psyConsSingle', 'psyCons','psySomatic','psyAnalisys'],
     question2: 'Вдохновлять и мотивировать',
-    value2: ['organization', 'psyConsSingle'],
+    value2: ['organization', 'psyConsSingle', 'psyCons'],
     question3: 'Работать с детско-родительскими отношениями',
     value3: ['childrenPsy', 'psyCons', 'psySomatic', 'psyConsSingle', 'psyAnalisys'],
     question4: 'Помогать в решении жизненных сложностей',
-    value4: ['psyCons','psyConsSingle', 'psySomatic']
+    value4: ['psyCons', 'psySomatic', 'psyAnalisys', 'clinic']
   },
   {
     idx: 2,
     title:
-      'Вы спринтер (бегун на короткие дистанции) или стайер (бегун на длинные дистанции)?',
-    question1: 'Спринтер',
-    value1: ['organization', 'childrenPsy', 'psyCons', 'psySomatic'],
-    question2: 'Стайер',
-    value2: [ 'clinic','psyConsSingle', 'psyAnalisys']
+      'Какое слово в наибольшей степени характеризует Вас?',
+    question1: 'Творческий',
+    value1: ['psyCons', 'psySomatic', 'psyAnalisys', 'clinic'],
+    question2: 'Структурный',
+    value2: ['clinic', 'psySomatic'],
+    question3: 'Дружелюбный',
+    value3: ['childrenPsy','psyCons','organization', 'psySomatic', 'clinic', 'psyAnalisys'],
+    question4: 'Дипломатичный',
+    value4: ['organization', 'psySomatic', 'clinic']
   },
   {
     idx: 3,
     title:
-      'Какое слово в наибольшей степени характеризует Вас?',
-    question1: 'Творческий',
-    value1: ['psyCons','psyConsSingle', 'psyAnalisys', 'psySomatic'],
-    question2: 'Структурный',
-    value2: ['clinic', 'psySomatic'],
-    question3: 'Дружелюбный',
-    value3: ['childrenPsy','psyCons','organization', 'psySomatic'],
-    question4: 'Дипломатичный',
-    value4: ['organization', 'psySomatic']
+      'Выберите наиболее похожего на Вас персонажа',
+    question1: 'Винни Пух (сангвиник, идейный и отзывчивый)',
+    value1: ['childrenPsy','psyCons', 'psySomatic', 'clinic', 'psyAnalisys'],
+    question2: 'Сова (меланхолик, мудрая и добрая)',
+    value2: ['psyCons', 'psySomatic', 'psyAnalisys', 'clinic'],
+    question3: 'Кролик (холерик, рациональный, активный, управленец, любит планировать)',
+    value3: ['psyCons','organization', 'psySomatic', 'clinic', 'psyAnalisys'],
+    question4: 'Пятачок (флегматик, чувствительный, добрый и нежный)',
+    value4: ['psyCons','organization', 'psySomatic', 'clinic', 'psyAnalisys']
   },
   {
     idx: 4,
     title:
-      'Выберите наиболее похожего на Вас персонажа',
-    question1: 'Винни-Пух',
-    value1: ['childrenPsy','psySomatic', 'psyCons'],
-    question2: 'Сова',
-    value2: [ 'clinic', 'psyCons','psyAnalisys', 'psySomatic', 'psyConsSingle'],
-    question3: 'Кролик',
-    value3: ['organization', 'psySomatic', 'psyCons'],
-    question4: 'Пятачок',
-    value4: ['psyCons','psyCons','organization', 'psySomatic']
+      'Какие задачи Вам нравится решать?',
+      question1: 'Креативные, творческие',
+      value1: ['psyCons', 'psySomatic', 'psyAnalisys', 'clinic'],
+      question2: 'Проектные, организационные',
+      value2: ['organization', 'psySomatic', 'clinic'],
+      question3: 'Сложные, логические',
+      value3: ['clinic', 'psySomatic'],
+      question4: 'Развивающие, игровые',
+      value4: ['childrenPsy', 'psyCons', 'psyAnalisys']
   },
   {
     idx: 5,
     title:
-      'Какие задачи Вам нравится решать?',
-      question1: 'Креативные, творческие',
-      value1: ['psyCons','psyConsSingle', 'psySomatic', 'psyAnalisys'],
-      question2: 'Проектные, организационные',
-      value2: ['organization', 'psySomatic'],
-      question3: 'Сложные, логические',
-      value3: ['clinic', 'psySomatic'],
-      question4: 'Развивающие, игровые',
-      value4: ['childrenPsy', 'psyCons']
-  },
-  {
-    idx: 6,
-    title:
       'Что Вам ближе?',
     question1: 'Абстрактное, образное',
-    value1: ['psyConsSingle', 'psyCons', 'psyAnalisys'],
+    value1: ['childrenPsy', 'psyCons', 'psyAnalisys'],
     question2: 'Алгоритмичное, логическое',
-    value2: ['organization', 'psySomatic'],
+    value2: ['organization', 'psySomatic', 'clinic'],
     question3: 'Телесное, тактильное',
-    value3: ['psySomatic'],
+    value3: ['clinic', 'psySomatic'],
     question4: 'Эмоциональное, чувственное',
-    value4: ['psyCons', 'psyConsSingle']
+    value4: ['psyCons', 'psyAnalisys']
   }
 ]
 

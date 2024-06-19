@@ -6,7 +6,6 @@ const testResultsMarker = item => {
       return ['Психолог-консультант']
     case 'psyAnalisys':
       return ['Психоанализ и психоаналитическая психотерапия']
-
     case 'childrenPsy':
       return [
         'Детский психолог',
@@ -17,7 +16,6 @@ const testResultsMarker = item => {
     case 'psyCons':
       return [
         'Психолог-консультант',
-        'Психолог-диетолог. Нутрициолог',
         'Арт-терапевт',
         'Гештальт-терапевт'
       ]
@@ -33,15 +31,6 @@ const testResultsMarker = item => {
         'Телесно-ориентированная терапия',
         'Когнитивно-поведенческий психотерапевт'
       ]
-
-    // case 'organization':
-    //   return [
-    //     'Корпоративный психолог',
-    //     'Медиатор',
-    //     ''
-    //   ]
-    case 'ktp':
-      return []
     default:
       return ['Программа']
   }

@@ -20,7 +20,7 @@ const PsyTest = () => {
     setInputs(categories)
     setResult(prevRes => [...prevRes, categories])
     setInputs('')
-    index === 6 && handleLastSlide()
+    index === 5 && handleLastSlide()
   }
 
   const handleBack = e => {

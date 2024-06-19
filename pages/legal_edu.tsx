@@ -63,7 +63,7 @@ const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         Сведения <br className={stls.linebrake} /> об организации
       </PageTitle>
       <ActiveLicenses isOchuVoMip />
-      <Diplomas />
+      <Diplomas isOchuVoMip />
       <LegalInfo isOchuVoMip />
       <LegalDocs
         title='Учредительные документы'

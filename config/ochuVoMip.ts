@@ -9,7 +9,7 @@ const ochuVoMip = {
       default: {
         countryCode: 'RU',
         city: 'Москва',
-        zip: '115419',
+        zip: '107078',
         street: {
           type: 'переулок',
           typeShort: 'пер.',

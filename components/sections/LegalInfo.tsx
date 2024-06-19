@@ -24,8 +24,11 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
       title: 'Информация о месте нахождения образовательной организации:',
       content: (
         <>
-          Фактический адрес: {company.addresses.default.zip}, г.{' '}
-          {company.addresses.default.city}, <br />{' '}
+          Фактический адрес:{' '}
+          {isOchuVoMip
+            ? ochuVoMip.addresses.default.zip
+            : company.addresses.default.zip}
+          , г. {company.addresses.default.city}, <br />{' '}
           {`${company.addresses.default.street.name} ${company.addresses.default.street.type}, д.${company.addresses.default.street.door}`}
         </>
       )
@@ -54,7 +57,9 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
     {
       title:
         'Информация о местах осуществления образовательной деятельности, в том числе не указанных в приложении к лицензии (реестре лицензий) на осуществление образовательной деятельности в соответствии с частью 4 статьи 91 Федерального закона от 29.12.2012 №273-ФЗ "Об образовании в Российской Федерации":',
-      content: 'Адрес: 115419, Москва, Докучаев переулок, 8'
+      content: `Адрес: ${
+        isOchuVoMip ? '107078' : '115419'
+      }, Москва, Докучаев переулок, 8`
     },
     {
       title: 'ОГРН организации:',

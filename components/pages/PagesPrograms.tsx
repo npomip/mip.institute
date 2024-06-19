@@ -87,7 +87,7 @@ const PagesPrograms = ({ ofType, programs,studyFields }: PagesProgramsType) => {
         <Wrapper>
           <div className={stls.filters}>
             <ResetFilter onClick={handleResetFilters} onIndex />
-            {minmaxDuration && minmaxPrice && filteredItems.length > 0 && (
+            {minmaxDuration && minmaxPrice  && (
               <FiltersForLifeCourses
                 cost={minmaxPrice}
                 duration={minmaxDuration}
@@ -97,16 +97,18 @@ const PagesPrograms = ({ ofType, programs,studyFields }: PagesProgramsType) => {
 
           <div className={stls.content}>
             <div className={stls.programs}>
-              {filteredItems?.length > 0 && filteredItems?.map((profession, idx) => (
+              {filteredItems?.length > 0 ? filteredItems?.map((profession, idx) => (
                 <CardProfession
                   key={profession.title + idx}
                   profession={profession}
                 />
-              ))}
+              )) : (
+                <>Кажется, что по вашему запросу ничего не нашлось</>
+
+              )}
             </div>
-            {filteredItems?.length === 0 && (
-              <>Кажется, что по вашему запросу ничего не нашлось</>
-            )}
+            {/* {filteredItems?.length === 0 && (
+            )} */}
           </div>
         </Wrapper>
       </section>

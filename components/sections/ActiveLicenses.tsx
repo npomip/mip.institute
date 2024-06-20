@@ -16,15 +16,17 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.header}>
+        {isOchuVoMip ? (
           <h2 className={stls.title}>Действующие лицензии</h2>
-          {!isOchuVoMip && (
+        ) : (
+          <div className={stls.header}>
+            <h2 className={stls.title}>Действующие лицензии</h2>
             <BtnAlpha
               text='Реквизиты ОЧУ ВО «МИП»'
               href={routes.front.legal_edu}
             />
-          )}
-        </div>
+          </div>
+        )}
         <p className={stls.p}>
           Лицензия департамента образования города Москвы на осуществление
           образовательной деятельности:

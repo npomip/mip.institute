@@ -74,6 +74,7 @@ const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         title='Нормативные документы'
         listLeft={dataDocsRegulationsLeft}
         listRight={dataDocsRegulationsRight}
+        isOchuVoMip
       />
       <LegalDocs
         title='Документы, приказы, положения'

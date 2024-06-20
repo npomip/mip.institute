@@ -194,6 +194,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   return (
     <>
+    <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       <DefaultSeo {...SEO} />
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
@@ -244,8 +245,10 @@ const MyApp = ({ Component, pageProps, router }) => {
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>
-
+      <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css" />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
+      <Script type='text/javascript'
+        id='carrot' src='/assets/js/vendors/carrot.js' />
       <Script
         type='text/javascript'
         id='advcakeAsync'

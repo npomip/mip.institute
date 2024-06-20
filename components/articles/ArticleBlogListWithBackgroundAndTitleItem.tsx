@@ -33,6 +33,7 @@ const ArticleBlogListWithBackgroundAndTitleItem = ({
 
   return (
     <div className={stls.innerBox}>
+
       <div className={stls.icon}>
       {parsedIcon}
 

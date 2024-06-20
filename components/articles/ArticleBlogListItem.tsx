@@ -28,7 +28,6 @@ const ArticleBlogListItem = ({props} : ArticleBlogListItemType) => {
   const parsedIcon = marked(props.icon);
   
 
-
   return (
       <div className={stls.innerBox}>
         <div className={stls.icon}>

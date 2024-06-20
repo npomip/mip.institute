@@ -20,7 +20,7 @@ const PsyTest = () => {
     setInputs(categories)
     setResult(prevRes => [...prevRes, categories])
     setInputs('')
-    index === 6 && handleLastSlide()
+    index === 5 && handleLastSlide()
   }
 
   const handleBack = e => {
@@ -30,20 +30,7 @@ const PsyTest = () => {
   }
 
   let maxKey = ''
-  let options = {
-    clinic: 0,
-    organization: 0,
-    childrenPsy: 0,
-    psyCons: 0,
-    art: 0,
-    sand: 0,
-    psySomatic: 0,
-    geshtalt: 0,
-    coach: 0,
-    psyAnalisys: 0,
-    shortTerm: 0,
-    ktp: 0
-  }
+
   const handleLastSlide = () => {
     setShowResult(true)
     let max = 0

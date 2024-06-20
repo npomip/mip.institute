@@ -54,7 +54,7 @@ const PsyTestMain = ({ startHandler }: Props) => {
                 </div>
               </div>
               <div className={stls.mobileBtn}>
-                <BtnAlpha text='Подобрать программу' />
+                <BtnAlpha text='Подобрать программу' onClick={startHandler}  />
               </div>
             </div>
           </TwoColumns>

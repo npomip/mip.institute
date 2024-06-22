@@ -26,7 +26,7 @@ const CardProfession = ({ profession = null }) => {
           <div className={stls.tags}>
             <span className={stls.type}>{profession.typeLabel}</span>
           </div>
-          <h4 className={stls.title}>{profession.title}</h4>
+          <h2 className={stls.title}>{profession.title}</h2>
           {profession.studyMounthsDuration && (
             <div className={stls.duration}>
               <span className={stls.months}>

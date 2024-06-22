@@ -9,6 +9,7 @@ import {
   useFilterDispatch
 } from '@/context/FilterContext/FilterContext'
 import InputSearchDesktop from '../general/InputSearchDesktop'
+import ProgramSelect from '../program/ProgramSelect'
 
 interface FilterTagProps {
   minmaxDuration: {
@@ -32,6 +33,13 @@ const FiltersWithTag = ({ minmaxPrice, minmaxDuration }: FilterTagProps) => {
     })
   }
 
+  const handleSelect = (value: any) => {
+    dispatch({
+      type: 'sortFilter',
+      payload: value.value
+    })
+  }
+
   return (
     <div className={stls.filtersWithTags}>
       <div className={stls.tags}>
@@ -49,6 +57,7 @@ const FiltersWithTag = ({ minmaxPrice, minmaxDuration }: FilterTagProps) => {
           isActive={filters.isPopular}>
           Популярные курсы
         </FilterTag>
+        <ProgramSelect onChange={handleSelect} marginTop='0' />
       </div>
 
       <div className={stls.filtersWithInput}>

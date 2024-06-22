@@ -7,9 +7,13 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
+import { useRouter } from 'next/router'
 
 const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]}> = ({ programs, studyFields }) => {
   useHandleContextStaticProps({ programs })
+
+  
+  
 
   return (
     <>
@@ -79,7 +83,8 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       programs: filteredPrograms,
-      studyFields
+      studyFields,
+      ofType
     },
     revalidate: revalidate.default
   }

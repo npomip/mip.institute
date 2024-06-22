@@ -34,33 +34,11 @@ const ProgramsFilters = ({studyFields=[]}) => {
     }
   }
 
-  // const handleCourses = () => {
-  //   dispatch({
-  //     type: 'setPrograms',
-  //     payload: ProgramTypes.Courses
-  //   })
-  // }
-
-  // const handleProfessions = () => {
-  //   dispatch({
-  //     type: 'setPrograms',
-  //     payload: ProgramTypes.Professions
-  //   })
-  // }
-  // const handleAll = () => {
-  //   dispatch({
-  //     type: 'setPrograms',
-  //     payload: ProgramTypes.All
-  //   })
-  //   dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
-  // }
-
-  // const router = useRouter
-
-  
   const router = useRouter()
 
   const {asPath, query} = router
+  console.log(query);
+  
 
   const { ofType, studyFieldSlug, filter, opened} = query
 

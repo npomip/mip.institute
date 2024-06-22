@@ -10,6 +10,7 @@ import { FilterProvider } from '@/context/FilterContext/FilterContext'
 
 const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]}> = ({ programs, studyFields }) => {
   useHandleContextStaticProps({ programs })
+  
   return (
     <>
       <SeoPagesPrograms programs={programs} />
@@ -79,7 +80,8 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       programs: filteredPrograms,
-      studyFields
+      studyFields,
+      ofType
     },
     revalidate: revalidate.default
   }

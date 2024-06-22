@@ -1,9 +1,9 @@
-function getSeoTitle(ofType, curProgramsStudyFieldSlug, studyFieldLabel) {
+function getSeoTitle(ofType, curProgramsStudyFieldSlug) {
   switch (`${ofType}/${curProgramsStudyFieldSlug}`) {
 
     //detskaya-psihologiya
     case 'course/detskaya-psihologiya':
-      return `${studyFieldLabel}: онлайн-курсы повышения квалификации от МИП`;
+      return `Детская психология: онлайн-курсы повышения квалификации от МИП`;
     case 'profession/detskaya-psihologiya':
       return 'Детская психология: профессиональная переподготовка онлайн'
     case 'undefined/detskaya-psihologiya':
@@ -55,9 +55,9 @@ function getSeoTitle(ofType, curProgramsStudyFieldSlug, studyFieldLabel) {
 
     default:
       return (
-        ofType === 'course'
+        ofType === 'courses'
           ? 'Курсы повышения квалификации для психологов онлайн | МИП'
-          : ofType === 'profession'
+          : ofType === 'professions'
           ? 'Профессиональная переподготовка для психологов онлайн | МИП'
           : 'Курсы по психологии онлайн | Московский Институт Психологии'
       );

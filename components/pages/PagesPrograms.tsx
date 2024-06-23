@@ -3,6 +3,7 @@ import ProgramsFilters from '@/components/layout/ProgramsFilters'
 import Wrapper from '@/components/layout/Wrapper'
 import { ContactForm, HeroPrograms } from '@/components/sections'
 import {
+  useFilter,
   useFilterDispatch,
   useFilteredItems
 } from '@/context/FilterContext/FilterContext'
@@ -13,6 +14,7 @@ import { useEffect } from 'react'
 import CardProfession from '../cards/CardProfession'
 import ResetFilter from '../filters/ResetFilter'
 import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
+import { getUniqueCategories } from '../funcs/getUniqueCategories'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms
@@ -24,7 +26,10 @@ const PagesPrograms = ({
   studyFields
 }: PagesProgramsType) => {
   let filteredItems = useFilteredItems()
+  
   const dispatch = useFilterDispatch()
+
+  const categories = getUniqueCategories(filteredItems)
 
   const prices = programs && programs.map(el => el.price)
   const programsDuration =
@@ -57,8 +62,8 @@ const PagesPrograms = ({
     filteredItems = filteredItems.filter(el => el.isPopular)
   }
 
-  if (opened && filter === 'opened') {
-    filteredItems = filteredItems.filter(el => el.isOpened)
+  if (opened) {
+    filteredItems = filteredItems.filter(el => el.courseOpened)
   }
 
   const handleResetFilters = () => {
@@ -73,7 +78,7 @@ const PagesPrograms = ({
       <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
       <section className={stls.container}>
         <div className={stls.sorting}>
-          <ProgramsFilters studyFields={studyFields} />
+          <ProgramsFilters studyFields={query.studyFieldSlug ? studyFields : categories} />
         </div>
         <Wrapper>
           <div className={stls.filters}>

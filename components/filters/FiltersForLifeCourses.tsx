@@ -67,7 +67,7 @@ const Filters = ({ cost, duration }) => {
           title={'Стоимость программы'}
           min={cost.min}
           max={cost.max}
-          step={100}
+          step={1}
           measure={'руб.'}
           // classNameStyle='eeeeee'
         />

@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]}> = ({ programs, studyFields }) => {
   useHandleContextStaticProps({ programs })
 
-  
+  console.log(programs);
   
 
   return (
@@ -68,14 +68,26 @@ export const getStaticProps = async ({ params }) => {
   }
 
   const studyFieldMap = {}
-  programs.forEach(program => {
-    if (!studyFieldMap[program.studyFieldSlug]) {
-      studyFieldMap[program.studyFieldSlug] = {
-        studyField: program.studyField,
-        studyFieldSlug: program.studyFieldSlug
+  if(ofType === 'courses'){
+    programs.filter(program => program.type === 'Course').forEach(program => {
+      if (!studyFieldMap[program.studyFieldSlug]) {
+        studyFieldMap[program.studyFieldSlug] = {
+          studyField: program.studyField,
+          studyFieldSlug: program.studyFieldSlug
+        }
       }
-    }
-  })
+    })
+  } else {
+    programs.forEach(program => {
+      if (!studyFieldMap[program.studyFieldSlug]) {
+        studyFieldMap[program.studyFieldSlug] = {
+          studyField: program.studyField,
+          studyFieldSlug: program.studyFieldSlug
+        }
+      }
+    })
+  }
+  
 
   const studyFields = Object.values(studyFieldMap)
 

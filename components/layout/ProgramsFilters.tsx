@@ -10,6 +10,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { useRouter } from 'next/router'
 
 const ProgramsFilters = ({studyFields=[]}) => {
+
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
   const { category } = filters
@@ -37,8 +38,6 @@ const ProgramsFilters = ({studyFields=[]}) => {
   const router = useRouter()
 
   const {asPath, query} = router
-  console.log(query);
-  
 
   const { ofType, studyFieldSlug, filter, opened} = query
 

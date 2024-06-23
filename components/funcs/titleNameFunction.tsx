@@ -107,6 +107,12 @@ const titleName = item => {
           Курсы <br /> клинической психологии
         </>
       )
+      case '/programs/konsultirovanie?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
     default:
       return 'Программа'
   }

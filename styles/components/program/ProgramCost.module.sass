@@ -156,19 +156,19 @@
 
   button
     width: 305px
-    @include m.gap($mb: f.px(16))
+    @include m.gap($mb: f.px(18))
     
   .btnquestion
     display: flex
     justify-content: center
     width: 100%
     @include m.media(laptop, desktop)
-      @include m.gap($mb: f.px(16))
+      @include m.gap($mb: f.px(18))
     & > *
       width: 100%
       @include m.gap($mlr: f.px(20))
       @include m.media(phone, tablet)
-        
+        padding: 1em 10%
         // max-width: 305px
     button
       width: 100%
@@ -178,7 +178,7 @@
       font-weight: 500
       @include m.media(desktop)
         // margin-top: 3px
-        height: 65px
+        height: f.px(61)
         width: 100%
         border-radius: 10px
       @include m.media(laptop)

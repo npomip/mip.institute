@@ -1,33 +1,13 @@
-import stls from '@/styles/pages/Payment.module.sass'
 import { GetStaticProps, NextPage } from 'next'
 import { TypePageDefaultProps } from '@/types/index'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import PageTitle from '@/components/layout/PageTitle'
-import {
-  PaymentBtns,
-  PaymentDebitCard,
-  PaymentInfo
-} from '@/components/sections'
-import { SeoOrganizationJsonLd } from '@/components/seo'
-import Wrapper from '@/components/layout/Wrapper'
 import { useState } from 'react'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import stls from '@/styles/components/payment/FixedPriecePayment.module.sass'
+import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 
-const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  useHandleContextStaticProps({ programs })
 
-  const seoParams = {
-    title: `Оплата | ${company.name}`,
-    desc: truncate(
-      'Для проведения оплаты обучения, с помощью банковской карты, ниже на этой странице необходимо нажать кнопку Оплата банковской картой. Оплата происходит через ПАО СБЕРБАНК с использованием банковских карт следующих платёжных систем: VISA International, Mastercard Worldwide, JCB, МИР',
-      120
-    ),
-    canonical: `${routes.front.root}${routes.front.payment}`
-  }
+const FixedPriecePayment = ({price}) => {
 
   const [formValues, setFormValues] = useState({
     sum: '',
@@ -61,37 +41,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
 
   return (
     <>
-      <NextSeo
-        title={seoParams.title}
-        description={seoParams.desc}
-        canonical={seoParams.canonical}
-        nofollow={true}
-        noindex={true}
-        openGraph={{
-          url: seoParams.canonical,
-          title: seoParams.title,
-          description: seoParams.desc,
-          images: [
-            {
-              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
-              width: 512,
-              height: 512,
-              alt: company.name,
-              type: 'image/png'
-            }
-          ],
-          site_name: company.name
-        }}
-      />
-      <SeoOrganizationJsonLd />
-      <PageTitle>Оплата</PageTitle>
-      <PaymentDebitCard />
-      <PaymentInfo />
-
-      <Wrapper>
-        <div className={stls.helpBtn}>
-          <PopupTrigger btn='delta' cta='help' />
-        </div>
+    <div className={stls.container}>
         <div className='contumaoney'>
           <br />
           <form
@@ -110,37 +60,41 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
                   </span>
                   <span
                     // className='ym-product-price'
-                    data-price='10000'
+                    data-price={price}
                     data-id='723'
                     data-count='1'
                     >
-                    10&nbsp;000,00&nbsp;₽
+                    {toNumberWithSpaces(price)}₽
                   </span>
                 </div>
 
                 <input
+                  readOnly
                   type='hidden'
                   name='text'
                   value='Образовательная услуга'
                 />
-                <input type='hidden' name='price' value='10000' />
-                <input type='hidden' name='quantity' value='1' />
+                <input readOnly type='hidden' name='price' value={price} />
+                <input readOnly type='hidden' name='quantity' value='1' />
                 <input
+                  readOnly
                   type='hidden'
                   name='paymentSubjectType'
                   value='service'
                 />
                 <input
+                  readOnly
                   type='hidden'
                   name='paymentMethodType'
                   value='full_prepayment'
                 />
-                <input type='hidden' name='tax' value='1' />
+                <input readOnly type='hidden' name='tax' value='1' />
               </div>
             </div>
-            <input value='' type='hidden' name='ym_merchant_receipt' />
+            <input readOnly value='' type='hidden' name='ym_merchant_receipt' />
             <div className='ym-customer-info'>
-              <div className='ym-block-title'>О покупателе</div>
+              <div className='ym-block-title'>Ваши данные</div>
+              <span className='ym-block-span'>Заполнив данные и нажав кнопку Оплатить, вы перейдете на страницу оплаты, на которой сможете выбрать удобный вам способ оплаты</span>
               <input
                 required
                 name='cps_email'
@@ -179,10 +133,9 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
             /> */}
             <div className="ym-payment-btn-block ym-before-line ym-align-space-between">
         <div className="ym-input-icon-rub ym-display-none">
-          {/* Влияет на стоимость при редиректе на оплат */}
-            <input name="sum" placeholder="0.00" className="ym-input ym-sum-input ym-required-input" type="number" step="any" value="20000"/>
+            <input name="sum" placeholder="0.00" className="ym-input ym-sum-input ym-required-input" type="number" step="any" value={price}/>
         </div>
-        <button data-text="Заплатить" className="ym-btn-pay ym-result-price"><span className="ym-text-crop">Заплатить</span> <span className="ym-price-output">10000₽</span></button>
+        <button data-text="Заплатить" className="ym-btn-pay ym-result-price"><span className="ym-text-crop">Заплатить</span> <span className="ym-price-output">{toNumberWithSpaces(price)}₽</span></button>
               <svg
                 className='ym-logo'
                 width='114'
@@ -226,7 +179,8 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
           </form>
           <script src='https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js'></script>
         </div>
-      </Wrapper>
+        </div>
+      {/* </Wrapper> */}
     </>
   )
 }
@@ -234,4 +188,4 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
 export const getStaticProps: GetStaticProps = async () =>
   await handleGetStaticProps({ page: routes.front.payment })
 
-export default PaymentPage
+export default FixedPriecePayment

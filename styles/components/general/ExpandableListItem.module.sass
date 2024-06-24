@@ -27,6 +27,7 @@
 .pTitle
   @include m.gap($mb: 0)
   font-weight: 300
+  text-align: start
   @include m.media(laptop, desktop)
     font-size: f.px(22)
   @include m.media(phone, tablet)
@@ -38,9 +39,9 @@
 .content
   display: none
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(10))
+    @include m.gap($mt: f.px(10), $ml: f.px(50))
   @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(34))
+    @include m.gap($mt: f.px(34), $ml: f.px(50))
 
 .item
   @include m.flex($ai: center, $jc: center)

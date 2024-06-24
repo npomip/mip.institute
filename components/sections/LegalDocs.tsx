@@ -4,7 +4,9 @@ import {
   dataOchuVoMipAdditionalLeft,
   dataOchuVoMipAdditionalRight,
   dataOchuVoMipEntranceLeft,
-  dataOchuVoMipEntranceRight
+  dataOchuVoMipEntranceRight,
+  dataOchuVoMipProgramLeft,
+  dataOchuVoMipProgramRight
 } from '@/data/index'
 import stls from '@/styles/components/sections/LegalDocs.module.sass'
 import { TypeDataDocs } from '@/types/index'
@@ -30,11 +32,20 @@ const LegalDocs = ({
       contentRight: dataOchuVoMipAdditionalRight
     }
   ]
+
   const listEntrance = [
     {
       title: 'Вступительные испытания',
       contentLeft: dataOchuVoMipEntranceLeft,
       contentRight: dataOchuVoMipEntranceRight
+    }
+  ]
+
+  const listProgram = [
+    {
+      title: 'Сведения об образовательной программе 44.03.02',
+      contentLeft: dataOchuVoMipProgramLeft,
+      contentRight: dataOchuVoMipProgramRight
     }
   ]
 
@@ -92,6 +103,15 @@ const LegalDocs = ({
             ))}
 
             {listEntrance.map((el, idx) => (
+              <ExpandableListItem
+                title={el.title}
+                key={el.title + idx}
+                contentLeft={el.contentLeft}
+                contentRight={el.contentRight}
+              />
+            ))}
+
+            {listProgram.map((el, idx) => (
               <ExpandableListItem
                 title={el.title}
                 key={el.title + idx}

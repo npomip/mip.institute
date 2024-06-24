@@ -3,19 +3,19 @@ import { routes } from '@/config/index'
 
 const dataOchuVoMipEntranceLeft: TypeDataDocs = [
   {
-    href: `${routes.front.ochuvomipEntrance}/pvi-russkii-yazyk.pdf`,
+    href: `${routes.front.ochuvomipConstituent}/entrance/pvi-russkii-yazyk.pdf`,
     val: 'ПВИ Русский язык'
   },
   {
-    href: `${routes.front.ochuvomipEntrance}/pvi-matematika.pdf`,
+    href: `${routes.front.ochuvomipConstituent}/entrance/pvi-matematika.pdf`,
     val: 'ПВИ Математика'
   },
   {
-    href: `${routes.front.ochuvomipEntrance}/pvi-biologiia.pdf`,
+    href: `${routes.front.ochuvomipConstituent}/entrance/pvi-biologiia.pdf`,
     val: 'ПВИ Биология'
   },
   {
-    href: `${routes.front.ochuvomipEntrance}/pvi-angliyskii-yazyk.pdf`,
+    href: `${routes.front.ochuvomipConstituent}/entrance/pvi-angliyskii-yazyk.pdf`,
     val: 'ПВИ Английский язык'
   },
 ]

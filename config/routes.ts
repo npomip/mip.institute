@@ -37,8 +37,6 @@ const routes = {
     contact: '/contact',
     docs: '/docs',
     ochuvomipConstituent: '/docs/ochu_vo_mip/constituent',
-    ochuvomipAdditional: '/docs/ochu_vo_mip/constituent/additional',
-    ochuvomipEntrance: '/docs/ochu_vo_mip/constituent/entrance',
     ochuvomipGeneral: '/docs/ochu_vo_mip/general',
     docsConstituent: '/docs/constituent',
     docsRegulations: 'docs/regulations',

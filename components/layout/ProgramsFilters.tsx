@@ -17,6 +17,8 @@ const ProgramsFilters = ({studyFields=[]}) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const handleSelect = (value: any) => {
+
+    
     dispatch({
       type: 'sortFilter',
       payload: value.value

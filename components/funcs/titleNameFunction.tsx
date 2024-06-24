@@ -113,8 +113,148 @@ const titleName = item => {
           Популярные курсы
         </>
       )
+
+      case '/courses?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/programs?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+
+      // popular programs
+      case '/programs/dietologiya-i-nutriciologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/programs/organizacionnaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/programs/klinicheskaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/programs/konsultirovanie?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/programs/obshaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/programs/psihoterapiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/programs/detskaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+
+      // popular professions
+      case '/professions/dietologiya-i-nutriciologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/organizacionnaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/klinicheskaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/konsultirovanie?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/obshaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/psihoterapiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/detskaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+
+      // popular courses
+      case '/professions/detskaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/psihoterapiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/konsultirovanie?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/organizacionnaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+      case '/professions/obshaya-psihologiya?filter=popular':
+      return (
+        <>
+          Популярные курсы
+        </>
+      )
+
     default:
-      return 'Программа'
+      return 'Наши программы'
   }
 }
 

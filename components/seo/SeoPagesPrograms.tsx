@@ -34,8 +34,8 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={preview ? true : false}
-        noindex={preview ? true : false}
+        nofollow={preview || filter || opened ? true : false}
+        noindex={preview || filter || opened ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

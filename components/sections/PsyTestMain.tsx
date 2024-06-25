@@ -18,7 +18,7 @@ const PsyTestMain = ({ startHandler }: Props) => {
         <div className={stls.content}>
           <TwoColumns>
             <div className={stls.left}>
-              <h1 className={stls.title}>
+              <h1 id='test' className={stls.title}>
                 Пройдите опрос и узнайте, какая программа вам подойдет
               </h1>
               <div className={stls.btns}>

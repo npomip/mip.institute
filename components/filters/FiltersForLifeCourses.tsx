@@ -6,7 +6,6 @@ import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
-
   const dispatch = useFilterDispatch()
 
   // const handleRecruitment = () => {
@@ -25,31 +24,30 @@ const Filters = ({ cost, duration }) => {
 
   const router = useRouter()
 
-  const {asPath, query} = router
+  const { asPath, query } = router
 
-  const { ofType, studyFieldSlug, filter, opened} = query
+  const { ofType, studyFieldSlug, filter, opened } = query
 
   const handleSetPopularCourses = () => {
-    
     if (!opened) {
       router.push({
         pathname: router.pathname,
-        query: { ...router.query, opened: true },
-    });
-    dispatch({
-      type: 'sortFilter',
-      payload: {field: 'price', direction: 'desc'}
-    })
+        query: { ...router.query, opened: true }
+      })
+      dispatch({
+        type: 'sortFilter',
+        payload: { field: 'price', direction: 'desc' }
+      })
     } else {
-      const { opened, ...rest } = router.query;
+      const { opened, ...rest } = router.query
       router.push({
         pathname: router.pathname,
-        query: rest,
-    });
-    dispatch({
-      type: 'sortFilter',
-      payload: {field: '', direction: ''}
-    })
+        query: rest
+      })
+      dispatch({
+        type: 'sortFilter',
+        payload: { field: '', direction: '' }
+      })
     }
   }
 
@@ -81,7 +79,6 @@ const Filters = ({ cost, duration }) => {
           max={cost.max}
           step={1}
           measure={'руб.'}
-          // classNameStyle='eeeeee'
         />
       </FilterContainer>
     </div>

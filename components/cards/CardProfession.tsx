@@ -24,7 +24,16 @@ const CardProfession = ({ profession = null }) => {
         </div>
         <div className={stls.content}>
           <div className={stls.tags}>
-            <span className={stls.type}>{profession.typeLabel}</span>
+            <span className={stls.type}>
+              {profession.typeLabel === 'Профессия'
+                ? 'Профессиональная переподготовка'
+                : 'Повышение квалификации'}
+            </span>
+            <span className={stls.type}>
+              {profession.typeLabel === 'Профессия'
+                ? 'Диплом'
+                : 'Удостоверение'}
+            </span>
           </div>
           <h2 className={stls.title}>{profession.title}</h2>
           {profession.studyMounthsDuration && (

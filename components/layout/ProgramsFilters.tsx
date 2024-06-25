@@ -9,16 +9,13 @@ import ProgramSelect from '../program/ProgramSelect'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { useRouter } from 'next/router'
 
-const ProgramsFilters = ({studyFields=[]}) => {
-
+const ProgramsFilters = ({ studyFields = [] }) => {
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
   const { category } = filters
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const handleSelect = (value: any) => {
-
-    
     dispatch({
       type: 'sortFilter',
       payload: value.value
@@ -39,33 +36,37 @@ const ProgramsFilters = ({studyFields=[]}) => {
 
   const router = useRouter()
 
-  const {asPath, query} = router
+  const { asPath, query } = router
 
-  const { ofType, studyFieldSlug, filter, opened} = query
-
+  const { ofType, studyFieldSlug, filter, opened } = query
+  console.log({ router })
   const handleNavigation = (destination: string) => {
-    const { ofType, studyFieldSlug, ...rest } = router.query;
+    const { ofType, studyFieldSlug, ...rest } = router.query
     router.push({
       pathname: destination,
-      query: rest,
-  })
+      query: rest
+    })
   }
   const handleSetPopularCourses = () => {
     if (filter !== 'popular') {
       router.push({
         pathname: router.pathname,
-        query: { ...router.query, filter: 'popular' },
-    });
+        query: { ...router.query, filter: 'popular' }
+      })
     } else {
-      const { filter, ...rest } = router.query;
+      const { filter, ...rest } = router.query
       router.push({
         pathname: router.pathname,
-        query: rest,
-    });
+        query: rest
+      })
     }
   }
+  console.log({ studyFields, categories })
 
-  const options = categories.map(el => ({ value: el, label: el }))
+  const options = categories.map(el => ({
+    value: el.studyField,
+    label: el.studyField
+  }))
   return (
     <div className={stls.container}>
       <div className={stls.sorting}>
@@ -101,10 +102,12 @@ const ProgramsFilters = ({studyFields=[]}) => {
 
       <div className={stls.categories}>
         {!isMobileAndTabletLayout &&
-          studyFields.map(el => (
+          studyFields.map((el, i) => (
             <FilterTag
-              key={el}
-              onClick={() => handleNavigation(`/${ofType}/${el.studyFieldSlug}`)}
+              key={el.studyField + i}
+              onClick={() =>
+                handleNavigation(`/${ofType}/${el.studyFieldSlug}`)
+              }
               isActive={studyFieldSlug === el.studyFieldSlug}
               isCategories>
               {el.studyField}

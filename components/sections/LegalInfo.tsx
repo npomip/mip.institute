@@ -17,8 +17,12 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
       content: <>{isOchuVoMip ? ochuVoMip.shortName : company.shortName}</>
     },
     {
-      title: `${isOchuVoMip ? 'Исполнительный директор:' : 'Ректор:'}`,
+      title: 'Ректор',
       content: <>{isOchuVoMip ? ochuVoMip.head : company.head}</>
+    },
+    {
+      title: 'Исполнительный директор',
+      content: <>{ochuVoMip.vice}</>
     },
     {
       title: 'Информация о месте нахождения образовательной организации:',
@@ -72,12 +76,18 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
         <h2 className={stls.title}>Основные сведения</h2>
         <div className={stls.content}>
           <ul className={stls.listLeft}>
-            {listLeft.map(item => (
-              <li key={item.title} className={stls.itemLeft}>
-                <p className={stls.itemTitle}>{item.title}</p>
-                <p className={stls.itemContent}>{item.content}</p>
-              </li>
-            ))}
+            {listLeft.map(item => {
+              if (item.title === 'Исполнительный директор' && !isOchuVoMip) {
+                return null
+              } else {
+                return (
+                  <li key={item.title} className={stls.itemLeft}>
+                    <p className={stls.itemTitle}>{item.title}</p>
+                    <p className={stls.itemContent}>{item.content}</p>
+                  </li>
+                )
+              }
+            })}
           </ul>
           <ul className={stls.listRight}>
             {listRight.map(item => (

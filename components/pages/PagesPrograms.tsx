@@ -21,12 +21,9 @@ type PagesProgramsType = {
   studyFields?: string[]
 }
 
-const PagesPrograms = ({
-  programs,
-  studyFields
-}: PagesProgramsType) => {
+const PagesPrograms = ({ programs, studyFields }: PagesProgramsType) => {
   let filteredItems = useFilteredItems()
-  
+
   const dispatch = useFilterDispatch()
 
   const categories = getUniqueCategories(filteredItems)
@@ -78,7 +75,9 @@ const PagesPrograms = ({
       <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
       <section className={stls.container}>
         <div className={stls.sorting}>
-          <ProgramsFilters studyFields={query.studyFieldSlug ? studyFields : categories} />
+          <ProgramsFilters
+            studyFields={query.studyFieldSlug ? studyFields : categories}
+          />
         </div>
         <Wrapper>
           <div className={stls.filters}>

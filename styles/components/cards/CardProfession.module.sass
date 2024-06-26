@@ -31,7 +31,7 @@
   max-width: max-content
   @include m.gap($ptb: f.px(4), $plr: f.px(10),$mb: f.px(20))
   font-weight: 700
-  font-size: f.px(10)
+  font-size: f.px(8)
   border-radius: f.px(23)
   font-style: normal
   font-weight: 700
@@ -40,6 +40,8 @@
   border: f.px(1) solid
   @include m.dye(border, c.$alpha)
   @include m.dye(c, c.$alpha)
+  @include m.media(laptop)
+    font-size: f.px(6)
 
 .title
   font-weight: 500
@@ -62,8 +64,9 @@
   @include m.flex($fd:column, $jc: space-between)
   .tags
     display: flex
-    gap: f.px(15)
+    gap: f.px(10)
   @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(25))
     height: auto
     min-height: f.px(200)
 

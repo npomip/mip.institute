@@ -28,6 +28,9 @@ const Filters = ({ cost, duration }) => {
 
   const { ofType, studyFieldSlug, filter, opened } = query
 
+  console.log(ofType);
+  
+
   const handleSetPopularCourses = () => {
     if (!opened) {
       router.push({
@@ -70,7 +73,7 @@ const Filters = ({ cost, duration }) => {
           measure={'месяцев'}
         />
       </FilterContainer>
-
+    {ofType !== 'courses' && (
       <FilterContainer>
         <RangeSlide
           dispatchFilterType={'setPriceFilter'}
@@ -81,6 +84,8 @@ const Filters = ({ cost, duration }) => {
           measure={'руб.'}
         />
       </FilterContainer>
+    )}
+      
     </div>
   )
 }

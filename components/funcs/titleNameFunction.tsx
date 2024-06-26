@@ -242,34 +242,34 @@ const titleName = item => {
       )
 
       // popular courses
-      case '/professions/detskaya-psihologiya?filter=popular':
+      case '/courses/detskaya-psihologiya?filter=popular':
       return (
         <>
-          Популярные курсы
+          Популярные курсы по психологии 
         </>
       )
-      case '/professions/psihoterapiya?filter=popular':
+      case '/courses/psihoterapiya?filter=popular':
       return (
         <>
-          Популярные курсы
+          Популярные курсы по психологии
         </>
       )
-      case '/professions/konsultirovanie?filter=popular':
+      case '/courses/konsultirovanie?filter=popular':
       return (
         <>
-          Популярные курсы
+          Популярные курсы по психологии
         </>
       )
-      case '/professions/organizacionnaya-psihologiya?filter=popular':
+      case '/courses/organizacionnaya-psihologiya?filter=popular':
       return (
         <>
-          Популярные курсы
+          Популярные курсы по психологии
         </>
       )
-      case '/professions/obshaya-psihologiya?filter=popular':
+      case '/courses/obshaya-psihologiya?filter=popular':
       return (
         <>
-          Популярные курсы
+          Популярные курсы по психологии
         </>
       )
 

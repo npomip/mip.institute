@@ -2,55 +2,55 @@ function getSeoTitle(ofType, curProgramsStudyFieldSlug) {
   switch (`${ofType}/${curProgramsStudyFieldSlug}`) {
 
     //detskaya-psihologiya
-    case 'course/detskaya-psihologiya':
+    case 'courses/detskaya-psihologiya':
       return `Детская психология: онлайн-курсы повышения квалификации от МИП`;
-    case 'profession/detskaya-psihologiya':
+    case 'professions/detskaya-psihologiya':
       return 'Детская психология: профессиональная переподготовка онлайн'
-    case 'undefined/detskaya-psihologiya':
+    case 'programs/detskaya-psihologiya':
       return 'Курсы по детской психологии онлайн | МИП'
     
     //konsultirovanie
 
-    case 'course/konsultirovanie':
+    case 'courses/konsultirovanie':
       return `Психологическое консультирование: онлайн-курсы повышения квалификации`;
-    case 'profession/konsultirovanie':
+    case 'professions/konsultirovanie':
       return 'Психологическое консультирование: профессиональная переподготовка онлайн'
-    case 'undefined/konsultirovanie':
+    case 'programs/konsultirovanie':
       return 'Курсы психологического консультирования онлайн | МИП'
 
       //obshaya-psihologiya
 
-    case 'course/obshaya-psihologiya':
+    case 'courses/obshaya-psihologiya':
       return `Общая психология: дистанционные курсы повышения квалификации`;
-    case 'profession/obshaya-psihologiya':
+    case 'professions/obshaya-psihologiya':
       return 'Общая психология: профессиональная переподготовка онлайн'
-    case 'undefined/obshaya-psihologiya':
+    case 'programs/obshaya-psihologiya':
       return 'Курсы по общей психологии онлайн | МИП'
 
     //organizacionnaya-psihologiya
 
-    case 'course/organizacionnaya-psihologiya':
+    case 'courses/organizacionnaya-psihologiya':
       return `Организационная психология: онлайн-курсы повышения квалификации`;
-    case 'profession/organizacionnaya-psihologiya':
+    case 'professions/organizacionnaya-psihologiya':
       return 'Организационная психология: профессиональная переподготовка онлайн'
-    case 'undefined/organizacionnaya-psihologiya':
+    case 'programs/organizacionnaya-psihologiya':
       return 'Курсы по организационной психологии онлайн | МИП'
 
-    case 'course/psihoterapiya':
+    case 'courses/psihoterapiya':
       return `Психотерапия: онлайн-курсы повышения квалификации`;
-    case 'profession/psihoterapiya':
+    case 'professions/psihoterapiya':
       return 'Психотерапия: профессиональная переподготовка онлайн'
-    case 'undefined/psihoterapiya':
+    case 'programs/psihoterapiya':
       return 'Курсы обучения психотерапии онлайн | МИП'
 
-    case 'profession/dietologiya-i-nutriciologiya':
+    case 'professions/dietologiya-i-nutriciologiya':
       return 'Диетология и нутрициология: профпереподготовка онлайн'
-    case 'undefined/dietologiya-i-nutriciologiya':
+    case 'programs/dietologiya-i-nutriciologiya':
       return 'Диетология и нутрициология | Все направления | Московский Институт Психологии'
 
-    case 'profession/klinicheskaya-psihologiya':
+    case 'professions/klinicheskaya-psihologiya':
       return 'Клиническая психология: профессиональная переподготовка онлайн'
-    case 'undefined/klinicheskaya-psihologiya':
+    case 'programs/klinicheskaya-psihologiya':
       return 'Клиническая психология | Все направления | Московский Институт Психологии'
 
     default:

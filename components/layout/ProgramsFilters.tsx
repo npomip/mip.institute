@@ -23,15 +23,15 @@ const ProgramsFilters = ({ studyFields = [] }) => {
   }
 
   const handleTag = e => {
-    if (e.value) {
-      dispatch({ type: 'setCategoryFilter', payload: e.value })
-    } else {
-      if (category === e) {
-        dispatch({ type: 'resetCategoryFilter' })
-      } else {
-        dispatch({ type: 'setCategoryFilter', payload: e })
-      }
+    const { ofType, studyFieldSlug, ...rest } = router.query
+    if(e.value === studyFieldSlug){
+      return null
     }
+    
+    router.push({
+      pathname: `/${ofType}/${e.value}`,
+      query: rest
+    })
   }
 
   const router = useRouter()
@@ -39,7 +39,6 @@ const ProgramsFilters = ({ studyFields = [] }) => {
   const { asPath, query } = router
 
   const { ofType, studyFieldSlug, filter, opened } = query
-  console.log({ router })
   const handleNavigation = (destination: string) => {
     const { ofType, studyFieldSlug, ...rest } = router.query
     router.push({
@@ -63,10 +62,11 @@ const ProgramsFilters = ({ studyFields = [] }) => {
   }
   console.log({ studyFields, categories })
 
-  const options = categories.map(el => ({
-    value: el.studyField,
+  const options = studyFields.map(el => ({
+    value: el.studyFieldSlug,
     label: el.studyField
   }))
+  
   return (
     <div className={stls.container}>
       <div className={stls.sorting}>

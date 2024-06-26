@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Select from 'react-select'
 
 type Option = {
@@ -106,14 +107,21 @@ const ProgramSelect = ({
     }
   }
 
+  const router = useRouter()
+
+  const { query } = router
+
+  const { studyFieldSlug} = query
+
   return (
     <Select
       options={options}
-      defaultValue={options[0]}
+      defaultValue={options[0].value === 'default' ? (options[0]): options.filter(el => el.value === studyFieldSlug)}
       styles={customStyles}
       isSearchable={false}
       onChange={onChange}
       classNamePrefix='react-select'
+      // value={}
     />
   )
 }

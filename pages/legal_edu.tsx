@@ -10,9 +10,7 @@ import {
   dataDocsRegulationsLeft,
   dataDocsRegulationsRight,
   dataOchuVoMipDocsConstituentLeft,
-  dataOchuVoMipDocsConstituentRight,
-  dataOchuVoMipDocsGeneralLeft,
-  dataOchuVoMipDocsGeneralRight
+  dataOchuVoMipDocsConstituentRight
 } from '@/data/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
@@ -76,11 +74,7 @@ const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         listRight={dataDocsRegulationsRight}
         isOchuVoMip
       />
-      <LegalDocs
-        title='Документы, приказы, положения'
-        listLeft={dataOchuVoMipDocsGeneralLeft}
-        listRight={dataOchuVoMipDocsGeneralRight}
-      />
+      <LegalDocs title='Документы, приказы, положения' isRulesBlock />
     </>
   )
 }

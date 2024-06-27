@@ -1,92 +1,93 @@
 import { IconDoc } from '@/components/icons'
 import Wrapper from '@/components/layout/Wrapper'
-import {
-  dataOchuVoMipAdditionalLeft,
-  dataOchuVoMipAdditionalRight,
-  dataOchuVoMipEntranceLeft,
-  dataOchuVoMipEntranceRight,
-  dataOchuVoMipProgramLeft,
-  dataOchuVoMipProgramRight
-} from '@/data/index'
 import stls from '@/styles/components/sections/LegalDocs.module.sass'
 import { TypeDataDocs } from '@/types/index'
 import ExpandableListItem from '../general/ExpandableListItem'
+import {
+  listAdditional,
+  listEntrance,
+  listGeneral,
+  listProgram,
+  listHigherEducation
+} from 'constants/legalInfo'
 
 type TypeLegalDocsProps = {
   title: string
-  listLeft: TypeDataDocs
-  listRight: TypeDataDocs
+  listLeft?: TypeDataDocs
+  listRight?: TypeDataDocs
   isOchuVoMip?: boolean
+  isRulesBlock?: boolean
 }
 
 const LegalDocs = ({
   title,
   listLeft,
   listRight,
-  isOchuVoMip
+  isOchuVoMip,
+  isRulesBlock
 }: TypeLegalDocsProps) => {
-  const listAdditional = [
-    {
-      title: 'Нормативные документы',
-      contentLeft: dataOchuVoMipAdditionalLeft,
-      contentRight: dataOchuVoMipAdditionalRight
-    }
-  ]
-
-  const listEntrance = [
-    {
-      title: 'Вступительные испытания',
-      contentLeft: dataOchuVoMipEntranceLeft,
-      contentRight: dataOchuVoMipEntranceRight
-    }
-  ]
-
-  const listProgram = [
-    {
-      title: 'Сведения об образовательной программе 44.03.02',
-      contentLeft: dataOchuVoMipProgramLeft,
-      contentRight: dataOchuVoMipProgramRight
-    }
-  ]
-
   return (
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>{title}</h2>
-        <div className={stls.content}>
-          <ul className={stls.listLeft}>
-            {listLeft.map((item, idx) => (
-              <li key={item.val + idx} className={stls.itemLeft}>
-                <a
-                  href={item.href}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className={stls.link}>
-                  <div className={stls.icon}>
-                    <IconDoc />
-                  </div>
-                  <span className={stls.text}>{item.val}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className={stls.listRight}>
-            {listRight.map((item, idx) => (
-              <li key={item.val + idx} className={stls.itemRight}>
-                <a
-                  href={item.href}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className={stls.link}>
-                  <div className={stls.icon}>
-                    <IconDoc />
-                  </div>
-                  <span className={stls.text}>{item.val}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <>
+          {isRulesBlock ? (
+            <div>
+              {listGeneral.map((el, idx) => (
+                <ExpandableListItem
+                  title={el.title}
+                  key={el.title + idx}
+                  contentLeft={el.contentLeft}
+                  contentRight={el.contentRight}
+                />
+              ))}
+
+              {listHigherEducation.map((el, idx) => (
+                <ExpandableListItem
+                  title={el.title}
+                  key={el.title + idx}
+                  contentLeft={el.contentLeft}
+                  contentRight={el.contentRight}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className={stls.content}>
+              <ul className={stls.listLeft}>
+                {listLeft.map((item, idx) => (
+                  <li key={item.val + idx} className={stls.itemLeft}>
+                    <a
+                      href={item.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={stls.link}>
+                      <div className={stls.icon}>
+                        <IconDoc />
+                      </div>
+                      <span className={stls.text}>{item.val}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <ul className={stls.listRight}>
+                {listRight.map((item, idx) => (
+                  <li key={item.val + idx} className={stls.itemRight}>
+                    <a
+                      href={item.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={stls.link}>
+                      <div className={stls.icon}>
+                        <IconDoc />
+                      </div>
+                      <span className={stls.text}>{item.val}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
         {isOchuVoMip && (
           <div className={stls.listBlock}>
             <h2 className={stls.listTitle}>

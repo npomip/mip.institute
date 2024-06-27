@@ -29,7 +29,12 @@ export { default as dataOchuVoMipEntranceRight } from '@/data/docs/ochu_vo_mip/c
 export { default as dataOchuVoMipProgramLeft } from '@/data/docs/ochu_vo_mip/constituent/program/dataOchuVoMipProgramLeft'
 export { default as dataOchuVoMipProgramRight } from '@/data/docs/ochu_vo_mip/constituent/program/dataOchuVoMipProgramRight'
 
-// ./docs/ochu_vo_mip/general
-export { default as dataOchuVoMipDocsGeneralLeft } from '@/data/docs/ochu_vo_mip/general/dataOchuVoMipDocsGeneralLeft'
-export { default as dataOchuVoMipDocsGeneralRight } from '@/data/docs/ochu_vo_mip/general/dataOchuVoMipDocsGeneralRight'
+// ./docs/ochu_vo_mip/general/common
+export { default as dataOchuVoMipCommonLeft } from '@/data/docs/ochu_vo_mip/general/common/dataOchuVoMipCommonLeft'
+export { default as dataOchuVoMipCommonRight } from '@/data/docs/ochu_vo_mip/general/common/dataOchuVoMipCommonRight'
+
+// ./docs/ochu_vo_mip/general/higher-education
+export { default as dataOchuVoMipHigherEduLeft } from '@/data/docs/ochu_vo_mip/general/higher-education/dataOchuVoMipHigherEduLeft'
+export { default as dataOchuVoMipHigherEduRight } from '@/data/docs/ochu_vo_mip/general/higher-education/dataOchuVoMipHigherEduRight'
+
 

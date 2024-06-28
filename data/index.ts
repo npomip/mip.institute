@@ -37,4 +37,8 @@ export { default as dataOchuVoMipCommonRight } from '@/data/docs/ochu_vo_mip/gen
 export { default as dataOchuVoMipHigherEduLeft } from '@/data/docs/ochu_vo_mip/general/higher-education/dataOchuVoMipHigherEduLeft'
 export { default as dataOchuVoMipHigherEduRight } from '@/data/docs/ochu_vo_mip/general/higher-education/dataOchuVoMipHigherEduRight'
 
+// ./docs/ochu_vo_mip/general/higher-education
+export { default as dataOchuVoMipAddEduLeft } from '@/data/docs/ochu_vo_mip/general/additional-education/dataOchuVoMipAddEduLeft'
+export { default as dataOchuVoMipAddEduRight } from '@/data/docs/ochu_vo_mip/general/additional-education/dataOchuVoMipAddEduRight'
+
 

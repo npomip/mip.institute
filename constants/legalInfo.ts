@@ -8,7 +8,9 @@ import {
   dataOchuVoMipProgramLeft,
   dataOchuVoMipProgramRight,
   dataOchuVoMipHigherEduLeft,
-  dataOchuVoMipHigherEduRight
+  dataOchuVoMipHigherEduRight,
+  dataOchuVoMipAddEduLeft,
+  dataOchuVoMipAddEduRight
 } from '@/data/index'
 
 export const listAdditional = [
@@ -54,7 +56,7 @@ export const listHigherEducation = [
 export const listAddEducation = [
   {
     title: 'Дополнительное профессиональное образование',
-    contentLeft: dataOchuVoMipProgramLeft,
-    contentRight: dataOchuVoMipProgramRight
+    contentLeft: dataOchuVoMipAddEduLeft,
+    contentRight: dataOchuVoMipAddEduRight
   }
 ]

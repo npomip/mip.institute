@@ -8,7 +8,8 @@ import {
   listEntrance,
   listGeneral,
   listProgram,
-  listHigherEducation
+  listHigherEducation,
+  listAddEducation
 } from 'constants/legalInfo'
 
 type TypeLegalDocsProps = {
@@ -43,6 +44,15 @@ const LegalDocs = ({
               ))}
 
               {listHigherEducation.map((el, idx) => (
+                <ExpandableListItem
+                  title={el.title}
+                  key={el.title + idx}
+                  contentLeft={el.contentLeft}
+                  contentRight={el.contentRight}
+                />
+              ))}
+
+              {listAddEducation.map((el, idx) => (
                 <ExpandableListItem
                   title={el.title}
                   key={el.title + idx}

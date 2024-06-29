@@ -200,6 +200,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       props: {
         // program: res.data.program,
         program: res?.data?.program?.[0] || null,
+        
         reviews: reviewsData
       },
       revalidate: revalidate.default

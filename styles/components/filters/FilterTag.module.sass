@@ -11,8 +11,9 @@
   cursor: pointer
   font-weight: 350
   white-space: nowrap
+  font-size: f.px(14)
   @include m.media(phone, tablet)
-    font-size: f.px(14)
+    
 
   &.active
     // Стили для активного состояния
@@ -47,3 +48,7 @@
     @include m.dye(bg, c.$alpha)
     font-weight: 500
     color: white
+
+.quantity
+  padding-left: f.px(7)
+  color: #B5B5B5

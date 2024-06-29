@@ -21,9 +21,6 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
 
   const { ofType, studyFieldSlug, filter, opened} = query
 
-  console.log(query);
-  
-
   const seoParams = {
     title: getSeoTitle(ofType, studyFieldSlug),
     desc: getSeoDescription(ofType, studyFieldSlug),

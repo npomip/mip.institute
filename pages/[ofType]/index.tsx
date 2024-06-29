@@ -8,14 +8,14 @@ import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 
-const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]}> = ({ programs, studyFields }) => {
+const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]} & {allPrograms: any[]}> = ({ programs, studyFields, allPrograms }) => {
   useHandleContextStaticProps({ programs })
   
   return (
     <>
       <SeoPagesPrograms programs={programs} />
       <FilterProvider items={programs}>
-        <PagesPrograms programs={programs} studyFields={studyFields} />
+        <PagesPrograms programs={programs} studyFields={studyFields} allPrograms={allPrograms} />
       </FilterProvider>
     </>
   )
@@ -79,6 +79,7 @@ export const getStaticProps = async ({ params }) => {
   
   return {
     props: {
+      allPrograms: programs,
       programs: filteredPrograms,
       studyFields,
       ofType

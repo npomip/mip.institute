@@ -19,9 +19,11 @@ import { getUniqueCategories } from '../funcs/getUniqueCategories'
 type PagesProgramsType = {
   programs?: TypeLibPrograms
   studyFields?: string[]
+  allPrograms: any[]
 }
 
-const PagesPrograms = ({ programs, studyFields }: PagesProgramsType) => {
+const PagesPrograms = ({ programs, studyFields, allPrograms }: PagesProgramsType) => {
+  
   let filteredItems = useFilteredItems()
 
   const dispatch = useFilterDispatch()
@@ -54,14 +56,24 @@ const PagesPrograms = ({ programs, studyFields }: PagesProgramsType) => {
   const { query } = router
 
   const { filter, opened } = query
-
-  if (filter && filter === 'popular') {
-    filteredItems = filteredItems.filter(el => el.isPopular)
+  
+  useEffect(() => {
+    if(filter === 'popular') {
+      dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
+  } else {
+    dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
   }
+    
+  }, [filter])
 
-  if (opened) {
-    filteredItems = filteredItems.filter(el => el.courseOpened)
+  useEffect(() => {
+    if(opened) {
+      dispatch({ type: 'setBooleanFilter', filterName: 'courseOpened' })
+  } else {
+    dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
   }
+    
+  }, [opened])
 
   const handleResetFilters = () => {
     const { ofType, studyFieldSlug, ...rest } = router.query
@@ -76,6 +88,7 @@ const PagesPrograms = ({ programs, studyFields }: PagesProgramsType) => {
       <section className={stls.container}>
         <div className={stls.sorting}>
           <ProgramsFilters
+          allPrograms={allPrograms}
             studyFields={query.studyFieldSlug ? studyFields : categories}
           />
         </div>

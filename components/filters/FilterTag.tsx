@@ -2,18 +2,20 @@ import stls from '@/styles/components/filters/FilterTag.module.sass'
 import classNames from 'classnames'
 
 interface FilterTagProps {
-  children: string
+  children: any
   onClick?: () => void
   isActive: boolean
   isCategories?: boolean
   isProgram?: boolean
+  quantity?: string
 }
 const FilterTag = ({
   children,
   onClick,
   isActive,
   isCategories = false,
-  isProgram = false
+  isProgram = false,
+  quantity
 }: FilterTagProps) => {
   return (
     <span
@@ -25,6 +27,7 @@ const FilterTag = ({
         [stls.program]: isProgram
       })}>
       {children}
+      {<span className={stls.quantity}>{quantity}</span>}
     </span>
   )
 }

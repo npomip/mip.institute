@@ -29,11 +29,12 @@ const FilterTag = ({
   )
   const contentStyle = {
     background: '#ffffff',
-    minWidth: isTabletLayout ? '200px' : '400px',
+    minWidth: isTabletLayout ? '250px' : '400px',
     paddingRight: '30px',
     paddingLeft: '30px',
     paddingTop: '30px',
-    paddingBottom: '30px'
+    paddingBottom: '30px',
+    border: '1px solid #CDCDCD'
   }
 
   
@@ -55,9 +56,8 @@ const FilterTag = ({
             <IconInfo yellow />
           </span>
         )}
-        on={'hover'}
-        
-        position={isTabletLayout ?'left bottom' : 'left center'}
+        on={isTabletLayout ? 'click' : 'hover'}
+        position={'left center'}
         {...{ contentStyle }}
         offsetX={5}>
         <span className={stls.popupText}>

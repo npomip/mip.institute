@@ -118,7 +118,8 @@ const ProgramSelect = ({
       options={options}
       // defaultInputValue={'asd'}
       placeholder='Выберите направление'
-      defaultValue={options[0].value === 'default' ? (options[0]): options.filter(el => el.value === studyFieldSlug)}
+      noOptionsMessage={() => 'Не нашлось подходящих направлений'}
+      defaultValue={options[0]?.value === 'default' ? (options[0]): options.filter(el => el.value === studyFieldSlug)}
       styles={customStyles}
       isSearchable={false}
       onChange={onChange}

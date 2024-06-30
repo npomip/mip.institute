@@ -15,14 +15,20 @@ import CardProfession from '../cards/CardProfession'
 import ResetFilter from '../filters/ResetFilter'
 import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
+import Breadcrumbs from '../general/Breadcrumbs'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms
   studyFields?: string[]
   allPrograms: any[]
+  breadcrumbs: {
+    label: string
+    path: string
+    slug: string
+  } []
 }
 
-const PagesPrograms = ({ programs, studyFields, allPrograms }: PagesProgramsType) => {
+const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: PagesProgramsType) => {
   
   let filteredItems = useFilteredItems()
 
@@ -82,8 +88,11 @@ const PagesPrograms = ({ programs, studyFields, allPrograms }: PagesProgramsType
       query: null
     })
   }
+  
   return (
     <>
+    <Wrapper><Breadcrumbs isJournal breadcrumbs={breadcrumbs} /></Wrapper>
+      
       <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
       <section className={stls.container}>
         <div className={stls.sorting}>

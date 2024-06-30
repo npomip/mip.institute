@@ -38,7 +38,7 @@ const ProgramSelect = ({
         flexWrap: 'nowrap',
         borderColor: `${mainColor}`,
         borderRadius: '50px',
-        width: `${width ? width : 260}px`,
+        width: `${width ? width : 240}px`,
         height: '40px',
         fontFamily: 'Stem',
         fontSize: '14px',
@@ -116,6 +116,8 @@ const ProgramSelect = ({
   return (
     <Select
       options={options}
+      // defaultInputValue={'asd'}
+      placeholder='Выберите направление'
       defaultValue={options[0].value === 'default' ? (options[0]): options.filter(el => el.value === studyFieldSlug)}
       styles={customStyles}
       isSearchable={false}

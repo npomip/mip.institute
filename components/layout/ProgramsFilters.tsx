@@ -12,7 +12,8 @@ import { useRouter } from 'next/router'
 import { findFilteredProgramsLength } from '@/helpers/general/findFilteredProgramsLength'
 import { findProgramsLength } from '@/helpers/general/findProgramsLength'
 import { findProgrmasLengthByCustomProperty } from '@/helpers/general/findProgrmasLengthByCustomProperty'
-import { getUniqueCategories } from '../funcs/getUniqueCategories'
+import Popup from 'reactjs-popup'
+import IconInfo from '../icons/IconInfo'
 
 const ProgramsFilters = ({ studyFields = [], allPrograms=[] }) => {
   
@@ -79,13 +80,21 @@ const ProgramsFilters = ({ studyFields = [], allPrograms=[] }) => {
     label: el.studyField
   }))
 
+  const contentStyle = {
+    background: '#ffffff',
+    paddingLeft: '30px',
+    minWidth: '400px',
+    paddingRight: '30px',
+    paddingTop: '30px',
+    border: '1px solid #6F01C6'
+  }
+
   return (
     <div className={stls.container}>
       <div className={stls.sorting}>
         <FilterTag
           onClick={() => handleNavigation('/programs')}
           isActive={ofType === 'programs'}
-          // findFilteredProgramsLength(filteredItems, el.studyFieldSlug, ofType as string) 
           quantity={ofType === 'programs' && !studyFieldSlug ? findProgramsLength(filteredItems, 'programs') : ofType === 'programs' && studyFieldSlug  ? findProgramsLength(allPrograms, 'programs') - findFilteredProgramsLength(allPrograms, studyFieldSlug, ofType as string) + findFilteredProgramsLength(filteredItems, studyFieldSlug, ofType as string)  : findProgramsLength(allPrograms, 'programs')}
           isProgram>
           Все курсы
@@ -93,6 +102,8 @@ const ProgramsFilters = ({ studyFields = [], allPrograms=[] }) => {
 
         <FilterTag
           onClick={() => handleNavigation('/professions')}
+          withPopup
+          popupText='Программы профессиональной переподготовки рассчитаны на тех, кто решил освоить новую профессию с нуля. Длительность обучения — от 6 до 24 месяцев в зависимости от выбранного направления. По окончании обучения выдаются диплом о профессиональной переподготовке установленного образца (заносится в реестр ФИС ФРДО) и международное приложение к диплому Supplement. Присваиваемая квалификация и дополнительная специализация зависят от направления обучения. '
           isActive={ofType === 'professions'}
           quantity={ofType === 'professions' && !studyFieldSlug ? findProgramsLength(filteredItems, 'professions') : ofType === 'professions' && studyFieldSlug  ? findProgramsLength(allPrograms, 'professions') - findFilteredProgramsLength(allPrograms, studyFieldSlug, ofType as string) + findFilteredProgramsLength(filteredItems, studyFieldSlug, ofType as string)  : findProgramsLength(allPrograms, 'professions')}
           
@@ -102,6 +113,12 @@ const ProgramsFilters = ({ studyFields = [], allPrograms=[] }) => {
 
         <FilterTag
           onClick={() => handleNavigation('/courses')}
+          withPopup
+          popupText='Программы повышения квалификации подходят тем, кто хочет углубить
+          знания и получить новые навыки по профилю своей деятельности.
+          Длительность обучения — от 1 до 6 месяцев. Выпускники получают
+          удостоверение о повышении квалификации установленного образца
+          (заносится в реестр ФИС ФРДО).'
           isActive={ofType === 'courses'}
           quantity={ofType === 'courses' && !studyFieldSlug ? findProgramsLength(filteredItems, 'courses') : ofType === 'courses' && studyFieldSlug  ? findProgramsLength(allPrograms, 'courses') - findFilteredProgramsLength(allPrograms, studyFieldSlug, ofType as string) + findFilteredProgramsLength(filteredItems, studyFieldSlug, ofType as string)  : findProgramsLength(allPrograms, 'courses')}
           isProgram>

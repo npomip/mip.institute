@@ -1,5 +1,8 @@
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/filters/FilterTag.module.sass'
 import classNames from 'classnames'
+import Popup from 'reactjs-popup'
+import IconInfo from '../icons/IconInfo'
 
 interface FilterTagProps {
   children: any
@@ -8,6 +11,8 @@ interface FilterTagProps {
   isCategories?: boolean
   isProgram?: boolean
   quantity?: string
+  withPopup?: boolean
+  popupText?: string
 }
 const FilterTag = ({
   children,
@@ -15,8 +20,23 @@ const FilterTag = ({
   isActive,
   isCategories = false,
   isProgram = false,
-  quantity
+  quantity,
+  withPopup=false,
+  popupText=''
 }: FilterTagProps) => {
+  const isTabletLayout = useBetterMediaQuery(
+    '(max-width: 768px)'
+  )
+  const contentStyle = {
+    background: '#ffffff',
+    minWidth: isTabletLayout ? '200px' : '400px',
+    paddingRight: '30px',
+    paddingLeft: '30px',
+    paddingTop: '30px',
+    paddingBottom: '30px'
+  }
+
+  
   return (
     <span
       onClick={onClick}
@@ -28,6 +48,24 @@ const FilterTag = ({
       })}>
       {children}
       {<span className={stls.quantity}>{quantity}</span>}
+      {withPopup && (
+        <Popup
+        trigger={open => (
+          <span className={stls.popupTrigger}>
+            <IconInfo yellow />
+          </span>
+        )}
+        on={'hover'}
+        
+        position={isTabletLayout ?'left bottom' : 'left center'}
+        {...{ contentStyle }}
+        offsetX={5}>
+        <span className={stls.popupText}>
+          {popupText}
+        </span>
+      </Popup>
+      )}
+      
     </span>
   )
 }

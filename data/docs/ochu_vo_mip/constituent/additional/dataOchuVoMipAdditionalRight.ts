@@ -3,7 +3,7 @@ import { routes } from '@/config/index'
 
 const dataOchuVoMipAdditionalRight: TypeDataDocs = [
   {
-    href: `${routes.front.ochuvomipConstituent}/additional/polozhenie-o-vstupitelnyh-ispytaniyah.pdf`,
+    href: `${routes.front.ochuvomipConstituent}/additional/polozhenie-o-provedenii-vstupitelnyh-ispytanii.pdf`,
     val: 'Положение о проведении вступительных испытаний'
   },
   {

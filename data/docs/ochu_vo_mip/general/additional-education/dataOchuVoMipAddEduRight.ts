@@ -10,6 +10,10 @@ const dataOchuVoMipAddEduRight: TypeDataDocs = [
     href: `${routes.front.ochuvomipGeneral}/additional-education/pravila-vnutrennego-rasporiadka.pdf`,
     val: 'Правила внутреннего распорядка для обучающихся'
   },
+  {
+    href: `${routes.front.ochuvomipGeneral}/additional-education/polozhenie-ob-organizaccii-i-osuschestvlenii-obrazovatelnoi-deiatelnosti.pdf`,
+    val: 'Положение об организации и осуществлении образовательной деятельности'
+  },
 ]
 
 export default dataOchuVoMipAddEduRight

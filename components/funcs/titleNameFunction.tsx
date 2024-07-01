@@ -5,50 +5,50 @@ const titleName = item => {
     case '/professions':
       return (
         <>
-          Психология. Профессиональная переподготовка
+          Психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/detskaya-psihologiya':
       return (
         <>
-          Детская психология. Профессиональная переподготовка
+          Детская психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/dietologiya-i-nutriciologiya':
       return (
         <>
-          Диетология и нутрициология. Профессиональная переподготовка
+          Диетология и нутрициология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/klinicheskaya-psihologiya':
       return (
         <>
-          Клиническая психология. Профессиональная переподготовка
+          Клиническая психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/konsultirovanie':
       return (
         <>
-          Психологическое консультирование. Профессиональная
+          Психологическое консультирование.<br /> Профессиональная
           переподготовка
         </>
       )
     case '/professions/obshaya-psihologiya':
       return (
         <>
-          Общая психология. Профессиональная переподготовка
+          Общая психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/organizacionnaya-psihologiya':
       return (
         <>
-          Организационная психология. Профессиональная переподготовка
+          Организационная психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/psihoterapiya':
       return (
         <>
-          Психотерапия. Профессиональная переподготовка
+          Психотерапия.<br /> Профессиональная переподготовка
         </>
       )
     case '/programs':
@@ -66,39 +66,37 @@ const titleName = item => {
     case '/courses/detskaya-psihologiya':
       return (
         <>
-          Детская психология. Повышение квалификации
+          Детская психология.<br /> Повышение квалификации
         </>
       )
     case '/courses/konsultirovanie':
       return (
         <>
-          Психологическое консультирование. Повышение квалификации
+          Психологическое консультирование.<br /> Повышение квалификации
         </>
       )
     case '/courses/obshaya-psihologiya':
       return (
         <>
-          Общая психология. Повышение квалификации
+          Общая психология.<br /> Повышение квалификации
         </>
       )
     case '/courses/organizacionnaya-psihologiya':
       return (
         <>
-          Организационная психология. Повышение квалификации
+          Организационная психология.<br /> Повышение квалификации
         </>
       )
     case '/courses/psihoterapiya':
       return (
         <>
-          Психологическое консультирование. Повышение квалификации
+          Психологическое консультирование.<br /> Повышение квалификации
         </>
       )
     case '/programs/dietologiya-i-nutriciologiya':
       return (
         <>
-          Курсы
-        
-          по диетологии и нутрициологии
+          Курсы по диетологии и нутрициологии
         </>
       )
     case '/programs/klinicheskaya-psihologiya':
@@ -122,7 +120,7 @@ const titleName = item => {
     case '/programs?opened=true':
       return <>Курсы по психологии</>
     case '/professions?opened=true':
-      return <>Психология. Профессиональная переподготовка</>
+      return <>Психология.<br /> Профессиональная переподготовка</>
 
     // popular programs
     case '/programs/dietologiya-i-nutriciologiya?filter=popular':
@@ -150,7 +148,7 @@ const titleName = item => {
     case '/professions/konsultirovanie?filter=popular':
       return (
         <>
-          Психологическое консультирование. Профессиональная
+          Психологическое консультирование.<br /> Профессиональная
           переподготовка
         </>
       )
@@ -201,45 +199,45 @@ const titleName = item => {
     case '/professions/dietologiya-i-nutriciologiya?opened=true':
       return (
         <>
-          Диетология и нутрициология. Профессиональная переподготовка
+          Диетология и нутрициология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/organizacionnaya-psihologiya?opened=true':
       return (
         <>
-          Организационная психология. Профессиональная переподготовка
+          Организационная психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/klinicheskaya-psihologiya?opened=true':
       return (
         <>
-          Клиническая психология. Профессиональная переподготовка
+          Клиническая психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/konsultirovanie?opened=true':
       return (
         <>
-          Психологическое консультирование. Профессиональная
+          Психологическое консультирование.<br /> Профессиональная
           переподготовка
         </>
       )
     case '/professions/obshaya-psihologiya?opened=true':
       return (
         <>
-          Общая психология. Профессиональная переподготовка
+          Общая психология.<br /> Профессиональная переподготовка
         </>
       )
     case '/professions/psihoterapiya?opened=true':
       return (
         <>
-          Психологическое консультирование. Профессиональная
+          Психологическое консультирование.<br /> Профессиональная
           переподготовка
         </>
       )
     case '/professions/detskaya-psihologiya?opened=true':
       return (
         <>
-          Детская психология. Профессиональная переподготовка
+          Детская психология.<br /> Профессиональная переподготовка
         </>
       )
 
@@ -247,31 +245,31 @@ const titleName = item => {
     case '/courses/detskaya-psihologiya?opened=true':
       return (
         <>
-          Детская психология. Повышение квалификации
+          Детская психология.<br /> Повышение квалификации
         </>
       )
     case '/courses/psihoterapiya?opened=true':
       return (
         <>
-          Психологическое консультирование. Повышение квалификации
+          Психологическое консультирование.<br /> Повышение квалификации
         </>
       )
     case '/courses/konsultirovanie?opened=true':
       return (
         <>
-          Психологическое консультирование. Повышение квалификации
+          Психологическое консультирование.<br /> Повышение квалификации
         </>
       )
     case '/courses/organizacionnaya-psihologiya?opened=true':
       return (
         <>
-          Организационная психология. Повышение квалификации
+          Организационная психология.<br /> Повышение квалификации
         </>
       )
     case '/courses/obshaya-psihologiya?opened=true':
       return (
         <>
-          Общая психология. Повышение квалификации
+          Общая психология.<br /> Повышение квалификации
         </>
       )
 

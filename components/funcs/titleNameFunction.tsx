@@ -1,7 +1,7 @@
 const titleName = item => {
   switch (item) {
     case '/courses':
-      return <>Курсы повышения квалификации для психологов</>
+      return <>Курсы повышения квалификации <br /> для психологов</>
     case '/professions':
       return (
         <>
@@ -116,7 +116,7 @@ const titleName = item => {
       return <>Популярные курсы по психологии</>
 
     case '/courses?opened=true':
-      return <>Курсы повышения квалификации для психологов</>
+      return <>Курсы повышения квалификации <br /> для психологов</>
     case '/programs?opened=true':
       return <>Курсы по психологии</>
     case '/professions?opened=true':

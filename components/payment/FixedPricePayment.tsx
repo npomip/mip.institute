@@ -6,9 +6,7 @@ import { useState } from 'react'
 import stls from '@/styles/components/payment/FixedPriecePayment.module.sass'
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 
-
-const FixedPriecePayment = ({price}) => {
-
+const FixedPriecePayment = ({ price }) => {
   const [formValues, setFormValues] = useState({
     sum: '',
     name: '',
@@ -24,6 +22,7 @@ const FixedPriecePayment = ({price}) => {
 
   const [name, setName] = useState('')
   const [dog, setDog] = useState('')
+  const [tel, setTel] = useState('')
 
   const [email, setEmail] = useState('')
 
@@ -35,13 +34,17 @@ const FixedPriecePayment = ({price}) => {
     setName(e.target.value)
   }
 
+  const handlePhone = (e) => {
+    setTel(e.target.value)
+  }
+
   const handleDogovor = e => {
     setDog(e.target.value)
   }
 
   return (
     <>
-    <div className={stls.container}>
+      <div className={stls.container}>
         <div className='contumaoney'>
           <br />
           <form
@@ -59,11 +62,10 @@ const FixedPriecePayment = ({price}) => {
                     услуга
                   </span>
                   <span
-                    // className='ym-product-price'
+                    className='ym-product-price'
                     data-price={price}
-                    data-id='723'
-                    data-count='1'
-                    >
+                    data-id='239'
+                    data-count='1'>
                     {toNumberWithSpaces(price)}₽
                   </span>
                 </div>
@@ -86,7 +88,7 @@ const FixedPriecePayment = ({price}) => {
                   readOnly
                   type='hidden'
                   name='paymentMethodType'
-                  value='full_prepayment'
+                  value='full_payment'
                 />
                 <input readOnly type='hidden' name='tax' value='1' />
               </div>
@@ -94,7 +96,11 @@ const FixedPriecePayment = ({price}) => {
             <input readOnly value='' type='hidden' name='ym_merchant_receipt' />
             <div className='ym-customer-info'>
               <div className='ym-block-title'>Ваши данные</div>
-              <span className='ym-block-span'>Заполнив данные и нажав кнопку Оплатить, вы перейдете на страницу оплаты, на которой сможете выбрать удобный вам способ оплаты</span>
+              <span className='ym-block-span'>
+                Заполнив данные и нажав кнопку Оплатить, вы перейдете на
+                страницу оплаты, на которой сможете выбрать удобный вам способ
+                оплаты
+              </span>
               <input
                 required
                 name='cps_email'
@@ -104,7 +110,13 @@ const FixedPriecePayment = ({price}) => {
                 value={email}
                 onChange={handleEmail}
               />
-
+              <input
+                name='cps_phone'
+                className='ym-input'
+                placeholder='Телефон'
+                type='text'
+                onChange={handlePhone}
+                value={tel}></input>
               <input
                 required
                 name='custName'
@@ -126,16 +138,30 @@ const FixedPriecePayment = ({price}) => {
 
             <div className='ym-hidden-inputs'></div>
 
-            {/* <input
+            <input
               name='customerNumber'
               type='hidden'
-              value='Оплата обучения в Московском Институте Психологии'
-            /> */}
-            <div className="ym-payment-btn-block ym-before-line ym-align-space-between">
-        <div className="ym-input-icon-rub ym-display-none">
-            <input name="sum" placeholder="0.00" className="ym-input ym-sum-input ym-required-input" type="number" step="any" value={price}/>
-        </div>
-        <button data-text="Заплатить" className="ym-btn-pay ym-result-price"><span className="ym-text-crop">Заплатить</span> <span className="ym-price-output">{toNumberWithSpaces(price)}₽</span></button>
+              value='Образовательная услуга'
+            />
+            <div className='ym-payment-btn-block ym-before-line ym-align-space-between'>
+              <div className='ym-input-icon-rub ym-display-none'>
+                <input
+                  name='sum'
+                  placeholder='0.00'
+                  className='ym-input ym-sum-input ym-required-input'
+                  type='number'
+                  step='any'
+                  value={price}
+                />
+              </div>
+              <button
+                data-text='Заплатить'
+                className='ym-btn-pay ym-result-price'>
+                <span className='ym-text-crop'>Заплатить</span>{' '}
+                <span className='ym-price-output'>
+                  {toNumberWithSpaces(price)}₽
+                </span>
+              </button>
               <svg
                 className='ym-logo'
                 width='114'
@@ -179,7 +205,7 @@ const FixedPriecePayment = ({price}) => {
           </form>
           <script src='https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js'></script>
         </div>
-        </div>
+      </div>
       {/* </Wrapper> */}
     </>
   )

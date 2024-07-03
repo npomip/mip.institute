@@ -17,7 +17,10 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
     <section className={stls.container}>
       <Wrapper>
         {isOchuVoMip ? (
-          <h2 className={stls.title}>Действующие лицензии</h2>
+          <div className={stls.header}>
+            <h2 className={stls.title}>Действующие лицензии</h2>
+            <BtnAlpha text='Реквизиты НАНО «МИП»' href={routes.front.legal} />
+          </div>
         ) : (
           <div className={stls.header}>
             <h2 className={stls.title}>Действующие лицензии</h2>

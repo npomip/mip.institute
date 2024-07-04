@@ -9,7 +9,7 @@ import IconScrewedArrow from '../icons/IconScrewedArrow'
 
 const ProgramCost = ({ withPerMonth = false }) => {
   const { program } = useContext(ContextStaticProps)
-  const isCourse = program.type === 'Course'
+  const isCourse = program?.type === 'Course'
   const price = (program && program.price) || 0
   const discount = (program && program.discount) || discountNum
 

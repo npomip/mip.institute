@@ -7,6 +7,7 @@ import PopupTrigger from '../general/PopupTrigger'
 import classNames from 'classnames'
 import Popup from 'reactjs-popup'
 import FixedPriecePayment from '../payment/FixedPricePayment'
+import payment from '../funcs/payment'
 
 const ProgramCost = ({ withPerMonth = false }) => {
   const { program } = useContext(ContextStaticProps)
@@ -22,6 +23,10 @@ const ProgramCost = ({ withPerMonth = false }) => {
   const perMonthPrice = Math.round(Math.round(price && +price / 12) / 100) * 100
   const perMonthPriceRegular =
     Math.round(Math.round(rprice && +rprice / 12) / 100) * 100
+
+    const paymentClick = async () => {
+      const resp = await payment()
+    }
 
   return (
     <div className={stls.container}>
@@ -69,14 +74,15 @@ const ProgramCost = ({ withPerMonth = false }) => {
               className={classNames({
                 [stls.btnquestion]: true
               })}>
-              <Popup
+              {/* <Popup
                 trigger={<button className='button'> Оплатить обучение </button>}
                 modal
                 nested>
                   {close => (
                     <FixedPriecePayment price={price} />
                   )}
-                </Popup>
+                </Popup> */}
+                <button onClick={paymentClick} className='button'> Оплатить обучение </button>
             </div>
             <p>Записаться на курс или получить бесплатную консультацию</p>
             <div className={stls.askQuestion}>

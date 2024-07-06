@@ -1,0 +1,63 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 100
+  width: 100%
+  @include m.dye(bg, #FBF4FF)
+  @include m.flex($ai: center)
+  @include m.media(phone, tablet)
+    height: f.px(257)
+  @include m.media(laptop, desktop)
+    height: f.px(112)
+
+.content
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(phone, tablet)
+    @include m.flex($fd:column)
+
+.left
+  @include m.flex($ai: center)
+  width: f.px(700)
+  @include m.media(phone, tablet)
+    width: f.px(300)
+    @include m.flex($fd:column)
+
+.icon
+  width: f.px(60)
+  @include m.media(phone, tablet)
+    width: f.px(40)
+  & path
+    @include m.dye(fill, #6F01C6)
+
+.text
+  @include m.gap($ml: f.px(20))
+  font-family: Stem
+  font-size: f.px(22)
+  font-style: normal
+  font-weight: 350
+  line-height: 130%
+  @include m.media(phone, tablet)
+    text-align: center
+    @include m.gap($ml: 0, $mb: f.px(30))
+    font-size: f.px(18)
+
+.bold
+  font-weight: 500
+
+.btn
+  @include m.media(phone, tablet)
+    display: none
+
+.mobileBtn
+  position: relative
+  z-index: 10
+  margin-bottom: f.px(17)
+  & > *
+    width: 100%
+  @include m.media(laptop, desktop)
+    display: none

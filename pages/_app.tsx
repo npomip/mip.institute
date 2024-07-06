@@ -25,6 +25,7 @@ import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
 import { getCookie, setCookie, getCookies } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
+import StickyTop from '@/components/layout/StickyTop'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -194,7 +195,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   return (
     <>
-    <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
+      <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       <DefaultSeo {...SEO} />
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
@@ -233,6 +234,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}>
         <MenuState>
           <FieldsTooltipState>
+            <StickyTop />
             <Header />
             <main>
               <ApolloProvider client={client}>
@@ -245,10 +247,16 @@ const MyApp = ({ Component, pageProps, router }) => {
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>
-      <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css" />
+      <link
+        rel='stylesheet'
+        href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'
+      />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
-      <Script type='text/javascript'
-        id='carrot' src='/assets/js/vendors/carrot.js' />
+      <Script
+        type='text/javascript'
+        id='carrot'
+        src='/assets/js/vendors/carrot.js'
+      />
       <Script
         type='text/javascript'
         id='advcakeAsync'
@@ -340,24 +348,25 @@ const MyApp = ({ Component, pageProps, router }) => {
 
       {router.asPath === '/' ? (
         <Script
-        id='advcake_main'
-        dangerouslySetInnerHTML={{
-          __html: `window.advcake_data = window.advcake_data || [];
+          id='advcake_main'
+          dangerouslySetInnerHTML={{
+            __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({
               pageType: 1
           });`
-        }}
-      />
+          }}
+        />
       ) : (
-      <Script
-        id='advcake_typeTwo'
-        dangerouslySetInnerHTML={{
-          __html: `window.advcake_data = window.advcake_data || [];
+        <Script
+          id='advcake_typeTwo'
+          dangerouslySetInnerHTML={{
+            __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({
               pageType: 2
           });`
-        }}
-      />)}
+          }}
+        />
+      )}
 
       <noscript>
         <div>

@@ -193,6 +193,22 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
+  const [promo, setPromo] = useState(false)
+
+  const utmCookie = getCookie('utm')
+  const stringedUtm = utmCookie?.toString()
+  const promoExist = stringedUtm?.includes('pogrebjiskaya')
+  useEffect(() => {
+    setTimeout(() => {
+    setPromo(promoExist)
+      
+    }, 2000);
+  }, [utmCookie])
+
+  const closePromo = () => {
+    setPromo(false)
+  }
+
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
@@ -234,16 +250,17 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}>
         <MenuState>
           <FieldsTooltipState>
-            <StickyTop />
-            <Header />
+            {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
+            {<StickyTop onClick={closePromo} promo={promo} />}
+            <Header promo={promo} />
             <main>
               <ApolloProvider client={client}>
                 <Component {...pageProps} />
-                {/* <div className="js-whatsapp-message-container" style={{display:"none"}}>Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения: {roistat_visit}</div> */}
               </ApolloProvider>
             </main>
             <StickyBottom />
             <Footer />
+            {/* </div> */}
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>

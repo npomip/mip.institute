@@ -12,13 +12,19 @@ import {
   BtnZeta
 } from '../btns'
 import PopupTrigger from '../general/PopupTrigger'
+import classNames from 'classnames'
 
-const StickyTop = () => {
+const StickyTop = ({onClick=undefined, promo=false}) => {
   const [isPromoUsed, setIsPromoUsed] = useState(false)
-
+  
   return (
-    <div className={stls.container}>
+    <div onClick={onClick} className={classNames({
+      [stls.container]: true,
+      [stls.nopromo]: !promo,
+      [stls.promo]: promo
+    })} >
       <Wrapper>
+        <button>Закрыть</button>
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.icon}>
@@ -26,7 +32,7 @@ const StickyTop = () => {
             </div>
             <div className={stls.text}>
               Активируйте промокод
-              <span className={stls.bold}> “Прогребижская”</span> и получите
+              <span className={stls.bold}> “Погребижская”</span> и получите
               дополнительную <span className={stls.bold}>скидку 10%</span>
             </div>
           </div>
@@ -34,7 +40,7 @@ const StickyTop = () => {
             <PopupTrigger
               btn='gamma'
               cta='use'
-              isActivePromocode='Прогребижская'
+              isActivePromocode='Погребижская'
             />
           </div>
         </div>
@@ -42,7 +48,7 @@ const StickyTop = () => {
           <PopupTrigger
             btn='gamma'
             cta='use'
-            isActivePromocode='Прогребижская'
+            isActivePromocode='Погребижская'
           />
         </div>
       </Wrapper>

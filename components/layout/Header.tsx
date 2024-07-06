@@ -13,9 +13,12 @@ import { BtnFields } from '@/components/btns'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 import { useRouter } from 'next/router'
+import classNames from 'classnames'
 
 
-const Header = () => {
+const Header = ({promo}) => {
+  // console.log(promo);
+  
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
     useContext(MenuContext)
 
@@ -24,7 +27,10 @@ const Header = () => {
   }, [menuIsOpen, closeMenu])
   const router = useRouter()
   return (
-    <header className={stls.container}>
+    <header className={classNames({
+      [stls.container]: true,
+      [stls.promo]: promo
+    })}>
       <MenuMobile />
       <Wrapper>
         {/* <div className={stls.top}> */}

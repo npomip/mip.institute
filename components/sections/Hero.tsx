@@ -46,7 +46,7 @@ const Hero = () => {
         <div className={stls.content}>
           <TwoColumns>
             <div className={stls.left}>
-              <h1 className={stls.title}>{title}</h1>
+            <h1 className={stls.title}>Онлайн-институт психологии</h1>
               <p className={stls.desc}>
                 Освойте востребованную профессию психолога или повысьте
                 квалификацию вместе с МИП

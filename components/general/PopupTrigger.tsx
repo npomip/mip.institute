@@ -47,13 +47,27 @@ type PopupTriggerType = {
     | 'buyTicket'
     | 'participate'
     | 'familiarize'
-
-    testProgram?: string
+    | 'use'
+  testProgram?: string
+  isActivePromocode?: string
 }
 
-const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
-  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve' || cta === 'buyTicket'|| cta === 'familiarize';
-  const question = cta === 'askQuestion' || cta === 'programQuestion' 
+const PopupTrigger = ({
+  btn,
+  cta,
+  testProgram = null,
+  isActivePromocode
+}: PopupTriggerType) => {
+  const promo =
+    cta === 'signUpForCourse' ||
+    cta === 'signUpForProfession' ||
+    cta === 'submitApplication' ||
+    cta === 'chooseProgram' ||
+    cta === 'reserve' ||
+    cta === 'buyTicket' ||
+    cta === 'familiarize' ||
+    cta === 'use'
+  const question = cta === 'askQuestion' || cta === 'programQuestion'
 
   const strs = {
     trigger:
@@ -99,6 +113,8 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
         ? 'Участвовать'
         : cta === 'familiarize'
         ? 'Ознакомиться с программой'
+        : cta === 'use'
+        ? 'Применить'
         : '',
     title:
       cta === 'askQuestion'
@@ -133,7 +149,7 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
         ? 'Узнать подробнее'
         : cta === 'consultMe'
         ? 'Хочу консультацию'
-        : cta ==='programQuestion'
+        : cta === 'programQuestion'
         ? 'Вопрос по программе'
         : cta === '2for1'
         ? 'Оставить заявку'
@@ -143,54 +159,64 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
         ? 'Узнайте как поучаствовать в акции'
         : cta === 'familiarize'
         ? 'Ознакомиться с программой'
+        : cta === 'use'
+        ? 'Применить промокод'
         : '',
     desc:
       cta === 'askQuestion' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'callMeBack' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'signUpForCourse' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'signUpForProfession' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'signUp' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'chooseProgram' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'learnAboutUs' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'submitApplication' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'getFullProgram' ? (
         <>
-          Заполните форму.{' '}
-          <br className={stls.phonetablet} />  И получите полную программу!
+          Заполните форму. <br className={stls.phonetablet} /> И получите полную
+          программу!
         </>
-      ): cta === 'reserve' ? (
+      ) : cta === 'reserve' ? (
         <>
           {/* У Вас есть вопросы? Оставьте заявку!{' '}
           <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности */}
@@ -198,7 +224,8 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
       ) : cta === 'learnAboutTeachers' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       ) : cta === 'help' ? (
         <>
@@ -223,38 +250,36 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
       ) : cta === 'consultMe' ? (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
-      ) :
-      cta === 'programQuestion' ? (
+      ) : cta === 'programQuestion' ? (
         <>
           У вас появились вопросы по программе или конкретному модулю?{' '}
-          <br className={stls.phonetablet} /> Напишите нам в форме обратной связи
+          <br className={stls.phonetablet} /> Напишите нам в форме обратной
+          связи
         </>
-      ) :
-      cta === '2for1' ? (
+      ) : cta === '2for1' ? (
         <>
-          Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          Оставьте заявку! <br className={stls.phonetablet} /> И сотрудник
+          приемной комиссии свяжется с вами, чтобы рассказать все подробности
         </>
-      ) :
-      cta === 'buyTicket' ? (
+      ) : cta === 'buyTicket' ? (
         <>
-          Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          Оставьте заявку! <br className={stls.phonetablet} /> И сотрудник
+          приемной комиссии свяжется с вами, чтобы рассказать все подробности
         </>
-      ) : 
-      cta === 'participate' ? (
+      ) : cta === 'participate' ? (
         <>
-          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все условия акции!
+          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы
+          рассказать все условия акции!
         </>
-      ) :
-      cta === 'familiarize' ? (
+      ) : cta === 'familiarize' ? (
         <>
-          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все o программе
+          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы
+          рассказать все o программе
         </>
-      ) :
-      (
+      ) : (
         ''
       ),
     cta:
@@ -300,49 +325,51 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
         ? 'Участвовать'
         : cta === 'familiarize'
         ? 'Ознакомиться с программой'
+        : cta === 'use'
+        ? 'Применить'
         : '',
-      blockForAmo:
-        cta === 'askQuestion'
-          ? 'Задать вопрос'
-          : cta === 'callMeBack'
-          ? 'Обратный звонок'
-          : cta === 'signUpForCourse'
-          ? 'Записаться на курс'
-          : cta === 'signUpForProfession'
-          ? 'Записаться на курс'
-          : cta === 'signUp'
-          ? 'Записаться'
-          : cta === 'chooseProgram'
-          ? 'Подобрать программу'
-          : cta === 'learnAboutUs'
-          ? 'Узнать об институте'
-          : cta === 'submitApplication'
-          ? 'Оставить заявку'
-          : cta === 'getFullProgram'
-          ? 'Получить программу'
-          : cta === 'reserve'
-          ? 'Забронировать'
-          : cta === 'learnAboutTeachers'
-          ? 'Узнать всех преподавателей'
-          : cta === 'help'
-          ? 'Оставить заявку'
-          : cta === 'getFullList'
-          ? 'Оставить заявку'
-          : cta === 'seeAllWebinars'
-          ? 'Смотреть вебинары'
-          : cta === 'learnMore'
-          ? 'Узнать подробнее'
-          : cta === 'consultMe'
-          ? 'Получить консультацию'
-          : cta === 'programQuestion'
-          ? 'Вопрос по программе'
-          : cta === '2for1'
-          ? 'Баннер 2 по цене одного'
-          : cta === 'participate'
-          ? 'Участвовать'
-          : cta === 'familiarize'
-          ? `Психологический тест ${testProgram}`
-          : ''
+    blockForAmo:
+      cta === 'askQuestion'
+        ? 'Задать вопрос'
+        : cta === 'callMeBack'
+        ? 'Обратный звонок'
+        : cta === 'signUpForCourse'
+        ? 'Записаться на курс'
+        : cta === 'signUpForProfession'
+        ? 'Записаться на курс'
+        : cta === 'signUp'
+        ? 'Записаться'
+        : cta === 'chooseProgram'
+        ? 'Подобрать программу'
+        : cta === 'learnAboutUs'
+        ? 'Узнать об институте'
+        : cta === 'submitApplication'
+        ? 'Оставить заявку'
+        : cta === 'getFullProgram'
+        ? 'Получить программу'
+        : cta === 'reserve'
+        ? 'Забронировать'
+        : cta === 'learnAboutTeachers'
+        ? 'Узнать всех преподавателей'
+        : cta === 'help'
+        ? 'Оставить заявку'
+        : cta === 'getFullList'
+        ? 'Оставить заявку'
+        : cta === 'seeAllWebinars'
+        ? 'Смотреть вебинары'
+        : cta === 'learnMore'
+        ? 'Узнать подробнее'
+        : cta === 'consultMe'
+        ? 'Получить консультацию'
+        : cta === 'programQuestion'
+        ? 'Вопрос по программе'
+        : cta === '2for1'
+        ? 'Баннер 2 по цене одного'
+        : cta === 'participate'
+        ? 'Участвовать'
+        : cta === 'familiarize'
+        ? `Психологический тест ${testProgram}`
+        : ''
   }
 
   return (
@@ -369,7 +396,7 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
             <BtnText text={strs.trigger} ctheta />
           ) : btn === 'test' ? (
             <BtnGamma text={strs.trigger} test />
-          ) :(
+          ) : (
             ''
           )}
         </div>
@@ -385,6 +412,7 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
           question={question}
           close={close}
           blockForAmo={strs.blockForAmo}
+          isActivePromocode={isActivePromocode}
         />
       )}
     </Popup>

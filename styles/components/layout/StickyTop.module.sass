@@ -72,3 +72,11 @@
     width: 100%
   @include m.media(laptop, desktop)
     display: none
+
+.close
+  // @include m.gap( $pr: f.px(14))
+  transform: translateX(f.px(-14))
+  @include m.media(phone, tablet)
+    position: absolute
+    top: f.px(10)
+    right: f.px(10)

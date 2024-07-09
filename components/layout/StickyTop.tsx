@@ -13,18 +13,18 @@ import {
 } from '../btns'
 import PopupTrigger from '../general/PopupTrigger'
 import classNames from 'classnames'
+import { IconCloseCircle } from '../icons'
 
 const StickyTop = ({onClick=undefined, promo=false}) => {
   const [isPromoUsed, setIsPromoUsed] = useState(false)
   
   return (
-    <div onClick={onClick} className={classNames({
+    <div  className={classNames({
       [stls.container]: true,
       [stls.nopromo]: !promo,
       [stls.promo]: promo
     })} >
       <Wrapper>
-        <button>Закрыть</button>
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.icon}>
@@ -52,6 +52,9 @@ const StickyTop = ({onClick=undefined, promo=false}) => {
           />
         </div>
       </Wrapper>
+      <div className={stls.close}>
+        <IconCloseCircle onClick={onClick} blackCross />
+      </div>
     </div>
   )
 }

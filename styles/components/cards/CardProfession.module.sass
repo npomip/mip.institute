@@ -7,7 +7,7 @@
   position: relative
   cursor: pointer
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  @include m.flex($fd: column)
+  // @include m.flex($fd: column)
   border-radius: f.px(10)
   @include m.dye(border, c.$alpha)
   @include m.dye(bg, c.$gray-50)
@@ -53,18 +53,22 @@
   @include m.gap($mb: 0)
   @include m.media(laptop, desktop)
     font-size: f.px(23)
+    @include m.gap($mt: f.px(20))
   @include m.media(phone, tablet)
     font-size: f.px(15)
 
 .content
-  @include m.gap($plr: f.px(30), $pt: f.px(26), $pb: f.px(30),$mt: f.px(-15))
+  @include m.gap($plr: f.px(30), $pt: f.px(36), $pb: f.px(40),$mt: f.px(-15))
   border: f.px(1) solid
   @include m.dye(border, c.$alpha)
   @include m.dye(bg, c.$gray-50)
   border-bottom-left-radius: f.px(10)
   border-bottom-right-radius: f.px(10)
-  min-height: f.px(272)
+  // min-height: f.px(202)
+  height: 100%
   @include m.flex($fd:column, $jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(36), $pb: f.px(30))
   .tags
     display: flex
     gap: f.px(10)

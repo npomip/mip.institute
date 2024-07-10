@@ -8,7 +8,6 @@
   cursor: pointer
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   @include m.flex($fd: column)
-  // @include m.gap($mb: f.px(30))
   border-radius: f.px(10)
   @include m.dye(border, c.$alpha)
   @include m.dye(bg, c.$gray-50)
@@ -23,7 +22,9 @@
     @include m.gap($mr: 1%)
     &:nth-child(2n)
       @include m.gap($mr: 0)
-  &:hover,
+  &:hover
+    .title
+      color: #6f01c6 !important
   &:focus
     @include m.dye(bg, c.$nu)
 

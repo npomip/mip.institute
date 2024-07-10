@@ -24,17 +24,14 @@
     font-size: f.px(40)
 
 .input
-  // width: 100%
-  display: flex
-  justify-content: flex-end
+  @include m.flex($jc: flex-end)
   & > *
     & > input
       color: black
       @include m.dye(bg, c.$nude)
       &::placeholder
         color: black
-        font-size: f.px(18)
-        font-family: Stem
+        font-size: f.px(16)
         font-style: normal
         font-weight: 200
         line-height: 130%

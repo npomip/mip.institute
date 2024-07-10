@@ -30,7 +30,7 @@
 
 .type
   max-width: max-content
-  @include m.gap($ptb: f.px(4), $plr: f.px(10),$mb: f.px(20))
+  @include m.gap($ptb: f.px(4), $plr: f.px(10),$mb: f.px(10))
   font-weight: 700
   font-size: f.px(8)
   border-radius: f.px(23)
@@ -43,6 +43,8 @@
   @include m.dye(c, c.$alpha)
   @include m.media(laptop)
     font-size: f.px(6)
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
 
 .title
   font-weight: 500
@@ -55,7 +57,7 @@
     font-size: f.px(15)
 
 .content
-  @include m.gap($plr: f.px(30), $pt: f.px(36), $pb: f.px(30),$mt: f.px(-15))
+  @include m.gap($plr: f.px(30), $pt: f.px(26), $pb: f.px(30),$mt: f.px(-15))
   border: f.px(1) solid
   @include m.dye(border, c.$alpha)
   @include m.dye(bg, c.$gray-50)
@@ -66,10 +68,15 @@
   .tags
     display: flex
     gap: f.px(10)
+    @include m.media(phone, tablet)
+      gap: 0
+      @include m.gap($mb: f.px(10))
+      flex-direction: column
+
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(18))
     height: auto
-    min-height: f.px(180)
+    min-height: f.px(160)
 
 .hot
   position: absolute

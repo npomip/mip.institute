@@ -77,10 +77,10 @@ const Footer = () => {
       val: 'Контакты',
       href: routes.front.contact
     },
-    {
-      val: 'Оплата',
-      href: routes.front.payment
-    }
+    // {
+    //   val: 'Оплата',
+    //   href: routes.front.payment
+    // }
   ]
 
   const fieldsLinks = []

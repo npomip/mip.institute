@@ -47,8 +47,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 }) => {
   useHandleContextStaticProps({ programs })
 
-  
-
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
       'Алла Косина',
@@ -60,8 +58,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       'Анастасия Волкова',
       'Людмила Гиль',
       'Вера Гаврилова',
-      "Егор Борисов",
-      "Андрей Бушев"
+      'Егор Борисов',
+      'Андрей Бушев'
     ]
 
     return allowedNames.includes(teacher.name)
@@ -160,7 +158,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}
         cta='chooseProgram'
       />
-      <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
+      <WhatYouWillLearn title={'Чему вы научитесь в МИП'} onMain />
       <SalaryCounter />
       <Teachers
         onMain

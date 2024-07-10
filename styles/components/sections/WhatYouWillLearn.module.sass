@@ -85,3 +85,65 @@
       @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
       top: f.px(-30)
       left: f.px(-339)
+
+.orangeBlock
+  position: relative
+  z-index: 2
+  border-radius: f.px(20)
+  border: 1px solid #FB6C2E
+  background: #F7F8FC
+  @include m.gap($pt: f.px(35), $pb: f.px(10))
+
+.itemOnMain
+  list-style: none
+  @include m.flex($ai: flex-start)
+  height: f.px(140)
+
+.listText
+  @include m.flex($ai: flex-start, $fd: column)
+  @include m.gap($ml: f.px(20))
+
+.listTitle
+  display: block
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  width: f.px(415)
+  @include m.gap($mb: f.px(10))
+
+.text
+  font-size: f.px(14)
+  font-style: normal
+  font-weight: 350
+  line-height: 130%
+  width: f.px(350)
+
+.listLeft
+  columns: 2
+  -webkit-columns: 2
+  -moz-columns: 2
+
+.orangeCloudLeft
+  z-index: 1
+  position: absolute
+  width: f.px(267)
+  height: f.px(267)
+  border-radius: f.px(267)
+  opacity: 0.3
+  background: linear-gradient(180deg, #FFF4B4 0%, #FF9345 100%)
+  filter: blur(50px)
+  left: f.px(-50)
+  top: f.px(-50)
+
+.orangeCloudRight
+  z-index: 1
+  position: absolute
+  width: f.px(267)
+  height: f.px(267)
+  border-radius: f.px(267)
+  opacity: 0.4
+  background: linear-gradient(180deg, #FFF4B4 0%, #FF9345 100%)
+  filter: blur(50px)
+  right: 0
+  bottom: f.px(0)

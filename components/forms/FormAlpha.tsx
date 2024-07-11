@@ -14,7 +14,6 @@ import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
 import genezis from '../funcs/genezis'
 import getTicket from '../funcs/getTicket'
-import ipCheckFunc from '../funcs/ipCheckFunc'
 
 type FormValues = {
   name: string
@@ -23,6 +22,7 @@ type FormValues = {
   promocode: string
   question: string
   leadPage: string
+  isActivePromocode?: string
 }
 
 interface Props {
@@ -47,7 +47,8 @@ const FormAlpha = ({
   promo = false,
   inProfessions = false,
   isLiveCourse = false
-}: Props) => {
+  isActivePromocode = ''
+}) => {
   const {
     register,
     handleSubmit,
@@ -58,7 +59,8 @@ const FormAlpha = ({
     defaultValues: {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      promocode: isActivePromocode ?? isActivePromocode
     }
   })
 
@@ -126,7 +128,10 @@ const FormAlpha = ({
 
       if (req === 200) {
         setLoading(false)
-        window.open(routes.front.gratefull, '_blank')
+        window.open(
+          `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
+          '_blank'
+        )
         setIsIpCheckFailed(false)
         setIsDisabled(true)
         setThanksIsOpen(true)

@@ -35,10 +35,10 @@ export default function SearchProgramsDropDown() {
         href: routes.front.reviews,
         val: 'Отзывы'
       },
-      {
-        href: routes.front.payment,
-        val: 'Оплата обучения'
-      }
+      // {
+      //   href: routes.front.payment,
+      //   val: 'Оплата обучения'
+      // }
     ],
     []
   )

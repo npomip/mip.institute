@@ -5,12 +5,31 @@ import { CheckLicense } from '@/components/sections'
 import { IconDoc } from '@/components/icons'
 import { PopupImage } from '@/components/popups'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
+import { BtnAlpha } from '@/components/btns'
+import routes from '@/config/routes'
 
-const ActiveLicenses = () => {
+type Props = {
+  isOchuVoMip?: boolean
+}
+
+const ActiveLicenses = ({ isOchuVoMip }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Действующие лицензии</h2>
+        {isOchuVoMip ? (
+          <div className={stls.header}>
+            <h2 className={stls.title}>Действующие лицензии</h2>
+            <BtnAlpha text='Реквизиты НАНО «МИП»' href={routes.front.legal} />
+          </div>
+        ) : (
+          <div className={stls.header}>
+            <h2 className={stls.title}>Действующие лицензии</h2>
+            <BtnAlpha
+              text='Реквизиты ОЧУ ВО «МИП»'
+              href={routes.front.legal_edu}
+            />
+          </div>
+        )}
         <p className={stls.p}>
           Лицензия департамента образования города Москвы на осуществление
           образовательной деятельности:
@@ -21,7 +40,7 @@ const ActiveLicenses = () => {
               trigger={
                 <button className={stls.trigger}>
                   <span className={stls.img}>
-                    <ImgLicence />
+                    <ImgLicence isOchuVoMip={isOchuVoMip} />
                   </span>
                   <span className={stls.label}>
                     <span className={stls.labelIcon}>
@@ -33,11 +52,16 @@ const ActiveLicenses = () => {
               }
               modal
               nested>
-              {close => <PopupImage image={<ImgLicence />} close={close} />}
+              {close => (
+                <PopupImage
+                  image={<ImgLicence isOchuVoMip={isOchuVoMip} />}
+                  close={close}
+                />
+              )}
             </Popup>
           </div>
           <div className={stls.right}>
-            <CheckLicense />
+            <CheckLicense isOchuVoMip={isOchuVoMip} />
           </div>
         </div>
       </Wrapper>

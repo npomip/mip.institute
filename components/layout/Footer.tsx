@@ -77,10 +77,10 @@ const Footer = () => {
       val: 'Контакты',
       href: routes.front.contact
     },
-    {
-      val: 'Оплата',
-      href: routes.front.payment
-    }
+    // {
+    //   val: 'Оплата',
+    //   href: routes.front.payment
+    // }
   ]
 
   const fieldsLinks = []
@@ -152,6 +152,22 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li
+                  // key={link.val + link.href}
+                  className={classNames({
+                    [stls.linkItem]: true,
+                    [stls.fieldsLinkItem]: true
+                  })}>
+                  <Link href={'/journal'}>
+                    <a
+                      className={classNames({
+                        [stls.link]: true,
+                        [stls.fieldsLink]: true
+                      })}>
+                      {'Журнал'}
+                    </a>
+                  </Link>
+                </li>
               <li className={stls.logo}>
                 <Logo atFooter />
               </li>

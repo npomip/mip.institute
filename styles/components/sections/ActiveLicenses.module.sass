@@ -3,11 +3,11 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(50))
   @include m.media(laptop, desktop)
     @include m.gap($mt: f.px(100))
     @include m.gap($ml: f.px(50))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(40))
 
 .content
   @include m.media(laptop, desktop)
@@ -22,6 +22,13 @@
     flex: 1
     @include m.gap($mr: 5%)
     @include m.flex($display: false, $fb: 25%)
+
+.header
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: flex-start)
+    & > a
+      @include m.gap($mtb: f.px(15))
 
 .title
   font-weight: 500
@@ -56,17 +63,16 @@
 
 .img
   overflow: hidden
-  padding: 5px
+  padding: f.px(5)
   display: flex
   flex: 1
   flex-basis: 100%
   min-width: 100%
-  & > *
-    flex-grow: 1
+  flex-grow: 1
   max-width: f.px(213)
   border: f.px(2) solid
-  border-radius: 10px
   @include m.dye(border, c.$delta-2)
+  border-radius: f.px(10)
 
 .label
   @include m.flex($jc: center, $ai: center)

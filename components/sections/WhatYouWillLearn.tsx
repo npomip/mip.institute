@@ -7,50 +7,18 @@ import { useContext } from 'react'
 import TagOrange from '@/components/general/TagOrange'
 import IconPortalViolet from '@/components/icons/IconPortalViolet'
 import classNames from 'classnames'
-import IconSun from '../icons/IconSun'
-import IconStarLong from '../icons/IconStarLong'
-import IconFlower from '../icons/IconFlower'
-import IconClever from '../icons/IconClever'
-import IconStar from '../icons/IconStar'
+import IconSun from '@/components/icons/IconSun'
+import IconStarLong from '@/components/icons/IconStarLong'
+import IconFlower from '@/components/icons/IconFlower'
+import IconClever from '@/components/icons/IconClever'
+import IconStar from '@/components/icons/IconStar'
+import content from 'constants/whatYouWillLearn'
 
 const WhatYouWillLearn = ({ onMain = false, title }) => {
   const { program } = useContext(ContextStaticProps)
   let list =
     program?.WhatYouWillLearn?.length > 0 &&
     getListItemsInnerHtml(marked(program.WhatYouWillLearn))
-
-  let content = [
-    {
-      title: 'Применять психотерапевтические методы',
-      content:
-        'Освоите научно-ориентированные инструменты, подходящие для решения личностных проблем, обеспечивая эффективный терапевтический процесс с клиентами'
-    },
-    {
-      title: 'Подбирать индивидуальную терапию',
-      content:
-        'Узнаете, как адаптировать психотерапию к уникальным запросам и особенностям каждого клиента'
-    },
-    {
-      title: 'Понимать отличия в работе со взрослыми и детьми',
-      content:
-        'Изучите психологические аспекты, которые необходимо учитывать при взаимодействии с клиентами разных возрастов'
-    },
-    {
-      title: 'Анализировать особенности психики человека',
-      content:
-        'Научитесь помогать людям обретать поддержку и успокоение, понимать сложные жизненные ситуации и находить пути их решения'
-    },
-    {
-      title: 'Определять собственный вектор развития',
-      content:
-        'Мы с радостью окажем содействие в стремлении изменить направление развития твоей жизни, пересмотреть ценности и смыслы'
-    },
-    {
-      title: 'Развивать свой личный бренд и вдохновлять других',
-      content:
-        'Сможете заявить о себе, привлечь клиентов и создать очередь на консультации'
-    }
-  ]
 
   const renderIcon = (x: number) => {
     switch (x) {
@@ -83,15 +51,19 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
           <h2 className={stls.title}>{title}</h2>
           {onMain && (
             <div className={stls.tag}>
-              <TagOrange>Знания</TagOrange>
+              <TagOrange isWhiteText>Знания</TagOrange>
             </div>
           )}
           {onMain ? (
             <div className={stls.orangeBlock}>
-              <div className={stls.orangeCloudLeft}></div>
-              <ul className={stls.listLeft}>
+              <div
+                className={classNames({
+                  [stls.orangeCloud]: true,
+                  [stls.left]: true
+                })}></div>
+              <ul className={stls.listMain}>
                 {content.map((el, i) => (
-                  <li className={stls.itemOnMain}>
+                  <li className={stls.itemOnMain} key={title}>
                     {renderIcon(i)}
                     <div className={stls.listText}>
                       <div className={stls.listTitle}>{el.title}</div>
@@ -100,7 +72,11 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
                   </li>
                 ))}
               </ul>
-              <div className={stls.orangeCloudRight}></div>
+              <div
+                className={classNames({
+                  [stls.orangeCloud]: true,
+                  [stls.right]: true
+                })}></div>
             </div>
           ) : (
             <ul className={stls.list}>

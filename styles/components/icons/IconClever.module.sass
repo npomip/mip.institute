@@ -5,10 +5,5 @@
 .container
   @include m.flex
   @include m.sizeIcon($w: 30, $h: 30)
-
-.orange
-  @include m.sizeIcon($w: 44, $h: 44)
-  svg
-    padding: 0
-  path
-    fill: #F87E1B
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 20, $h: 20)

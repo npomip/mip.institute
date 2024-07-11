@@ -30,6 +30,7 @@ import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
+import SalaryCounter from '../sections/SalaryCounter'
 
 interface Breadcrumb {
   label: string

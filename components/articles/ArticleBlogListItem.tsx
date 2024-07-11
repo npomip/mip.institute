@@ -14,26 +14,24 @@ type ArticleBlogListItemType = {
 }
 
 const ArticleBlogListItem = ({props} : ArticleBlogListItemType) => {
-  const {text, icon } = props;
+  const text = props.text;
 
   const renderer = new marked.Renderer();
   renderer.code = (text) => {
-    return `<span classname=${stls.icon}>${text}</span>`;
+    return `<div classname=${stls.icon}>${text}</div>`;
   };
   renderer.paragraph = (text) => {
-    return `<p classname=${stls.papap}>${text}</p>`
+    return `<p>${text}</p>`
   }
   marked.setOptions({ renderer });
 
-  const parsedIcon = marked(props.icon);
-  
+  const icon = marked(props.icon);
+
 
   return (
       <div className={stls.innerBox}>
-        <div className={stls.icon}>
-        {parse(parsedIcon)}
-        </div>
-      <p>{parse(text)}</p>
+      {parse(icon)}
+      <p>{text}</p>
       </div>
   )
 }

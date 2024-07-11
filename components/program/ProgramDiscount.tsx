@@ -21,9 +21,9 @@ const ProgramDiscount = ({
   const { program } = useContext(ContextStaticProps)
   const programDiscount = program?.discount || 0
 
-  const elDiscount = <>{programDiscount ? `-${programDiscount}%` : discount}</>
+  // const elDiscount = <>{programDiscount ? `-${programDiscount}%` : discount}</>
 
-  // const elDiscount = <>{programDiscount ? `-${40}%` : 40}</>
+  const elDiscount = <>{programDiscount ? `-${40}%` : 40}</>
 
   return (
     <>

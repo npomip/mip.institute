@@ -20,12 +20,6 @@ import { useEffect, useState } from 'react'
 // `
 
 const JournalPage = ({ blogs }) => {
-
-  // const { loading, error, data } = useQuery(CHECK_TOKENS)
-
-  // console.log(loading, data)
-
-
   const router = useRouter()
 
   if(prod && !preview){
@@ -66,7 +60,7 @@ const JournalPage = ({ blogs }) => {
         props={blogs}
         slug='journal'
       />
-      <SlugTags selectedField={selectedField} props={blogsFilter} slug='journal' />
+      <SlugTags isJournal props={blogsFilter} slug='journal' />
     </Wrapper>
   )
 }

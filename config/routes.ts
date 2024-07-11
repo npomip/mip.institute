@@ -24,6 +24,8 @@ const routes = {
     journal: '/journal/slug',
     seminars: '/seminars',
     seminar: '/seminars/studyField/slug',
+    liveCourses: '/live-courses',
+    liveCourse: '/live-courses/slug',
     courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',
@@ -31,13 +33,10 @@ const routes = {
     about: '/about',
     reviews: '/reviews',
     legal: '/legal',
-    legal_edu: '/legal_edu',
-    payment: '/payment_edu_mip',
+    payment: '/payment',
     gratefull: '/gratefull',
     contact: '/contact',
     docs: '/docs',
-    ochuvomipConstituent: '/docs/ochu_vo_mip/constituent',
-    ochuvomipGeneral: '/docs/ochu_vo_mip/general',
     docsConstituent: '/docs/constituent',
     docsRegulations: 'docs/regulations',
     docsGeneral: '/docs/general',
@@ -61,7 +60,6 @@ const routes = {
     users: '/users'
   },
   external: {
-    ochuVoMipLicense: 'https://islod.obrnadzor.gov.ru/rlic/details/0B110A13-100E-130E-0C13-130F0F100E100E0F100D/',
     license:
       'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
     vk: 'https://m.vk.com/mip_institute',
@@ -73,7 +71,7 @@ const routes = {
       'https://tutortop.ru/school-reviews/moskovskij-institut-psihologii/?cid=1685112262621940498',
     otzovic:
       'https://otzovik.com/reviews/nano_moskovskiy_institut_psihologii_russia_moscow',
-    yandex: 'https://yandex.ru/profile/-/CDfB5OYg',
+    yandex: 'https://yandex.ru/profile/118117434311',
     twoGis: 'https://go.2gis.com/y85xl6',
     ucheba: 'https://www.ucheba.ru/uz/107383/opinions#new-comments-panel',
     dzen: 'https://dzen.ru/institute_mip',

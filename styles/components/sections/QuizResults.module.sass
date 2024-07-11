@@ -4,33 +4,15 @@
 
 .container
   background: linear-gradient(180deg, #FDF8FF 0%, #D4C8FF 100%)
-  @include m.gap($mb: f.px(90))
 
 .result
   display: block
-  
   text-align: center
   @include m.gap($pt: f.px(55), $mb: f.px(40))
   font-size: f.px(44)
   font-style: normal
   font-weight: 500
   line-height: 130%
-  transform-style: preserve-3d
-  span
-    position: relative
-    display: inline-block
-    transform-style: preserve-3d
-    &::after
-      // z-index: 1
-      transform: translateZ(-1px)
-      position: absolute
-      content: ''
-      border: f.px(7) solid #947AFF
-      width: 102%
-      bottom: f.px(6)
-      left: -1%
-      @include m.media(phone, tablet)
-        border: f.px(3) solid #947AFF
   @include m.media(phone, tablet)
     font-size: f.px(28)
     @include m.gap($pt: f.px(50), $mb: f.px(20))
@@ -41,6 +23,9 @@
   row-gap: f.px(35)
   @include m.media(phone, tablet)
     grid-template-columns: 1fr
+    
+  // & > *
+  //   width: 50%
 
 .img
   border-radius: 20px

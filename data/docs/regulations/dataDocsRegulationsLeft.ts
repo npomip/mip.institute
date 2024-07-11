@@ -11,8 +11,8 @@ const dataDocsRegulationsLeft: TypeDataDocs = [
     val: 'Постановление Правительства РФ от 08.08.2013 № 678 "Об утверждении номенклатуры должностей педагогических работников организаций, осуществляющих образовательную деятельность, должностей руководителей образовательных организаций"'
   },
   {
-    href: `${routes.front.docsRegulations}/postanovlieniie-pravitiel-stva-rossiiskoi-fiedieratsii-ot-15-09-2020-pravila-okazaniia-platnykh-obrazovatiel-nykh-uslug.pdf`,
-    val: 'Постановление Правительства Российской Федерации от 15 сентября 2020 г. N 1441 "Об утверждении Правил оказания платных образовательных услуг"'
+    href: `${routes.front.docsRegulations}/postanovlieniie-pravitiel-stva-rossiiskoi-fiedieratsii-ot-15-avghusta-2013-gh-706-pravila-okazaniia-platnykh-obrazovatiel-nykh-uslugh.pdf`,
+    val: 'Постановление Правительства Российской Федерации от 15 августа 2013 г. № 706 «Правила оказания платных образовательных услуг»'
   },
   {
     href: `${routes.front.docsRegulations}/prikaz-ot-gh-1244-o-vniesienii-izmienienii-v-poriadok-orghanizatsii-i-osushchiestvlieniia-obrazovatiel-noi-dieiatiel-nosti-po-dopolnitiel-nym-profiessional-nym-proghrammam-utvierzhdiennyi-prikazom-minis.pdf`,

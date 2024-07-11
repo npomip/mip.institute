@@ -4,9 +4,9 @@ type TypeIconCloseCircle = {
   blackCross?: boolean
 }
 
-const IconCloseCircle = ({ blackCross = false, onClick=null }) => {
+const IconCloseCircle = ({ blackCross = false }) => {
   return (
-    <span onClick={onClick} className={stls.container}>
+    <span className={stls.container}>
       <svg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Закрыть</title>
         <circle cx='16' cy='16' r='16' fill='#F5F5F5' />

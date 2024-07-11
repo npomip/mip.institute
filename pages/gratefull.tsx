@@ -5,11 +5,9 @@ import truncate from 'truncate'
 import { routes, company } from '@/config/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import Gratefull from '@/components/sections/Gratefull'
-import { useRouter } from 'next/router'
 
 const GratefullPage: NextPage<TypePageDefaultProps> = () => {
-  const router = useRouter()
-  const {name, email} = router.query
+  // useHandleContextStaticProps({ programs })
 
   const seoParams = {
     title: `Спасибо за заявку | ${company.name}`,
@@ -49,7 +47,6 @@ const GratefullPage: NextPage<TypePageDefaultProps> = () => {
       <SeoOrganizationJsonLd />
       
       <Gratefull />
-      <div className="i-flocktory" data-fl-action="exchange" data-fl-user-name={name} data-fl-user-email={email}></div>
     </>
   )
 }

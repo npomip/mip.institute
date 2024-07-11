@@ -5,15 +5,7 @@ import Popup from 'reactjs-popup'
 import { IconDoc, IconMinus, IconPlus } from '@/components/icons'
 import { PopupImage } from '@/components/popups'
 
-type Props = {
-  idx?: number
-  title?: string
-  diplomas?: {
-    image: JSX.Element
-    title: string
-  }[]
-}
-const DiplomaExpandableItem = ({ title, diplomas, idx }: Props) => {
+const DiplomaExpandableItem = ({ title, diplomas, idx }) => {
   const [isOpen, setOpen] = useState(idx === 0 ? true : false)
 
   return (
@@ -23,8 +15,7 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }: Props) => {
         <span className={stls.icon}>
           {isOpen ? <IconMinus /> : <IconPlus />}
         </span>
-        <span
-          className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>
+        <span className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>
           {title}
         </span>
       </button>

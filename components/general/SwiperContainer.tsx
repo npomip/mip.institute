@@ -11,6 +11,30 @@ import { useEffect, useRef, useState } from 'react'
 
 SwiperCore.use([Navigation, Pagination])
 
+interface IOption {
+  slidesNum?: number
+  spaceBetween?: number
+}
+
+interface Props {
+  teachers?: boolean
+  topCourses?: boolean
+  diplomas?: boolean
+  reviews?: boolean
+  reviewNextBtn?: boolean
+  reviewPrevBtn?: boolean
+  isLiveCourse?: boolean
+  isMultiRow?: boolean
+  autoHeight?: boolean
+  hideNavigation?: boolean
+  alwaysDisabledOnDesktop?: boolean
+  slides: any
+  mobileOptions?: IOption
+  tabletOptions?: IOption
+  laptopOptions?: IOption
+  desktopOptions?: IOption
+}
+
 const SwiperContainer = ({
   teachers = false,
   topCourses = false,
@@ -26,8 +50,9 @@ const SwiperContainer = ({
   alwaysDisabledOnDesktop = false,
   isMultiRow = false,
   autoHeight = false,
-  hideNavigation = false
-}) => {
+  hideNavigation = false,
+  isLiveCourse = false
+}: Props) => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
   const isTabletLayout = useBetterMediaQuery(
     '(min-width: 481px) and (max-width: 768px)'
@@ -97,7 +122,6 @@ const SwiperContainer = ({
         prevEl: '.custom-prev-button',
         nextEl: '.custom-next-button'
       }}
-      
       speed={250}
       enabled={checkIfSwiperEnabled()}
       spaceBetween={getSpaceBetween()}
@@ -136,10 +160,16 @@ const SwiperContainer = ({
       {!hideNavigation && (
         <>
           <div className='custom-prev-button-container'>
-            <CustomPrevButton reviewPrevBtn={reviewPrevBtn} />
+            <CustomPrevButton
+              reviewPrevBtn={reviewPrevBtn}
+              isLiveCourse={isLiveCourse}
+            />
           </div>
           <div className='custom-next-button-container'>
-            <CustomNextButton reviewNextBtn={reviewNextBtn} />
+            <CustomNextButton
+              reviewNextBtn={reviewNextBtn}
+              isLiveCourse={isLiveCourse}
+            />
           </div>
         </>
       )}

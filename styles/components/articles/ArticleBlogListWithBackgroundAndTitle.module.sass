@@ -31,7 +31,9 @@
   align-content: center
   @include m.media(phone, tablet)
     @include m.sizeIcon($w: 17, $h: 17)
-
+  & > *
+    & > *
+      fill: red
 .twoColumns
   display: grid
   grid-gap: 10px

@@ -1,12 +1,17 @@
 import stls from '@/styles/components/imgs/general/Horn.module.sass'
-import Image from 'next/image'
-import pic from '@/public/assets/imgs/general/horn.png'
+import Image, { StaticImageData } from 'next/image'
 
-const Horn = ({ width = 569, height = 317 }) => {
+interface Props {
+  url: StaticImageData
+  width?: number
+  height?: number
+}
+
+const Horn = ({ url, width = 569, height = 317 }: Props) => {
   return (
     <div className={stls.container}>
       <Image
-        src={pic}
+        src={url}
         alt='Горн'
         className={stls.img}
         width={width !== 0 && width}

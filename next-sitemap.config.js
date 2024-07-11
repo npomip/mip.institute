@@ -5,7 +5,7 @@ module.exports = {
   sitemapSize: 5000,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/payment','/gratefull', '/promo*', '*?'],
+  exclude: ['/payment','/gratefull', '/promo*', '*?', '/seminars'],
   // alternateRefs: [
   //   {
   //     href: 'https://moscow.mba/en-US',

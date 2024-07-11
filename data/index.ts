@@ -12,33 +12,3 @@ export { default as dataDocsRegulationsRight } from '@/data/docs/regulations/dat
 
 // ./general
 export { default as pros } from '@/data/general/pros'
-
-// ./docs/ochu_vo_mip/constituent
-export { default as dataOchuVoMipDocsConstituentLeft } from '@/data/docs/ochu_vo_mip/constituent/dataOchuVoMipDocsConstituentLeft'
-export { default as dataOchuVoMipDocsConstituentRight } from '@/data/docs/ochu_vo_mip/constituent/dataOchuVoMipDocsConstituentRight'
-
-// ./docs/ochu_vo_mip/constituent/additional
-export { default as dataOchuVoMipAdditionalLeft } from '@/data/docs/ochu_vo_mip/constituent/additional/dataOchuVoMipAdditionalLeft'
-export { default as dataOchuVoMipAdditionalRight } from '@/data/docs/ochu_vo_mip/constituent/additional/dataOchuVoMipAdditionalRight'
-
-// ./docs/ochu_vo_mip/constituent/entrance
-export { default as dataOchuVoMipEntranceLeft } from '@/data/docs/ochu_vo_mip/constituent/entrance/dataOchuVoMipEntranceLeft'
-export { default as dataOchuVoMipEntranceRight } from '@/data/docs/ochu_vo_mip/constituent/entrance/dataOchuVoMipEntranceRight'
-
-// ./docs/ochu_vo_mip/constituent/program
-export { default as dataOchuVoMipProgramLeft } from '@/data/docs/ochu_vo_mip/constituent/program/dataOchuVoMipProgramLeft'
-export { default as dataOchuVoMipProgramRight } from '@/data/docs/ochu_vo_mip/constituent/program/dataOchuVoMipProgramRight'
-
-// ./docs/ochu_vo_mip/general/common
-export { default as dataOchuVoMipCommonLeft } from '@/data/docs/ochu_vo_mip/general/common/dataOchuVoMipCommonLeft'
-export { default as dataOchuVoMipCommonRight } from '@/data/docs/ochu_vo_mip/general/common/dataOchuVoMipCommonRight'
-
-// ./docs/ochu_vo_mip/general/higher-education
-export { default as dataOchuVoMipHigherEduLeft } from '@/data/docs/ochu_vo_mip/general/higher-education/dataOchuVoMipHigherEduLeft'
-export { default as dataOchuVoMipHigherEduRight } from '@/data/docs/ochu_vo_mip/general/higher-education/dataOchuVoMipHigherEduRight'
-
-// ./docs/ochu_vo_mip/general/higher-education
-export { default as dataOchuVoMipAddEduLeft } from '@/data/docs/ochu_vo_mip/general/additional-education/dataOchuVoMipAddEduLeft'
-export { default as dataOchuVoMipAddEduRight } from '@/data/docs/ochu_vo_mip/general/additional-education/dataOchuVoMipAddEduRight'
-
-

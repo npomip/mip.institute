@@ -11,8 +11,8 @@ const dataDocsRegulationsRight: TypeDataDocs = [
     val: 'Порядок организации и осуществления образовательной деятельности по дополнительным профессиональным программам (утв. приказом Министерства образования и науки РФ от 1 июля 2013 г. № 499)'
   },
   {
-    href: `${routes.front.docsRegulations}/postanovlieniie-pravitiel-stva-rf-582-ot-20-10-2021-gh-ob-utvierzhdienii-pravil-razmieshchieniia-na-ofitsial-nom-saitie-obrazovatiel-noi-orghanizatsii-v-informatsionno-tieliekommunikatsionnoi-sieti-inti.pdf`,
-    val: 'Постановление Правительства Российской Федерации от 20 октября 2021 г. N 1802 "Об утверждении Правил размещения на официальном сайте образовательной организации в информационно-телекоммуникационной сети "Интернет" и обновления информации об образовательной организации, а также о признании утратившими силу некоторых актов и отдельных положений некоторых актов Правительства Российской Федерации" (с изменениями и дополнениями)'
+    href: `${routes.front.docsRegulations}/postanovlieniie-pravitiel-stva-rf-582-ot-10-07-2013-gh-ob-utvierzhdienii-pravil-razmieshchieniia-na-ofitsial-nom-saitie-obrazovatiel-noi-orghanizatsii-v-informatsionno-tieliekommunikatsionnoi-sieti-inti.pdf`,
+    val: 'Постановление Правительства РФ №582 от 10.07.2013 г. Об утверждении Правил размещения на официальном сайте образовательной организации в информационно-телекоммуникационной сети "Интернет" и обновления информации об образовательной организации'
   },
   {
     href: `${routes.front.docsRegulations}/prikaz-ministierstva-obrazovaniia-i-nauki-rf-ot-9-ianvaria-2014-gh-n-2-ob-utvierzhdienii-poriadka-primienieniia-orghanizatsiiami-osushchiestvliaiushchimi-obrazovatiel-nuiu-dieiatiel-nost-eliektronnogho.pdf`,

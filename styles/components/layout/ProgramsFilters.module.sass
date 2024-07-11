@@ -3,8 +3,35 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  // display: flex
+  // flex-direction: column
+.categories
+  display: flex
+  @include m.gap($mt: f.px(10))
+  flex-wrap: wrap
+  row-gap: f.px(15)
+  column-gap: f.px(15)
 
-.divider
-  @include m.gap($mtb: f.px(40))
-  height: f.px(1)
-  @include m.dye(bg, c.$beta-2)
+.sorting
+  display: flex
+  row-gap: f.px(15)
+  column-gap: f.px(4)
+  @include m.media(laptop)
+    flex-wrap: wrap
+    row-gap: f.px(10)
+    column-gap: f.px(11)
+  @include m.media(phone, tablet)
+    flex-wrap: wrap
+    row-gap: f.px(10)
+    column-gap: f.px(11)
+    & > span:nth-child(2)
+      order: 1
+    & > span:nth-child(4)
+      order: 2
+
+.mobileSelect
+  gap: f.px(12)
+
+.withInfo
+  display: flex
+  flex-wrap: nowrap

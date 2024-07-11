@@ -4,7 +4,7 @@
 
 .container
   @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(80))
+    @include m.gap($pb: f.px(100))
 
 .content
   @include m.media(laptop, desktop)
@@ -50,29 +50,3 @@
     font-size: f.px(18)
   @include m.media(laptop, desktop)
     font-size: f.px(15)
-
-.listBlock
-  @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(30))
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
-
-.listTitle
-  font-weight: 500
-  @include m.dye(c, c.$theta)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(40))
-    font-size: f.px(34)
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
-    font-size: f.px(22)
-
-.subTitle
-  font-weight: 500
-  @include m.dye(c, c.$theta)
-  @include m.media(laptop, desktop)
-    @include m.gap($mtb: f.px(20))
-    font-size: f.px(30)
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10))
-    font-size: f.px(18)

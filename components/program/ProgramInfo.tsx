@@ -34,7 +34,6 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      // val: 'до 3 июля',
       val: <ProgramAdmission />,
       icon: <IconMap />
     },
@@ -55,6 +54,7 @@ const ProgramInfo = () => {
   const infoHandler = () => {
     setInfo(prev => !prev)
   }
+  console.log({ program })
 
   return (
     <>

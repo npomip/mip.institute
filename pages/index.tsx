@@ -47,21 +47,14 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 }) => {
   useHandleContextStaticProps({ programs })
 
-  
-
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
-      'Алла Косина',
-      'Дмитрий Смыслов',
-      'Анна Шавырина',
-      'Ирина Перемолотова',
-      'Юлия Катасонова',
-      'Елена Харитонцева',
-      'Анастасия Волкова',
-      'Людмила Гиль',
-      'Вера Гаврилова',
-      "Егор Борисов",
-      "Андрей Бушев"
+      'Косина Алла Александровна',
+      'Смыслов Дмитрий Анатольевич',
+      'Шавырина Анна Алексеевна',
+      'Перемолотова Ирина Александровна',
+      'Катасонова Юлия Викторовна',
+      'Харитонцева Елена Олеговна'
     ]
 
     return allowedNames.includes(teacher.name)
@@ -137,24 +130,14 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
-      <PsyTest />
+      {/* <PsyTest /> */}
       <TopCourses />
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />
       <About />
-      <EducationProcess
-        paddingTop={90}
-        paddingBottom={0}
-        paddingTopMobile={0}
-        paddingBottomMobile={0}
-      />
-      <DistanceEducation
-        paddingTop={0}
-        paddingBottom={100}
-        paddingTopMobile={0}
-        paddingBottomMobile={50}
-      />
+      <EducationProcess paddingTop={90} paddingBottom={0} paddingTopMobile={0} paddingBottomMobile={0} />
+      <DistanceEducation paddingTop={0} paddingBottom={100} paddingTopMobile={0} paddingBottomMobile={50}/>
       <Cta
         title={'Подберите программу'}
         desc={'Ответьте на несколько вопросов и подберите программу обучения'}

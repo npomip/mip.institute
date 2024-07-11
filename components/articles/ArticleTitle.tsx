@@ -53,7 +53,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
         <div className={stls.dateAndTime}>
           <p className={stls.date}>{date.toLocaleDateString()}</p>
           <IconClock colorCode='#545454' size='22' />
-          <p className={stls.time}>{props.readTime} мин</p>
+          <p>{props.readTime} мин</p>
         </div>
       </div>
 

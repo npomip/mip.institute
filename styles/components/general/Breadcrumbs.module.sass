@@ -5,7 +5,6 @@
 
 .container
   @include m.media(phone, tablet)
-    display: none
   @include m.gap($pt: f.px(1))
   ul
     li
@@ -39,5 +38,7 @@
 
 .isJournal
   @include m.gap($mt: f.px(45), $mb: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(18))
   .triangle
     border-color: transparent transparent transparent #000  

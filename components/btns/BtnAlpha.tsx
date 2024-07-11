@@ -7,6 +7,7 @@ interface Props {
   href?: null | string
   target?: null | string
   isLiveCourse?: boolean
+  onClick?: () => void
 }
 
 const BtnAlpha = ({
@@ -14,7 +15,8 @@ const BtnAlpha = ({
   isDisabled = false,
   href = null,
   target = null,
-  isLiveCourse
+  isLiveCourse,
+  onClick
 }: Props) => {
   return (
     <>

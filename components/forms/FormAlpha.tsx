@@ -46,8 +46,9 @@ const FormAlpha = ({
   agreement = false,
   promo = false,
   inProfessions = false,
-  isLiveCourse = false
-}: Props) => {
+  isLiveCourse = false,
+  isActivePromocode = ''
+}) => {
   const {
     register,
     handleSubmit,
@@ -126,7 +127,10 @@ const FormAlpha = ({
 
       if (req === 200) {
         setLoading(false)
-        window.open(routes.front.gratefull, '_blank')
+        window.open(
+          `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
+          '_blank'
+        )
         setIsIpCheckFailed(false)
         setIsDisabled(true)
         setThanksIsOpen(true)

@@ -25,11 +25,15 @@ type PagesProgramsType = {
     label: string
     path: string
     slug: string
-  } []
+  }[]
 }
 
-const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: PagesProgramsType) => {
-  
+const PagesPrograms = ({
+  programs,
+  studyFields,
+  allPrograms,
+  breadcrumbs
+}: PagesProgramsType) => {
   let filteredItems = useFilteredItems()
 
   const dispatch = useFilterDispatch()
@@ -62,23 +66,21 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: Page
   const { query } = router
 
   const { filter, opened } = query
-  
+
   useEffect(() => {
-    if(filter === 'popular') {
+    if (filter === 'popular') {
       dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
-  } else {
-    dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
-  }
-    
+    } else {
+      dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
+    }
   }, [filter])
 
   useEffect(() => {
-    if(opened) {
+    if (opened) {
       dispatch({ type: 'setBooleanFilter', filterName: 'courseOpened' })
-  } else {
-    dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
-  }
-    
+    } else {
+      dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
+    }
   }, [opened])
 
   const handleResetFilters = () => {
@@ -88,16 +90,18 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: Page
       query: null
     })
   }
-  
+
   return (
     <>
-    <Wrapper><Breadcrumbs isJournal breadcrumbs={breadcrumbs} /></Wrapper>
-      
+      <Wrapper>
+        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+      </Wrapper>
+
       <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
       <section className={stls.container}>
         <div className={stls.sorting}>
           <ProgramsFilters
-          allPrograms={allPrograms}
+            allPrograms={allPrograms}
             studyFields={query.studyFieldSlug ? studyFields : categories}
           />
         </div>

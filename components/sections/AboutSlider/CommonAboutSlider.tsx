@@ -8,23 +8,28 @@ import secondPic from '@/public/assets/imgs/general/SecondPic.jpg'
 import thirdPic from '@/public/assets/imgs/general/ThirdPic.jpg'
 import SecondSlide from './SecondSlide'
 import ThirdSlide from './ThirdSlide'
+import liveCourse from '@/public/assets/imgs/general/liveCourseMIP.jpeg'
 
-const CommonAboutSlider = () => {
+interface Props {
+  isLiveCourse?: boolean
+}
+
+const CommonAboutSlider = ({ isLiveCourse = false }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [slideDirection, setSlideDirection] = useState('slide-in')
 
   const contentData = [
     {
-      component: <FirstSlide />,
-      imageUrl: thirdPic
+      component: <FirstSlide isLiveCourse={isLiveCourse} />,
+      imageUrl: isLiveCourse ? liveCourse : thirdPic
     },
     {
-      component: <SecondSlide />,
+      component: <SecondSlide isLiveCourse={isLiveCourse} />,
       imageUrl: secondPic
     },
     {
       component: <ThirdSlide />,
-      imageUrl:  firstPic
+      imageUrl: firstPic
     }
   ]
 
@@ -50,6 +55,7 @@ const CommonAboutSlider = () => {
           currentIndex={currentIndex}
           component={slideComponents}
           onArrowClick={handleArrowClick}
+          isLiveCourse={isLiveCourse}
         />
         <RightPanel
           imageUrl={contentData[currentIndex].imageUrl}

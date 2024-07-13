@@ -10,37 +10,21 @@ import getSeoTitle from '../funcs/getSeoTitle'
 import getSeoDescription from '../funcs/getSeoDescription'
 
 type TSeoPagesProgram = {
-  ofType?: 'course' | 'profession'
   curProgramsStudyFieldSlug?: string
   programs: TypeLibPrograms | null
 }
 
 const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
-  ofType,
-  curProgramsStudyFieldSlug,
   programs
 }) => {
-  const { asPath } = useRouter()
-  
+  const { asPath, query } = useRouter()
 
-  const studyFields = getStudyFields(programs)
-  const studyFieldLabel =
-    studyFields.filter(
-      studyField => studyField.slug === curProgramsStudyFieldSlug
-    )[0]?.label || 'Программы'
-
-    // console.log(studyFields)
+  const { ofType, studyFieldSlug, filter, opened} = query
 
   const seoParams = {
-    title: getSeoTitle(ofType, curProgramsStudyFieldSlug, studyFieldLabel),
-    desc: getSeoDescription(ofType, curProgramsStudyFieldSlug, studyFieldLabel),
-      // ofType === 'course'
-      //   ? 'Онлайн-курсы по психологии для начинающих в Московском Институте Психологии ✔ Повышение квалификации и дистанционное обучение на психолога с сертификатом с нуля ✔ Скидка 30%'
-      //   : ofType === 'profession'
-      //   ? 'Дистанционные программы профпереподготовки от онлайн-института МИП для психологов ✔ Диплом ФРДО ✔ Удобный формат обучения с ведущими экспертами-практиками.'
-      //   : 'Онлайн-курсы по психологии для психологов любого уровня в Московском Институте Психологии ✔ Дистанционное образование с получением диплома ФРДО / сертификата ✔ Скидка 30%'
+    title: getSeoTitle(ofType, studyFieldSlug),
+    desc: getSeoDescription(ofType, studyFieldSlug),
 
-    // canonical: `${routes.front.root}${asPath}`
     canonical: asPath.includes('dietologiya') ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya` : `${routes.front.root}${asPath}`,
     
     }
@@ -50,8 +34,8 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={preview ? true : false}
-        noindex={preview ? true : false}
+        nofollow={preview || filter || opened ? true : false}
+        noindex={preview || filter || opened ? true : false}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

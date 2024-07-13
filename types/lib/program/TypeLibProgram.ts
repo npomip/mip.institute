@@ -1,6 +1,8 @@
 import { TypeLibGeneralPicture, TypeLibTeachers, TypeLibReviews } from '@/types/index'
 
 type TypeLibProgram = {
+  isOpened: boolean
+  isPopular: boolean
   id: string | null
   title?: string | null
   slug?: string | null

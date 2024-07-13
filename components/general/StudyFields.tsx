@@ -12,7 +12,8 @@ type StudyFieldsType = {
   flexend?: boolean
   smallText?: boolean
   onMain?: boolean
-  orang?: boolean
+  isOrange?: boolean
+  isInRow?: boolean
 }
 
 const StudyFields = ({
@@ -20,8 +21,9 @@ const StudyFields = ({
   ofType = null,
   close = null,
   flexend = false,
-  orang = false,
-  smallText
+  isOrange = true,
+  smallText,
+  isInRow = true
 }: StudyFieldsType) => {
   const {
     studyFields,
@@ -43,32 +45,15 @@ const StudyFields = ({
         [stls.container]: true,
         [stls.aside]: aside,
         [stls.tooltip]: !aside,
-        [stls.flexend]: flexend
-        // [stls.orang]: orang,
+        [stls.flexend]: flexend,
+        [stls.row]: isInRow
       })}>
       {list.map(({ label, slug }, idx) => (
         <Fragment key={slug + idx}>
-          {/* {idx === 0 && (
-            <li className={stls.studyField} onClick={close && close}>
-              <BtnField smallText={smallText}
-                href={
-                  aside
-                    ? curProgramsType === 'course'
-                      ? routes.front.courses
-                      : curProgramsType === 'profession'
-                      ? routes.front.professions
-                      : routes.front.programs
-                    : routes.front.programs
-                }
-                aside={aside}>
-                Все направления
-              </BtnField>
-            </li>
-          )} */}
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
               smallText={smallText}
-              orang={orang}
+              orang={true}
               href={`${
                 curProgramsType === 'course'
                   ? routes.front.courses

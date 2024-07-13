@@ -85,7 +85,7 @@ const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachers
                 Преподаватели
               </p>
             </li>
-            {ofType === 'profession' && (
+            {ofType === 'Profession' && (
               <li>
               <p
                 className={activeSection === 'resume' ? stls.active : ''}
@@ -150,7 +150,7 @@ const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachers
                 Преподаватели
               </p>
             </li>
-            {ofType === 'profession' && (
+            {ofType === 'Profession' && (
               <li>
               <p
                 className={activeSection === 'resume' ? stls.active : ''}

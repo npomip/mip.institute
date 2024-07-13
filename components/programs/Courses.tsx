@@ -4,6 +4,7 @@ import { routes } from '@/config/index'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import CardCourse from '@/components/cards/CardCourse'
 import { BtnDelta } from '@/components/btns'
+import CardProfession from '../cards/CardProfession'
 
 type CoursesType = {
   biggerTitle?: boolean
@@ -64,11 +65,7 @@ const Courses = ({
           [stls.threerow]: threerow
         })}>
         {courses.map((course, idx) => (
-          <CardCourse
-            key={course.title + idx}
-            course={course}
-            threerow={threerow}
-          />
+          <CardProfession key={course.title + idx} profession={course} />
         ))}
       </div>
       {withBtn && (

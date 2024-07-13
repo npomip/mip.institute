@@ -1,0 +1,23 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.resetFilterContainer,.resetFilterContainerMobile
+  display: flex
+
+.resetFilterContainer
+  @include m.media(phone, tablet)
+    display: none
+
+.resetFilterContainerMobile
+  @include m.gap($pt: f.px(30))
+  justify-content: flex-end
+  // margin-right: 10px
+  @include m.gap($mr: f.px(10))
+.resetFilter
+  cursor: pointer
+  color: #616161
+  font-size: f.px(14)
+  font-weight: 350
+  &:hover
+    color: #6F01C6

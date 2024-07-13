@@ -64,7 +64,7 @@ const LegalDocs = ({
           ) : (
             <div className={stls.content}>
               <ul className={stls.listLeft}>
-                {listLeft.map((item, idx) => (
+                {listLeft?.map((item, idx) => (
                   <li key={item.val + idx} className={stls.itemLeft}>
                     <a
                       href={item.href}
@@ -80,7 +80,7 @@ const LegalDocs = ({
                 ))}
               </ul>
               <ul className={stls.listRight}>
-                {listRight.map((item, idx) => (
+                {listRight?.map((item, idx) => (
                   <li key={item.val + idx} className={stls.itemRight}>
                     <a
                       href={item.href}

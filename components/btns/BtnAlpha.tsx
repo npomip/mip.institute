@@ -37,7 +37,8 @@ const BtnAlpha = ({
             [stls.isDisabled]: isDisabled,
             [stls.liveCourse]: isLiveCourse
           })}
-          disabled={isDisabled}>
+          disabled={isDisabled}
+          onClick={onClick}>
           {text}
         </button>
       )}

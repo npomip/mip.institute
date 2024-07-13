@@ -9,7 +9,7 @@ type ReviewsType = {
   onMain?: boolean
 }
 
-const SlugTags = ({ props, slug, withDate = false, isJournal = false }) => {
+const SlugTags = ({ props, slug, withDate = false, selectedField }) => {
   const title = slug === 'journal' ? 'Все статьи' : 'Все семинары'
 
   return (
@@ -20,7 +20,7 @@ const SlugTags = ({ props, slug, withDate = false, isJournal = false }) => {
           item={props?.[0]}
           slug={slug}
           withDate={withDate}
-          firstCard={isJournal}
+          firstCard
         />
         <h2 className={stls.slugTitle}>{title}</h2>
         {props

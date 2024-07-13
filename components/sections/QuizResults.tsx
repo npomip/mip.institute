@@ -46,12 +46,14 @@ const QuizResults = ({ result }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h3 className={stls.result}>{`Вам подойдут профессии:`}</h3>
+        <h3 className={stls.result}>
+          Вам подойдут <span>профессии</span>:
+        </h3>
         <div className={stls.content}>
-          {list.map((course, idx) => (
+          {(list.filter(el => el.slug) ?? []).map((course, idx) => (
             <CardQuizResult
               href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
-              key={ idx}
+              key={idx}
               portrait={course?.image}
               title={course.title}
               studyHours={course.studyHours}

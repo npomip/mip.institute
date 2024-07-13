@@ -20,7 +20,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   const seoParams = {
     title: `Оплата | ${company.name}`,
     desc: truncate(
-      'Для проведения оплаты обучения, с помощью банковской карты, ниже на этой странице необходимо нажать кнопку Оплата банковской картой. Оплата происходит через ПАО СБЕРБАНК с использованием банковских карт следующих платёжных систем: VISA International, Mastercard Worldwide, JCB, МИР',
+      'Для проведения оплаты обучения, с помощью банковской карты, ниже на этой странице необходимо нажать кнопку Оплата банковской картой с использованием банковских карт следующих платёжных систем: VISA International, Mastercard Worldwide, JCB, МИР',
       120
     ),
     canonical: `${routes.front.root}${routes.front.payment}`

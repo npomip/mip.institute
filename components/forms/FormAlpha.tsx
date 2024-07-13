@@ -23,6 +23,7 @@ type FormValues = {
   promocode: string
   question: string
   leadPage: string
+  isActivePromocode?: string
 }
 
 interface Props {
@@ -59,7 +60,8 @@ const FormAlpha = ({
     defaultValues: {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      promocode: isActivePromocode ?? isActivePromocode
     }
   })
 

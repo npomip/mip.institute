@@ -29,6 +29,8 @@ const YourDiploma = ({
   onMain = false
 }: YourDiplomaType) => {
   const slides = []
+  console.log(ofType);
+  
 
   const { program } = useContext(ContextStaticProps)
 

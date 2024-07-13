@@ -42,6 +42,13 @@ svg
   width: 100%
   height: 100%
 
+.fullContainerWithPromo
+  transform: translateY(f.px(112))
+  // transition: translateY 1.5s ease-in
+
+.fullContainer
+  transition: transform 1.5s ease
+
 #yandex-cache-hdr
   span
     a
@@ -110,17 +117,15 @@ section
 .quiz
   display: flex
   align-items: center
-  background: #947AFF
-  color: white
-  @include m.gap($ptb: f.px(10), $plr: f.px(30))
+  color: black
+  @include m.gap($ptb: f.px(10), $plr: f.px(20))
   border-radius: f.px(10)
-  border: f.px(4) solid #D4C8FF
   cursor: pointer
   &:hover
-    background: #6F01C6
+    background: #D4C8FF
 
 .back
-  @include m.gap($mt: f.px(30), $ptb: f.px(20), $plr: f.px(30), $mr: f.px(10))
+  @include m.gap($mt: f.px(30), $ptb: f.px(20), $plr: f.px(30), $mr: f.px(10), $ml: f.px(20))
   border: f.px(2) solid #D4C8FF
   border-radius: f.px(10)
   display: inline-block
@@ -166,6 +171,7 @@ html #nprogress .spinner-icon
 
 div.popup-content
   width: 100%
+  border: none
   @include m.media(laptop, desktop)
     max-width: f.px(708)
   @include m.media(phone, tablet)

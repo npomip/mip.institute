@@ -120,7 +120,7 @@ const PagesProgram = ({
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
+      {ofType !== 'Course' && <YourResume resumeRef={resumeRef} />}
       <SalaryCounter />
       <RequestsCard />
 

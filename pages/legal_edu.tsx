@@ -1,0 +1,85 @@
+import PageTitle from '@/components/layout/PageTitle'
+import {
+  ActiveLicenses,
+  Diplomas,
+  LegalDocs,
+  LegalInfo
+} from '@/components/sections'
+import { company, routes } from '@/config/index'
+import {
+  dataDocsRegulationsLeft,
+  dataDocsRegulationsRight,
+  dataOchuVoMipDocsConstituentLeft,
+  dataOchuVoMipDocsConstituentRight
+} from '@/data/index'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
+import stls from '@/styles/pages/Legal.module.sass'
+import { TypePageDefaultProps } from '@/types/index'
+import { GetStaticProps, NextPage } from 'next'
+import truncate from 'truncate'
+
+const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
+  useHandleContextStaticProps({ programs })
+
+  const seoParams = {
+    title: `Сведения об образовательной организации | ${company.name}`,
+    desc: truncate(
+      `Действующие лицензии, выдаваемые дипломы
+    и сертификаты, основные сведения и нормативные документы`,
+      120
+    ),
+    canonical: `${routes.front.root}${routes.front.legal}`
+  }
+
+  return (
+    <>
+      {/* <NextSeo
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        nofollow={preview ? true : false}
+        noindex={preview ? true : false}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: company.name,
+              type: 'image/png'
+            }
+          ],
+          site_name: company.name
+        }}
+      /> */}
+      {/* <SeoOrganizationJsonLd /> */}
+      <PageTitle>
+        Сведения <br className={stls.linebrake} /> об организации
+      </PageTitle>
+      <ActiveLicenses isOchuVoMip />
+      <Diplomas isOchuVoMip />
+      <LegalInfo isOchuVoMip />
+      <LegalDocs
+        title='Учредительные документы'
+        listLeft={dataOchuVoMipDocsConstituentLeft}
+        listRight={dataOchuVoMipDocsConstituentRight}
+      />
+      <LegalDocs
+        title='Нормативные документы'
+        listLeft={dataDocsRegulationsLeft}
+        listRight={dataDocsRegulationsRight}
+        isOchuVoMip
+      />
+      <LegalDocs title='Документы, приказы, положения' isRulesBlock />
+    </>
+  )
+}
+
+export const getStaticProps: GetStaticProps = async () =>
+  await handleGetStaticProps({ page: routes.front.legal })
+
+export default LegalEduPage

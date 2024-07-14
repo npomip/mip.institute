@@ -20,6 +20,7 @@ const routes = {
     home: '/',
     programs: '/programs',
     professions: '/professions',
+    practice: '/practice',
     journals: '/journal',
     journal: '/journal/slug',
     seminars: '/seminars',

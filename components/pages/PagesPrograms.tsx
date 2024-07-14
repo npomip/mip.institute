@@ -88,7 +88,7 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: Page
       query: null
     })
   }
-  
+
   return (
     <>
     <Wrapper><Breadcrumbs isJournal breadcrumbs={breadcrumbs} /></Wrapper>

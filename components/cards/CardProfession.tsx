@@ -8,7 +8,7 @@ const CardProfession = ({ profession = null }) => {
   return (
     <Link
       passHref
-      href={`${routes.front.professions}/${
+      href={`${profession.type === "Course" ? routes.front.courses : profession.type === "Practice" ? routes.front.practice :  routes.front.professions}/${
         profession.studyFieldSlug || 'studyfield'
       }/${profession.slug}`}>
       <div className={stls.container}>

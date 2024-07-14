@@ -167,7 +167,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={'Преподаватели – наставники'}
         teachersFromMain={teachersFromMain}
       />
-      <YourDiploma onMain ofType='profession' />
+      <YourDiploma onMain ofType='Profession' />
       <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
       <PayLater />

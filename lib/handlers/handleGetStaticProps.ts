@@ -30,6 +30,8 @@ import TypePageLiveCoursesProps from '@/types/page/liveCourses/props/TypePageLiv
 import getStaticPropsPageLiveCourses from '../getStaticProps/getStaticPropsPageLiveCourses'
 import TypePageLiveCourseProps from '@/types/page/liveCourse/props/TypePageLiveCourseProps'
 import getStaticPropsPageLiveCourse from '../getStaticProps/getStaticPropsPageLiveCourse'
+import getStaticPropsBachelor from '../getStaticProps/getStaticPropsPageBachelor'
+import getStaticPropsBachelors from '../getStaticProps/getStaticPropsPageBachelors'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -109,6 +111,12 @@ const handleGetStaticProps = async ({
 
       case routes.front.liveCourse:
         return await getStaticPropsPageLiveCourse({ context })
+
+      case routes.front.bachelors:
+        return await getStaticPropsBachelors({ context })
+
+      case routes.front.bachelor:
+        return await getStaticPropsBachelor({ context })
 
       default:
         return {

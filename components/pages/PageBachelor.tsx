@@ -8,19 +8,26 @@ import {
   Programs,
   ContactForm
 } from '@/components/sections'
+import { FilterProvider } from '@/context/FilterContext/FilterContext'
+import { getUniqueCategories } from '../funcs/getUniqueCategories'
+import ProgramsFilters from '../layout/ProgramsFilters'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
   ofType?: 'course' | 'profession'
 }
 
-const PageBachelor = () => {
+const PageBachelor = ({programs=[]}) => {
+  const categories = getUniqueCategories(programs)
+
   return (
     <>
-      {/* <HeroPrograms ofType={ofType} />
-      <FilterSearch />
-      <Programs ofType={ofType} withQty threerow withFilters  />
-      <ContactForm /> */}
+      <FilterProvider items={programs}>
+      <ProgramsFilters
+          allPrograms={programs}
+            studyFields={ categories}
+          />
+      </FilterProvider>
     </>
   )
 }

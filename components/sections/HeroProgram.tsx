@@ -91,7 +91,7 @@ const HeroProgram = ({ breadcrumbs }) => {
             </div>
             <div className={stls.heading}>
               <Breadcrumbs breadcrumbs={breadcrumbs} />
-              <div>
+              <div className={stls.containerHero}>
                 <div className={stls.label}>
                   <ProgramLabel />
                 </div>

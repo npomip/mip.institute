@@ -75,7 +75,7 @@ const YourDiploma = ({
       </div>
     )
 
-  ofType === 'Course' &&
+  ofType === 'Course' || ofType === 'Practice' &&
     slides.push(
       <div className={stls.diploma}>
         {program?.diploma1 ? (

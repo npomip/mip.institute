@@ -84,11 +84,22 @@ export const getStaticProps = async ({ params }) => {
     filteredPrograms = filteredPrograms.filter(program => program.type === 'Profession')
   } else if (ofType === 'courses') {
     filteredPrograms = filteredPrograms.filter(program => program.type === 'Course')
+  } else if (ofType === 'practice') {
+    filteredPrograms = programs.filter(program => program.type === 'Practice')
   }
 
   const studyFieldMap = {}
   if(ofType === 'courses'){
     programs.filter(program => program.type === 'Course').forEach(program => {
+      if (!studyFieldMap[program.studyFieldSlug]) {
+        studyFieldMap[program.studyFieldSlug] = {
+          studyField: program.studyField,
+          studyFieldSlug: program.studyFieldSlug
+        }
+      }
+    })
+  } else if(ofType === 'practice'){
+    programs.filter(program => program.type === 'Practice').forEach(program => {
       if (!studyFieldMap[program.studyFieldSlug]) {
         studyFieldMap[program.studyFieldSlug] = {
           studyField: program.studyField,

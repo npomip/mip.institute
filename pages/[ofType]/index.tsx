@@ -81,6 +81,8 @@ export const getStaticProps = async ({ params }) => {
     filteredPrograms = programs.filter(program => program.type === 'Profession')
   } else if (ofType === 'courses') {
     filteredPrograms = programs.filter(program => program.type === 'Course')
+  } else if (ofType === 'practice') {
+    filteredPrograms = programs.filter(program => program.type === 'Practice')
   } else if (ofType === 'programs') {
     filteredPrograms = programs
   } 
@@ -113,7 +115,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [
       { params: { ofType: 'professions' } },
       { params: { ofType: 'courses' } },
-      { params: { ofType: 'programs' } }
+      { params: { ofType: 'programs' } },
+      { params: { ofType: 'practice' } }
     ],
     fallback: 'blocking'
   }

@@ -4,19 +4,22 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
-import TypePageLiveCourseProps from '@/types/page/liveCourse/props/TypePageLiveCourseProps'
-import TypePageLiveCoursePropsQuery from '@/types/page/liveCourse/query/TypePageLiveCoursePropsQuery'
+import TypePageBachelorPropsQuery from '@/types/page/bachelor/TypePageBachelorPropsQuery'
+import TypePageBachelorProps from '@/types/page/bachelor/props/TypePageBachelorProps'
+
 
 const getStaticPropsBachelor = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
-  props: TypePageLiveCourseProps
+  props: TypePageBachelorProps
   revalidate: number | boolean
 }> => {
   const slug = context?.params?.slug?.toString() || null
+  console.log(slug);
+  
 
   try {
-    const res = await apolloClient.query<TypePageLiveCoursePropsQuery>({
+    const res = await apolloClient.query<TypePageBachelorPropsQuery>({
       query: gql`
         query getStaticPropsBachelor(
           $slug: String!
@@ -28,16 +31,19 @@ const getStaticPropsBachelor = async ({
             title
             
         }
+        }
       `,
       variables: {
         slug
       }
     })
-    const reviewsData = res?.data?.reviews || []
+    console.log(res.data);
+    
     return {
       props: {
-        lifeCourse: res?.data?.lifeCourse?.[0] || null,
-        reviews: reviewsData
+        bachelor: res?.data?.bachelor?.[0]
+        // lifeCourse: res?.data?.lifeCourse?.[0] || null,
+        // reviews: reviewsData
       },
       revalidate: revalidate.default
     }

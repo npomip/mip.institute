@@ -4,7 +4,7 @@ import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate, routes } from '@/config/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
-import { PageBachelor, PagesPrograms } from '@/components/pages'
+import { PageBachelors, PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import { useRouter } from 'next/router'
@@ -40,7 +40,7 @@ console.log(bachelors, programs);
 
   return (
     <>
-    <PageBachelor programs={programs} />
+    <PageBachelors programs={programs} bachelors={bachelors} />
       {/* <SeoPagesPrograms programs={programs} />
       <FilterProvider items={programs}>
         <PagesPrograms programs={programs} studyFields={studyFields} allPrograms={allPrograms} breadcrumbs={breadcrumbs} />

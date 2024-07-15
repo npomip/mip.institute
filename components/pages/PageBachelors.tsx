@@ -17,13 +17,20 @@ type PagesProgramsType = {
   ofType?: 'course' | 'profession'
 }
 
-const PageBachelor = ({bachelor}) => {
+const PageBachelors = ({programs=[], bachelors=[]}) => {
+  const categories = getUniqueCategories(programs)
 
   return (
     <>
-      {bachelor.title}
+      <FilterProvider items={programs}>
+      <ProgramsFilters
+      bachelors={bachelors}
+          allPrograms={programs}
+            studyFields={[]}
+          />
+      </FilterProvider>
     </>
   )
 }
 
-export default PageBachelor
+export default PageBachelors

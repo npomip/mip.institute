@@ -16,7 +16,7 @@ import Popup from 'reactjs-popup'
 import IconInfo from '../icons/IconInfo'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
 
-const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
+const ProgramsFilters = ({ studyFields = [], allPrograms = [], bachelors=[] }) => {
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
 
@@ -48,6 +48,9 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
   const { asPath, query } = router
 
   const { ofType, studyFieldSlug, filter, opened } = query
+
+  console.log(bachelors);
+  
   
   const handleNavigation = (destination: string) => {
     const { ofType, studyFieldSlug, ...rest } = router.query
@@ -179,26 +182,12 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
           Повышение квалификации
         </FilterTag>
 
-        {findProgramsLength(allPrograms, 'bachelor') > 0 && (
+        {bachelors.length > 0 && (
           <FilterTag
             onClick={() => handleNavigation('/bachelor')}
-            isActive={ofType === 'bachelor'}
+            isActive={router.asPath === '/bachelor'}
             quantity={
-              ofType === 'bachelor' && !studyFieldSlug
-                ? findProgramsLength(filteredItems, 'bachelor')
-                : ofType === 'bachelor' && studyFieldSlug
-                ? findProgramsLength(allPrograms, 'bachelor') -
-                  findFilteredProgramsLength(
-                    allPrograms,
-                    studyFieldSlug,
-                    ofType as string
-                  ) +
-                  findFilteredProgramsLength(
-                    filteredItems,
-                    studyFieldSlug,
-                    ofType as string
-                  )
-                : findProgramsLength(allPrograms, 'bachelor')
+              bachelors.length.toString()
             }
             isProgram>
             Высшее образование

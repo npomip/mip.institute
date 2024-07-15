@@ -18,7 +18,6 @@ import IconInfo from '../icons/IconInfo'
 const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
-  const { category } = filters
 
   const filteredItems = useFilteredItems()
 

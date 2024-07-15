@@ -118,7 +118,6 @@ export const getStaticProps = async ({ params }) => {
     })
   }
   
-
   const studyFields = Object.values(studyFieldMap)
 
 

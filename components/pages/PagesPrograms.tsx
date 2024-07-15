@@ -60,9 +60,12 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: Page
   const router = useRouter()
 
   const { query } = router
-
   const { filter, opened } = query
-  
+
+  const favprograms = allPrograms.filter(el => el.isPopular === true)
+
+  const favcategories = getUniqueCategories(favprograms)
+
   useEffect(() => {
     if(filter === 'popular') {
       dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
@@ -98,7 +101,7 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: Page
         <div className={stls.sorting}>
           <ProgramsFilters
           allPrograms={allPrograms}
-            studyFields={query.studyFieldSlug ? studyFields : categories}
+            studyFields={query.studyFieldSlug && filter === 'popular' ? favcategories : query.studyFieldSlug ? studyFields :  categories}
           />
         </div>
         <Wrapper>

@@ -63,7 +63,8 @@ const ProgramSelect = ({
       borderRadius: '10px',
       marginTop: '0',
       width: `${width ? width : 240}px`,
-      padding: '10px'
+      padding: '10px',
+      zIndex: '2'
     }),
     indicatorSeparator: base => ({
       ...base,

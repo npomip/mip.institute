@@ -14,11 +14,11 @@ import { findProgramsLength } from '@/helpers/general/findProgramsLength'
 import { findProgrmasLengthByCustomProperty } from '@/helpers/general/findProgrmasLengthByCustomProperty'
 import Popup from 'reactjs-popup'
 import IconInfo from '../icons/IconInfo'
+import { getUniqueCategories } from '../funcs/getUniqueCategories'
 
 const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
-  const { category } = filters
 
   const filteredItems = useFilteredItems()
 
@@ -78,6 +78,8 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
     label: el.studyField
   }))
 
+  const favprograms = allPrograms.filter(el => el.isPopular === true)
+
   const contentStyle = {
     background: '#ffffff',
     paddingLeft: '30px',
@@ -96,6 +98,8 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
           quantity={
             ofType === 'programs' && !studyFieldSlug
               ? findProgramsLength(filteredItems, 'programs')
+              : filter === 'popular'
+              ? favprograms?.length
               : ofType === 'programs' && studyFieldSlug
               ? findProgramsLength(allPrograms, 'programs') -
                 findFilteredProgramsLength(
@@ -108,6 +112,7 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
                   studyFieldSlug,
                   ofType as string
                 )
+              
               : findProgramsLength(allPrograms, 'programs')
           }
           isProgram>
@@ -122,6 +127,8 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
           quantity={
             ofType === 'professions' && !studyFieldSlug
               ? findProgramsLength(filteredItems, 'professions')
+              : filter === 'popular'
+              ? favprograms?.length
               : ofType === 'professions' && studyFieldSlug
               ? findProgramsLength(allPrograms, 'professions') -
                 findFilteredProgramsLength(
@@ -152,6 +159,8 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
           quantity={
             ofType === 'courses' && !studyFieldSlug
               ? findProgramsLength(filteredItems, 'courses')
+              : filter === 'popular'
+              ? findProgramsLength(favprograms, 'courses')
               : ofType === 'courses' && studyFieldSlug
               ? findProgramsLength(allPrograms, 'courses') -
                 findFilteredProgramsLength(
@@ -261,7 +270,8 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [] }) => {
                   : findFilteredProgramsLength(
                       allPrograms,
                       el.studyFieldSlug,
-                      ofType as string
+                      ofType as string,
+                      filter as string
                     )
               }
               isCategories>

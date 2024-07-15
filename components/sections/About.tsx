@@ -5,10 +5,11 @@ import CommonAboutSlider from './AboutSlider/CommonAboutSlider'
 import AboutList from './AboutList'
 
 type AboutType = {
-  standalone?: boolean
+  standalone?: boolean,
+  isLiveCourse?: boolean
 }
 
-const About = ({ standalone = false }: AboutType) => {
+const About = ({isLiveCourse=false, standalone = false }: AboutType) => {
   return (
     <section
       className={classNames({
@@ -16,8 +17,8 @@ const About = ({ standalone = false }: AboutType) => {
         [stls.standalone]: standalone
       })}>
       <Wrapper>
-        <CommonAboutSlider />
-        <AboutList />
+        <CommonAboutSlider isLiveCourse={isLiveCourse} />
+        <AboutList isLiveCourse={isLiveCourse}/>
         {/* <div className={stls.leaf}>
           <AboutLeaf />
         </div>

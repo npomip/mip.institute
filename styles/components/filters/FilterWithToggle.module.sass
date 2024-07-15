@@ -1,0 +1,15 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  @include m.media(phone, tablet)
+    justify-content: space-between
+
+.description
+  display: flex
+  @include m.gap($mr: f.px(10), $mb: f.px(0))
+  text-align: center

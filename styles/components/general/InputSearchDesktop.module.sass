@@ -1,0 +1,40 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  width: 100%
+  display: flex
+  justify-content: flex-end
+
+.input
+  @include m.dye(bg, c.$yellow-50)
+  @include m.gap($ptb: f.px(20), $pl: f.px(28))
+  width: f.px(250)
+  border-radius: f.px(4)
+  font-size: f.px(16)
+  @include m.media(phone, tablet)
+    width: 100%
+    @include m.gap($ptb: f.px(15), $pl: f.px(19))
+    font-size: f.px(14)
+
+.icon
+  @include m.media(laptop, desktop)
+    position: absolute
+    transform: translateX(-20%) translateY(30%)
+    @include m.flex($jc: center, $ai: center)
+    min-width: f.px(40)
+    max-width: f.px(40)
+    min-height: f.px(40)
+    max-height: f.px(40)
+    border-radius: f.px(4)
+    @include m.dye(bg, c.$orange-300)
+    transition: background-color .2s ease-in-out
+    pointer-events: none
+    & path
+      transition: fill .2s ease-in-out
+  @include m.media(phone, tablet)
+    display: none
+
+.program
+  @include m.dye(bg, c.$beta)

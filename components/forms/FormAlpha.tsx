@@ -14,6 +14,7 @@ import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
 import genezis from '../funcs/genezis'
 import getTicket from '../funcs/getTicket'
+import ipCheckFunc from '../funcs/ipCheckFunc'
 
 type FormValues = {
   name: string
@@ -25,6 +26,18 @@ type FormValues = {
   isActivePromocode?: string
 }
 
+interface Props {
+  cta?: string
+  blockForAmo?: string
+  question?: boolean
+  popup?: boolean
+  atFooter?: boolean
+  agreement?: boolean
+  promo?: boolean
+  inProfessions?: boolean
+  isLiveCourse?: boolean
+}
+
 const FormAlpha = ({
   cta = 'Подобрать программу',
   blockForAmo = 'Подобрать программу',
@@ -34,6 +47,7 @@ const FormAlpha = ({
   agreement = false,
   promo = false,
   inProfessions = false,
+  isLiveCourse = false,
   isActivePromocode = ''
 }) => {
   const {
@@ -286,7 +300,11 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={isDisabled} />
+              <BtnAlpha
+                text={cta}
+                isDisabled={isDisabled}
+                isLiveCourse={isLiveCourse}
+              />
             )}
           </div>
 

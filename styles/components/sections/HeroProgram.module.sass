@@ -13,7 +13,11 @@
     position: relative
     z-index: 3
     overflow: hidden
-
+.containerHero
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  height: 100%
 .desktopBg
   max-width: f.px(1170)
   min-height: f.px(638)
@@ -46,7 +50,7 @@
   height: f.px(660)
   z-index: 1
   @include m.media(laptop, desktop)
-    @include m.gap($plr: f.px(63), $pt: f.px(10), $pb: f.px(200))
+    @include m.gap($plr: f.px(63), $pt: f.px(10), $pb: f.px(150))
     @include m.flex($fd: column, $jc: space-between)
 
 .label
@@ -66,7 +70,7 @@
   @include m.dye(c, c.$nu)
   @include m.media(laptop, desktop)
     min-width: 12ch
-    @include m.gap($mb: f.px(35))
+    @include m.gap($mt: f.px(15))
     font-size: f.px(64)
     font-weight: 500
     line-height: 110%
@@ -110,8 +114,8 @@
 
 .discount
   position: absolute
-  top: f.px(30)
-  right: f.px(60)
+  top: f.px(20)
+  right: f.px(20)
   z-index: 1
   @include m.media(tablet)
     top: f.px(10)
@@ -138,10 +142,10 @@
       @include m.gap($mb: f.px(10))
 
 .btnsDesktop
+  z-index: 10
   @include m.media(laptop, desktop)
     @include m.gap($pr: f.px(147))
-    @include m.flex($as: flex-end)
-    margin-top: auto
+    @include m.flex($as: flex-start)
     width: 66%
     & > *
       width: 100%
@@ -163,7 +167,6 @@
     z-index: 1
 
 .infoDown
-  
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(8))
     transform: translateY(f.px(-10))

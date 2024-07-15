@@ -26,6 +26,10 @@ import getStaticPropsPageSeminars from '../getStaticProps/getStaticPropsPageSemi
 import getStaticPropsPageSeminar from '../getStaticProps/getStaticPropsPageSeminar'
 import TypePageSeminarProps from '@/types/page/seminar/props/TypePageSeminarProps'
 import getStaticPropsPageJournals from '../getStaticProps/GetStaticPropsPageJournals'
+import TypePageLiveCoursesProps from '@/types/page/liveCourses/props/TypePageLiveCoursesProps'
+import getStaticPropsPageLiveCourses from '../getStaticProps/getStaticPropsPageLiveCourses'
+import TypePageLiveCourseProps from '@/types/page/liveCourse/props/TypePageLiveCourseProps'
+import getStaticPropsPageLiveCourse from '../getStaticProps/getStaticPropsPageLiveCourse'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -48,6 +52,8 @@ const handleGetStaticProps = async ({
     | TypePageJournalProps
     | TypePageSeminarsProps
     | TypePageSeminarProps
+    | TypePageLiveCoursesProps
+    | TypePageLiveCourseProps
     | {}
   revalidate: number | boolean
 }> => {
@@ -95,8 +101,14 @@ const handleGetStaticProps = async ({
       case routes.front.seminars:
         return await getStaticPropsPageSeminars({ context })
 
-        case routes.front.seminar:
-          return await getStaticPropsPageSeminar({ context })
+      case routes.front.seminar:
+        return await getStaticPropsPageSeminar({ context })
+
+      case routes.front.liveCourses:
+        return await getStaticPropsPageLiveCourses({ context })
+
+      case routes.front.liveCourse:
+        return await getStaticPropsPageLiveCourse({ context })
 
       default:
         return {

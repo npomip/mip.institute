@@ -1,69 +1,69 @@
-function getSeoDescription(ofType, curProgramsStudyFieldSlug, studyFieldLabel) {
+function getSeoDescription(ofType, curProgramsStudyFieldSlug) {
   switch (`${ofType}/${curProgramsStudyFieldSlug}`) {
 
     //detskaya-psihologiya
-    case 'course/detskaya-psihologiya':
+    case 'courses/detskaya-psihologiya':
       return `Онлайн-курсы по детской психологии для начинающих в Московском Институте Психологии ✔ Повышение квалификации и дистанционное обучение для детских психологов с сертификатом ✔ Скидка 30%`;
-    case 'profession/detskaya-psihologiya':
+    case 'professions/detskaya-psihologiya':
       return 'Дистанционные программы профпереподготовки для детских психологов от онлайн-института МИП ✔ Диплом ФРДО ✔ Удобный формат обучения с ведущими экспертами-практиками.'
-    case 'undefined/detskaya-psihologiya':
+    case 'programs/detskaya-psihologiya':
       return 'Дистанционные курсы по детской психологии для психологов любого уровня от Московского Института Психологии ✔ Онлайн образование с получением диплома ФРДО / сертификата ✔ Скидка 30%'
     
       // konsultirovanie
 
-    case 'course/konsultirovanie':
+    case 'courses/konsultirovanie':
       return `Дистанционное обучение на курсах психологического консультирования от МИП. Повышение квалификации для психологов в удобном онлайн формате ✔ Скидка 30%`;
-    case 'profession/konsultirovanie':
+    case 'professions/konsultirovanie':
       return 'Дистанционные программы профпереподготовки для психологов-консультантов от онлайн-института МИП ✔ Диплом ФРДО ✔ Удобный формат обучения с ведущими экспертами-практиками.'
-    case 'undefined/konsultirovanie':
+    case 'programs/konsultirovanie':
       return 'Дистанционные курсы для психологов-консультантов любого уровня от Московского Института Психологии ✔ Онлайн образование с получением диплома ФРДО / сертификата ✔ Скидка 30%'
 
       //obshaya-psihologiya
 
-    case 'course/obshaya-psihologiya':
+    case 'courses/obshaya-psihologiya':
       return `Онлайн обучение на курсах общей психологии от МИП. Повышение квалификации для психологов в удобном онлайн формате с сертификатом ✔ Скидка 30%`;
-    case 'profession/obshaya-psihologiya':
+    case 'professions/obshaya-psihologiya':
       return 'Дистанционные программы профпереподготовки по общей психологии от онлайн-института МИП ✔ Диплом ФРДО ✔ Удобный формат обучения с ведущими экспертами-практиками.'
-    case 'undefined/obshaya-psihologiya':
+    case 'programs/obshaya-psihologiya':
       return 'Дистанционные курсы для психологов любого уровня от Московского Института Психологии ✔ Онлайн образование с получением диплома ФРДО / сертификата ✔ Скидка 30%'
 
     //organizacionnaya-psihologiya
 
-    case 'course/organizacionnaya-psihologiya':
+    case 'courses/organizacionnaya-psihologiya':
       return `Дистанционное обучение на курсах по организационной психологии от МИП. Повышение квалификации для психологов в удобном онлайн формате ✔ Скидка 30%`;
-    case 'profession/organizacionnaya-psihologiya':
+    case 'professions/organizacionnaya-psihologiya':
       return 'Дистанционные программы профпереподготовки по организационной психологии от онлайн-института МИП ✔ Диплом ФРДО ✔ Удобный формат обучения с ведущими экспертами-практиками.'
-    case 'undefined/organizacionnaya-psihologiya':
+    case 'programs/organizacionnaya-psihologiya':
       return 'Дистанционные курсы для психологов в организациях и предприятиях любого уровня от Московского Института Психологии ✔ Онлайн образование с получением диплома ФРДО / сертификата ✔ Скидка 30%'
 
     // psihoterapiya
 
-    case 'course/psihoterapiya':
+    case 'courses/psihoterapiya':
       return `Дистанционное обучение на курсах по психотерапии от МИП. Повышение квалификации для психологов в удобном онлайн формате. Выдача сертификата! ✔ Скидка 30%`;
-    case 'profession/psihoterapiya':
+    case 'professions/psihoterapiya':
       return 'Дистанционные программы профпереподготовки по психотерапии от онлайн-института МИП ✔ Диплом ФРДО ✔ Удобный формат обучения для с ведущими экспертами-практиками.'
-    case 'undefined/psihoterapiya':
+    case 'programs/psihoterapiya':
       return 'Дистанционные курсы по психотерапии для психологов и психотерапевтов и предприятиях любого уровня от Московского Института Психологии ✔ Онлайн образование с получением диплома ФРДО / сертификата ✔ Скидка 30%'
 
     // dietologiya-i-nutriciologiya
 
-    case 'profession/dietologiya-i-nutriciologiya':
+    case 'professions/dietologiya-i-nutriciologiya':
       return 'Дистанционные программы профессиональной переподготовки для психологов-диетологов, нутрициологов от онлайн-института МИП ✔ Диплом ФРДО ✔ Удобный формат обучения'
-    case 'undefined/dietologiya-i-nutriciologiya':
+    case 'programs/dietologiya-i-nutriciologiya':
       return 'Профессии - длинные программы для полного погружения в направление. Курсы - короткие программы, чтобы изучить один конкр…'
 
     // klinicheskaya-psihologiya
 
-    case 'profession/klinicheskaya-psihologiya':
+    case 'professions/klinicheskaya-psihologiya':
       return 'Дистанционные программы профпереподготовки для клинических психологов от онлайн-института МИП ✔ Диплом ФРДО ✔ Удобный формат обучения'
-    case 'undefined/klinicheskaya-psihologiya':
+    case 'programs/klinicheskaya-psihologiya':
       return 'Профессии - длинные программы для полного погружения в направление. Курсы - короткие программы, чтобы изучить один конкр…'
 
     default:
       return (
-        ofType === 'course'
+        ofType === 'courses'
         ? 'Онлайн-курсы по психологии для начинающих в Московском Институте Психологии ✔ Повышение квалификации и дистанционное обучение на психолога с сертификатом с нуля ✔ Скидка 30%'
-        : ofType === 'profession'
+        : ofType === 'professions'
         ? 'Дистанционные программы профпереподготовки от онлайн-института МИП для психологов ✔ Диплом ФРДО ✔ Удобный формат обучения с ведущими экспертами-практиками.'
         : 'Онлайн-курсы по психологии для психологов любого уровня в Московском Институте Психологии ✔ Дистанционное образование с получением диплома ФРДО / сертификата ✔ Скидка 30%'
       );

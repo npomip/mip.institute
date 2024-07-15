@@ -11,15 +11,22 @@ import TagOrange from '../general/TagOrange'
 
 type ReviewsType = {
   standalone?: boolean
-  reviews: any,
-  reviewsRef?: any,
+  reviews: any
+  reviewsRef?: any
   onMain?: boolean
+  isLiveCourse?: boolean
 }
 
-const Reviews = ({ standalone = false, reviews, reviewsRef, onMain }: ReviewsType) => {
+const Reviews = ({
+  standalone = false,
+  reviews,
+  reviewsRef,
+  onMain,
+  isLiveCourse
+}: ReviewsType) => {
   const { program } = useContext(ContextStaticProps)
   const uniqueReviewsCount = program?.unique_reviews?.length
-  if(uniqueReviewsCount > 0 ){
+  if (uniqueReviewsCount > 0) {
     reviews = program?.unique_reviews
   }
   const slides = reviews?.map((review, idx) => (
@@ -41,6 +48,7 @@ const Reviews = ({ standalone = false, reviews, reviewsRef, onMain }: ReviewsTyp
       name={review.name}
       occupation={review.profession}
       story={review.story}
+      isLiveCourse={isLiveCourse}
     />
   ))
 
@@ -70,22 +78,29 @@ const Reviews = ({ standalone = false, reviews, reviewsRef, onMain }: ReviewsTyp
       <Wrapper>
         {onMain && (
           <div className={stls.tag}>
-            <TagOrange>
-              Cлушатели
-            </TagOrange>
+            <TagOrange>Cлушатели</TagOrange>
           </div>
         )}
         {/* <p className={stls.reviewCount}>{reviews.length} отзывов</p> */}
         <h2 className={stls.title}>Отзывы наших студентов</h2>
-        <p className={stls.description}>Мы собрали подробные отзывы учеников, которые прослушали курс и получили профессию. Они рассказали свои истории, которые откликаются в сердцах наших преподавателей и всей команды Московского Института Психологии.</p>
+        <p className={stls.description}>
+          Мы собрали подробные отзывы учеников, которые прослушали курс и
+          получили профессию. Они рассказали свои истории, которые откликаются в
+          сердцах наших преподавателей и всей команды Московского Института
+          Психологии.
+        </p>
         <div className={stls.content}>
-          <SwiperContainer reviewPrevBtn reviewNextBtn 
-          reviews 
-          slides={slides}
-          desktopOptions={desktopSwiperOptions}
-          laptopOptions={laptopSwiperOptions}
-          tabletOptions={tabletSwiperOptions}
-          mobileOptions={mobileSwiperOptions}/>
+          <SwiperContainer
+            reviewPrevBtn
+            reviewNextBtn
+            reviews
+            slides={slides}
+            desktopOptions={desktopSwiperOptions}
+            laptopOptions={laptopSwiperOptions}
+            tabletOptions={tabletSwiperOptions}
+            mobileOptions={mobileSwiperOptions}
+            isLiveCourse={isLiveCourse}
+          />
         </div>
       </Wrapper>
     </section>

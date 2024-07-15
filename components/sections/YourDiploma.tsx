@@ -18,7 +18,7 @@ import TagOrange from '../general/TagOrange'
 import LicensePopUp from './LicensePopUp'
 
 type YourDiplomaType = {
-  ofType: 'course' | 'profession'
+  ofType: string
   diplomaRef?: React.RefObject<HTMLElement | null>
   onMain?: boolean
 }
@@ -29,10 +29,12 @@ const YourDiploma = ({
   onMain = false
 }: YourDiplomaType) => {
   const slides = []
+  console.log(ofType);
+  
 
   const { program } = useContext(ContextStaticProps)
 
-  ofType === 'profession' &&
+  ofType === 'Profession' &&
     slides.push(
       <div className={stls.diploma}>
         {program?.diploma2 ? (
@@ -73,7 +75,7 @@ const YourDiploma = ({
       </div>
     )
 
-  ofType === 'course' &&
+  ofType === 'Course' || ofType === 'Practice' &&
     slides.push(
       <div className={stls.diploma}>
         {program?.diploma1 ? (

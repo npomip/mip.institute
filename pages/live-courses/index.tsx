@@ -20,6 +20,7 @@ import Breadcrumbs from '@/components/general/Breadcrumbs'
 import ResetFilter from '@/components/filters/ResetFilter'
 import FiltersWithContext from '@/components/filters/FiltersWithContext'
 import ResetWrapper from '@/components/filters/ResetWrapper'
+import { NextSeo } from 'next-seo'
 
 const JournalPage = ({ lifeCourses }) => {
   const durations = lifeCourses.map(el => el.duration)
@@ -47,6 +48,10 @@ const JournalPage = ({ lifeCourses }) => {
 
   return (
     <Wrapper>
+      <NextSeo
+      nofollow={true}
+      noindex={true}
+      />
       <FilterProvider items={lifeCourses}>
         {/* {liveCourses.map(el => (
         <p>{el.title}</p>

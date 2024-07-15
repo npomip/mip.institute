@@ -55,7 +55,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         ofType={program?.type}
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      {program.type === 'Bachelor' ? (
+      {program?.type === 'Bachelor' ? (
         <PageBachelor />
       ) : (
         <PagesProgram

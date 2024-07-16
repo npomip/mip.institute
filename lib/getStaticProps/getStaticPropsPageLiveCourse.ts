@@ -41,6 +41,7 @@ const getStaticPropsPageLiveCourse = async ({
             where: { slug: $slug }
           ) {
             title
+            price
             article {
               __typename
               ... on ComponentLiveCorsesBlock {

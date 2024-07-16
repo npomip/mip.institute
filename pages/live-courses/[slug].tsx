@@ -1,4 +1,5 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import PopupTrigger from '@/components/general/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
 import LifeCourseDynamicZones from '@/components/lifeCourses/LifeCoursesDynamicZones'
 import { About, Reviews } from '@/components/sections'
@@ -42,7 +43,8 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   // }, [selectedField.studyField])
 
   // const blogsFilter = selectedField.studyField == 'Все cтатьи' ? blogs : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
-
+  console.log(lifeCourse);
+  
   return (
     // <Wrapper>
       <>
@@ -51,6 +53,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       noindex={true}
       />
         <h1>{lifeCourse.title}</h1>
+        <PopupTrigger btn='alpha' cta='submitApplication' />
         {lifeCourse?.article?.map((module, idx) => (
             <LifeCourseDynamicZones key={idx} props={module} />
           ))}

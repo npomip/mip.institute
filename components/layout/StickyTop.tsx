@@ -15,14 +15,14 @@ import PopupTrigger from '../general/PopupTrigger'
 import classNames from 'classnames'
 import { IconCloseCircle } from '../icons'
 
-const StickyTop = ({onClick=undefined, promo=false}) => {
+const StickyTop = ({onClick=undefined, isPromo=false, promoText=''}) => {
   const [isPromoUsed, setIsPromoUsed] = useState(false)
   
   return (
     <div  className={classNames({
       [stls.container]: true,
-      [stls.nopromo]: !promo,
-      [stls.promo]: promo
+      [stls.nopromo]: !isPromo,
+      [stls.promo]: isPromo
     })} >
       <Wrapper>
         <div className={stls.content}>
@@ -32,7 +32,7 @@ const StickyTop = ({onClick=undefined, promo=false}) => {
             </div>
             <div className={stls.text}>
               Активируйте промокод
-              <span className={stls.bold}> “Погребижская”</span> и получите
+              <span className={stls.bold}> “{promoText}”</span> и получите
               дополнительную <span className={stls.bold}>скидку 10%</span>
             </div>
           </div>
@@ -40,7 +40,7 @@ const StickyTop = ({onClick=undefined, promo=false}) => {
             <PopupTrigger
               btn='gamma'
               cta='use'
-              isActivePromocode='Погребижская'
+              isActivePromocode={promoText}
             />
           </div>
         </div>
@@ -48,7 +48,7 @@ const StickyTop = ({onClick=undefined, promo=false}) => {
           <PopupTrigger
             btn='gamma'
             cta='use'
-            isActivePromocode='Погребижская'
+            isActivePromocode={promoText}
           />
         </div>
       </Wrapper>

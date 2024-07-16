@@ -5,24 +5,46 @@
 .section
   @include m.gap($ptb: f.px(50))
 
-.block
-  background: url('/assets/imgs/general/pplWave.png')
-  background-color: #f1faff
-  background-position: center center
+.wave
+  background-position: center
   background-size: cover
   background-repeat: no-repeat
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  & > span
+    border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    display: none
+
+.waveMobile
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  & > span
+    @include m.media(tablet)
+      max-height: f.px(450)
+      border-radius: f.px(10)
+    @include m.media(phone)
+      max-height: f.px(550)
+  @include m.media(laptop, desktop)
+    display: none
+
+.block
+  @include m.dye(bg, c.$blue-50)
   @include m.gap($plr: f.px(70), $pb: f.px(70), $pt: f.px(40))
   border-radius: f.px(10)
-  min-height: f.px(634)
+  min-height: f.px(600)
   position: relative
-  z-index: 10
   @include m.media(phone, tablet)
-    background: url('/assets/imgs/general/pplWaveMobile.png')
     @include m.gap($plr: f.px(15), $pb: f.px(10), $pt: f.px(10))
-    background-color: #f1faff
-    background-position: center center
-    background-size: cover
-    background-repeat: no-repeat
 
 .tag
   height: 100%
@@ -34,7 +56,6 @@
     position: absolute
     @include m.media(laptop, desktop)
       top: f.px(-10)
-      left: f.px(25)
       @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
     @include m.media(phone, tablet)
       display: none
@@ -49,9 +70,7 @@
   position: relative
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(40))
-    font-size: f.px(28)
-    font-style: normal
-    font-weight: 500
+    font-size: f.px(30)
     line-height: 110%
     &::after
       content: 'ОППЛ'
@@ -110,3 +129,45 @@
   background: white
   opacity: 0.3
   min-height: f.px(634)
+
+.hiddenBlock
+  @include m.gap($mt: f.px(60))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(30))
+
+.hiddenTitle
+  display: inline-block
+  max-width: f.px(800)
+  font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  max-width: f.px(800)
+  @include m.gap($mb: f.px(30))
+  position: relative
+  @include m.media(phone, tablet)
+    max-width: f.px(500)
+    font-size: f.px(28)
+    font-style: normal
+    font-weight: 500
+    line-height: 110%
+
+.content
+  display: flex
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: center)
+
+.image
+  border-radius: f.px(20)
+
+.list
+  position: relative
+  @include m.gap($plr: f.px(20), $ptb: f.px(40), $ml: f.px(60), $mtb:0)
+  border-radius: f.px(20)
+  border: f.px(1) solid
+  @include m.dye(border, c.$blue-900)
+  max-width: f.px(530)
+  @include m.media(laptop)
+    max-width: f.px(500)
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(0),$plr: f.px(10), $mt: f.px(15), $ptb: f.px(30))

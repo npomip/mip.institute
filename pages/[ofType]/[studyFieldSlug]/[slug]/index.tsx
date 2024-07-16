@@ -60,7 +60,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
           breadcrumbs={breadcrumbs}
           programOverview={programOverview}
           reviews={reviews}
-          ofType={program.type}
+          ofType={program?.type}
         />
     </>
   )

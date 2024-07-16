@@ -56,11 +56,11 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
           )}
           {onMain ? (
             <div className={stls.orangeBlock}>
-              <div
+              {/* <div
                 className={classNames({
                   [stls.orangeCloud]: true,
                   [stls.left]: true
-                })}></div>
+                })}></div> */}
               <ul className={stls.listMain}>
                 {content.map((el, i) => (
                   <li className={stls.itemOnMain} key={title}>
@@ -72,11 +72,11 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
                   </li>
                 ))}
               </ul>
-              <div
+              {/* <div
                 className={classNames({
                   [stls.orangeCloud]: true,
                   [stls.right]: true
-                })}></div>
+                })}></div> */}
             </div>
           ) : (
             <ul className={stls.list}>

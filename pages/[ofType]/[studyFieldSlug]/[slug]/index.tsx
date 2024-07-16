@@ -55,17 +55,14 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         ofType={program?.type}
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-      {program?.type === 'Bachelor' ? (
-        <PageBachelor />
-      ) : (
+
         <PagesProgram
           slug={slug}
           breadcrumbs={breadcrumbs}
           programOverview={programOverview}
           reviews={reviews}
-          ofType={program.type}
+          ofType={program?.type}
         />
-      )}
     </>
   )
 }

@@ -15,12 +15,13 @@
 .title
   display: inline-block
   @include m.media(tablet)
+    white-space: nowrap
     @include m.gap($mb: f.px(20))
     font-size: f.px(30)
   @include m.media(phone)
     @include m.gap($mb: f.px(20))
     font-size: f.px(34)
-    max-width: f.px(340)
+    max-width: f.px(330)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(35))
     font-size: f.px(44)
@@ -88,17 +89,19 @@
     @include m.media(tablet)
       @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
       top: f.px(-30)
-      left: f.px(-380)
+      left: f.px(-370)
     @include m.media(phone)
       @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
       top: f.px(-3)
-      left: f.px(-250)
+      left: f.px(-200)
 
 .orangeBlock
   position: relative
   z-index: 2
   border-radius: f.px(20)
   border: 1px solid
+  // opacity: 0.6
+  background: rgba(255, 255, 255, 0.7)
   @include m.dye(border, c.$beta)
   @include m.dye(bg, c.$upsilon)
   @include m.gap($pt: f.px(35), $pb: f.px(10))
@@ -174,29 +177,25 @@
 .orangeCloud
   z-index: 1
   position: absolute
-  width: f.px(267)
-  height: f.px(267)
-  border-radius: f.px(267)
-  background: linear-gradient(180deg, #FFF4B4 0%, #FF9345 100%)
-  filter: blur(f.px(50))
+  width: f.px(1)
+  height: f.px(1)
+  border-radius: 140px
+  box-shadow: rgba(230, 128, 44, 0.7) 10px 10px 54px 100px
   @include m.media(phone, tablet)
-    width: f.px(127)
-    height: f.px(127)
-    filter: blur(f.px(24))
+    box-shadow: rgba(230, 128, 44, 0.7) 0px 0px 34px 60px
 
 .left
-  left: f.px(-50)
-  top: f.px(-50)
+  left: f.px(80)
+  top: f.px(50)
   opacity: 0.3
   @include m.media(phone, tablet)
-    left: f.px(-20)
-    top: f.px(-20)
+    left: f.px(10)
+    top: f.px(20)
 
 .right
-  right: f.px(-50)
-  bottom: f.px(30)
+  right: f.px(70)
+  bottom: f.px(120)
   opacity: 0.5
   @include m.media(phone, tablet)
-    opacity: 0.6
-    right: f.px(0)
-    bottom: f.px(-20)
+    right: f.px(40)
+    bottom: f.px(40)

@@ -26,6 +26,7 @@ import client from '@/lib/apolloClient'
 import { getCookie, setCookie, getCookies } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
 import StickyTop from '@/components/layout/StickyTop'
+import promocodes from '@/helpers/promocodes'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -193,20 +194,31 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
-  const [promo, setPromo] = useState(false)
+  const [isPromo, setIsPromo] = useState(false)
+  const [promoText, setPromoText] = useState('')
+  
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
-  const promoExist = stringedUtm?.includes('pogrebjiskaya')
   useEffect(() => {
     setTimeout(() => {
-    setPromo(promoExist)
-      
+      let foundPromo = false;
+      Object.keys(promocodes).forEach((code) => {
+        if (stringedUtm?.includes(code)) {
+          setIsPromo(true);
+          setPromoText(promocodes[code]);
+          foundPromo = true;
+        }
+      });
+      if (!foundPromo) {
+        setIsPromo(false);
+        setPromoText('');
+      }
     }, 2000);
-  }, [utmCookie])
+  }, [utmCookie]);
 
   const closePromo = () => {
-    setPromo(false)
+    setIsPromo(false)
   }
 
   return (
@@ -251,8 +263,8 @@ const MyApp = ({ Component, pageProps, router }) => {
         <MenuState>
           <FieldsTooltipState>
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
-            {<StickyTop onClick={closePromo} promo={promo} />}
-            <Header promo={promo} />
+            {<StickyTop onClick={closePromo} isPromo={isPromo} promoText={promoText} />}
+            <Header isPromo={isPromo} />
             <main>
               <ApolloProvider client={client}>
                 <Component {...pageProps} />

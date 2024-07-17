@@ -64,7 +64,10 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
               <ul className={stls.listMain}>
                 {content.map((el, i) => (
                   <li className={stls.itemOnMain} key={title}>
-                    {renderIcon(i)}
+                    <div className={stls.icon}>
+                      {renderIcon(i)}
+
+                    </div>
                     <div className={stls.listText}>
                       <div className={stls.listTitle}>{el.title}</div>
                       <div className={stls.text}>{el.content}</div>

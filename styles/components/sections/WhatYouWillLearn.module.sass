@@ -124,7 +124,7 @@
 .itemOnMain
   list-style: none
   @include m.flex($ai: flex-start)
-  height: f.px(140)
+  height: f.px(160)
   @include m.media(tablet)
     &:nth-child(1)
       @include m.gap($mb: f.px(15))
@@ -132,7 +132,7 @@
     &:nth-child(1)
       @include m.gap($mb: f.px(10))
     &:nth-child(2)
-      height: f.px(100)
+      height: f.px(130)
 
 .listText
   @include m.flex($ai: flex-start, $fd: column)
@@ -142,7 +142,7 @@
 
 .listTitle
   display: block
-  font-size: f.px(20)
+  font-size: f.px(22)
   font-style: normal
   font-weight: 500
   line-height: 130%
@@ -150,13 +150,13 @@
   @include m.gap($mb: f.px(10))
   @include m.media(laptop)
     max-width: f.px(270)
-    font-size: f.px(17)
+    font-size: f.px(18)
   @include m.media(tablet)
     @include m.gap($mb: f.px(5))
     font-size: f.px(18)
     min-width: f.px(200)
   @include m.media(phone)
-    font-size: f.px(15)
+    font-size: f.px(17)
     min-width: f.px(280)
 
 .text

@@ -13,6 +13,8 @@ const BachelorPage = ({
 bachelor
 }) => {
 
+  // http://localhost:3000/bachelor/psihologo-pedagogicheskoye-obrazovanie
+
   return (
     <>
         <PageBachelor bachelor={bachelor} />

@@ -6,7 +6,8 @@ import {
   HeroPrograms,
   FilterSearch,
   Programs,
-  ContactForm
+  ContactForm,
+  YourDiploma
 } from '@/components/sections'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
@@ -17,11 +18,14 @@ type PagesProgramsType = {
   ofType?: 'course' | 'profession'
 }
 
+// http://localhost:3000/bachelor/psihologo-pedagogicheskoye-obrazovanie
+
 const PageBachelor = ({bachelor}) => {
 
   return (
     <>
       {bachelor.title}
+      <YourDiploma ofType='Profession' />
     </>
   )
 }

@@ -16,7 +16,7 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 
 
-const Header = ({promo}) => {
+const Header = ({isPromo}) => {
   // console.log(promo);
   
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -29,7 +29,7 @@ const Header = ({promo}) => {
   return (
     <header className={classNames({
       [stls.container]: true,
-      [stls.promo]: promo
+      [stls.promo]: isPromo
     })}>
       <MenuMobile />
       <Wrapper>

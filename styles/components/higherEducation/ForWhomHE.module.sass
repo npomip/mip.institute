@@ -1,0 +1,37 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  @include m.dye(c, c.$theta)
+  font-weight: 500
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(60))
+    font-size: f.px(44)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(30))
+    font-size: f.px(30)
+  &::after
+    content: 'Образование'
+    position: relative
+    top: f.px(-10)
+    left: f.px(20)
+    font-size: f.px(16)
+    @include m.dye(bg, c.$beta)
+    color: white
+    @include m.gap($ptb: f.px(8), $plr: f.px(23))
+    border-radius: f.px(50)
+    font-weight: 350
+    @include m.media(phone, tablet)
+      left: f.px(10)
+      top: f.px(-5)
+      font-size: f.px(12)
+
+.content
+  display: grid
+  grid-template-columns: 1fr 1fr
+  column-gap: f.px(30)
+  row-gap: f.px(30)
+  @include m.media(tablet, phone)
+    row-gap: f.px(10)
+    grid-template-columns: 1fr

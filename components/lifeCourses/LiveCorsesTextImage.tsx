@@ -2,7 +2,6 @@ import base64pixel from '@/config/base64pixel'
 import styles from '@/styles/components/liveCourses/LiveCorsesTextImage.module.sass'
 import Image from 'next/image'
 import Wrapper from '@/components/layout/Wrapper'
-// import ArticleOneContentLink from './ArticleOneContentLink'
 
 interface LiveCorsesTextImageProps {
   props: {
@@ -22,14 +21,11 @@ interface LiveCorsesTextImageProps {
 }
 const LiveCorsesTextImage = ({ props }: LiveCorsesTextImageProps) => {
   const block = props.map(el => el.repeatBlock)
-  // console.log(block)
+
   return (
     <Wrapper>
       <div className={styles.container}>
         {block?.map((el, i) => (
-          // <>
-          // {console.log(el)}
-          // </>
           <div key={i} className={styles.block}>
             {el.map((one, idx) => (
               <div key={idx} className={styles.content}>

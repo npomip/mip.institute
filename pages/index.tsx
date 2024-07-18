@@ -1,3 +1,4 @@
+import ForWhomHE from '@/components/higherEducation/ForWhomHE'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -47,8 +48,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 }) => {
   useHandleContextStaticProps({ programs })
 
-  
-
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
       'Алла Косина',
@@ -60,8 +59,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       'Анастасия Волкова',
       'Людмила Гиль',
       'Вера Гаврилова',
-      "Егор Борисов",
-      "Андрей Бушев"
+      'Егор Борисов',
+      'Андрей Бушев'
     ]
 
     return allowedNames.includes(teacher.name)
@@ -142,6 +141,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />
+      <ForWhomHE />
       <About />
       <EducationProcess
         paddingTop={90}

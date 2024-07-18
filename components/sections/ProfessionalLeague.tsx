@@ -1,4 +1,4 @@
-import pic from '@/public/assets/imgs/general/opplHiddenBlock.png'
+import pic from '@/public/assets/imgs/general/oppl.jpg'
 import img from '@/public/assets/imgs/general/pplWave.png'
 import imgMob from '@/public/assets/imgs/general/pplWaveMobile.png'
 import stls from '@/styles/components/sections/ProfessionalLeague.module.sass'

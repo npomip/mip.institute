@@ -21,13 +21,15 @@ type TeacherProps = {
   teachersFromMain?: TypeLibTeachers
   title: string
   onMain?: boolean
+  teachersList?: any[]
 }
 
 const Teachers = ({
   teachersRef,
   teachersFromMain,
   title,
-  onMain = false
+  onMain = false,
+  teachersList=[]
 }: TeacherProps) => {
   const { program, curProgramsType } = useContext(ContextStaticProps)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -35,6 +37,9 @@ const Teachers = ({
   let teachers = program?.teachers
   if (teachersFromMain) {
     teachers = teachersFromMain
+  }
+  if(teachersList) {
+    teachers = teachersList
   }
 
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })

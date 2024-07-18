@@ -1,12 +1,9 @@
-import {
-  TypeGeneralGetStaticPropsContext,
-} from '@/types/index'
+import { TypeGeneralGetStaticPropsContext } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
 import TypePageBachelorPropsQuery from '@/types/page/bachelor/TypePageBachelorPropsQuery'
 import TypePageBachelorProps from '@/types/page/bachelor/props/TypePageBachelorProps'
-
 
 const getStaticPropsBachelor = async ({
   context
@@ -15,30 +12,51 @@ const getStaticPropsBachelor = async ({
   revalidate: number | boolean
 }> => {
   const slug = context?.params?.slug?.toString() || null
-  console.log(slug);
-  
+  console.log(slug)
 
   try {
     const res = await apolloClient.query<TypePageBachelorPropsQuery>({
       query: gql`
-        query getStaticPropsBachelor(
-          $slug: String!
-        ) {
-          
-          bachelor: bachelors(
-            where: { slug: $slug }
-          ) {
+        query getStaticPropsBachelor($slug: String!) {
+          bachelor: bachelors(where: { slug: $slug }) {
             title
-            
-        }
+            teachers {
+              id
+              name
+              achievements
+              specialization
+              experience
+              portrait {
+                url
+                width
+                height
+              }
+              index_number {
+                idx
+              }
+            }
+            programs {
+              id
+              title
+              studyHours
+              heroPicture {
+                url
+                width
+                height
+              }
+              index_number {
+                idx
+              }
+            }
+          }
         }
       `,
       variables: {
         slug
       }
     })
-    console.log(res.data);
-    
+    console.log(res.data)
+
     return {
       props: {
         bachelor: res?.data?.bachelor?.[0]

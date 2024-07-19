@@ -1,0 +1,51 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  display: grid
+  @include m.gap($mb: f.px(20))
+  &:nth-last-child(1)
+    @include m.gap($mb: 0)
+
+.title
+  @include m.flex($ai: center)
+  cursor: pointer
+
+.icon
+  @include m.gap($mr: f.px(20))
+
+.pTitle
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  @include m.gap($mb: 0)
+  text-align: start
+  @include m.media(laptop, desktop)
+    font-size: f.px(22)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.content
+  display: grid
+  overflow: hidden
+  grid-template-rows: 0fr
+  transition: grid-template-rows 500ms
+  font-size: f.px(14)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(laptop, desktop)
+    @include m.gap($mt: f.px(5), $ml: f.px(55))
+  @include m.media(tablet)
+    font-size: f.px(12)
+    @include m.gap($mt: f.px(10), $ml: f.px(45), $pl: f.px(5))
+  @include m.media(phone)
+    @include m.gap($mt: f.px(10), $ml: f.px(45))
+    font-size: f.px(12)
+
+.content > div
+  overflow: hidden
+
+.visible
+  grid-template-rows: 1fr

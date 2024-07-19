@@ -18,6 +18,7 @@ import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
 import PayLater from '@/components/sections/PayLater'
+import ProfessionalLeague from '@/components/sections/ProfessionalLeague'
 import PsyTest from '@/components/sections/PsyTest'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
@@ -47,8 +48,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 }) => {
   useHandleContextStaticProps({ programs })
 
-  
-
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
       'Алла Косина',
@@ -60,8 +59,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       'Анастасия Волкова',
       'Людмила Гиль',
       'Вера Гаврилова',
-      "Егор Борисов",
-      "Андрей Бушев"
+      'Егор Борисов',
+      'Андрей Бушев'
     ]
 
     return allowedNames.includes(teacher.name)
@@ -161,6 +160,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
+      <ProfessionalLeague />
       <SalaryCounter />
       <Teachers
         onMain
@@ -168,6 +168,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         teachersFromMain={teachersFromMain}
       />
       <YourDiploma onMain ofType='Profession' />
+      <ProfessionalLeague />
       <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
       <PayLater />

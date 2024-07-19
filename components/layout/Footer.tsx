@@ -55,16 +55,6 @@ const Footer = () => {
       val: 'Об институте',
       href: routes.front.about
     },
-    // {
-    //   val: 'Партнерская программа',
-    //   href: routes.external.advCake,
-    //   target: '_blank'
-    // },
-    // {
-    //   val: 'Пригласи друга',
-    //   href: routes.external.referralProgram,
-    //   target: '_blank'
-    // },
     {
       val: 'Сведения об образовательной организации',
       href: routes.front.legal
@@ -241,14 +231,6 @@ const Footer = () => {
                 1207700479260 Лицензия департамента образования города Москвы на
                 осуществление образовательной деятельности №041363 от 14.04.21.
               </p>
-              {/* <a
-                className={stls.linkToLicense}
-                href={routes.external.license}
-                target='_blank'
-                rel='noreferrer nofollow noindex'>
-                Лицензия на образовательную деятельность №041363 от 14.04.2021
-                г.
-              </a> */}
             </div>
           </div>
           <div className={stls.bottom}>

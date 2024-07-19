@@ -4,13 +4,12 @@ import classNames from 'classnames'
 import { IconCircleCheck, IconMinus, IconPlus } from '@/components/icons'
 import parse from 'html-react-parser'
 
-const ProgramModule = ({ title, topics }) => {
+const BachelorProgramModule = ({ title, topics }) => {
   const [isOpen, setOpen] = useState(false)
   const blockedWords = ['Описание 1', 'Содержание 1', undefined, ''];
   const hasNoDescriptionTopic = topics?.some(topic => blockedWords.includes(topic));
   const canBeOpened = !hasNoDescriptionTopic && topics?.length > 0; 
-  const description = topics?.[0]
-  topics = topics?.slice(1)
+
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
@@ -23,7 +22,7 @@ const ProgramModule = ({ title, topics }) => {
         
         {canBeOpened && (
           <>
-          <p className={stls.description}>{description}</p>
+          {/* <p className={stls.description}>{description}</p> */}
           <ul className={stls.list}>
           {topics &&
             topics.map((topic, idx) => (
@@ -39,4 +38,5 @@ const ProgramModule = ({ title, topics }) => {
   )
 }
 
-export default ProgramModule
+export default BachelorProgramModule
+

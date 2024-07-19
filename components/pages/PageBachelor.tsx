@@ -9,16 +9,20 @@ import {
   ContactForm,
   YourDiploma,
   FullProgram,
-  Teachers
+  Teachers,
+  BriefProgramContents
 } from '@/components/sections'
-import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import { getUniqueCategories } from '../funcs/getUniqueCategories'
-import ProgramsFilters from '../layout/ProgramsFilters'
+import BachelorProgramModules from '../program/BachelorProgramModules'
 import EntryForm from '../sections/EntryForm'
 import LinkedPrograms from '../sections/LinkedPrograms'
 import SalaryCounter from '../sections/SalaryCounter'
 import TopCourses from '../sections/TopCourses'
+import stls from '@/styles/pages/PageBachelor.module.sass'
+import { OneNumber } from '../icons'
+import TwoNumber from '../icons/TwoNumber'
+import ThreeNumber from '../icons/ThreeNumber'
+import FourNumber from '../icons/FourNumber'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -35,6 +39,13 @@ const PageBachelor = ({ bachelor }) => {
   return (
     <>
       {bachelor.title}
+      <div className={stls.num}>
+        <OneNumber />
+        <TwoNumber />
+        <ThreeNumber />
+        <FourNumber />
+      </div>
+      <BriefProgramContents coloredBackground planRef={null} program={bachelor.shortContents} title='Программа курса' />
       <LinkedPrograms
         programs={bachelor.programs}
         title={

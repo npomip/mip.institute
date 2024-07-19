@@ -94,7 +94,7 @@ const Teachers = ({
               pauseOnMouseEnter: true
             }}
             speed={2000}
-            autoHeight={true}
+            // autoHeight={true}
             // pagination={{
             //   clickable: true
             // }}

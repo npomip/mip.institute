@@ -77,11 +77,7 @@ const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         listLeft={dataDocsRegulationsLeft}
         listRight={dataDocsRegulationsRight}
       />
-      <LegalDocs
-        title='Документы, приказы, положения'
-        listLeft={dataDocsGeneralLeft}
-        listRight={dataDocsGeneralRight}
-      />
+      <LegalDocs title='Документы, приказы, положения' isRulesBlock />
     </>
   )
 }

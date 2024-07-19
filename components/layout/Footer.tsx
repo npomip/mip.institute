@@ -55,16 +55,16 @@ const Footer = () => {
       val: 'Об институте',
       href: routes.front.about
     },
-    {
-      val: 'Партнерская программа',
-      href: routes.external.advCake,
-      target: '_blank'
-    },
-    {
-      val: 'Пригласи друга',
-      href: routes.external.referralProgram,
-      target: '_blank'
-    },
+    // {
+    //   val: 'Партнерская программа',
+    //   href: routes.external.advCake,
+    //   target: '_blank'
+    // },
+    // {
+    //   val: 'Пригласи друга',
+    //   href: routes.external.referralProgram,
+    //   target: '_blank'
+    // },
     {
       val: 'Сведения об образовательной организации',
       href: routes.front.legal
@@ -76,7 +76,7 @@ const Footer = () => {
     {
       val: 'Контакты',
       href: routes.front.contact
-    },
+    }
     // {
     //   val: 'Оплата',
     //   href: routes.front.payment
@@ -118,7 +118,7 @@ const Footer = () => {
                   })}>
                   <Link href={link.href}>
                     <a
-                      target={link.target || '_self'}
+                      target='_self'
                       className={classNames({
                         [stls.link]: true,
                         [stls.staticLink]: true
@@ -153,21 +153,21 @@ const Footer = () => {
                 </li>
               ))}
               <li
-                  // key={link.val + link.href}
-                  className={classNames({
-                    [stls.linkItem]: true,
-                    [stls.fieldsLinkItem]: true
-                  })}>
-                  <Link href={'/journal'}>
-                    <a
-                      className={classNames({
-                        [stls.link]: true,
-                        [stls.fieldsLink]: true
-                      })}>
-                      {'Журнал'}
-                    </a>
-                  </Link>
-                </li>
+                // key={link.val + link.href}
+                className={classNames({
+                  [stls.linkItem]: true,
+                  [stls.fieldsLinkItem]: true
+                })}>
+                <Link href={'/journal'}>
+                  <a
+                    className={classNames({
+                      [stls.link]: true,
+                      [stls.fieldsLink]: true
+                    })}>
+                    {'Журнал'}
+                  </a>
+                </Link>
+              </li>
               <li className={stls.logo}>
                 <Logo atFooter />
               </li>

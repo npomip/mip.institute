@@ -32,6 +32,49 @@
   grid-template-columns: 1fr 1fr
   column-gap: f.px(30)
   row-gap: f.px(30)
+  @include m.gap($mb: f.px(30))
   @include m.media(tablet, phone)
     row-gap: f.px(10)
     grid-template-columns: 1fr
+
+.violetCloud
+  z-index: 0
+  position: relative
+  bottom: f.px(-450)
+  left: 50%
+  width: f.px(1)
+  height: f.px(1)
+  border-radius: 50%
+  background: rgba(111, 1, 198, 0.7)
+  box-shadow: rgba(111, 1, 198, 0.7) f.px(5) f.px(5) f.px(100) f.px(70)
+  @include m.media(tablet)
+    left: 40%
+    bottom: f.px(-350)
+  @include m.media(phone)
+    left: 50%
+    bottom: f.px(-350)
+
+.violetCloudMobile
+  @include m.media(laptop, desktop)
+    display: none
+  @include m.media(tablet)
+    z-index: 0
+    position: relative
+    bottom: f.px(-950)
+    left: 45%
+    width: f.px(1)
+    height: f.px(1)
+    border-radius: 50%
+    box-shadow: rgba(111, 1, 198, 0.7) f.px(5) f.px(5) f.px(100) f.px(70)
+  @include m.media(phone)
+    z-index: 0
+    position: relative
+    bottom: f.px(-850)
+    left: 50%
+    width: f.px(1)
+    height: f.px(1)
+    border-radius: 50%
+    box-shadow: rgba(111, 1, 198, 0.7) f.px(5) f.px(5) f.px(100) f.px(70)
+
+// .note
+//   height: f.px(200)

@@ -3,12 +3,12 @@ import stls from '@/styles/components/cards/CardForWhom.module.sass'
 import Image, { StaticImageData } from 'next/image'
 
 type Props = {
-  src: string | StaticImageData
+  imageSrc: string | StaticImageData
   title: string
   description: string
 }
 
-const CardForWhom = ({ src, title, description }: Props) => {
+const CardForWhom = ({ imageSrc, title, description }: Props) => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
 
   return (
@@ -19,7 +19,7 @@ const CardForWhom = ({ src, title, description }: Props) => {
       </div>
       <div className={stls.image}>
         <Image
-          src={src}
+          src={imageSrc}
           alt='фото'
           height={isMobileLayout ? 220 : 250}
           width={170}

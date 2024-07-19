@@ -31,7 +31,7 @@ const ProfessionalLeague = () => {
           </div>
           <div className={stls.header}>
             <span className={stls.title}>
-              Московский институт психологии – партнер ОППЛ
+              Московский институт психологии – партнер ОППЛ {' '}
               {isMobileLayout && <br />}
               (Общероссийской профессиональной психотерапевтической лиги)
             </span>

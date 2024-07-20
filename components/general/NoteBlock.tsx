@@ -1,27 +1,25 @@
 import stls from '@/styles/components/general/NoteBlock.module.sass'
 import Image, { StaticImageData } from 'next/image'
-import { BtnGamma } from '../btns'
 import PopupTrigger from './PopupTrigger'
 
 type Props = {
   imageSrc: string | StaticImageData
   title: string
   description: string
-  buttonText: string
 }
 
-const NoteBlock = ({ imageSrc, title, description, buttonText }: Props) => {
+const NoteBlock = ({ imageSrc, title, description }: Props) => {
   return (
     <div className={stls.container}>
       <div className={stls.image}>
         <Image src={imageSrc} />
       </div>
       <div className={stls.text}>
-        <span className={stls.title}>{title}</span>
-        <span className={stls.description}>{description}</span>
+        <div className={stls.title}>{title}</div>
+        <div className={stls.description}>{description}</div>
       </div>
-      <div className={stls.button}>
-        <PopupTrigger btn='gamma' cta='use' />
+      <div className={stls.buttonBlock}>
+        <PopupTrigger btn='gamma' cta='knowRequirement' />
       </div>
     </div>
   )

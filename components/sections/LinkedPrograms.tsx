@@ -18,6 +18,8 @@ import CustomNextButton from '../general/CustomNextButton'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const LinkedPrograms = ({ programs, title }) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
   if (!programs || !programs.length) {
     return null // Если нет данных, не рендерим ничего
   }
@@ -36,7 +38,6 @@ const LinkedPrograms = ({ programs, title }) => {
       )
     }))
 
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const mobileSwiperOptions = {
     slidesNum: 1,

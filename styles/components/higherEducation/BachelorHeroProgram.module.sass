@@ -3,21 +3,23 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.dye(bg, c.$alpha)
   z-index: 2
-  padding-bottom: 0
+  @include m.gap($pt: f.px(30), $pb: f.px(60))
   & > *
     position: relative
   @include m.media(laptop, desktop)
     overflow: visible
   @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(0))
     position: relative
     z-index: 3
     overflow: hidden
-.containerHero
-  display: flex
-  flex-direction: column
-  justify-content: space-evenly
-  height: 100%
+// .containerHero
+//   display: flex
+//   flex-direction: column
+//   justify-content: space-evenly
+//   height: 100%
 .desktopBg
   max-width: f.px(1170)
   min-height: f.px(638)
@@ -27,7 +29,7 @@
   background-size: cover
   background-repeat: no-repeat
   z-index: 0
-  @include m.gap($mt: f.px(30))
+  // @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
     display: none
 
@@ -49,9 +51,10 @@
   position: relative
   height: f.px(660)
   z-index: 1
-  @include m.media(laptop, desktop)
-    @include m.gap($plr: f.px(63), $pt: f.px(10), $pb: f.px(150))
-    @include m.flex($fd: column, $jc: space-between)
+  @include m.gap($plr: f.px(63), $pt: f.px(10))
+  // @include m.media(laptop, desktop)
+  //   @include m.gap($plr: f.px(63), $pt: f.px(10))
+  //   @include m.flex($fd: column, $jc: space-between)
 
 .label
   position: relative
@@ -70,7 +73,7 @@
   @include m.dye(c, c.$nu)
   @include m.media(laptop, desktop)
     min-width: 12ch
-    @include m.gap($mt: f.px(15))
+    @include m.gap($mt: f.px(30))
     font-size: f.px(64)
     font-weight: 500
     line-height: 110%
@@ -79,6 +82,8 @@
     font-size: f.px(36)
     font-weight: 500
     line-height: 110%
+  span
+    display: block
 
 .analysis
   font-size: f.px(55)
@@ -156,20 +161,20 @@
   @include m.media(phone, tablet)
     display: none
 
-.info, .infoDown
-  transition: transform 1s ease-in-out
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(-68))
-    transform: translateY(f.px(-140))
-    position: relative
-    z-index: 1
+// .info, .infoDown
+//   transition: transform 1s ease-in-out
+//   @include m.media(phone, tablet)
+//     @include m.gap($mb: f.px(30))
+//   @include m.media(laptop, desktop)
+//     @include m.gap($mb: f.px(-68))
+//     transform: translateY(f.px(-140))
+//     position: relative
+//     z-index: 1
 
-.infoDown
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(8))
-    transform: translateY(f.px(-10))
+// .infoDown
+//   @include m.media(laptop, desktop)
+//     @include m.gap($mb: f.px(8))
+//     transform: translateY(f.px(-10))
 
 .mobiledesc
   display: inline-block
@@ -179,3 +184,7 @@
   min-height: f.px(473)
   @include m.flex($fd: column, $jc: space-between)
   @include m.gap($pt: f.px(20), $pb: f.px(30), $plr: f.px(15))
+
+.info
+  @include m.media(laptop, desktop)
+    display: none

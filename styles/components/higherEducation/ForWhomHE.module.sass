@@ -2,6 +2,11 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.section
+  @include m.gap($pt: f.px(50))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(30))
+
 .title
   @include m.dye(c, c.$theta)
   font-weight: 500
@@ -76,5 +81,6 @@
     border-radius: 50%
     box-shadow: rgba(111, 1, 198, 0.7) f.px(5) f.px(5) f.px(100) f.px(70)
 
-// .note
-//   height: f.px(200)
+.mobileOnly
+  @include m.media(laptop, desktop)
+    display: none

@@ -12,7 +12,8 @@ import {
   Teachers,
   BriefProgramContents,
   PageNavigation,
-  HeroProgram
+  HeroProgram,
+  Faq
 } from '@/components/sections'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import EntryForm from '../sections/EntryForm'
@@ -43,7 +44,6 @@ const PageBachelor = ({ bachelor }) => {
   const planRef = useRef(null)
   const teachersRef = useRef(null)
   const costRef = useRef(null)
-  const reviewsRef = useRef(null)
   const stepsForEnterRef = useRef(null)
 
   const sections = [
@@ -52,7 +52,7 @@ const PageBachelor = ({ bachelor }) => {
     { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'cost', label: 'Стоимость', ref: costRef, condition: true },
-    { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
+    // { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
   ];
   const segments = ['bachelor']
   // const segments = router.asPath.split('/').filter(segment => segment !== '')
@@ -111,7 +111,7 @@ const PageBachelor = ({ bachelor }) => {
       />
       <Wrapper>
 
-        <NoteBlock imageSrc={pic} title='Вопрос по программе' description='Остались вопросы по программе или дополнительной специализации? Напишите нам в форме обратной связи.' />
+        <NoteBlock marginTop={isMobileAndTabletLayout ? 30 : 60} marginBottom={isMobileAndTabletLayout ? 30 : 60} imageSrc={pic} title='Вопрос по программе' description='Остались вопросы по программе или дополнительной специализации? Напишите нам в форме обратной связи.' />
       </Wrapper>
       <Teachers
         title='Преподаватели программы'
@@ -119,16 +119,18 @@ const PageBachelor = ({ bachelor }) => {
         teachersList={bachelor.teachers}
         teachersRef={teachersRef}
       />
-      <YourDiploma ofType='Profession' diplomaRef={diplomaRef} />
-      <SalaryCounter />
+      <YourDiploma  ofType='Profession' diplomaRef={diplomaRef} />
+      <SalaryCounter  />
       <DistanceEducation
+        title='Конкурентное преимущество обучения в МИП:'
         list={bachelor?.benefits}
         paddingBottom={90}
         paddingBottomMobile={60}
       />
       <BachelorStudyCost costRef={costRef} />
-      <EntryForm />
-      <FullProgram />
+      <EntryForm withPromo={false} onBachelor />
+      <Faq />
+      {/* <FullProgram /> */}
     </>
   )
 }

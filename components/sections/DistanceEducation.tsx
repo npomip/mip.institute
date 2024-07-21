@@ -7,10 +7,10 @@ import SwiperContainer from '../general/SwiperContainer'
 import { IconFinger } from '../icons'
 import { distanceEducationList } from '@/data/general/distanceEducationList'
 
-export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0, list=distanceEducationList}) => {
+export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0, list=distanceEducationList, title='В программу дистанционного обучения входит:'}) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
-  const slides = distanceEducationList.map((item, idx) => (
+  const slides = list.map((item, idx) => (
     <CardDistanceEducation
       key={item.text + idx}
       item={item.text}
@@ -54,7 +54,7 @@ export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobi
       }}>
       <Wrapper>
         <h2 className={stls.title}>
-          В программу дистанционного обучения входит:
+          {title}
         </h2>
         <SwiperContainer
           slides={slides}

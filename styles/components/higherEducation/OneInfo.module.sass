@@ -1,0 +1,36 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.point
+  position: relative
+  @include m.media(laptop, desktop)
+    width: f.px(180)
+  background: #FFF
+  display: flex
+  flex-direction: column
+  justify-content: center
+  @include m.gap($pt: f.px(14), $plr: f.px(5))
+  border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    width: f.px(160)
+    height: f.px(90)
+    border: f.px(1) solid #6F01C6
+  p
+    font-size: f.px(14)
+    text-align: center
+    @include m.gap($mb: f.px(11))
+    @include m.media(phone, tablet) 
+      font-size: f.px(11)
+
+.key
+  font-weight: 500
+
+.icon
+  position: absolute
+  top: f.px(6)
+  left: f.px(6)
+  span
+    background-color: rgba(255, 255, 255, 0) !important
+    & > *
+      width: f.px(22)

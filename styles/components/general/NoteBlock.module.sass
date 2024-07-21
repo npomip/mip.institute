@@ -8,7 +8,8 @@
   @include m.dye(border, c.$alpha)
   @include m.dye(bg, c.$gray-50)
   @include m.flex($jc: flex-start, $ai: center)
-  height: f.px(280)
+  @include m.media(laptop, desktop)
+    height: f.px(280)
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $jc: space-around)
     border-radius: 0 0 f.px(33) f.px(33)
@@ -30,6 +31,9 @@
   line-height: 120%
   @include m.media(phone, tablet)
     font-size: f.px(24)
+    @include m.gap($pt: f.px(30), $pb: f.px(15))
+    text-align: center
+    max-width: f.px(300)
 
 .description
   font-family: Stem
@@ -38,7 +42,9 @@
   font-weight: 350
   line-height: 130%
   @include m.media(phone, tablet)
-    font-size: f.px(16)
+    font-size: f.px(18)
+    @include m.gap($plr: f.px(30), $pb: f.px(15))
+    text-align: center
 
 .image
   transform: scale(0.5) translateX(f.px(-20))
@@ -46,5 +52,17 @@
     display: none
 
 .buttonBlock
+  @include m.media(laptop, desktop)
+    flex: 0.7
+  display: flex
+  width: 100%
+  @include m.gap($plr: f.px(30))
   @include m.media(phone, tablet)
-    position: relative
+    @include m.gap($pb: f.px(40))
+  & > * 
+    width: 100%
+  button
+    width: 100%
+    
+  // @include m.media(phone, tablet)
+    // position: relative

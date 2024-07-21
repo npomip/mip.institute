@@ -25,7 +25,7 @@ export const ForWhomHE = () => {
         <div className={stls.note}>
           <NoteBlock
             imageSrc={pic}
-            title='Сомневаешься в своих баллах?'
+            title={<>Сомневаешься <br className={stls.mobileOnly} /> в своих баллах?</>}
             description='Оцени свои шансы на поступление и узнай проходной балл!'
           />
         </div>

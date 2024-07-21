@@ -4,13 +4,15 @@ import PopupTrigger from './PopupTrigger'
 
 type Props = {
   imageSrc: string | StaticImageData
-  title: string
+  title: any
   description: string
+  marginTop?: number
+  marginBottom?:number
 }
 
-const NoteBlock = ({ imageSrc, title, description }: Props) => {
+const NoteBlock = ({ imageSrc, title, description, marginTop=0, marginBottom=0 }: Props) => {
   return (
-    <div className={stls.container}>
+    <div style={{marginTop, marginBottom}} className={stls.container}>
       <div className={stls.image}>
         <Image src={imageSrc} />
       </div>

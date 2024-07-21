@@ -27,7 +27,6 @@ export const ForWhomHE = () => {
             imageSrc={pic}
             title='Сомневаешься в своих баллах?'
             description='Оцени свои шансы на поступление и узнай проходной балл!'
-            buttonText='Узнать'
           />
         </div>
       </Wrapper>

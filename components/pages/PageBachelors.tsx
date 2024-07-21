@@ -9,8 +9,11 @@ import {
   ContactForm
 } from '@/components/sections'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
+import BachelorSlugCard from '../cards/BachelorSlugCard'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
 import ProgramsFilters from '../layout/ProgramsFilters'
+import Wrapper from '../layout/Wrapper'
+import stls from '@/styles/pages/PageBachelors.module.sass'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -22,15 +25,21 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
   
 
   return (
-    <>
+    <Wrapper>
       <FilterProvider items={programs}>
         <ProgramsFilters
           bachelors={bachelors}
           allPrograms={programs}
           studyFields={[]}
         />
+        <div className={stls.cards}>
+
+        {bachelors.map(bachelor => (
+          <BachelorSlugCard key={bachelor.slug} card={bachelor} />
+        ))}
+        </div>
       </FilterProvider>
-    </>
+    </Wrapper>
   )
 }
 

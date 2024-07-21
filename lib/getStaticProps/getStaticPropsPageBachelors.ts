@@ -39,17 +39,25 @@ const getStaticPropsBachelors = async ({
             idx
           }
         }
-      
+
         bachelors {
+          educationCode
           title
-          
-      }
+          minTime
+          maxTime
+          admissionDate
+          slug
+          heroPicture {
+            url
+            width
+            height
+          }
+        }
       }
     `
   })
 
-  console.log(res.data);
-  
+  console.log(res.data)
 
   return {
     props: {

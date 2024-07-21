@@ -14,22 +14,27 @@ const BachelorProgramInfo = () => {
 
   const points = [
     {
+      index: 1,
       key: 'Уровень:',
       val: 'Бакалавриат',
     },
     {
+      index: 2,
       key: 'Срок обучения:',
       val: `от ${minTime} до ${maxTime}`,
     },
     {
+      index: 3,
       key: 'Форма обучения:',
       val: 'очно-заочная (с применением ДОТ)',
     },
     {
+      index: 4,
       key: 'Диплом:',
       val: `о высшем образовании и дополнительном образовании`,
     },
     {
+      index: 5,
       key: <>Ближайшие <br /> зачисления</>,
       val: admissionDate,
     }
@@ -39,7 +44,7 @@ const BachelorProgramInfo = () => {
   return (
     <div className={stls.points}>
       {points.map(point => (
-        <OneInfo point={point} />
+        <OneInfo key={point.index} point={point} />
       ))}
     </div>
   )

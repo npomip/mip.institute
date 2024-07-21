@@ -120,7 +120,7 @@ const BachelorHeroProgram = ({ breadcrumbs }) => {
                   position="right center"
                   // closeOnDocumentClick
                   >
-                  <BachelorFullProgramPopup content={bachelor.fullDescription} />
+                  <BachelorFullProgramPopup content={bachelor?.fullDescription} />
                 </Popup>
               </div>
               <div className={stls.btnsDesktop}>

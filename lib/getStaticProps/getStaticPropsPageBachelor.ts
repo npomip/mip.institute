@@ -28,6 +28,27 @@ const getStaticPropsBachelor = async ({
             benefits {
               text
             }
+            heroPicture {
+              url
+              width
+              height
+            }
+            educationCode
+            minTime
+            maxTime
+            admissionDate
+            diploma1 {
+              url
+              width
+              height
+            }
+            diploma2 {
+              url
+              width
+              height
+            }
+            shortDescription
+            fullDescription
             teachers {
               id
               name

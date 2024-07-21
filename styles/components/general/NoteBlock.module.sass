@@ -1,0 +1,50 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border-radius: 0 0 f.px(100) f.px(25)
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  @include m.dye(bg, c.$gray-50)
+  @include m.flex($jc: flex-start, $ai: center)
+  height: f.px(280)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: space-around)
+    border-radius: 0 0 f.px(33) f.px(33)
+
+.text
+  width: f.px(480)
+  @include m.flex($fd: column, $jc: center)
+  @include m.gap($mr: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.flex($ai:center, $jc: center)
+    @include m.gap($mr: 0)
+    width: auto
+
+.title
+  @include m.dye(c, c.$alpha)
+  font-size: f.px(40)
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(24)
+
+.description
+  font-family: Stem
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 350
+  line-height: 130%
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.image
+  transform: scale(0.5) translateX(f.px(-20))
+  @include m.media(phone, tablet)
+    display: none
+
+.buttonBlock
+  @include m.media(phone, tablet)
+    position: relative

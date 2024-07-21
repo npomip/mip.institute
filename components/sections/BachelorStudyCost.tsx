@@ -33,8 +33,8 @@ const BachelorStudyCost = ({ costRef }) => {
         <div className={stls.content}>
           <div className={stls.left}>
             <BachelorProgramCost
-              fullPrice={bachelor.onlineFullPrice}
-              priceWithDiscount={bachelor.onlinePriceWithDiscount}
+              fullPrice={bachelor?.onlineFullPrice}
+              priceWithDiscount={bachelor?.onlinePriceWithDiscount}
               violetBtn
               bg='#D3C7FF'
               tagColor='#6F01C6'
@@ -48,8 +48,8 @@ const BachelorStudyCost = ({ costRef }) => {
           </div>
           <div className={stls.center}>
             <BachelorProgramCost
-              fullPrice={bachelor.offlineFullPrice}
-              priceWithDiscount={bachelor.offlinePriceWithDiscount}
+              fullPrice={bachelor?.offlineFullPrice}
+              priceWithDiscount={bachelor?.offlinePriceWithDiscount}
               orangeBtn
               bg='#FEA965'
               tagColor='#FFF'

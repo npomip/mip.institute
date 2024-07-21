@@ -7,7 +7,7 @@ import { IconCircleCheck, OneNumber } from '../icons'
 import BachelorStepCard from '../cards/BachelorStepCard'
 import IconCheck from '../icons/IconCheck'
 
-const FourSteps = () => {
+const FourSteps = ({stepsForEnterRef}) => {
   const steps = [
     {
       id: 1,
@@ -40,7 +40,7 @@ const FourSteps = () => {
   ]
 
   return (
-    <section className={stls.container}>
+    <section ref={stepsForEnterRef} className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
           Что нужно для поступления? <span>4 легких шага в поступлении:</span>

@@ -1,9 +1,7 @@
-import axios from 'axios'
-import { routes } from '@/config/index'
-import { v4 as uuidv4 } from 'uuid'
-import { gql, useQuery } from '@apollo/client'
-import checkOrUpdateTokens from 'pages/api/checkOrUpdateTokens'
 import client from '@/lib/apolloClient'
+import { gql } from '@apollo/client'
+import checkOrUpdateTokens from 'pages/api/checkOrUpdateTokens'
+import { v4 as uuidv4 } from 'uuid'
 
 const UPDATE_EVENT = gql`
   mutation UpdateEvent($input: updateEventInput!) {
@@ -20,7 +18,6 @@ const getTicket = async values => {
   try {
     values.id = uuidv4()
     const checkToken =  await checkOrUpdateTokens()
-    console.log('NNNNNNEWWWW LEEEEAD', values)
     const access_token = checkToken.access_token
     values.access = access_token
 
@@ -35,8 +32,6 @@ const getTicket = async values => {
         }
       },
     })
-
-    console.log('GET_TICKETS', data.updateEvent.event.tickets_quantity)
     
     // const res = await axios.post(`${routes.front.root}/api/addSeminar`, values)
       return data.updateEvent.event.tickets_quantity

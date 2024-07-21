@@ -10,22 +10,24 @@ import {
   YourDiploma,
   FullProgram,
   Teachers,
-  BriefProgramContents
+  BriefProgramContents,
+  PageNavigation,
+  HeroProgram
 } from '@/components/sections'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import BachelorProgramModules from '../program/BachelorProgramModules'
 import EntryForm from '../sections/EntryForm'
 import LinkedPrograms from '../sections/LinkedPrograms'
 import SalaryCounter from '../sections/SalaryCounter'
-import TopCourses from '../sections/TopCourses'
 import stls from '@/styles/pages/PageBachelor.module.sass'
-import { OneNumber } from '../icons'
-import TwoNumber from '../icons/TwoNumber'
-import ThreeNumber from '../icons/ThreeNumber'
-import FourNumber from '../icons/FourNumber'
 import FourSteps from '../sections/FourSteps'
 import DistanceEducation from '../sections/DistanceEducation'
 import BachelorStudyCost from '../sections/BachelorStudyCost'
+import ForWhomHE from '../higherEducation/ForWhomHE'
+import NoteBlock from '../general/NoteBlock'
+import pic from '@/public/assets/imgs/forWhom/hasDoubtsImage.png'
+import Wrapper from '../layout/Wrapper'
+import { useRef } from 'react'
+import BachelorHeroProgram from '../higherEducation/BachelorHeroProgram'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -37,14 +39,48 @@ type PagesProgramsType = {
 const PageBachelor = ({ bachelor }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
+  const diplomaRef = useRef(null)
+  const planRef = useRef(null)
+  const teachersRef = useRef(null)
+  const costRef = useRef(null)
+  const reviewsRef = useRef(null)
+  const stepsForEnterRef = useRef(null)
+
+  const sections = [
+    { id: 'stepsForEnter', label: 'Как поступить', ref: stepsForEnterRef, condition: true },
+    { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
+    { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
+    { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
+    { id: 'cost', label: 'Стоимость', ref: costRef, condition: true },
+    { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
+  ];
+  const segments = ['bachelor']
+  // const segments = router.asPath.split('/').filter(segment => segment !== '')
+
+  const labels = ['Высшее образование']
+  const slug = ['bachelor']
+
+  const breadcrumbs = segments.map((segment, index) => {
+    const breadcrumb = {
+      label: labels[index],
+      path: '/' + segments[index],
+      // path: '/' + segments.slice(0, index + 1).join('/'),
+      slug: slug[index]
+    }
+    return breadcrumb
+  })
+
   return (
     <>
-      {bachelor.title}
-
-      <FourSteps />
+      <BachelorHeroProgram breadcrumbs={breadcrumbs} />
+      <PageNavigation
+        sections={sections}
+      />
+      <ForWhomHE />
+      <FourSteps stepsForEnterRef={stepsForEnterRef} />
       <BriefProgramContents
         coloredBackground
-        planRef={null}
+        planRef={planRef}
         program={bachelor.shortContents}
         title='Программа курса'
       />
@@ -73,19 +109,24 @@ const PageBachelor = ({ bachelor }) => {
           )
         }
       />
+      <Wrapper>
+
+        <NoteBlock imageSrc={pic} title='Вопрос по программе' description='Остались вопросы по программе или дополнительной специализации? Напишите нам в форме обратной связи.' />
+      </Wrapper>
       <Teachers
         title='Преподаватели программы'
         onMain
         teachersList={bachelor.teachers}
+        teachersRef={teachersRef}
       />
-      <YourDiploma ofType='Profession' />
+      <YourDiploma ofType='Profession' diplomaRef={diplomaRef} />
       <SalaryCounter />
       <DistanceEducation
         list={bachelor?.benefits}
         paddingBottom={90}
         paddingBottomMobile={60}
       />
-      <BachelorStudyCost />
+      <BachelorStudyCost costRef={costRef} />
       <EntryForm />
       <FullProgram />
     </>

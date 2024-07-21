@@ -23,6 +23,9 @@ import { OneNumber } from '../icons'
 import TwoNumber from '../icons/TwoNumber'
 import ThreeNumber from '../icons/ThreeNumber'
 import FourNumber from '../icons/FourNumber'
+import FourSteps from '../sections/FourSteps'
+import DistanceEducation from '../sections/DistanceEducation'
+import BachelorStudyCost from '../sections/BachelorStudyCost'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -32,31 +35,35 @@ type PagesProgramsType = {
 // http://localhost:3000/bachelor/psihologo-pedagogicheskoye-obrazovanie
 
 const PageBachelor = ({ bachelor }) => {
-  console.log(bachelor)
-
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
     <>
       {bachelor.title}
-      <div className={stls.num}>
-        <OneNumber />
-        <TwoNumber />
-        <ThreeNumber />
-        <FourNumber />
-      </div>
-      <BriefProgramContents coloredBackground planRef={null} program={bachelor.shortContents} title='Программа курса' />
+
+      <FourSteps />
+      <BriefProgramContents
+        coloredBackground
+        planRef={null}
+        program={bachelor.shortContents}
+        title='Программа курса'
+      />
       <LinkedPrograms
         programs={bachelor.programs}
         title={
           isMobileAndTabletLayout ? (
             <>
-              <p style={{'color': '#6F01C6', 'fontWeight': 500, 'fontSize': '30px'}}>Ваша дополнительная специализация</p>
-              <p>Параллельная программа профессиональной переподготовки с
-              присвоением квалификации</p>
+              <p
+                style={{ color: '#6F01C6', fontWeight: 500, fontSize: '30px' }}>
+                Ваша дополнительная специализация
+              </p>
+              <p>
+                Параллельная программа профессиональной переподготовки с
+                присвоением квалификации
+              </p>
             </>
           ) : (
-            <h2 style={{'fontSize': '35px'}}>
+            <h2 style={{ fontSize: '35px' }}>
               <span style={{ color: '#6F01C6' }}>
                 Ваша дополнительная специализация
               </span>{' '}
@@ -73,7 +80,12 @@ const PageBachelor = ({ bachelor }) => {
       />
       <YourDiploma ofType='Profession' />
       <SalaryCounter />
-
+      <DistanceEducation
+        list={bachelor?.benefits}
+        paddingBottom={90}
+        paddingBottomMobile={60}
+      />
+      <BachelorStudyCost />
       <EntryForm />
       <FullProgram />
     </>

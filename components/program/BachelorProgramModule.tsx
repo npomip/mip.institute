@@ -1,7 +1,7 @@
 import stls from '@/styles/components/program/BachelorProgramModule.module.sass'
 import { useState } from 'react'
 import classNames from 'classnames'
-import { IconCircleCheck, IconMinus, IconPlus } from '@/components/icons'
+import { IconMinus, IconPlus } from '@/components/icons'
 import parse from 'html-react-parser'
 
 const BachelorProgramModule = ({ title, topics }) => {
@@ -22,7 +22,6 @@ const BachelorProgramModule = ({ title, topics }) => {
         
         {canBeOpened && (
           <>
-          {/* <p className={stls.description}>{description}</p> */}
           <ul className={stls.list}>
           {topics &&
             topics.map((topic, idx) => (

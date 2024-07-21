@@ -1,14 +1,9 @@
 import stls from '@/styles/components/program/ProgramModules.module.sass'
 import BachelorProgramModule from '@/components/program/BachelorProgramModule'
-import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
 import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
 import marked from 'marked'
 
 const BachelorProgramModules = ({program}) => {
-
-  console.log(program);
-  
 
   const topics =
     program?.length > 0 &&
@@ -16,9 +11,6 @@ const BachelorProgramModules = ({program}) => {
   const titles =
     program?.length > 0 &&
     getParagraphInnerHtml(marked(program))
-
-console.log(topics);
-
 
   const list =
     titles &&

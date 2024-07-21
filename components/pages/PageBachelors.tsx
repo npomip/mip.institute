@@ -17,17 +17,18 @@ type PagesProgramsType = {
   ofType?: 'course' | 'profession'
 }
 
-const PageBachelors = ({programs=[], bachelors=[]}) => {
+const PageBachelors = ({ programs = [], bachelors = [] }) => {
   const categories = getUniqueCategories(programs)
+  
 
   return (
     <>
       <FilterProvider items={programs}>
-      <ProgramsFilters
-      bachelors={bachelors}
+        <ProgramsFilters
+          bachelors={bachelors}
           allPrograms={programs}
-            studyFields={[]}
-          />
+          studyFields={[]}
+        />
       </FilterProvider>
     </>
   )

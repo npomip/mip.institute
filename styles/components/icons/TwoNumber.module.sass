@@ -3,5 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.sizeIcon($w: 210, $h: 260)
+  @include m.sizeIcon($w: 100, $h: 100)
   @include m.flex
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 40, $h: 40)

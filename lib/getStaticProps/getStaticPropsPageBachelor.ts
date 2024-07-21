@@ -21,6 +21,13 @@ const getStaticPropsBachelor = async ({
           bachelor: bachelors(where: { slug: $slug }) {
             title
             shortContents
+            onlinePriceWithDiscount
+            offlinePriceWithDiscount
+            offlineFullPrice
+            onlineFullPrice
+            benefits {
+              text
+            }
             teachers {
               id
               name

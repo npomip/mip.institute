@@ -6,7 +6,6 @@ import BachelorProgramModules from '../program/BachelorProgramModules'
 import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
 import marked from 'marked'
 import classNames from 'classnames'
-import { height } from '@mui/system'
 
 const BriefProgramContents = ({ planRef, program = null, title = null,  coloredBackground=false}) => {
   const topics = program?.length > 0 && getListItemsInnerHtml(marked(program))

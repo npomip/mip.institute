@@ -7,6 +7,7 @@ import { OneNumber } from '../icons'
 import { FC, ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import routes from '@/config/routes'
 
 interface Step {
   card: {
@@ -29,7 +30,7 @@ interface Step {
 const BachelorSlugCard: FC<Step> = ({card}) => {
   
   return (
-    <Link  href={`bachelor/${card.slug}`}>
+    <Link passHref href={`${routes.front.bachelors}/${card.slug}`}>
       <div className={stls.oneCard}>
       <div className={stls.img}>
         <Image className={stls.image} src={card.heroPicture.url}

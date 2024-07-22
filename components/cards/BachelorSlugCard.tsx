@@ -37,7 +37,7 @@ console.log(card.slug);
       <div className={stls.oneCard}>
       <div className={stls.img}>
         <Image className={stls.image} src={card.heroPicture.url}
-        width={370} height={240}
+        width={740} height={480}
         // layout='fill'
         />
 

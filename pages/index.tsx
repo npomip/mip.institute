@@ -1,3 +1,4 @@
+import BachelorCarousel from '@/components/carousel/BachelorCarousel'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -138,7 +139,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Directions />
       <PsyTest />
       <TopCourses />
-      
+      <BachelorCarousel cards={bachelors} />
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />

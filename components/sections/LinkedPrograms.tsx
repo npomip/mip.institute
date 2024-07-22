@@ -17,47 +17,44 @@ import CustomPrevButton from '../general/CustomPrevButton'
 import CustomNextButton from '../general/CustomNextButton'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const LinkedPrograms = ({ programs, title }) => {
+type Picture = {
+  url: string
+  width: number
+  height: number
+}
+
+type Specialization = {
+  title: string
+  studyHours: number | null
+  admissionDate: string
+  heroPicture: Picture
+}
+
+type Props = {
+  specializations: Specialization[]
+  title: string | JSX.Element
+}
+
+const LinkedPrograms = ({ specializations, title }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
-  if (!programs || !programs.length) {
+  if (!specializations || !specializations.length) {
     return null // Если нет данных, не рендерим ничего
   }
 
   const list =
-    programs &&
-    [...programs]?.map(course => ({
+    specializations &&
+    [...specializations]?.map(course => ({
       ...course,
       image: (
         <ImgTopCourse
           src={course?.heroPicture?.url}
           alt={course?.title}
-          width={370}
-          height={250}
+          width={780}
+          height={380}
         />
       )
     }))
-
-
-  const mobileSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 10
-  }
-
-  const tabletSwiperOptions = {
-    slidesNum: 3,
-    spaceBetween: 20
-  }
-
-  const laptopSwiperOptions = {
-    slidesNum: 3,
-    spaceBetween: 30
-  }
-
-  const desktopSwiperOptions = {
-    slidesNum: 4,
-    spaceBetween: 30
-  }
 
   return (
     <section
@@ -92,13 +89,13 @@ const LinkedPrograms = ({ programs, title }) => {
             modules={[Scrollbar]}
             className={stls.mySwiper}>
             {list?.map((course, idx) => (
-              <SwiperSlide key={course.name + idx} className={stls.slide}>
+              <SwiperSlide key={course.title + idx} className={stls.slide}>
                 <CardLinkedProgram
-                  href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
-                  key={course.name + idx}
+                  // href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
+                  key={course.title + idx}
                   portrait={course?.image}
                   title={course.title}
-                  studyHours={course.studyHours}
+                  // studyHours={course.studyHours}
                 />
               </SwiperSlide>
             ))}

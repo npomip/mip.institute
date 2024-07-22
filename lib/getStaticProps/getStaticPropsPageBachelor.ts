@@ -12,7 +12,6 @@ const getStaticPropsBachelor = async ({
   revalidate: number | boolean
 }> => {
   const slug = context?.params?.slug?.toString() || null
-  console.log(slug)
 
   try {
     const res = await apolloClient.query<TypePageBachelorPropsQuery>({
@@ -95,7 +94,6 @@ const getStaticPropsBachelor = async ({
         slug
       }
     })
-    console.log('BACHELOOOOOR',res.data)
 
     return {
       props: {

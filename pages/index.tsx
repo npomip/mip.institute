@@ -139,7 +139,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Directions />
       <PsyTest />
       <TopCourses />
-      <BachelorCarousel cards={bachelors} />
+      {/* <BachelorCarousel cards={bachelors} /> */}
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />

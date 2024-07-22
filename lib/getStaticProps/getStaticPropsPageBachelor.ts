@@ -12,7 +12,6 @@ const getStaticPropsBachelor = async ({
   revalidate: number | boolean
 }> => {
   const slug = context?.params?.slug?.toString() || null
-  console.log(slug)
 
   try {
     const res = await apolloClient.query<TypePageBachelorPropsQuery>({
@@ -20,6 +19,7 @@ const getStaticPropsBachelor = async ({
         query getStaticPropsBachelor($slug: String!) {
           bachelor: bachelors(where: { slug: $slug }) {
             title
+            slug
             shortContents
             onlinePriceWithDiscount
             offlinePriceWithDiscount
@@ -77,6 +77,16 @@ const getStaticPropsBachelor = async ({
                 idx
               }
             }
+            additional_specializations {
+              title
+              studyHours
+              admissionDate
+              heroPicture {
+                url
+                width
+                height
+              }
+            }
           }
         }
       `,
@@ -84,11 +94,10 @@ const getStaticPropsBachelor = async ({
         slug
       }
     })
-    console.log(res.data)
 
     return {
       props: {
-        bachelor: res?.data?.bachelor?.[0]
+        bachelor: res?.data?.bachelor?.[0] || null
         // lifeCourse: res?.data?.lifeCourse?.[0] || null,
         // reviews: reviewsData
       },

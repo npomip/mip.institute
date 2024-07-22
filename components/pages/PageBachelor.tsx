@@ -47,13 +47,23 @@ const PageBachelor = ({ bachelor }) => {
   const stepsForEnterRef = useRef(null)
 
   const sections = [
-    { id: 'stepsForEnter', label: 'Как поступить', ref: stepsForEnterRef, condition: true },
+    {
+      id: 'stepsForEnter',
+      label: 'Как поступить',
+      ref: stepsForEnterRef,
+      condition: true
+    },
     { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
-    { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
+    {
+      id: 'teachers',
+      label: 'Преподаватели',
+      ref: teachersRef,
+      condition: true
+    },
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
-    { id: 'cost', label: 'Стоимость', ref: costRef, condition: true },
+    { id: 'cost', label: 'Стоимость', ref: costRef, condition: true }
     // { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
-  ];
+  ]
   const segments = ['bachelor']
   // const segments = router.asPath.split('/').filter(segment => segment !== '')
 
@@ -73,9 +83,7 @@ const PageBachelor = ({ bachelor }) => {
   return (
     <>
       <BachelorHeroProgram breadcrumbs={breadcrumbs} />
-      <PageNavigation
-        sections={sections}
-      />
+      <PageNavigation sections={sections} />
       <ForWhomHE />
       <FourSteps stepsForEnterRef={stepsForEnterRef} />
       <BriefProgramContents
@@ -85,7 +93,7 @@ const PageBachelor = ({ bachelor }) => {
         title='Программа курса'
       />
       <LinkedPrograms
-        programs={bachelor.programs}
+        specializations={bachelor?.additional_specializations}
         title={
           isMobileAndTabletLayout ? (
             <>
@@ -110,8 +118,13 @@ const PageBachelor = ({ bachelor }) => {
         }
       />
       <Wrapper>
-
-        <NoteBlock marginTop={isMobileAndTabletLayout ? 30 : 60} marginBottom={isMobileAndTabletLayout ? 30 : 60} imageSrc={pic} title='Вопрос по программе' description='Остались вопросы по программе или дополнительной специализации? Напишите нам в форме обратной связи.' />
+        <NoteBlock
+          marginTop={isMobileAndTabletLayout ? 30 : 60}
+          marginBottom={isMobileAndTabletLayout ? 30 : 60}
+          imageSrc={pic}
+          title='Вопрос по программе'
+          description='Остались вопросы по программе или дополнительной специализации? Напишите нам в форме обратной связи.'
+        />
       </Wrapper>
       <Teachers
         title='Преподаватели программы'
@@ -119,8 +132,8 @@ const PageBachelor = ({ bachelor }) => {
         teachersList={bachelor.teachers}
         teachersRef={teachersRef}
       />
-      <YourDiploma  ofType='Profession' diplomaRef={diplomaRef} />
-      <SalaryCounter  />
+      <YourDiploma ofType='Profession' diplomaRef={diplomaRef} />
+      <SalaryCounter />
       <DistanceEducation
         title='Конкурентное преимущество обучения в МИП:'
         list={bachelor?.benefits}

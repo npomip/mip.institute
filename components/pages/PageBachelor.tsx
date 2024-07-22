@@ -153,7 +153,6 @@ const PageBachelor = ({ bachelor }) => {
       <BachelorStudyCost costRef={costRef} />
       <EntryForm withPromo={false} onBachelor />
       <Faq />
-      {/* <FullProgram /> */}
     </>
   )
 }

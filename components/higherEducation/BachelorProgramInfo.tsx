@@ -15,7 +15,7 @@ const BachelorProgramInfo = ( ) => {
     {
       index: 2,
       key: 'Срок обучения:',
-      val: `от ${bachelor?.minTime} до ${bachelor?.maxTime}`,
+      val: `от ${bachelor?.minTime} до ${bachelor?.maxTime} лет`,
     },
     {
       index: 3,

@@ -21,18 +21,61 @@ type YourDiplomaType = {
   ofType: string
   diplomaRef?: React.RefObject<HTMLElement | null>
   onMain?: boolean
+  isBachelor?: boolean
 }
 
 const YourDiploma = ({
   ofType = null,
   diplomaRef = null,
-  onMain = false
+  onMain = false,
+  isBachelor = false
 }: YourDiplomaType) => {
   const slides = []
 
   const { program } = useContext(ContextStaticProps)
 
   ofType === 'Profession' &&
+    slides.push(
+      <div className={stls.diploma}>
+        {program?.diploma2 ? (
+          <ImgDiplomaDynamic
+            key='diploma-alt'
+            src={program?.diploma2?.url}
+            width={program?.diploma2?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma2?.width,
+              heightInitial: program?.diploma2?.height
+            })}
+            diplomaAlt
+          />
+        ) : (
+          <ImgDiplomaAlt key='diploma-alt' />
+        )}
+      </div>,
+      <div className={stls.diploma}>
+        {program?.diploma1 ? (
+          <ImgDiplomaDynamic
+            key='diploma'
+            src={program?.diploma1?.url}
+            width={program?.diploma1?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma1?.width,
+              heightInitial: program?.diploma1?.height
+            })}
+          />
+        ) : (
+          <ImgDiploma key='diploma' />
+        )}
+      </div>,
+
+      <div className={cn(stls.diploma, stls.supplement)}>
+        <ImgSupplement key='supplement' />
+      </div>
+    )
+
+  isBachelor &&
     slides.push(
       <div className={stls.diploma}>
         {program?.diploma2 ? (
@@ -170,7 +213,7 @@ const YourDiploma = ({
                 </p>
               )}
               <div className={stls.btn}>
-                <LicensePopUp showFullText={showFullText} />
+                <LicensePopUp onBachelor showFullText={showFullText} />
               </div>
             </div>
           </div>

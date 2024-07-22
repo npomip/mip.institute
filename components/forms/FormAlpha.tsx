@@ -69,7 +69,7 @@ const FormAlpha = ({
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
   const [loading, setLoading] = useState(false)
-  const { program, seminar } = useContext(ContextStaticProps)
+  const { program, seminar, bachelor } = useContext(ContextStaticProps)
   const [tickets, setTickets] = useState(1)
   const { updateTicketsQuantity } = useContext(ContextStaticProps)
 

@@ -88,7 +88,7 @@ const BachelorHeroProgram = ({ breadcrumbs }) => {
         </div>
       </div>
       <div className={stls.info}>
-        <BachelorProgramInfo />
+        <BachelorProgramInfo  />
       </div>
       <section className={stls.container}>
         <Wrapper>
@@ -127,7 +127,7 @@ const BachelorHeroProgram = ({ breadcrumbs }) => {
                 <PopupTrigger btn='alpha' cta={cta} />
                 <PopupTrigger btn='beta' cta='askQuestion' />
               </div>
-              <BachelorProgramInfo />
+              <BachelorProgramInfo  />
             </div>
           </div>
         </Wrapper>

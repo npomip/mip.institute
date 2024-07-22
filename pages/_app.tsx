@@ -31,7 +31,6 @@ import promocodes from '@/helpers/promocodes'
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
     const program = pageProps.program || null
-    console.log(pageProps);
     const bachelor = pageProps.bachelor || null
     const programs =
       sortBasedOnNumericOrder({ programs: pageProps.programs }) || []

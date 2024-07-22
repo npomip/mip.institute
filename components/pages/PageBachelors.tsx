@@ -27,6 +27,7 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
   return (
     <Wrapper>
       <FilterProvider items={programs}>
+      <h1 className={stls.title}>Высшее образование</h1>
         <ProgramsFilters
           bachelors={bachelors}
           allPrograms={programs}
@@ -35,7 +36,7 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
         <div className={stls.cards}>
 
         {bachelors.map(bachelor => (
-          <BachelorSlugCard key={bachelor.slug} card={bachelor} />
+          <BachelorSlugCard key={bachelor?.slug} card={bachelor} />
         ))}
         </div>
       </FilterProvider>

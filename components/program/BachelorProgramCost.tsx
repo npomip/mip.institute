@@ -43,7 +43,7 @@ const BachelorProgramCost = ({
           Стоимость программы при оплате за семестр:
         </p>
         <span className={stls.fullPriceSemester}>
-          <span>{toNumberWithSpaces(fullPrice / 2)}</span>
+          {fullPrice && <span>{toNumberWithSpaces(fullPrice / 2)}</span>}
           {''}
           <span>&#8381;/семестр</span>
         </span>{' '}

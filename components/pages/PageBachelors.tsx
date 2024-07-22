@@ -27,6 +27,7 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
   return (
     <Wrapper>
       <FilterProvider items={programs}>
+      <h1 className={stls.title}>Высшее образование</h1>
         <ProgramsFilters
           bachelors={bachelors}
           allPrograms={programs}

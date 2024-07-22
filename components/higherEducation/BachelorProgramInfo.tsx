@@ -3,7 +3,7 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext, useState } from 'react'
 import OneInfo from './OneInfo'
 
-const BachelorProgramInfo = () => {
+const BachelorProgramInfo = ( ) => {
   const { bachelor } = useContext(ContextStaticProps)
 
   const points = [

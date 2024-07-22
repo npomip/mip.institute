@@ -33,7 +33,7 @@ const BachelorSlugCard: FC<Step> = ({card}) => {
 console.log(card.slug);
   
   return (
-    <Link passHref href={`${routes.front.bachelors}/${card.slug}`}>
+    <Link  passHref href={`${routes.front.bachelors}/${card.slug}`}>
       <div className={stls.oneCard}>
       <div className={stls.img}>
         <Image className={stls.image} src={card.heroPicture.url}

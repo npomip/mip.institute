@@ -35,7 +35,7 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
         <div className={stls.cards}>
 
         {bachelors.map(bachelor => (
-          <BachelorSlugCard key={bachelor.slug} card={bachelor} />
+          <BachelorSlugCard key={bachelor?.slug} card={bachelor} />
         ))}
         </div>
       </FilterProvider>

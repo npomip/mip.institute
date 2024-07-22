@@ -95,7 +95,6 @@ const getStaticPropsBachelor = async ({
         slug
       }
     })
-    console.log('BACHELOOOOOR',res.data)
 
     return {
       props: {

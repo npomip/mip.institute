@@ -29,6 +29,7 @@ import pic from '@/public/assets/imgs/forWhom/hasDoubtsImage.png'
 import Wrapper from '../layout/Wrapper'
 import { useRef } from 'react'
 import BachelorHeroProgram from '../higherEducation/BachelorHeroProgram'
+import { useHandleContextStaticProps } from '@/hooks/index'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -45,6 +46,7 @@ const PageBachelor = ({ bachelor }) => {
   const teachersRef = useRef(null)
   const costRef = useRef(null)
   const stepsForEnterRef = useRef(null)
+  useHandleContextStaticProps({ bachelor })
 
   const sections = [
     { id: 'stepsForEnter', label: 'Как поступить', ref: stepsForEnterRef, condition: true },
@@ -81,11 +83,11 @@ const PageBachelor = ({ bachelor }) => {
       <BriefProgramContents
         coloredBackground
         planRef={planRef}
-        program={bachelor.shortContents}
+        program={bachelor?.shortContents}
         title='Программа курса'
       />
       <LinkedPrograms
-        programs={bachelor.programs}
+        programs={bachelor?.programs}
         title={
           isMobileAndTabletLayout ? (
             <>
@@ -116,7 +118,7 @@ const PageBachelor = ({ bachelor }) => {
       <Teachers
         title='Преподаватели программы'
         onMain
-        teachersList={bachelor.teachers}
+        teachersList={bachelor?.teachers}
         teachersRef={teachersRef}
       />
       <YourDiploma  ofType='Profession' diplomaRef={diplomaRef} />

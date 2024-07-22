@@ -76,7 +76,7 @@ const BachelorHeroProgram = ({ breadcrumbs }) => {
                   }
                   position="right center"
                   modal nested>
-                  {close => <BachelorFullProgramPopup close={close} content={bachelor.fullDescription} />}
+                  {close => <BachelorFullProgramPopup close={close} content={bachelor?.fullDescription} />}
                 </Popup>
               </div>
             </div>

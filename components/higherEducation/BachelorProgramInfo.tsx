@@ -6,12 +6,6 @@ import OneInfo from './OneInfo'
 const BachelorProgramInfo = () => {
   const { bachelor } = useContext(ContextStaticProps)
 
-  const {
-    minTime,
-    maxTime,
-    admissionDate
-  } = bachelor
-
   const points = [
     {
       index: 1,
@@ -21,7 +15,7 @@ const BachelorProgramInfo = () => {
     {
       index: 2,
       key: 'Срок обучения:',
-      val: `от ${minTime} до ${maxTime}`,
+      val: `от ${bachelor?.minTime} до ${bachelor?.maxTime}`,
     },
     {
       index: 3,
@@ -36,7 +30,7 @@ const BachelorProgramInfo = () => {
     {
       index: 5,
       key: <>Ближайшие <br /> зачисления</>,
-      val: admissionDate,
+      val: bachelor?.admissionDate,
     }
   ]
 

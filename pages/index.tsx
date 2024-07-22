@@ -160,7 +160,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
-      <ProfessionalLeague />
       <SalaryCounter />
       <Teachers
         onMain

@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pb: f.px(0))
+  @include m.gap($pb: f.px(50))
 
 .cards
   position: relative
@@ -48,7 +48,6 @@
   font-size: f.px(25)
   font-weight: 500
   @include m.gap($mb: f.px(15))
-  
 
 .cardDotTop, .cardDotBottom
   position: relative
@@ -56,14 +55,14 @@
   width: f.px(1)
   height: f.px(1)
   box-shadow: f.px(10) f.px(30) f.px(105) f.px(80) #894eb7b3
-  @include m.media(phone, tablet) 
+  @include m.media(phone, tablet)
     box-shadow: f.px(10) f.px(30) f.px(75) f.px(50) #894eb7b3
 
 .cardDotTop
   float: right
   left: f.px(0)
   top: f.px(90)
-  @include m.media(phone, tablet) 
+  @include m.media(phone, tablet)
     float: left
     left: 0
     top: f.px(0)
@@ -84,7 +83,6 @@
   @include m.media(phone, tablet)
     flex-direction: column
     gap: f.px(6)
-
 
 .text, .docs
   position: relative
@@ -130,6 +128,6 @@
     margin-bottom: 0
     font-weight: 500
     font-size: f.px(18)
-  display: flex
-  align-items: center
-  gap: f.px(30)
+    display: flex
+    align-items: center
+    gap: f.px(30)

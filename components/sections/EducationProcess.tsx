@@ -6,15 +6,25 @@ import { useState } from 'react'
 import TagOrange from '../general/TagOrange'
 import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import {textIndex, infoBachelor} from '../../constants/howProcessGoes'
+import classNames from 'classnames'
 
-const text = [
-  'Обучение в МИП осуществляется по заочной форме ',
-  'с применением дистанционных технологий. Лекции, общение, тестирование проходят в онлайн-формате через образовательную платформу. ',
-  'Вы получите научную базу по главным психологическим дисциплинам и практический опыт ',
-  'в работе с задачами по реальным кейсам. Узнаете, как терапия помогает решить внутриличностные проблемы и выйти из стрессовых ситуаций без потерь.'
-]
 
-const EducationProcess = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0}) => {
+type Props = { 
+  isBachelorPage?: boolean
+  paddingTop: number
+  paddingBottom: number
+  paddingTopMobile: number
+  paddingBottomMobile: number
+}
+
+const EducationProcess = ({
+  isBachelorPage = false,
+  paddingTop = 0,
+  paddingBottom = 0,
+  paddingTopMobile = 0,
+  paddingBottomMobile = 0
+}: Props) => {
   const [showFullText, setShowFullText] = useState(false)
 
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -22,12 +32,12 @@ const EducationProcess = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, pa
   const subtitleMobile = (
     <>
       <p className={stls.leftTitle}>
-        <span className={stls.boldText}>{text[0]}</span>
-        {text[1]}
+        <span className={stls.boldText}>{textIndex[0]}</span>
+        {textIndex[1]}
         {showFullText && (
           <span>
-            <span className={stls.boldText}>{text[2]}</span>
-            {text[3]}
+            <span className={stls.boldText}>{textIndex[2]}</span>
+            {textIndex[3]}
           </span>
         )}
       </p>
@@ -37,24 +47,56 @@ const EducationProcess = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, pa
   const subtitle = (
     <>
       <p className={stls.leftTitle}>
-        <span className={stls.boldText}>{text[0]}</span>
-        {text[1]}
-        <span className={stls.boldText}>{text[2]}</span>
-        {text[3]}
+        <span className={stls.boldText}>{textIndex[0]}</span>
+        {textIndex[1]}
+        <span className={stls.boldText}>{textIndex[2]}</span>
+        {textIndex[3]}
       </p>
     </>
   )
 
   return (
-    <section className={stls.container} style={{ 
-      paddingTop : isMobileAndTabletLayout ? paddingTopMobile : paddingTop, 
-      paddingBottom : isMobileAndTabletLayout ? paddingBottomMobile : paddingBottom
+    <section
+      className={classNames({[stls.container]:true,[stls.bachelorContainer]:isBachelorPage})}
+      style={{
+        paddingTop: isMobileAndTabletLayout ? paddingTopMobile : paddingTop,
+        paddingBottom: isMobileAndTabletLayout
+          ? paddingBottomMobile
+          : paddingBottom
       }}>
       <Wrapper>
         <h2 className={stls.title}>Как проходит обучение</h2>
         <div className={stls.tag}>
           <TagOrange>Процесс</TagOrange>
         </div>
+        <div className={stls.content}>
+        {isBachelorPage ? 
+        infoBachelor.map((item, index) => (
+        <TwoColumns isBachelorPage key={index}>
+          <div className={stls.text}>
+            <p className={stls.leftTitle}>
+              <span className={stls.boldText}>{item.text[0]}</span>
+              {item.text[1]}
+            </p>
+          </div>
+          <div className={stls.textMobile}>
+          <p className={stls.leftTitle}>
+            <span className={stls.boldText}>{item.text[0]}</span>
+            {item.text[1]}
+          </p>
+          </div>
+          <div className={stls.img}>
+            <Image
+              className={stls.rightImg}
+              width={570}
+              height={372}
+              src={item.src}
+              alt='Как идет обучение?'
+            />
+          </div>
+        </TwoColumns>
+        ))
+        : 
         <TwoColumns>
           <div className={stls.text}>{subtitle}</div>
           <div className={stls.textMobile}>{subtitleMobile}</div>
@@ -65,7 +107,7 @@ const EducationProcess = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, pa
           </button>
           <div className={stls.img}>
             <Image
-            className={stls.rightImg}
+              className={stls.rightImg}
               width={575}
               height={260}
               src={img}
@@ -73,6 +115,8 @@ const EducationProcess = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, pa
             />
           </div>
         </TwoColumns>
+        }
+        </div>
       </Wrapper>
     </section>
   )

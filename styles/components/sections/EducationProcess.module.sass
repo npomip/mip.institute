@@ -35,6 +35,7 @@
   @include m.gap( $mb: f.px(20))
   align-self: center
   & > *
+    color: white
     position: absolute
     @include m.media(laptop, desktop)
       top: -10px
@@ -44,7 +45,6 @@
       @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
       top: f.px(-30)
       left: f.px(-295)
-      display: none
 
 .text
   @include m.media(laptop, desktop)
@@ -91,3 +91,12 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($mtb: f.px(10))
+
+.content
+  @include m.media(laptop, desktop)
+    @include m.flex
+    gap: f.px(29)
+    .img
+      @include m.gap($mt: 0, $mb: 0)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)

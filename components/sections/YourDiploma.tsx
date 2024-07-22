@@ -117,8 +117,7 @@ const YourDiploma = ({
       </div>
     )
 
-  ofType === 'Course' ||
-    (ofType === 'Practice' &&
+  ofType === 'Course' &&
       slides.push(
         <div className={stls.diploma}>
           {program?.diploma1 ? (
@@ -154,7 +153,7 @@ const YourDiploma = ({
             <ImgCertificateAlt key='certificate-alt' />
           )}
         </div>
-      ))
+      )
 
   const mobileSwiperOptions = {
     slidesNum: 1,
@@ -164,6 +163,9 @@ const YourDiploma = ({
     slidesNum: 1,
     spaceBetween: 30
   }
+
+  console.log(ofType);
+  
 
   const [cut, setCut] = useState(184)
   const [showFullText, setShowFullText] = useState(false)

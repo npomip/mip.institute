@@ -19,6 +19,7 @@ import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
 import PayLater from '@/components/sections/PayLater'
+import ProfessionalLeague from '@/components/sections/ProfessionalLeague'
 import PsyTest from '@/components/sections/PsyTest'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
@@ -169,6 +170,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         teachersFromMain={teachersFromMain}
       />
       <YourDiploma onMain ofType='Profession' />
+      <ProfessionalLeague />
       <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
       <PayLater />

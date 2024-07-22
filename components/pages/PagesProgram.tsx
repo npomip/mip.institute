@@ -28,6 +28,7 @@ import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
+import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
@@ -118,6 +119,7 @@ const PagesProgram = ({
       />
       <DistanceEducation paddingBottomMobile={20}/>
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
+      {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />

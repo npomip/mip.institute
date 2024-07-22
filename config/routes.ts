@@ -41,15 +41,16 @@ const routes = {
     gratefull: '/gratefull',
     contact: '/contact',
     docs: '/docs',
-    ochuvomipConstituent: '/docs/ochu_vo_mip/constituent',
-    ochuvomipGeneral: '/docs/ochu_vo_mip/general',
+    ochuvomipConstituent: '/docs/ochu-vo-mip/constituent',
+    ochuvomipGeneral: '/docs/ochu-vo-mip/general',
     docsConstituent: '/docs/constituent',
     docsRegulations: 'docs/regulations',
     docsGeneral: '/docs/general',
     assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
     policiesPrivacy: '/policies/privacy.pdf',
     policiesTerms: '/policies/terms.pdf',
-    regulation: '/policies/regulation.pdf'
+    regulation: '/policies/regulation.pdf',
+    yandexAnalytics: '/policies/yandexAnalytics.pdf'
   },
   back: {
     // root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',

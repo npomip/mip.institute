@@ -43,7 +43,8 @@ import truncate from 'truncate'
 const HomePage: NextPage<TypePageHomeProps> = ({
   programs,
   reviews,
-  teachers
+  teachers,
+  bachelors
 }) => {
   useHandleContextStaticProps({ programs })
 
@@ -137,6 +138,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Directions />
       <PsyTest />
       <TopCourses />
+      
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />

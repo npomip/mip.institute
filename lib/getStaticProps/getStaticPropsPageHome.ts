@@ -35,6 +35,19 @@ const getStaticPropsPageHome = async ({
             idx
           }
         }
+        bachelors {
+          slug
+          heroPicture {
+            url
+            width
+            height
+          }
+          educationCode
+          title
+          admissionDate
+          minTime
+          maxTime
+        }
         teachers {
           id
           name

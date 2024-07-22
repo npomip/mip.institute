@@ -38,7 +38,6 @@ const LinkedPrograms = ({ programs, title }) => {
       )
     }))
 
-
   const mobileSwiperOptions = {
     slidesNum: 1,
     spaceBetween: 10
@@ -94,11 +93,11 @@ const LinkedPrograms = ({ programs, title }) => {
             {list?.map((course, idx) => (
               <SwiperSlide key={course.name + idx} className={stls.slide}>
                 <CardLinkedProgram
-                  href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
+                  // href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
                   key={course.name + idx}
                   portrait={course?.image}
                   title={course.title}
-                  studyHours={course.studyHours}
+                  // studyHours={course.studyHours}
                 />
               </SwiperSlide>
             ))}

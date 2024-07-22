@@ -20,6 +20,7 @@ const getStaticPropsBachelor = async ({
         query getStaticPropsBachelor($slug: String!) {
           bachelor: bachelors(where: { slug: $slug }) {
             title
+            slug
             shortContents
             onlinePriceWithDiscount
             offlinePriceWithDiscount
@@ -77,6 +78,16 @@ const getStaticPropsBachelor = async ({
                 idx
               }
             }
+            additional_specializations {
+              title
+              studyHours
+              admissionDate
+              heroPicture {
+                url
+                width
+                height
+              }
+            }
           }
         }
       `,
@@ -84,11 +95,11 @@ const getStaticPropsBachelor = async ({
         slug
       }
     })
-    console.log(res.data)
+    console.log('BACHELOOOOOR',res.data)
 
     return {
       props: {
-        bachelor: res?.data?.bachelor?.[0]
+        bachelor: res?.data?.bachelor?.[0] || null
         // lifeCourse: res?.data?.lifeCourse?.[0] || null,
         // reviews: reviewsData
       },

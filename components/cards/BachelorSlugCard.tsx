@@ -27,7 +27,10 @@ interface Step {
   }
 }
 
+
+
 const BachelorSlugCard: FC<Step> = ({card}) => {
+console.log(card.slug);
   
   return (
     <Link passHref href={`${routes.front.bachelors}/${card.slug}`}>

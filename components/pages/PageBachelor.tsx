@@ -142,7 +142,7 @@ const PageBachelor = ({ bachelor }) => {
         teachersList={bachelor?.teachers}
         teachersRef={teachersRef}
       />
-      <YourDiploma ofType='Profession' diplomaRef={diplomaRef} />
+      <YourDiploma isBachelor diplomaRef={diplomaRef} />
       <SalaryCounter />
       <DistanceEducation
         title='Конкурентное преимущество обучения в МИП:'

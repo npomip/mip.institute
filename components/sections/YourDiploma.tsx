@@ -15,10 +15,11 @@ import cn from 'classnames'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import TagOrange from '../general/TagOrange'
+import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
 
 type YourDiplomaType = {
-  ofType: string
+  ofType?: string
   diplomaRef?: React.RefObject<HTMLElement | null>
   onMain?: boolean
   isBachelor?: boolean
@@ -91,7 +92,7 @@ const YourDiploma = ({
             diplomaAlt
           />
         ) : (
-          <ImgDiplomaAlt key='diploma-alt' />
+          <ImgBachelorDiploma key='diploma-alt' />
         )}
       </div>,
       <div className={stls.diploma}>
@@ -107,7 +108,7 @@ const YourDiploma = ({
             })}
           />
         ) : (
-          <ImgDiploma key='diploma' />
+          <ImgBachelorDiploma key='diploma' />
         )}
       </div>,
 

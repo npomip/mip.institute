@@ -92,11 +92,12 @@
     font-size: f.px(15)
     @include m.gap($mtb: f.px(10))
 
+.bothImg
+  @include m.gap($mt: f.px(0), $mb: f.px(0))
+
 .content
   @include m.media(laptop, desktop)
     @include m.flex
     gap: f.px(29)
-    .img
-      @include m.gap($mt: 0, $mb: 0)
   @include m.media(phone, tablet)
     @include m.flex($fd: column)

@@ -85,7 +85,7 @@ const EducationProcess = ({
             {item.text[1]}
           </p>
           </div>
-          <div className={stls.img}>
+          <div className={stls.bothImg}>
             <Image
               className={stls.rightImg}
               width={570}

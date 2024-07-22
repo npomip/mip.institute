@@ -30,6 +30,7 @@ import Wrapper from '../layout/Wrapper'
 import { useRef } from 'react'
 import BachelorHeroProgram from '../higherEducation/BachelorHeroProgram'
 import { useHandleContextStaticProps } from '@/hooks/index'
+import EducationProcess from '../sections/EducationProcess'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -88,6 +89,13 @@ const PageBachelor = ({ bachelor }) => {
       <PageNavigation sections={sections} />
       <ForWhomHE />
       <FourSteps stepsForEnterRef={stepsForEnterRef} />
+      <EducationProcess
+        isBachelorPage
+        paddingTop={90}
+        paddingBottom={0}
+        paddingTopMobile={0}
+        paddingBottomMobile={0}
+      />
       <BriefProgramContents
         coloredBackground
         planRef={planRef}

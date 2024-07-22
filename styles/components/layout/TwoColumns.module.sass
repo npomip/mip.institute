@@ -13,3 +13,9 @@
     overflow-x: auto
     @include m.media(phone, tablet)
       @include m.flex($fd: row)
+
+.bachelorContainer
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column, $jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)

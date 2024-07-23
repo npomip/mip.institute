@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/LinkedPrograms.module.sass'
 import { TypeLibTeachers } from '@/types/index'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { getImageHeight } from '@/helpers/index'
 import { ContextStaticProps } from '@/context/index'
 import Wrapper from '@/components/layout/Wrapper'
@@ -16,6 +16,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import CustomPrevButton from '../general/CustomPrevButton'
 import CustomNextButton from '../general/CustomNextButton'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import PopupSpecialization from '../popups/PopupSpecialization'
+import Popup from 'reactjs-popup'
 
 type Picture = {
   url: string
@@ -28,6 +30,7 @@ type Specialization = {
   studyHours: number | null
   admissionDate: string
   heroPicture: Picture
+  record: { text: string }[]
 }
 
 type Props = {
@@ -35,11 +38,22 @@ type Props = {
   title: string | JSX.Element
 }
 
+type Slide = {
+  image: JSX.Element
+} & Specialization
+
 const LinkedPrograms = ({ specializations, title }: Props) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState<null | Slide>(null)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   if (!specializations || !specializations.length) {
     return null // Если нет данных, не рендерим ничего
+  }
+
+  const handleSlideClick = (slide: Slide) => {
+    setCurrentSlide(slide)
+    setIsOpen(true)
   }
 
   const list =
@@ -89,7 +103,10 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
             modules={[Scrollbar]}
             className={stls.mySwiper}>
             {list?.map((course, idx) => (
-              <SwiperSlide key={course.title + idx} className={stls.slide}>
+              <SwiperSlide
+                key={course.title + idx}
+                className={stls.slide}
+                onClick={() => handleSlideClick(course)}>
                 <CardLinkedProgram
                   // href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
                   key={course.title + idx}
@@ -125,6 +142,20 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
             )}
           </Swiper>
         </div>
+        <Popup
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+          position={'center center'}
+          nested>
+          {close => (
+            <PopupSpecialization
+              image={currentSlide?.image}
+              title={currentSlide?.title}
+              descriptionList={currentSlide?.record}
+              onClose={close}
+            />
+          )}
+        </Popup>
       </Wrapper>
     </section>
   )

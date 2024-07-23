@@ -15,6 +15,7 @@ import cn from 'classnames'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import TagOrange from '../general/TagOrange'
+import ImgBachelorDiplomaAlt from '../imgs/diplomas/ImgBachelorDiplomaAlt'
 import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
 
@@ -92,7 +93,7 @@ const YourDiploma = ({
             diplomaAlt
           />
         ) : (
-          <ImgBachelorDiploma key='diploma-alt' />
+          <ImgBachelorDiplomaAlt key='diploma-alt' />
         )}
       </div>,
       <div className={stls.diploma}>

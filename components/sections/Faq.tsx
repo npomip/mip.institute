@@ -10,14 +10,8 @@ import { convertMdToHtml } from '@/helpers/index'
 import marked from 'marked'
 
 const Faq = ({faqRef=null}) => {
-  const { program } = useContext(ContextStaticProps)
+  const { program, bachelor } = useContext(ContextStaticProps)
 
-  let list =
-    program?.qnas?.length &&
-    program.qnas.map((qna, idx) => ({
-      question: qna.question,
-      answer: qna.answer
-    }))
     const listOnMain = [
       {question:'Какой график обучения в институте? Получится ли совмещать его с работой?', answer: 'Да. Вы можете учиться в любое время дня без отрыва от семьи и основной занятости. Вы получите специальность в онлайн-формате не выходя из дома'},
       {question:'Смогу ли я вести частную практику после обучения в МИП?', answer: 'Да. Мы предоставим вам все необходимое для получения профессионального психологического образования и старта карьеры — знания и диплом'},
@@ -26,7 +20,19 @@ const Faq = ({faqRef=null}) => {
       {question:'Какие документы я получу после окончания обучения?', answer: 'После прохождения курсов выдается диплом о профессиональной переподготовке или удостоверение о повышении квалификации установленного образца. Это официальный документ, который вносится в реестр ФРДО. Его можно проверить на сайте Рособрнадзора.В дополнении также выдается диплом или сертификат Московского института психологии в формате А4 для личного портфолио.'},
     ]
 
-    if(!list) {
+    let list = null;
+
+    if (program?.qnas?.length) {
+      list = program.qnas.map((qna, idx) => ({
+        question: qna.question,
+        answer: qna.answer,
+      }));
+    } else if (bachelor?.qnas?.length) {
+      list = bachelor.qnas.map((qna, idx) => ({
+        question: qna.question,
+        answer: qna.answer,
+      }));
+    } else {
       list = listOnMain
     }
 

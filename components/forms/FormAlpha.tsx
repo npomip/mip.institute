@@ -73,6 +73,11 @@ const FormAlpha = ({
   const [tickets, setTickets] = useState(1)
   const { updateTicketsQuantity } = useContext(ContextStaticProps)
 
+  console.log(bachelor);
+  console.log('blockForAmo', blockForAmo);
+  
+  
+
   useEffect(() => {
     popup && setFocus('name')
   }, [setFocus, popup])
@@ -99,7 +104,7 @@ const FormAlpha = ({
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')
     const advcake_track_url = getCookie('advcake_track_url')
-    const price = program?.price
+    const price = program?.price || bachelor.offlineFullPrice / 2 || null
     data.price = price
 
     data.blockForAmo = blockForAmo

@@ -13,10 +13,11 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
+    font-weight: 500
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
   @include m.dye(c, c.$theta)
 
 .tag
@@ -33,7 +34,7 @@
       @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
     @include m.media(phone, tablet)
       @include m.gap($plr: f.px(18), $ptb: f.px(5), $mb:f.px(10))
-      top: f.px(-35)
+      top: f.px(-45)
       left: f.px(-299)
 
 .subtitleContainer
@@ -42,6 +43,8 @@
   background-color: c.$nu
   @include m.media(desktop)
     @include m.flex($display: false, $fb: 50%)
+  @include m.media(phone, tablet)
+    @include m.gap($mt:f.px(15))
 
 .btn
   width: 100%
@@ -55,9 +58,9 @@
     font-size: f.px(20)
   @include m.media(laptop)
     @include m.gap($mb: f.px(39))
-  color: #131313
-  font-weight: 300
-  line-height: 130%
+    color: #131313
+    font-weight: 300
+    line-height: 130%
   @include m.dye(c, c.$theta)
 
 .mainSubtitle
@@ -72,14 +75,17 @@
   @include m.media(laptop)
     @include m.gap($mb: f.px(18))
 
-  font-size: f.px(20)
-  font-weight: 700
-  color: #F87E1B
-  text-decoration-line: underline
-  text-underline-offset: f.px(5)
+    font-size: f.px(20)
+    font-weight: 700
+    color: #F87E1B
+    text-decoration-line: underline
+    text-underline-offset: f.px(5)
   @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15), $mt: f.px(5))
     font-size: f.px(15)
-    @include m.gap($mb: f.px(15))
+    color: #F87E1B
+    font-weight: 700
+    text-decoration-line: underline
 
 .content
   @include m.media(laptop, desktop)
@@ -110,7 +116,7 @@
       border-radius: f.px(15)
 
 .supplement
-  
+
   & > *
     // max-width: f.px(291)
     height: f.px(390)
@@ -119,7 +125,7 @@
       height: f.px(385)
       width: f.px(270)
 
-.slidesContainer 
+.slidesContainer
   @include m.gap($mt: f.px(10), $mr: f.px(15))
   display: grid
   grid-template-columns: repeat(2, 1fr)
@@ -164,7 +170,52 @@
     @include m.media(phone)
       margin-top: f.px(16)
       scale: 1.076
-      
+
     @include m.media(laptop)
       margin-top: f.px(10)
       scale: 1.062
+
+.containerBtns
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(44))
+    @include m.flex(true)
+    gap: f.px(33)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(28))
+    @include m.flex(true)
+    gap: f.px(24)
+
+.educations
+  @include m.media(laptop, desktop)
+    @include m.flex(true, $fd: column, $ai: flex-start)
+    gap: f.px(10)
+  @include m.media(phone, tablet)
+    @include m.flex(true, $fd: column, $ai: flex-start)
+    gap: f.px(10)
+
+.default
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+    font-weight: 350
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    font-weight: 350
+  &.active
+    @include m.media(laptop, desktop)
+      @include m.dye(c, c.$alpha)
+      font-size: f.px(20)
+      font-weight: 500
+    @include m.media(phone, tablet)
+      @include m.dye(c, c.$alpha)
+      font-size: f.px(16)
+      font-weight: 500
+
+.chooseText
+  @include m.media(laptop, desktop)
+    @include m.flex(true, $ai: center)
+    font-size: f.px(25)
+    font-weight: 500
+  @include m.media(phone, tablet)
+    @include m.flex(true, $ai: center)
+    font-size: f.px(20)
+    font-weight: 500

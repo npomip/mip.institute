@@ -17,30 +17,24 @@ import Popup from 'reactjs-popup'
 import TagOrange from '../general/TagOrange'
 import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
-import classNames from 'classnames'
 
 type YourDiplomaType = {
+  ofType?: string
   diplomaRef?: React.RefObject<HTMLElement | null>
   onMain?: boolean
   isBachelor?: boolean
 }
 
-const YourDiploma = ({
+const YourDiplomaIndex = ({
+  ofType = null,
   diplomaRef = null,
   onMain = false,
   isBachelor = false
 }: YourDiplomaType) => {
   const slides = []
+  const { program } = useContext(ContextStaticProps)
 
-  const { program } = useContext(ContextStaticProps) 
-  const [isAdditionalEducation, setIsAdditionalEducation] = useState('Higher')
-
-  const educationHandler = (currentEducation) => {
-    setIsAdditionalEducation(currentEducation)
-  }
-
-
-  isAdditionalEducation === 'Additional' &&
+  ofType === 'Profession' &&
     slides.push(
       <div className={stls.diploma}>
         {program?.diploma2 ? (
@@ -81,7 +75,7 @@ const YourDiploma = ({
       </div>
     )
 
-  isAdditionalEducation === 'Higher' &&
+  isBachelor &&
     slides.push(
       <div className={stls.diploma}>
         {program?.diploma2 ? (
@@ -122,43 +116,43 @@ const YourDiploma = ({
       </div>
     )
 
-  // ofType === 'Course' &&
-  //     slides.push(
-  //       <div className={stls.diploma}>
-  //         {program?.diploma1 ? (
-  //           <ImgDiplomaDynamic
-  //             key='certificate'
-  //             src={program?.diploma1?.url}
-  //             width={program?.diploma1?.width && 700}
-  //             height={getImageHeight({
-  //               width: 700,
-  //               widthInitial: program?.diploma1?.width,
-  //               heightInitial: program?.diploma1?.height
-  //             })}
-  //             diplomaCertificate
-  //           />
-  //         ) : (
-  //           <ImgCertificate key='certificate' />
-  //         )}
-  //       </div>,
-  //       <div className={stls.diploma}>
-  //         {program?.diploma2 ? (
-  //           <ImgDiplomaDynamic
-  //             key='certificate-alt'
-  //             src={program?.diploma2?.url}
-  //             width={program?.diploma2?.width && 700}
-  //             height={getImageHeight({
-  //               width: 700,
-  //               widthInitial: program?.diploma2?.width,
-  //               heightInitial: program?.diploma2?.height
-  //             })}
-  //             diplomaCertificateAlt
-  //           />
-  //         ) : (
-  //           <ImgCertificateAlt key='certificate-alt' />
-  //         )}
-  //       </div>
-  //     )
+  ofType === 'Course' &&
+      slides.push(
+        <div className={stls.diploma}>
+          {program?.diploma1 ? (
+            <ImgDiplomaDynamic
+              key='certificate'
+              src={program?.diploma1?.url}
+              width={program?.diploma1?.width && 700}
+              height={getImageHeight({
+                width: 700,
+                widthInitial: program?.diploma1?.width,
+                heightInitial: program?.diploma1?.height
+              })}
+              diplomaCertificate
+            />
+          ) : (
+            <ImgCertificate key='certificate' />
+          )}
+        </div>,
+        <div className={stls.diploma}>
+          {program?.diploma2 ? (
+            <ImgDiplomaDynamic
+              key='certificate-alt'
+              src={program?.diploma2?.url}
+              width={program?.diploma2?.width && 700}
+              height={getImageHeight({
+                width: 700,
+                widthInitial: program?.diploma2?.width,
+                heightInitial: program?.diploma2?.height
+              })}
+              diplomaCertificateAlt
+            />
+          ) : (
+            <ImgCertificateAlt key='certificate-alt' />
+          )}
+        </div>
+      )
 
   const mobileSwiperOptions = {
     slidesNum: 1,
@@ -172,6 +166,7 @@ const YourDiploma = ({
 
   const [cut, setCut] = useState(184)
   const [showFullText, setShowFullText] = useState(false)
+  const [currentEducation, setCurrentEducation] = useState('');
 
   const cutHandler = () => {
     setShowFullText(!showFullText)
@@ -193,39 +188,8 @@ const YourDiploma = ({
             <TagOrange>Образование</TagOrange>
           </div>
         )}
+
         <div className={stls.content}>
-            <div className={stls.col}>
-              <div className={stls.containerBtns}>
-                <div className={stls.chooseText}>
-                  <span>Выбрать:</span>
-                </div>
-                <div className={stls.educations}>
-                  <button 
-                    onClick={() => educationHandler('Higher')} 
-                    className={classNames({[stls.default]: true, [stls.active]: isAdditionalEducation === 'Higher'})}>
-                      Высшее образование
-                  </button>
-                  <button 
-                    onClick={() => educationHandler('Additional')}
-                    className={classNames({[stls.default]: true, [stls.active]: isAdditionalEducation === 'Additional'})}>
-                      Дополнительное образование
-                  </button>
-                </div>
-              </div>
-            <div className={stls.slidesContainer}>
-                {slides.map((slide, index) => (
-                  <Popup
-                    key={`popup-${index}`}
-                    trigger={<div className={stls.trigger}>{slide}</div>}
-                    modal
-                    nested>
-                    {close => (
-                      <PopupImage image={slide.props.children} close={close} />
-                    )}
-                  </Popup>
-                ))}
-            </div>
-          </div>
           <div className={stls.left}>
             <div className={stls.subtitleContainer}>
               {onMain && (
@@ -254,10 +218,23 @@ const YourDiploma = ({
               </div>
             </div>
           </div>
+          <div className={stls.slidesContainer}>
+            {slides.map((slide, index) => (
+              <Popup
+                key={`popup-${index}`}
+                trigger={<div className={stls.trigger}>{slide}</div>}
+                modal
+                nested>
+                {close => (
+                  <PopupImage image={slide.props.children} close={close} />
+                )}
+              </Popup>
+            ))}
+          </div>
         </div>
       </Wrapper>
     </section>
   )
 }
 
-export default YourDiploma
+export default YourDiplomaIndex

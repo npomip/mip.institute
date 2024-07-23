@@ -31,6 +31,7 @@ import { useRef } from 'react'
 import BachelorHeroProgram from '../higherEducation/BachelorHeroProgram'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import EducationProcess from '../sections/EducationProcess'
+import YourDiplomaIndex from '../sections/YourDiplomaIndex'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -142,8 +143,8 @@ const PageBachelor = ({ bachelor }) => {
         teachersList={bachelor?.teachers}
         teachersRef={teachersRef}
       />
-      <YourDiploma isBachelor diplomaRef={diplomaRef} />
-      <SalaryCounter />
+      <YourDiplomaIndex isBachelor diplomaRef={diplomaRef} />
+      <SalaryCounter isBachelor/>
       <DistanceEducation
         title='Конкурентное преимущество обучения в МИП:'
         list={bachelor?.benefits}

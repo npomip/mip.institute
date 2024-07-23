@@ -169,7 +169,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={'Преподаватели – наставники'}
         teachersFromMain={teachersFromMain}
       />
-      <YourDiploma onMain ofType='Profession' />
+      <YourDiploma onMain />
       <ProfessionalLeague />
       <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />

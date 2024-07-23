@@ -32,6 +32,7 @@ import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
+import YourDiplomaIndex from '../sections/YourDiplomaIndex'
 
 interface Breadcrumb {
   label: string
@@ -118,7 +119,7 @@ const PagesProgram = ({
         paddingBottomMobile={0}
       />
       <DistanceEducation paddingBottomMobile={20}/>
-      <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
+      <YourDiplomaIndex diplomaRef={diplomaRef} ofType={ofType} />
       {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
       <FullProgram />

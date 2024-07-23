@@ -81,6 +81,9 @@ const getStaticPropsBachelor = async ({
               title
               studyHours
               admissionDate
+              record {
+              text
+            }
               heroPicture {
                 url
                 width

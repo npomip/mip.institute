@@ -77,6 +77,10 @@ const getStaticPropsBachelor = async ({
                 idx
               }
             }
+            qnas {
+              question
+              answer
+            }
             additional_specializations {
               title
               studyHours

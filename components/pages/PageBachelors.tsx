@@ -14,6 +14,8 @@ import { getUniqueCategories } from '../funcs/getUniqueCategories'
 import ProgramsFilters from '../layout/ProgramsFilters'
 import Wrapper from '../layout/Wrapper'
 import stls from '@/styles/pages/PageBachelors.module.sass'
+import Breadcrumbs from '../general/Breadcrumbs'
+import { NextSeo } from 'next-seo'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -22,11 +24,29 @@ type PagesProgramsType = {
 
 const PageBachelors = ({ programs = [], bachelors = [] }) => {
   const categories = getUniqueCategories(programs)
+
+  const label = 'Высшее образование'
+
+  const segments = [`/bachelor`]
+
+  const labels = [label]
+  const slug = ['bachelor']
+
+  const breadcrumbs = segments.map((segment, index) => {
+    const breadcrumb = {
+      label: labels[index],
+      path: segments[index],
+      slug: slug[index]
+    }
+    return breadcrumb
+  })
   
 
   return (
     <Wrapper>
+      <NextSeo nofollow={true} noindex={true} />
       <FilterProvider items={programs}>
+      <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
       <h1 className={stls.title}>Высшее образование</h1>
         <ProgramsFilters
           bachelors={bachelors}

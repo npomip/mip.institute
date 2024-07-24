@@ -6,3 +6,9 @@
   display: flex
   gap: f.px(30)
   @include m.gap($mt: f.px(30), $mb: f.px(60))
+  @include m.media(phone, tablet)
+    flex-direction: column
+
+.title
+  @include m.gap($pt: f.px(30))
+  font-size: f.px(40)

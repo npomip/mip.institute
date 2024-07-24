@@ -7,8 +7,6 @@ import PopupTrigger from '@/components/general/PopupTrigger'
 import IconGratefullPortal from '../icons/IconGratefullPortal'
 import IconHero from '../icons/IconHero'
 import IconHeroWave from '../icons/IconHeroWave'
-import { getCookie } from 'cookies-next'
-import { useEffect, useState } from 'react'
 
 const Hero = () => {
   let hiddenGemCount = 0
@@ -24,18 +22,6 @@ const Hero = () => {
       el.classList.add(stls.hiddenGem)
     }
   }
-  // const [title, setTitle] = useState('Онлайн-институт психологии')
-  // const utmCookie = getCookie('utm')
-  // const stringedUtm = utmCookie?.toString()
-  // const telegramExist = stringedUtm?.includes('infl_telegram')
-  
-  // useEffect(() => {
-  //   if(telegramExist) {
-  //     setTitle('Московский институт психологии')
-  //   } else {
-  //     'Онлайн-институт психологии'
-  //   }
-  // }, [telegramExist, setTitle, title])
   
   return (
     <section className={stls.container}>

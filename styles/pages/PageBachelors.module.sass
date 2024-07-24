@@ -2,7 +2,18 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.section
+  position: relative
+  cursor: pointer
+  @include m.gap($pb: f.px(0), $pt: f.px(84))
+  @include m.media(tablet, phone)
+    @include m.gap($pb: f.px(50), $pt: f.px(50))
+
 .cards
   display: flex
+  @include m.gap($mtb: f.px(50))
   gap: f.px(30)
-  @include m.gap($mt: f.px(30), $mb: f.px(60))
+  @include m.media(laptop)
+    gap: f.px(15)
+  @include m.media(tablet, phone)
+    @include m.flex($fd:column)

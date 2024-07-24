@@ -1,23 +1,16 @@
-import stls from '@/styles/components/sections/LinkedPrograms.module.sass'
-import { TypeLibTeachers } from '@/types/index'
-import { useContext, useState } from 'react'
-import { getImageHeight } from '@/helpers/index'
-import { ContextStaticProps } from '@/context/index'
-import Wrapper from '@/components/layout/Wrapper'
-import SwiperContainer from '@/components/general/SwiperContainer'
-import TagOrange from '../general/TagOrange'
-import classNames from 'classnames'
 import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
-import CardTopProgram from '@/components/cards/CardTopProgram'
-import routes from '@/config/routes'
-import CardLinkedProgram from '../cards/CardLinkedProgram'
-import { Scrollbar } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import CustomPrevButton from '../general/CustomPrevButton'
-import CustomNextButton from '../general/CustomNextButton'
+import Wrapper from '@/components/layout/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import PopupSpecialization from '../popups/PopupSpecialization'
+import stls from '@/styles/components/sections/LinkedPrograms.module.sass'
+import classNames from 'classnames'
+import { useState } from 'react'
 import Popup from 'reactjs-popup'
+import { Navigation, Scrollbar } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import CardLinkedProgram from '../cards/CardLinkedProgram'
+import CustomNextButton from '../general/CustomNextButton'
+import CustomPrevButton from '../general/CustomPrevButton'
+import PopupSpecialization from '../popups/PopupSpecialization'
 
 type Picture = {
   url: string
@@ -100,7 +93,7 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
             //   clickable: true
             // }}
             scrollbar={true}
-            modules={[Scrollbar]}
+            modules={[Navigation, Scrollbar]}
             className={stls.mySwiper}>
             {list?.map((course, idx) => (
               <SwiperSlide
@@ -145,8 +138,7 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
         <Popup
           open={isOpen}
           onClose={() => setIsOpen(false)}
-          position={'center center'}
-          nested>
+          position={'center center'}>
           {close => (
             <PopupSpecialization
               image={currentSlide?.image}

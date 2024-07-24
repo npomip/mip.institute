@@ -31,7 +31,7 @@
   margin-left: 25px
   display: flex
   // justify-content: flex-start
-    
+
     // color: gray
 .edu
   font-weight: 500
@@ -39,13 +39,13 @@
   display: flex
   @include m.media(phone, tablet)
     font-size: f.px(15)
-    
+
   margin-left: 29px
   // margin-right: 20px
   position: relative
   color: #F87E1B
   z-index: 10
-  
+
   &::before
     transform: translateX(-4px)
     content: 'лицензия '
@@ -62,7 +62,7 @@
   position: absolute
   @include m.media(laptop, desktop)
     top: -220%
-    left: -20%
+    left: -34%
     transform: scale(1.2)
   @include m.media(phone, tablet)
     height: 100%
@@ -71,8 +71,8 @@
     // transform: scale(1)
   mix-blend-mode: soft-light
 
-
 .license, .cuttedLicense
+  overflow: hidden
   height: f.px(250)
   @include m.media(phone, tablet)
     height: 150px
@@ -88,7 +88,6 @@
 .cuttedLicense
   // transform: rotateX(90deg)
   height: f.px(120)
-  
 
 .leftLicense
   position: relative
@@ -100,12 +99,10 @@
   @include m.media(phone, tablet)
     margin-right: 0
     flex-wrap: nowrap
-  
 
 .card
   position: relative
-  
-  
+
   @include m.media(phone, tablet)
     scale: 0.75
   // margin-left: 50px

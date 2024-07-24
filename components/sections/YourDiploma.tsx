@@ -250,7 +250,7 @@ const YourDiploma = ({
                 </p>
               )}
               <div className={stls.btn}>
-                <LicensePopUp onBachelor showFullText={showFullText} />
+                <LicensePopUp isAdditionalEducation={isAdditionalEducation} showFullText={showFullText} />
               </div>
             </div>
           </div>

@@ -1,13 +1,8 @@
 import stls from '@/styles/components/sections/SalaryCounter.module.sass'
 import { useState } from 'react'
 import Wrapper from '../layout/Wrapper'
-import classNames from 'classnames'
 
-type SalaryCounterType = {
-  isBachelor?: boolean
-}
-
-const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
+const SalaryCounter = () => {
   const [consultation, setConsultation] = useState(5)
   const [consultationsRange, setConsultationsRange] = useState({
     min: 1,
@@ -47,12 +42,7 @@ const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
   return (
     <section>
       <Wrapper>
-        {isBachelor 
-        ? 
-        <h2 className={stls.title}>Сколько может <br/><span>зарабатывать педагог-психолог?</span></h2>
-        :
-        <h2 className={stls.title}>Сколько может <span>зарабатывать психолог?</span></h2>
-        }
+        <h2 className={stls.title}>Сколько может зарабатывать психолог?</h2>
         <p className={stls.checkSalaryText}>Рассчитайте свой ежемесячный доход с помощью калькулятора</p>
         <div className={stls.content}>
           <div className={stls.calculatorContainer}>

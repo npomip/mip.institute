@@ -21,19 +21,17 @@
     font-size: f.px(30)
     max-width: f.px(325)
     @include m.gap($mt: f.px(0))
-  & > span
-    position: relative
-    &:after
-      position: absolute
-      content: ''
-      z-index: -1
-      border: f.px(5) solid #F87E1B
-      width: 100%
-      right: 0
-      bottom: f.px(5)
-      @include m.media(phone, tablet)
-        display: none
+  &:after
+    position: absolute
+    content: ''
+    transform: translateZ(-1px)
+    border: f.px(5) solid #F87E1B
+    width: 61.5%
+    right: 0
+    bottom: f.px(5)
 
+    @include m.media(phone, tablet)
+      display: none
   &::before
     content: 'Доход'
     position: absolute

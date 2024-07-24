@@ -9,7 +9,7 @@ import ImgLicence from '../imgs/legal/ImgLicence'
 import ImgLicenceBachelor from '../imgs/legal/ImgLicence'
 import License from '../imgs/legal/License'
 
-const LicensePopUp = ({showFullText=false, isAdditionalEducation='Higher'}) => {
+const LicensePopUp = ({showFullText=false, isAdditionalEducation='Higher', onBachelor=false}) => {
   return (
     <div className={stls.btn}>
     <Popup
@@ -25,7 +25,7 @@ const LicensePopUp = ({showFullText=false, isAdditionalEducation='Higher'}) => {
                 
               </span>
               <span className={stls.edu}>
-                {isAdditionalEducation === 'Higher' ? ' №041221' : ' №041363'}
+                {isAdditionalEducation === 'Higher' || onBachelor? ' №041221' : ' №041363'}
                 </span>
               <div className={stls.iconRus}>
                 <IconRusLicense />
@@ -49,7 +49,7 @@ const LicensePopUp = ({showFullText=false, isAdditionalEducation='Higher'}) => {
       lockScroll
       nested
       closeOnDocumentClick>
-      {close => <PopupImage image={isAdditionalEducation === 'Higher' ? <ImgLicence isOchuVoMip /> : <ImgLicence />} close={close} />}
+      {close => <PopupImage image={isAdditionalEducation === 'Higher' || onBachelor? <ImgLicence isOchuVoMip /> : <ImgLicence />} close={close} />}
     </Popup>
     </div>
   )

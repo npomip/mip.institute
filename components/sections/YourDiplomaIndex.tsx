@@ -166,7 +166,6 @@ const YourDiplomaIndex = ({
 
   const [cut, setCut] = useState(184)
   const [showFullText, setShowFullText] = useState(false)
-  const [currentEducation, setCurrentEducation] = useState('');
 
   const cutHandler = () => {
     setShowFullText(!showFullText)

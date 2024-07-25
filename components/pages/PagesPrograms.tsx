@@ -19,6 +19,7 @@ import Breadcrumbs from '../general/Breadcrumbs'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms
+  bachelors?: any[]
   studyFields?: string[]
   allPrograms: any[]
   breadcrumbs: {
@@ -28,7 +29,7 @@ type PagesProgramsType = {
   } []
 }
 
-const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: PagesProgramsType) => {
+const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs, bachelors=[] }: PagesProgramsType) => {
   
   let filteredItems = useFilteredItems()
 
@@ -100,6 +101,7 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs }: Page
       <section className={stls.container}>
         <div className={stls.sorting}>
           <ProgramsFilters
+          bachelors={bachelors}
           allPrograms={allPrograms}
             studyFields={query.studyFieldSlug && filter === 'popular' ? favcategories : query.studyFieldSlug ? studyFields :  categories}
           />

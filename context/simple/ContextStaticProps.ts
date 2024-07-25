@@ -16,6 +16,8 @@ const ContextStaticProps = createContext<{
   filteredPrograms: any[]
   blogs: any[],
   seminar: any,
+  bachelor: any,
+  setBachelor: Dispatch<any>
   setSeminar: Dispatch<any>
   updateTicketsQuantity: (newQuantity: number) => void;
   setBlogs: Dispatch<any>
@@ -45,6 +47,8 @@ const ContextStaticProps = createContext<{
   filteredPrograms: [],
   blogs:[],
   seminar: null,
+  bachelor:null,
+  setBachelor: () => {},
   setSeminar: () => {},
   updateTicketsQuantity: (newQuantity) => {},
   setBlogs: () => {},

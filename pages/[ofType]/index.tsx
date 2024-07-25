@@ -9,7 +9,7 @@ import { SeoPagesPrograms } from '@/components/seo'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import { useRouter } from 'next/router'
 
-const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]} & {allPrograms: any[]}> = ({ programs, studyFields, allPrograms }) => {
+const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]} & {allPrograms: any[]}> = ({ programs, studyFields, allPrograms, bachelors }) => {
   useHandleContextStaticProps({ programs })
   const router = useRouter()
 
@@ -35,7 +35,7 @@ const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]} & {
     <>
       <SeoPagesPrograms programs={programs} />
       <FilterProvider items={programs}>
-        <PagesPrograms programs={programs} studyFields={studyFields} allPrograms={allPrograms} breadcrumbs={breadcrumbs} />
+        <PagesPrograms bachelors={bachelors} programs={programs} studyFields={studyFields} allPrograms={allPrograms} breadcrumbs={breadcrumbs} />
       </FilterProvider>
     </>
   )
@@ -47,6 +47,9 @@ export const getStaticProps = async ({ params }) => {
   const res = await apolloClient.query<TypePageProgramsPropsQuery>({
     query: gql`
       query GetStaticPropsPagePrograms {
+        bachelors {
+        title
+      }
         programs {
           id
           title
@@ -74,6 +77,7 @@ export const getStaticProps = async ({ params }) => {
   })
 
   const programs = res.data.programs
+  const bachelors = res.data.bachelors
 
   // Фильтрация программ на основе параметра ofType
   let filteredPrograms = programs
@@ -104,7 +108,8 @@ export const getStaticProps = async ({ params }) => {
       allPrograms: programs,
       programs: filteredPrograms,
       studyFields,
-      ofType
+      ofType,
+      bachelors
     },
     revalidate: revalidate.default
   }

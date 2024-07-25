@@ -1,65 +1,78 @@
-import React, { useState } from 'react';
-import Popup from 'reactjs-popup';
+import React, { useState } from 'react'
+import Popup from 'reactjs-popup'
 
 // Компонент первого шага - ввод почты
 function Step1({ onNext }) {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('')
 
   const handleNext = () => {
     // Валидация и обработка данных почты, если необходимо
-    onNext();
-  };
+    onNext()
+  }
 
   return (
     <div>
-      <input type="email" placeholder="Введите почту" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input
+        type='email'
+        placeholder='Введите почту'
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+      />
       <button onClick={handleNext}>Далее</button>
     </div>
-  );
+  )
 }
 
 // Компонент второго шага - ввод имени
 function Step2({ onNext }) {
-  const [name, setName] = useState('');
+  const [name, setName] = useState('')
 
   const handleNext = () => {
     // Валидация и обработка данных имени, если необходимо
-    onNext();
-  };
+    onNext()
+  }
 
   return (
     <div>
-      <input type="text" placeholder="Введите имя" value={name} onChange={(e) => setName(e.target.value)} />
+      <input
+        type='text'
+        placeholder='Введите имя'
+        value={name}
+        onChange={e => setName(e.target.value)}
+      />
       <button onClick={handleNext}>Далее</button>
     </div>
-  );
+  )
 }
 
 // Компонент третьего шага - создание пароля
 function Step3({ onComplete }) {
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('')
 
   const handleComplete = () => {
     // Валидация и обработка данных пароля, если необходимо
-    onComplete();
-  };
+    onComplete()
+  }
 
   return (
     <div>
-      <input type="password" placeholder="Придумайте пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <input
+        type='password'
+        placeholder='Придумайте пароль'
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+      />
       <button onClick={handleComplete}>Завершить регистрацию</button>
     </div>
-  );
+  )
 }
 
 function RegistrationFlow() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1)
 
   const handleNextStep = () => {
-    setStep(step + 1);
-  };
-
-  console.log(step)
+    setStep(step + 1)
+  }
 
   return (
     <Popup open={true} modal closeOnDocumentClick={false}>
@@ -71,7 +84,7 @@ function RegistrationFlow() {
         </div>
       )}
     </Popup>
-  );
+  )
 }
 
-export default RegistrationFlow;
+export default RegistrationFlow

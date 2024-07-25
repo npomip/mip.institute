@@ -1,3 +1,4 @@
+import BachelorCarousel from '@/components/carousel/BachelorCarousel'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -44,7 +45,8 @@ import truncate from 'truncate'
 const HomePage: NextPage<TypePageHomeProps> = ({
   programs,
   reviews,
-  teachers
+  teachers,
+  bachelors
 }) => {
   useHandleContextStaticProps({ programs })
 
@@ -138,6 +140,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Directions />
       <PsyTest />
       <TopCourses />
+      <BachelorCarousel
+        title={'Высшее образование'}
+        subtitle={'Программы бакалавриата от МИП'}
+        cards={bachelors}
+      />
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />

@@ -53,7 +53,6 @@ const PagesProgram = ({
   breadcrumbs,
   slug
 }: PagesProgramType) => {
-  const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
@@ -61,6 +60,16 @@ const PagesProgram = ({
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
+
+  const sections = [
+    { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
+    { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
+    { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
+    { id: 'resume', label: 'Навыки', ref: resumeRef, condition: ofType === 'Profession' },
+    { id: 'cost', label: 'Стоимость', ref: costRef, condition: true },
+    { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
+    { id: 'faq', label: 'FAQ', ref: faqRef, condition: true },
+  ];
 
   const [showDescription, setShowDescription] = useState(true)
 
@@ -81,15 +90,7 @@ const PagesProgram = ({
       <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
       <PageNavigation
-        ofType={ofType}
-        processRef={processRef}
-        diplomaRef={diplomaRef}
-        planRef={planRef}
-        teachersRef={teachersRef}
-        resumeRef={resumeRef}
-        costRef={costRef}
-        reviewsRef={reviewsRef}
-        faqRef={faqRef}
+        sections={sections}
       />
       <WhyBother />
       {programOverview && (

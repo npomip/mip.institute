@@ -1,191 +1,79 @@
-import { useRef, useState, useEffect } from 'react'
-import stls from '@/styles/components/sections/PageNavigation.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import { useRef, useState, useEffect } from 'react';
+import stls from '@/styles/components/sections/PageNavigation.module.sass';
+import Wrapper from '@/components/layout/Wrapper';
 
-const PageNavigation = ({ofType = null,processRef, diplomaRef, planRef, teachersRef, costRef, reviewsRef, resumeRef, faqRef}) => {
-  const [activeSection, setActiveSection] = useState('')
-  const navigationRef = useRef(null)
-  const pointRef = useRef(null)
-  const prevNavTop = useRef(0)
-  const [stickyNav, setStickyNav] = useState(false)
+const PageNavigation = ({ sections }) => {
+  const [activeSection, setActiveSection] = useState('');
+  const navigationRef = useRef(null);
+  const pointRef = useRef(null);
+  const [stickyNav, setStickyNav] = useState(false);
 
-  const sectionRefs = {
-    process: processRef,
-    diploma: diplomaRef,
-    plan: planRef,
-    teachers: teachersRef,
-    resume: resumeRef,
-    cost: costRef,
-    reviews: reviewsRef,
-    faq: faqRef,
-  }
-
-  const handleScrollToSection = section => {
-    sectionRefs[section].current.scrollIntoView({ behavior: 'smooth' })
-  }
+  const handleScrollToSection = (ref) => {
+    ref?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleScroll = () => {
-    if (pointRef.current.getBoundingClientRect().y < -70) {
-      setStickyNav(true)
+    const pointTop = pointRef.current?.getBoundingClientRect().top;
+
+    if (pointTop < -70) {
+      setStickyNav(true);
     } else {
-      setStickyNav(false)
-      
-      prevNavTop.current = 0
+      setStickyNav(false);
     }
 
-    for (const [section, ref] of Object.entries(sectionRefs)) {
-      if (ref.current && ref.current.getBoundingClientRect().top <= 53) {
-          setActiveSection(section)
-        
-      } else if(!stickyNav) {
-        setActiveSection('')
+    let foundActiveSection = false;
+    for (const section of sections) {
+      if (section.ref?.current?.getBoundingClientRect().top <= 53) {
+        setActiveSection(section.id);
+        foundActiveSection = true;
       }
     }
-  }
+    if (!foundActiveSection && !stickyNav) {
+      setActiveSection('');
+    }
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [stickyNav])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [stickyNav]);
+
+  const renderNavItem = (section) => (
+    section.condition !== false && (
+      <li key={section.id}>
+        <p
+          className={activeSection === section.id ? stls.active : ''}
+          onClick={() => handleScrollToSection(section.ref)}
+        >
+          {section.label}
+        </p>
+      </li>
+    )
+  );
 
   return (
     <section className={stls.container}>
       <Wrapper>
-        
         <div className={stls.point} ref={pointRef}></div>
         <div
           className={`${stls.navigation} ${stickyNav ? stls.whiteLetters : ''}`}
-          ref={navigationRef}>
+          ref={navigationRef}
+        >
           <ul>
-            <li>
-              <p
-                className={activeSection === 'process' ? stls.active : ''}
-                onClick={() => handleScrollToSection('process')}>
-                Процесс обучения
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'diploma' ? stls.active : ''}
-                onClick={() => handleScrollToSection('diploma')}>
-                Диплом
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'plan' ? stls.active : ''}
-                onClick={() => handleScrollToSection('plan')}>
-                Учебный план
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'teachers' ? stls.active : ''}
-                onClick={() => handleScrollToSection('teachers')}>
-                Преподаватели
-              </p>
-            </li>
-            {ofType === 'Profession' && (
-              <li>
-              <p
-                className={activeSection === 'resume' ? stls.active : ''}
-                onClick={() => handleScrollToSection('resume')}>
-                Навыки
-              </p>
-            </li>
-            )}
-            
-            <li>
-              <p
-                className={activeSection === 'cost' ? stls.active : ''}
-                onClick={() => handleScrollToSection('cost')}>
-                Стоимость
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'reviews' ? stls.active : ''}
-                onClick={() => handleScrollToSection('reviews')}>
-                Отзывы
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'faq' ? stls.active : ''}
-                onClick={() => handleScrollToSection('faq')}>
-                FAQ
-              </p>
-            </li>
+            {sections.map((section) => renderNavItem(section))}
           </ul>
         </div>
         <div
           className={`${stls.navigation} ${stickyNav ? stls.sticky : stls.hidden}`}
-          ref={navigationRef}>
+          ref={navigationRef}
+        >
           <ul>
-            <li>
-              <p
-                className={activeSection === 'process' ? stls.active : ''}
-                onClick={() => handleScrollToSection('process')}>
-                Процесс обучения
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'diploma' ? stls.active : ''}
-                onClick={() => handleScrollToSection('diploma')}>
-                Диплом
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'plan' ? stls.active : ''}
-                onClick={() => handleScrollToSection('plan')}>
-                Учебный план
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'teachers' ? stls.active : ''}
-                onClick={() => handleScrollToSection('teachers')}>
-                Преподаватели
-              </p>
-            </li>
-            {ofType === 'Profession' && (
-              <li>
-              <p
-                className={activeSection === 'resume' ? stls.active : ''}
-                onClick={() => handleScrollToSection('resume')}>
-                Навыки
-              </p>
-            </li>
-            )}
-            
-            <li>
-              <p
-                className={activeSection === 'cost' ? stls.active : ''}
-                onClick={() => handleScrollToSection('cost')}>
-                Стоимость
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'reviews' ? stls.active : ''}
-                onClick={() => handleScrollToSection('reviews')}>
-                Отзывы
-              </p>
-            </li>
-            <li>
-              <p
-                className={activeSection === 'faq' ? stls.active : ''}
-                onClick={() => handleScrollToSection('faq')}>
-                FAQ
-              </p>
-            </li>
+            {sections.map((section) => renderNavItem(section))}
           </ul>
         </div>
       </Wrapper>
-      </section>
-  )
-}
+    </section>
+  );
+};
 
-export default PageNavigation
+export default PageNavigation;

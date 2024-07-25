@@ -6,9 +6,10 @@ import { IconAtom } from '../icons'
 import IconLoupe from '../icons/IconLoupe'
 import { PopupImage } from '../popups'
 import ImgLicence from '../imgs/legal/ImgLicence'
+import ImgLicenceBachelor from '../imgs/legal/ImgLicence'
 import License from '../imgs/legal/License'
 
-const LicensePopUp = ({showFullText=false}) => {
+const LicensePopUp = ({showFullText=false, onBachelor=false}) => {
   return (
     <div className={stls.btn}>
     <Popup
@@ -24,7 +25,7 @@ const LicensePopUp = ({showFullText=false}) => {
                 
               </span>
               <span className={stls.edu}>
-                №041363
+                {onBachelor ? ' №041221' : ' №041363'}
                 </span>
               <div className={stls.iconRus}>
                 <IconRusLicense />
@@ -48,7 +49,7 @@ const LicensePopUp = ({showFullText=false}) => {
       lockScroll
       nested
       closeOnDocumentClick>
-      {close => <PopupImage image={<ImgLicence />} close={close} />}
+      {close => <PopupImage image={onBachelor ? <ImgLicence isOchuVoMip /> : <ImgLicence />} close={close} />}
     </Popup>
     </div>
   )

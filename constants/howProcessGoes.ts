@@ -1,5 +1,5 @@
 import howProcessGoes00 from '@/public/assets/imgs/general/bachelor/howProcessGoes00.jpg'
-import howProcessGoes01 from '@/public/assets/imgs/general/bachelor/howProcessGoes01.jpg'
+import howProcessGoes01 from '@/public/assets/imgs/general/bachelor/how.jpeg'
 
 
 

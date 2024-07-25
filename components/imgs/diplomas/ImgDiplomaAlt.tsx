@@ -1,6 +1,6 @@
 import stls from '@/styles/components/imgs/diplomas/ImgDiplomaAlt.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/diplomas/diploma-alt.jpg'
+import pic from '@/public/assets/imgs/diplomas/diploma-alt.jpeg'
 
 const ImgDiplomaAlt = ({ width = null, height = null }) => {
   return (

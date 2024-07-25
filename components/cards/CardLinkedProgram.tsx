@@ -19,14 +19,17 @@ const CardLinkedProgram = ({ portrait, title }: Props) => {
       )}
       <div className={stls.innerContainer}>
         <p className={stls.title}>{title}</p>
-        {/* <div className={stls.bottomPart}>
+        <div className={stls.bottomPart}>
           <p className={stls.subtitle}>
-            <span>Ближайшее зачисление:</span> {getNextWednesday(new Date())}
+            <span>Обучение с третьего курса</span>
           </p>
           <p className={stls.subtitle}>
-            <span>Кол-во часов:</span> {studyHours}
+            <span>Включено в стоимость</span> 
           </p>
-        </div> */}
+          <p className={stls.subtitle}>
+            <span>По окончанию обучения второй диплом</span> 
+          </p>
+        </div>
       </div>
     </div>
   )

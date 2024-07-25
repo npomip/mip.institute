@@ -13,7 +13,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import TagOrange from '../general/TagOrange'
 import CustomPrevButton from '../general/CustomPrevButton'
 import CustomNextButton from '../general/CustomNextButton'
-// import 'swiper/css/scrollbar'
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay])
 
 type TeacherProps = {
@@ -21,26 +20,25 @@ type TeacherProps = {
   teachersFromMain?: TypeLibTeachers
   title: string
   onMain?: boolean
+  teachersList?: any[]
 }
 
 const Teachers = ({
   teachersRef,
   teachersFromMain,
   title,
-  onMain = false
+  onMain = false,
+  teachersList = null
 }: TeacherProps) => {
   const { program, curProgramsType } = useContext(ContextStaticProps)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
-  let teachers = program?.teachers
-  if (teachersFromMain) {
-    teachers = teachersFromMain
-  }
+  let teachers = teachersList || teachersFromMain || program?.teachers
 
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
   const list =
     teachersSorted &&
-    [...teachersSorted]?.map(teacher => ({
+    teachersSorted.map(teacher => ({
       ...teacher,
       image: (
         <ImgTeacher
@@ -89,10 +87,6 @@ const Teachers = ({
               pauseOnMouseEnter: true
             }}
             speed={2000}
-            autoHeight={true}
-            // pagination={{
-            //   clickable: true
-            // }}
             scrollbar={isMobileAndTabletLayout ? false : true}
             modules={[Scrollbar]}
             className={stls.mySwiper}>

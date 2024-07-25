@@ -55,7 +55,6 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         ofType={program?.type}
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-
         <PagesProgram
           slug={slug}
           breadcrumbs={breadcrumbs}
@@ -211,6 +210,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       variables: { slug: programSlug }
     })
     const reviewsData = res?.data?.reviews || []
+
     return {
       props: {
         // program: res.data.program,

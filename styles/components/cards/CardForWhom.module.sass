@@ -1,0 +1,71 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.card
+  position: relative
+  border-radius: f.px(12)
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  background-color: rgba(247, 248, 252, .6)
+  @include m.gap($p: f.px(40))
+  display: grid
+  grid-auto-columns: 1fr f.px(170)
+  grid-auto-flow: column
+  align-items: center
+  justify-items: start
+  column-gap: f.px(10)
+  @include m.media(laptop)
+    @include m.gap($p: f.px(30))
+    grid-auto-columns: 1fr 1fr
+  @include m.media(tablet)
+    grid-auto-columns: 1fr 1fr
+    justify-items: center
+    // max-width: f.px(450)
+    @include m.gap($p: f.px(30))
+  @include m.media(phone)
+    grid-auto-columns: 1fr 1fr
+    @include m.gap($plr: f.px(20), $pt: f.px(30))
+
+.textContent
+  max-width: f.px(300)
+  @include m.media(phone, tablet)
+    min-width: f.px(180)
+
+.title
+  display: block
+  font-family: Stem
+  font-size: f.px(25)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  @include m.media(laptop)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  @include m.media(phone)
+    font-size: f.px(15)
+
+.description
+  display: inline-block
+  font-family: Stem
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 300
+  line-height: 130%
+  max-width: f.px(260)
+  @include m.gap($mt: f.px(20))
+  @include m.media(laptop)
+    font-size: f.px(16)
+  @include m.media(tablet)
+    @include m.gap($mt: f.px(10))
+    font-size: f.px(14)
+    max-width: f.px(180)
+  @include m.media(phone)
+    @include m.gap($mt: f.px(10))
+    font-size: f.px(12)
+    max-width: f.px(160)
+
+.image
+  & > span
+    border-radius: f.px(15)

@@ -2,12 +2,6 @@
 // import { useContext } from 'react'
 // import truncate from 'truncate'
 // import { routes, company } from '@/config/index'
-import {
-  HeroPrograms,
-  FilterSearch,
-  Programs,
-  ContactForm
-} from '@/components/sections'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import BachelorSlugCard from '../cards/BachelorSlugCard'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'

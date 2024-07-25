@@ -1,13 +1,8 @@
+import routes from '@/config/routes'
 import stls from '@/styles/components/cards/BachelorSlugCard.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import ThreeNumber from '../icons/ThreeNumber'
-import FourNumber from '../icons/FourNumber'
-import TwoNumber from '../icons/TwoNumber'
-import { OneNumber } from '../icons'
-import { FC, ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import routes from '@/config/routes'
+import { FC, ReactNode } from 'react'
 
 interface Step {
   card: {
@@ -37,7 +32,6 @@ const BachelorSlugCard: FC<Step> = ({ card }) => {
             src={card.heroPicture.url}
             width={740}
             height={480}
-            // layout='fill'
           />
         </div>
         <div className={stls.cardText}>

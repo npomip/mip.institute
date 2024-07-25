@@ -8,7 +8,8 @@
     justify-content: space-between
     @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
-    flex-wrap: wrap
+    display: grid
+    column-gap: f.px(7)
+    row-gap: f.px(7)
+    grid-template-columns: auto auto
     @include m.gap($plr: f.px(11), $mt: f.px(23))
-    gap: f.px(10)
-    justify-content: space-between

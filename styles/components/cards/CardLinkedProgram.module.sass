@@ -16,15 +16,7 @@
   width: 100%
   @include m.media(phone, tablet)
     @include m.gap( $mt: f.px(50))
-  // transition: transform 1s ease
-  // &:hover
-  //   .title
-  //     color: #B250FF
-  //     transition: color 0.2s ease
-  //   .portrait
-  //     transition: transform 0.4s ease
 
-  //     transform: scale(0.96)
 
 .title
   font-weight: 500
@@ -51,15 +43,19 @@
   color: #505050
   font-size: f.px(18)
   font-weight: 350
-  @include m.gap( $mb: f.px(10))
+  @include m.gap( $mb: f.px(5))
   @include m.media(phone, tablet)
     font-size: f.px(16)
-    @include m.gap( $mb: f.px(15))
+    @include m.gap( $mb: f.px(0))
 
   &:nth-last-child(1)
     @include m.gap( $mb: f.px(0))
   span
     font-weight: 500
+    font-size: f.px(14)
+    color: #505050
+    @include m.media(phone, tablet)
+      font-size: f.px(12)
 
 .innerContainer
   display: flex
@@ -78,7 +74,7 @@
     @include m.gap($plr: f.px(18))
 
 .bottomPart
-  @include m.gap( $mb: f.px(30))
+  @include m.gap( $mb: f.px(20))
 
 .title
   @include m.gap( $pt: f.px(40), $mtb: f.px(0))

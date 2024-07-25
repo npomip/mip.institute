@@ -240,7 +240,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
       }
     `
-  })
+  })  
 
   const paths = res.data.programs.map(program => ({
     params: {

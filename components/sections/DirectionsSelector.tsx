@@ -25,6 +25,12 @@ const DirectionsSelector: FC<Props> = ({
       label: 'Повышение квалификации',
       href: routes.front.courses,
       programType: 'course'
+    },
+    {
+      id: 3,
+      label: 'Бакалавриат',
+      href: routes.front.bachelors,
+      programType: 'bachelor'
     }
   ]
 
@@ -68,6 +74,8 @@ const DirectionsSelector: FC<Props> = ({
                     ? 'course'
                     : currentType === 'profession'
                     ? 'profession'
+                    : currentType === 'bachelor'
+                    ? 'bachelor'
                     : null
                 }
               />

@@ -31,13 +31,29 @@ const studyFieldsCourses = [
   { label: 'Психотерапия', slug: 'psihoterapiya' }
 ]
 
+const studyFieldsBachelors = [
+  { label: '37.03.01 Психология', 
+    slug: 'psikhologiya' 
+  },
+  { label: '44.03.01 Педагогическое образование', 
+    slug: 'pedagogicheskoe-obrazovanie' 
+  },
+  {
+    label: '44.03.02 Психолого-педагогическое образование',
+    slug: 'psihologo-pedagogicheskoye-obrazovanie'
+  }
+]
+
 type Props = {
   ofType: string
   currentType?: string
 }
 
 export default function ProgramList({ ofType, currentType }: Props) {
-  const list = ofType === 'course' ? studyFieldsCourses : studyFieldsProfessions
+  const list = ofType === 'course' ? studyFieldsCourses
+  : ofType === 'profession' ? studyFieldsProfessions 
+  : ofType === 'bachelor' ? studyFieldsBachelors 
+  : null
 
   const [openListIndex, setOpenListIndex] = useState(-1)
 
@@ -60,7 +76,11 @@ export default function ProgramList({ ofType, currentType }: Props) {
           href={`${
             ofType === 'course'
               ? routes.front.courses
-              : routes.front.professions
+              : ofType === 'profession'
+              ? routes.front.professions
+              : ofType === 'bachelor' 
+              ? routes.front.bachelors
+              : null
           }/${slug}`}
           openListIndex={openListIndex} // Передаем состояние открытого списка
           setOpenListIndex={setOpenListIndex}

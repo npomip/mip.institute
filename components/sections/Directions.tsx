@@ -15,7 +15,7 @@ const Directions = () => {
         <div className={stls.fullContainer}>
           <div className={stls.content}>
             <div className={stls.heading}>
-              <h2 className={stls.title}>Направления</h2>
+              <h2 className={stls.title}>Программы</h2>
               <div className={stls.tag}>
                 <TagOrange>Выбор</TagOrange>
               </div>
@@ -23,13 +23,27 @@ const Directions = () => {
             <div className={stls.flexContainer}>
               <div className={stls.leftBlock}>
                 <p className={stls.professions}>
+                  Бакалавриат
+                </p>
+                <p className={stls.professions}>
                   Профессиональная переподготовка
                 </p>
-                <ProgramList ofType={'profession'} />
+                <p className={stls.professions}>
+                  Повышение квалификации
+                </p>
               </div>
               <div className={stls.rightBlock}>
-                <p className={stls.courses}>Повышение квалификации</p>
-                <ProgramList ofType={'course'} />
+                <ProgramList currentType={currentType}
+                ofType={
+                  currentType === 'course'
+                    ? 'course'
+                    : currentType === 'profession'
+                    ? 'profession'
+                    : currentType === 'bachelor'
+                    ? 'bachelor'
+                    : null
+                } />
+                {/* <ProgramList ofType={'course'} /> */}
               </div>
             </div>
             <div className={stls.icon}>

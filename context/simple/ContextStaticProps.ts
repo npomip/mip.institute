@@ -7,6 +7,7 @@ const ContextStaticProps = createContext<{
   programs: any[]
   courses: any[]
   professions: any[]
+  bachelors: any[]
   studyFields: any[]
   studyFieldsProfessions: any[]
   studyFieldsCourses: any[]
@@ -38,6 +39,7 @@ const ContextStaticProps = createContext<{
   programs: [],
   courses: [],
   professions: [],
+  bachelors: [],
   studyFields: [],
   studyFieldsProfessions: [],
   studyFieldsCourses: [],

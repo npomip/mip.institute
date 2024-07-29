@@ -72,9 +72,6 @@ const FormAlpha = ({
   const { program, seminar, bachelor } = useContext(ContextStaticProps)
   const [tickets, setTickets] = useState(1)
   const { updateTicketsQuantity } = useContext(ContextStaticProps)
-
-  console.log(bachelor);
-  console.log('blockForAmo', blockForAmo);
   
   
 

@@ -35,7 +35,11 @@ const Program = ({
       programs: professions,
       studyFieldSlug: slug
     })
-
+  const bachelorsFiltered = 
+    slug && 
+    bachelors && 
+    bachelors.filter((el, i) => el.slug === slug)
+  
   const contentStyle = {
     background: '#ffffff',
     paddingLeft: '30px',
@@ -90,8 +94,7 @@ const Program = ({
                   />
                 ))
             : ofType === 'bachelor'
-            ? bachelors
-                ?.filter((el, i) => el.slug === slug)
+            ? bachelorsFiltered
                 .map((program, i) => (
                   <PopupProgram
                     href={`${href}`}
@@ -116,7 +119,7 @@ const Program = ({
       <ProgramMobile
         professionsFiltered={professionsFiltered}
         coursesFiltered={coursesFiltered}
-        bachelors={bachelors}
+        bachelorsFiltered={bachelorsFiltered}
         label={label}
         ofType={ofType}
         href={href}

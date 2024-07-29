@@ -8,7 +8,11 @@ import DirectionsSelector from './DirectionsSelector'
 import { useState } from 'react'
 import classNames from 'classnames'
 
-const Directions = ({bachelors}) => {
+type Props = {
+  bachelors?: []
+}
+
+const Directions = ({bachelors}: Props) => {
   const [currentType, setCurrentType] = useState('profession')
   const list = [
     {

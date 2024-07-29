@@ -5,7 +5,7 @@ import ForPopup from '../imgs/general/ForPopup'
 
 
 const PopupProgram = ({ program, href }) => {
-
+  
   return (
     <Link href={href} passHref>
     <div className={stls.container}>

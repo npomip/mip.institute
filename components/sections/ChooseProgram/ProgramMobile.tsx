@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { useContext, useState } from 'react'
 // ...
 // ...
-export default function ProgramMobile({ coursesFiltered, professionsFiltered, bachelors, label, ofType, href, slug, index, setOpenListIndex, openListIndex }) {
+export default function ProgramMobile({ coursesFiltered, professionsFiltered, bachelorsFiltered, label, ofType, href, slug, index, setOpenListIndex, openListIndex }) {
 
   
   const isListOpen = openListIndex === index;
@@ -22,10 +22,9 @@ export default function ProgramMobile({ coursesFiltered, professionsFiltered, ba
       
     } else {
       // Если текущий список закрыт, то открываем его и закрываем другие
-            setOpenListIndex(index);
+      setOpenListIndex(index);
     }
-  };
-
+  };  
   return (
     <div className={styles.directionsMobile}>
       <div
@@ -46,34 +45,33 @@ export default function ProgramMobile({ coursesFiltered, professionsFiltered, ba
         <>
           {ofType === 'course'
             ? coursesFiltered
-                .filter((el, i) => i < 4)
-                .map((program, i) => (
-                  <PopupProgram
-                    href={`${href}/${program.slug}`}
-                    key={`${href}-${program.id}`}
-                    program={program}
+              .filter((el, i) => i < 4)
+              .map((program, i) => (
+                <PopupProgram
+                  href={`${href}/${program.slug}`}
+                  key={`${href}-${program.id}`}
+                  program={program}
                   />
-                ))
+            ))
             : ofType === 'profession'
-            ? professionsFiltered
+              ? professionsFiltered
                 .filter((el, i) => i < 4)
                 .map((program, i) => (
-                  <PopupProgram
-                    href={`${href}/${program.slug}`}
-                    key={`${href}-${program.id}`}
-                    program={program}
-                  />
-                ))
+                <PopupProgram
+                  href={`${href}/${program.slug}`}
+                  key={`${href}-${program.id}`}
+                  program={program}
+                />
+            ))
             : ofType === 'bachelor'
-            ? bachelors
-                ?.filter((el, i) => el.slug === slug)
-                .map((program, i) => (
-                  <PopupProgram
-                    href={`${href}`}
-                    key={`${href}-${program.id}`}
-                    program={program}
-                  />
-                ))
+            ? bachelorsFiltered
+            .map((program, i) => (
+                <PopupProgram
+                  href={`${href}`}
+                  key={`${href}-${program.id}`}
+                  program={program}
+                />
+            ))
             : null
           }
           {ofType === null ? (

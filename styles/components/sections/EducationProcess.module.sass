@@ -77,6 +77,8 @@
 
 .img
   @include m.gap($mt: f.px(30), $mb: f.px(25))
+  @include m.media(phone, tablet)
+    object-fit: cover
 
 .rightImg
   object-fit: cover

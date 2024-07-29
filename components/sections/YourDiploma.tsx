@@ -165,9 +165,6 @@ const YourDiploma = ({
     spaceBetween: 30
   }
 
-  console.log(ofType);
-  
-
   const [cut, setCut] = useState(184)
   const [showFullText, setShowFullText] = useState(false)
 

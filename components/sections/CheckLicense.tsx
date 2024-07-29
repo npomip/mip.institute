@@ -6,7 +6,11 @@ import { ImgFullProgram1 } from '@/components/imgs'
 import IconSpiral from '../icons/IconSpiral'
 import IconSmallSpiral from '../icons/IconSmallSpiral'
 
-const CheckLicense = () => {
+type Props = {
+  isOchuVoMip?: boolean
+}
+
+const CheckLicense = ({ isOchuVoMip }: Props) => {
   return (
     <div className={stls.container}>
       <Wrapper>
@@ -17,10 +21,10 @@ const CheckLicense = () => {
           <div className={stls.smallSpiral}>
             <IconSmallSpiral />
           </div>
-            <div className={stls.img}>
+          <div className={stls.img}>
             <ImgFullProgram1 />
-            </div>
-          
+          </div>
+
           <div>
             <div className={stls.text}>
               <h3 className={stls.title}>Проверьте лицензии</h3>
@@ -31,7 +35,11 @@ const CheckLicense = () => {
             <div className={stls.btn}>
               <BtnAlpha
                 text='Проверить'
-                href={routes.external.license}
+                href={
+                  isOchuVoMip
+                    ? routes.external.ochuVoMipLicense
+                    : routes.external.license
+                }
                 target='_blank'
               />
             </div>

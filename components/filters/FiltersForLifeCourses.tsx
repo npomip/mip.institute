@@ -1,49 +1,53 @@
-import {
-  useFilter,
-  useFilterDispatch
-} from '@/context/FilterContext/FilterContext'
+import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import RangeSlide from '../general/RangeSlide'
 import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
   const dispatch = useFilterDispatch()
-  const { filters } = useFilter()
-  const handleRecruitment = () => {
-    if (!filters.courseOpened) {
-      dispatch({
-        type: 'setBooleanFilter',
-        filterName: 'courseOpened'
-      })
-    } else {
-      dispatch({
-        type: 'clearBooleanFilter',
-        filterName: 'courseOpened'
-      })
-    }
-  }
+
+  // const handleRecruitment = () => {
+  //   if (!filters.courseOpened) {
+  //     dispatch({
+  //       type: 'setBooleanFilter',
+  //       filterName: 'courseOpened'
+  //     })
+  //   } else {
+  //     dispatch({
+  //       type: 'clearBooleanFilter',
+  //       filterName: 'courseOpened'
+  //     })
+  //   }
+  // }
 
   const router = useRouter()
 
-  const {asPath, query} = router
+  const { asPath, query } = router
 
-  const { ofType, studyFieldSlug, filter, opened} = query
+  const { ofType, studyFieldSlug, filter, opened } = query
 
   const handleSetPopularCourses = () => {
     if (!opened) {
       router.push({
         pathname: router.pathname,
-        query: { ...router.query, opened: true },
-    });
+        query: { ...router.query, opened: true }
+      })
+      dispatch({
+        type: 'sortFilter',
+        payload: { field: 'price', direction: 'desc' }
+      })
     } else {
-      const { opened, ...rest } = router.query;
+      const { opened, ...rest } = router.query
       router.push({
         pathname: router.pathname,
-        query: rest,
-    });
+        query: rest
+      })
+      dispatch({
+        type: 'sortFilter',
+        payload: { field: '', direction: '' }
+      })
     }
   }
 
@@ -66,16 +70,15 @@ const Filters = ({ cost, duration }) => {
           measure={'месяцев'}
         />
       </FilterContainer>
-
+    
       <FilterContainer>
         <RangeSlide
           dispatchFilterType={'setPriceFilter'}
           title={'Стоимость программы'}
           min={cost.min}
           max={cost.max}
-          step={100}
+          step={1}
           measure={'руб.'}
-          // classNameStyle='eeeeee'
         />
       </FilterContainer>
     </div>

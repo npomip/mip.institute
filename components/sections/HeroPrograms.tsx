@@ -21,7 +21,7 @@ type Props = {
 }
 
 const HeroPrograms = ({ minmaxDuration, minmaxPrice }: Props) => {
-  const { asPath } = useRouter()
+  const { asPath, query } = useRouter()
   const dispatch = useFilterDispatch()
   const { filters } = useFilter()
 

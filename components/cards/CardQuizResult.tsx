@@ -1,7 +1,7 @@
 import stls from '@/styles/components/cards/CardQuizResult.module.sass'
-import ProgramAdmission from '../program/ProgramAdmission'
 import Link from 'next/link'
 import PopupTrigger from '../general/PopupTrigger'
+import getNextWednesday from '@/helpers/getNextThursday'
 
 interface Props {
   portrait: string
@@ -23,14 +23,11 @@ const CardQuizResult = ({ portrait, title, studyHours, href }: Props) => {
         <div className={stls.innerContainer}>
           <p className={stls.title}>{title}</p>
           <p className={stls.subtitle}>
-            Ближайшее зачисление: <br /> <ProgramAdmission />
+            Ближайшее зачисление: <br /> {getNextWednesday(new Date())}
           </p>
           <p className={stls.subtitle}>Кол-во часов: {studyHours}</p>
         </div>
-        {/* <Link href={href} passHref>
-          <button className={stls.button}>Ознакомиться с программой</button>
-        </Link> */}
-        <PopupTrigger btn='test' cta='familiarize' testProgram={title}/>
+        <PopupTrigger btn='test' cta='familiarize' testProgram={title} />
       </div>
     </div>
   )

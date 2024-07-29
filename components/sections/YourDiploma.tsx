@@ -15,18 +15,22 @@ import cn from 'classnames'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import TagOrange from '../general/TagOrange'
+import ImgBachelorDiplomaAlt from '../imgs/diplomas/ImgBachelorDiplomaAlt'
+import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
 
 type YourDiplomaType = {
-  ofType: string
+  ofType?: string
   diplomaRef?: React.RefObject<HTMLElement | null>
   onMain?: boolean
+  isBachelor?: boolean
 }
 
 const YourDiploma = ({
   ofType = null,
   diplomaRef = null,
-  onMain = false
+  onMain = false,
+  isBachelor = false
 }: YourDiplomaType) => {
   const slides = []
 
@@ -73,29 +77,12 @@ const YourDiploma = ({
       </div>
     )
 
-  ofType === 'Course' &&
+  isBachelor &&
     slides.push(
-      <div className={stls.diploma}>
-        {program?.diploma1 ? (
-          <ImgDiplomaDynamic
-            key='certificate'
-            src={program?.diploma1?.url}
-            width={program?.diploma1?.width && 700}
-            height={getImageHeight({
-              width: 700,
-              widthInitial: program?.diploma1?.width,
-              heightInitial: program?.diploma1?.height
-            })}
-            diplomaCertificate
-          />
-        ) : (
-          <ImgCertificate key='certificate' />
-        )}
-      </div>,
       <div className={stls.diploma}>
         {program?.diploma2 ? (
           <ImgDiplomaDynamic
-            key='certificate-alt'
+            key='diploma-alt'
             src={program?.diploma2?.url}
             width={program?.diploma2?.width && 700}
             height={getImageHeight({
@@ -103,13 +90,71 @@ const YourDiploma = ({
               widthInitial: program?.diploma2?.width,
               heightInitial: program?.diploma2?.height
             })}
-            diplomaCertificateAlt
+            diplomaAlt
           />
         ) : (
-          <ImgCertificateAlt key='certificate-alt' />
+          <ImgBachelorDiplomaAlt key='diploma-alt' />
         )}
+      </div>,
+      <div className={stls.diploma}>
+        {program?.diploma1 ? (
+          <ImgDiplomaDynamic
+            key='diploma'
+            src={program?.diploma1?.url}
+            width={program?.diploma1?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma1?.width,
+              heightInitial: program?.diploma1?.height
+            })}
+          />
+        ) : (
+          <ImgBachelorDiploma key='diploma' />
+        )}
+      </div>,
+
+      <div className={cn(stls.diploma, stls.supplement)}>
+        <ImgSupplement key='supplement' />
       </div>
     )
+
+  ofType === 'Course' &&
+      slides.push(
+        <div className={stls.diploma}>
+          {program?.diploma1 ? (
+            <ImgDiplomaDynamic
+              key='certificate'
+              src={program?.diploma1?.url}
+              width={program?.diploma1?.width && 700}
+              height={getImageHeight({
+                width: 700,
+                widthInitial: program?.diploma1?.width,
+                heightInitial: program?.diploma1?.height
+              })}
+              diplomaCertificate
+            />
+          ) : (
+            <ImgCertificate key='certificate' />
+          )}
+        </div>,
+        <div className={stls.diploma}>
+          {program?.diploma2 ? (
+            <ImgDiplomaDynamic
+              key='certificate-alt'
+              src={program?.diploma2?.url}
+              width={program?.diploma2?.width && 700}
+              height={getImageHeight({
+                width: 700,
+                widthInitial: program?.diploma2?.width,
+                heightInitial: program?.diploma2?.height
+              })}
+              diplomaCertificateAlt
+            />
+          ) : (
+            <ImgCertificateAlt key='certificate-alt' />
+          )}
+        </div>
+      )
 
   const mobileSwiperOptions = {
     slidesNum: 1,
@@ -119,6 +164,9 @@ const YourDiploma = ({
     slidesNum: 1,
     spaceBetween: 30
   }
+
+  console.log(ofType);
+  
 
   const [cut, setCut] = useState(184)
   const [showFullText, setShowFullText] = useState(false)
@@ -169,7 +217,7 @@ const YourDiploma = ({
                 </p>
               )}
               <div className={stls.btn}>
-                <LicensePopUp showFullText={showFullText} />
+                <LicensePopUp onBachelor showFullText={showFullText} />
               </div>
             </div>
           </div>

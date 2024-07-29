@@ -28,6 +28,12 @@ const RangeSlide = ({
 }: Props) => {
   const [value, setValue] = useState([min, max])
 
+  useEffect(() => {
+    setValue([min,max])
+  
+    
+  }, [min,max])
+
   const { additional } = useFilter()
 
   const dispatch = useFilterDispatch()
@@ -53,10 +59,15 @@ const RangeSlide = ({
   return (
     <div className={stls.container}>
       <p>{title}</p>
-      <span className={stls.interval}>
+      {min !== max ? (<span className={stls.interval}>
         от {value[0]} до {value[1]} {measure}
-      </span>
-      <div
+      </span>) : (
+        <span className={stls.interval}>
+
+          {value[1]} {measure}
+        </span>
+      )}
+      {min !== max &&<div
         className={classNames({
           ['withBlackThumb']: true,
           [classNameStyle]: Boolean(classNameStyle)
@@ -69,7 +80,7 @@ const RangeSlide = ({
           step={step}
           onInput={setValue}
         />
-      </div>
+      </div>}
     </div>
   )
 }

@@ -1,30 +1,20 @@
 import Wrapper from '@/components/layout/Wrapper'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/DistanceEducation.module.sass'
+import { useRef, useState } from 'react'
 import CardDistanceEducation from '../cards/CardDistanceEducation'
 import SwiperContainer from '../general/SwiperContainer'
-import classNames from 'classnames'
 import { IconFinger } from '../icons'
-import { useEffect, useRef, useState } from 'react'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { distanceEducationList } from '@/data/general/distanceEducationList'
 
-const list = [
-  'Смотрите лекции, проходите тесты на платформе',
-  'Профессиональное сообщество одногруппников, выпускников и практиков',
-  'Демонстрационные сессии, разборы реальных клиентских случаев, интервизии и супервизии',
-  'Индивидуальные домашние задания, групповые проекты с обратной связью от преподавателей',
-  'Практические занятия в парах и тройках для развития навыков на практике',
-  'Доступ к вебинарам по всем направлениям для расширения профессионального кругозора',
-  'На выпуске подготовка к итоговой аттестации при личной поддержке практикующего психолога'
-]
-
-export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0}) => {
+export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0, list=distanceEducationList, title='В программу дистанционного обучения входит:'}) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const slides = list.map((item, idx) => (
     <CardDistanceEducation
-      key={item + idx}
-      item={item}
-      purpleBlock={idx === 1 || idx === 4}
+      key={item.text + idx}
+      item={item.text}
+      purpleBlock={idx % 3 === 1}
     />
   ))
 
@@ -50,44 +40,21 @@ export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobi
 
   const fingerRef = useRef(null)
 
-  const [isIntersecting, setIntersecting] = useState(false);
   const [isVisible, setIsVisible] = useState('flex')
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(([entry]) =>
-  //     setIntersecting(entry.isIntersecting)
-  //   );
-
-  //   observer.observe(fingerRef.current);
-  //   return () => {
-  //     observer.disconnect();
-  //   };
-
-  // }, [fingerRef]);
-
-
-  // useEffect(() => {
-  //   if(isIntersecting){
-  //     setTimeout(() => {
-  //       setIsVisible('none')
-  //     }, 15000);
-  //   } else {
-  //     setIsVisible('flex')
-  //   }
-    
-    
-  // }, [isIntersecting])
-
-  // console.log('ВИЖУ ПАЛЕЦ', isIntersecting)
-
   return (
-    <section ref={fingerRef} className={stls.container} style={{ 
-      paddingTop : isMobileAndTabletLayout ? paddingTopMobile : paddingTop, 
-      paddingBottom : isMobileAndTabletLayout ? paddingBottomMobile : paddingBottom
+    <section
+      ref={fingerRef}
+      className={stls.container}
+      style={{
+        paddingTop: isMobileAndTabletLayout ? paddingTopMobile : paddingTop,
+        paddingBottom: isMobileAndTabletLayout
+          ? paddingBottomMobile
+          : paddingBottom
       }}>
       <Wrapper>
         <h2 className={stls.title}>
-          В программу дистанционного обучения входит:
+          {title}
         </h2>
         <SwiperContainer
           slides={slides}
@@ -97,7 +64,7 @@ export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobi
           desktopOptions={desktopSwiperOptions}
           hideNavigation
         />
-        <div style={{display: `${isVisible}`}}  className={stls.orangeBlock}>
+        <div style={{ display: `${isVisible}` }} className={stls.orangeBlock}>
           <IconFinger />
         </div>
       </Wrapper>

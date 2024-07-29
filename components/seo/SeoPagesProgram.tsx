@@ -78,8 +78,11 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
           : ofType === 'Profession'
           ? routes.front.professions
           : routes.front.professions
-      }/${curProgramsStudyFieldSlug}/${program?.slug}`
+      }/${program.studyFieldSlug}/${program?.slug}`
   }
+
+  console.log(seoParams);
+  
 
   return (
     <>

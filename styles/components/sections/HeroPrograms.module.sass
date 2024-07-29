@@ -6,14 +6,14 @@
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(20), $pb: f.px(0), $mb: f.px(1))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(62), $pt: f.px(48), $pb: f.px(0))
+    @include m.gap($mb: f.px(35), $pt: f.px(29), $pb: f.px(0))
 
 .heading
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between, $ai: flex-end)
 
 .title
-  max-width: 550px
+  max-width: f.px(900)
   font-weight: 500
   line-height: 110%
   @include m.media(phone, tablet)
@@ -21,20 +21,17 @@
     font-size: f.px(27)
   @include m.media(laptop, desktop)
     @include m.gap($mb: 0)
-    font-size: f.px(36)
+    font-size: f.px(40)
 
 .input
-  width: 100%
-  display: flex
-  justify-content: flex-end
+  @include m.flex($jc: flex-end)
   & > *
     & > input
       color: black
       @include m.dye(bg, c.$nude)
       &::placeholder
         color: black
-        font-size: f.px(18)
-        font-family: Stem
+        font-size: f.px(16)
         font-style: normal
         font-weight: 200
         line-height: 130%

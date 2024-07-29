@@ -9,6 +9,7 @@
     @include m.gap($pt: 0)
     & > *
       @include m.flex
+      justify-content: space-between
     & .content
       @include m.flex($display: false, $fb: 66%)
       @include m.gap($ml: f.px(30))
@@ -41,10 +42,11 @@
   display: grid
   height: 100%
   grid-template-columns: repeat(2, minmax(min-content, f.px(371)))
-  gap: f.px(20)
+  gap: f.px(0)
   align-items: stretch
   justify-self: stretch
   @include m.gap($mb: f.px(90))
+  justify-content: space-between
 
   & > *
     margin-bottom: 10px

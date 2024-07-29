@@ -2,27 +2,54 @@ import stls from '@/styles/components/sections/BriefProgramContents.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import ProgramModulesQty from '@/components/program/ProgramModulesQty'
 import ProgramModules from '@/components/program/ProgramModules'
+import BachelorProgramModules from '../program/BachelorProgramModules'
+import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
+import marked from 'marked'
+import classNames from 'classnames'
 
-const BriefProgramContents = ({planRef}) => {
+const BriefProgramContents = ({ planRef, program = null, title = null,  coloredBackground=false}) => {
+  const topics = program?.length > 0 && getListItemsInnerHtml(marked(program))
   return (
-    <section ref={planRef} className={stls.container}>
+    <section
+      ref={planRef}
+      // style={{background: '#F9F8FF'}}
+      className={classNames({
+        [stls.container]: true,
+        [stls.coloredBackground]: coloredBackground
+      })}>
       <Wrapper>
-        <div className={stls.top}>
-          <div className={stls.heading}>
-            <h2 className={stls.title}>Краткая программа курса</h2>
-            <p className={stls.subtitle}>В каждом модуле:</p>
-            <ul className={stls.points}>
-              <li>Практические задания для закрепления материала;</li>
-              <li>Постоянная поддержка куратора;</li>
-              <li>Актуальные вебинары в режиме реального времени;</li>
-              <li>Бесплатный доступ к библиотеке.</li>
-            </ul>
+        <div style={{  height: '100%' }} className={stls.innerContainer}>
+          <div className={stls.top}>
+            <div className={stls.heading}>
+              <h2 className={stls.title}>
+                {title ? title : 'Краткая программа курса'}
+              </h2>
+              {program ? (
+                ''
+              ) : (
+                <>
+                  <p className={stls.subtitle}>В каждом модуле:</p>
+                  <ul className={stls.points}>
+                    <li>Практические задания для закрепления материала;</li>
+                    <li>Постоянная поддержка куратора;</li>
+                    <li>Актуальные вебинары в режиме реального времени;</li>
+                    <li>Бесплатный доступ к библиотеке.</li>
+                  </ul>
+                </>
+              )}
+            </div>
+            <div className={stls.qty}>
+              <ProgramModulesQty quantity={topics.length} />
+            </div>
           </div>
-          <div className={stls.qty}>
-            <ProgramModulesQty />
-          </div>
+
+        {program ? (
+          <BachelorProgramModules program={program} />
+        ) : (
+          <ProgramModules />
+        )}
         </div>
-        <ProgramModules />
+
       </Wrapper>
     </section>
   )

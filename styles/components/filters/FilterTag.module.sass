@@ -11,8 +11,11 @@
   cursor: pointer
   font-weight: 350
   white-space: nowrap
+  font-size: f.px(14)
   @include m.media(phone, tablet)
-    font-size: f.px(14)
+  display: flex
+  // justify-content: baseline
+    
 
   &.active
     // Стили для активного состояния
@@ -47,3 +50,15 @@
     @include m.dye(bg, c.$alpha)
     font-weight: 500
     color: white
+
+.quantity
+  padding-left: f.px(7)
+  color: #B5B5B5
+
+.popupTrigger
+  padding-left: f.px(7)
+
+.popupText
+  min-width: f.px(400)
+  @include m.media(phone, tablet)
+    font-size: f.px(10)

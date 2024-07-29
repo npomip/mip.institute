@@ -1,18 +1,27 @@
 import {
   ProgramTypes,
   useFilter,
-  useFilterDispatch
+  useFilterDispatch,
+  useFilteredItems
 } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
 import FilterTag from '../filters/FilterTag'
 import ProgramSelect from '../program/ProgramSelect'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { useRouter } from 'next/router'
+import { findFilteredProgramsLength } from '@/helpers/general/findFilteredProgramsLength'
+import { findProgramsLength } from '@/helpers/general/findProgramsLength'
+import { findProgrmasLengthByCustomProperty } from '@/helpers/general/findProgrmasLengthByCustomProperty'
+import Popup from 'reactjs-popup'
+import IconInfo from '../icons/IconInfo'
+import { getUniqueCategories } from '../funcs/getUniqueCategories'
 
-const ProgramsFilters = ({studyFields=[]}) => {
+const ProgramsFilters = ({ studyFields = [], allPrograms = [], bachelors=[] }) => {
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
-  const { category } = filters
+
+  const filteredItems = useFilteredItems()
+
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const handleSelect = (value: any) => {
@@ -23,99 +32,202 @@ const ProgramsFilters = ({studyFields=[]}) => {
   }
 
   const handleTag = e => {
-    if (e.value) {
-      dispatch({ type: 'setCategoryFilter', payload: e.value })
-    } else {
-      if (category === e) {
-        dispatch({ type: 'resetCategoryFilter' })
-      } else {
-        dispatch({ type: 'setCategoryFilter', payload: e })
-      }
+    const { ofType, studyFieldSlug, ...rest } = router.query
+    if (e.value === studyFieldSlug) {
+      return null
     }
+
+    router.push({
+      pathname: `/${ofType}/${e.value}`,
+      query: rest
+    })
   }
 
-  // const handleCourses = () => {
-  //   dispatch({
-  //     type: 'setPrograms',
-  //     payload: ProgramTypes.Courses
-  //   })
-  // }
-
-  // const handleProfessions = () => {
-  //   dispatch({
-  //     type: 'setPrograms',
-  //     payload: ProgramTypes.Professions
-  //   })
-  // }
-  // const handleAll = () => {
-  //   dispatch({
-  //     type: 'setPrograms',
-  //     payload: ProgramTypes.All
-  //   })
-  //   dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
-  // }
-
-  // const router = useRouter
-
-  
   const router = useRouter()
 
-  const {asPath, query} = router
+  const { asPath, query } = router
 
+  const { ofType, studyFieldSlug, filter, opened } = query
 
-  const { ofType, studyFieldSlug, filter, opened} = query
-
+  console.log(bachelors);
+  
+  
   const handleNavigation = (destination: string) => {
-    
-    const { ofType, studyFieldSlug, ...rest } = router.query;
+    const { ofType, studyFieldSlug, ...rest } = router.query
     router.push({
       pathname: destination,
-      query: rest,
-  })
+      query: rest
+    })
   }
   const handleSetPopularCourses = () => {
     if (filter !== 'popular') {
       router.push({
         pathname: router.pathname,
-        query: { ...router.query, filter: 'popular' },
-    });
+        query: { ...router.query, filter: 'popular' }
+      })
+      // dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
     } else {
-      const { filter, ...rest } = router.query;
+      const { filter, ...rest } = router.query
       router.push({
         pathname: router.pathname,
-        query: rest,
-    });
+        query: rest
+      })
+      // dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
     }
   }
 
-  const options = categories.map(el => ({ value: el, label: el }))
+  const options = studyFields.map(el => ({
+    value: el.studyFieldSlug,
+    label: el.studyField
+  }))
+
+  const favprograms = allPrograms.filter(el => el.isPopular === true)
+
+  const contentStyle = {
+    background: '#ffffff',
+    paddingLeft: '30px',
+    minWidth: '400px',
+    paddingRight: '30px',
+    paddingTop: '30px',
+    border: '1px solid #6F01C6'
+  }
+
   return (
     <div className={stls.container}>
       <div className={stls.sorting}>
         <FilterTag
           onClick={() => handleNavigation('/programs')}
           isActive={ofType === 'programs'}
+          quantity={
+            ofType === 'programs' && !studyFieldSlug
+              ? findProgramsLength(filteredItems, 'programs')
+              : filter === 'popular'
+              ? favprograms?.length
+              : ofType === 'programs' && studyFieldSlug
+              ? findProgramsLength(allPrograms, 'programs') -
+                findFilteredProgramsLength(
+                  allPrograms,
+                  studyFieldSlug,
+                  ofType as string
+                ) +
+                findFilteredProgramsLength(
+                  filteredItems,
+                  studyFieldSlug,
+                  ofType as string
+                )
+              
+              : findProgramsLength(allPrograms, 'programs')
+          }
           isProgram>
           Все курсы
         </FilterTag>
 
         <FilterTag
           onClick={() => handleNavigation('/professions')}
+          withPopup
+          popupText='Программы профессиональной переподготовки рассчитаны на тех, кто решил освоить новую профессию с нуля. Длительность обучения — от 6 до 24 месяцев в зависимости от выбранного направления. По окончании обучения выдаются диплом о профессиональной переподготовке установленного образца (заносится в реестр ФИС ФРДО) и международное приложение к диплому Supplement. Присваиваемая квалификация и дополнительная специализация зависят от направления обучения. '
           isActive={ofType === 'professions'}
+          quantity={
+            ofType === 'professions' && !studyFieldSlug
+              ? findProgramsLength(filteredItems, 'professions')
+              : filter === 'popular'
+              ? favprograms?.length
+              : ofType === 'professions' && studyFieldSlug
+              ? findProgramsLength(allPrograms, 'professions') -
+                findFilteredProgramsLength(
+                  allPrograms,
+                  studyFieldSlug,
+                  ofType as string
+                ) +
+                findFilteredProgramsLength(
+                  filteredItems,
+                  studyFieldSlug,
+                  ofType as string
+                )
+              : findProgramsLength(allPrograms, 'professions')
+          }
           isProgram>
           Профессиональная переподготовка
         </FilterTag>
 
         <FilterTag
           onClick={() => handleNavigation('/courses')}
+          withPopup
+          popupText='Программы повышения квалификации подходят тем, кто хочет углубить
+          знания и получить новые навыки по профилю своей деятельности.
+          Длительность обучения — от 1 до 6 месяцев. Выпускники получают
+          удостоверение о повышении квалификации установленного образца
+          (заносится в реестр ФИС ФРДО).'
           isActive={ofType === 'courses'}
+          quantity={
+            ofType === 'courses' && !studyFieldSlug
+              ? findProgramsLength(filteredItems, 'courses')
+              : filter === 'popular'
+              ? findProgramsLength(favprograms, 'courses')
+              : ofType === 'courses' && studyFieldSlug
+              ? findProgramsLength(allPrograms, 'courses') -
+                findFilteredProgramsLength(
+                  allPrograms,
+                  studyFieldSlug,
+                  ofType as string
+                ) +
+                findFilteredProgramsLength(
+                  filteredItems,
+                  studyFieldSlug,
+                  ofType as string
+                )
+              : findProgramsLength(allPrograms, 'courses')
+          }
           isProgram>
           Повышение квалификации
         </FilterTag>
 
+        {bachelors.length > 0 && (
+          <FilterTag
+            onClick={() => handleNavigation('/bachelor')}
+            isActive={router.asPath === '/bachelor'}
+            quantity={
+              bachelors.length.toString()
+            }
+            isProgram>
+            Высшее образование
+          </FilterTag>
+        )}
+
+        {findProgramsLength(allPrograms, 'practice') > 0 && (
+          <FilterTag
+            onClick={() => handleNavigation('/practice')}
+            isActive={ofType === 'practice'}
+            quantity={
+              ofType === 'practice' && !studyFieldSlug
+                ? findProgramsLength(filteredItems, 'practice')
+                : ofType === 'practice' && studyFieldSlug
+                ? findProgramsLength(allPrograms, 'practice') -
+                  findFilteredProgramsLength(
+                    allPrograms,
+                    studyFieldSlug,
+                    ofType as string
+                  ) +
+                  findFilteredProgramsLength(
+                    filteredItems,
+                    studyFieldSlug,
+                    ofType as string
+                  )
+                : findProgramsLength(allPrograms, 'practice')
+            }
+            isProgram>
+            Практическая подготовка
+          </FilterTag>
+        )}
+
         <FilterTag
           onClick={handleSetPopularCourses}
           isActive={filter === 'popular'}
+          quantity={findProgrmasLengthByCustomProperty(
+            filteredItems,
+            'isPopular',
+            true
+          )}
           isProgram>
           Популярные курсы
         </FilterTag>
@@ -124,11 +236,33 @@ const ProgramsFilters = ({studyFields=[]}) => {
 
       <div className={stls.categories}>
         {!isMobileAndTabletLayout &&
-          studyFields.map(el => (
+          studyFields.map((el, i) => (
             <FilterTag
-              key={el}
-              onClick={() => handleNavigation(`/${ofType}/${el.studyFieldSlug}`)}
+              key={el.studyField + i}
+              onClick={() =>
+                handleNavigation(`/${ofType}/${el.studyFieldSlug}`)
+              }
               isActive={studyFieldSlug === el.studyFieldSlug}
+              quantity={
+                studyFieldSlug === el.studyFieldSlug
+                  ? findFilteredProgramsLength(
+                      filteredItems,
+                      el.studyFieldSlug,
+                      ofType as string
+                    )
+                  : !studyFieldSlug
+                  ? findFilteredProgramsLength(
+                      filteredItems,
+                      el.studyFieldSlug,
+                      ofType as string
+                    )
+                  : findFilteredProgramsLength(
+                      allPrograms,
+                      el.studyFieldSlug,
+                      ofType as string,
+                      filter as string
+                    )
+              }
               isCategories>
               {el.studyField}
             </FilterTag>

@@ -10,6 +10,7 @@ import { dev, preview, prod, routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
@@ -44,7 +45,8 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   return (
     // <Wrapper>
     <>
-      <LiveCoursesHero title={lifeCourse.title} />
+      <NextSeo nofollow={true} noindex={true} />
+      <h1>{lifeCourse.title}</h1>
       {lifeCourse?.article?.map((module, idx) => (
         <LifeCourseDynamicZones key={idx} props={module} />
       ))}

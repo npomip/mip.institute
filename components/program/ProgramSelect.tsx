@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Select from 'react-select'
 
 type Option = {
@@ -37,7 +38,7 @@ const ProgramSelect = ({
         flexWrap: 'nowrap',
         borderColor: `${mainColor}`,
         borderRadius: '50px',
-        width: `${width ? width : 260}px`,
+        width: `${width ? width : 240}px`,
         height: '40px',
         fontFamily: 'Stem',
         fontSize: '14px',
@@ -61,8 +62,9 @@ const ProgramSelect = ({
       borderColor: '#E9E9E9',
       borderRadius: '10px',
       marginTop: '0',
-      width: `${width ? width : 260}px`,
-      padding: '10px'
+      width: `${width ? width : 240}px`,
+      padding: '10px',
+      zIndex: '2'
     }),
     indicatorSeparator: base => ({
       ...base,
@@ -97,19 +99,37 @@ const ProgramSelect = ({
     singleValue: base => {
       return {
         ...base,
-        paddingLeft: '5px',
+        paddingLeft: '10px',
         paddingRight: '5px',
         '&:hover': {
           color: 'white'
         }
       }
+    },
+    placeholder: base => {
+      return {
+        ...base,
+        paddingLeft: '10px'
+      }
     }
   }
+
+  const router = useRouter()
+
+  const { query } = router
+
+  const { studyFieldSlug } = query
 
   return (
     <Select
       options={options}
-      defaultValue={options[0]}
+      placeholder='Выберите направление'
+      noOptionsMessage={() => 'Не нашлось подходящих направлений'}
+      defaultValue={
+        options[0]?.value === 'default'
+          ? options[0]
+          : options.filter(el => el.value === studyFieldSlug)
+      }
       styles={customStyles}
       isSearchable={false}
       onChange={onChange}

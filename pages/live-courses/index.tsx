@@ -20,9 +20,9 @@ import Breadcrumbs from '@/components/general/Breadcrumbs'
 import ResetFilter from '@/components/filters/ResetFilter'
 import FiltersWithContext from '@/components/filters/FiltersWithContext'
 import ResetWrapper from '@/components/filters/ResetWrapper'
+import { NextSeo } from 'next-seo'
 
 const JournalPage = ({ lifeCourses }) => {
-
   const durations = lifeCourses.map(el => el.duration)
   const prices = lifeCourses.map(el => el.price)
 
@@ -48,6 +48,10 @@ const JournalPage = ({ lifeCourses }) => {
 
   return (
     <Wrapper>
+      <NextSeo
+      nofollow={true}
+      noindex={true}
+      />
       <FilterProvider items={lifeCourses}>
         {/* {liveCourses.map(el => (
         <p>{el.title}</p>
@@ -66,13 +70,10 @@ const JournalPage = ({ lifeCourses }) => {
           minmaxPrice={minmaxPrice}
           minmaxDuration={minmaxDuration}
         />
-        <ResetWrapper/>
+        <ResetWrapper />
         <div className={stls.withFilter}>
           <div className={stls.filtersDesktop}>
-            <FiltersWithContext
-              cost={minmaxPrice}
-              duration={minmaxDuration}
-            />
+            <FiltersWithContext cost={minmaxPrice} duration={minmaxDuration} />
           </div>
           <SlugTagsLiveCourses slug='live-courses' />
         </div>

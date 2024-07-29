@@ -1,7 +1,6 @@
 import stls from '@/styles/components/program/ProgramInfo.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext, useState } from 'react'
-import ProgramAdmission from '@/components/program/ProgramAdmission'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
 import {
   IconCalendarAlt,
@@ -11,6 +10,7 @@ import {
   IconFile
 } from '@/components/icons'
 import IconInfo from '../icons/IconInfo'
+import getNextWednesday from '@/helpers/getNextThursday'
 
 const ProgramInfo = () => {
   const { program } = useContext(ContextStaticProps)
@@ -34,7 +34,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      val: <ProgramAdmission />,
+      val: getNextWednesday(new Date()),
       icon: <IconMap />
     },
     {
@@ -54,7 +54,6 @@ const ProgramInfo = () => {
   const infoHandler = () => {
     setInfo(prev => !prev)
   }
-  console.log({ program })
 
   return (
     <>

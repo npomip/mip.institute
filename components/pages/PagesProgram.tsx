@@ -28,8 +28,10 @@ import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
+import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
+import SalaryCounter from '../sections/SalaryCounter'
 
 interface Breadcrumb {
   label: string
@@ -51,7 +53,6 @@ const PagesProgram = ({
   breadcrumbs,
   slug
 }: PagesProgramType) => {
-  const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
@@ -59,6 +60,16 @@ const PagesProgram = ({
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
+
+  const sections = [
+    { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
+    { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
+    { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
+    { id: 'resume', label: 'Навыки', ref: resumeRef, condition: ofType === 'Profession' },
+    { id: 'cost', label: 'Стоимость', ref: costRef, condition: true },
+    { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
+    { id: 'faq', label: 'FAQ', ref: faqRef, condition: true },
+  ];
 
   const [showDescription, setShowDescription] = useState(true)
 
@@ -79,15 +90,7 @@ const PagesProgram = ({
       <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
       <PageNavigation
-        ofType={ofType}
-        processRef={processRef}
-        diplomaRef={diplomaRef}
-        planRef={planRef}
-        teachersRef={teachersRef}
-        resumeRef={resumeRef}
-        costRef={costRef}
-        reviewsRef={reviewsRef}
-        faqRef={faqRef}
+        sections={sections}
       />
       <WhyBother />
       {programOverview && (
@@ -116,10 +119,12 @@ const PagesProgram = ({
       />
       <DistanceEducation paddingBottomMobile={20}/>
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
+      {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {ofType !== 'Course' && <YourResume resumeRef={resumeRef} />}
+      {ofType !== 'Course' && ofType !== 'Practice' && <YourResume resumeRef={resumeRef} />}
+      <SalaryCounter />
       <RequestsCard />
 
       <Cta

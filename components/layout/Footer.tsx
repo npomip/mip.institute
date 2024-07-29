@@ -56,16 +56,6 @@ const Footer = () => {
       href: routes.front.about
     },
     {
-      val: 'Партнерская программа',
-      href: routes.external.advCake,
-      target: '_blank'
-    },
-    {
-      val: 'Пригласи друга',
-      href: routes.external.referralProgram,
-      target: '_blank'
-    },
-    {
       val: 'Сведения об образовательной организации',
       href: routes.front.legal
     },
@@ -76,11 +66,11 @@ const Footer = () => {
     {
       val: 'Контакты',
       href: routes.front.contact
-    },
-    {
-      val: 'Оплата',
-      href: routes.front.payment
     }
+    // {
+    //   val: 'Оплата',
+    //   href: routes.front.payment
+    // }
   ]
 
   const fieldsLinks = []
@@ -118,7 +108,7 @@ const Footer = () => {
                   })}>
                   <Link href={link.href}>
                     <a
-                      target={link.target || '_self'}
+                      target='_self'
                       className={classNames({
                         [stls.link]: true,
                         [stls.staticLink]: true
@@ -152,6 +142,22 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li
+                // key={link.val + link.href}
+                className={classNames({
+                  [stls.linkItem]: true,
+                  [stls.fieldsLinkItem]: true
+                })}>
+                <Link href={'/journal'}>
+                  <a
+                    className={classNames({
+                      [stls.link]: true,
+                      [stls.fieldsLink]: true
+                    })}>
+                    {'Журнал'}
+                  </a>
+                </Link>
+              </li>
               <li className={stls.logo}>
                 <Logo atFooter />
               </li>
@@ -225,14 +231,6 @@ const Footer = () => {
                 1207700479260 Лицензия департамента образования города Москвы на
                 осуществление образовательной деятельности №041363 от 14.04.21.
               </p>
-              <a
-                className={stls.linkToLicense}
-                href={routes.external.license}
-                target='_blank'
-                rel='noreferrer nofollow noindex'>
-                Лицензия на образовательную деятельность №041363 от 14.04.2021
-                г.
-              </a>
             </div>
           </div>
           <div className={stls.bottom}>

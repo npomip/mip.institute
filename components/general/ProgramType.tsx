@@ -1,59 +1,52 @@
-import {
-  ProgramTypes,
-  useFilter,
-  useFilterDispatch
-} from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/general/ProgramType.module.sass'
+import { useContext } from 'react'
+import Link from 'next/link'
 import cn from 'classnames'
+import { routes } from '@/config/index'
+import { ContextStaticProps } from '@/context/index'
 
-const ProgramType = () => {
-  const dispatch = useFilterDispatch()
-  const filters = useFilter()
+const ProgramType = ({ close = null }) => {
+  const { curProgramsType, curProgramsStudyFieldSlug } =
+    useContext(ContextStaticProps)
 
-  const handleCourses = () => {
-    dispatch({
-      type: 'setPrograms',
-      payload: ProgramTypes.Courses
-    })
-  }
-
-  const handleProfessions = () => {
-    dispatch({
-      type: 'setPrograms',
-      payload: ProgramTypes.Professions
-    })
-  }
+  const slug = curProgramsStudyFieldSlug ? curProgramsStudyFieldSlug : ''
 
   return (
     <div className={stls.container}>
-      <p className={stls.title}>Выдаваемый документ:</p>
-      <div className={stls.radioButton}>
-        <input
-          type='radio'
-          className={stls.radioBtn}
-          value='professions'
-          id='professions'
-          checked={filters.filters.type === ProgramTypes.Professions}
-          onChange={handleProfessions}
-        />
-        <label htmlFor='professions' className={stls.radioLabel}>
-          Диплом о профессиональной переподготовке
-        </label>
-      </div>
+      <p className={stls.p}>Тип обучения:</p>
 
-      <div className={stls.radioButton}>
-        <input
-          type='radio'
-          className={stls.radioBtn}
-          value='courses'
-          id='courses'
-          checked={filters.filters.type === ProgramTypes.Courses}
-          onChange={handleCourses}
-        />
-        <label htmlFor='courses' className={stls.radioLabel}>
-          Удостоверение о повышении квалификации
-        </label>
-      </div>
+      <Link href={`${routes.front.programs}/${slug}`}>
+        <a className={stls.item} onClick={close && close}>
+          <div
+            className={cn({
+              [stls.circle]: true,
+              [stls.active]: curProgramsType === null
+            })}></div>{' '}
+          <span className={stls.text}>Любой</span>
+        </a>
+      </Link>
+
+      <Link href={`${routes.front.professions}/${slug}`}>
+        <a className={stls.item} onClick={close && close}>
+          <div
+            className={cn({
+              [stls.circle]: true,
+              [stls.active]: curProgramsType === 'profession'
+            })}></div>
+          <span className={stls.text}>Профессия</span>
+        </a>
+      </Link>
+
+      <Link href={`${routes.front.courses}/${slug}`}>
+        <a className={stls.item} onClick={close && close}>
+          <div
+            className={cn({
+              [stls.circle]: true,
+              [stls.active]: curProgramsType === 'course'
+            })}></div>
+          <span className={stls.text}>Курс</span>
+        </a>
+      </Link>
     </div>
   )
 }

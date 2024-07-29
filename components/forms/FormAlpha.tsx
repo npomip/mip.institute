@@ -23,6 +23,7 @@ type FormValues = {
   promocode: string
   question: string
   leadPage: string
+  isActivePromocode?: string
 }
 
 interface Props {
@@ -46,8 +47,9 @@ const FormAlpha = ({
   agreement = false,
   promo = false,
   inProfessions = false,
-  isLiveCourse = false
-}: Props) => {
+  isLiveCourse = false,
+  isActivePromocode = ''
+}) => {
   const {
     register,
     handleSubmit,
@@ -58,7 +60,8 @@ const FormAlpha = ({
     defaultValues: {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      promocode: isActivePromocode ?? isActivePromocode
     }
   })
 
@@ -66,9 +69,14 @@ const FormAlpha = ({
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
   const [loading, setLoading] = useState(false)
-  const { program, seminar } = useContext(ContextStaticProps)
+  const { program, seminar, bachelor } = useContext(ContextStaticProps)
   const [tickets, setTickets] = useState(1)
   const { updateTicketsQuantity } = useContext(ContextStaticProps)
+
+  console.log(bachelor);
+  console.log('blockForAmo', blockForAmo);
+  
+  
 
   useEffect(() => {
     popup && setFocus('name')
@@ -96,7 +104,7 @@ const FormAlpha = ({
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')
     const advcake_track_url = getCookie('advcake_track_url')
-    const price = program?.price
+    const price = program?.price || bachelor?.offlineFullPrice / 2 || null
     data.price = price
 
     data.blockForAmo = blockForAmo
@@ -126,7 +134,10 @@ const FormAlpha = ({
 
       if (req === 200) {
         setLoading(false)
-        window.open(routes.front.gratefull, '_blank')
+        window.open(
+          `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
+          '_blank'
+        )
         setIsIpCheckFailed(false)
         setIsDisabled(true)
         setThanksIsOpen(true)

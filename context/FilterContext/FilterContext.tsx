@@ -9,7 +9,7 @@ interface IFilter {
   courseOpened: boolean
   isPopular: boolean
   type: ProgramTypes
-  duration: { min: number; max: number }
+  // duration: { min: number; max: number }
 }
 
 export enum ProgramTypes {
@@ -25,7 +25,7 @@ const initialFilters: IFilter = {
   input: { text: '' },
   courseOpened: false,
   isPopular: false,
-  duration: { min: 0, max: 1 },
+  // duration: { min: 0, max: 6 },
   type: ProgramTypes.All
 }
 
@@ -37,15 +37,19 @@ export function FilterProvider({ children, items }) {
     categories: getUniqueCategories(items)
   })
 
-  useEffect(() => {
-    if (!state.filters.category) {
-      const filteredItems = getFilteredItems(state.items, state.filters)
-      dispatch({
-        type: 'updateCategories',
-        categories: getUniqueCategories(filteredItems)
-      })
-    }
-  }, [state.filters])
+  // useEffect(() => {
+  //   if (!state.filters.category) {
+  //     const filteredItems = getFilteredItems(state.items, state.filters)
+  //     dispatch({
+  //       type: 'updateCategories',
+  //       categories: getUniqueCategories(filteredItems)
+  //     })
+  //   }
+  // }, [state.filters])
+
+  // useEffect(() => {
+  //   getFilteredItems(items, state.filters)
+  // }, [items])
 
   // const durations = items.map(el => el.duration)
   // const prices = items.map(el => el.price)
@@ -97,6 +101,13 @@ export function useFilteredItems() {
 
 function filtersReducer(state, action) {
   switch (action.type) {
+    case 'setItems': {
+      return {
+        ...state,
+        items: action.payload,
+        categories: getUniqueCategories(action.payload)
+      }
+    }
     case 'setPriceFilter': {
       return {
         ...state,

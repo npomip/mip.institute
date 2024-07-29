@@ -8,7 +8,7 @@ const CardProfession = ({ profession = null }) => {
   return (
     <Link
       passHref
-      href={`${routes.front.professions}/${
+      href={`${profession.type === "Course" ? routes.front.courses : profession.type === "Practice" ? routes.front.practice :  routes.front.professions}/${
         profession.studyFieldSlug || 'studyfield'
       }/${profession.slug}`}>
       <div className={stls.container}>
@@ -24,9 +24,18 @@ const CardProfession = ({ profession = null }) => {
         </div>
         <div className={stls.content}>
           <div className={stls.tags}>
-            <span className={stls.type}>{profession.typeLabel}</span>
+            <span className={stls.type}>
+              {profession.typeLabel === 'Профессия'
+                ? 'Профессиональная переподготовка'
+                : 'Повышение квалификации'}
+            </span>
+            <span className={stls.type}>
+              {profession.typeLabel === 'Профессия'
+                ? 'Диплом'
+                : 'Удостоверение'}
+            </span>
           </div>
-          <h4 className={stls.title}>{profession.title}</h4>
+          <h2 className={stls.title}>{profession.title}</h2>
           {profession.studyMounthsDuration && (
             <div className={stls.duration}>
               <span className={stls.months}>

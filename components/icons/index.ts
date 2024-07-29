@@ -45,3 +45,5 @@ export { default as IconArrowUpRound } from '@/components/icons/IconArrowUpRound
 export { default as IconFinger } from '@/components/icons/IconFinger'
 export { default as IconLiveCoursesFolder } from '@/components/icons/IconLiveCoursesFolder'
 export { default as IconBirds } from '@/components/icons/IconBirds'
+export { default as IconPsyTest } from '@/components/icons/IconPsyTest'
+export { default as OneNumber } from '@/components/icons/OneNumber'

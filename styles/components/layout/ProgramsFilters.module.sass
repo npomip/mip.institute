@@ -10,12 +10,13 @@
   @include m.gap($mt: f.px(10))
   flex-wrap: wrap
   row-gap: f.px(15)
-  column-gap: f.px(24)
+  column-gap: f.px(15)
 
 .sorting
   display: flex
+  flex-wrap: wrap
   row-gap: f.px(15)
-  column-gap: f.px(24)
+  column-gap: f.px(3)
   @include m.media(laptop)
     flex-wrap: wrap
     row-gap: f.px(10)
@@ -31,3 +32,7 @@
 
 .mobileSelect
   gap: f.px(12)
+
+.withInfo
+  display: flex
+  flex-wrap: nowrap

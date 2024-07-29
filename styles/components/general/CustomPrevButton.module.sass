@@ -40,7 +40,6 @@
             @include m.media(phone, tablet)
                 // display: none
     &:hover
-
       & > *
         & > *
           & > *
@@ -55,22 +54,20 @@
     @include m.media(phone, tablet)
       top: 90%
       right: 5%
+    & > *
       & > *
         & > *
           & > *
-            & > *
-              transition: stroke 0.5s ease
-              stroke: #FBF4FF
-              fill: #6F01C6
-              @include m.media(phone, tablet)
+            transition: stroke 0.5s ease
+            stroke: #FBF4FF !important
+            fill: #6F01C6 !important
                   // display: none
       &:hover
-
         & > *
           & > *
             & > *
               & > *
-                fill: #6F01C6
+                fill: #6F01C6 !important
                 stroke: white
 
   &.happyStudentsNextBtn

@@ -7,15 +7,38 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
+import { useRouter } from 'next/router'
 
-const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: string[]}> = ({ programs, studyFields }) => {
+const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: any} & {allPrograms: any[]}> = ({ programs, studyFields, allPrograms, bachelors }) => {
   useHandleContextStaticProps({ programs })
+
+  const router = useRouter()
+
+  const { query, asPath } = router
+  const {ofType} = query
+  const currentFieldSlug = studyFields.find(el => el.studyFieldSlug === query.studyFieldSlug)
+
+  const label = ofType === 'professions' ? 'Профессиональная переподготовка' : ofType === 'courses' ? 'Повышение квалификации' : 'Все курсы'
+
+  const segments = [`/${query.ofType}`, asPath]
+
+  const labels = [label, currentFieldSlug.studyField]
+  const slug = ['live-courses']
+
+  const breadcrumbs = segments.map((segment, index) => {
+    const breadcrumb = {
+      label: labels[index],
+      path: segments[index],
+      slug: slug[index]
+    }
+    return breadcrumb
+  })
 
   return (
     <>
       <SeoPagesPrograms programs={programs} />
       <FilterProvider items={programs}>
-        <PagesPrograms programs={programs} studyFields={studyFields} />
+        <PagesPrograms bachelors={bachelors} programs={programs} studyFields={studyFields} allPrograms={allPrograms} breadcrumbs={breadcrumbs} />
       </FilterProvider>
     </>
   )
@@ -27,6 +50,9 @@ export const getStaticProps = async ({ params }) => {
   const res = await apolloClient.query<TypePageProgramsPropsQuery>({
     query: gql`
       query GetStaticPropsPagePrograms {
+      bachelors {
+        title
+      }
         programs {
           id
           title
@@ -54,6 +80,7 @@ export const getStaticProps = async ({ params }) => {
   })
 
   const programs = res.data.programs
+  const bachelors = res.data.bachelors
 
   // Фильтрация программ на основе параметров ofType и studyFieldSlug
   let filteredPrograms = programs.filter(program => program.studyFieldSlug === studyFieldSlug)
@@ -61,25 +88,50 @@ export const getStaticProps = async ({ params }) => {
     filteredPrograms = filteredPrograms.filter(program => program.type === 'Profession')
   } else if (ofType === 'courses') {
     filteredPrograms = filteredPrograms.filter(program => program.type === 'Course')
+  } else if (ofType === 'practice') {
+    filteredPrograms = programs.filter(program => program.type === 'Practice')
   }
 
   const studyFieldMap = {}
-  programs.forEach(program => {
-    if (!studyFieldMap[program.studyFieldSlug]) {
-      studyFieldMap[program.studyFieldSlug] = {
-        studyField: program.studyField,
-        studyFieldSlug: program.studyFieldSlug
+  if(ofType === 'courses'){
+    programs.filter(program => program.type === 'Course').forEach(program => {
+      if (!studyFieldMap[program.studyFieldSlug]) {
+        studyFieldMap[program.studyFieldSlug] = {
+          studyField: program.studyField,
+          studyFieldSlug: program.studyFieldSlug
+        }
       }
-    }
-  })
-
+    })
+  } else if(ofType === 'practice'){
+    programs.filter(program => program.type === 'Practice').forEach(program => {
+      if (!studyFieldMap[program.studyFieldSlug]) {
+        studyFieldMap[program.studyFieldSlug] = {
+          studyField: program.studyField,
+          studyFieldSlug: program.studyFieldSlug
+        }
+      }
+    })
+  } else {
+    programs.forEach(program => {
+      if (!studyFieldMap[program.studyFieldSlug]) {
+        studyFieldMap[program.studyFieldSlug] = {
+          studyField: program.studyField,
+          studyFieldSlug: program.studyFieldSlug
+        }
+      }
+    })
+  }
+  
   const studyFields = Object.values(studyFieldMap)
 
 
   return {
     props: {
+      allPrograms: programs,
       programs: filteredPrograms,
-      studyFields
+      studyFields,
+      ofType,
+      bachelors
     },
     revalidate: revalidate.default
   }

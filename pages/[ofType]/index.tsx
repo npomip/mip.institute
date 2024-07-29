@@ -122,11 +122,7 @@ export const getStaticProps = async ({ params }) => {
   const studyFields = Object.values(studyFieldMap) as any
   const validOfType = validOfTypeValues.find(el => el === params.ofType)
 
-  const validStudyFieldSlug = studyFields.find(
-    el => el.studyFieldSlug === params?.studyFieldSlug
-  )
-
-  if (!validOfType || !validStudyFieldSlug) {
+  if (!validOfType) {
     return {
       notFound: true
     }

@@ -19,7 +19,7 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 }) => {
   // TODO: pull the rest of SEO params from API
 
-  const { seo } = program
+  const seo = program?.seo
 
   const additionalMetaRobotsKeys = [
     'nosnippet',
@@ -78,11 +78,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
           : ofType === 'Profession'
           ? routes.front.professions
           : routes.front.professions
-      }/${program.studyFieldSlug}/${program?.slug}`
+      }/${program?.studyFieldSlug}/${program?.slug}`
   }
-
-  console.log(seoParams);
-  
 
   return (
     <>
@@ -123,4 +120,3 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 }
 
 export default SeoPagesProgram
-

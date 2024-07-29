@@ -12,10 +12,7 @@ type TSeoPagesProgram = {
   curProgramsStudyFieldSlug?: string
 }
 
-const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
-  ofType,
-  program,
-}) => {
+const SeoPagesBachelor: FC<TSeoPagesProgram> = ({ ofType, program }) => {
   // TODO: pull the rest of SEO params from API
 
   const { seo } = program
@@ -80,9 +77,6 @@ const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
       }/${program.studyFieldSlug}/${program?.slug}`
   }
 
-  console.log(seoParams);
-  
-
   return (
     <>
       <NextSeo
@@ -122,4 +116,3 @@ const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
 }
 
 export default SeoPagesBachelor
-

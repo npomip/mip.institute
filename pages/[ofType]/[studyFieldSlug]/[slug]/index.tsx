@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { TypePageProgramProps } from '@/types/index'
+import { TypePageProgramProps, TypePageProgramsPropsQuery } from '@/types/index'
 import { revalidate, routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -8,6 +8,7 @@ import { SeoPagesProgram } from '@/components/seo'
 import { useRouter } from 'next/router'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
+import { validOfTypeValues } from 'constants/staticPropsValidation'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
@@ -55,19 +56,76 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         ofType={program?.type}
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
-        <PagesProgram
-          slug={slug}
-          breadcrumbs={breadcrumbs}
-          programOverview={programOverview}
-          reviews={reviews}
-          ofType={program?.type}
-        />
+      <PagesProgram
+        slug={slug}
+        breadcrumbs={breadcrumbs}
+        programOverview={programOverview}
+        reviews={reviews}
+        ofType={program?.type}
+      />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const programSlug = params?.slug || null
+  const { slug, ofType, studyFieldSlug } = params
+
+  const res = await apolloClient.query<TypePageProgramsPropsQuery>({
+    query: gql`
+      query GetStaticPropsPagePrograms {
+        bachelors {
+          title
+        }
+        programs {
+          id
+          title
+          slug
+          studyField
+          studyFieldSlug
+          type
+          typeLabel
+          studyMounthsDuration
+          studyHours
+          price
+          isPopular
+          courseOpened
+          heroPicture {
+            url
+            width
+            height
+          }
+          index_number {
+            idx
+          }
+        }
+      }
+    `
+  })
+  const programs = res.data.programs
+
+  // Фильтрация программ на основе параметра ofType
+  let filteredPrograms = programs
+  if (ofType === 'professions') {
+    filteredPrograms = programs.filter(program => program.type === 'Profession')
+  } else if (ofType === 'courses') {
+    filteredPrograms = programs.filter(program => program.type === 'Course')
+  } else if (ofType === 'practice') {
+    filteredPrograms = programs.filter(program => program.type === 'Practice')
+  } else if (ofType === 'programs') {
+    filteredPrograms = programs
+  }
+
+  const studyFieldMap = {}
+  filteredPrograms.forEach(program => {
+    if (!studyFieldMap[program.studyFieldSlug]) {
+      studyFieldMap[program.studyFieldSlug] = {
+        studyField: program.studyField,
+        studyFieldSlug: program.studyFieldSlug
+      }
+    }
+  })
+
+  const studyFields = Object.values(studyFieldMap) as any
 
   try {
     const res = await apolloClient.query({
@@ -207,13 +265,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           }
         }
       `,
-      variables: { slug: programSlug }
+      variables: { slug }
     })
     const reviewsData = res?.data?.reviews || []
+    const validSlug = res?.data?.program?.[0]
+    const validOfType = validOfTypeValues.find(el => el === params.ofType)
 
+    const validStudyFieldSlug = studyFields.find(
+      el => el.studyFieldSlug === studyFieldSlug
+    )
+    if (!validOfType || !validStudyFieldSlug || !validSlug) {
+      return {
+        notFound: true
+      }
+    }
     return {
       props: {
-        // program: res.data.program,
         program: res?.data?.program?.[0] || null,
 
         reviews: reviewsData
@@ -221,10 +288,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       revalidate: revalidate.default
     }
   } catch (error) {
-    // console.error('Ошибка запроса:', error)
-    // console.error('Статус код:', error.statusCode)
-    // console.error('Результат:', error.result)
-    // console.log('errrrrrr', error.networkError.result)
     return error
   }
 }

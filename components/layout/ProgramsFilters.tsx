@@ -16,7 +16,11 @@ import Popup from 'reactjs-popup'
 import IconInfo from '../icons/IconInfo'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
 
-const ProgramsFilters = ({ studyFields = [], allPrograms = [], bachelors=[] }) => {
+const ProgramsFilters = ({
+  studyFields = [],
+  allPrograms = [],
+  bachelors = []
+}) => {
   const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
 
@@ -49,9 +53,6 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [], bachelors=[] }) =
 
   const { ofType, studyFieldSlug, filter, opened } = query
 
-  console.log(bachelors);
-  
-  
   const handleNavigation = (destination: string) => {
     const { ofType, studyFieldSlug, ...rest } = router.query
     router.push({
@@ -115,7 +116,6 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [], bachelors=[] }) =
                   studyFieldSlug,
                   ofType as string
                 )
-              
               : findProgramsLength(allPrograms, 'programs')
           }
           isProgram>
@@ -186,9 +186,7 @@ const ProgramsFilters = ({ studyFields = [], allPrograms = [], bachelors=[] }) =
           <FilterTag
             onClick={() => handleNavigation('/bachelor')}
             isActive={router.asPath === '/bachelor'}
-            quantity={
-              bachelors.length.toString()
-            }
+            quantity={bachelors.length.toString()}
             isProgram>
             Высшее образование
           </FilterTag>

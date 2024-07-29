@@ -14,8 +14,17 @@ const PopupProgram = ({ program, href }) => {
       </div>
       <div className={stls.content}>
         <p className={stls.title}>{program.title}</p>
-        <p className={stls.subtitle}>Ближайшее зачисление: <br /> {getNextWednesday(new Date())}</p>
-        <p className={stls.hours}>Кол-во часов: {program.studyHours}</p>
+        {program.__typename === 'Bachelor' ? 
+        <>
+          <p className={stls.subtitle}>Ближайшее зачисление: <br /> {program.admissionDate}</p>
+          <p className={stls.hours}>Срок обучения: {program.minTime} - {program.maxTime} года</p>
+        </>
+        :
+        <>
+          <p className={stls.subtitle}>Ближайшее зачисление: <br /> {getNextWednesday(new Date())}</p>
+          <p className={stls.hours}>Кол-во часов: {program?.studyHours}</p>
+        </>
+        }
       </div>
     </div>
     </Link>

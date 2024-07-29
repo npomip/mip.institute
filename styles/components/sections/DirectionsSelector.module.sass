@@ -33,7 +33,7 @@
     font-size: f.px(20)
     white-space: pre-wrap
     text-align: center
-    @include m.gap($mb: f.px(10))
+    @include m.gap($mb: f.px(8), $mt: f.px(8))
     &:nth-of-type(1)
       @include m.gap($ptb: f.px(8))
   &:hover
@@ -54,4 +54,3 @@
   width: 100%
   @include m.media(desktop, laptop)
     display: none
-

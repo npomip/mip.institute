@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { useContext, useState } from 'react'
 // ...
 // ...
-export default function ProgramMobile({ coursesFiltered, professionsFiltered, bachelorsFiltered, label, ofType, href, slug, index, setOpenListIndex, openListIndex }) {
+export default function ProgramMobile({ coursesFiltered, professionsFiltered, bachelors, label, ofType, href, slug, index, setOpenListIndex, openListIndex }) {
 
   
   const isListOpen = openListIndex === index;
@@ -65,16 +65,17 @@ export default function ProgramMobile({ coursesFiltered, professionsFiltered, ba
                   />
                 ))
             : ofType === 'bachelor'
-            ? bachelorsFiltered
-                .filter((el, i) => i < 4)
+            ? bachelors
+                ?.filter((el, i) => el.slug === slug)
                 .map((program, i) => (
                   <PopupProgram
-                    href={`${href}/${program.slug}`}
+                    href={`${href}`}
                     key={`${href}-${program.id}`}
                     program={program}
                   />
                 ))
-              : null}
+            : null
+          }
           {ofType === null ? (
             <Link href={`${routes.front.programs}/${slug}`}>
               <a className={styles.viewAll}>Смотреть все </a>

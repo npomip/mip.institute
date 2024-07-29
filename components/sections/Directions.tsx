@@ -1,13 +1,37 @@
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/Directions.module.sass'
+import routes from '@/config/routes'
 import TagOrange from '../general/TagOrange'
 import IconForBottomDirections from '../icons/IconForBottomDirections'
 import ProgramList from './ChooseProgram/ProgramList'
 import DirectionsSelector from './DirectionsSelector'
 import { useState } from 'react'
+import classNames from 'classnames'
 
-const Directions = () => {
+const Directions = ({bachelors}) => {
   const [currentType, setCurrentType] = useState('profession')
+  const list = [
+    {
+      id: 1,
+      label: 'Бакалавриат',
+      href: routes.front.bachelors,
+      programType: 'bachelor'
+    },
+    {
+      id: 2,
+      label: 'Профессиональная переподготовка',
+      href: routes.front.professions,
+      programType: 'profession'
+    },
+    {
+      id: 3,
+      label: 'Повышение квалификации',
+      href: routes.front.courses,
+      programType: 'course'
+    },
+  ]
+  const [activeItem, setActiveItem] = useState(1)
+
 
   return (
     <section className={stls.container}>
@@ -22,18 +46,29 @@ const Directions = () => {
             </div>
             <div className={stls.flexContainer}>
               <div className={stls.leftBlock}>
-                <p className={stls.professions}>
-                  Бакалавриат
-                </p>
-                <p className={stls.professions}>
-                  Профессиональная переподготовка
-                </p>
-                <p className={stls.professions}>
-                  Повышение квалификации
-                </p>
+                {list.map(({id, label, programType}) => (
+                  <p
+                    key={id}
+                    className={classNames({
+                      [stls.professions]: true,
+                      [stls.active]: currentType === programType
+                    })}
+                    onClick={() => {
+                      if (activeItem === id) {
+                        setActiveItem(null)
+                        setCurrentType(null)
+                      } else {
+                        setActiveItem(id)
+                        setCurrentType(programType)
+                      }
+                    }}
+                  >{label}</p>
+                ))
+                }
               </div>
               <div className={stls.rightBlock}>
                 <ProgramList currentType={currentType}
+                bachelors={bachelors}
                 ofType={
                   currentType === 'course'
                     ? 'course'
@@ -41,9 +76,8 @@ const Directions = () => {
                     ? 'profession'
                     : currentType === 'bachelor'
                     ? 'bachelor'
-                    : null
+                    : 'bachelor'
                 } />
-                {/* <ProgramList ofType={'course'} /> */}
               </div>
             </div>
             <div className={stls.icon}>

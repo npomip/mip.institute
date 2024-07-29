@@ -49,7 +49,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   bachelors
 }) => {
   useHandleContextStaticProps({ programs })
-
+  
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
       'Алла Косина',
@@ -137,7 +137,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         )}
       </Popup>
       <Hero />
-      <Directions />
+      <Directions bachelors={bachelors}/>
       <PsyTest />
       <TopCourses />
       <BachelorCarousel

@@ -19,7 +19,7 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 }) => {
   // TODO: pull the rest of SEO params from API
 
-  const { seo } = program
+  const seo = program?.seo
 
   const additionalMetaRobotsKeys = [
     'nosnippet',

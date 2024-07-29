@@ -36,6 +36,7 @@ const getStaticPropsPageHome = async ({
           }
         }
         bachelors {
+          id
           slug
           heroPicture {
             url

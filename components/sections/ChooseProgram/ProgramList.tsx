@@ -45,23 +45,27 @@ const studyFieldsBachelors = [
 ]
 
 type Props = {
+  bachelors?: []
   ofType: string
   currentType?: string
 }
 
-export default function ProgramList({ ofType, currentType }: Props) {
-  const list = ofType === 'course' ? studyFieldsCourses
-  : ofType === 'profession' ? studyFieldsProfessions 
-  : ofType === 'bachelor' ? studyFieldsBachelors 
-  : null
-
+export default function ProgramList({ bachelors, ofType, currentType }: Props) {
+  const typeMap = {
+    course: studyFieldsCourses,
+    profession: studyFieldsProfessions,
+    bachelor: studyFieldsBachelors
+  };
+  const bachelorsArray = bachelors || [];
+  const list = typeMap[ofType] || [];
+  
   const [openListIndex, setOpenListIndex] = useState(-1)
 
   return (
     <div className={styles.program}>
       {ofType === 'course' && (
         <Link href={routes.front.courses}>
-          <a className={styles.all} style={{ margin: 0 }}>
+          <a className={styles.all}>
             Все направления
           </a>
         </Link>
@@ -84,7 +88,8 @@ export default function ProgramList({ ofType, currentType }: Props) {
           }/${slug}`}
           openListIndex={openListIndex} // Передаем состояние открытого списка
           setOpenListIndex={setOpenListIndex}
-          showIcon={ofType !== 'course'}
+          showIcon
+          bachelors={bachelorsArray}
         />
       ))}
     </div>

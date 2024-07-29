@@ -9,6 +9,8 @@
   flex-direction: column
   background: #FEF2E8
   @include m.gap($pt: f.px(25), $pb: f.px(0))
+  @include m.media(laptop, desktop)
+    height: f.px(697)
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(50))
 
@@ -76,6 +78,9 @@
     white-space: pre-wrap
     text-align: center
     @include m.gap($mb: f.px(10))
+  &.active
+    @include m.dye(bg, c.$alpha)
+    @include m.dye(c, #fff)
 
 .courses
   background: #B250FF
@@ -97,6 +102,8 @@
     @include m.gap($mb: f.px(10))
 
 .icon
-  transform: rotate(90deg) translateY(-550px) scale(1.2)
+  position: absolute
+  top: 45rem
+  transform: rotate(90deg) translateY(-550px) scale(1.2) translateX(31px)
   @include m.media(phone, tablet)
     display: none

@@ -17,10 +17,11 @@ const Program = ({
   index,
   setOpenListIndex,
   openListIndex,
-  showIcon
+  showIcon,
+  bachelors
 }) => {
-  const { courses, professions, bachelors } = useContext(ContextStaticProps)
-
+  const { courses, professions } = useContext(ContextStaticProps)
+  
   const coursesFiltered =
     slug &&
     filterProgramsByStudyField({
@@ -34,13 +35,6 @@ const Program = ({
       programs: professions,
       studyFieldSlug: slug
     })
-
-  const bachelorsFiltered =
-    slug &&
-    filterProgramsByStudyField({
-      programs: bachelors,
-      studyFieldSlug: slug
-  })
 
   const contentStyle = {
     background: '#ffffff',
@@ -67,7 +61,7 @@ const Program = ({
           )}
           {...{ contentStyle }}
           on={'hover'}
-          position={ofType === 'course' ? 'left center' : 'right center'}
+          position={'right center'}
           offsetX={showIcon ? -20 : 20}
           offsetY={-5}
           mouseLeaveDelay={200}
@@ -96,11 +90,11 @@ const Program = ({
                   />
                 ))
             : ofType === 'bachelor'
-            ? bachelorsFiltered
-                .filter((el, i) => i < 4)
+            ? bachelors
+                ?.filter((el, i) => el.slug === slug)
                 .map((program, i) => (
                   <PopupProgram
-                    href={`${href}/${program.slug}`}
+                    href={`${href}`}
                     key={`${href}-${program.id}`}
                     program={program}
                   />
@@ -122,7 +116,7 @@ const Program = ({
       <ProgramMobile
         professionsFiltered={professionsFiltered}
         coursesFiltered={coursesFiltered}
-        bachelorsFiltered={bachelorsFiltered}
+        bachelors={bachelors}
         label={label}
         ofType={ofType}
         href={href}

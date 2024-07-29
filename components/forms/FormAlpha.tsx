@@ -104,7 +104,7 @@ const FormAlpha = ({
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')
     const advcake_track_url = getCookie('advcake_track_url')
-    const price = program?.price || bachelor.offlineFullPrice / 2 || null
+    const price = program?.price || bachelor?.offlineFullPrice / 2 || null
     data.price = price
 
     data.blockForAmo = blockForAmo

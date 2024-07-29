@@ -6,7 +6,7 @@ const ProgramDiscountUntil = () => {
   return (
     <>
       {/* до {getNextFriday(new Date())} */}
-      до {new Date()  > new Date(2024, 7, 1)  ? getNextFriday(new Date()) : '30 июля' }
+      до {new Date()  > new Date(2024, 7, 1)  ? getNextFriday(new Date()) : '31 июля' }
     </>
   )
 }

@@ -95,8 +95,7 @@ module.exports = {
         '/professions/konsultirovanie/detskij-psiholog$',
         '/professions/dietologiya/psiholog-dietolog$',
         '/courses/konsultirovanie/psihologiya-obsheniya$',
-        '/professions/kouching$',
-        '/',]
+        '/professions/kouching$',]
       }
     ]
   }

@@ -27,6 +27,7 @@ import { getCookie, setCookie, getCookies } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
 import StickyTop from '@/components/layout/StickyTop'
 import promocodes from '@/helpers/promocodes'
+import Link from 'next/link'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -228,6 +229,9 @@ const MyApp = ({ Component, pageProps, router }) => {
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       <DefaultSeo {...SEO} />
+      <div style={{display: 'none'}}>
+        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>АВА-терапевт</Link>
+      </div>
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
         url={routes.front.root}

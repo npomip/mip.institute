@@ -7,18 +7,25 @@ import { AdditionalRobotsProps } from 'next-seo/lib/types'
 import preview from '@/config/preview'
 
 type TSeoPagesProgram = {
-  ofType: string
-  program: TypeLibProgram
-  curProgramsStudyFieldSlug?: string
+  program: {
+    seo: {
+      canonicalURL: string
+      isSEOFriendly: boolean
+      metaDescription: string
+      metaTitle: string
+      
+    }
+    title: string
+  }
+  
 }
 
 const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
-  ofType,
-  program,
+  program
 }) => {
   // TODO: pull the rest of SEO params from API
 
-  const { seo } = program
+  const seo = program.seo
 
   const additionalMetaRobotsKeys = [
     'nosnippet',
@@ -30,59 +37,34 @@ const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
     'noimageindex',
     'notranslate'
   ]
-  const parsedMetaRobots = ((
-    seo?.metaRobots &&
-    seo?.metaRobots.split(',').map(item => {
-      const trimmedItem = item?.trim()
+  // const parsedMetaRobots = ((
+  //   seo?.metaRobots &&
+  //   seo?.metaRobots.split(',').map(item => {
+  //     const trimmedItem = item?.trim()
 
-      if (additionalMetaRobotsKeys.some(key => trimmedItem?.includes(key))) {
-        const [key, value] = trimmedItem?.split(':')
+  //     if (additionalMetaRobotsKeys.some(key => trimmedItem?.includes(key))) {
+  //       const [key, value] = trimmedItem?.split(':')
 
-        return { [key]: value || true }
-      }
+  //       return { [key]: value || true }
+  //     }
 
-      return null
-    })
-  )?.filter(item => item) || null) as AdditionalRobotsProps
+  //     return null
+  //   })
+  // )?.filter(item => item) || null) as AdditionalRobotsProps
 
-  // nosnippet?: boolean;
-  // maxSnippet?: number;
-  // maxImagePreview?: ImagePrevSize;
-  // maxVideoPreview?: number;
-  // noarchive?: boolean;
-  // unavailableAfter?: string;
-  // noimageindex?: boolean;
-  // notranslate?: boolean;
 
-  const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')
+  const isNoindex = !seo?.isSEOFriendly 
 
-  const isNofollow =
-    !seo?.isSEOFriendly || seo?.metaRobots?.includes('nofollow')
+  const isNofollow = !seo?.isSEOFriendly 
 
   const seoParams = {
-    title:
-      seo?.metaTitle ||
-      `${program?.title ? program.title + ' | ' : 'Программа | '}${
-        program?.typeLabel || 'Курс'
-      } | ${company.name}`,
-    programTitle: program?.title || 'Программа',
-    desc:
-      seo?.metaDescription ||
-      (program?.description ? truncate(program?.description, 120) : ''),
-    canonical:
-      seo?.canonicalURL ||
-      `${routes.front.root}${
-        ofType === 'Course'
-          ? routes.front.courses
-          : ofType === 'Profession'
-          ? routes.front.professions
-          : routes.front.professions
-      }/${program.studyFieldSlug}/${program?.slug}`
+    title: seo?.metaTitle ,
+    programTitle: program?.title || 'Программа Высшего Образования',
+    desc: seo?.metaDescription ,
+    canonical: seo?.canonicalURL 
   }
 
   console.log(seoParams);
-  
-
   return (
     <>
       <NextSeo
@@ -92,7 +74,6 @@ const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
         themeColor={themeColor}
         nofollow={preview ? true : isNofollow}
         noindex={preview ? true : isNoindex}
-        {...((parsedMetaRobots && { robotsProps: parsedMetaRobots }) || {})}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

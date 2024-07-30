@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useContext } from 'react'
 import Popup from 'reactjs-popup'
 import ProgramMobile from './ProgramMobile'
+import { useMediaQuery } from 'react-responsive'
 
 const Program = ({
   slug,
@@ -47,6 +48,7 @@ const Program = ({
     paddingTop: '30px',
     border: '1px solid #6F01C6'
   }
+  const isLaptopLayout = useMediaQuery({ query: '(max-width: 1200px)' })
 
   return (
     <>
@@ -64,7 +66,7 @@ const Program = ({
           )}
           {...{ contentStyle }}
           on={'hover'}
-          position={'right center'}
+          position={isLaptopLayout ? 'left center' : 'right center'}
           offsetX={showIcon ? -20 : 20}
           offsetY={-5}
           mouseLeaveDelay={200}

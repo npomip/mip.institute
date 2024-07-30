@@ -37,7 +37,6 @@ const Directions = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.fullContainer}>
           <div className={stls.content}>
             <div className={stls.heading}>
               <h2 className={stls.title}>Программы</h2>
@@ -74,9 +73,9 @@ const Directions = () => {
                     : 'profession'
                 } />
               </div>
-            </div>
             <div className={stls.icon}>
               <IconForBottomDirections />
+            </div>
             </div>
             <div className={stls.flexContainerMobile}>
               <DirectionsSelector
@@ -85,7 +84,6 @@ const Directions = () => {
               />
             </div>
           </div>
-        </div>
       </Wrapper>
     </section>
   )

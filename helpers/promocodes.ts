@@ -6,6 +6,7 @@ const promocodes = {
   maniloun: 'MANILOUN',
   neprinyato: 'НЕ ПРИНЯТО',
   retrograd29: 'МЕРКУРИЙ',
+  globa: 'ГЛОБА'
 };
 
 export default promocodes

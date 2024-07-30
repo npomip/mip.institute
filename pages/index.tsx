@@ -137,7 +137,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         )}
       </Popup>
       <Hero />
-      <Directions bachelors={bachelors}/>
+      <Directions />
       <PsyTest />
       <TopCourses />
       <BachelorCarousel

@@ -14,21 +14,21 @@ const Directions = () => {
   const list = [
     {
       id: 1,
-      label: 'Бакалавриат',
-      href: routes.front.bachelors,
-      programType: 'bachelor'
-    },
-    {
-      id: 2,
       label: 'Профессиональная переподготовка',
       href: routes.front.professions,
       programType: 'profession'
     },
     {
-      id: 3,
+      id: 2,
       label: 'Повышение квалификации',
       href: routes.front.courses,
       programType: 'course'
+    },
+    {
+      id: 3,
+      label: 'Бакалавриат',
+      href: routes.front.bachelors,
+      programType: 'bachelor'
     },
   ]
   const [activeItem, setActiveItem] = useState(1)
@@ -55,13 +55,8 @@ const Directions = () => {
                       [stls.active]: currentType === programType
                     })}
                     onClick={() => {
-                      if (activeItem === id) {
-                        setActiveItem(null)
-                        setCurrentType(null)
-                      } else {
-                        setActiveItem(id)
-                        setCurrentType(programType)
-                      }
+                      setActiveItem(id)
+                      setCurrentType(programType)
                     }}
                   >{label}</p>
                 ))
@@ -76,7 +71,7 @@ const Directions = () => {
                     ? 'profession'
                     : currentType === 'bachelor'
                     ? 'bachelor'
-                    : 'bachelor'
+                    : 'profession'
                 } />
               </div>
             </div>

@@ -52,19 +52,11 @@ const DirectionsSelector: FC<Props> = ({
               !isMobileLayout ? () => setCurrentType(programType) : undefined
             }
             onClick={() => {
-              if (activeItem === id) {
-                // Если элемент уже активен, снимаем активность
-                setActiveItem(null)
-                setCurrentType(null)
-              } else {
-                // Иначе, активируем элемент
                 setActiveItem(id)
                 setCurrentType(programType)
-              }
             }}>
             <p className={stls.mainFields}>{label}</p>
           </div>
-          {/* Показываем надпись под активным элементом */}
           {activeItem === id && (
             <div className={stls.mobileAccordeon}>
               <ProgramList

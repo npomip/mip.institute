@@ -10,6 +10,7 @@ type THandleContextStaticPropsProps = {
   curProgramsStudyFieldSlug?: string | null
   tickets_quantity?: number
   bachelor?: any
+  bachelors?: any[]
 }
 
 const useHandleContextStaticProps = ({
@@ -19,11 +20,12 @@ const useHandleContextStaticProps = ({
   curProgramsType,
   curProgramsStudyFieldSlug,
   bachelor,
+  bachelors,
   tickets_quantity
 }: THandleContextStaticPropsProps) => {
   const {
     setSeminar,
-    setProgram,
+  setProgram,
     setPrograms,
     setCourses,
     setProfessions,
@@ -32,7 +34,8 @@ const useHandleContextStaticProps = ({
     setStudyFieldsCourses,
     setCurProgramsType,
     setCurProgramsStudyFieldSlug,
-    setBachelor
+    setBachelor,
+    setBachelors
   } = useContext(ContextStaticProps)
 
   useEffect(() => {
@@ -49,6 +52,7 @@ const useHandleContextStaticProps = ({
     setSeminar(seminar || null)
     setProgram(program || null)
     setBachelor(bachelor || null)
+    setBachelors(bachelors || [])
     setPrograms(programs || null)
     setCourses(courses || null)
     setProfessions(professions || null)
@@ -62,7 +66,7 @@ const useHandleContextStaticProps = ({
 
     setCurProgramsType(curProgramsType || null)
     setCurProgramsStudyFieldSlug(curProgramsStudyFieldSlug || null)
-  }, [curProgramsStudyFieldSlug, curProgramsType, program, programs, seminar, bachelor])
+  }, [curProgramsStudyFieldSlug, curProgramsType, program, programs, seminar, bachelor, bachelors])
 }
 
 export default useHandleContextStaticProps

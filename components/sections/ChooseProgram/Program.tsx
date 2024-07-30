@@ -18,9 +18,8 @@ const Program = ({
   setOpenListIndex,
   openListIndex,
   showIcon,
-  bachelors
 }) => {
-  const { courses, professions } = useContext(ContextStaticProps)
+  const { courses, professions, bachelors } = useContext(ContextStaticProps)
   
   const coursesFiltered =
     slug &&

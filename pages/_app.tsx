@@ -31,7 +31,9 @@ import promocodes from '@/helpers/promocodes'
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
     const program = pageProps.program || null
+    
     const bachelor = pageProps.bachelor || null
+    const bachelors = pageProps.bachelors || null
     const programs =
       sortBasedOnNumericOrder({ programs: pageProps.programs }) || []
     const courses =
@@ -74,7 +76,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       filteredPrograms,
       blogs,
       seminar,
-      bachelor
+      bachelor,
+      bachelors
     }
   }
 
@@ -107,6 +110,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [blogs, setBlogs] = useState(defaultStateProps.blogs)
   const [seminar, setSeminar] = useState(defaultStateProps.seminar)
   const [bachelor, setBachelor] = useState(defaultStateProps.bachelor)
+  const [bachelors, setBachelors] = useState(defaultStateProps.bachelors)
   const updateTicketsQuantity = newQuantity => {
     setSeminar(prevSeminar => ({
       ...prevSeminar,
@@ -250,7 +254,9 @@ const MyApp = ({ Component, pageProps, router }) => {
           setBlogs,
           seminar,
           bachelor,
+          bachelors,
           setBachelor,
+          setBachelors,
           setSeminar,
           updateTicketsQuantity,
           setProgram,

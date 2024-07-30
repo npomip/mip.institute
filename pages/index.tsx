@@ -48,7 +48,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   teachers,
   bachelors
 }) => {
-  useHandleContextStaticProps({ programs })
+  useHandleContextStaticProps({ programs, bachelors })
   
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [

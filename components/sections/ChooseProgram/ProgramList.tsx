@@ -45,18 +45,16 @@ const studyFieldsBachelors = [
 ]
 
 type Props = {
-  bachelors?: []
   ofType: string
   currentType?: string
 }
 
-export default function ProgramList({ bachelors, ofType, currentType }: Props) {
+export default function ProgramList({ ofType, currentType }: Props) {
   const typeMap = {
     course: studyFieldsCourses,
     profession: studyFieldsProfessions,
     bachelor: studyFieldsBachelors
   };
-  const bachelorsArray = bachelors || [];
   const list = typeMap[ofType] || [];
   
   const [openListIndex, setOpenListIndex] = useState(-1)
@@ -89,7 +87,6 @@ export default function ProgramList({ bachelors, ofType, currentType }: Props) {
           openListIndex={openListIndex} // Передаем состояние открытого списка
           setOpenListIndex={setOpenListIndex}
           showIcon
-          bachelors={bachelorsArray}
         />
       ))}
     </div>

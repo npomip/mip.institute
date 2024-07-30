@@ -12,9 +12,8 @@ import { useContext, useState } from 'react'
 // ...
 export default function ProgramMobile({ coursesFiltered, professionsFiltered, bachelorsFiltered, label, ofType, href, slug, index, setOpenListIndex, openListIndex }) {
 
-  
   const isListOpen = openListIndex === index;
-
+  
   const toggleList = () => {
     if (isListOpen) {
       // Если текущий список уже открыт, то закрываем его
@@ -65,7 +64,7 @@ export default function ProgramMobile({ coursesFiltered, professionsFiltered, ba
             ))
             : ofType === 'bachelor'
             ? bachelorsFiltered
-            .map((program, i) => (
+            ?.map((program, i) => (
                 <PopupProgram
                   href={`${href}`}
                   key={`${href}-${program.id}`}

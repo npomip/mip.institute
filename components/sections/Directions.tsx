@@ -8,11 +8,8 @@ import DirectionsSelector from './DirectionsSelector'
 import { useState } from 'react'
 import classNames from 'classnames'
 
-type Props = {
-  bachelors?: []
-}
 
-const Directions = ({bachelors}: Props) => {
+const Directions = () => {
   const [currentType, setCurrentType] = useState('profession')
   const list = [
     {
@@ -72,7 +69,6 @@ const Directions = ({bachelors}: Props) => {
               </div>
               <div className={stls.rightBlock}>
                 <ProgramList currentType={currentType}
-                bachelors={bachelors}
                 ofType={
                   currentType === 'course'
                     ? 'course'

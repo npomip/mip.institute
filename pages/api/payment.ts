@@ -29,6 +29,9 @@ const payment = async (
 ) => {
 	const { price, returnURL, values } = req.body
 
+	console.log('idempotenceKey ===', idempotenceKey);
+	
+
 	const requestData = {
 		amount: {
 			value: `1.00`,
@@ -38,10 +41,16 @@ const payment = async (
 			type: 'redirect',
 			return_url: `${routes.front.home}`
 		},
+		metadata: {
+			full_name: "Ivan",
+			phone: '89817954346',
+			email: 'vanjaklp@yandex.ru'
+		},
 		receipt: {
 			customer: {
 				full_name: "Ivan",
-				phone: '89817954346'
+				phone: '89817954346',
+				email: 'vanjaklp@yandex.ru'
 			},
 			items: [
 				{

@@ -24,6 +24,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
   const perMonthPriceRegular =
     Math.round(Math.round(rprice && +rprice / 12) / 100) * 100
 
+    // 5555555555554477
     const paymentClick = async () => {
       const resp = await payment()
     }

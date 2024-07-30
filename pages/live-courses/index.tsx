@@ -1,26 +1,18 @@
-import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
 import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
 import Wrapper from '@/components/layout/Wrapper'
 import SlugTagsLiveCourses from '@/components/sections/SlugTagsLiveCourses'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
+import FiltersWithContext from '@/components/filters/FiltersWithContext'
+import FiltersWithTag from '@/components/filters/FiltersWithTags'
+import ResetWrapper from '@/components/filters/ResetWrapper'
+import Breadcrumbs from '@/components/general/Breadcrumbs'
 import { routes } from '@/config/index'
-import {
-  FilterProvider,
-  useFilter,
-  useFilterDispatch
-} from '@/context/FilterContext/FilterContext'
+import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/LiveCoursesSlug.module.sass'
 import { GetStaticProps } from 'next'
-import 'reactjs-popup/dist/index.css'
-import FiltersForLifeCoursesMobile from '@/components/filters/FiltersForLifeCoursesMobile'
-import FilterTag from '@/components/filters/FilterTag'
-import FiltersWithTag from '@/components/filters/FiltersWithTags'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import ResetFilter from '@/components/filters/ResetFilter'
-import FiltersWithContext from '@/components/filters/FiltersWithContext'
-import ResetWrapper from '@/components/filters/ResetWrapper'
 import { NextSeo } from 'next-seo'
+import 'reactjs-popup/dist/index.css'
 
 const JournalPage = ({ lifeCourses }) => {
   const durations = lifeCourses.map(el => el.duration)
@@ -48,10 +40,7 @@ const JournalPage = ({ lifeCourses }) => {
 
   return (
     <Wrapper>
-      <NextSeo
-      nofollow={true}
-      noindex={true}
-      />
+      <NextSeo nofollow={true} noindex={true} />
       <FilterProvider items={lifeCourses}>
         {/* {liveCourses.map(el => (
         <p>{el.title}</p>

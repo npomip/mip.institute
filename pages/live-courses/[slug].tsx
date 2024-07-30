@@ -1,19 +1,13 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
-import Wrapper from '@/components/layout/Wrapper'
-import LifeCourseDynamicZones from '@/components/lifeCourses/LifeCoursesDynamicZones'
-import LiveCoursesHero from '@/components/lifeCourses/LiveCoursesHero'
+import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
+import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
 import { About, Reviews } from '@/components/sections'
 import EntryForm from '@/components/sections/EntryForm'
-import SlugTags from '@/components/sections/SlugTags'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
-import { dev, preview, prod, routes } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { useContext, useEffect, useState } from 'react'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
   // const { reviews } = useContext(ContextStaticProps)

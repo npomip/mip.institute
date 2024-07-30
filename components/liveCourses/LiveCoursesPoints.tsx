@@ -1,4 +1,4 @@
-import styles from '@/styles/components/liveCourses/LiveCorsesPoints.module.sass'
+import styles from '@/styles/components/liveCourses/LiveCoursesPoints.module.sass'
 import FullWrapper from '../layout/FullWrapper'
 
 interface LiveCorsesPointsProps {
@@ -13,7 +13,7 @@ interface LiveCorsesPointsProps {
     }[]
   }
 }
-const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
+const LiveCoursesPoints = ({ props }: LiveCorsesPointsProps) => {
   const { title, subtitle, color, medalion } = props
 
   return (
@@ -51,4 +51,4 @@ const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
   )
 }
 
-export default LiveCorsesPoints
+export default LiveCoursesPoints

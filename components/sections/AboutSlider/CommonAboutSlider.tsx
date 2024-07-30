@@ -8,7 +8,7 @@ import secondPic from '@/public/assets/imgs/general/SecondPic.jpg'
 import thirdPic from '@/public/assets/imgs/general/ThirdPic.jpg'
 import SecondSlide from './SecondSlide'
 import ThirdSlide from './ThirdSlide'
-import liveCourse from '@/public/assets/imgs/general/liveCourseMIP.jpeg'
+import liveCourse from '@/public/assets/imgs/liveCourses/liveCourseMIP.jpeg'
 
 interface Props {
   isLiveCourse?: boolean

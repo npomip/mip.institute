@@ -28,6 +28,7 @@ import { ApolloProvider } from '@apollo/client'
 import StickyTop from '@/components/layout/StickyTop'
 import promocodes from '@/helpers/promocodes'
 import Link from 'next/link'
+import { Analytics } from '@vercel/analytics/react'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -285,6 +286,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>
+      <Analytics />
       <link
         rel='stylesheet'
         href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'

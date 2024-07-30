@@ -46,7 +46,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
     // <Wrapper>
     <>
       <NextSeo nofollow={true} noindex={true} />
-      <h1>{lifeCourse.title}</h1>
+      <LiveCoursesHero title={lifeCourse.title} />
       {lifeCourse?.article?.map((module, idx) => (
         <LifeCourseDynamicZones key={idx} props={module} />
       ))}

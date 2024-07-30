@@ -3,42 +3,62 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  max-width: f.px(1200)
-  margin: 0 auto
+  @include m.gap($pt: f.px(70))
 
 .content
-  position: absolute
-  z-index: 2
-  top: f.px(400)
-  left: f.px(300)
-  & > p
-    color: #5C374C
+  @include m.flex($jc: space-between, $fd: column)
+  height: 100%
+  width: f.px(400)
+  @include m.gap($pt: f.px(170), $pl: f.px(100))
+  & > div > p
+    @include m.dye(c, c.$dark-purple)
     font-size: f.px(20)
     font-style: normal
     font-weight: 500
     line-height: 130%
 
-.text
-  width: f.px(400)
-
-.img
+.title
+  @include m.dye(c, c.$dark-purple)
+  z-index: 1
+  width: 80vh
+  font-family: Stem
+  font-size: f.px(64)
+  font-style: normal
+  font-weight: 500
+  line-height: 110%
+  text-transform: uppercase
+  @include m.gap($mb: f.px(0))
   position: absolute
-  z-index: 2
-  right: f.px(297)
-  top: f.px(321)
+  top: f.px(130)
+  left: f.px(300)
+
+.text
+  // width: f.px(400)
+
+.hug
+  position: absolute
+  z-index: 1
+  right: f.px(48)
+  top: f.px(82)
   transform: scaleX(1.2) scale(0.9)
 
 .birds
   position: absolute
-  right: f.px(600)
+  top: f.px(40)
+  right: f.px(340)
 
 .folder
-  // background-color: red
-  // @include m.gap($ptb: f.px(90), $plr: f.px(100))
+  position: relative
   display: block
-  background: url('/assets/imgs/general/folder.jpg')
+  background: url('/assets/imgs/general/folder.png')
   height: f.px(600)
   background-position: center center
   background-size: cover
   background-repeat: no-repeat
   object-fit: contain
+
+.tag
+  @include m.dye(c, c.$dark-purple)
+  font-size: f.px(20)
+  font-weight: 500
+  @include m.gap($mb: f.px(40))

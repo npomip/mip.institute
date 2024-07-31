@@ -16,10 +16,10 @@ const FirstSlide = ({ standalone, isLiveCourse }: Props) => {
         [stls.liveCourse]: isLiveCourse
       })}>
       <div className={stls.tagWhite}>
-        <TagWhite>Онлайн-институт</TagWhite>
+        {/* <TagWhite>Онлайн-институт</TagWhite> */}
       </div>
       <div className={stls.tagOrange}>
-        <TagOrange>{isLiveCourse ? 'О нас' : 'МИП'}</TagOrange>
+        {/* <TagOrange>{isLiveCourse ? 'О нас' : 'МИП'}</TagOrange> */}
       </div>
       <h2 className={stls.title}>Об институте</h2>
       <p className={stls.first}>

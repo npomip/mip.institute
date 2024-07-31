@@ -43,13 +43,13 @@ export default function ProgramList({ ofType, currentType }: Props) {
 
   return (
     <div className={styles.program}>
-      {ofType === 'course' && (
+      {/* {ofType === 'course' && (
         <Link href={routes.front.courses}>
           <a className={styles.all} style={{ margin: 0 }}>
             Все направления
           </a>
         </Link>
-      )}
+      )} */}
       {list.map(({ label, slug }, index) => (
         <Program
           ofType={ofType}

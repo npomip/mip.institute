@@ -34,7 +34,7 @@ const BtnFields = () => {
           <span className={stls.icon}>
             <IconMenu />
           </span>
-          <span className={stls.text}>Направления обучения</span>
+          <span className={stls.text}>Программы обучения</span>
         </button>
         <div
           className={classNames({

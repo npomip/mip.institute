@@ -185,12 +185,12 @@ const YourDiploma = ({
   return (
     <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Ваши будущие дипломы</h2>
         {onMain && (
           <div className={stls.tag}>
             <TagOrange>Образование</TagOrange>
           </div>
         )}
+        <h2 className={stls.title}>Ваши будущие дипломы</h2>
 
         <div className={stls.content}>
           <div className={stls.left}>

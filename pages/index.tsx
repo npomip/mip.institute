@@ -163,14 +163,14 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <Cta
         title={'Подберите программу'}
-        desc={'Ответьте на несколько вопросов и подберите программу обучения'}
+        desc={'Оставьте заявку на консультацию менеджера приёмной комиссии'}
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
       <SalaryCounter />
       <Teachers
         onMain
-        title={'Преподаватели – наставники'}
+        title={'Ведущие преподаватели'}
         teachersFromMain={teachersFromMain}
       />
       <YourDiploma onMain ofType='Profession' />

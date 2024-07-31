@@ -29,6 +29,7 @@ type PopupTriggerType = {
     | 'askQuestion'
     | 'callMeBack'
     | 'signUpForCourse'
+    | 'signUpForProgramm'
     | 'signUpForProfession'
     | 'signUp'
     | 'chooseProgram'
@@ -61,6 +62,7 @@ const PopupTrigger = ({
 }: PopupTriggerType) => {
   const promoCtaList = [
     'signUpForCourse',
+    'signUpForProgramm',
     'signUpForProfession',
     'submitApplication',
     'chooseProgram',
@@ -80,6 +82,7 @@ const PopupTrigger = ({
       askQuestion: 'Задать вопрос',
       callMeBack: 'Обратный звонок',
       signUpForCourse: 'Записаться на курс',
+      signUpForProgramm: 'Записаться на программу',
       signUpForProfession: 'Записаться на курс',
       signUp: 'Записаться',
       chooseProgram: 'Подобрать программу',
@@ -105,6 +108,7 @@ const PopupTrigger = ({
       askQuestion: 'Задать вопрос',
       callMeBack: 'Обратный звонок',
       signUpForCourse: 'Записаться на курс',
+      signUpForProgramm: 'Записаться на программу',
       signUpForProfession: 'Записаться на курс',
       signUp: 'Записаться',
       chooseProgram: 'Подобрать программу',

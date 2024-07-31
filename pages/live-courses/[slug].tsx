@@ -3,6 +3,7 @@ import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZ
 import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
 import { About, Reviews } from '@/components/sections'
 import EntryForm from '@/components/sections/EntryForm'
+import YouTubeVideo from '@/components/sections/YouTubeVideo'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
@@ -44,6 +45,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       {lifeCourse?.article?.map((module, idx) => (
         <LifeCourseDynamicZones key={idx} props={module} />
       ))}
+      <YouTubeVideo videoId='Voc_dKGqhFE' title='Демо-ролик спикера курса' />
       <About isLiveCourse />
       <Reviews reviews={reviews} isLiveCourse />
       <EntryForm isLiveCourse />

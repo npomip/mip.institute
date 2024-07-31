@@ -13,7 +13,8 @@ const LiveCoursesHero = ({ title }) => {
   return (
     <Wrapper>
       <div className={stls.container}>
-        <h1 className={stls.title}>{title}</h1>
+        <h1 className={stls.titleMobile}>{title}</h1>
+
         <p className={stls.textMobile}>
           «Нет ничего хуже, когда человек глядит на жизнь через свою обиду.
           Обида штука опасная, она может съесть тебя целиком...»
@@ -25,37 +26,42 @@ const LiveCoursesHero = ({ title }) => {
         </p>
 
         <div className={stls.folder}>
-          <div className={stls.content}>
-            <div>
-              <p className={stls.text}>
-                «Нет ничего хуже, когда человек глядит на жизнь через свою
-                обиду. Обида штука опасная, она может съесть тебя целиком...»
-              </p>
-              <p className={stls.author}>
-                Мальцев Елизар Юрьевич,
-                <br />
-                русский писатель
-              </p>
-              <div className={stls.btn}>
-                <PopupTrigger
-                  btn='alpha'
-                  cta='signUpForCourse'
-                  isLightYellowBetaBtn
-                />
+          <div className={stls.leftColumn}>
+            <h1 className={stls.title}>{title}</h1>
+            <div className={stls.content}>
+              <div>
+                <p className={stls.text}>
+                  «Нет ничего хуже, когда человек глядит на жизнь через свою
+                  обиду. Обида штука опасная, она может съесть тебя целиком...»
+                </p>
+                <p className={stls.author}>
+                  Мальцев Елизар Юрьевич,
+                  <br />
+                  русский писатель
+                </p>
+                <div className={stls.btn}>
+                  <PopupTrigger
+                    btn='alpha'
+                    cta='signUpForCourse'
+                    isLightYellowBetaBtn
+                  />
+                </div>
               </div>
+              <div className={stls.tag}>LIFE</div>
             </div>
-            <div className={stls.tag}>LIFE</div>
           </div>
-          <div className={stls.birds}>
-            <IconBirds />
-          </div>
-          <div className={stls.hug}>
-            <Image
-              src={isMobileAndTabletLayout ? srcMobile : src}
-              height={isMobileAndTabletLayout ? 240 : 540}
-              width={isMobileAndTabletLayout ? 300 : 800}
-              alt='Объятия'
-            />
+          <div className={stls.rightColumn}>
+            <div className={stls.birds}>
+              <IconBirds />
+            </div>
+            <div className={stls.hug}>
+              <Image
+                src={isMobileAndTabletLayout ? srcMobile : src}
+                height={isMobileAndTabletLayout ? 240 : 540}
+                width={isMobileAndTabletLayout ? 300 : 800}
+                alt='Объятия'
+              />
+            </div>
           </div>
         </div>
         <div className={stls.mobileBtn}>

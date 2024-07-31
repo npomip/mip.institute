@@ -3,7 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.sizeIcon($w: 270, $h: 60)
-  display: block
-  position: absolute
-  z-index: 2
+  @include m.sizeIcon($w: 250, $h: 60)
+  @include m.flex($jc: center, $ai: center)
+  z-index: 1

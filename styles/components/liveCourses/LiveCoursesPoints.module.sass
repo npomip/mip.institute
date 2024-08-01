@@ -3,6 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.gap($mb: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(30))
   p
     font-weight: 500
 
@@ -66,7 +69,6 @@
     @include m.media(phone, tablet)
       @include m.gap($ml: f.px(64), $mr: f.px(24))
       max-width: f.px(200)
-
 
 .medalionAbs
   position: absolute

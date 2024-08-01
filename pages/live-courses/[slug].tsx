@@ -1,6 +1,8 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
+import LiveCoursesDescription from '@/components/liveCourses/LiveCoursesDescription'
 import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
+import LiveCoursesStripe from '@/components/liveCourses/LiveCoursesStripe'
 import { About, Reviews } from '@/components/sections'
 import EntryForm from '@/components/sections/EntryForm'
 import YouTubeVideo from '@/components/sections/YouTubeVideo'
@@ -9,6 +11,7 @@ import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
+import React from 'react'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
   // const { reviews } = useContext(ContextStaticProps)
@@ -42,10 +45,22 @@ const JournalPage = ({ lifeCourse, reviews }) => {
     <>
       <NextSeo nofollow={true} noindex={true} />
       <LiveCoursesHero title={lifeCourse.title} />
+      <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
-        <LifeCourseDynamicZones key={idx} props={module} />
+        <React.Fragment key={idx}>
+          <LifeCourseDynamicZones props={module} />
+          {idx === 1 && (
+            <YouTubeVideo
+              videoId='Voc_dKGqhFE'
+              title='Демо-ролик спикера курса'
+            />
+          )}
+          {idx === 2 && (
+            <LiveCoursesDescription title='Краткая программа курса:' />
+          )}
+        </React.Fragment>
       ))}
-      <YouTubeVideo videoId='Voc_dKGqhFE' title='Демо-ролик спикера курса' />
+
       <About isLiveCourse />
       <Reviews reviews={reviews} isLiveCourse />
       <EntryForm isLiveCourse />

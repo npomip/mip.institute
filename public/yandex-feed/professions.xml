@@ -36,6 +36,9 @@
       <category id="802" parentId="800">Онлайн Профессиональная Переподготовка Психологическое интернет-консультирование</category>
       <category id="802" parentId="800">Онлайн Профессиональная Переподготовка Логопед с доп. квалификацией Специальный психолог</category>
       <category id="802" parentId="800">Онлайн Повышение Квалификации Психология общения</category>
+      <category id="802" parentId="800">Очно-заочное Высшее Образование Психолого–педагогическое образование</category>
+      <category id="802" parentId="800">Очно-заочное Высшее Образование Психология</category>
+      <category id="802" parentId="800">Очно-заочное Высшее Образование Педагогическое образование</category>
     </categories>
     <!--Наборы курсов, на которые будет ссылка в описании курса-->
     <sets>
@@ -856,6 +859,81 @@
         <param name="Часы в неделю">27</param>
         <picture>https://mip.institute/yandex-feed/icon.png</picture>
         <description>В результате обучения вы научитесь: — Создавать условия для получения образования у детей со специальными образовательными потребностями; - Проводить мероприятия по компенсации, адаптации, коррекции и реабилитации у детей и подростков; - Осуществлять диагностику, коррекцию нарушений и профессиональное развитие в рамках проведения коррекционно-развивающих занятий; - Применять логопедические технологии и методики в практической деятельности; - Оказывать консультативную помощь родителям детей с проблемами в развитии; - Составлять специальные рекомендации и программы для родителей, педагогов и других специалистов.</description> 
+      </offer>
+      <offer id="30_psihologo pedagogicheskoye obrazovanie">
+        <name>Психолого–педагогическое образование</name>
+        <url>https://mip.institute/bachelor/psihologo-pedagogicheskoye-obrazovanie</url>
+        <categoryId>800</categoryId>
+        <param name="Дополнительная категория">802</param>
+        <set-ids>s1</set-ids>
+        <price>130000</price>
+        <currencyId>RUR</currencyId>
+        <param name="Цена по скидке за семестр">65000</param>
+        <param name="Цена по скидке за год">120000</param>
+        <param name="Дата окончания скидки">2024-08-07</param>
+        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <param name="Ежемесячная цена">10850</param>
+        <param name="Ежемесячная цена по скидке">10000</param>
+        <param name="Дата окончания ежемесячной скидки">2024-08-07</param>
+        <param name="Ближайшая дата">2024-08-07</param>
+        <param name="Продолжительность" unit="месяц">54</param>
+        <param name="Цель">Обучение профессии</param>
+        <param name="Тип обучения">В группе с наставником</param>
+        <param name="Уровень">Для опытных</param>
+        <param name="Результат обучения">Диплом</param>
+        <param name="Трудоустройство">Есть</param>
+        <param name="Форматы обучения">Сообщество, Тренажеры, Домашняя работа, Вебинары, Видеоуроки, Тексты</param>
+        <picture>https://mip.institute/yandex-feed/icon.png</picture>
+      </offer>
+      <offer id="31_psikhologiya">
+        <name>Психология</name>
+        <url>https://mip.institute/bachelor/psikhologiya</url>
+        <categoryId>800</categoryId>
+        <param name="Дополнительная категория">802</param>
+        <set-ids>s1</set-ids>
+        <price>130000</price>
+        <currencyId>RUR</currencyId>
+        <param name="Цена по скидке за семестр">65000</param>
+        <param name="Цена по скидке за год">120000</param>
+        <param name="Дата окончания скидки">2024-08-07</param>
+        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <param name="Ежемесячная цена">10850</param>
+        <param name="Ежемесячная цена по скидке">10000</param>
+        <param name="Дата окончания ежемесячной скидки">2024-08-07</param>
+        <param name="Ближайшая дата">2024-08-07</param>
+        <param name="Продолжительность" unit="месяц">54</param>
+        <param name="Цель">Обучение профессии</param>
+        <param name="Тип обучения">В группе с наставником</param>
+        <param name="Уровень">Для опытных</param>
+        <param name="Результат обучения">Диплом</param>
+        <param name="Трудоустройство">Есть</param>
+        <param name="Форматы обучения">Сообщество, Тренажеры, Домашняя работа, Вебинары, Видеоуроки, Тексты</param>
+        <picture>https://mip.institute/yandex-feed/icon.png</picture>
+      </offer>
+      <offer id="32_pedagogicheskoe-obrazovanie">
+        <name>Педагогическое образование</name>
+        <url>https://mip.institute/bachelor/pedagogicheskoe-obrazovanie</url>
+        <categoryId>800</categoryId>
+        <param name="Дополнительная категория">802</param>
+        <set-ids>s1</set-ids>
+        <price>130000</price>
+        <currencyId>RUR</currencyId>
+        <param name="Цена по скидке за семестр">65000</param>
+        <param name="Цена по скидке за год">120000</param>
+        <param name="Дата окончания скидки">2024-08-07</param>
+        <param name="Оплата в рассрочку" unit="месяц">12</param>
+        <param name="Ежемесячная цена">10850</param>
+        <param name="Ежемесячная цена по скидке">10000</param>
+        <param name="Дата окончания ежемесячной скидки">2024-08-07</param>
+        <param name="Ближайшая дата">2024-08-07</param>
+        <param name="Продолжительность" unit="месяц">54</param>
+        <param name="Цель">Обучение профессии</param>
+        <param name="Тип обучения">В группе с наставником</param>
+        <param name="Уровень">Для опытных</param>
+        <param name="Результат обучения">Диплом</param>
+        <param name="Трудоустройство">Есть</param>
+        <param name="Форматы обучения">Сообщество, Тренажеры, Домашняя работа, Вебинары, Видеоуроки, Тексты</param>
+        <picture>https://mip.institute/yandex-feed/icon.png</picture>
       </offer>
     </offers>
   </shop>

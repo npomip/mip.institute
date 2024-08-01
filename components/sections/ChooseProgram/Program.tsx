@@ -66,8 +66,8 @@ const Program = ({
           )}
           {...{ contentStyle }}
           on={'hover'}
-          position={isLaptopLayout ? 'left center' : 'right center'}
-          offsetX={showIcon ? -20 : 20}
+          position={'right center'}
+          offsetX={showIcon ? -180 : 20}
           offsetY={-5}
           mouseLeaveDelay={200}
           mouseEnterDelay={200}

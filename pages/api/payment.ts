@@ -42,15 +42,17 @@ const payment = async (
 			return_url: `${routes.front.home}`
 		},
 		metadata: {
-			full_name: "Ivan",
+			name: "Ivan",
+			surname: 'Kolpakov',
 			phone: '89817954346',
-			email: 'vanjaklp@yandex.ru'
+			email: 'i_kolpakov@mip.institute',
+			id: '87'
 		},
 		receipt: {
 			customer: {
 				full_name: "Ivan",
 				phone: '89817954346',
-				email: 'vanjaklp@yandex.ru'
+				email: 'i_kolpakov@mip.institute'
 			},
 			items: [
 				{

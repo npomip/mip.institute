@@ -34,7 +34,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      val: program.title === 'Гештальт-терапия' || program.title === 'Телесно-ориентированная психотерапия' ? '2 сентября' : getNextWednesday(new Date()),
+      val: program?.title === 'Гештальт-терапия' || program?.title === 'Телесно-ориентированная психотерапия' ? '2 сентября' : getNextWednesday(new Date()),
       icon: <IconMap />
     },
     {

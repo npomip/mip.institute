@@ -11,7 +11,7 @@ const CardProfession = ({ profession = null }) => {
       href={`${profession.type === "Course" ? routes.front.courses : profession.type === "Practice" ? routes.front.practice :  routes.front.professions}/${
         profession.studyFieldSlug || 'studyfield'
       }/${profession.slug}`}>
-      <div className={stls.container}>
+      <a className={stls.container}>
         {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
         <div className={stls.imgCard}>
           <Image
@@ -51,7 +51,7 @@ const CardProfession = ({ profession = null }) => {
             </div>
           )}
         </div>
-      </div>
+      </a>
     </Link>
   )
 }

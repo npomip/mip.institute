@@ -43,7 +43,7 @@ const SlugCard = ({
   return (
     <>
       <Link passHref href={`/${slug}/${item?.slug}`}>
-        <div
+        <a
           className={classNames({
             [stls.seminarCard]: !firstCard,
             [stls.firstCard]: firstCard,
@@ -83,7 +83,7 @@ const SlugCard = ({
                 : dateOfCourse}
             </p>
           </div>
-        </div>
+        </a>
       </Link>
     </>
   )

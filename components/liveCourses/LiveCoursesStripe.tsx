@@ -21,10 +21,8 @@ const LiveCoursesStripe = () => {
           <div className={stls.text}>
             <div>
               {firstLine.map((el, i) => (
-                <React.Fragment>
-                  <span key={el} className={stls.item}>
-                    {el}
-                  </span>
+                <React.Fragment key={el}>
+                  <span className={stls.item}>{el}</span>
                   {i !== firstLine.length - 1 && (
                     <div className={stls.bullet}></div>
                   )}
@@ -33,10 +31,8 @@ const LiveCoursesStripe = () => {
             </div>
             <div>
               {secondLine.map((el, i) => (
-                <React.Fragment>
-                  <span key={el} className={stls.item}>
-                    {el}
-                  </span>
+                <React.Fragment key={el}>
+                  <span className={stls.item}>{el}</span>
                   {i !== secondLine.length - 1 && (
                     <div className={stls.bullet}></div>
                   )}

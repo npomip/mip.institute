@@ -6,14 +6,19 @@
   @include m.dye(bg, c.$orange-300)
   height: f.px(125)
   @include m.gap($ptb: f.px(25))
+  @include m.media(phone, tablet)
+    display: none
 
 .text > div
+  text-align: center
   @include m.gap($mb: f.px(10))
 
 .item
   @include m.dye(c, white)
   font-size: f.px(30)
   font-weight: 500
+  @include m.media(laptop)
+    font-size: f.px(20)
 
 .bullet
   display: inline-block
@@ -22,3 +27,6 @@
   width: f.px(12)
   height: f.px(12)
   border-radius: 50%
+  @include m.media(laptop)
+    width: f.px(10)
+    height: f.px(10)

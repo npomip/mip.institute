@@ -85,7 +85,7 @@ const routes = {
     dzen: 'https://dzen.ru/institute_mip',
     eddu: 'https://eddu.pro/reviews/mip-review',
     advCake: 'https://advcake.ru/lp/mipinstitute/',
-    referralProgram: 'https://mip-institute-referral.ru/'
+    referralProgram: 'https://mip-institute-referral.ru/',
   },
   anchors: {
     //

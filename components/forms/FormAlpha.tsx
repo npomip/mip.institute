@@ -101,6 +101,7 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm')
+    
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')
     const advcake_track_url = getCookie('advcake_track_url')

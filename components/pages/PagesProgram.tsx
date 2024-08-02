@@ -24,6 +24,7 @@ import {
 } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { TypeLibReviews } from '@/types/index'
+import { getCookie } from 'cookies-next'
 import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
@@ -61,12 +62,22 @@ const PagesProgram = ({
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
 
+  let utm
+  const getUtm = getCookie('utm')
+  if (typeof getUtm === 'string') {
+    utm = JSON.parse(getUtm)
+  } else {
+    utm = null // или какое-то другое значение по умолчанию
+  }
+  const isVario = utm?.utm_source === 'vario'
+  console.log(isVario);
+
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
     { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
     { id: 'resume', label: 'Навыки', ref: resumeRef, condition: ofType === 'Profession' },
-    { id: 'cost', label: 'Стоимость', ref: costRef, condition: true },
+    { id: 'cost', label: 'Стоимость', ref: costRef, condition: !isVario },
     { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
     { id: 'faq', label: 'FAQ', ref: faqRef, condition: true },
   ];
@@ -84,6 +95,9 @@ const PagesProgram = ({
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
 
   const isDesktopLayout = useBetterMediaQuery('(min-width: 769px)')
+
+  
+
 
   return (
     <>
@@ -135,7 +149,7 @@ const PagesProgram = ({
         cta='reserve'
       />
 
-      <StudyCost costRef={costRef} />
+      {!isVario && <StudyCost costRef={costRef} />}
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <Faq faqRef={faqRef} />
     </>

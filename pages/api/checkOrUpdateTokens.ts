@@ -41,8 +41,8 @@ const checkOrUpdateTokens = async () => {
         },
       })
 
-      return data.updateAmo.amo.access
-      // return {access_token: 'data.updateAmo.amo.access'}
+      // return data.updateAmo.amo.access
+      return {access_token: data.updateAmo.amo.access}
     } else {
       // return oldAccess_token
       return {access_token: oldAccess_token}

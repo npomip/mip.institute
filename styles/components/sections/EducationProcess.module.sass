@@ -20,7 +20,7 @@
     font-size: f.px(26)
     @include m.gap($mb: 0)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: 0, $mr: f.px(19))
+    @include m.gap($mb: 0, $mr: f.px(19), $pt: f.px(15))
     font-size: f.px(44)
     font-weight: 500
   @include m.dye(c, c.$theta)
@@ -28,23 +28,10 @@
     @include m.gap($mb: f.px(37))
 
 .tag
-  z-index: 2
-  height: 100%
-  display: inline-block
-  position: relative
-  @include m.gap( $mb: f.px(20))
-  align-self: center
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
   & > *
-    color: white
-    position: absolute
-    @include m.media(laptop, desktop)
-      top: -10px
-      left: 25px
-      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
-    @include m.media(phone, tablet)
-      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
-      top: f.px(-30)
-      left: f.px(-295)
+    @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .text
   @include m.media(laptop, desktop)

@@ -14,27 +14,16 @@
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30))
+    @include m.gap($mb: f.px(30), $pt: f.px(15))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
   @include m.dye(c, c.$theta)
 
 .tag
-  height: 100%
-  display: inline-block
-  position: relative
-  @include m.gap( $mb: f.px(20))
-  align-self: center
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
   & > *
-    position: absolute
-    @include m.media(laptop, desktop)
-      top: f.px(-10)
-      left: f.px(25)
-      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
-    @include m.media(phone, tablet)
-      @include m.gap($plr: f.px(18), $ptb: f.px(5), $mb:f.px(10))
-      top: f.px(-35)
-      left: f.px(-299)
+    @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .subtitleContainer
   position: relative
@@ -55,9 +44,9 @@
     font-size: f.px(20)
   @include m.media(laptop)
     @include m.gap($mb: f.px(39))
-  color: #131313
-  font-weight: 300
-  line-height: 130%
+    color: #131313
+    font-weight: 300
+    line-height: 130%
   @include m.dye(c, c.$theta)
 
 .mainSubtitle
@@ -72,11 +61,11 @@
   @include m.media(laptop)
     @include m.gap($mb: f.px(18))
 
-  font-size: f.px(20)
-  font-weight: 700
-  color: #F87E1B
-  text-decoration-line: underline
-  text-underline-offset: f.px(5)
+    font-size: f.px(20)
+    font-weight: 700
+    color: #F87E1B
+    text-decoration-line: underline
+    text-underline-offset: f.px(5)
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($mb: f.px(15))
@@ -110,7 +99,7 @@
       border-radius: f.px(15)
 
 .supplement
-  
+
   & > *
     // max-width: f.px(291)
     height: f.px(390)
@@ -119,7 +108,7 @@
       height: f.px(385)
       width: f.px(270)
 
-.slidesContainer 
+.slidesContainer
   @include m.gap($mt: f.px(10), $mr: f.px(15))
   display: grid
   grid-template-columns: repeat(2, 1fr)
@@ -164,7 +153,7 @@
     @include m.media(phone)
       margin-top: f.px(16)
       scale: 1.076
-      
+
     @include m.media(laptop)
       margin-top: f.px(10)
       scale: 1.062

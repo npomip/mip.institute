@@ -5,9 +5,9 @@
 
 .container
   @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(0)) 
+    @include m.gap($pb: f.px(0))
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50)) 
+    @include m.gap($pb: f.px(30))
   & > *
     @include m.media(laptop, desktop)
       // @include m.flex
@@ -36,7 +36,6 @@
     width: 100%
     max-width: 100%
     @include m.gap($mb: f.px(33))
-
 
 .circle
   @include m.flex($display: false, $fb: 50%)

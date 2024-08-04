@@ -65,9 +65,11 @@ const EducationProcess = ({
           : paddingBottom
       }}>
       <Wrapper>
-        <h2 className={stls.title}>Как проходит обучение</h2>
-        <div className={stls.tag}>
-          <TagOrange>Процесс</TagOrange>
+        <div className={stls.heading}>
+          <div className={stls.tag}>
+            <TagOrange>Процесс</TagOrange>
+          </div>
+          <h2 className={stls.title}>Как проходит обучение</h2>
         </div>
         <div className={stls.content}>
         {isBachelorPage ? 

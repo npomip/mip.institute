@@ -60,6 +60,7 @@ const LiveCoursesHero = ({ title }) => {
                 height={isMobileAndTabletLayout ? 240 : 540}
                 width={isMobileAndTabletLayout ? 300 : 800}
                 alt='Объятия'
+                className={stls.hugImg}
               />
             </div>
           </div>

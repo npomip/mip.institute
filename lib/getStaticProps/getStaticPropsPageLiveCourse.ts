@@ -41,6 +41,10 @@ const getStaticPropsPageLiveCourse = async ({
             where: { slug: $slug }
           ) {
             title
+            lmsId
+            price
+            slug
+            studyField
             article {
               __typename
               ... on ComponentLiveCorsesBlock {

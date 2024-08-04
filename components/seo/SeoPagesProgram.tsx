@@ -46,9 +46,6 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
     })
   )?.filter(item => item) || null) as AdditionalRobotsProps
 
-  console.log(parsedMetaRobots);
-  
-
   // nosnippet?: boolean;
   // maxSnippet?: number;
   // maxImagePreview?: ImagePrevSize;
@@ -81,11 +78,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
           : ofType === 'Profession'
           ? routes.front.professions
           : routes.front.professions
-      }/${program.studyFieldSlug}/${program?.slug}`
+      }/${program?.studyFieldSlug}/${program?.slug}`
   }
-
-  console.log(seoParams);
-  
 
   return (
     <>

@@ -1,4 +1,5 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import payment from '@/components/funcs/payment'
 import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
 import LiveCoursesDescription from '@/components/liveCourses/LiveCoursesDescription'
 import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
@@ -41,6 +42,10 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   // }, [selectedField.studyField])
 
   // const blogsFilter = selectedField.studyField == 'Все cтатьи' ? blogs : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
+
+  const paymentClick = async () => {
+    const resp = await payment()
+  }
 
   return (
     // <Wrapper>

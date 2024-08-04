@@ -63,14 +63,14 @@ const Teachers = ({
         [stls.course]: curProgramsType === 'course'
       })}>
       <Wrapper>
-        <h2 className={stls.title}>{title}</h2>
         {onMain && (
           <div className={stls.tag}>
             <TagOrange>Опыт</TagOrange>
           </div>
         )}
+        <h2 className={stls.title}>{title}</h2>
         <p className={stls.desc}>
-          Преподают ведущие практикующие психологи и психотерапевты России{' '}
+        Преподают практикующие психологи и психотерапевты России{' '}
           <span className={stls.highlight}>с опытом от 7 до 25 лет</span>
         </p>
         <div className={stls.teachers}>

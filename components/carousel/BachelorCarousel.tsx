@@ -6,6 +6,7 @@ import stls from '@/styles/components/carousel/BachelorCarousel.module.sass'
 import classNames from 'classnames'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import BachelorSlugCard from '../cards/BachelorSlugCard'
+import TagOrange from '../general/TagOrange'
 
 const BachelorCarousel = ({ title, subtitle, cards }) => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
@@ -38,7 +39,12 @@ const BachelorCarousel = ({ title, subtitle, cards }) => {
         [stls.container]: true
       })}>
       <Wrapper>
-        <h2 className={stls.title}>{title}</h2>
+        <div className={stls.heading}>
+          <div className={stls.tag}>
+            <TagOrange>Бакалавриат</TagOrange>
+          </div>
+          <h2 className={stls.title}>{title}</h2>
+          </div>
         <p className={stls.subtitle}>{subtitle}</p>
         <div className={stls.teachers}>
           <Swiper

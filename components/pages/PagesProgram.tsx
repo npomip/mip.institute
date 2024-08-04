@@ -29,6 +29,7 @@ import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
+import EntryForm from '../sections/EntryForm'
 import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
@@ -94,7 +95,7 @@ const PagesProgram = ({
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
 
-  const isDesktopLayout = useBetterMediaQuery('(min-width: 769px)')
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   
 
@@ -149,7 +150,7 @@ const PagesProgram = ({
         cta='reserve'
       />
 
-      {!isVario && <StudyCost costRef={costRef} />}
+      {isVario ? <EntryForm pb={isMobileAndTabletLayout ? 60 : 0} pt={isMobileAndTabletLayout ? 0 : 90} /> :  <StudyCost costRef={costRef} />}
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <Faq faqRef={faqRef} />
     </>

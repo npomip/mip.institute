@@ -150,8 +150,9 @@ const PagesProgram = ({
         cta='reserve'
       />
 
-      {isVario ? <EntryForm pb={isMobileAndTabletLayout ? 60 : 0} pt={isMobileAndTabletLayout ? 0 : 90} /> :  <StudyCost costRef={costRef} />}
+      {!isVario &&  <StudyCost costRef={costRef} />}
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
+      <EntryForm pb={isMobileAndTabletLayout  ? 60 : 90} pt={0} /> 
       <Faq faqRef={faqRef} />
     </>
   )

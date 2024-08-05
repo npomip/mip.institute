@@ -1,19 +1,21 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import stls from '@/styles/pages/JournalSlug.module.sass'
-import { routes } from '@/config/index'
-import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import Wrapper from '@/components/layout/Wrapper'
-import ArticlesDynamicZones from '@/components/articles/ArticlesDynamicZones'
-import ArticleTitle from '@/components/articles/ArticleTitle'
-import ArticleRelatedBlogs from '@/components/articles/ArticleRelatedBlogs'
 import ArticleAuthors from '@/components/articles/ArticleAuthors'
-import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 import ArticleContentLinks from '@/components/articles/ArticleContentLinks'
+import ArticleRelatedBlogs from '@/components/articles/ArticleRelatedBlogs'
+import ArticleTitle from '@/components/articles/ArticleTitle'
+import ArticlesDynamicZones from '@/components/articles/ArticlesDynamicZones'
 import { Accordion } from '@/components/general/Accordion'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
-import { useRouter } from 'next/router'
 import ReadingProgressbar from '@/components/general/ReadingProgressbar'
+import Wrapper from '@/components/layout/Wrapper'
 import ButtonToTop from '@/components/sections/ButtonToTop'
+import SeoPagesJournal from '@/components/seo/SeoPageJournal'
+import { routes } from '@/config/index'
+import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
+import stls from '@/styles/pages/JournalSlug.module.sass'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import apolloClient from '@/lib/apolloClient'
+import TypePageJournalsPropsQuery from '@/types/page/journals/query/TypePageJournalsPropsQuery'
+import { gql } from '@apollo/client'
 
 const JournalSlugPage = ({ blog }) => {
   const articleHeading = {
@@ -34,16 +36,13 @@ const JournalSlugPage = ({ blog }) => {
 
   const slug = ['', blog?.studyFieldSlug]
 
-  const router = useRouter()
   const segments = ['journal', 'journal']
-  // const segments = router.asPath.split('/').filter(segment => segment !== '')
 
   const labels = ['Журнал', blog?.studyField]
-  const breadcrumbs = segments.map((segment, index) => {
+  const breadcrumbs = segments.map((_, index) => {
     const breadcrumb = {
       label: labels[index],
       path: '/' + segments[index],
-      // path: '/' + segments.slice(0, index + 1).join('/'),
       slug: slug[index]
     }
     return breadcrumb
@@ -64,7 +63,7 @@ const JournalSlugPage = ({ blog }) => {
             <ArticlesDynamicZones key={idx} props={module} />
           ))}
           {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
-          {blog?.blogs.length > 0 && (
+          {blog?.blogs?.length > 0 && (
             <ArticleRelatedBlogs blogs={blog?.blogs} />
           )}
           <ButtonToTop />
@@ -77,7 +76,45 @@ const JournalSlugPage = ({ blog }) => {
 export const getStaticPaths: GetStaticPaths = async () =>
   await handleGetStaticPaths({ page: routes.front.journal })
 
-export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.journal })
+export const getStaticProps: GetStaticProps = async context => {
+  const { params } = context
+
+  const blog = await handleGetStaticProps({
+    context,
+    page: routes.front.journal
+  })
+
+  const res = await apolloClient.query<TypePageJournalsPropsQuery>({
+    query: gql`
+      query GetStaticPropsPageJournal {
+        blogs(sort: "date:desc") {
+          id
+          title
+          slug
+          subtitle
+          studyField
+          studyFieldSlug
+          date
+          previewOnly
+          picture {
+            url
+            width
+            height
+          }
+        }
+      }
+    `
+  })
+  const blogs = res?.data?.blogs as any
+  const validSlug = blogs.find(el => el.slug === params.slug)
+
+  if (!validSlug) {
+    return {
+      notFound: true
+    }
+  }
+
+  return { props: blog }
+}
 
 export default JournalSlugPage

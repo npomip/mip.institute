@@ -1,56 +1,23 @@
 import { FC } from 'react'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import { routes, company, themeColor, dev, preview } from '@/config/index'
-import { AdditionalRobotsProps } from 'next-seo/lib/types'
 import TypeLibJournal from '@/types/lib/journal/TypeLibJournal'
 
 type TSeoPagesProgram = {
   blog: TypeLibJournal
-  // curProgramsStudyFieldSlug?: string
 }
 
 const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
-  // TODO: pull the rest of SEO params from API
-
-  const { metaTitle, metaDescription } = blog?.seo
-  // console.log(metaDescription, metaTitle)
+  const metaTitle = blog?.seo?.metaTitle
+  const metaDescription = blog?.seo?.metaDescription
   const publishDate = new Date(blog?.date)
 
-  const additionalMetaRobotsKeys = [
-    'nosnippet',
-    'maxSnippet',
-    'maxImagePreview',
-    'maxVideoPreview',
-    'noarchive',
-    'unavailableAfter',
-    'noimageindex',
-    'notranslate'
-  ]
-  // const parsedMetaRobots = ((
-  //   seo?.metaRobots &&
-  //   seo?.metaRobots.split(',').map(item => {
-  //     const trimmedItem = item?.trim()
-
-  //     if (additionalMetaRobotsKeys.some(key => trimmedItem?.includes(key))) {
-  //       const [key, value] = trimmedItem?.split(':')
-
-  //       return { [key]: value || true }
-  //     }
-
-  //     return null
-  //   })
-  // )?.filter(item => item) || null) as AdditionalRobotsProps
-
-  // const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')
-
-  // const isNofollow =
-  //   !seo?.isSEOFriendly || seo?.metaRobots?.includes('nofollow')
+  const isValidDate = !isNaN(publishDate.getTime())
+  const formattedDate = isValidDate ? publishDate.toISOString() : ''
 
   const seoParams = {
     title: `${
-      metaTitle
-        ? metaTitle
-        : 'статья Московского Института Психологии'
+      metaTitle ? metaTitle : 'статья Московского Института Психологии'
     }`,
     desc: metaDescription
       ? 'Интересная статья о психологии по теме' + ' ' + metaDescription
@@ -67,7 +34,6 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
         themeColor={themeColor}
         nofollow={preview ? true : false}
         noindex={preview ? true : false}
-        // {...((parsedMetaRobots && { robotsProps: parsedMetaRobots }) || {})}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,
@@ -93,8 +59,8 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
           'https://example.com/photos/4x3/photo.jpg',
           'https://example.com/photos/16x9/photo.jpg'
         ]}
-        datePublished={publishDate?.toISOString()}
-        dateModified={publishDate?.toISOString()}
+        datePublished={formattedDate}
+        dateModified={formattedDate}
         authorName={blog?.teacher?.name}
         description={blog?.subtitle}
       />

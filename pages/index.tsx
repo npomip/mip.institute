@@ -1,4 +1,5 @@
 import BachelorCarousel from '@/components/carousel/BachelorCarousel'
+import PaymentForm from '@/components/forms/PaymentForm'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -49,7 +50,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   bachelors
 }) => {
   useHandleContextStaticProps({ programs })
-
+  // const [isTestOpen, setIsTestOpen] = useState(false)
   const teachersFromMain = teachers?.filter(teacher => {
     const allowedNames = [
       'Алла Косина',
@@ -98,6 +99,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     }
   }, [router.query])
 
+  // const handleOpen = () => {
+  //   setIsTestOpen(true)
+  // }
   return (
     <>
       <NextSeo
@@ -138,6 +142,16 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
+      {/* <Popup
+        open={isTestOpen}
+        onClose={() => setIsTestOpen(false)}
+        position={'center center'}>
+        {close => <PaymentForm onClose={close} />}
+      </Popup>
+      <div style={{ backgroundColor: 'red' }}>
+        <button onClick={handleOpen}>Оплатить</button>
+      </div> */}
+
       <PsyTest />
       <TopCourses />
       <BachelorCarousel

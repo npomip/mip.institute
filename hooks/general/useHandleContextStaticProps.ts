@@ -36,8 +36,6 @@ const useHandleContextStaticProps = ({
   } = useContext(ContextStaticProps)
 
   useEffect(() => {
-    console.log(bachelor);
-    
     const courses =
       programs?.length > 0
         ? filterProgramsByType({ programs, type: 'course' })

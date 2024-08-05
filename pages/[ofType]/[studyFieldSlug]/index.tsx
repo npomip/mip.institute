@@ -1,5 +1,9 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import { TypePageProgramsProps, TypePageProgramsPropsQuery, TypeGeneralGetStaticPropsContext } from '@/types/index'
+import {
+  TypePageProgramsProps,
+  TypePageProgramsPropsQuery,
+  TypeGeneralGetStaticPropsContext
+} from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
@@ -8,17 +12,27 @@ import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import { useRouter } from 'next/router'
+import { validOfTypeValues } from 'constants/staticPropsValidation'
 
-const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: any} & {allPrograms: any[]}> = ({ programs, studyFields, allPrograms, bachelors }) => {
+const ProgramsPage: NextPage<
+  TypePageProgramsProps & { studyFields: any } & { allPrograms: any[] }
+> = ({ programs, studyFields, allPrograms, bachelors }) => {
   useHandleContextStaticProps({ programs })
 
   const router = useRouter()
 
   const { query, asPath } = router
-  const {ofType} = query
-  const currentFieldSlug = studyFields.find(el => el.studyFieldSlug === query.studyFieldSlug)
+  const { ofType } = query
+  const currentFieldSlug = studyFields.find(
+    el => el.studyFieldSlug === query.studyFieldSlug
+  )
 
-  const label = ofType === 'professions' ? 'Профессиональная переподготовка' : ofType === 'courses' ? 'Повышение квалификации' : 'Все курсы'
+  const label =
+    ofType === 'professions'
+      ? 'Профессиональная переподготовка'
+      : ofType === 'courses'
+      ? 'Повышение квалификации'
+      : 'Все курсы'
 
   const segments = [`/${query.ofType}`, asPath]
 
@@ -38,7 +52,13 @@ const ProgramsPage: NextPage<TypePageProgramsProps & {studyFields: any} & {allPr
     <>
       <SeoPagesPrograms programs={programs} />
       <FilterProvider items={programs}>
-        <PagesPrograms bachelors={bachelors} programs={programs} studyFields={studyFields} allPrograms={allPrograms} breadcrumbs={breadcrumbs} />
+        <PagesPrograms
+          bachelors={bachelors}
+          programs={programs}
+          studyFields={studyFields}
+          allPrograms={allPrograms}
+          breadcrumbs={breadcrumbs}
+        />
       </FilterProvider>
     </>
   )
@@ -50,9 +70,9 @@ export const getStaticProps = async ({ params }) => {
   const res = await apolloClient.query<TypePageProgramsPropsQuery>({
     query: gql`
       query GetStaticPropsPagePrograms {
-      bachelors {
-        title
-      }
+        bachelors {
+          title
+        }
         programs {
           id
           title
@@ -83,34 +103,44 @@ export const getStaticProps = async ({ params }) => {
   const bachelors = res.data.bachelors
 
   // Фильтрация программ на основе параметров ofType и studyFieldSlug
-  let filteredPrograms = programs.filter(program => program.studyFieldSlug === studyFieldSlug)
+  let filteredPrograms = programs.filter(
+    program => program.studyFieldSlug === studyFieldSlug
+  )
   if (ofType === 'professions') {
-    filteredPrograms = filteredPrograms.filter(program => program.type === 'Profession')
+    filteredPrograms = filteredPrograms.filter(
+      program => program.type === 'Profession'
+    )
   } else if (ofType === 'courses') {
-    filteredPrograms = filteredPrograms.filter(program => program.type === 'Course')
+    filteredPrograms = filteredPrograms.filter(
+      program => program.type === 'Course'
+    )
   } else if (ofType === 'practice') {
     filteredPrograms = programs.filter(program => program.type === 'Practice')
   }
 
   const studyFieldMap = {}
-  if(ofType === 'courses'){
-    programs.filter(program => program.type === 'Course').forEach(program => {
-      if (!studyFieldMap[program.studyFieldSlug]) {
-        studyFieldMap[program.studyFieldSlug] = {
-          studyField: program.studyField,
-          studyFieldSlug: program.studyFieldSlug
+  if (ofType === 'courses') {
+    programs
+      .filter(program => program.type === 'Course')
+      .forEach(program => {
+        if (!studyFieldMap[program.studyFieldSlug]) {
+          studyFieldMap[program.studyFieldSlug] = {
+            studyField: program.studyField,
+            studyFieldSlug: program.studyFieldSlug
+          }
         }
-      }
-    })
-  } else if(ofType === 'practice'){
-    programs.filter(program => program.type === 'Practice').forEach(program => {
-      if (!studyFieldMap[program.studyFieldSlug]) {
-        studyFieldMap[program.studyFieldSlug] = {
-          studyField: program.studyField,
-          studyFieldSlug: program.studyFieldSlug
+      })
+  } else if (ofType === 'practice') {
+    programs
+      .filter(program => program.type === 'Practice')
+      .forEach(program => {
+        if (!studyFieldMap[program.studyFieldSlug]) {
+          studyFieldMap[program.studyFieldSlug] = {
+            studyField: program.studyField,
+            studyFieldSlug: program.studyFieldSlug
+          }
         }
-      }
-    })
+      })
   } else {
     programs.forEach(program => {
       if (!studyFieldMap[program.studyFieldSlug]) {
@@ -121,9 +151,19 @@ export const getStaticProps = async ({ params }) => {
       }
     })
   }
-  
-  const studyFields = Object.values(studyFieldMap)
 
+  const studyFields = Object.values(studyFieldMap) as any
+  const validOfType = validOfTypeValues.find(el => el === params.ofType)
+
+  const validStudyFieldSlug = studyFields.find(
+    el => el.studyFieldSlug === studyFieldSlug
+  )
+
+  if (!validOfType || !validStudyFieldSlug) {
+    return {
+      notFound: true
+    }
+  }
 
   return {
     props: {
@@ -153,10 +193,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = res.data.programs.map(program => ({
     params: {
       ofType: program.type.toLowerCase(),
-      studyFieldSlug: program.studyFieldSlug,
+      studyFieldSlug: program.studyFieldSlug
     }
   }))
-  
+
   return {
     paths,
     fallback: 'blocking'

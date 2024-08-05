@@ -1,3 +1,4 @@
+import BachelorCarousel from '@/components/carousel/BachelorCarousel'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -18,6 +19,7 @@ import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
 import PayLater from '@/components/sections/PayLater'
+import ProfessionalLeague from '@/components/sections/ProfessionalLeague'
 import PsyTest from '@/components/sections/PsyTest'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
@@ -43,7 +45,8 @@ import truncate from 'truncate'
 const HomePage: NextPage<TypePageHomeProps> = ({
   programs,
   reviews,
-  teachers
+  teachers,
+  bachelors
 }) => {
   useHandleContextStaticProps({ programs })
 
@@ -137,6 +140,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Directions />
       <PsyTest />
       <TopCourses />
+      <BachelorCarousel
+        title={'Высшее образование'}
+        subtitle={'Программы бакалавриата от МИП'}
+        cards={bachelors}
+      />
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo videoId='Voc_dKGqhFE' />
@@ -155,17 +163,18 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <Cta
         title={'Подберите программу'}
-        desc={'Ответьте на несколько вопросов и подберите программу обучения'}
+        desc={'Оставьте заявку на консультацию менеджера приёмной комиссии'}
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП'} onMain />
       <SalaryCounter />
       <Teachers
         onMain
-        title={'Преподаватели – наставники'}
+        title={'Ведущие преподаватели'}
         teachersFromMain={teachersFromMain}
       />
-      <YourDiploma onMain ofType='profession' />
+      <YourDiploma onMain ofType='Profession' />
+      <ProfessionalLeague />
       <HappyStudents />
       <Reviews onMain reviews={reviewsSorted} />
       <PayLater />

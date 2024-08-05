@@ -22,6 +22,7 @@ const Hero = () => {
       el.classList.add(stls.hiddenGem)
     }
   }
+  
   return (
     <section className={stls.container}>
       <div className={stls.bg}></div>
@@ -31,14 +32,13 @@ const Hero = () => {
         <div className={stls.content}>
           <TwoColumns>
             <div className={stls.left}>
-              <h1 className={stls.title}>Онлайн-институт психологии</h1>
+            <h1 className={stls.title}>Московский институт психологии</h1>
               <p className={stls.desc}>
-                Освойте востребованную профессию психолога или повысьте
-                квалификацию вместе с МИП
+                Поможем освоить профессию психолога и прокачать навыки действующим специалистам! <br />Высшее образование, курсы профессиональной переподготовки и повышения квалификации
               </p>
               <div className={stls.btns}>
                 <div className={stls.btn}>
-                  <PopupTrigger btn='alpha' cta='signUpForCourse' />
+                  <PopupTrigger btn='alpha' cta='signUpForProgramm' />
                 </div>
                 <div className={stls.btn}>
                   <PopupTrigger btn='beta' cta='askQuestion' />

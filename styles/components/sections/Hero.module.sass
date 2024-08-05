@@ -35,7 +35,7 @@
   line-height: 110%
   z-index: 1
   @include m.media(laptop, desktop)
-    max-width: 13ch
+    max-width: 20ch
     @include m.gap($mb: f.px(20))
     font-size: f.px(64)
   @include m.media(phone, tablet)
@@ -67,6 +67,7 @@
     @include m.flex
 
 .btn
+  white-space: nowrap
   @include m.media(desktop, laptop)
     @include m.flex($fb: 30%)
   @include m.media(phone, tablet)
@@ -103,7 +104,7 @@
   position: absolute
   z-index: 1
   @include m.media(laptop, desktop)
-    transform: scale(1.2) translate(15%, f.px(-135))
+    transform: scale(1.2) translate(24%, f.px(-135))
     right: 0
     width: f.px(454)
     height: f.px(437)
@@ -191,7 +192,7 @@
   position: absolute
   @include m.media(laptop, desktop)
     bottom: f.px(-240)
-    right: f.px(200)
+    right: f.px(180)
   @include m.media(phone, tablet)
     bottom: f.px(40)
     right: f.px(80)

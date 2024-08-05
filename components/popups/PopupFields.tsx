@@ -9,7 +9,7 @@ const PopupFields = ({ ofType, close }) => {
         <BtnClose onClick={close} />
       </div>
       <div className={stls.filters}>
-        <ProgramsFilters close={close} ofType={ofType} />
+        <ProgramsFilters />
       </div>
     </div>
   )

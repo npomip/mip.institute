@@ -10,11 +10,11 @@
     max-width: f.px(500)
     position: relative
     transform-style: preserve-3d
-    @include m.gap($mb: f.px(30))
+    @include m.gap($mb: f.px(30), $pt: f.px(15))
     @include m.media(phone, tablet)
       font-size: f.px(33)
       max-width: f.px(400)
-      @include m.gap($mb: f.px(0), $mt: f.px(45))
+      @include m.gap($mb: f.px(0), $pt: f.px(0))
     &::after
       content: ''
       position: absolute
@@ -25,23 +25,12 @@
       transform: translateZ(-1px)
       @include m.media(phone, tablet)
         width: f.px(240)
-    &::before
-      content: 'Оплата'
-      position: absolute
-      transform: translateX(470px)
-      @include m.media(laptop)
-        transform: translateX(410px)
-      top: f.px(10)
-      font-size: f.px(16)
-      background: #F87E1B
-      color: white
-      @include m.gap($ptb: f.px(8), $plr: f.px(23))
-      border-radius: f.px(50)
-      font-weight: 350
-      @include m.media(phone, tablet)
-        top: f.px(0)
-        transform: translate(0px, f.px(-45))
-        font-size: f.px(12)
+
+.tag
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
+  & > *
+    @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .titleWithIcon
   display: flex
@@ -86,7 +75,7 @@
   @include m.media(phone, tablet)
     font-size: f.px(16)
     @include m.gap($pt: f.px(20),$pb: f.px(10))
-  
+
 .arrow
   position: absolute
   right: 0

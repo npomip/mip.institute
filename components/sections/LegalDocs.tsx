@@ -10,7 +10,8 @@ import {
   listProgram,
   listHigherEducation,
   listAddEducation
-} from 'constants/legalInfo'
+} from 'constants/legalEdu'
+import { listGeneralMIP } from 'constants/legal'
 
 type TypeLegalDocsProps = {
   title: string
@@ -18,6 +19,7 @@ type TypeLegalDocsProps = {
   listRight?: TypeDataDocs
   isOchuVoMip?: boolean
   isRulesBlock?: boolean
+  isHEblockVisible?: boolean
 }
 
 const LegalDocs = ({
@@ -25,7 +27,8 @@ const LegalDocs = ({
   listLeft,
   listRight,
   isOchuVoMip,
-  isRulesBlock
+  isRulesBlock,
+  isHEblockVisible
 }: TypeLegalDocsProps) => {
   return (
     <section className={stls.container}>
@@ -33,38 +36,51 @@ const LegalDocs = ({
         <h2 className={stls.title}>{title}</h2>
         <>
           {isRulesBlock ? (
-            <div>
-              {listGeneral.map((el, idx) => (
-                <ExpandableListItem
-                  title={el.title}
-                  key={el.title + idx}
-                  contentLeft={el.contentLeft}
-                  contentRight={el.contentRight}
-                />
-              ))}
+            isOchuVoMip ? (
+              <div>
+                {listGeneral.map((el, idx) => (
+                  <ExpandableListItem
+                    title={el.title}
+                    key={el.title + idx}
+                    contentLeft={el.contentLeft}
+                    contentRight={el.contentRight}
+                  />
+                ))}
 
-              {listHigherEducation.map((el, idx) => (
-                <ExpandableListItem
-                  title={el.title}
-                  key={el.title + idx}
-                  contentLeft={el.contentLeft}
-                  contentRight={el.contentRight}
-                />
-              ))}
+                {listHigherEducation.map((el, idx) => (
+                  <ExpandableListItem
+                    title={el.title}
+                    key={el.title + idx}
+                    contentLeft={el.contentLeft}
+                    contentRight={el.contentRight}
+                  />
+                ))}
 
-              {listAddEducation.map((el, idx) => (
-                <ExpandableListItem
-                  title={el.title}
-                  key={el.title + idx}
-                  contentLeft={el.contentLeft}
-                  contentRight={el.contentRight}
-                />
-              ))}
-            </div>
+                {listAddEducation.map((el, idx) => (
+                  <ExpandableListItem
+                    title={el.title}
+                    key={el.title + idx}
+                    contentLeft={el.contentLeft}
+                    contentRight={el.contentRight}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div>
+                {listGeneralMIP.map((el, idx) => (
+                  <ExpandableListItem
+                    title={el.title}
+                    key={el.title + idx}
+                    contentLeft={el.contentLeft}
+                    contentRight={el.contentRight}
+                  />
+                ))}
+              </div>
+            )
           ) : (
             <div className={stls.content}>
               <ul className={stls.listLeft}>
-                {listLeft.map((item, idx) => (
+                {listLeft?.map((item, idx) => (
                   <li key={item.val + idx} className={stls.itemLeft}>
                     <a
                       href={item.href}
@@ -80,7 +96,7 @@ const LegalDocs = ({
                 ))}
               </ul>
               <ul className={stls.listRight}>
-                {listRight.map((item, idx) => (
+                {listRight?.map((item, idx) => (
                   <li key={item.val + idx} className={stls.itemRight}>
                     <a
                       href={item.href}
@@ -98,7 +114,7 @@ const LegalDocs = ({
             </div>
           )}
         </>
-        {isOchuVoMip && (
+        {isHEblockVisible && (
           <div className={stls.listBlock}>
             <h2 className={stls.listTitle}>
               Приемная кампания по образовательным программам высшего

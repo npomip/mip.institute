@@ -1,0 +1,51 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  border-radius: f.px(25)
+  @include m.dye(bg, white)
+  @include m.gap($plr: f.px(30), $pb: f.px(30), $pt: f.px(20))
+  @include m.flex($jc:center, $ai: flex-end, $fd: column)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(20), $pb: f.px(20), $pt: f.px(10))
+
+.closeButton
+  @include m.media(phone, tablet)
+    transform: scale(0.5)
+
+.content
+  @include m.flex($jc:center, $ai: center, $fd: column)
+
+.image
+  @include m.gap($mt: f.px(20))
+  max-width: f.px(600)
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(10))
+
+.title
+  font-size: f.px(24)
+  font-weight: 600
+  @include m.dye(c, c.$alpha)
+  @include m.gap($mt: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(10))
+    font-size: f.px(20)
+
+.description
+  > ul
+    max-width: f.px(800)
+    padding-left: f.px(20)
+    > li
+      font-size: f.px(16)
+    @include m.media(phone, tablet)
+      font-size: f.px(12)
+
+.button
+  @include m.dye(c, c.$alpha)
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  border-radius: f.px(5)
+  @include m.gap($p: f.px(5))

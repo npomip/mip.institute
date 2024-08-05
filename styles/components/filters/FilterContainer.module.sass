@@ -1,0 +1,17 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($ptb: f.px(22))
+  border-top: 1px solid #ACACAC
+  width: f.px(300)
+  @include m.media(laptop)
+    width: 100%
+    @include m.gap($mr: f.px(22))
+  @include m.media(phone, tablet)
+    width: 100%
+
+  p
+    font-size: f.px(18)
+    font-weight: 500

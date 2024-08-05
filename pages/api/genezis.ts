@@ -15,8 +15,12 @@ const createLead = async (req, res) => {
     utm,
     blockForAmo,
     edPartners,
-    roistat_visit
+    roistat_visit,
+    referer
   } = req.body
+
+  console.log('refffere', referer, req.body);
+  
 
 
   function convertStringToObject(str: string): Record<string, string> {
@@ -53,7 +57,8 @@ console.log(reserveUTM)
         { key: 'utm_term', value: utm?.utm_term|| reserveUTM?.utm_term || '' },
         { key: 'utm_campaign', value: utm?.utm_campaign|| reserveUTM?.utm_campaign || '' },
         { key: 'roistat', value: roistat_visit || '' },
-        { key: '_ym_uid', value: ymUid || '' }
+        { key: '_ym_uid', value: ymUid || '' },
+        { key: 'referer', value: referer || '' },
       ],
       host: 'mip.institute', // домен вашего сайта (ОБЯЗАТЕЛЬНО)
       token: 'b6ce2e21-c68e-476f-87fe-ae268db2e9c2'

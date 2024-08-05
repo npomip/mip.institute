@@ -87,10 +87,11 @@ const TopCourses = () => {
         // [stls.onProfessions]: !onMain
       })}>
       <Wrapper>
-
-        <h2 className={stls.title}>Популярные курсы</h2>
-        <div className={stls.tag}>
-          <TagOrange>ТОП</TagOrange>
+        <div className={stls.heading}>
+          <div className={stls.tag}>
+            <TagOrange>ТОП</TagOrange>
+          </div>
+          <h2 className={stls.title}>Популярные курсы</h2>
         </div>
         <div className={stls.teachers}>
           <SwiperContainer

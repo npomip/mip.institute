@@ -27,7 +27,7 @@ const ExpandableListItem = ({ title, contentLeft, contentRight }: Props) => {
       </button>
       <div className={stls.content}>
         <ul className={stls.listLeft}>
-          {contentLeft.map((item, idx) => (
+          {contentLeft?.map((item, idx) => (
             <li key={item.val + idx} className={stls.itemLeft}>
               <a
                 href={item.href}
@@ -43,7 +43,7 @@ const ExpandableListItem = ({ title, contentLeft, contentRight }: Props) => {
           ))}
         </ul>
         <ul className={stls.listRight}>
-          {contentRight.map((item, idx) => (
+          {contentRight?.map((item, idx) => (
             <li key={item.val + idx} className={stls.itemRight}>
               <a
                 href={item.href}

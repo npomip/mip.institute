@@ -25,10 +25,15 @@ import StickyBottom from '@/components/layout/StickyBottom'
 import client from '@/lib/apolloClient'
 import { getCookie, setCookie, getCookies } from 'cookies-next'
 import { ApolloProvider } from '@apollo/client'
+import StickyTop from '@/components/layout/StickyTop'
+import promocodes from '@/helpers/promocodes'
+import Link from 'next/link'
+import { Analytics } from '@vercel/analytics/react'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
     const program = pageProps.program || null
+    const bachelor = pageProps.bachelor || null
     const programs =
       sortBasedOnNumericOrder({ programs: pageProps.programs }) || []
     const courses =
@@ -70,7 +75,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       searchTerm,
       filteredPrograms,
       blogs,
-      seminar
+      seminar,
+      bachelor
     }
   }
 
@@ -102,6 +108,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [blogs, setBlogs] = useState(defaultStateProps.blogs)
   const [seminar, setSeminar] = useState(defaultStateProps.seminar)
+  const [bachelor, setBachelor] = useState(defaultStateProps.bachelor)
   const updateTicketsQuantity = newQuantity => {
     setSeminar(prevSeminar => ({
       ...prevSeminar,
@@ -192,10 +199,40 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
+  const [isPromo, setIsPromo] = useState(false)
+  const [promoText, setPromoText] = useState('')
+  
+
+  const utmCookie = getCookie('utm')
+  const stringedUtm = utmCookie?.toString()
+  useEffect(() => {
+    setTimeout(() => {
+      let foundPromo = false;
+      Object.keys(promocodes).forEach((code) => {
+        if (stringedUtm?.includes(code)) {
+          setIsPromo(true);
+          setPromoText(promocodes[code]);
+          foundPromo = true;
+        }
+      });
+      if (!foundPromo) {
+        setIsPromo(false);
+        setPromoText('');
+      }
+    }, 2000);
+  }, [utmCookie]);
+
+  const closePromo = () => {
+    setIsPromo(false)
+  }
+
   return (
     <>
-    <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
+      <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       <DefaultSeo {...SEO} />
+      <div style={{display: 'none'}}>
+        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>АВА-терапевт</Link>
+      </div>
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
         url={routes.front.root}
@@ -217,6 +254,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           blogs,
           setBlogs,
           seminar,
+          bachelor,
+          setBachelor,
           setSeminar,
           updateTicketsQuantity,
           setProgram,
@@ -233,22 +272,31 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}>
         <MenuState>
           <FieldsTooltipState>
-            <Header />
+            {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
+            {<StickyTop onClick={closePromo} isPromo={isPromo} promoText={promoText} />}
+            <Header isPromo={isPromo} />
             <main>
               <ApolloProvider client={client}>
                 <Component {...pageProps} />
-                {/* <div className="js-whatsapp-message-container" style={{display:"none"}}>Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения: {roistat_visit}</div> */}
               </ApolloProvider>
             </main>
             <StickyBottom />
             <Footer />
+            {/* </div> */}
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>
-      <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css" />
+      <Analytics />
+      <link
+        rel='stylesheet'
+        href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'
+      />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
-      <Script type='text/javascript'
-        id='carrot' src='/assets/js/vendors/carrot.js' />
+      <Script
+        type='text/javascript'
+        id='carrot'
+        src='/assets/js/vendors/carrot.js'
+      />
       <Script
         type='text/javascript'
         id='advcakeAsync'
@@ -337,27 +385,40 @@ const MyApp = ({ Component, pageProps, router }) => {
           })`
         }}
       />
+      <Script
+        id='variokub'
+        dangerouslySetInnerHTML={{
+          __html: `
+          (function(e, x, pe, r, i, me, nt){
+            e[i]=e[i]||function(){(e[i].a=e[i].a||[]).push(arguments)},
+            me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],nt.parentNode.insertBefore(me,nt)})
+            (window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
+            ymab('metrika.86135986', 'init'/*, {clientFeatures}, {callback}*/);
+          `
+        }}
+      />
 
       {router.asPath === '/' ? (
         <Script
-        id='advcake_main'
-        dangerouslySetInnerHTML={{
-          __html: `window.advcake_data = window.advcake_data || [];
+          id='advcake_main'
+          dangerouslySetInnerHTML={{
+            __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({
               pageType: 1
           });`
-        }}
-      />
+          }}
+        />
       ) : (
-      <Script
-        id='advcake_typeTwo'
-        dangerouslySetInnerHTML={{
-          __html: `window.advcake_data = window.advcake_data || [];
+        <Script
+          id='advcake_typeTwo'
+          dangerouslySetInnerHTML={{
+            __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({
               pageType: 2
           });`
-        }}
-      />)}
+          }}
+        />
+      )}
 
       <noscript>
         <div>

@@ -21,8 +21,9 @@
     line-height: 130%
     @include m.media(phone, tablet)
       font-size: f.px(12)
-      
-    
+
+.liveCourse
+  @include m.dye(bg, c.$purple-200)
 
 .title
   font-size: f.px(44)
@@ -55,5 +56,3 @@
     @include m.gap($ptb: f.px(8), $plr: f.px(24))
     @include m.media(phone, tablet)
       @include m.gap($ptb: f.px(5), $plr: f.px(17))
-
-

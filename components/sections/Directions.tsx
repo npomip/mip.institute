@@ -15,10 +15,10 @@ const Directions = () => {
         <div className={stls.fullContainer}>
           <div className={stls.content}>
             <div className={stls.heading}>
-              <h2 className={stls.title}>Направления</h2>
               <div className={stls.tag}>
                 <TagOrange>Выбор</TagOrange>
               </div>
+              <h2 className={stls.title}>Направления</h2>
             </div>
             <div className={stls.flexContainer}>
               <div className={stls.leftBlock}>

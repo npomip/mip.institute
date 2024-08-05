@@ -11,8 +11,6 @@ const ProgramType = ({ close = null }) => {
 
   const slug = curProgramsStudyFieldSlug ? curProgramsStudyFieldSlug : ''
 
-  // console.log(slug)
-
   return (
     <div className={stls.container}>
       <p className={stls.p}>Тип обучения:</p>

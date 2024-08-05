@@ -3,13 +3,15 @@ import classNames from 'classnames'
 
 interface Props {
   calpha?: boolean
+  yellow?: boolean
 }
-const IconInfo = ({ calpha }: Props) => {
+const IconInfo = ({ calpha, yellow }: Props) => {
   return (
     <span
       className={classNames({
         [stls.container]: true,
-        [stls.calpha]: calpha
+        [stls.calpha]: calpha,
+        [stls.yellow]: yellow
       })}>
       <svg
         width='26'

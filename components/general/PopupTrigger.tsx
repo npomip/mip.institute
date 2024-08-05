@@ -29,6 +29,7 @@ type PopupTriggerType = {
     | 'askQuestion'
     | 'callMeBack'
     | 'signUpForCourse'
+    | 'signUpForProgramm'
     | 'signUpForProfession'
     | 'signUp'
     | 'chooseProgram'
@@ -47,331 +48,206 @@ type PopupTriggerType = {
     | 'buyTicket'
     | 'participate'
     | 'familiarize'
-
-    testProgram?: string
+    | 'use'
+    | 'knowRequirement'
+  testProgram?: string
+  isActivePromocode?: string
 }
 
-const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
-  const promo = cta === 'signUpForCourse' || cta === 'signUpForProfession' || cta === 'submitApplication' || cta === 'chooseProgram' || cta === 'reserve' || cta === 'buyTicket'|| cta === 'familiarize';
-  const question = cta === 'askQuestion' || cta === 'programQuestion' 
+const PopupTrigger = ({
+  btn,
+  cta,
+  testProgram = null,
+  isActivePromocode
+}: PopupTriggerType) => {
+  const promoCtaList = [
+    'signUpForCourse',
+    'signUpForProgramm',
+    'signUpForProfession',
+    'submitApplication',
+    'chooseProgram',
+    'reserve',
+    'buyTicket',
+    'familiarize',
+    'use'
+  ]
 
-  const strs = {
-    trigger:
-      cta === 'askQuestion'
-        ? 'Задать вопрос'
-        : cta === 'callMeBack'
-        ? 'Обратный звонок'
-        : cta === 'signUpForCourse'
-        ? 'Записаться на курс'
-        : cta === 'signUpForProfession'
-        ? 'Записаться на курс'
-        : cta === 'signUp'
-        ? 'Записаться'
-        : cta === 'chooseProgram'
-        ? 'Подобрать программу'
-        : cta === 'learnAboutUs'
-        ? 'Узнать об институте'
-        : cta === 'submitApplication'
-        ? 'Оставить заявку'
-        : cta === 'getFullProgram'
-        ? 'Получить полную программу'
-        : cta === 'reserve'
-        ? 'Забронировать'
-        : cta === 'learnAboutTeachers'
-        ? 'Узнать всех'
-        : cta === 'help'
-        ? 'Помощь'
-        : cta === 'getFullList'
-        ? 'Запросить полный список'
-        : cta === 'seeAllWebinars'
-        ? 'Смотреть все вебинары'
-        : cta === 'learnMore'
-        ? 'Подробнее'
-        : cta === 'consultMe'
-        ? 'Хочу консультацию'
-        : cta === 'programQuestion'
-        ? 'Вопрос по программе'
-        : cta === '2for1'
-        ? 'Получить 2 по цене 1'
-        : cta === 'buyTicket'
-        ? 'Купить билет'
-        : cta === 'participate'
-        ? 'Участвовать'
-        : cta === 'familiarize'
-        ? 'Ознакомиться с программой'
-        : '',
-    title:
-      cta === 'askQuestion'
-        ? 'Задать вопрос'
-        : cta === 'callMeBack'
-        ? 'Обратный звонок'
-        : cta === 'signUpForCourse'
-        ? 'Записаться на курс'
-        : cta === 'signUpForProfession'
-        ? 'Записаться на курс'
-        : cta === 'signUp'
-        ? 'Записаться'
-        : cta === 'chooseProgram'
-        ? 'Подобрать программу'
-        : cta === 'learnAboutUs'
-        ? 'Узнать об институте'
-        : cta === 'submitApplication'
-        ? 'Оставить заявку'
-        : cta === 'getFullProgram'
-        ? 'Получить полную программу'
-        : cta === 'reserve'
-        ? 'Забронировать'
-        : cta === 'learnAboutTeachers'
-        ? 'Узнать всех'
-        : cta === 'help'
-        ? 'Помощь'
-        : cta === 'getFullList'
-        ? 'Запросить полный список'
-        : cta === 'seeAllWebinars'
-        ? 'Смотреть все вебинары'
-        : cta === 'learnMore'
-        ? 'Узнать подробнее'
-        : cta === 'consultMe'
-        ? 'Хочу консультацию'
-        : cta ==='programQuestion'
-        ? 'Вопрос по программе'
-        : cta === '2for1'
-        ? 'Оставить заявку'
-        : cta === 'buyTicket'
-        ? 'Оставить заявку'
-        : cta === 'participate'
-        ? 'Узнайте как поучаствовать в акции'
-        : cta === 'familiarize'
-        ? 'Ознакомиться с программой'
-        : '',
-    desc:
-      cta === 'askQuestion' ? (
+  const questionCtaList = ['askQuestion', 'programQuestion']
+
+  const promo = promoCtaList.includes(cta)
+  const question = questionCtaList.includes(cta)
+
+  const strings = {
+    trigger: {
+      askQuestion: 'Задать вопрос',
+      callMeBack: 'Обратный звонок',
+      signUpForCourse: 'Записаться на курс',
+      signUpForProgramm: 'Записаться на программу',
+      signUpForProfession: 'Записаться на курс',
+      signUp: 'Записаться',
+      chooseProgram: 'Подобрать программу',
+      learnAboutUs: 'Узнать об институте',
+      submitApplication: 'Оставить заявку',
+      getFullProgram: 'Получить полную программу',
+      reserve: 'Забронировать',
+      learnAboutTeachers: 'Узнать всех',
+      help: 'Помощь',
+      getFullList: 'Запросить полный список',
+      seeAllWebinars: 'Смотреть все вебинары',
+      learnMore: 'Подробнее',
+      consultMe: 'Хочу консультацию',
+      programQuestion: 'Вопрос по программе',
+      '2for1': 'Получить 2 по цене 1',
+      buyTicket: 'Купить билет',
+      participate: 'Участвовать',
+      familiarize: 'Ознакомиться с программой',
+      use: 'Применить',
+      knowRequirement: 'Узнать'
+    },
+    title: {
+      askQuestion: 'Задать вопрос',
+      callMeBack: 'Обратный звонок',
+      signUpForCourse: 'Записаться на курс',
+      signUpForProgramm: 'Записаться на программу',
+      signUpForProfession: 'Записаться на курс',
+      signUp: 'Записаться',
+      chooseProgram: 'Подобрать программу',
+      learnAboutUs: 'Узнать об институте',
+      submitApplication: 'Оставить заявку',
+      getFullProgram: 'Получить программу',
+      reserve: 'Забронировать',
+      learnAboutTeachers: 'Узнать всех',
+      help: 'Оставить заявку',
+      getFullList: 'Оставить заявку',
+      seeAllWebinars: 'Оставить заявку',
+      learnMore: 'Узнать подробнее',
+      consultMe: 'Получить консультацию',
+      programQuestion: 'Задать вопрос',
+      '2for1': 'Оставить заявку',
+      buyTicket: 'Выбрать билеты',
+      participate: 'Участвовать',
+      familiarize: 'Ознакомиться с программой',
+      use: 'Применить',
+      knowRequirement: 'Узнать проходной балл'
+    },
+    desc: {
+      askQuestion: (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
-      ) : cta === 'callMeBack' ? (
+      ),
+      callMeBack: (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
-      ) : cta === 'signUpForCourse' ? (
+      ),
+      signUpForCourse: (
         <>
           У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
-      ) : cta === 'signUpForProfession' ? (
+      ),
+      getFullProgram: (
         <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
+          Заполните форму. <br className={stls.phonetablet} /> И получите полную
+          программу!
         </>
-      ) : cta === 'signUp' ? (
-        <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) : cta === 'chooseProgram' ? (
-        <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) : cta === 'learnAboutUs' ? (
-        <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) : cta === 'submitApplication' ? (
-        <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) : cta === 'getFullProgram' ? (
-        <>
-          Заполните форму.{' '}
-          <br className={stls.phonetablet} />  И получите полную программу!
-        </>
-      ): cta === 'reserve' ? (
-        <>
-          {/* У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности */}
-        </>
-      ) : cta === 'learnAboutTeachers' ? (
-        <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) : cta === 'help' ? (
+      ),
+      help: (
         <>
           Оставьте заявку, мы свяжемся с Вами в рабочие часы, ответим на Ваши
           вопросы и решим проблему
         </>
-      ) : cta === 'getFullList' ? (
+      ),
+      getFullList: (
         <>
           Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
           полный список преподавателей
         </>
-      ) : cta === 'seeAllWebinars' ? (
+      ),
+      seeAllWebinars: (
         <>
           Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
           полный список вебинаров
         </>
-      ) : cta === 'learnMore' ? (
+      ),
+      learnMore: (
         <>
           Оставьте заявку, мы свяжемся с Вами в рабочие часы и расскажем
           подробнее о вебинаре
         </>
-      ) : cta === 'consultMe' ? (
-        <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) :
-      cta === 'programQuestion' ? (
+      ),
+      programQuestion: (
         <>
           У вас появились вопросы по программе или конкретному модулю?{' '}
-          <br className={stls.phonetablet} /> Напишите нам в форме обратной связи
+          <br className={stls.phonetablet} /> Напишите нам в форме обратной
+          связи
         </>
-      ) :
-      cta === '2for1' ? (
-        <>
-          Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) :
-      cta === 'buyTicket' ? (
-        <>
-          Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии свяжется с вами, чтобы рассказать все подробности
-        </>
-      ) : 
-      cta === 'participate' ? (
-        <>
-          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все условия акции!
-        </>
-      ) :
-      cta === 'familiarize' ? (
-        <>
-          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все o программе
-        </>
-      ) :
-      (
-        ''
       ),
-    cta:
-      cta === 'askQuestion'
-        ? 'Задать вопрос'
-        : cta === 'callMeBack'
-        ? 'Обратный звонок'
-        : cta === 'signUpForCourse'
-        ? 'Записаться на курс'
-        : cta === 'signUpForProfession'
-        ? 'Записаться на курс'
-        : cta === 'signUp'
-        ? 'Записаться'
-        : cta === 'chooseProgram'
-        ? 'Подобрать программу'
-        : cta === 'learnAboutUs'
-        ? 'Узнать об институте'
-        : cta === 'submitApplication'
-        ? 'Оставить заявку'
-        : cta === 'getFullProgram'
-        ? 'Получить программу'
-        : cta === 'reserve'
-        ? 'Забронировать'
-        : cta === 'learnAboutTeachers'
-        ? 'Узнать всех'
-        : cta === 'help'
-        ? 'Оставить заявку'
-        : cta === 'getFullList'
-        ? 'Оставить заявку'
-        : cta === 'seeAllWebinars'
-        ? 'Оставить заявку'
-        : cta === 'learnMore'
-        ? 'Узнать подробнее'
-        : cta === 'consultMe'
-        ? 'Получить консультацию'
-        : cta === 'programQuestion'
-        ? 'Задать вопрос'
-        : cta === '2for1'
-        ? 'Оставить заявку'
-        : cta === 'buyTicket'
-        ? 'Выбрать билеты'
-        : cta === 'participate'
-        ? 'Участвовать'
-        : cta === 'familiarize'
-        ? 'Ознакомиться с программой'
-        : '',
-      blockForAmo:
-        cta === 'askQuestion'
-          ? 'Задать вопрос'
-          : cta === 'callMeBack'
-          ? 'Обратный звонок'
-          : cta === 'signUpForCourse'
-          ? 'Записаться на курс'
-          : cta === 'signUpForProfession'
-          ? 'Записаться на курс'
-          : cta === 'signUp'
-          ? 'Записаться'
-          : cta === 'chooseProgram'
-          ? 'Подобрать программу'
-          : cta === 'learnAboutUs'
-          ? 'Узнать об институте'
-          : cta === 'submitApplication'
-          ? 'Оставить заявку'
-          : cta === 'getFullProgram'
-          ? 'Получить программу'
-          : cta === 'reserve'
-          ? 'Забронировать'
-          : cta === 'learnAboutTeachers'
-          ? 'Узнать всех преподавателей'
-          : cta === 'help'
-          ? 'Оставить заявку'
-          : cta === 'getFullList'
-          ? 'Оставить заявку'
-          : cta === 'seeAllWebinars'
-          ? 'Смотреть вебинары'
-          : cta === 'learnMore'
-          ? 'Узнать подробнее'
-          : cta === 'consultMe'
-          ? 'Получить консультацию'
-          : cta === 'programQuestion'
-          ? 'Вопрос по программе'
-          : cta === '2for1'
-          ? 'Баннер 2 по цене одного'
-          : cta === 'participate'
-          ? 'Участвовать'
-          : cta === 'familiarize'
-          ? `Психологический тест ${testProgram}`
-          : ''
+      participate: (
+        <>
+          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы
+          рассказать все условия акции!
+        </>
+      ),
+      familiarize: (
+        <>
+          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы
+          рассказать все о программе
+        </>
+      )
+    },
+    blockForAmo: {
+      askQuestion: 'Задать вопрос',
+      callMeBack: 'Обратный звонок',
+      signUpForCourse: 'Записаться на курс',
+      signUpForProfession: 'Записаться на курс',
+      signUp: 'Записаться',
+      chooseProgram: 'Подобрать программу',
+      learnAboutUs: 'Узнать об институте',
+      submitApplication: 'Оставить заявку',
+      getFullProgram: 'Получить программу',
+      reserve: 'Забронировать',
+      learnAboutTeachers: 'Узнать всех преподавателей',
+      help: 'Оставить заявку',
+      getFullList: 'Оставить заявку',
+      seeAllWebinars: 'Смотреть вебинары',
+      learnMore: 'Узнать подробнее',
+      consultMe: 'Получить консультацию',
+      programQuestion: 'Вопрос по программе',
+      '2for1': 'Баннер 2 по цене одного',
+      participate: 'Участвовать',
+      familiarize: `Психологический тест ${testProgram}`
+    }
   }
+
+  const ButtonComponent = {
+    alpha: BtnAlpha,
+    beta: BtnBeta,
+    gamma: BtnGamma,
+    delta: BtnDelta,
+    epsilon: BtnEpsilon,
+    zeta: BtnZeta,
+    eta: BtnEta,
+    theta: BtnTheta,
+    text: BtnText,
+    test: BtnGamma
+  }[btn]
 
   return (
     <Popup
       trigger={
         <div>
-          {btn === 'alpha' ? (
-            <BtnAlpha text={strs.trigger} />
-          ) : btn === 'beta' ? (
-            <BtnBeta text={strs.trigger} />
-          ) : btn === 'gamma' ? (
-            <BtnGamma text={strs.trigger} />
-          ) : btn === 'delta' ? (
-            <BtnDelta text={strs.trigger} />
-          ) : btn === 'epsilon' ? (
-            <BtnEpsilon text={strs.trigger} />
-          ) : btn === 'zeta' ? (
-            <BtnZeta text={strs.trigger} />
-          ) : btn === 'eta' ? (
-            <BtnEta text={strs.trigger} />
-          ) : btn === 'theta' ? (
-            <BtnTheta text={strs.trigger} />
-          ) : btn === 'text' ? (
-            <BtnText text={strs.trigger} ctheta />
-          ) : btn === 'test' ? (
-            <BtnGamma text={strs.trigger} test />
-          ) :(
-            ''
-          )}
+          <ButtonComponent
+            text={strings.trigger[cta]}
+            ctheta={btn === 'text'}
+            test={btn === 'test'}
+          />
         </div>
       }
       modal
@@ -379,12 +255,13 @@ const PopupTrigger = ({ btn, cta, testProgram=null }: PopupTriggerType) => {
       {close => (
         <PopupCta
           promo={promo}
-          title={strs.title}
-          desc={strs.desc}
-          cta={strs.cta}
+          title={strings.title[cta]}
+          desc={strings.desc[cta]}
+          cta={strings.trigger[cta]}
           question={question}
           close={close}
-          blockForAmo={strs.blockForAmo}
+          blockForAmo={strings.blockForAmo[cta]}
+          isActivePromocode={isActivePromocode}
         />
       )}
     </Popup>

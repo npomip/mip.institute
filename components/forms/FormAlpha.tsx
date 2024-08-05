@@ -23,6 +23,19 @@ type FormValues = {
   promocode: string
   question: string
   leadPage: string
+  isActivePromocode?: string
+}
+
+interface Props {
+  cta?: string
+  blockForAmo?: string
+  question?: boolean
+  popup?: boolean
+  atFooter?: boolean
+  agreement?: boolean
+  promo?: boolean
+  inProfessions?: boolean
+  isLiveCourse?: boolean
 }
 
 const FormAlpha = ({
@@ -33,7 +46,9 @@ const FormAlpha = ({
   atFooter = false,
   agreement = false,
   promo = false,
-  inProfessions = false
+  inProfessions = false,
+  isLiveCourse = false,
+  isActivePromocode = ''
 }) => {
   const {
     register,
@@ -45,7 +60,8 @@ const FormAlpha = ({
     defaultValues: {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      promocode: isActivePromocode ?? isActivePromocode
     }
   })
 
@@ -53,9 +69,14 @@ const FormAlpha = ({
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
   const [loading, setLoading] = useState(false)
-  const { program, seminar } = useContext(ContextStaticProps)
+  const { program, seminar, bachelor } = useContext(ContextStaticProps)
   const [tickets, setTickets] = useState(1)
   const { updateTicketsQuantity } = useContext(ContextStaticProps)
+
+  console.log(bachelor);
+  console.log('blockForAmo', blockForAmo);
+  
+  
 
   useEffect(() => {
     popup && setFocus('name')
@@ -64,66 +85,68 @@ const FormAlpha = ({
   const router = useRouter()
 
   const onSubmit = async data => {
-    
     // const ipCheck = await ipCheckFunc()
     // if (ipCheck === 200) {
-      setIsDisabled(true)
-      setLoading(true)
+    setIsDisabled(true)
+    setLoading(true)
 
-      // handle loader
-      data.leadPage = router.asPath
-      const utms = JSON.parse(sessionStorage.getItem('utms'))
-      data.utms = utms
-      sessionStorage.removeItem('utms')
-      const referer = JSON.parse(sessionStorage.getItem('referer'))
-      data.referer = referer
-      sessionStorage.removeItem('referer')
-      const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
-      data.ymUid = ymUid
-      const clickId = getCookie('utm')
-      const roistat_visit = getCookie('roistat_visit')
-      const advcake_track_id = getCookie('advcake_track_id')
-      const advcake_track_url = getCookie('advcake_track_url')
-      const price = program?.price
-      data.price = price
+    // handle loader
+    data.leadPage = router.asPath
+    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    data.utms = utms
+    sessionStorage.removeItem('utms')
+    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    data.referer = referer
+    sessionStorage.removeItem('referer')
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    data.ymUid = ymUid
+    const clickId = getCookie('utm')
+    const roistat_visit = getCookie('roistat_visit')
+    const advcake_track_id = getCookie('advcake_track_id')
+    const advcake_track_url = getCookie('advcake_track_url')
+    const price = program?.price || bachelor?.offlineFullPrice / 2 || null
+    data.price = price
 
-      data.blockForAmo = blockForAmo
+    data.blockForAmo = blockForAmo
 
-      if (typeof clickId === 'string') {
-        data.utm = JSON.parse(clickId)
+    if (typeof clickId === 'string') {
+      data.utm = JSON.parse(clickId)
+    } else {
+      data.utm = null // или какое-то другое значение по умолчанию
+    }
+
+    if (cta === 'Выбрать билеты') {
+      data.tickets = tickets
+      const seminar_date = new Date(seminar.date)
+      data.date = seminar_date.getTime()
+      data.seminar_id = seminar.id
+      data.seminar_tickets_quantity = seminar.tickets_quantity
+      data.price = seminar.price * tickets
+      data.seminar_title = seminar.title
+      const req = await getTicket(data)
+      updateTicketsQuantity(req)
+    } else {
+      data.advcake_track_id = advcake_track_id
+      data.advcake_track_url = advcake_track_url
+      data.roistat_visit = roistat_visit
+      const req = await genezis(data)
+      // const req = await hitContactRoute(data)
+
+      if (req === 200) {
+        setLoading(false)
+        window.open(
+          `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
+          '_blank'
+        )
+        setIsIpCheckFailed(false)
+        setIsDisabled(true)
+        setThanksIsOpen(true)
       } else {
-        data.utm = null // или какое-то другое значение по умолчанию
+        console.log('err')
+        setLoading(false)
+        setIsIpCheckFailed(true)
       }
-
-      if (cta === 'Выбрать билеты') {
-        data.tickets = tickets
-        const seminar_date = new Date(seminar.date)
-        data.date = seminar_date.getTime()
-        data.seminar_id = seminar.id
-        data.seminar_tickets_quantity = seminar.tickets_quantity
-        data.price = seminar.price * tickets
-        data.seminar_title = seminar.title
-        const req = await getTicket(data)
-        updateTicketsQuantity(req)
-      } else {
-        data.advcake_track_id = advcake_track_id
-        data.advcake_track_url = advcake_track_url
-        data.roistat_visit = roistat_visit
-        const req = await genezis(data)
-        // const req = await hitContactRoute(data)
-
-        if (req === 200) {
-          setLoading(false)
-          window.open(`${routes.front.gratefull}?email=${data.email}&name=${data.name}`, '_blank')
-          setIsIpCheckFailed(false)
-          setIsDisabled(true)
-          setThanksIsOpen(true)
-        } else {
-          console.log('err')
-          setLoading(false)
-          setIsIpCheckFailed(true)
-        }
-      }
+    }
     // } else {
     //   setIsIpCheckFailed(true)
     //   console.log(errors)
@@ -282,7 +305,11 @@ const FormAlpha = ({
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
             ) : (
-              <BtnAlpha text={cta} isDisabled={isDisabled} />
+              <BtnAlpha
+                text={cta}
+                isDisabled={isDisabled}
+                isLiveCourse={isLiveCourse}
+              />
             )}
           </div>
 

@@ -78,5 +78,9 @@ export type { default as TypePageWebinarsPropsQuery } from '@/types/page/webinar
 export type { default as TypePageSeminarsProps } from '@/types/page/seminars/props/TypePageSeminarsProps'
 export type { default as TypePageSeminarsPropsQuery } from '@/types/page/seminars/query/TypePageSeminarsPropsQuery'
 
+// .page/liveCourses
+export type { default as TypePageLiveCoursesProps } from '@/types/page/liveCourses/props/TypePageLiveCoursesProps'
+export type { default as TypePageLiveCoursesPropsQuery } from '@/types/page/liveCourses/query/TypePageLiveCoursesPropsQuery'
+
 // ./props
 export type { default as TPropClassNames } from '@/types/props/TPropClassNames'

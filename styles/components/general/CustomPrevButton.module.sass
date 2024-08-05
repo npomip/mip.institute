@@ -17,12 +17,12 @@
         & > *
           transition: stroke 0.5s ease
   &:hover
+    & > *
       & > *
         & > *
           & > *
-            & > *
-              fill: #F87E1B
-              stroke: white
+            fill: #F87E1B
+            stroke: white
 
   &.reviewNextBtn
     transition: stroke 2s ease
@@ -40,7 +40,6 @@
             @include m.media(phone, tablet)
                 // display: none
     &:hover
-      
       & > *
         & > *
           & > *
@@ -49,28 +48,26 @@
               stroke: white
 
   &.teachersNextBtn
-      transition: stroke 2s ease
-      top: 10px
-      right: 20px
-      @include m.media(phone, tablet)
-        top: 90%
-        right: 5%
+    transition: stroke 2s ease
+    top: 10px
+    right: 20px
+    @include m.media(phone, tablet)
+      top: 90%
+      right: 5%
+    & > *
       & > *
         & > *
           & > *
-            & > *
-              transition: stroke 0.5s ease
-              stroke: #FBF4FF
-              fill: #6F01C6
-              @include m.media(phone, tablet)
+            transition: stroke 0.5s ease
+            stroke: #FBF4FF !important
+            fill: #6F01C6 !important
                   // display: none
       &:hover
-        
         & > *
           & > *
             & > *
               & > *
-                fill: #6F01C6
+                fill: #6F01C6 !important
                 stroke: white
 
   &.happyStudentsNextBtn
@@ -100,6 +97,29 @@
               fill: #6F01C6
               stroke: white
 
+  &.liveCourses
+    top: 10px
+    right: 20px
+    @include m.media(phone, tablet)
+      top: 90%
+      right: 5%
+    & > *
+      & > *
+        & > *
+          & > *
+            transition: stroke 0.5s ease
+            @include m.dye(fill, c.$orange-300)
+            @include m.dye(stroke, white)
+            @include m.media(phone, tablet)
+              // display: none
+    &:hover
+      & > *
+        & > *
+          & > *
+            & > *
+              fill: white
+              @include m.dye(stroke, c.$orange-300)
+
 .containerPrev
   position: absolute
   top: 0px
@@ -123,7 +143,7 @@
 
   &.reviewPrevBtn
     top: 10px
-    right: 70px 
+    right: 70px
     @include m.media(phone, tablet)
       top: 90%
       left: 10%
@@ -145,7 +165,7 @@
 
   &.teachersPrevBtn
     top: 10px
-    right: 70px 
+    right: 70px
     @include m.media(phone, tablet)
       top: 90%
       left: 10%
@@ -165,7 +185,7 @@
             & > *
               fill: #6F01C6
               stroke: white
-  
+
   &.happyStudentsPrevBtn
     @include m.media(laptop, desktop)
       top: f.px(260)
@@ -191,3 +211,25 @@
               fill: #6F01C6
               stroke: white
 
+  &.liveCourses
+    top: 10px
+    right: 70px
+    @include m.media(phone, tablet)
+      top: 90%
+      left: 10%
+    & > *
+      & > *
+        & > *
+          & > *
+            transition: stroke 0.5s ease
+            @include m.dye(fill, c.$orange-300)
+            @include m.dye(stroke, white)
+            @include m.media(phone, tablet)
+              // display: none
+    &:hover
+      & > *
+        & > *
+          & > *
+            & > *
+              fill: white
+              @include m.dye(stroke, c.$orange-300)

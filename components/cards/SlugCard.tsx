@@ -7,6 +7,7 @@ import classNames from 'classnames'
 
 type CardType = {
   item: {
+    courseOpened?: boolean
     date: string
     id: string
     picture: {
@@ -23,10 +24,16 @@ type CardType = {
   slug: string
   withDate?: boolean
   firstCard?: boolean
+  isLifeCourses?: boolean
 }
 
-const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
-
+const SlugCard = ({
+  item,
+  slug,
+  withDate,
+  firstCard = false,
+  isLifeCourses = false
+}: CardType) => {
   const newDate = new Date(item?.date)
   const dateOfCourse = new Date(item?.date).toLocaleString('ru-RU', {
     day: 'numeric',
@@ -35,13 +42,12 @@ const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
 
   return (
     <>
-      <Link
-        passHref
-        href={`/${slug}/${item?.slug}`}>
-        <div
+      <Link passHref href={`/${slug}/${item?.slug}`}>
+        <a
           className={classNames({
             [stls.seminarCard]: !firstCard,
-            [stls.firstCard]: firstCard
+            [stls.firstCard]: firstCard,
+            [stls.isLifeCourses]: isLifeCourses
           })}>
           <div className={stls.seminarImg}>
             <Image
@@ -56,7 +62,13 @@ const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
           </div>
 
           <div className={stls.seminarText}>
-            <p className={stls.seminarCardTag}>{item?.studyField}</p>
+            <div className={stls.tags}>
+              <p className={stls.seminarCardTag}>{item?.studyField}</p>
+              {item?.courseOpened && (
+                <p className={stls.seminarCardTag}>идет набор</p>
+              )}
+            </div>
+
             <p className={stls.articleTitle}>{item?.title}</p>
             {firstCard && (
               <p className={stls.articleSubtitle}>{item?.subtitle}</p>
@@ -71,7 +83,7 @@ const SlugCard = ({ item, slug, withDate, firstCard = false }: CardType) => {
                 : dateOfCourse}
             </p>
           </div>
-        </div>
+        </a>
       </Link>
     </>
   )

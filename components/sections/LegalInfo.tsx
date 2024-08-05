@@ -10,19 +10,19 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
   const listLeft = [
     {
       title: 'Полное наименование организации:',
-      content: <>{isOchuVoMip ? ochuVoMip.fullName : company.fullName}</>
+      content: <>{isOchuVoMip ? ochuVoMip?.fullName : company.fullName}</>
     },
     {
       title: 'Сокращенное наименование образовательной организации:',
-      content: <>{isOchuVoMip ? ochuVoMip.shortName : company.shortName}</>
+      content: <>{isOchuVoMip ? ochuVoMip?.shortName : company.shortName}</>
     },
     {
       title: 'Ректор',
-      content: <>{isOchuVoMip ? ochuVoMip.head : company.head}</>
+      content: <>{isOchuVoMip ? ochuVoMip?.head : company.head}</>
     },
     {
       title: 'Исполнительный директор',
-      content: <>{ochuVoMip.vice}</>
+      content: <>{ochuVoMip?.vice}</>
     },
     {
       title: 'Информация о месте нахождения образовательной организации:',
@@ -30,7 +30,7 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
         <>
           Фактический адрес:{' '}
           {isOchuVoMip
-            ? ochuVoMip.addresses.default.zip
+            ? ochuVoMip?.addresses.default.zip
             : company.addresses.default.zip}
           , г. {company.addresses.default.city}, <br />{' '}
           {`${company.addresses.default.street.name} ${company.addresses.default.street.type}, д.${company.addresses.default.street.door}`}
@@ -39,7 +39,7 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
     },
     {
       title: 'ИНН организации:',
-      content: <>{isOchuVoMip ? ochuVoMip.inn : company.inn}</>
+      content: <>{isOchuVoMip ? ochuVoMip?.inn : company.inn}</>
     }
   ]
   const listRight = [
@@ -67,7 +67,7 @@ const LegalInfo = ({ isOchuVoMip }: Props) => {
     },
     {
       title: 'ОГРН организации:',
-      content: <>{isOchuVoMip ? ochuVoMip.ogrn : company.ogrn}</>
+      content: <>{isOchuVoMip ? ochuVoMip?.ogrn : company.ogrn}</>
     }
   ]
   return (

@@ -29,6 +29,6 @@
     "downlevelIteration": true,
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/imgs/general"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/imgs/general", "pages/[ofType]/[studyFieldSlug]/[slug]"],
   "exclude": ["node_modules"]
 }

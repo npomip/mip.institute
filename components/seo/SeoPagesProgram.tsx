@@ -7,7 +7,7 @@ import { AdditionalRobotsProps } from 'next-seo/lib/types'
 import preview from '@/config/preview'
 
 type TSeoPagesProgram = {
-  ofType: 'course' | 'profession'
+  ofType: string
   program: TypeLibProgram
   curProgramsStudyFieldSlug?: string
 }
@@ -19,7 +19,7 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 }) => {
   // TODO: pull the rest of SEO params from API
 
-  const { seo } = program
+  const seo = program?.seo
 
   const additionalMetaRobotsKeys = [
     'nosnippet',
@@ -73,12 +73,12 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
     canonical:
       seo?.canonicalURL ||
       `${routes.front.root}${
-        ofType === 'course'
+        ofType === 'Course'
           ? routes.front.courses
-          : ofType === 'profession'
+          : ofType === 'Profession'
           ? routes.front.professions
           : routes.front.professions
-      }/${curProgramsStudyFieldSlug}/${program?.slug}`
+      }/${program?.studyFieldSlug}/${program?.slug}`
   }
 
   return (
@@ -120,4 +120,3 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 }
 
 export default SeoPagesProgram
-

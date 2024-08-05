@@ -24,10 +24,13 @@ import {
 } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { TypeLibReviews } from '@/types/index'
+import { getCookie } from 'cookies-next'
 import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
+import EntryForm from '../sections/EntryForm'
+import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
@@ -38,7 +41,7 @@ interface Breadcrumb {
 }
 
 type PagesProgramType = {
-  ofType: 'course' | 'profession'
+  ofType: string
   reviews: TypeLibReviews
   programOverview: string
   breadcrumbs: Breadcrumb[]
@@ -52,7 +55,6 @@ const PagesProgram = ({
   breadcrumbs,
   slug
 }: PagesProgramType) => {
-  const processRef = useRef(null)
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
@@ -60,6 +62,26 @@ const PagesProgram = ({
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
+
+  let utm
+  const getUtm = getCookie('utm')
+  if (typeof getUtm === 'string') {
+    utm = JSON.parse(getUtm)
+  } else {
+    utm = null // или какое-то другое значение по умолчанию
+  }
+  const isVario = utm?.utm_source === 'vario'
+  console.log(isVario);
+
+  const sections = [
+    { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
+    { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
+    { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
+    { id: 'resume', label: 'Навыки', ref: resumeRef, condition: ofType === 'Profession' },
+    { id: 'cost', label: 'Стоимость', ref: costRef, condition: !isVario },
+    { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
+    { id: 'faq', label: 'FAQ', ref: faqRef, condition: true },
+  ];
 
   const [showDescription, setShowDescription] = useState(true)
 
@@ -73,22 +95,17 @@ const PagesProgram = ({
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
 
-  const isDesktopLayout = useBetterMediaQuery('(min-width: 769px)')
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
+  
+
 
   return (
     <>
       <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
       <PageNavigation
-        ofType={ofType}
-        processRef={processRef}
-        diplomaRef={diplomaRef}
-        planRef={planRef}
-        teachersRef={teachersRef}
-        resumeRef={resumeRef}
-        costRef={costRef}
-        reviewsRef={reviewsRef}
-        faqRef={faqRef}
+        sections={sections}
       />
       <WhyBother />
       {programOverview && (
@@ -109,18 +126,19 @@ const PagesProgram = ({
           <WhatYouWillLearn title={'Чему вы научитесь'} />
         </>
       )}
-      <EducationProcess
-        paddingTop={30}
-        paddingBottom={0}
-        paddingTopMobile={0}
+      <EducationProcess 
+        paddingTop={30} 
+        paddingBottom={0} 
+        paddingTopMobile={0} 
         paddingBottomMobile={0}
       />
-      <DistanceEducation paddingBottomMobile={20} />
+      <DistanceEducation paddingBottomMobile={20}/>
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
+      {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {ofType !== 'course' && <YourResume resumeRef={resumeRef} />}
+      {ofType !== 'Course' && ofType !== 'Practice' && <YourResume resumeRef={resumeRef} />}
       <SalaryCounter />
       <RequestsCard />
 
@@ -132,7 +150,7 @@ const PagesProgram = ({
         cta='reserve'
       />
 
-      <StudyCost costRef={costRef} />
+      {isVario ? <EntryForm pb={isMobileAndTabletLayout ? 60 : 0} pt={isMobileAndTabletLayout ? 0 : 90} /> :  <StudyCost costRef={costRef} />}
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <Faq faqRef={faqRef} />
     </>

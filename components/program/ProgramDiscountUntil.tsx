@@ -1,9 +1,10 @@
-import ProgramAdmission from '@/components/program/ProgramAdmission'
+import getNextFriday from '@/helpers/getNextFriday'
 
 const ProgramDiscountUntil = () => {
   return (
     <>
-      до <ProgramAdmission />
+      {/* до {getNextFriday(new Date())} */}
+      до {new Date()  > new Date(2024, 7, 1)  ? getNextFriday(new Date()) : '31 июля' }
     </>
   )
 }

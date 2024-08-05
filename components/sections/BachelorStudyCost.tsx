@@ -14,8 +14,6 @@ import BachelorProgramCost from '../program/BachelorProgramCost'
 const BachelorStudyCost = ({ costRef }) => {
   const { program, bachelor } = useContext(ContextStaticProps)
 
-  console.log(bachelor)
-
   const points = [
     'Обучающимся по двум программам высшего образования – 15%',
     'Поступающим с высокими результатами ЕГЭ (от 230 баллов) – 20%.',

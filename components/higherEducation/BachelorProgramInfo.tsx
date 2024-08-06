@@ -39,7 +39,7 @@ const BachelorProgramInfo = () => {
           Ближайшее <br /> зачисление:
         </>
       ),
-      val: bachelor?.admissionDate
+    val: bachelor?.admissionDate
     }
   ]
 

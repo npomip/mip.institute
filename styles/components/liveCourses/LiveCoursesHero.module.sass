@@ -5,7 +5,7 @@
 .container
   @include m.gap($ptb: f.px(70))
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(30))
+    @include m.gap($pt: f.px(30), $pb: f.px(0))
 
 .content
   @include m.media(desktop, laptop)
@@ -38,18 +38,18 @@
   text-transform: uppercase
   // @include m.gap($ml: f.px(20))
   // transform: translateY(f.px(-35))
-  &::after
-    content: ''
-    transform: translateY(f.px(-18))
-    border: 0.375rem solid #FAA275
-    position: absolute
-    width: f.px(411)
-    z-index: -1
-    left: f.px(268)
-    @include m.media(laptop)
-      transform: translateY(f.px(-18))
-      width: f.px(383.8)
-      left: f.px(204)
+  // &::after
+  //   content: ''
+  //   transform: translateY(f.px(-18))
+  //   border: 0.375rem solid #FAA275
+  //   position: absolute
+  //   width: f.px(411)
+  //   z-index: -1
+  //   left: f.px(268)
+  //   @include m.media(laptop)
+  //     transform: translateY(f.px(-18))
+  //     width: f.px(383.8)
+  //     left: f.px(204)
   @include m.media(laptop)
     font-size: f.px(48)
   @include m.media(tablet, phone)
@@ -64,14 +64,14 @@
     font-style: normal
     font-weight: 500
     text-transform: uppercase
-    &::after
-      content: ''
-      transform: translateY(f.px(-10))
-      border: 0.188rem solid #FAA275
-      position: absolute
-      width: f.px(202)
-      z-index: -1
-      left: f.px(151)
+    // &::after
+    //   content: ''
+    //   transform: translateY(f.px(-10))
+    //   border: 0.188rem solid #FAA275
+    //   position: absolute
+    //   width: f.px(202)
+    //   z-index: -1
+    //   left: f.px(151)
 
 .text
   font-size: f.px(20)

@@ -1,8 +1,18 @@
 import stls from '@/styles/components/general/TagOrange.module.sass'
+import classNames from 'classnames'
 
-const TagOrange = ({children}) => {
+interface Props {
+  children: string
+  isWhiteText?: boolean
+}
+
+const TagOrange = ({ children, isWhiteText }: Props) => {
   return (
-    <div className={stls.container}>
+    <div
+      className={classNames({
+        [stls.container]: true,
+        [stls.whiteText]: isWhiteText
+      })}>
       {children}
     </div>
   )

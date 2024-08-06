@@ -166,7 +166,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         desc={'Оставьте заявку на консультацию менеджера приёмной комиссии'}
         cta='chooseProgram'
       />
-      <WhatYouWillLearn title={'Чему вы научитесь в МИП?'} onMain />
+      <WhatYouWillLearn title={'Чему вы научитесь в МИП'} onMain />
       <SalaryCounter />
       <Teachers
         onMain

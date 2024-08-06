@@ -16,12 +16,16 @@ const secondLine = [
 const LiveCoursesStripe = () => {
   return (
     <section className={stls.section}>
-      <FullWrapper>
-        <Wrapper>
+      {/* <FullWrapper> */}
+        {/* <Wrapper> */}
           <div className={stls.text}>
-            <div>
+            <div className={stls.block}>
               {firstLine.map((el, i) => (
                 <React.Fragment key={el}>
+                  <div className={stls.rowMob}>
+                    <div className={stls.bulletMob}></div>
+                    <span className={stls.itemMob}>{el}</span>
+                  </div>
                   <span className={stls.item}>{el}</span>
                   {i !== firstLine.length - 1 && (
                     <div className={stls.bullet}></div>
@@ -29,9 +33,13 @@ const LiveCoursesStripe = () => {
                 </React.Fragment>
               ))}
             </div>
-            <div>
+            <div className={stls.block}>
               {secondLine.map((el, i) => (
                 <React.Fragment key={el}>
+                  <div className={stls.rowMob}>
+                    <div className={stls.bulletMob}></div>
+                    <span className={stls.itemMob}>{el}</span>
+                  </div>
                   <span className={stls.item}>{el}</span>
                   {i !== secondLine.length - 1 && (
                     <div className={stls.bullet}></div>
@@ -40,8 +48,8 @@ const LiveCoursesStripe = () => {
               ))}
             </div>
           </div>
-        </Wrapper>
-      </FullWrapper>
+        {/* </Wrapper> */}
+      {/* </FullWrapper> */}
     </section>
   )
 }

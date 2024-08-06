@@ -1,5 +1,5 @@
 import src from '@/public/assets/imgs/liveCourses/liveCourseHug.png'
-import srcMobile from '@/public/assets/imgs/liveCourses/hugMobile.png'
+import srcMobile from '@/public/assets/imgs/liveCourses/liveCourseHugMobile.png'
 import stls from '@/styles/components/liveCourses/LiveCoursesHero.module.sass'
 import Image from 'next/image'
 import PopupTrigger from '../general/PopupTrigger'
@@ -25,9 +25,9 @@ const LiveCoursesHero = ({ title }) => {
           русский писатель
         </p>
 
+        <h1 className={stls.title}>{title}</h1>
         <div className={stls.folder}>
           <div className={stls.leftColumn}>
-            <h1 className={stls.title}>{title}</h1>
             <div className={stls.content}>
               <div>
                 <p className={stls.text}>
@@ -51,18 +51,16 @@ const LiveCoursesHero = ({ title }) => {
             </div>
           </div>
           <div className={stls.rightColumn}>
-            <div className={stls.birds}>
-              <IconBirds />
-            </div>
-            <div className={stls.hug}>
-              <Image
-                src={isMobileAndTabletLayout ? srcMobile : src}
-                height={isMobileAndTabletLayout ? 240 : 540}
-                width={isMobileAndTabletLayout ? 300 : 800}
-                alt='Объятия'
-                className={stls.hugImg}
-              />
-            </div>
+              <div className={stls.birds}>
+                <IconBirds />
+              </div>
+              <div className={stls.hug}>
+                <Image
+                  className={stls.img}
+                  src={isMobileAndTabletLayout ? srcMobile : src}
+                  alt='Объятия'
+                />
+              </div>
           </div>
         </div>
         <div className={stls.mobileBtn}>

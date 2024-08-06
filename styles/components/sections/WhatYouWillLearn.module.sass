@@ -14,9 +14,14 @@
 
 .title
   display: inline-block
-  @include m.media(phone, tablet)
+  @include m.media(tablet)
+    white-space: nowrap
     @include m.gap($mb: f.px(20))
-    font-size: f.px(26)
+    font-size: f.px(30)
+  @include m.media(phone)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(34)
+    max-width: f.px(350)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(35), $pt: f.px(15))
     font-size: f.px(44)
@@ -69,7 +74,128 @@
     font-size: f.px(14)
 
 .tag
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(15))
+  z-index: 2
+  height: 100%
+  display: inline-block
+  position: relative
+  @include m.gap($mb: f.px(20))
+  align-self: center
   & > *
-    @include m.gap($ptb: f.px(8), $plr: f.px(20))
+    position: absolute
+    @include m.media(laptop, desktop)
+      top: f.px(-15)
+      left: f.px(20)
+      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
+    @include m.media(tablet)
+      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
+      top: f.px(-30)
+      left: f.px(-370)
+    @include m.media(phone)
+      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
+      top: f.px(-3)
+      left: f.px(-200)
+
+.orangeBlock
+  position: relative
+  z-index: 2
+  border-radius: f.px(20)
+  border: 1px solid
+  // opacity: 0.6
+  background: rgba(255, 255, 255, 0.7)
+  @include m.dye(border, c.$beta)
+  @include m.dye(bg, c.$upsilon)
+  @include m.gap($pt: f.px(35), $pb: f.px(10))
+  @include m.media(tablet)
+    @include m.gap($pt: f.px(30), $pl: f.px(30), $pr: f.px(15))
+  @include m.media(phone)
+    @include m.gap($pt: f.px(15), $plr: f.px(15), $pb: f.px(0))
+
+.listMain
+  columns: 2
+  -webkit-columns: 2
+  -moz-columns: 2
+  @include m.media(phone, tablet)
+    padding-left: 0
+    columns: 1
+    -webkit-columns: 1
+    -moz-columns: 1
+    margin-bottom: 0
+
+.itemOnMain
+  list-style: none
+  @include m.flex($ai: flex-start)
+  height: f.px(160)
+  @include m.media(tablet)
+    &:nth-child(1)
+      @include m.gap($mb: f.px(15))
+  @include m.media(phone)
+    &:nth-child(1)
+      @include m.gap($mb: f.px(10))
+    &:nth-child(2)
+      height: f.px(130)
+
+.listText
+  @include m.flex($ai: flex-start, $fd: column)
+  @include m.gap($ml: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(10))
+
+.listTitle
+  display: block
+  font-size: f.px(22)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  max-width: f.px(415)
+  @include m.gap($mb: f.px(10))
+  @include m.media(laptop)
+    max-width: f.px(270)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    @include m.gap($mb: f.px(5))
+    font-size: f.px(18)
+    min-width: f.px(200)
+  @include m.media(phone)
+    font-size: f.px(17)
+    min-width: f.px(280)
+
+.text
+  font-size: f.px(14)
+  font-style: normal
+  font-weight: 350
+  line-height: 130%
+  max-width: f.px(350)
+  @include m.media(laptop)
+    font-size: f.px(13)
+    max-width: f.px(320)
+  @include m.media(tablet)
+    max-width: f.px(400)
+    font-size: f.px(14)
+  @include m.media(phone)
+    max-width: f.px(270)
+
+.orangeCloud
+  z-index: 1
+  position: absolute
+  width: f.px(1)
+  height: f.px(1)
+  border-radius: 140px
+  box-shadow: rgba(230, 128, 44, 0.7) 10px 10px 54px 100px
+  @include m.media(phone, tablet)
+    box-shadow: rgba(230, 128, 44, 0.7) 0px 0px 34px 60px
+
+.left
+  left: f.px(80)
+  top: f.px(50)
+  opacity: 0.3
+  @include m.media(phone, tablet)
+    left: f.px(10)
+    top: f.px(20)
+
+.right
+  right: f.px(70)
+  bottom: f.px(120)
+  opacity: 0.5
+  @include m.media(phone, tablet)
+    right: f.px(40)
+    bottom: f.px(40)

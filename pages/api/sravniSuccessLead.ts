@@ -20,18 +20,19 @@ export default async function handler(req, res) {
       };
 
     const checkLeadIdResponse = await axios.get(checkLeadId, options);
-
+    
     const leadData = checkLeadIdResponse.data
 
-    const click_id = leadData.custom_fields_values.find(item => item.field_name === 'clickid').values[0].value
-    const lead_id = leadData.custom_fields_values.find(item => item.field_name === 'id заявки').values[0].value
+    const TRANSACTION_ID = leadData.custom_fields_values.find(item => item.field_name === 'Баннер/Объявление').values[0].value
     const amount = leadData.price
-    console.log(click_id,lead_id,amount);
+    const adv_id ='886'
+
+    const newresponse =await axios.get(
+      `https://sravni.go2cloud.org/aff_goal?a=lsr&goal_name=issued&adv_id=${adv_id}&transaction_id=${TRANSACTION_ID}&amount=${amount}&revenue=${amount*0.3}`
+    )
+    console.log(newresponse.data);
     
-    // const newresponse =await axios.get(
-    //   `https://edpartners.scaletrk.com/track/conv-change?click_id=${click_id}&amount=${amount}&token=47e706c4&adv_order_id=${lead_id}&conv_status=pending&goal_alias=1`
-    // )
-    // res.status(200).json({ message: 'Данные успешно обработаны', response: newresponse?.data })
+    res.status(200).json({ message: 'Данные успешно обработаны', response: newresponse?.data })
     }
     
   } catch (err) {

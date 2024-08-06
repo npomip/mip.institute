@@ -10,6 +10,7 @@ import Wrapper from '../layout/Wrapper'
 import stls from '@/styles/pages/PageBachelors.module.sass'
 import Breadcrumbs from '../general/Breadcrumbs'
 import { NextSeo } from 'next-seo'
+import { SeoPageBachelors } from '../seo'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -38,7 +39,7 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
 
   return (
     <Wrapper>
-      <NextSeo nofollow={true} noindex={true} />
+      <SeoPageBachelors/>
       <FilterProvider items={programs}>
       <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
       <h1 className={stls.title}>Высшее образование</h1>

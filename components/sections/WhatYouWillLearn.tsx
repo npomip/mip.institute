@@ -38,12 +38,12 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.block}>
-          <h2 className={stls.title}>{title}</h2>
           {onMain && (
             <div className={stls.tag}>
               <TagOrange>Знания</TagOrange>
             </div>
           )}
+          <h2 className={stls.title}>{title}</h2>
           <ul className={stls.list}>
             {list &&
               list[0].map((item, idx) => (

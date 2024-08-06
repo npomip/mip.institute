@@ -7,6 +7,7 @@ import {
   useFilterDispatch,
   useFilteredItems
 } from '@/context/FilterContext/FilterContext'
+import { sortBasedOnNumericOrder } from '@/helpers/index'
 import stls from '@/styles/components/sections/Programs.module.sass'
 import { TypeLibPrograms } from '@/types/index'
 import { useRouter } from 'next/router'
@@ -93,6 +94,8 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs, bachel
     })
   }
 
+  const sortedPrograms = sortBasedOnNumericOrder({programs: filteredItems})
+
   return (
     <>
     <Wrapper><Breadcrumbs isJournal breadcrumbs={breadcrumbs} /></Wrapper>
@@ -119,8 +122,8 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs, bachel
 
           <div className={stls.content}>
             <div className={stls.programs}>
-              {filteredItems?.length > 0 ? (
-                filteredItems?.map((profession, idx) => (
+              {sortedPrograms?.length > 0 ? (
+                sortedPrograms?.map((profession, idx) => (
                   <CardProfession
                     key={profession.title + idx}
                     profession={profession}

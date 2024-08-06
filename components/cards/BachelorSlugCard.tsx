@@ -25,7 +25,7 @@ interface Step {
 const BachelorSlugCard: FC<Step> = ({ card }) => {
   return (
     <Link passHref href={`${routes.front.bachelors}/${card.slug}`}>
-      <div className={stls.oneCard}>
+      <a className={stls.oneCard}>
         <div className={stls.img}>
           <Image
             className={stls.image}
@@ -47,7 +47,7 @@ const BachelorSlugCard: FC<Step> = ({ card }) => {
             </p>
           </div>
         </div>
-      </div>
+      </a>
     </Link>
   )
 }

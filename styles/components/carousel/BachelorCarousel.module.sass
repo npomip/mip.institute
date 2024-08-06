@@ -12,39 +12,19 @@
 .title
   display: inline-block
   font-weight: 500
+  @include m.gap($pt: f.px(15))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(20))
     font-size: f.px(44)
   @include m.media(tablet, phone)
-    @include m.gap($mb: f.px(10))
+    @include m.gap($mb: f.px(10), $pt: f.px(0))
     font-size: f.px(30)
-  &:after
-    content: 'Бакалавриат'
-    position: relative
-    right: f.px(-20)
-    top: f.px(-8)
-    font-size: f.px(16)
-    @include m.dye(bg, c.$beta)
-    color: white
-    @include m.gap($ptb: f.px(8), $plr: f.px(23))
-    border-radius: f.px(50)
-    font-weight: 350
-    @include m.media(phone, tablet)
-      display: none
-  &::before
-    display: none
-    @include m.media(phone, tablet)
-      width: fit-content
-      display: block
-      content: 'Бакалавриат'
-      position: relative
-      top: f.px(-8)
-      font-size: f.px(12)
-      @include m.dye(bg, c.$beta)
-      color: white
-      @include m.gap($ptb: f.px(8), $plr: f.px(23))
-      border-radius: f.px(50)
-      font-weight: 350
+
+.tag
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
+  & > *
+    @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .subtitle
   font-size: f.px(30)

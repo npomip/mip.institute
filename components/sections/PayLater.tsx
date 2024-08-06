@@ -7,6 +7,7 @@ import IconCircleStar from '../icons/IconCircleStar'
 import IconBrain from '../icons/IconBrain'
 import IconWallet from '../icons/IconWallet'
 import IconNotice from '../icons/IconNotice'
+import TagOrange from '../general/TagOrange'
 
 const PayLater = () => {
 
@@ -36,8 +37,12 @@ const PayLater = () => {
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.titleWithIcon}>
-          
-          <h2>Обучайтесь сейчас –платите потом</h2>
+          <div>
+            <div className={stls.tag}>
+                <TagOrange>Оплата</TagOrange>
+            </div>
+            <h2>Обучайтесь сейчас –платите потом</h2>
+          </div>
           <div className={stls.circle}>
             <IconCircleStar />
           </div>

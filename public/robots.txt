@@ -47,8 +47,8 @@ Disallow: /professions/konsultirovanie/pesochnaya-terapiya-v-psihologicheskom-ko
 Disallow: /professions/konsultirovanie/proektivnye-metodiki-v-psihologicheskom-konsultirovanii$
 Disallow: /professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij$
 Disallow: /professions/konsultirovanie/kratkosrochnaya-psihoterapiya$
-Disallow: /professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya/$
 Disallow: /professions/konsultirovanie/psiholog-konsultant/$
+Disallow: /professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya/$
 Disallow: /professions/pedagogika/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog$
 Disallow: /programs/etika-professionalnoj-deyatelnosti-psihologa$
 Disallow: /professions/konsultirovanie/kognitivno-povedencheskij-psihoterapevt$
@@ -86,7 +86,7 @@ Disallow: /professions/konsultirovanie/detskij-psiholog$
 Disallow: /professions/dietologiya/psiholog-dietolog$
 Disallow: /courses/konsultirovanie/psihologiya-obsheniya$
 Disallow: /professions/kouching$
-Disallow: /
+Disallow: *undefined
 
 # Host
 Host: https://mip.institute

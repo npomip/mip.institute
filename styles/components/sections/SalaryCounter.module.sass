@@ -10,7 +10,7 @@
     flex-direction: column
 
 .title
-  @include m.gap($mt: f.px(30))
+  @include m.gap($pt: f.px(15))
   max-width: f.px(855)
   display: inline-block
   position: relative
@@ -20,7 +20,7 @@
   @include m.media(phone, tablet)
     font-size: f.px(30)
     max-width: f.px(325)
-    @include m.gap($mt: f.px(0))
+    @include m.gap($mt: f.px(0), $pt: f.px(0))
   & > span
     position: relative
     &:after
@@ -34,22 +34,11 @@
       @include m.media(phone, tablet)
         display: none
 
-  &::before
-    content: 'Доход'
-    position: absolute
-    right: f.px(-140)
-    top: f.px(10)
-    font-size: f.px(16)
-    background: #F87E1B
-    color: white
-    @include m.gap($ptb: f.px(8), $plr: f.px(23))
-    border-radius: f.px(50)
-    font-weight: 350
-    @include m.media(phone, tablet)
-      top: f.px(0)
-      right: 0
-      font-size: f.px(12)
-      // display: none
+.tag
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
+  & > *
+    @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .checkSalaryText
   font-size: f.px(25)

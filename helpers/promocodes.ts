@@ -4,8 +4,11 @@ const promocodes = {
   porakpsihologu: 'Пора к Психологу',
   muradimovaalina: 'АЛИНА10',
   maniloun: 'MANILOUN',
-  neprinyato: 'НЕ ПРИНЯТО'
-
+  neprinyato: 'НЕ ПРИНЯТО',
+  retrograd29: 'МЕРКУРИЙ',
+  globa: 'ГЛОБА',
+  uzefovich: 'ЮЗЕФОВИЧ',
+  shahimat: 'Шах и Мат',
 };
 
 export default promocodes

@@ -38,7 +38,7 @@ const Hero = () => {
               </p>
               <div className={stls.btns}>
                 <div className={stls.btn}>
-                  <PopupTrigger btn='alpha' cta='signUpForCourse' />
+                  <PopupTrigger btn='alpha' cta='signUpForProgramm' />
                 </div>
                 <div className={stls.btn}>
                   <PopupTrigger btn='beta' cta='askQuestion' />

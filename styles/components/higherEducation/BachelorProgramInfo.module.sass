@@ -7,9 +7,10 @@
   @include m.media(laptop, desktop)
     justify-content: space-between
     @include m.gap($mt: f.px(30))
+    column-gap: f.px(7)
   @include m.media(phone, tablet)
     display: grid
     column-gap: f.px(7)
     row-gap: f.px(7)
-    grid-template-columns: auto auto
+    grid-template-columns: 1fr 1fr
     @include m.gap($plr: f.px(11), $mt: f.px(23))

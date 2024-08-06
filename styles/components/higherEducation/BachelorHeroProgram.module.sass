@@ -15,21 +15,18 @@
     position: relative
     z-index: 3
     overflow: hidden
-// .containerHero
-//   display: flex
-//   flex-direction: column
-//   justify-content: space-evenly
-//   height: 100%
+
 .desktopBg
   max-width: f.px(1170)
   min-height: f.px(638)
   border-radius: f.px(20)
+  border: f.px(1) solid
+  @include m.dye(border, white)
   position: relative
   background-position: center center
   background-size: cover
   background-repeat: no-repeat
   z-index: 0
-  // @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
     display: none
 
@@ -52,9 +49,6 @@
   height: f.px(660)
   z-index: 1
   @include m.gap($plr: f.px(63), $pt: f.px(10))
-  // @include m.media(laptop, desktop)
-  //   @include m.gap($plr: f.px(63), $pt: f.px(10))
-  //   @include m.flex($fd: column, $jc: space-between)
 
 .label
   position: relative
@@ -64,7 +58,6 @@
 
 .title, .analisys
   color: white
-  // font-size: f.px(55)
   font-weight: 500
   line-height: 90%
   @include m.gap($mb: f.px(20))
@@ -160,21 +153,6 @@
       @include m.gap($mr: f.px(30))
   @include m.media(phone, tablet)
     display: none
-
-// .info, .infoDown
-//   transition: transform 1s ease-in-out
-//   @include m.media(phone, tablet)
-//     @include m.gap($mb: f.px(30))
-//   @include m.media(laptop, desktop)
-//     @include m.gap($mb: f.px(-68))
-//     transform: translateY(f.px(-140))
-//     position: relative
-//     z-index: 1
-
-// .infoDown
-//   @include m.media(laptop, desktop)
-//     @include m.gap($mb: f.px(8))
-//     transform: translateY(f.px(-10))
 
 .mobiledesc
   display: inline-block

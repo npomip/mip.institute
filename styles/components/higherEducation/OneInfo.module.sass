@@ -4,19 +4,18 @@
 
 .point
   position: relative
+  background: white
+  @include m.flex($fd: column, $jc: center)
+  @include m.gap($pt: f.px(14), $plr: f.px(10))
+  border-radius: f.px(10)
   @include m.media(laptop, desktop)
     width: f.px(185)
-  background: #FFF
-  display: flex
-  flex-direction: column
-  justify-content: center
-  @include m.gap($pt: f.px(14), $plr: f.px(5))
-  border-radius: f.px(10)
   @include m.media(phone, tablet)
     height: f.px(90)
-    border: f.px(1) solid #6F01C6
+    border: f.px(1) solid
+    @include m.dye(border, c.$alpha)
   p
-    font-size: f.px(14)
+    font-size: f.px(12)
     text-align: center
     @include m.gap($mb: f.px(11))
     @include m.media(phone, tablet)
@@ -27,8 +26,8 @@
 
 .icon
   position: absolute
-  top: f.px(6)
-  left: f.px(6)
+  top: f.px(8)
+  left: f.px(8)
   span
     background-color: rgba(255, 255, 255, 0) !important
     & > *

@@ -1,18 +1,7 @@
 import client from '@/lib/apolloClient'
-import { gql } from '@apollo/client'
+import UPDATE_EVENT from '@/lib/graphQL/UPDATE_EVENT'
 import checkOrUpdateTokens from 'pages/api/checkOrUpdateTokens'
 import { v4 as uuidv4 } from 'uuid'
-
-const UPDATE_EVENT = gql`
-  mutation UpdateEvent($input: updateEventInput!) {
-    updateEvent(input: $input) {
-      event {
-        tickets_quantity
-      }
-    }
-  }
-`
-
 
 const getTicket = async values => {
   try {
@@ -32,12 +21,11 @@ const getTicket = async values => {
         }
       },
     })
-    
-    // const res = await axios.post(`${routes.front.root}/api/addSeminar`, values)
+
       return data.updateEvent.event.tickets_quantity
     
   } catch (err) {
-    // console.log(err)
+    console.log(err)
   }
 }
 

@@ -2,7 +2,12 @@ import stls from '@/styles/components/cards/CardDistanceEducation.module.sass'
 import { IconCircleCheck } from '../icons'
 import classNames from 'classnames'
 
-const CardDistanceEducation = ({ item, purpleBlock }) => {
+type Props = {
+  item: string
+  purpleBlock?: boolean
+}
+
+const CardDistanceEducation = ({ item, purpleBlock }: Props) => {
   return (
     <div
       className={classNames({

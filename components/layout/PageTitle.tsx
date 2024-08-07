@@ -1,7 +1,12 @@
 import stls from '@/styles/components/layout/PageTitle.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
+import { ReactNode } from 'react'
 
-const PageTitle = ({ children }) => {
+type Props = {
+  children: ReactNode
+}
+
+const PageTitle = ({ children }: Props) => {
   return (
     <div className={stls.container}>
       <Wrapper>

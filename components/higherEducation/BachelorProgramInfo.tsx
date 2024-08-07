@@ -3,10 +3,27 @@ import stls from '@/styles/components/higherEducation/BachelorProgramInfo.module
 import { useContext } from 'react'
 import OneInfo from './OneInfo'
 
+export type Point =
+  | {
+      index: number
+      key: string
+      val: string
+    }
+  | {
+      index: number
+      key: string
+      val: JSX.Element
+    }
+  | {
+      index: number
+      key: JSX.Element
+      val: any
+    }
+
 const BachelorProgramInfo = () => {
   const { bachelor } = useContext(ContextStaticProps)
 
-  const points = [
+  const points: Point[] = [
     {
       index: 1,
       key: 'Уровень:',

@@ -26,18 +26,14 @@ const ArticleBlogListWithBackgroundAndTitleItem = ({
   renderer.strong = title => {
     return `<span class="${styles.strongText}">${title}</span>`
   }
-  
+
   marked.setOptions({ renderer })
 
   const parsedIcon = parse(marked(icon))
 
   return (
     <div className={stls.innerBox}>
-
-      <div className={stls.icon}>
-      {parsedIcon}
-
-      </div>
+      <div className={stls.icon}>{parsedIcon}</div>
       <p>{text}</p>
     </div>
   )

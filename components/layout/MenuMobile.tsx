@@ -1,46 +1,26 @@
-import stls from '@/styles/components/layout/MenuMobile.module.sass'
-import { useContext } from 'react'
-import Link from 'next/link'
-import cn from 'classnames'
-import { routes } from '@/config/index'
-import MenuContext from '@/context/menu/menuContext'
-import Wrapper from '@/components/layout/Wrapper'
-import PopupTrigger from '@/components/general/PopupTrigger'
-import Logo from '@/components/general/Logo'
 import {
   BtnClose,
+  BtnOk,
   BtnPhone,
-  BtnVk,
-  BtnFb,
-  BtnYt,
-  BtnWhatsapp,
   BtnTelegram,
-  BtnOk
+  BtnVk,
+  BtnWhatsapp,
+  BtnYt
 } from '@/components/btns'
+import Logo from '@/components/general/Logo'
+import PopupTrigger from '@/components/general/PopupTrigger'
 import { IconMoreThan } from '@/components/icons'
+import Wrapper from '@/components/layout/Wrapper'
+import MenuContext from '@/context/menu/menuContext'
+import stls from '@/styles/components/layout/MenuMobile.module.sass'
+import cn from 'classnames'
+import links from 'constants/menuMobile'
+import Link from 'next/link'
+import { useContext } from 'react'
 import BtnDzen from '../btns/BtnDzen'
 
 const MenuMobile = () => {
-  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
-    useContext(MenuContext)
-
-  const links = [
-    {
-      text: 'Направления обучения',
-      href: routes.front.programs,
-      withIcon: true
-    },
-    { text: 'Преподаватели', href: routes.front.teachers, withIcon: false },
-    { text: 'Вебинары', href: routes.front.webinars, withIcon: false },
-    {text: 'Журнал', href: routes.front.journals, withIcon: false},
-    { text: 'Отзывы', href: routes.front.reviews, withIcon: false },
-    { text: 'Об институте', href: routes.front.about, withIcon: false },
-    {
-      text: 'Сведения об образовательной организации',
-      href: routes.front.legal,
-      withIcon: false
-    }
-  ]
+  const { menuIsOpen, closeMenu } = useContext(MenuContext)
 
   return (
     <div
@@ -72,9 +52,9 @@ const MenuMobile = () => {
           <BtnPhone withNumber alterNumber />
           {/* <p>+7(800)600-29-03</p> */}
           <p className={stls.divName}>Кураторский отдел:</p>
-          <BtnPhone studyDivision withNumber/>
+          <BtnPhone studyDivision withNumber />
           {/* <p>+7(499)110-82-11</p> */}
-          
+
           <PopupTrigger btn='epsilon' cta='callMeBack' />
         </div>
         <p>Москва, Докучаев переулок, 8</p>
@@ -85,8 +65,6 @@ const MenuMobile = () => {
           <BtnYt />
           <BtnOk />
           <BtnDzen />
-          {/* <BtnFb />
-          <BtnYt /> */}
         </div>
       </Wrapper>
     </div>

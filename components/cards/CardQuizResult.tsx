@@ -1,5 +1,4 @@
 import stls from '@/styles/components/cards/CardQuizResult.module.sass'
-import Link from 'next/link'
 import PopupTrigger from '../general/PopupTrigger'
 import getNextWednesday from '@/helpers/getNextThursday'
 
@@ -7,10 +6,9 @@ interface Props {
   portrait: string
   title: string
   studyHours: number
-  href: string
 }
 
-const CardQuizResult = ({ portrait, title, studyHours, href }: Props) => {
+const CardQuizResult = ({ portrait, title, studyHours }: Props) => {
   return (
     <div className={stls.container}>
       {portrait && (

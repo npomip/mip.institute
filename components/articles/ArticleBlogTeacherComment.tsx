@@ -1,10 +1,8 @@
-import stls from '@/styles/components/articles/ArticleBlogTeacherComment.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import classNames from 'classnames'
-import marked from 'marked'
-import parse from 'html-react-parser'
-import Image from 'next/image'
 import base64pixel from '@/config/base64pixel'
+import stls from '@/styles/components/articles/ArticleBlogTeacherComment.module.sass'
+import parse from 'html-react-parser'
+import marked from 'marked'
+import Image from 'next/image'
 
 type ArticleBlogTeacherCommentType = {
   props: {
@@ -26,8 +24,6 @@ type ArticleBlogTeacherCommentType = {
 const ArticleBlogTeacherComment = ({
   props
 }: ArticleBlogTeacherCommentType) => {
-  // const list = props.listItem || [];
-  const specialization = props && marked(props?.specialization)
   const comment = props?.comment
 
   const renderer = new marked.Renderer()
@@ -39,16 +35,13 @@ const ArticleBlogTeacherComment = ({
 
   const text = marked(props.specialization)
 
-
   return (
     <div className={stls.contentBox}>
       <div className={stls.imgContainer}>
         <Image
           src={props.teacher.portrait.url}
           alt={'alt'}
-          // style={{top: '20px'}}
           className={stls.img}
-          // layout='fill'
           width={173}
           height={226}
           placeholder='blur'
@@ -56,10 +49,10 @@ const ArticleBlogTeacherComment = ({
         />
       </div>
       <div className={stls.textContent}>
-        <div className={stls.textContentSpecialization}>
-        {parse(text)}
-        </div>
-        <div style={{borderLeft: `2px solid ${props.borderColor}`}} className={stls.textContentComment}>
+        <div className={stls.textContentSpecialization}>{parse(text)}</div>
+        <div
+          style={{ borderLeft: `2px solid ${props.borderColor}` }}
+          className={stls.textContentComment}>
           <p>{parse(comment)}</p>
         </div>
       </div>

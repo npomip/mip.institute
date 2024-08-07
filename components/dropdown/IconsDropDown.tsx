@@ -14,68 +14,72 @@ import DocumentsSection from './DocumentsSection'
 import { getCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 
+function IconsDropDown() {
+  const [selectedIcon, setSelectedIcon] = useState(null)
 
- function IconsDropDown() {
-  const [selectedIcon, setSelectedIcon] = useState(null);
-
-  const handleIconClick = (icon) => {
+  const handleIconClick = icon => {
     if (selectedIcon !== icon) {
-      setSelectedIcon(icon);
-    } 
-  };
-  const [isEdpartners, setIsEdpartners] = useState(false);
-const partCookie = getCookie('utm')
-  useEffect(()=>{
+      setSelectedIcon(icon)
+    }
+  }
+  const [isEdpartners, setIsEdpartners] = useState(false)
+  const partCookie = getCookie('utm')
+  useEffect(() => {
     setTimeout(() => {
-      const utmSource = getUtmSourceFromCookie();
-      setIsEdpartners(utmSource === 'edpartners');
-    }, 300);
-}, [isEdpartners, partCookie]);
+      const utmSource = getUtmSourceFromCookie()
+      setIsEdpartners(utmSource === 'edpartners')
+    }, 300)
+  }, [isEdpartners, partCookie])
   return (
-    <div className={stls.popupWrapper} 
-      onMouseLeave={() => handleIconClick(null)}
-      >
-        <div className={stls.dropdownIcon}>
-          {!isEdpartners && (
-            <IconContact
+    <div
+      className={stls.popupWrapper}
+      onMouseLeave={() => handleIconClick(null)}>
+      <div className={stls.dropdownIcon}>
+        {!isEdpartners && (
+          <IconContact
             onMouseEnter={() => handleIconClick('icon1')}
             className={selectedIcon === 'icon1' ? stls.selected : ''}
-          /> 
-          )}
-          {/* <IconContact
-            onMouseEnter={() => handleIconClick('icon1')}
-            className={selectedIcon === 'icon1' ? stls.selected : ''}
-          /> */}
-          <IconDropDownClock
-            onMouseEnter={() => handleIconClick('icon3')}
-            className={selectedIcon === 'icon3' ? stls.selected : ''}
           />
-          <IconDropDownDocuments
-            onMouseEnter={() => handleIconClick('icon2')}
-            className={selectedIcon === 'icon2' ? stls.selected : ''}
-          />
-          
-          <IconWeakVision
-            onMouseEnter={() => handleIconClick('icon4')}
-            className={selectedIcon === 'icon4' ? stls.selected : ''}
-          />
-          <IconEnterToPortal
-            onMouseEnter={() => handleIconClick('icon5')}
-            className={selectedIcon === 'icon5' ? stls.selected : ''}
-          />
-        </div>
-        <div
-          className={classNames(stls.popupContent, {
-            [stls.open]: selectedIcon !== null,
-          })}
-        >
-          <ConnectInfo className={selectedIcon === 'icon1' ? stls.visible : stls.hidden} />
-          <DocumentsSection className={selectedIcon === 'icon2' ? stls.visible : stls.hidden} />
-          <TimeOfWork className={selectedIcon === 'icon3' ? stls.visible : stls.hidden} />
-          <WeakVision className={selectedIcon === 'icon4' ? stls.visible : stls.hidden} />
-          <DistanceStudy className={selectedIcon === 'icon5' ? stls.visible : stls.hidden} />
-        </div>
+        )}
+        <IconDropDownClock
+          onMouseEnter={() => handleIconClick('icon3')}
+          className={selectedIcon === 'icon3' ? stls.selected : ''}
+        />
+        <IconDropDownDocuments
+          onMouseEnter={() => handleIconClick('icon2')}
+          className={selectedIcon === 'icon2' ? stls.selected : ''}
+        />
+
+        <IconWeakVision
+          onMouseEnter={() => handleIconClick('icon4')}
+          className={selectedIcon === 'icon4' ? stls.selected : ''}
+        />
+        <IconEnterToPortal
+          onMouseEnter={() => handleIconClick('icon5')}
+          className={selectedIcon === 'icon5' ? stls.selected : ''}
+        />
       </div>
+      <div
+        className={classNames(stls.popupContent, {
+          [stls.open]: selectedIcon !== null
+        })}>
+        <ConnectInfo
+          className={selectedIcon === 'icon1' ? stls.visible : stls.hidden}
+        />
+        <DocumentsSection
+          className={selectedIcon === 'icon2' ? stls.visible : stls.hidden}
+        />
+        <TimeOfWork
+          className={selectedIcon === 'icon3' ? stls.visible : stls.hidden}
+        />
+        <WeakVision
+          className={selectedIcon === 'icon4' ? stls.visible : stls.hidden}
+        />
+        <DistanceStudy
+          className={selectedIcon === 'icon5' ? stls.visible : stls.hidden}
+        />
+      </div>
+    </div>
   )
 }
 

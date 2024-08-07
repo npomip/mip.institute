@@ -1,10 +1,13 @@
 import stls from '@/styles/components/higherEducation/OneInfo.module.sass'
-import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
 import { IconCircleCheck } from '../icons'
+import { Point } from './BachelorProgramInfo'
 
-const OneInfo = ({point}) => {
-const {key, val} = point
+type Props = {
+  point: Point
+}
+
+const OneInfo = ({ point }: Props) => {
+  const { key, val } = point
   return (
     <div className={stls.point}>
       <div className={stls.icon}>

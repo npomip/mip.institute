@@ -1,29 +1,24 @@
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/layout/StickyTop.module.sass'
-import { useState } from 'react'
-import IconPortalViolet from '../icons/IconPortalViolet'
-import {
-  BtnAlpha,
-  BtnBeta,
-  BtnDelta,
-  BtnEpsilon,
-  BtnGamma,
-  BtnYt,
-  BtnZeta
-} from '../btns'
-import PopupTrigger from '../general/PopupTrigger'
 import classNames from 'classnames'
+import PopupTrigger from '../general/PopupTrigger'
 import { IconCloseCircle } from '../icons'
+import IconPortalViolet from '../icons/IconPortalViolet'
 
-const StickyTop = ({onClick=undefined, isPromo=false, promoText=''}) => {
-  const [isPromoUsed, setIsPromoUsed] = useState(false)
-  
+type Props = {
+  onClick: () => void
+  isPromo?: boolean
+  promoText?: string
+}
+
+const StickyTop = ({ onClick, isPromo = false, promoText = '' }: Props) => {
   return (
-    <div  className={classNames({
-      [stls.container]: true,
-      [stls.nopromo]: !isPromo,
-      [stls.promo]: isPromo
-    })} >
+    <div
+      className={classNames({
+        [stls.container]: true,
+        [stls.nopromo]: !isPromo,
+        [stls.promo]: isPromo
+      })}>
       <Wrapper>
         <div className={stls.content}>
           <div className={stls.left}>
@@ -37,19 +32,11 @@ const StickyTop = ({onClick=undefined, isPromo=false, promoText=''}) => {
             </div>
           </div>
           <div className={stls.btn}>
-            <PopupTrigger
-              btn='gamma'
-              cta='use'
-              isActivePromocode={promoText}
-            />
+            <PopupTrigger btn='gamma' cta='use' isActivePromocode={promoText} />
           </div>
         </div>
         <div className={stls.mobileBtn}>
-          <PopupTrigger
-            btn='gamma'
-            cta='use'
-            isActivePromocode={promoText}
-          />
+          <PopupTrigger btn='gamma' cta='use' isActivePromocode={promoText} />
         </div>
       </Wrapper>
       <div className={stls.close}>

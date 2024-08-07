@@ -1,35 +1,11 @@
-import axios from 'axios'
 import { routes } from '@/config/index'
+import client from '@/lib/apolloClient'
+import CHECK_TOKENS from "@/lib/graphQL/CHECK_TOKENS"
+import UPDATE_TOKEN from "@/lib/graphQL/UPDATE_TOKENS"
+import axios from 'axios'
+import moment from 'moment'
 import { v4 as uuidv4 } from 'uuid'
 import createOrUpdateLead from './createOtUpdateLead'
-import { gql, useQuery } from '@apollo/client'
-import client from '@/lib/apolloClient'
-import moment from 'moment'
-
-const CHECK_TOKENS = gql`
-  query amoTokens($title: String!) {
-    amos(where: { title: $title }) {
-      id
-      title
-      refresh
-      access
-      expired_in
-    }
-  }
-`
-
-const UPDATE_TOKEN = gql`
-  mutation UpdateTokens($input: updateAmoInput!) {
-    updateAmo(input: $input) {
-      amo {
-        id
-        access
-        refresh
-        expired_in
-      }
-    }
-  }
-`
 
 const hitContactRoute = async values => {
   try {
@@ -40,8 +16,6 @@ const hitContactRoute = async values => {
       variables: { title: 'amo' },
       fetchPolicy: 'network-only'
     });
-
-    // console.log('values', values)
 
     if(values?.utm?.utm_source
       === 'edpartners'){
@@ -77,42 +51,20 @@ const hitContactRoute = async values => {
           }
         },
       })
-      
       values.access = data.updateAmo.amo.access
-
-      console.log(values)
       const newLead =  await createOrUpdateLead(values)
-      console.log(newLead)
       return newLead.data.status
-
     } else {
-      console.log('token life time is suffficient')
       values.access = oldAccess_token
       const newLead =  await createOrUpdateLead(values)
-      console.log('newLead', newLead)
-      console.log('newlead success')
       return newLead.data.status
     }
-
-    // 
-    // const res = await axios.post(`${routes.front.root}/api/contact`, values)
-    // if(values.utm.utm_source
-    //   === 'edpartners'){
-    //   const edPartnersRes = await axios.post(`${routes.front.root}/api/edPartners`, values)
-    // }
-    // let output
-    // res.status === 200 && (output = 200)
-    // res.status === 500 && (output = 500)
-    // return output
-    // return { res, edPartnersRes };
   } catch (err) {
-    // console.log(err)
+    console.log(err);
     try {
       const res = await axios.post(`${routes.front.root}/api/contact`, values)
-    console.log('asdasfasdf', res)
     return res.status
     } catch (error) {
-      console.log(error)
       return error
     }
   }

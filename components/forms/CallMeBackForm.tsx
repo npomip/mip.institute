@@ -1,18 +1,16 @@
-import stls from '@/styles/components/forms/NewForm.module.sass'
-import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
-import Popup from 'reactjs-popup'
-import { useForm } from 'react-hook-form'
-import hitContactRoute from '@/components/funcs/hitContactRoute'
 import { BtnAlpha, BtnBeta } from '@/components/btns'
-import classNames from 'classnames'
 import { PopupThankyou } from '@/components/popups'
-import { useMutation, gql, ApolloClient, useQuery } from '@apollo/client'
-import apolloClient from '@/lib/apolloClient'
-import moment from 'moment'
-import axios from 'axios'
 import routes from '@/config/routes'
+import stls from '@/styles/components/forms/NewForm.module.sass'
+import { gql, useMutation, useQuery } from '@apollo/client'
+import axios from 'axios'
+import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
+import moment from 'moment'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import Popup from 'reactjs-popup'
 
 const CHECK_TOKENS = gql`
   query amoTokens($title: String!) {
@@ -48,6 +46,15 @@ type FormValues = {
   leadPage: string
 }
 
+type Props = {
+  cta?: string
+  blockForAmo?: string
+  question?: boolean
+  popup?: boolean
+  atFooter?: boolean
+  agreement?: boolean
+}
+
 const CallMeBackForm = ({
   cta = 'Подобрать программу',
   blockForAmo = 'Подобрать программу',
@@ -55,11 +62,10 @@ const CallMeBackForm = ({
   popup = false,
   atFooter = false,
   agreement = false
-}) => {
+}: Props) => {
   const {
     register,
     handleSubmit,
-    reset,
     setFocus,
     formState: { errors }
   } = useForm<FormValues>()
@@ -73,7 +79,7 @@ const CallMeBackForm = ({
 
   const router = useRouter()
 
-  const { loading, error, data } = useQuery(CHECK_TOKENS, {
+  const { error, data } = useQuery(CHECK_TOKENS, {
     variables: { title: 'amo' }
   })
 
@@ -102,18 +108,16 @@ const CallMeBackForm = ({
     sessionStorage.removeItem('referer')
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     formData.ymUid = ymUid
-    const clickId = getCookie('utm'); 
-    // console.log('clickId', clickId)
+    const clickId = getCookie('utm')
 
     formData.blockForAmo = blockForAmo
 
     if (typeof clickId === 'string') {
-      formData.utm = JSON.parse(clickId);
+      formData.utm = JSON.parse(clickId)
     } else {
-      formData.utm = null; // или какое-то другое значение по умолчанию
+      formData.utm = null // или какое-то другое значение по умолчанию
     }
 
-    
     if (differenceInTime < 1800) {
       try {
         // отправляем запрос на обновление токенов, нам нужен из базы рефреш токен
@@ -151,60 +155,48 @@ const CallMeBackForm = ({
               if (responseNewLead.status === 200) {
                 // создали юзера
                 console.log('user created')
-              }  
-              // if(responseNewLead.status === 401){
-              //   console.log(400)
-              //   setServerErrorMeassage('Ошибка при создании новой заявки')
-              // }
+              }
             } catch (error) {
               if (error.response.status === 400) {
                 setServerErrorMeassage('400 Ошибка при создании новой заявки')
               } else {
-      
-                setServerErrorMeassage(`Другая ошибка при запросе на обмен токенов ${error.response.status}`)
-                console.error('Не удалось обновить токены для записи Amo:', error)
+                setServerErrorMeassage(
+                  `Другая ошибка при запросе на обмен токенов ${error.response.status}`
+                )
+                console.error(
+                  'Не удалось обновить токены для записи Amo:',
+                  error
+                )
               }
             }
-            
           }
-        } 
+        }
       } catch (error) {
         if (error.response.status === 400) {
           setServerErrorMeassage('400 ошибка при запросе на обмен токенов')
           console.log('400 ошибка, отправляем через смтп')
         } else {
-
-          setServerErrorMeassage(`Другая ошибка при запросе на обмен токенов ${error.response.status}`)
+          setServerErrorMeassage(
+            `Другая ошибка при запросе на обмен токенов ${error.response.status}`
+          )
           console.error('Не удалось обновить токены для записи Amo:', error)
         }
       }
     } else {
-      console.log(differenceInTime, 'in else')
       try {
         formData.access = access_token
         const responseNewLead = await axios.post(
           `${routes.front.root}/api/checkAndCreateLead`,
           formData
         )
-        console.log(responseNewLead)
       } catch (error) {
-        setServerErrorMeassage('Не удалось создать лид, но время истечения токена удовлетворяет условиям')
+        setServerErrorMeassage(
+          'Не удалось создать лид, но время истечения токена удовлетворяет условиям'
+        )
         console.error('Не удалось создать или обновить лид', error)
       }
     }
   }
-  // setIsDisabled(true)
-  // setThanksIsOpen(true)
-  // // handle loader
-  // data.leadPage = router.asPath
-  // const utms = JSON.parse(sessionStorage.getItem('utms'))
-  // data.utms = utms
-  // sessionStorage.removeItem('utms')
-  // const referer = JSON.parse(sessionStorage.getItem('referer'))
-  // data.referer = referer
-  // sessionStorage.removeItem('referer')
-  // const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
-  // data.ymUid = ymUid
 
   return (
     <>
@@ -302,7 +294,6 @@ const CallMeBackForm = ({
               персональных данных
             </p>
           )}
-          
         </div>
         <p>{serverErrorMeassage}</p>
       </form>

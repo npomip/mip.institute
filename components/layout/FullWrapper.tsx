@@ -1,7 +1,11 @@
 import stls from '@/styles/components/layout/FullWrapper.module.sass'
-import classNames from 'classnames'
+import { ReactNode } from 'react'
 
-const FullWrapper = ({ children }) => {
+type Props = {
+  children: ReactNode
+}
+
+const FullWrapper = ({ children }: Props) => {
   return <div className={stls.container}>{children}</div>
 }
 

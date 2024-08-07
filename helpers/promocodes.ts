@@ -9,6 +9,8 @@ const promocodes = {
   globa: 'ГЛОБА',
   uzefovich: 'ЮЗЕФОВИЧ',
   shahimat: 'Шах и Мат',
+  eninaanna:'ЕНИНА',
+  dashtolc: 'dashatolc'
 };
 
 export default promocodes

@@ -25,6 +25,7 @@ type ArticleTitleType = {
     teacher?: {
       name: string
       achievements: string
+      achievementsJournal: string
       portraitForBlog?: {
         url: string
         width: string
@@ -91,7 +92,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             <div className={stls.teacherText}>
               <p className={stls.teacherName}>{props?.teacher?.name}</p>
               <p className={stls.achievements}>
-                {props?.teacher?.achievements}
+                {props?.teacher?.achievementsJournal}
               </p>
             </div>
           </div>

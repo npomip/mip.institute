@@ -64,6 +64,7 @@ const getStaticPropsPageJournal = async ({
               name
               position
               achievements
+              achievementsJournal
               portraitForBlog {
                 url
                 width

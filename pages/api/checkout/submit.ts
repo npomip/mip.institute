@@ -10,6 +10,8 @@ export default async function handler(req, res) {
   const staticKey = '3ykOQzkL2X647dWw8dDx7h5c';
 
   try {
+    console.log(req.body);
+
     const payment_id = req.body.object.id
 
     const generatePswrd = uuidv4()
@@ -83,3 +85,6 @@ export default async function handler(req, res) {
 }
 
 // 5555555555554477
+
+
+// 5555555555554592

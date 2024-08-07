@@ -6,11 +6,11 @@ const exchangeTokens = async (req, res) => {
   // res.status(200).json({status: 'ok'});
 
   // const clientId = ; // Замените на ваш реальный client_id
-  const clientSecret = "nW5Bjw8iqTkbXRS5gndurGCjvtq1V3hXYuPSSbXyZegFbLxbJgHnOvvD8fLwEZJ2"; // Замените на ваш реальный client_secret
+  const clientSecret = "iCeYljT2PFzN9KoxBuMTwVoeLSEq0PEoFKRtGAq1Is32gLKewpp5SVriMYTeiLK7"; // Замените на ваш реальный client_secret
 
   // Подготовьте данные для POST-запроса
   const data = {
-    "client_id": "34a4fcbd-ce38-442e-8f1d-878578f18f20",
+    "client_id": "95a7b06e-c0a6-450c-ba33-0a385bd805b6",
     "client_secret": clientSecret,
     "grant_type": "refresh_token",
     "refresh_token": refresh,

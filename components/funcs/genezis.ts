@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid'
 const genezis = async values => {
   try {
     values.id = uuidv4()
-    console.log(values)
     const res = await axios.post(`${routes.front.root}/api/genezis`, values)
 
     await axios.post(`${routes.front.root}/api/advCakeNew`, values)
@@ -17,6 +16,14 @@ const genezis = async values => {
 
     if (values?.utm?.utm_source === 'edpartners') {
       await axios.post(`${routes.front.root}/api/edPartners`, values)
+    }
+
+    if (values?.utm?.utm_source === 'sravni') {
+      console.log(values, 'values');
+      
+    const res = await axios.post(`${routes.front.root}/api/sravni`, values)
+    console.log(res);
+    
     }
 
     let output

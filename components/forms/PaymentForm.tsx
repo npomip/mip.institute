@@ -7,6 +7,9 @@ import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
 import { BtnClose } from '../btns'
 import routes from '@/config/routes'
+import { useRouter } from 'next/router'
+import { getCookie } from 'cookies-next'
+import payment from '../funcs/payment'
 
 type FormValues = {
   name: string
@@ -17,9 +20,15 @@ type FormValues = {
 
 type Props = {
   onClose: () => void
+  program: {
+    price
+  }
 }
 
-const PaymentForm = ({ onClose }: Props) => {
+const PaymentForm = ({ onClose, program }: Props) => {
+  const router = useRouter()
+  console.log(program.price);
+  
   const {
     register,
     handleSubmit,
@@ -37,7 +46,24 @@ const PaymentForm = ({ onClose }: Props) => {
   const [isAgree, setIsAgree] = useState(false)
 
   const onSubmit = async data => {
+    data.leadPage = router.asPath
+    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    data.referer = referer
+    data.price = program.price
+    const utm = getCookie('utm')
+    if (typeof utm === 'string') {
+      data.utm = JSON.parse(utm)
+    } else {
+      data.utm = null // или какое-то другое значение по умолчанию
+    }
     console.log(data)
+    const resp = await payment(data)
+    console.log(resp);
+    if (resp && resp.url) {
+      window.open(resp.url, '_blank');
+    } else {
+      console.error('No URL found in response');
+    }
   }
 
   const isDisabled =

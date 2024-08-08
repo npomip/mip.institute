@@ -25,24 +25,26 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
         <IconBell />
       </div>
       <div className={stls.when}>
+        <span className={stls.label}>Дата:</span>
         <span className={stls.date}>
+          {daysOfWeek[newDate.getDay()]}{' '}
           {newDate.getDate()} {monhts[newDate.getMonth()]}.,{' '}
           {newDate.getUTCHours() + 3}:
           {newDate.getMinutes() < 10
             ? `0${newDate.getMinutes()}`
             : newDate.getMinutes()}{' '}
         </span>
-        <span className={stls.dayOfWeek}>{daysOfWeek[newDate.getDay()]}</span>
       </div>
       <div className={stls.speaker}>
-        <div className={stls.img}>{picture}</div>
         <div className={stls.right}>
-          <span className={stls.label}>Спикер:</span>
-          <p className={stls.name}>{name}</p>
+          <span className={stls.label}>Тема:</span>
           <h2 className={stls.title}>{title}</h2>
-          <div className={stls.link}>
-            <CtaText text={'Подробнее'} ctheta />
-          </div>
+          <span className={stls.label}>Спикер:</span>
+          <p className={stls.desc}>{name}</p>
+          <div className={stls.img}>{picture}</div>
+          <button className={stls.link}>
+            Принять участие
+          </button>
         </div>
       </div>
     </div>

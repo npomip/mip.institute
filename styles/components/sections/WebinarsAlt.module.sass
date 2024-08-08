@@ -20,12 +20,12 @@
 
 .webinars
   display: grid
-  grid-column-gap: f.px(10)
+  grid-row-gap: f.px(30)
   @include m.gap($m: 0, $p: 0)
   @include m.media(desktop)
-    grid-template-columns: repeat(3, 1fr)
+    grid-template-columns: repeat(1, 1fr)
   @include m.media(laptop)
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(1, 1fr)
 
 .webinar
   @include m.media(phone, tablet)
@@ -36,9 +36,13 @@
     @include m.gap($mr: 2%, $mb: f.px(31))
     &:nth-child(3n)
       @include m.gap($mr: 0)
+.card
+  flex: 1
 
 .trigger
   width: 100%
+  @include m.flex()
+  gap: f.px(30)
 
 .btn
   @include m.flex($jc: center)

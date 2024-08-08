@@ -1,17 +1,19 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
-  
+
 .container
+  flex: 1
   position: relative
   width: 100%
-  @include m.gap($p: f.px(30))
+  @include m.gap($plr: f.px(24), $ptb: f.px(18))
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
-  border-radius: f.px(20)
+  border-radius: f.px(5)
   text-align: left
   @include m.dye(bg, c.$nu)
   cursor: pointer
   transition: background-color .2s ease-in-out
+  border: f.px(1) solid #6f01c6
   &:focus-visible,
   &:hover
     @include m.dye(bg, c.$pi)
@@ -20,7 +22,8 @@
     & .title
       @include m.dye(c, c.$alpha)
     & .link
-      text-decoration: underline
+      scale: 1.05
+      opacity: 1
 
 .bell
   position: absolute
@@ -38,10 +41,17 @@
 
 .date
   @include m.gap($mb: f.px(8))
-  font-size: f.px(18)
+  font-size: f.px(20)
   font-weight: 500
-  line-height: 120%
-  @include m.dye(c, c.$eta-2)
+  line-height: 130%
+  color: #212121
+
+.desc
+  font-size: f.px(20)
+  font-weight: 500
+  line-height: 130%
+  color: #212121
+  @include m.gap($mb: f.px(0))
 
 .dayOfWeek
   @include m.gap($mb: f.px(20))
@@ -50,7 +60,7 @@
   @include m.dye(c, c.$kappa)
 
 .speaker
-  @include m.flex
+  // @include m.flex
 
 .img
   min-width: f.px(70)
@@ -69,22 +79,29 @@
 
 .label
   @include m.gap($mb: f.px(8))
-  font-size: f.px(13)
-  line-height: 120%
-  @include m.dye(c, rgba(c.$theta, .4))
+  font-size: f.px(16)
+  font-weight: 500
+  line-height: 130%
+  color: #B4B4B4
 
 .title
-  @include m.gap($mb: f.px(56))
-  font-size: f.px(22)
+  // @include m.gap($mb: f.px(56))
+  font-size: f.px(25)
+  line-height: 130%
   font-weight: 500
   overflow-wrap: break-word
-  @include m.dye(c, c.$theta)
+  color: #212121
   transition: color .2s ease-in-out
 
 .link
   position: absolute
-  bottom: f.px(30)
-  @include m.gap($mt: auto, $mb: 0)
-  font-size: f.px(16)
-  @include m.dye(c, c.$theta)
-  transition: text-decoration .2s ease-in-out
+  bottom: f.px(22)
+  right: f.px(21)
+  @include m.gap($mt: auto, $mb: 0, $ptb: f.px(16), $plr: f.px(30))
+  font-size: f.px(20)
+  font-weight: 500
+  color: #fff
+  border-radius: f.px(50)
+  transition: scale .2s ease-in-out, opacity .2s ease-in-out
+  @include m.dye(bg, c.$alpha)
+  opacity: .2

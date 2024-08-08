@@ -6,6 +6,8 @@ import { PopupCta } from '@/components/popups'
 import CardWebinarAlt from '@/components/cards/CardWebinarAlt'
 import { ImgWebinar } from '@/components/imgs'
 import getImageHeight from '@/helpers/getImageHeight'
+import src from '@/public/assets/imgs/webinars/webinarImg.png'
+import Image from 'next/image'
 
 type WebinarsAltType = {
   webinars: any
@@ -15,7 +17,7 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h1 className={stls.title}>Вебинары</h1>
+        <h1 className={stls.title}>Лекторий</h1>
         <ul className={stls.webinars}>
           {webinars &&
             [...webinars]
@@ -47,6 +49,9 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                           }
                           title={webinar.title}
                         />
+                        <div className={stls.card}>
+                          <Image src={src}/>
+                        </div>
                       </div>
                     }
                     modal

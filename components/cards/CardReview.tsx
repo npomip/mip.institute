@@ -1,10 +1,7 @@
 import stls from '@/styles/components/cards/CardReview.module.sass'
-import truncate from 'truncate'
-import Popup from 'reactjs-popup'
-import { BtnText } from '@/components/btns'
-import { PopupReview } from '@/components/popups'
-import { ReactNode, useEffect, useState } from 'react'
 import classNames from 'classnames'
+import { ReactNode, useEffect, useState } from 'react'
+import truncate from 'truncate'
 
 interface Props {
   isLiveCourse?: boolean

@@ -5,9 +5,16 @@ import { useRef, useState } from 'react'
 import CardDistanceEducation from '../cards/CardDistanceEducation'
 import SwiperContainer from '../general/SwiperContainer'
 import { IconFinger } from '../icons'
-import { distanceEducationList } from '@/data/general/distanceEducationList'
+import { distanceEducationList } from 'constants/distanceEducationList'
 
-export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobile=0, paddingBottomMobile=0, list=distanceEducationList, title='В программу дистанционного обучения входит:'}) => {
+export const DistanceEducation = ({
+  paddingTop = 0,
+  paddingBottom = 0,
+  paddingTopMobile = 0,
+  paddingBottomMobile = 0,
+  list = distanceEducationList,
+  title = 'В программу дистанционного обучения входит:'
+}) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const slides = list.map((item, idx) => (
@@ -53,9 +60,7 @@ export const DistanceEducation = ({paddingTop=0, paddingBottom=0, paddingTopMobi
           : paddingBottom
       }}>
       <Wrapper>
-        <h2 className={stls.title}>
-          {title}
-        </h2>
+        <h2 className={stls.title}>{title}</h2>
         <SwiperContainer
           slides={slides}
           mobileOptions={mobileSwiperOptions}

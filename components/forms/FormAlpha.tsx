@@ -36,6 +36,7 @@ interface Props {
   promo?: boolean
   inProfessions?: boolean
   isLiveCourse?: boolean
+  isActivePromocode?: string
 }
 
 const FormAlpha = ({
@@ -49,7 +50,7 @@ const FormAlpha = ({
   inProfessions = false,
   isLiveCourse = false,
   isActivePromocode = ''
-}) => {
+}: Props) => {
   const {
     register,
     handleSubmit,
@@ -73,11 +74,6 @@ const FormAlpha = ({
   const [tickets, setTickets] = useState(1)
   const { updateTicketsQuantity } = useContext(ContextStaticProps)
 
-  console.log(bachelor);
-  console.log('blockForAmo', blockForAmo);
-  
-  
-
   useEffect(() => {
     popup && setFocus('name')
   }, [setFocus, popup])
@@ -85,8 +81,6 @@ const FormAlpha = ({
   const router = useRouter()
 
   const onSubmit = async data => {
-    // const ipCheck = await ipCheckFunc()
-    // if (ipCheck === 200) {
     setIsDisabled(true)
     setLoading(true)
 
@@ -131,7 +125,6 @@ const FormAlpha = ({
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
       const req = await genezis(data)
-      // const req = await hitContactRoute(data)
 
       if (req === 200) {
         setLoading(false)
@@ -148,10 +141,6 @@ const FormAlpha = ({
         setIsIpCheckFailed(true)
       }
     }
-    // } else {
-    //   setIsIpCheckFailed(true)
-    //   console.log(errors)
-    // }
   }
 
   return (
@@ -163,10 +152,7 @@ const FormAlpha = ({
         <PopupThankyou close={() => setThanksIsOpen(false)} />
       </Popup>
 
-      <Popup
-        open={loading}
-        // closeOnDocumentClick
-        onClose={() => setLoading(false)}>
+      <Popup open={loading} onClose={() => setLoading(false)}>
         <PopupLoading />
       </Popup>
       <form
@@ -321,7 +307,6 @@ const FormAlpha = ({
             </p>
           )}
           {isIpCheckFailed && (
-            // <div className={stls.serverError}>
             <p className={stls.checkError}>
               Невозможно отправить форму, пожалуйста, свяжитесь с нами по номеру{' '}
               <a href='tel:+7-499-110-86-32'>+7 (499) 110-86-32</a> или{' '}
@@ -333,7 +318,6 @@ const FormAlpha = ({
                 Напишите в WhatsApp
               </a>
             </p>
-            // {/* </div> */}
           )}
         </div>
       </form>

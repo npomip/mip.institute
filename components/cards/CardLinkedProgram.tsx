@@ -1,7 +1,5 @@
-import getNextWednesday from '@/helpers/getNextThursday'
 import stls from '@/styles/components/cards/CardLinkedProgram.module.sass'
 import { StaticImageData } from 'next/image'
-import Link from 'next/link'
 
 type Props = {
   portrait: string | StaticImageData | JSX.Element
@@ -24,10 +22,10 @@ const CardLinkedProgram = ({ portrait, title }: Props) => {
             <span>Обучение с третьего курса</span>
           </p>
           <p className={stls.subtitle}>
-            <span>Включено в стоимость</span> 
+            <span>Включено в стоимость</span>
           </p>
           <p className={stls.subtitle}>
-            <span>По окончанию обучения второй диплом</span> 
+            <span>По окончанию обучения второй диплом</span>
           </p>
         </div>
       </div>

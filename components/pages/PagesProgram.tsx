@@ -5,7 +5,6 @@ import {
   ForWhom,
   FullProgram,
   HeroProgram,
-  HowProcessGoes,
   PageNavigation,
   Reviews,
   StudyCost,
@@ -15,8 +14,6 @@ import {
   YourDiploma,
   YourResume
 } from '@/components/sections'
-import list from '@/data/general/list'
-import listOnCourses from '@/data/general/listOnCourses'
 import { discount } from '@/data/price'
 import {
   sortBasedOnNumericOrder,
@@ -71,17 +68,27 @@ const PagesProgram = ({
     utm = null // или какое-то другое значение по умолчанию
   }
   const isVario = utm?.utm_source === 'vario'
-  console.log(isVario);
+  console.log(isVario)
 
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
-    { id: 'teachers', label: 'Преподаватели', ref: teachersRef, condition: true },
-    { id: 'resume', label: 'Навыки', ref: resumeRef, condition: ofType === 'Profession' },
+    {
+      id: 'teachers',
+      label: 'Преподаватели',
+      ref: teachersRef,
+      condition: true
+    },
+    {
+      id: 'resume',
+      label: 'Навыки',
+      ref: resumeRef,
+      condition: ofType === 'Profession'
+    },
     { id: 'cost', label: 'Стоимость', ref: costRef, condition: !isVario },
     { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
-    { id: 'faq', label: 'FAQ', ref: faqRef, condition: true },
-  ];
+    { id: 'faq', label: 'FAQ', ref: faqRef, condition: true }
+  ]
 
   const [showDescription, setShowDescription] = useState(true)
 
@@ -97,16 +104,11 @@ const PagesProgram = ({
 
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
-  
-
-
   return (
     <>
       <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
-      <PageNavigation
-        sections={sections}
-      />
+      <PageNavigation sections={sections} />
       <WhyBother />
       {programOverview && (
         <ProgramOverview
@@ -126,19 +128,21 @@ const PagesProgram = ({
           <WhatYouWillLearn title={'Чему вы научитесь'} />
         </>
       )}
-      <EducationProcess 
-        paddingTop={30} 
-        paddingBottom={0} 
-        paddingTopMobile={0} 
+      <EducationProcess
+        paddingTop={30}
+        paddingBottom={0}
+        paddingTopMobile={0}
         paddingBottomMobile={0}
       />
-      <DistanceEducation paddingBottomMobile={20}/>
+      <DistanceEducation paddingBottomMobile={20} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {ofType !== 'Course' && ofType !== 'Practice' && <YourResume resumeRef={resumeRef} />}
+      {ofType !== 'Course' && ofType !== 'Practice' && (
+        <YourResume resumeRef={resumeRef} />
+      )}
       <SalaryCounter />
       <RequestsCard />
 
@@ -150,9 +154,9 @@ const PagesProgram = ({
         cta='reserve'
       />
 
-      {!isVario &&  <StudyCost costRef={costRef} />}
+      {!isVario && <StudyCost costRef={costRef} />}
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
-      <EntryForm pb={isMobileAndTabletLayout  ? 60 : 90} pt={0} /> 
+      <EntryForm pb={isMobileAndTabletLayout ? 60 : 90} pt={0} />
       <Faq faqRef={faqRef} />
     </>
   )

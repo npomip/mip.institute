@@ -1,10 +1,9 @@
 import Wrapper from '@/components/layout/Wrapper'
-import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/QuizResults.module.sass'
+import Image from 'next/image'
 import { useContext } from 'react'
 import CardQuizResult from '../cards/CardQuizResult'
-import Image from 'next/image'
 import testResultsMarker from '../funcs/testResultsMarker'
 
 interface Props {
@@ -52,7 +51,6 @@ const QuizResults = ({ result }: Props) => {
         <div className={stls.content}>
           {(list.filter(el => el.slug) ?? []).map((course, idx) => (
             <CardQuizResult
-              href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
               key={idx}
               portrait={course?.image}
               title={course.title}

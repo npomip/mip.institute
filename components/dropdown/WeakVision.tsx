@@ -1,15 +1,19 @@
 import React from 'react'
-import stls from '@/styles/components/dropdownMenu/WeakVision.module.sass';
-import classNames from 'classnames';
-import IconSadFace from '../icons/IconSadFace';
+import stls from '@/styles/components/dropdownMenu/WeakVision.module.sass'
+import classNames from 'classnames'
+import IconSadFace from '../icons/IconSadFace'
 
 interface Icon1Props {
-  className?: string;
-  selected?: boolean;
+  className?: string
+  selected?: boolean
 }
 
 const WeakVision: React.FC<Icon1Props> = ({ className, selected = false }) => {
-  const infoClasses = classNames(stls.container, {[stls.selected]: selected }, className);
+  const infoClasses = classNames(
+    stls.container,
+    { [stls.selected]: selected },
+    className
+  )
   return (
     <div className={infoClasses}>
       <div className={stls.wrapper}>
@@ -19,8 +23,6 @@ const WeakVision: React.FC<Icon1Props> = ({ className, selected = false }) => {
           <IconSadFace />
         </div>
       </div>
-      
-      
     </div>
   )
 }

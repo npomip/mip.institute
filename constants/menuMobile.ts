@@ -1,0 +1,21 @@
+import { routes } from "../config"
+
+const links = [
+  {
+    text: 'Направления обучения',
+    href: routes.front.programs,
+    withIcon: true
+  },
+  { text: 'Преподаватели', href: routes.front.teachers, withIcon: false },
+  { text: 'Вебинары', href: routes.front.webinars, withIcon: false },
+  { text: 'Журнал', href: routes.front.journals, withIcon: false },
+  { text: 'Отзывы', href: routes.front.reviews, withIcon: false },
+  { text: 'Об институте', href: routes.front.about, withIcon: false },
+  {
+    text: 'Сведения об образовательной организации',
+    href: routes.front.legal,
+    withIcon: false
+  }
+]
+
+export default links

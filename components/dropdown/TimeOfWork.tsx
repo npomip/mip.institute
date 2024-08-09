@@ -1,17 +1,21 @@
 import React from 'react'
-import stls from '@/styles/components/dropdownMenu/TimeOfWork.module.sass';
-import classNames from 'classnames';
-import IconOrangeDot from '../icons/IconOrangeDot';
-import Link from 'next/link';
-import routes from '@/config/routes';
+import stls from '@/styles/components/dropdownMenu/TimeOfWork.module.sass'
+import classNames from 'classnames'
+import IconOrangeDot from '../icons/IconOrangeDot'
+import Link from 'next/link'
+import routes from '@/config/routes'
 
 interface Icon1Props {
-  className?: string;
-  selected?: boolean;
+  className?: string
+  selected?: boolean
 }
 
 const TimeOfWork: React.FC<Icon1Props> = ({ className, selected = false }) => {
-  const infoClasses = classNames(stls.container, {[stls.selected]: selected }, className);
+  const infoClasses = classNames(
+    stls.container,
+    { [stls.selected]: selected },
+    className
+  )
   return (
     <div className={infoClasses}>
       <div className={stls.wrapper}>
@@ -26,11 +30,11 @@ const TimeOfWork: React.FC<Icon1Props> = ({ className, selected = false }) => {
       </div>
       <p className={stls.description}>Москва</p>
       <p className={stls.description}>Докучаев переулок, 8</p>
-        <Link href={routes.front.contact}>
-              <a href={routes.front.contact} className={stls.contacts}>
-              Контакты
-              </a>
-            </Link>
+      <Link href={routes.front.contact}>
+        <a href={routes.front.contact} className={stls.contacts}>
+          Контакты
+        </a>
+      </Link>
     </div>
   )
 }

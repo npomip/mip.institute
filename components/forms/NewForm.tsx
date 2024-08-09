@@ -12,7 +12,6 @@ import { getCookie } from 'cookies-next'
 import routes from '@/config/routes'
 import ipCheckFunc from '../funcs/ipCheckFunc'
 
-
 type FormValues = {
   name: string
   phone: string
@@ -22,23 +21,26 @@ type FormValues = {
   leadPage: string
 }
 
+interface Props {
+  blockForAmo?: string
+  question?: boolean
+  popup?: boolean
+  atFooter?: boolean
+  agreement?: boolean
+}
+
 const NewForm = ({
-  cta = 'Подобрать программу',
   question = false,
   popup = false,
   atFooter = false,
   agreement = false,
-  promo = false,
-  inProfessions=false,
   blockForAmo = 'Подобрать программу'
-}) => {
+}: Props) => {
   const {
     register,
     handleSubmit,
-    reset,
     setFocus,
-    formState: { errors, dirtyFields },
-    getValues
+    formState: { errors }
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
@@ -49,73 +51,54 @@ const NewForm = ({
 
   const [isDisabled, setIsDisabled] = useState(false)
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
-  const [isIpCheckFailed, setIsIpCheckFailed] = useState(false);
+  const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     popup && setFocus('name')
   }, [setFocus, popup])
 
-
   const router = useRouter()
-
 
   const onSubmit = async data => {
     const ipCheck = await ipCheckFunc()
-    if( ipCheck === 200) {
+    if (ipCheck === 200) {
       console.log('IP 200')
       setIsDisabled(true)
-      // setThanksIsOpen(true)
+      data.leadPage = router.asPath
+      const utms = JSON.parse(sessionStorage.getItem('utms'))
+      data.utms = utms
+      sessionStorage.removeItem('utms')
+      const referer = JSON.parse(sessionStorage.getItem('referer'))
+      data.referer = referer
+      sessionStorage.removeItem('referer')
+      const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+      data.ymUid = ymUid
+      const clickId = getCookie('utm')
+      const roistat_visit = getCookie('roistat_visit')
+      data.blockForAmo = blockForAmo
+      if (typeof clickId === 'string') {
+        data.utm = JSON.parse(clickId)
+      } else {
+        data.utm = null // или какое-то другое значение по умолчанию
+      }
 
-    // window.open(routes.front.gratefull, '_blank');
-    // handle loader
-    data.leadPage = router.asPath
-    const utms = JSON.parse(sessionStorage.getItem('utms'))
-    data.utms = utms
-    sessionStorage.removeItem('utms')
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
-    data.referer = referer
-    sessionStorage.removeItem('referer')
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
-    data.ymUid = ymUid
-    const clickId = getCookie('utm'); 
-    const roistat_visit = getCookie('roistat_visit')
-    // console.log('clickId', clickId)
+      data.roistat_visit = roistat_visit
+      const req = await hitContactRoute(data)
 
-    data.blockForAmo = blockForAmo
-
-    if (typeof clickId === 'string') {
-      data.utm = JSON.parse(clickId);
-    } else {
-      data.utm = null; // или какое-то другое значение по умолчанию
-    }
-
-    // console.log(data)
-    data.roistat_visit = roistat_visit
-    const req = await hitContactRoute(data)
-    console.log('req Alpha =====>', req)
-    if (req === 200) {
-      setLoading(false)
-      // router.push('/gratefull')
-      console.log('Success')
-      window.open(routes.front.gratefull, '_blank');
-      setIsIpCheckFailed(false)
-      // setIsDisabled(true)
-      setThanksIsOpen(true)
-    } else {
-      setLoading(false)
-      console.log('err')
-      setIsIpCheckFailed(true)
-    }
-    // const calltouch = await sendToCalltouch(data)
-
+      if (req === 200) {
+        setLoading(false)
+        window.open(routes.front.gratefull, '_blank')
+        setIsIpCheckFailed(false)
+        setThanksIsOpen(true)
+      } else {
+        setLoading(false)
+        setIsIpCheckFailed(true)
+      }
     } else {
       setIsIpCheckFailed(true)
-      console.log(errors)
     }
-    
   }
-
 
   return (
     <>
@@ -126,10 +109,7 @@ const NewForm = ({
         <PopupThankyou close={() => setThanksIsOpen(false)} />
       </Popup>
 
-      <Popup
-        open={loading}
-        // closeOnDocumentClick
-        onClose={() => setLoading(false)}>
+      <Popup open={loading} onClose={() => setLoading(false)}>
         <PopupLoading />
       </Popup>
       <form
@@ -212,21 +192,17 @@ const NewForm = ({
           )}
 
           <div className={stls.btn}>
-            {/* {atFooter ? (
-              <BtnBeta text={cta} isDisabled={isDisabled} />
-            ) : (
-              <BtnAlpha text={cta} isDisabled={isDisabled} />
-            )} */}
-            <button disabled={isDisabled} className={stls.violetButton}>Подобрать программу</button>
+            <button disabled={isDisabled} className={stls.violetButton}>
+              Подобрать программу
+            </button>
           </div>
-          
+
           {agreement && (
             <p className={stls.agreement}>
               Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
               персональных данных
             </p>
           )}
-          
         </div>
         <br />
       </form>

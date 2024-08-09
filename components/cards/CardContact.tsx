@@ -28,7 +28,7 @@ const CardContact = ({
       <div className={stls.row}>
         <p className={stls.street}>{street}</p>
       </div>
-      {studyDivision ? <p className={stls.number}>Приемная комиссия:</p> : ''}
+      {studyDivision && <p className={stls.number}>Приемная комиссия:</p>}
       <div className={classNames({ [stls.row]: true, [stls.numbers]: true })}>
         {numbers.map((number, idx) => (
           <p key={number.val} className={stls.number}>
@@ -39,7 +39,7 @@ const CardContact = ({
           </p>
         ))}
       </div>
-      {studyDivision ? (
+      {studyDivision && (
         <>
           <p className={stls.number}>{studyDivision.contactType}:</p>
           <p className={stls.number}>
@@ -48,8 +48,6 @@ const CardContact = ({
             </a>
           </p>
         </>
-      ) : (
-        ''
       )}
 
       <div className={stls.row}>

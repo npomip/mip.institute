@@ -1,7 +1,11 @@
 import stls from '@/styles/components/layout/Wrapper.module.sass'
-import classNames from 'classnames'
+import { ReactNode } from 'react'
 
-const Wrapper = ({ children }) => {
+type Props = {
+  children: ReactNode
+}
+
+const Wrapper = ({ children }: Props) => {
   return <div className={stls.container}>{children}</div>
 }
 

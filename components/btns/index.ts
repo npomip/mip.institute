@@ -4,7 +4,6 @@ import BtnClose from '@/components/btns/BtnClose'
 import BtnDelta from '@/components/btns/BtnDelta'
 import BtnEpsilon from '@/components/btns/BtnEpsilon'
 import BtnEta from '@/components/btns/BtnEta'
-import BtnFb from '@/components/btns/BtnFb'
 import BtnField from '@/components/btns/BtnField'
 import BtnFields from '@/components/btns/BtnFields'
 import BtnFilter from '@/components/btns/BtnFilter'
@@ -30,7 +29,6 @@ export {
   BtnDelta,
   BtnEpsilon,
   BtnEta,
-  BtnFb,
   BtnField,
   BtnFields,
   BtnFilter,
@@ -49,3 +47,4 @@ export {
   BtnYt,
   BtnZeta
 }
+

@@ -43,3 +43,6 @@ export { default as IconArrowUpRound } from '@/components/icons/IconArrowUpRound
 export { default as IconFinger } from '@/components/icons/IconFinger'
 export { default as IconPsyTest } from '@/components/icons/IconPsyTest'
 export { default as OneNumber } from '@/components/icons/OneNumber'
+export { default as TwoNumber } from '@/components/icons/TwoNumber'
+export { default as ThreeNumber } from '@/components/icons/ThreeNumber'
+export { default as FourNumber } from '@/components/icons/FourNumber'

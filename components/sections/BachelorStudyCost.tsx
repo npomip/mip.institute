@@ -1,27 +1,18 @@
-import stls from '@/styles/components/sections/BachelorStudyCost.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import ProgramDiscount from '@/components/program/ProgramDiscount'
-import ProgramCost from '@/components/program/ProgramCost'
-import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
 import { IconCircleCheck } from '@/components/icons'
-import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
-import MoneySaving from '../program/MoneySaving'
-import { FormAlpha } from '../forms'
-import getNextWednesday from '@/helpers/getNextThursday'
+import Wrapper from '@/components/layout/Wrapper'
+import { ContextStaticProps } from '@/context/index'
+import stls from '@/styles/components/sections/BachelorStudyCost.module.sass'
+import points from 'constants/bachelorStudyCost'
+import { MutableRefObject, useContext } from 'react'
 import BachelorProgramCost from '../program/BachelorProgramCost'
+import MoneySaving from '../program/MoneySaving'
 
-const BachelorStudyCost = ({ costRef }) => {
-  const { program, bachelor } = useContext(ContextStaticProps)
+type Props = {
+  costRef: MutableRefObject<any>
+}
 
-  const points = [
-    'Обучающимся по двум программам высшего образования – 15%',
-    'Поступающим с высокими результатами ЕГЭ (от 230 баллов) – 20%.',
-    'Обучающимся из многодетных семей – 20%',
-    'Детям-инвалидам, инвалидам с детства, инвалидам I и II групп – 20%',
-    'Ветеранам боевых действий и участникам СВО – 20% ',
-    'Детям участников СВО – 15%'
-  ]
+const BachelorStudyCost = ({ costRef }: Props) => {
+  const { bachelor } = useContext(ContextStaticProps)
 
   return (
     <section ref={costRef} className={stls.container}>

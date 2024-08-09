@@ -17,21 +17,23 @@ import ResetFilter from '../filters/ResetFilter'
 import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
 import Breadcrumbs from '../general/Breadcrumbs'
+import TBreadcrumb from '@/types/general/TBreadcrumb'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms
   bachelors?: any[]
   studyFields?: string[]
   allPrograms: any[]
-  breadcrumbs: {
-    label: string
-    path: string
-    slug: string
-  } []
+  breadcrumbs: TBreadcrumb[]
 }
 
-const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs, bachelors=[] }: PagesProgramsType) => {
-  
+const PagesPrograms = ({
+  programs,
+  studyFields,
+  allPrograms,
+  breadcrumbs,
+  bachelors = []
+}: PagesProgramsType) => {
   let filteredItems = useFilteredItems()
 
   const dispatch = useFilterDispatch()
@@ -69,21 +71,19 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs, bachel
   const favcategories = getUniqueCategories(favprograms)
 
   useEffect(() => {
-    if(filter === 'popular') {
+    if (filter === 'popular') {
       dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
-  } else {
-    dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
-  }
-    
+    } else {
+      dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
+    }
   }, [filter])
 
   useEffect(() => {
-    if(opened) {
+    if (opened) {
       dispatch({ type: 'setBooleanFilter', filterName: 'courseOpened' })
-  } else {
-    dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
-  }
-    
+    } else {
+      dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
+    }
   }, [opened])
 
   const handleResetFilters = () => {
@@ -94,19 +94,27 @@ const PagesPrograms = ({ programs, studyFields, allPrograms, breadcrumbs, bachel
     })
   }
 
-  const sortedPrograms = sortBasedOnNumericOrder({programs: filteredItems})
+  const sortedPrograms = sortBasedOnNumericOrder({ programs: filteredItems })
 
   return (
     <>
-    <Wrapper><Breadcrumbs isJournal breadcrumbs={breadcrumbs} /></Wrapper>
-      
+      <Wrapper>
+        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+      </Wrapper>
+
       <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
       <section className={stls.container}>
         <div className={stls.sorting}>
           <ProgramsFilters
-          bachelors={bachelors}
-          allPrograms={allPrograms}
-            studyFields={query.studyFieldSlug && filter === 'popular' ? favcategories : query.studyFieldSlug ? studyFields :  categories}
+            bachelors={bachelors}
+            allPrograms={allPrograms}
+            studyFields={
+              query.studyFieldSlug && filter === 'popular'
+                ? favcategories
+                : query.studyFieldSlug
+                ? studyFields
+                : categories
+            }
           />
         </div>
         <Wrapper>

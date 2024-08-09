@@ -1,15 +1,17 @@
 import stls from '@/styles/components/popups/FooterReviews.module.sass'
-import { FormAlpha } from '@/components/forms'
-import { BtnClose } from '@/components/btns'
-import Link from 'next/link'
+import { ReactNode } from 'react'
 
-const FooterReviews = ({children, href}) => {
+type Props = {
+  children: ReactNode
+  href: string
+}
+
+const FooterReviews = ({ children, href }: Props) => {
   return (
     <div className={stls.container}>
-      <a href={href} target="_blank" rel="noopener noreferrer">
+      <a href={href} target='_blank' rel='noopener noreferrer'>
         {children}
       </a>
-      
     </div>
   )
 }

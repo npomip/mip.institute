@@ -31,17 +31,13 @@ import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
-
-interface Breadcrumb {
-  label: string
-  path: string
-}
+import TBreadcrumb from '@/types/general/TBreadcrumb'
 
 type PagesProgramType = {
   ofType: string
   reviews: TypeLibReviews
   programOverview: string
-  breadcrumbs: Breadcrumb[]
+  breadcrumbs: TBreadcrumb[]
   slug: string
 }
 

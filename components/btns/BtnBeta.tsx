@@ -1,7 +1,12 @@
 import stls from '@/styles/components/btns/BtnBeta.module.sass'
 import classNames from 'classnames'
 
-const BtnBeta = ({ text = '', isDisabled = false }) => {
+type Props = {
+  text: string
+  isDisabled?: boolean
+}
+
+const BtnBeta = ({ text = '', isDisabled = false }: Props) => {
   return (
     <button
       className={classNames({

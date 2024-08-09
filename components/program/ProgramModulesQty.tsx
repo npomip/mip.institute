@@ -5,7 +5,11 @@ import { getParagraphInnerHtml } from '@/helpers/index'
 import marked from 'marked'
 import getDeclension from '@/helpers/getDeclension'
 
-const ProgramModulesQty = ({quantity=null}) => {
+type Props = {
+  quantity: number
+}
+
+const ProgramModulesQty = ({ quantity }: Props) => {
   const { program } = useContext(ContextStaticProps)
 
   const titles =
@@ -14,8 +18,12 @@ const ProgramModulesQty = ({quantity=null}) => {
 
   return (
     <div className={stls.container}>
-      <p className={stls.qty}>{quantity ? quantity : titles && titles.length}</p>
-      <p className={stls.text}>{quantity ? 'Семестров' : getDeclension(titles?.length)}</p>
+      <p className={stls.qty}>
+        {quantity ? quantity : titles && titles.length}
+      </p>
+      <p className={stls.text}>
+        {quantity ? 'Семестров' : getDeclension(titles?.length)}
+      </p>
     </div>
   )
 }

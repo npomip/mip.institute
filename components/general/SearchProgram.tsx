@@ -9,8 +9,7 @@ import { BtnField } from '../btns'
 import { IconSearchAlt } from '../icons'
 
 export default function SearchProgram() {
-  const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
-    useContext(fieldsTooltipContext)
+  const { closeFieldsTooltip } = useContext(fieldsTooltipContext)
 
   const [searchQuery, setSearchQuery] = useState('')
   const [filteredPrograms, setFilteredPrograms] = useState([])
@@ -55,7 +54,6 @@ export default function SearchProgram() {
 
   return (
     <div>
-      {/* <button onClick={toggleFieldsTooltip}> */}
       <div className={stls.inputLoupe}>
         <input
           className={stls.searchInput}
@@ -72,9 +70,6 @@ export default function SearchProgram() {
           <IconSearchAlt />
         </div>
       </div>
-      {/* {btnShow && !searchQuery && <StudyFields />} */}
-      {/* </button> */}
-      {/* <div className={stls.card}> */}
       {isProgramsVisible && (
         <div className={stls.programs}>
           {filteredPrograms?.slice(0, 4).map((el, i) => (
@@ -95,6 +90,5 @@ export default function SearchProgram() {
         </div>
       )}
     </div>
-    // </div>
   )
 }

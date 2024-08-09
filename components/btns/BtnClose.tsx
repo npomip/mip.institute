@@ -3,7 +3,12 @@ import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import { IconClose, IconCloseCircle } from '@/components/icons'
 
-const BtnClose = ({ onClick = null, iconCloseCircle = false }) => {
+type Props = {
+  onClick?: () => void
+  iconCloseCircle?: boolean
+}
+
+const BtnClose = ({ onClick = null, iconCloseCircle = false }: Props) => {
   const { closeMenu } = useContext(MenuContext)
 
   return (

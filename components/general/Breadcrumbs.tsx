@@ -1,9 +1,15 @@
 import stls from '@/styles/components/general/Breadcrumbs.module.sass'
 import Link from 'next/link'
 import classNames from 'classnames'
+import TBreadcrumb from '@/types/general/TBreadcrumb'
 
-const Breadcrumbs = ({ breadcrumbs, isJournal = false }) => {
-  const handleClick = (bcrumbs) => {
+type Props = {
+  breadcrumbs: TBreadcrumb[]
+  isJournal?: boolean
+}
+
+const Breadcrumbs = ({ breadcrumbs, isJournal = false }: Props) => {
+  const handleClick = bcrumbs => {
     localStorage.setItem('selectedFieldSlug', bcrumbs.slug)
   }
   return (

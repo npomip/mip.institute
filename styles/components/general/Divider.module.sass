@@ -1,0 +1,29 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  height: f.px(1.5)
+  width: 100%
+  background-color: #BDB3C5
+  @include m.flex($ai: center, $jc: center)
+.group
+  @include m.flex($ai: center, $jc: center)
+  gap: f.px(4.68)
+  width: f.px(32)
+  background-color: #fff
+
+.smallDiamond
+  @include m.dye(bg, c.$alpha)
+  width: f.px(4.463)
+  height: f.px(4.463)
+  transform: rotate(45deg)
+  flex-shrink: 0
+  border: f.px(1) solid #BDB3C5
+
+.bigDiamond
+  border: f.px(1) solid #BDB3C5
+  width: f.px(7)
+  height: f.px(7)
+  transform: rotate(45deg)
+  flex-shrink: 0

@@ -36,12 +36,14 @@ const CardWebinarAlt = ({ date, name, picture, title }: CardWebinarAltType) => {
         </span>
       </div>
       <div className={stls.speaker}>
-        <div className={stls.right}>
+        <div className={stls.info}>
           <span className={stls.label}>Тема:</span>
           <h2 className={stls.title}>{title}</h2>
-          <span className={stls.label}>Спикер:</span>
-          <p className={stls.desc}>{name}</p>
-          <div className={stls.img}>{picture}</div>
+          <div className={stls.teacher}>
+            <span className={stls.label}>Спикер:</span>
+            <p className={stls.name}>{name}</p>
+            <div className={stls.img}>{picture}</div>
+          </div>
           <button className={stls.link}>
             Принять участие
           </button>

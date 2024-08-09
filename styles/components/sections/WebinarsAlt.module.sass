@@ -4,7 +4,7 @@
 
 .container
   @include m.media(phone, tablet)
-    @include m.gap($mb: 0, $pt: f.px(50), $pb: f.px(50))
+    @include m.gap($mb: 0, $pt: f.px(30), $pb: f.px(50))
   @include m.media(laptop, desktop)
     @include m.gap($mb: 0, $pt: f.px(62), $pb: f.px(62))
 
@@ -12,8 +12,8 @@
   font-weight: 500
   line-height: 120%
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(50))
-    font-size: f.px(26)
+    @include m.gap($mb: f.px(30))
+    font-size: f.px(30)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(31))
     font-size: f.px(44)
@@ -26,23 +26,33 @@
     grid-template-columns: repeat(1, 1fr)
   @include m.media(laptop)
     grid-template-columns: repeat(1, 1fr)
+  @include m.media(phone, tablet)
+    grid-row-gap: f.px(15)
 
 .webinar
   @include m.media(phone, tablet)
-    @include m.flex
-    @include m.gap($mb: f.px(50))
+    @include m.flex($fd: column)
+    gap: f.px(15)
   @include m.media(laptop, desktop)
-    @include m.flex($fb: 32%)
-    @include m.gap($mr: 2%, $mb: f.px(31))
-    &:nth-child(3n)
-      @include m.gap($mr: 0)
+    @include m.flex($fd: column)
+    gap: f.px(30)
+    &:last-child
+      .divider
+        display: none
+      @include m.gap($mb: f.px(50))
+
 .card
   flex: 1
+  position: relative
 
 .trigger
   width: 100%
   @include m.flex()
   gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)
+    gap: f.px(0)
+    border: f.px(1) solid #6f01c6
 
 .btn
   @include m.flex($jc: center)

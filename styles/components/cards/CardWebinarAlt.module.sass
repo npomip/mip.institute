@@ -7,23 +7,30 @@
   position: relative
   width: 100%
   @include m.gap($plr: f.px(24), $ptb: f.px(18))
-  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
+  // box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
   border-radius: f.px(5)
   text-align: left
   @include m.dye(bg, c.$nu)
   cursor: pointer
+  max-width: f.px(571)
   transition: background-color .2s ease-in-out
   border: f.px(1) solid #6f01c6
-  &:focus-visible,
-  &:hover
-    @include m.dye(bg, c.$pi)
-    & .bell
-      opacity: 1
-    & .title
-      @include m.dye(c, c.$alpha)
-    & .link
-      scale: 1.05
-      opacity: 1
+  @include m.media(laptop)
+    max-width: f.px(510.2)
+  @include m.media(phone, tablet)
+    border: none
+    @include m.gap($plr: f.px(20), $pb: f.px(15), $pt: f.px(2))
+  @include m.media(laptop, desktop)
+    &:focus-visible,
+    &:hover
+      @include m.dye(bg, c.$pi)
+      & .bell
+        opacity: 1
+      & .title
+        @include m.dye(c, c.$alpha)
+      & .link
+        scale: 1.05
+        opacity: 1
 
 .bell
   position: absolute
@@ -35,6 +42,11 @@
   @include m.dye(bg, c.$alpha)
   opacity: .2
   transition: opacity .2s ease-in-out
+  @include m.media(phone, tablet)
+    right: f.px(20)
+    bottom: f.px(15)
+    top: unset
+    @include m.gap($p: f.px(8.6))
 
 .when
   @include m.flex($fd: column)
@@ -45,13 +57,17 @@
   font-weight: 500
   line-height: 130%
   color: #212121
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
 
-.desc
+.name
   font-size: f.px(20)
   font-weight: 500
   line-height: 130%
   color: #212121
   @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
 
 .dayOfWeek
   @include m.gap($mb: f.px(20))
@@ -71,7 +87,7 @@
   overflow: hidden
   border-radius: 50%
 
-.right
+.info
   @include m.flex($fd: column)
   font-size: f.px(18)
   font-weight: 300
@@ -83,15 +99,20 @@
   font-weight: 500
   line-height: 130%
   color: #B4B4B4
+  @include m.media(phone, tablet)
+    font-size: 12px
 
 .title
   // @include m.gap($mb: f.px(56))
+  @include m.gap($mb: f.px(20))
   font-size: f.px(25)
   line-height: 130%
   font-weight: 500
   overflow-wrap: break-word
   color: #212121
   transition: color .2s ease-in-out
+  @include m.media(phone, tablet)
+    font-size: 18px
 
 .link
   position: absolute
@@ -105,3 +126,12 @@
   transition: scale .2s ease-in-out, opacity .2s ease-in-out
   @include m.dye(bg, c.$alpha)
   opacity: .2
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+    @include m.gap($ptb: f.px(8), $plr: f.px(33), $mt: f.px(30))
+    position: unset
+    max-width: f.px(164)
+
+// .teacher
+//   position: absolute
+//   bottom: f.px(22)

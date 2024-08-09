@@ -8,6 +8,7 @@ import { ImgWebinar } from '@/components/imgs'
 import getImageHeight from '@/helpers/getImageHeight'
 import src from '@/public/assets/imgs/webinars/webinarImg.png'
 import Image from 'next/image'
+import Divider from '../general/Divider'
 
 type WebinarsAltType = {
   webinars: any
@@ -50,7 +51,10 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                           title={webinar.title}
                         />
                         <div className={stls.card}>
-                          <Image src={src}/>
+                          <Image 
+                            width={571}
+                            src={src}
+                          />
                         </div>
                       </div>
                     }
@@ -71,6 +75,9 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                       />
                     )}
                   </Popup>
+                  <div className={stls.divider}>
+                    <Divider />
+                  </div>
                 </li>
               ))}
         </ul>

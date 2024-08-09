@@ -3,7 +3,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/cards/CardImgWithAchievements.module.sass'
 import Image from 'next/image'
 
-type PersonType = {
+type Props = {
   person: {
     name: string
     achievements?: string
@@ -21,18 +21,15 @@ type PersonType = {
   }
 }
 
-const CardImgWithAchievements = ({ person }: PersonType) => {
-
-  const isMobileLayout = useBetterMediaQuery( '(max-width: 768px)')
+const CardImgWithAchievements = ({ person }: Props) => {
+  const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
   return (
     <div className={stls.imgAuthorWithAchievements}>
       <div className={stls.imgAuthorContainer}>
         <Image
           src={person?.portraitForBlog?.url || person?.portrait?.url}
           alt={'alt'}
-          // style={{top: '20px'}}
           className={stls.imgAuthor}
-          // layout='fill'
           width={isMobileLayout ? 155 : 180}
           height={isMobileLayout ? 155 : 180}
           placeholder='blur'
@@ -42,7 +39,6 @@ const CardImgWithAchievements = ({ person }: PersonType) => {
       <div className={stls.authorText}>
         <p className={stls.authorName}>{person.position}:</p>
         <p className={stls.authorName}>{person.name}</p>
-        {/* <p className={stls.achievements}>{person.achievements}</p> */}
       </div>
     </div>
   )

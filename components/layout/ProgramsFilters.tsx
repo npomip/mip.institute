@@ -1,27 +1,21 @@
 import {
-  ProgramTypes,
-  useFilter,
   useFilterDispatch,
   useFilteredItems
 } from '@/context/FilterContext/FilterContext'
-import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
-import FilterTag from '../filters/FilterTag'
-import ProgramSelect from '../program/ProgramSelect'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import { useRouter } from 'next/router'
 import { findFilteredProgramsLength } from '@/helpers/general/findFilteredProgramsLength'
 import { findProgramsLength } from '@/helpers/general/findProgramsLength'
 import { findProgrmasLengthByCustomProperty } from '@/helpers/general/findProgrmasLengthByCustomProperty'
-import Popup from 'reactjs-popup'
-import IconInfo from '../icons/IconInfo'
-import { getUniqueCategories } from '../funcs/getUniqueCategories'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
+import { useRouter } from 'next/router'
+import FilterTag from '../filters/FilterTag'
+import ProgramSelect from '../program/ProgramSelect'
 
 const ProgramsFilters = ({
   studyFields = [],
   allPrograms = [],
   bachelors = []
 }) => {
-  const { categories, filters } = useFilter()
   const dispatch = useFilterDispatch()
 
   const filteredItems = useFilteredItems()
@@ -49,9 +43,9 @@ const ProgramsFilters = ({
 
   const router = useRouter()
 
-  const { asPath, query } = router
+  const { query } = router
 
-  const { ofType, studyFieldSlug, filter, opened } = query
+  const { ofType, studyFieldSlug, filter } = query
 
   const handleNavigation = (destination: string) => {
     const { ofType, studyFieldSlug, ...rest } = router.query
@@ -66,14 +60,12 @@ const ProgramsFilters = ({
         pathname: router.pathname,
         query: { ...router.query, filter: 'popular' }
       })
-      // dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
     } else {
       const { filter, ...rest } = router.query
       router.push({
         pathname: router.pathname,
         query: rest
       })
-      // dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
     }
   }
 
@@ -83,15 +75,6 @@ const ProgramsFilters = ({
   }))
 
   const favprograms = allPrograms.filter(el => el.isPopular === true)
-
-  const contentStyle = {
-    background: '#ffffff',
-    paddingLeft: '30px',
-    minWidth: '400px',
-    paddingRight: '30px',
-    paddingTop: '30px',
-    border: '1px solid #6F01C6'
-  }
 
   return (
     <div className={stls.container}>

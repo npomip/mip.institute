@@ -1,77 +1,30 @@
-import stls from '@/styles/components/layout/Footer.module.sass'
-import classNames from 'classnames'
-import { useContext, useEffect, useState } from 'react'
-import { company, routes } from '@/config/index'
-import { ContextStaticProps } from '@/context/index'
-import Link from 'next/link'
-import Wrapper from '@/components/layout/Wrapper'
 import {
+  BtnOk,
+  BtnTelegram,
   BtnVk,
   BtnWhatsapp,
-  BtnTelegram,
-  BtnYt,
-  BtnOk
+  BtnYt
 } from '@/components/btns'
-import PopupTrigger from '@/components/general/PopupTrigger'
-import FooterBottom from '@/components/general/FooterBottom'
 import { GeneralAddress } from '@/components/general'
-import { useRouter } from 'next/router'
+import FooterBottom from '@/components/general/FooterBottom'
+import PopupTrigger from '@/components/general/PopupTrigger'
+import Wrapper from '@/components/layout/Wrapper'
+import { company } from '@/config/index'
+import { ContextStaticProps } from '@/context/index'
+import stls from '@/styles/components/layout/Footer.module.sass'
+import classNames from 'classnames'
+import staticLinks from 'constants/footer'
 import { getCookie } from 'cookies-next'
+import Link from 'next/link'
+import { useContext, useEffect, useState } from 'react'
+import BtnDzen from '../btns/BtnDzen'
 import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
 import Logo from '../general/Logo'
-import BtnDzen from '../btns/BtnDzen'
 import SearchProgram from '../general/SearchProgram'
 import PopupFooterReviews from '../popups/PopupFooterReviews'
 
 const Footer = () => {
   const { studyFields } = useContext(ContextStaticProps)
-
-  const staticLinks = [
-    {
-      val: 'Курсы',
-      href: routes.front.courses
-    },
-    {
-      val: 'Профессии',
-      href: routes.front.professions
-    },
-    {
-      val: 'Вебинары',
-      href: routes.front.webinars
-    },
-    {
-      val: 'Преподаватели',
-      href: routes.front.teachers
-    },
-    {
-      val: 'Отзывы',
-      href: routes.front.reviews
-    },
-    {
-      val: 'Главная',
-      href: routes.front.home
-    },
-    {
-      val: 'Об институте',
-      href: routes.front.about
-    },
-    {
-      val: 'Сведения об образовательной организации',
-      href: routes.front.legal
-    },
-    {
-      val: 'Информация о правилах использования материала',
-      href: routes.front.regulation
-    },
-    {
-      val: 'Контакты',
-      href: routes.front.contact
-    }
-    // {
-    //   val: 'Оплата',
-    //   href: routes.front.payment
-    // }
-  ]
 
   const fieldsLinks = []
 
@@ -80,7 +33,7 @@ const Footer = () => {
   })
 
   const [isEdpartners, setIsEdpartners] = useState(false)
-  const router = useRouter()
+
   const partCookie = getCookie('utm')
   useEffect(() => {
     setTimeout(() => {

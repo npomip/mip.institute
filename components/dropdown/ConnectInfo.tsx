@@ -32,10 +32,17 @@ const ConnectInfo: React.FC<Icon1Props> = ({ className, selected = false }) => {
           </a>
         </div>
 
-        <p>Написать в 
-          <a className={stls.whatsUpNumber}
-              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'> WhatsApp</a>
-              </p>
+        <p>
+          Написать в
+          <a
+            className={stls.whatsUpNumber}
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>
+            {' '}
+            WhatsApp
+          </a>
+        </p>
         <p className={stls.title}>Кураторский отдел:</p>
         <div className={stls.iconWrapper}>
           <IconOrangeDot />
@@ -43,16 +50,21 @@ const ConnectInfo: React.FC<Icon1Props> = ({ className, selected = false }) => {
             +7 (499) 110-82-11
           </a>
         </div>
-        <p>Написать в 
-          <a className={stls.whatsUpNumber}
-              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108211&amp;text&amp;type=phone_number&amp;app_absent=0'> WhatsApp </a>
-              
+        <p>
+          Написать в
+          <a
+            className={stls.whatsUpNumber}
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://api.whatsapp.com/send/?phone=%2B74991108211&amp;text&amp;type=phone_number&amp;app_absent=0'>
+            {' '}
+            WhatsApp{' '}
+          </a>
         </p>
         <div className={stls.callBack}>
-      <PopupTrigger btn='epsilon' cta='callMeBack' />
+          <PopupTrigger btn='epsilon' cta='callMeBack' />
+        </div>
       </div>
-      </div>
-      
     </div>
   )
 }

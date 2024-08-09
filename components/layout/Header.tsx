@@ -15,14 +15,17 @@ import { useContext, useEffect } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 
-const Header = ({ isPromo }) => {
-  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
-    useContext(MenuContext)
+type Props = {
+  isPromo?: boolean
+}
+
+const Header = ({ isPromo }: Props) => {
+  const { menuIsOpen, closeMenu } = useContext(MenuContext)
+  const router = useRouter()
 
   useEffect(() => {
     handleSwipedEvt({ menuIsOpen, closeMenu })
   }, [menuIsOpen, closeMenu])
-  const router = useRouter()
   return (
     <header
       className={classNames({
@@ -31,7 +34,7 @@ const Header = ({ isPromo }) => {
       })}>
       <MenuMobile />
       <Wrapper>
-        {router.route === '/' ? (
+        {router.route === '/' && (
           <div className={stls.top}>
             <div className={stls.topleft}>
               <Link href={routes.front.legal}>
@@ -41,8 +44,6 @@ const Header = ({ isPromo }) => {
               </Link>
             </div>
           </div>
-        ) : (
-          ''
         )}
         <div className={stls.row}>
           <Logo atHeader />

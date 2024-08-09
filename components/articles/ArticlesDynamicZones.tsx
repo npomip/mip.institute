@@ -39,11 +39,9 @@ export default function ArticlesDynamicZones({ props }) {
     case 'ComponentBlogListWithBackgroundAndTitle':
       return <ArticleBlogListWithBackgroundAndTitle props={props} />
     case 'ComponentBlogBigSizeText':
-      // 'ArticleBlogBigSizeTexte'
       return <ArticleBlogBigSizeText props={props} />
     case 'ComponentBlogTable':
-      return <ArticleBlogTable props={props}/>
-      // return <ArticleBlogListWithBackgroundAndTitle props={props} />
+      return <ArticleBlogTable props={props} />
     default:
       break
   }

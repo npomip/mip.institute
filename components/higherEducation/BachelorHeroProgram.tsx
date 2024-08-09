@@ -1,53 +1,34 @@
 import PopupTrigger from '@/components/general/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
-import ProgramDiscount from '@/components/program/ProgramDiscount'
-import ProgramInfo from '@/components/program/ProgramInfo'
-import ProgramLabel from '@/components/program/ProgramLabel'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/higherEducation/BachelorHeroProgram.module.sass'
-import { useContext, useRef, useState } from 'react'
-import Breadcrumbs from '../general/Breadcrumbs'
 import classNames from 'classnames'
-import BachelorProgramInfo from './BachelorProgramInfo'
+import validTitles from 'constants/bachelorHeroProgram'
+import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
+import Breadcrumbs from '../general/Breadcrumbs'
 import BachelorFullProgramPopup from '../popups/BachelorFullProgramPopup'
+import BachelorProgramInfo from './BachelorProgramInfo'
 
-const BachelorHeroProgram = ({ breadcrumbs }) => {
+type Breadcrumb = {
+  label: string
+  path: string
+  slug: string
+}
+
+type Props = {
+  breadcrumbs: Breadcrumb[]
+}
+
+const BachelorHeroProgram = ({ breadcrumbs }: Props) => {
   const { bachelor } = useContext(ContextStaticProps)
-
-  const [cut, setCut] = useState(120)
-  const [showFullText, setShowFullText] = useState(false)
-  const descriptionLength = bachelor?.description?.length
-  const cutHandler = () => {
-    setShowFullText(!showFullText)
-    if (!showFullText) {
-      setCut(descriptionLength)
-    } else {
-      setCut(120)
-    }
-  }
-
-  const description =
-    cut < descriptionLength
-      ? bachelor?.description?.slice(0, cut).concat('...')
-      : bachelor?.description?.slice(0, cut)
 
   const cta = 'signUp'
 
-  const validTitles = [
-    'Психоанализ и психоаналитическая психотерапия',
-    'Суггестивная психология. Гипноз в психологическом консультировании',
-    'Современные методы саморегуляции психологии здоровья',
-    'Современная мастерская психологического консультирования',
-    'Психология сексуальности и терапия сексуальных расстройств',
-    'Практические навыки психологического консультирования. 2 ступень',
-    'Практические навыки психологического консультирования. 1 ступень'
-  ]
-
   const analysis = validTitles.includes(bachelor?.title)
 
-  const [open, setOpen] = useState(false);
-  const closeModal = () => setOpen(false);
+  const [open, setOpen] = useState(false)
+  const closeModal = () => setOpen(false)
 
   return (
     <>
@@ -67,16 +48,24 @@ const BachelorHeroProgram = ({ breadcrumbs }) => {
               <div className={stls.descriptionMobile}>
                 <p className={stls.mobiledesc}>{bachelor?.shortDescription}</p>
                 <Popup
-                open={open}
-                onClose={closeModal}
+                  open={open}
+                  onClose={closeModal}
                   trigger={
-                    <button onClick={() => setOpen(o => !o)} className={stls.moreText}>
+                    <button
+                      onClick={() => setOpen(o => !o)}
+                      className={stls.moreText}>
                       Читать описание
                     </button>
                   }
-                  position="right center"
-                  modal nested>
-                  {close => <BachelorFullProgramPopup close={close} content={bachelor?.fullDescription} />}
+                  position='right center'
+                  modal
+                  nested>
+                  {close => (
+                    <BachelorFullProgramPopup
+                      close={close}
+                      content={bachelor?.fullDescription}
+                    />
+                  )}
                 </Popup>
               </div>
             </div>
@@ -88,7 +77,7 @@ const BachelorHeroProgram = ({ breadcrumbs }) => {
         </div>
       </div>
       <div className={stls.info}>
-        <BachelorProgramInfo  />
+        <BachelorProgramInfo />
       </div>
       <section className={stls.container}>
         <Wrapper>
@@ -117,17 +106,17 @@ const BachelorHeroProgram = ({ breadcrumbs }) => {
                       {'Читать описание'}
                     </button>
                   }
-                  position="right center"
-                  // closeOnDocumentClick
-                  >
-                  <BachelorFullProgramPopup content={bachelor?.fullDescription} />
+                  position='right center'>
+                  <BachelorFullProgramPopup
+                    content={bachelor?.fullDescription}
+                  />
                 </Popup>
               </div>
               <div className={stls.btnsDesktop}>
                 <PopupTrigger btn='alpha' cta={cta} />
                 <PopupTrigger btn='beta' cta='askQuestion' />
               </div>
-              <BachelorProgramInfo  />
+              <BachelorProgramInfo />
             </div>
           </div>
         </Wrapper>

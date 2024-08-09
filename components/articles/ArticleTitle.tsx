@@ -2,6 +2,7 @@ import base64pixel from '@/config/base64pixel'
 import stls from '@/styles/components/articles/ArticleTitle.module.sass'
 import Image from 'next/image'
 import { IconClock } from '@/components/icons'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type ArticleTitleType = {
   props: {
@@ -25,6 +26,7 @@ type ArticleTitleType = {
     teacher?: {
       name: string
       achievements: string
+      achievementsJournal: string
       portraitForBlog?: {
         url: string
         width: string
@@ -41,6 +43,9 @@ type ArticleTitleType = {
 
 const ArticleTitle = ({ props }: ArticleTitleType) => {
   const date = new Date(props?.date)
+  const isLaptopLayout = useBetterMediaQuery(
+    '(min-width: 769px) and (max-width: 1200px)'
+  )
 
   return (
     <>
@@ -82,8 +87,8 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
                 }
                 alt={'Фото преподавателя'}
                 className={stls.imgTeacher}
-                width={227}
-                height={292}
+                width={isLaptopLayout ? 140 : 170}
+                height={isLaptopLayout ? 150 : 180}
                 placeholder='blur'
                 blurDataURL={base64pixel}
               />
@@ -91,7 +96,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             <div className={stls.teacherText}>
               <p className={stls.teacherName}>{props?.teacher?.name}</p>
               <p className={stls.achievements}>
-                {props?.teacher?.achievements}
+                {props?.teacher?.achievementsJournal}
               </p>
             </div>
           </div>

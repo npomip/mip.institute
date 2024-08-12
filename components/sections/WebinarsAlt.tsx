@@ -10,6 +10,9 @@ import src from '@/public/assets/imgs/webinars/webinars.jpeg'
 import Image from 'next/image'
 import Divider from '../general/Divider'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { useState } from 'react'
+import { BtnDelta } from '../btns'
+import ButtonToTop from './ButtonToTop'
 
 type WebinarsAltType = {
   webinars: any
@@ -17,18 +20,27 @@ type WebinarsAltType = {
 
 const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
   const isTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const [visibleItemCount, setVisibleItemCount] = useState(6); 
+  const [displayedData, setDisplayedData] = useState(webinars ? webinars.slice(0, visibleItemCount) : []);
 
+  const handleLoadMore = () => {
+    setVisibleItemCount(prevCount => prevCount + 6);
+
+    setDisplayedData(webinars ? webinars.slice(0, visibleItemCount + 6) : []);
+  };
+  const isAllDataVisible = displayedData.length >= (webinars ? webinars.length : 0);
   return (
     <section className={stls.container}>
       <Wrapper>
         <h1 className={stls.title}>Лекторий</h1>
         <ul className={stls.webinars}>
-          {webinars &&
-            [...webinars]
+          {displayedData &&
+            [...displayedData]
               .sort(
                 (a, b) =>
                   new Date(b.date).getTime() - new Date(a.date).getTime()
               )
+              .reverse()
               .map((webinar, idx) => (
                 <li
                   key={`${webinar.name || 'CardWebinarAlt'}-${idx}`}
@@ -87,9 +99,12 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                 </li>
               ))}
         </ul>
-        <div className={stls.btn}>
-          <PopupTrigger btn='delta' cta='seeAllWebinars' />
-        </div>
+         {!isAllDataVisible && ( 
+          <div onClick={handleLoadMore} className={stls.btn}>
+            <BtnDelta text='Показать ещё'/>
+          </div> 
+          )}
+          <ButtonToTop />
       </Wrapper>
     </section>
   )

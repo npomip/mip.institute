@@ -6,15 +6,18 @@ import { PopupCta } from '@/components/popups'
 import CardWebinarAlt from '@/components/cards/CardWebinarAlt'
 import { ImgWebinar } from '@/components/imgs'
 import getImageHeight from '@/helpers/getImageHeight'
-import src from '@/public/assets/imgs/webinars/webinarImg.png'
+import src from '@/public/assets/imgs/webinars/webinars.jpeg'
 import Image from 'next/image'
 import Divider from '../general/Divider'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type WebinarsAltType = {
   webinars: any
 }
 
 const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
+  const isTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -51,9 +54,12 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                           title={webinar.title}
                         />
                         <div className={stls.card}>
-                          <Image 
-                            width={571}
+                          <Image
+                            className={stls.image}
+                            width={isTabletLayout ? 768 : 573}
+                            height={isTabletLayout ? 370 : 370}
                             src={src}
+                            alt='Карточка программы'
                           />
                         </div>
                       </div>

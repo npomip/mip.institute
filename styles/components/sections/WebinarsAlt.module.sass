@@ -17,6 +17,8 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(31))
     font-size: f.px(44)
+.image
+  object-fit: cover
 
 .webinars
   display: grid
@@ -49,6 +51,10 @@
   width: 100%
   @include m.flex()
   gap: f.px(30)
+  @include m.media(desktop)
+    max-height: f.px(368)
+  @include m.media(laptop)
+    max-height: f.px(332)
   @include m.media(phone, tablet)
     @include m.flex($fd: column-reverse)
     gap: f.px(0)

@@ -58,7 +58,8 @@ const payment = async (
 			utm_content: utm?.utm_content || '',
 			utm_term: utm?.utm_term || '',
 			utm_campaign: utm?.utm_campaign || '',
-			price
+			price,
+			ik: idempotenceKey
 		},
 		receipt: {
 			customer: {

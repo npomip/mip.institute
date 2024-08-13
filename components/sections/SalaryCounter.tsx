@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/SalaryCounter.module.sass'
 import { useState } from 'react'
 import Wrapper from '../layout/Wrapper'
 import classNames from 'classnames'
+import TagOrange from '../general/TagOrange'
 
 type SalaryCounterType = {
   isBachelor?: boolean
@@ -48,10 +49,20 @@ const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
     <section>
       <Wrapper>
         {isBachelor 
-        ? 
-        <h2 className={stls.title}>Сколько может <br/><span>зарабатывать педагог-психолог?</span></h2>
+        ?
+        <>
+          <div className={stls.tag}>
+              <TagOrange>Доход</TagOrange>
+          </div>
+          <h2 className={stls.title}>Сколько может <br/><span>зарабатывать педагог-психолог?</span></h2>
+        </> 
         :
-        <h2 className={stls.title}>Сколько может <span>зарабатывать психолог?</span></h2>
+        <>
+          <div className={stls.tag}>
+              <TagOrange>Доход</TagOrange>
+          </div>
+          <h2 className={stls.title}>Сколько может <span>зарабатывать психолог?</span></h2>
+        </>
         }
         <p className={stls.checkSalaryText}>Рассчитайте свой ежемесячный доход с помощью калькулятора</p>
         <div className={stls.content}>

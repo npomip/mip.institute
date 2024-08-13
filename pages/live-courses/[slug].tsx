@@ -1,4 +1,6 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import PaymentForm from '@/components/forms/PaymentForm'
+import payment from '@/components/funcs/payment'
 import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
 import LiveCoursesDescription from '@/components/liveCourses/LiveCoursesDescription'
 import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
@@ -11,7 +13,8 @@ import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import React from 'react'
+import React, { useState } from 'react'
+import Popup from 'reactjs-popup'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
   console.log(lifeCourse);
@@ -42,11 +45,30 @@ const JournalPage = ({ lifeCourse, reviews }) => {
 
   // const blogsFilter = selectedField.studyField == 'Все cтатьи' ? blogs : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
 
+  // const paymentClick = async () => {
+  //   const resp = await payment()
+  // }
+
+  const [isTestOpen, setIsTestOpen] = useState(false)
+
+  const handleOpen = () => {
+    setIsTestOpen(true)
+  }
+
   return (
     // <Wrapper>
     <>
       <NextSeo nofollow={true} noindex={true} />
       <LiveCoursesHero title={lifeCourse.title} />
+      <Popup
+        open={isTestOpen}
+        onClose={() => setIsTestOpen(false)}
+        position={'center center'}>
+        {close => <PaymentForm program={lifeCourse} onClose={close} />}
+      </Popup>
+      <div style={{ backgroundColor: 'red' }}>
+        <button onClick={handleOpen}>Оплатить</button>
+      </div>
       <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
         <React.Fragment key={idx}>

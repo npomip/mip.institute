@@ -32,6 +32,7 @@ import BachelorHeroProgram from '../higherEducation/BachelorHeroProgram'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import EducationProcess from '../sections/EducationProcess'
 import { NextSeo } from 'next-seo'
+import { SeoPageBachelor } from '../seo'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
@@ -86,7 +87,7 @@ const PageBachelor = ({ bachelor }) => {
 
   return (
     <>
-    <NextSeo nofollow={true} noindex={true} />
+    <SeoPageBachelor program={bachelor}/>
       <BachelorHeroProgram breadcrumbs={breadcrumbs} />
       <PageNavigation sections={sections} />
       <ForWhomHE />

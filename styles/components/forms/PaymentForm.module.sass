@@ -1,0 +1,166 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  border-radius: f.px(25)
+  @include m.dye(bg, white)
+  @include m.gap($plr: f.px(30), $pb: f.px(30), $pt: f.px(20))
+  @include m.flex($jc:center, $ai: flex-end, $fd: column)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(20), $pb: f.px(20), $pt: f.px(10))
+  & .name,
+  & .email,
+  & .phone
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 46%)
+      @include m.gap($m: f.px(5))
+  & .name,
+  & .email
+    & input
+      @include m.media(laptop, desktop)
+        font-size: f.px(16)
+        border: f.px(1) solid
+        @include m.dye(border, c.$alpha)
+        border-radius: f.px(4)
+        background-color: transparent
+      @include m.media(phone, tablet)
+        font-size: f.px(16)
+        border: f.px(1) solid
+        @include m.dye(border, c.$alpha)
+        border-radius: f.px(4)
+        background-color: transparent
+        &::placeholder
+          @include m.dye(c, c.$psi)
+
+.closeButton
+  @include m.media(laptop, desktop)
+    transform: scale(0.7)
+  @include m.media(phone, tablet)
+    transform: scale(0.5)
+
+.group
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap, $jc: space-around)
+
+.inpt
+  & input,
+  & textarea
+    width: 100%
+    @include m.gap($ptb: f.px(17), $plr: f.px(20))
+    border-radius: f.px(4)
+    font-weight: 300
+    &::placeholder
+      @include m.dye(c, c.$kappa)
+  & textarea
+    outline: none
+
+.containerInput
+  & input
+    @include m.gap($ptb: f.px(17), $plr: f.px(20))
+    border-radius: f.px(4)
+    border-color: #6f01c6 !important
+    font-weight: 300
+    width: 100% !important
+    height: 54px !important
+    @include m.media(laptop)
+      height: 47px !important
+    @include m.media(tablet)
+      height: 68px !important
+    @include m.media(laptop, desktop)
+      font-size: f.px(16)
+      border-radius: f.px(4)
+
+.phoneInput,.dropdown
+  font-family: Stem !important
+
+.flagButton
+  border-color: #6f01c6 !important
+  background-color: white !important
+
+.dropdown
+  width: 410px !important
+  @include m.media(laptop)
+    width: 340px !important
+  @include m.media(tablet)
+    width: 330px !important
+  @include m.media(phone)
+    width: 270px !important
+
+.err
+  @include m.gap($mt: f.px(5))
+  @include m.dye(c, red)
+
+.footer
+  @include m.flex($fd:column)
+  margin-left: f.px(20)
+  @include m.media(phone, tablet)
+    margin-left: 0
+
+.btnBlock
+  @include m.media(laptop, desktop)
+    @include m.flex($ai: center, $jc: flex-start)
+  @include m.media(phone, tablet)
+    @include m.flex($ai: center, $jc: center)
+
+.btn
+  padding: f.px(5)
+  border-radius: f.px(4)
+  @include m.dye(bg, c.$alpha)
+  @include m.dye(c, white)
+  @include m.gap($ptb: f.px(17), $plr: f.px(57))
+  &:disabled
+    cursor: not-allowed
+    opacity: .5
+    &:hover
+      transform: scale(1)
+      &::after
+        opacity: 0
+    &:focus
+      transform: scale(1)
+
+.text
+  font-weight: 450
+  @include m.dye(c, black)
+
+.checkboxBlock > label
+  @include m.flex($ai: center)
+  font-size: f.px(16)
+  font-weight: 350
+  gap: f.px(5)
+  @include m.gap($mb: f.px(18))
+  & > input[type="checkbox"]
+    display: grid
+    place-content: center
+    appearance: none
+    background-color: #fff
+    margin: 0
+    font: inherit
+    width: 1.15em
+    height: 1.15em
+    border: 0.1em solid #6f01c6
+    border-radius: 0.15em
+    &::before
+      content: ""
+      width: 0.65em
+      height: 0.65em
+      transform: scale(0)
+      transition: 120ms transform ease-in-out
+      box-shadow: inset 1em 1em #6f01c6
+    &:checked::before
+      transform: scale(1)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(12)
+
+.price
+  @include m.gap($mb: f.px(18))
+  & > span
+    font-size: f.px(25)
+    font-style: normal
+    font-weight: 500
+    line-height: 120%
+    @include m.media(phone, tablet)
+      font-size: f.px(18)

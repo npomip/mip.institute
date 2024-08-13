@@ -1,28 +1,31 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import PaymentForm from '@/components/forms/PaymentForm'
+import payment from '@/components/funcs/payment'
+import GeneralFaq from '@/components/general/GeneralFaq'
 import Wrapper from '@/components/layout/Wrapper'
-import LifeCourseDynamicZones from '@/components/lifeCourses/LifeCoursesDynamicZones'
-import { About, Reviews } from '@/components/sections'
+import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
+import LiveCoursesDescription from '@/components/liveCourses/LiveCoursesDescription'
+import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
+import LiveCoursesStripe from '@/components/liveCourses/LiveCoursesStripe'
+import { About, Faq, Reviews } from '@/components/sections'
 import EntryForm from '@/components/sections/EntryForm'
-import SlugTags from '@/components/sections/SlugTags'
+import YouTubeVideo from '@/components/sections/YouTubeVideo'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
-import { dev, preview, prod, routes } from '@/config/index'
+import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import Popup from 'reactjs-popup'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
-
+  
   // const { reviews } = useContext(ContextStaticProps)
-
 
   // const reviewsSorted = sortBasedOnNumericOrder({
   //   reviews: sortReviewsCreatedAtASC({ reviews })
   // })
-// console.log(lifeCourse)
+  // console.log(lifeCourse)
 
   // const router = useRouter()
 
@@ -43,22 +46,44 @@ const JournalPage = ({ lifeCourse, reviews }) => {
 
   // const blogsFilter = selectedField.studyField == 'Все cтатьи' ? blogs : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
 
-  return (
-    // <Wrapper>
-      <>
-      <NextSeo
-      nofollow={true}
-      noindex={true}
-      />
-        <h1>{lifeCourse.title}</h1>
-        {lifeCourse?.article?.map((module, idx) => (
-            <LifeCourseDynamicZones key={idx} props={module} />
-          ))}
-          <About isLiveCourse/>
-          <Reviews reviews={reviews} isLiveCourse/>
-          <EntryForm isLiveCourse/>
-      </>
+  // const paymentClick = async () => {
+  //   const resp = await payment()
+  // }
 
+  const [isTestOpen, setIsTestOpen] = useState(false)
+
+  const handleOpen = () => {
+    setIsTestOpen(true)
+  }
+
+  console.log(lifeCourse);
+  
+
+  return (
+    <>
+      <NextSeo nofollow={true} noindex={true} />
+      <LiveCoursesHero title={lifeCourse?.title} />
+      <Popup
+        open={isTestOpen}
+        onClose={() => setIsTestOpen(false)}
+        position={'center center'}>
+        {close => <PaymentForm program={lifeCourse} onClose={close} />}
+      </Popup>
+      <div style={{ backgroundColor: 'red' }}>
+        <Wrapper><button onClick={handleOpen}>Оплатить</button></Wrapper>
+      </div>
+      <LiveCoursesStripe />
+      {lifeCourse?.article?.map((module, idx) => (
+        <React.Fragment key={idx}>
+          <LifeCourseDynamicZones props={module} />
+        </React.Fragment>
+      ))}
+
+      <About isLiveCourse />
+      <Reviews subtitle={lifeCourse?.review_subtitle} reviews={lifeCourse?.unique_reviews} isLiveCourse />
+      <EntryForm isLiveCourse />
+      <GeneralFaq qnas={lifeCourse?.qnas} />
+    </>
   )
 }
 

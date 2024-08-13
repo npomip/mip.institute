@@ -1,9 +1,13 @@
-import stls from '@/styles/components/general/StudyFields.module.sass'
-import { Fragment, useContext } from 'react'
-import cn from 'classnames'
-import { routes } from '@/config/index'
-import { ContextStaticProps } from '@/context/index'
 import { BtnField } from '@/components/btns'
+import { routes } from '@/config/index'
+import stls from '@/styles/components/general/StudyFields.module.sass'
+import cn from 'classnames'
+import {
+  studyFields,
+  studyFieldsCourses,
+  studyFieldsProfessions
+} from 'constants/studyFieldsOnMain'
+import { Fragment } from 'react'
 
 type StudyFieldsType = {
   aside?: boolean
@@ -26,49 +30,12 @@ const StudyFieldsOnMain = ({
   onMain,
   currentType
 }: StudyFieldsType) => {
-  // const {
-  //   studyFields,
-  //   studyFieldsCourses,
-  //   studyFieldsProfessions,
-  //   curProgramsType
-  // } = useContext(ContextStaticProps)
-
-  const studyFields = [
-    {label: 'Консультирование',slug: 'konsultirovanie'},
-    {label: 'Детская психология', slug: 'detskaya-psihologiya'},
-    {label: 'Психотерапия', slug: 'psihoterapiya'},
-    {label: 'Общая психология', slug: 'obshaya-psihologiya'},
-    {label: 'Клиническая психология', slug: 'klinicheskaya-psihologiya'},
-    {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
-    {label: 'Диетология и нутрициология', slug: 'dietologiya-i-nutriciologiya'}
-  ]
-
-  const studyFieldsProfessions = [
-    {label: 'Общая психология', slug: 'obshaya-psihologiya'},
-    {label: 'Клиническая психология', slug: 'klinicheskaya-psihologiya'},
-    {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
-    {label: 'Диетология и нутрициология', slug: 'dietologiya-i-nutriciologiya'},
-    {label: 'Консультирование',slug: 'konsultirovanie'},
-    {label: 'Детская психология', slug: 'detskaya-psihologiya'},
-    {label: 'Психотерапия', slug: 'psihoterapiya'},
-    
-  ]
-
-  const studyFieldsCourses = [
-    {label: 'Консультирование',slug: 'konsultirovanie'},
-    {label: 'Детская психология', slug: 'detskaya-psihologiya'},
-    {label: 'Психотерапия', slug: 'psihoterapiya'},
-    {label: 'Общая психология', slug: 'obshaya-psihologiya'},
-    {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
-  ]
-
   const list =
     ofType === 'course'
       ? studyFieldsCourses
       : ofType === 'profession'
       ? studyFieldsProfessions
       : studyFields
-      
 
   return (
     <ul
@@ -76,21 +43,20 @@ const StudyFieldsOnMain = ({
         [stls.container]: true,
         [stls.aside]: aside,
         [stls.tooltip]: !aside,
-        [stls.flexend]: flexend,
-        // [stls.orang]: orang,
+        [stls.flexend]: flexend
       })}>
       {list.map(({ label, slug }, idx) => (
         <Fragment key={slug + idx}>
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
-            smallText={smallText}
-            orang={orang}
+              smallText={smallText}
+              orang={orang}
               href={`${
                 currentType === 'course'
-                    ? routes.front.courses
-                    : currentType === 'profession'
-                    ? routes.front.professions
-                    : routes.front.programs
+                  ? routes.front.courses
+                  : currentType === 'profession'
+                  ? routes.front.professions
+                  : routes.front.programs
               }/${slug}`}
               aside={aside}
               slug={slug}>

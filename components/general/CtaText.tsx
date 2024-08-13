@@ -2,6 +2,15 @@ import stls from '@/styles/components/general/CtaText.module.sass'
 import classNames from 'classnames'
 import { IconMoreThan } from '@/components/icons'
 
+type Props = {
+  text: string
+  cbeta?: boolean
+  cnu?: boolean
+  ctheta?: boolean
+  dimmer?: boolean
+  arrowBottom?: boolean
+}
+
 const CtaText = ({
   text,
   cbeta = false,
@@ -9,7 +18,7 @@ const CtaText = ({
   ctheta = false,
   dimmer = false,
   arrowBottom = false
-}) => {
+}: Props) => {
   return (
     <span
       className={classNames({

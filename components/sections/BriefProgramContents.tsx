@@ -6,27 +6,37 @@ import BachelorProgramModules from '../program/BachelorProgramModules'
 import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
 import marked from 'marked'
 import classNames from 'classnames'
+import { MutableRefObject } from 'react'
 
-const BriefProgramContents = ({ planRef, program = null, title = null,  coloredBackground=false}) => {
+type Props = {
+  planRef: MutableRefObject<any>
+  program?: any
+  title?: string
+  coloredBackground?: boolean
+}
+
+const BriefProgramContents = ({
+  planRef,
+  program = null,
+  title = null,
+  coloredBackground = false
+}: Props) => {
   const topics = program?.length > 0 && getListItemsInnerHtml(marked(program))
   return (
     <section
       ref={planRef}
-      // style={{background: '#F9F8FF'}}
       className={classNames({
         [stls.container]: true,
         [stls.coloredBackground]: coloredBackground
       })}>
       <Wrapper>
-        <div style={{  height: '100%' }} className={stls.innerContainer}>
+        <div style={{ height: '100%' }} className={stls.innerContainer}>
           <div className={stls.top}>
             <div className={stls.heading}>
               <h2 className={stls.title}>
                 {title ? title : 'Краткая программа курса'}
               </h2>
-              {program ? (
-                ''
-              ) : (
+              {!program && (
                 <>
                   <p className={stls.subtitle}>В каждом модуле:</p>
                   <ul className={stls.points}>
@@ -43,13 +53,12 @@ const BriefProgramContents = ({ planRef, program = null, title = null,  coloredB
             </div>
           </div>
 
-        {program ? (
-          <BachelorProgramModules program={program} />
-        ) : (
-          <ProgramModules />
-        )}
+          {program ? (
+            <BachelorProgramModules program={program} />
+          ) : (
+            <ProgramModules />
+          )}
         </div>
-
       </Wrapper>
     </section>
   )

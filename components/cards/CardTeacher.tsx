@@ -1,7 +1,14 @@
 import stls from '@/styles/components/cards/CardTeacher.module.sass'
 import IconPortalViolet from '../icons/IconPortalViolet'
 
-const CardTeacher = ({ portrait, name, achievements, experience }) => {
+type Props = {
+  portrait: JSX.Element
+  name: string
+  achievements: string
+  experience?: string
+}
+
+const CardTeacher = ({ portrait, name, achievements, experience }: Props) => {
   return (
     <article className={stls.container}>
       <div className={stls.innerContainer}>
@@ -21,11 +28,11 @@ const CardTeacher = ({ portrait, name, achievements, experience }) => {
             </ul>
             {experience && (
               <div className={stls.experience}>
-              <div className={stls.icon}>
-                <IconPortalViolet />
+                <div className={stls.icon}>
+                  <IconPortalViolet />
+                </div>
+                <span>{experience}</span>
               </div>
-              <span>{experience}</span>
-            </div>
             )}
           </div>
         </div>

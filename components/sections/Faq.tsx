@@ -1,40 +1,29 @@
-import stls from '@/styles/components/sections/Faq.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
 import FaqAnswer from '@/components/general/FaqAnswer'
-import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
-import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
 import PopupTrigger from '@/components/general/PopupTrigger'
-import parse from 'html-react-parser'
-import { convertMdToHtml } from '@/helpers/index'
-import marked from 'marked'
+import Wrapper from '@/components/layout/Wrapper'
+import { ContextStaticProps } from '@/context/index'
+import stls from '@/styles/components/sections/Faq.module.sass'
+import listOnMain from 'constants/faq'
+import { useContext } from 'react'
 
-const Faq = ({faqRef=null}) => {
+const Faq = ({ faqRef = null }) => {
   const { program, bachelor } = useContext(ContextStaticProps)
 
-    const listOnMain = [
-      {question:'Какой график обучения в институте? Получится ли совмещать его с работой?', answer: 'Да. Вы можете учиться в любое время дня без отрыва от семьи и основной занятости. Вы получите специальность в онлайн-формате не выходя из дома'},
-      {question:'Смогу ли я вести частную практику после обучения в МИП?', answer: 'Да. Мы предоставим вам все необходимое для получения профессионального психологического образования и старта карьеры — знания и диплом'},
-      {question:'Нужно ли медицинское образование для поступления по программам вашего института?', answer: 'Нет. Психолог — не врач. Он не проводит сложные терапии, не назначает стационарное или медикаментозное лечение '},
-      {question:'Какие в MIP есть варианты оплаты?', answer: 'Вы можете оплатить полную стоимость сразу или воспользоваться рассрочкой от банка партнера.'},
-      {question:'Какие документы я получу после окончания обучения?', answer: 'После прохождения курсов выдается диплом о профессиональной переподготовке или удостоверение о повышении квалификации установленного образца. Это официальный документ, который вносится в реестр ФРДО. Его можно проверить на сайте Рособрнадзора.В дополнении также выдается диплом или сертификат Московского института психологии в формате А4 для личного портфолио.'},
-    ]
+  let list = null
 
-    let list = null;
-
-    if (program?.qnas?.length) {
-      list = program.qnas.map((qna, idx) => ({
-        question: qna.question,
-        answer: qna.answer,
-      }));
-    } else if (bachelor?.qnas?.length) {
-      list = bachelor.qnas.map((qna, idx) => ({
-        question: qna.question,
-        answer: qna.answer,
-      }));
-    } else {
-      list = listOnMain
-    }
+  if (program?.qnas?.length) {
+    list = program.qnas.map((qna, idx) => ({
+      question: qna.question,
+      answer: qna.answer
+    }))
+  } else if (bachelor?.qnas?.length) {
+    list = bachelor.qnas.map((qna, idx) => ({
+      question: qna.question,
+      answer: qna.answer
+    }))
+  } else {
+    list = listOnMain
+  }
 
   return (
     <section ref={faqRef} className={stls.container}>
@@ -47,9 +36,8 @@ const Faq = ({faqRef=null}) => {
               У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам!
             </p>
             <div className={stls.btn}>
-            <PopupTrigger btn='zeta' cta='askQuestion' />
+              <PopupTrigger btn='zeta' cta='askQuestion' />
             </div>
-            
           </div>
         </div>
 

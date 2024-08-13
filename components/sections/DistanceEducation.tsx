@@ -47,8 +47,6 @@ export const DistanceEducation = ({
 
   const fingerRef = useRef(null)
 
-  const [isVisible, setIsVisible] = useState('flex')
-
   return (
     <section
       ref={fingerRef}
@@ -69,7 +67,7 @@ export const DistanceEducation = ({
           desktopOptions={desktopSwiperOptions}
           hideNavigation
         />
-        <div style={{ display: `${isVisible}` }} className={stls.orangeBlock}>
+        <div style={{ display: 'flex' }} className={stls.orangeBlock}>
           <IconFinger />
         </div>
       </Wrapper>

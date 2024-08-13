@@ -5,7 +5,7 @@ import {
   BtnWhatsapp,
   BtnYt
 } from '@/components/btns'
-import { GeneralAddress } from '@/components/general'
+import GeneralAddress from '@/components/general/GeneralAddress'
 import FooterBottom from '@/components/general/FooterBottom'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'

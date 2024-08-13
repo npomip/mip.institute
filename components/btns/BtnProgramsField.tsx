@@ -35,7 +35,7 @@ const BtnProgramsField = ({ ofType = null }) => {
           [stls.popup]: true,
           [stls.isOpen]: isOpen
         })}>
-        <PopupFields close={handleFieldsPopup} ofType={ofType} />
+        <PopupFields close={handleFieldsPopup} />
       </div>
     </div>
   )

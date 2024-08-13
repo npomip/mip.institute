@@ -4,7 +4,12 @@ import classNames from 'classnames'
 import { IconMinus, IconPlus } from '@/components/icons'
 import parse from 'html-react-parser'
 
-const FaqAnswer = ({ question = null, answer = null }) => {
+type Props = {
+  question: string | null
+  answer: string | null
+}
+
+const FaqAnswer = ({ question = null, answer = null }: Props) => {
   const [isOpen, setOpen] = useState(false)
 
   return (

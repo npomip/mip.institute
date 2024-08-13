@@ -9,15 +9,10 @@ import Popup from 'reactjs-popup'
 import Breadcrumbs from '../general/Breadcrumbs'
 import BachelorFullProgramPopup from '../popups/BachelorFullProgramPopup'
 import BachelorProgramInfo from './BachelorProgramInfo'
-
-type Breadcrumb = {
-  label: string
-  path: string
-  slug: string
-}
+import TBreadcrumb from '@/types/general/TBreadcrumb'
 
 type Props = {
-  breadcrumbs: Breadcrumb[]
+  breadcrumbs: TBreadcrumb[]
 }
 
 const BachelorHeroProgram = ({ breadcrumbs }: Props) => {

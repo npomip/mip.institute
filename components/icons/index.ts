@@ -47,3 +47,6 @@ export { default as IconLiveCoursesFolder } from '@/components/icons/IconLiveCou
 export { default as IconBirds } from '@/components/icons/IconBirds'
 export { default as IconPsyTest } from '@/components/icons/IconPsyTest'
 export { default as OneNumber } from '@/components/icons/OneNumber'
+export { default as TwoNumber } from '@/components/icons/TwoNumber'
+export { default as ThreeNumber } from '@/components/icons/ThreeNumber'
+export { default as FourNumber } from '@/components/icons/FourNumber'

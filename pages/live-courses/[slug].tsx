@@ -1,11 +1,13 @@
 // import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
 import PaymentForm from '@/components/forms/PaymentForm'
 import payment from '@/components/funcs/payment'
+import GeneralFaq from '@/components/general/GeneralFaq'
+import Wrapper from '@/components/layout/Wrapper'
 import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
 import LiveCoursesDescription from '@/components/liveCourses/LiveCoursesDescription'
 import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
 import LiveCoursesStripe from '@/components/liveCourses/LiveCoursesStripe'
-import { About, Reviews } from '@/components/sections'
+import { About, Faq, Reviews } from '@/components/sections'
 import EntryForm from '@/components/sections/EntryForm'
 import YouTubeVideo from '@/components/sections/YouTubeVideo'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
@@ -17,7 +19,6 @@ import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
-  console.log(lifeCourse);
   
   // const { reviews } = useContext(ContextStaticProps)
 
@@ -55,11 +56,13 @@ const JournalPage = ({ lifeCourse, reviews }) => {
     setIsTestOpen(true)
   }
 
+  console.log(lifeCourse);
+  
+
   return (
-    // <Wrapper>
     <>
       <NextSeo nofollow={true} noindex={true} />
-      <LiveCoursesHero title={lifeCourse.title} />
+      <LiveCoursesHero title={lifeCourse?.title} />
       <Popup
         open={isTestOpen}
         onClose={() => setIsTestOpen(false)}
@@ -67,27 +70,19 @@ const JournalPage = ({ lifeCourse, reviews }) => {
         {close => <PaymentForm program={lifeCourse} onClose={close} />}
       </Popup>
       <div style={{ backgroundColor: 'red' }}>
-        <button onClick={handleOpen}>Оплатить</button>
+        <Wrapper><button onClick={handleOpen}>Оплатить</button></Wrapper>
       </div>
       <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
         <React.Fragment key={idx}>
           <LifeCourseDynamicZones props={module} />
-          {idx === 1 && (
-            <YouTubeVideo
-              videoId='Voc_dKGqhFE'
-              title='Демо-ролик спикера курса'
-            />
-          )}
-          {idx === 2 && (
-            <LiveCoursesDescription title='Краткая программа курса:' />
-          )}
         </React.Fragment>
       ))}
 
       <About isLiveCourse />
-      <Reviews reviews={reviews} isLiveCourse />
+      <Reviews subtitle={lifeCourse?.review_subtitle} reviews={lifeCourse?.unique_reviews} isLiveCourse />
       <EntryForm isLiveCourse />
+      <GeneralFaq qnas={lifeCourse?.qnas} />
     </>
   )
 }

@@ -1,6 +1,4 @@
-import {
-  TypeGeneralGetStaticPropsContext,
-} from '@/types/index'
+import { TypeGeneralGetStaticPropsContext } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
@@ -18,28 +16,24 @@ const getStaticPropsPageLiveCourse = async ({
   try {
     const res = await apolloClient.query<TypePageLiveCoursePropsQuery>({
       query: gql`
-        query getStaticPropsPageLiveCourse(
-          $slug: String!
-        ) {
+        query getStaticPropsPageLiveCourse($slug: String!) {
           reviews {
-          id
-          name
-          profession
-          title
-          story
-          createdAt
-          picture {
-            url
-            width
-            height
+            id
+            name
+            profession
+            title
+            story
+            createdAt
+            picture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
           }
-          index_number {
-            idx
-          }
-        }
-          lifeCourse: lifeCourses(
-            where: { slug: $slug }
-          ) {
+          lifeCourse: lifeCourses(where: { slug: $slug }) {
             title
             lmsId
             price
@@ -67,14 +61,69 @@ const getStaticPropsPageLiveCourse = async ({
               ... on ComponentLiveCorsesPoints {
                 title
                 subtitle
-                color {
-                  code
-                }
+                color
                 medalion {
                   text
                 }
               }
+              __typename
+              ... on ComponentSharedRepeatListWithTitle {
+                title
+                record {
+                  text
+                }
+              }
+              __typename
+              ... on ComponentSharedVideoLinkWithTitle {
+                title
+                videoLink
+              }
             }
+            qnas {
+              question
+              answer
+            }
+            seo {
+              metaTitle
+              metaDescription
+              metaImage {
+                url
+                width
+                height
+                alternativeText
+              }
+              keywords
+              metaRobots
+              structuredData
+              metaViewport
+              canonicalURL
+              isSEOFriendly
+              metaSocial {
+                title
+                description
+                image {
+                  url
+                  width
+                  height
+                  alternativeText
+                }
+                socialNetwork
+              }
+            }
+            unique_reviews {
+              id
+              name
+              profession
+              title
+              story
+              createdAt
+              picture {
+                url
+                width
+                height
+              }
+            }
+            review_subtitle
           }
         }
       `,

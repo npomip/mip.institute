@@ -8,11 +8,16 @@ import classNames from 'classnames'
 const ReactPlayer = _ReactPlayer as unknown as React.FC<ReactPlayerProps>
 
 type Props = {
-  title: string
-  videoId: string
   isOnMain?: boolean
+  videoId?: string
+  title?: string
+  props?: {
+    title: string
+    videoLink: string
+  }
 }
-const YouTubeVideo = ({ videoId, title, isOnMain }: Props) => {
+const YouTubeVideo = ({ isOnMain, videoId, title, props }: Props) => {
+
   return (
     <section>
       <Wrapper>
@@ -21,7 +26,7 @@ const YouTubeVideo = ({ videoId, title, isOnMain }: Props) => {
             [stls.title]: true,
             [stls.darkPurple]: !isOnMain
           })}>
-          {title}
+          {props ? props.title : title}
         </h2>
         {isOnMain && (
           <div className={stls.time}>
@@ -31,7 +36,7 @@ const YouTubeVideo = ({ videoId, title, isOnMain }: Props) => {
         )}
         <div className={stls.playerWrapper}>
           <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${videoId}`}
+            url={`https://www.youtube.com/watch?v=${props ? props.videoLink : videoId}`}
             controls
           />
         </div>

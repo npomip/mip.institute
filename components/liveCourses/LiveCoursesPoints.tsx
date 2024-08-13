@@ -5,9 +5,7 @@ interface LiveCorsesPointsProps {
   props: {
     title: string
     subtitle: string
-    color: {
-      code: string
-    }
+    color: string
     medalion: {
       text: string
     }[]
@@ -18,7 +16,7 @@ const LiveCoursesPoints = ({ props }: LiveCorsesPointsProps) => {
 
   return (
     <div
-      style={{ backgroundColor: `${color.code}` }}
+      style={{ backgroundColor: `${color}` }}
       className={styles.container}>
       <FullWrapper>
         <div className={styles.content}>
@@ -30,14 +28,14 @@ const LiveCoursesPoints = ({ props }: LiveCorsesPointsProps) => {
                 {idx === 5 ? (
                   <div className={styles.medalionAbs}>
                     <div
-                      style={{ background: `${color.code}` }}
+                      style={{ background: `${color}` }}
                       className={styles.circle}></div>
                     <p>{el.text}</p>
                   </div>
                 ) : (
                   <div className={styles.medalion}>
                     <div
-                      style={{ background: `${color.code}` }}
+                      style={{ background: `${color}` }}
                       className={styles.circle}></div>
                     <p>{el.text}</p>
                   </div>

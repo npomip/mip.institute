@@ -1,8 +1,13 @@
 import stls from '@/styles/components/sections/AboutSlider/RightPanel.module.sass'
 import classNames from 'classnames'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
-const RightPanel = ({ imageUrl, slideDirection }) => {
+type Props = {
+  imageUrl: StaticImageData
+  slideDirection: string
+}
+
+const RightPanel = ({ imageUrl, slideDirection }: Props) => {
   return (
     <div className={classNames(stls['right-panel'], stls[`${slideDirection}`])}>
       <div className={stls.img}>

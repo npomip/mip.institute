@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/StudyFieldSlugFilter.module.sass'
 import classNames from 'classnames'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 
 interface PropsFilter {
   studyField: string
@@ -26,8 +26,6 @@ const StudyFieldSlugFilter = ({
     }>
   >
 }) => {
-
-  const [fieldInLocalStore, setFieldInLocalStore] = useState('')
   let uniqueCategories = [
     ...new Set(props?.map(seminar => seminar.studyFieldSlug))
   ]
@@ -36,15 +34,15 @@ const StudyFieldSlugFilter = ({
     studyField:
       props.find(seminar => seminar.studyFieldSlug === slug)?.studyField || ''
   }))
-  
+
   const firstEl = [{ studyFieldSlug: '', studyField: 'Все cтатьи' }]
 
   let cat = firstEl.concat(uniqueCategoriesWithField)
 
   const handleFilter = el => {
     const selectedSlug = el
-    localStorage.setItem('selectedField', selectedSlug.studyField);
-    localStorage.setItem('selectedFieldSlug', selectedSlug.studyFieldSlug);
+    localStorage.setItem('selectedField', selectedSlug.studyField)
+    localStorage.setItem('selectedFieldSlug', selectedSlug.studyFieldSlug)
     setSelectedField(selectedSlug)
   }
 

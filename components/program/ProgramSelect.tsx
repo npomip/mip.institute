@@ -1,3 +1,4 @@
+import sortOptions from 'constants/programSelect'
 import { useRouter } from 'next/router'
 import Select from 'react-select'
 
@@ -13,14 +14,6 @@ type Props = {
   marginTop?: string
   width?: string
 }
-
-const sortOptions = [
-  { value: 'default', label: 'Сортировать по умолчанию' },
-  { value: { field: 'price', direction: 'asc' }, label: 'По возрастанию цены' },
-  { value: { field: 'price', direction: 'desc' }, label: 'По убыванию цены' },
-  { value: { field: 'popular' }, label: 'По популярности' },
-  { value: { field: 'date', direction: 'asc' }, label: 'По новизне' }
-]
 
 const ProgramSelect = ({
   options = sortOptions,
@@ -115,9 +108,7 @@ const ProgramSelect = ({
   }
 
   const router = useRouter()
-
   const { query } = router
-
   const { studyFieldSlug } = query
 
   return (

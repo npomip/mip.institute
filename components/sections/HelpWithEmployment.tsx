@@ -2,17 +2,9 @@ import stls from '@/styles/components/sections/HelpWithEmployment.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import CorporateClients from '@/components/general/CorporateClients'
 import { IconCircleCheck } from '@/components/icons'
+import list from 'constants/helpWithEmployment'
 
 const HelpWithEmployment = () => {
-  const list = [
-    'Рекомендации по составлению портфолио и резюме',
-    'Персональные консультации по развитию карьеры',
-    'Подготовка к собеседованию в компаниях-партнёрах',
-    'Помощь в поиске первых трех клиентов на частные консультации',
-    'Модуль “Как зарабатывать психологу удаленно от 80 т.р.”',
-    'Симулятор собеседования'
-  ]
-
   return (
     <section className={stls.container}>
       <Wrapper>

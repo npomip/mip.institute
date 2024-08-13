@@ -2,11 +2,10 @@ import stls from '@/styles/components/sections/AboutSlider/SecondSlide.module.sa
 import classNames from 'classnames'
 
 type Props = {
-  standalone?: boolean
   isLiveCourse?: boolean
 }
 
-const SecondSlide = ({ standalone = false, isLiveCourse = false }: Props) => {
+const SecondSlide = ({ isLiveCourse = false }: Props) => {
   return (
     <div
       className={classNames({

@@ -3,7 +3,12 @@ import { FormAlpha } from '@/components/forms'
 import { BtnClose } from '@/components/btns'
 import Link from 'next/link'
 
-const BachelorFullProgramPopup = ({content, close=null}) => {
+type Props = {
+  content: string
+  close?: () => void
+}
+
+const BachelorFullProgramPopup = ({ content, close }: Props) => {
   return (
     <div className={stls.container}>
       <button onClick={close}>Закрыть окно X</button>

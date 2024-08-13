@@ -1,13 +1,12 @@
-import stls from '@/styles/components/general/SwiperContainer.module.sass'
-import Popup from 'reactjs-popup'
-import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import classNames from 'classnames'
-import { PopupImage } from '../popups'
 import CustomNextButton from '@/components/general/CustomNextButton'
 import CustomPrevButton from '@/components/general/CustomPrevButton'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import { useEffect, useRef, useState } from 'react'
+import stls from '@/styles/components/general/SwiperContainer.module.sass'
+import classNames from 'classnames'
+import Popup from 'reactjs-popup'
+import SwiperCore, { Grid, Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { PopupImage } from '../popups'
 
 SwiperCore.use([Navigation, Pagination])
 

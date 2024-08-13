@@ -2,7 +2,14 @@ import getNextWednesday from '@/helpers/getNextThursday'
 import stls from '@/styles/components/cards/CardTopProgram.module.sass'
 import Link from 'next/link'
 
-const CardTopProgram = ({ portrait, title, studyHours, href }) => {
+type Props = {
+  portrait: JSX.Element
+  title: string
+  studyHours: number
+  href: string
+}
+
+const CardTopProgram = ({ portrait, title, studyHours, href }: Props) => {
   return (
     <Link href={href} passHref>
       <a className={stls.container}>
@@ -15,7 +22,7 @@ const CardTopProgram = ({ portrait, title, studyHours, href }) => {
 
         <p className={stls.title}>{title}</p>
         <p className={stls.subtitle}>
-        Ближайшее зачисление: <br /> {getNextWednesday(new Date())}
+          Ближайшее зачисление: <br /> {getNextWednesday(new Date())}
         </p>
         <p className={stls.subtitle}>Кол-во часов: {studyHours}</p>
       </a>

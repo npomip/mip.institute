@@ -17,6 +17,7 @@ import {
 import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPaths'
 import getStaticPathsPageLiveCourse from '../getStaticPaths/getStaticPathsPageLiveCourse'
 import getStaticPathsPageBachelor from '../getStaticPaths/getStaticPathsPageBachelor'
+import getStaticPathsPagePracticalTraining from '../getStaticPaths/getStaticPathsPagePracticalTraining'
 
 type TypeHandleGetStaticPathsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -27,7 +28,11 @@ const handleGetStaticPaths = async ({
   page,
   type
 }: TypeHandleGetStaticPathsProps): Promise<{
-  paths: TypePageProgramsPaths | TypePageProgramPaths | TypePageJournalPaths | []
+  paths:
+    | TypePageProgramsPaths
+    | TypePageProgramPaths
+    | TypePageJournalPaths
+    | []
   fallback: boolean | 'blocking'
 }> => {
   switch (page) {
@@ -52,8 +57,11 @@ const handleGetStaticPaths = async ({
     case routes.front.liveCourse:
       return await getStaticPathsPageLiveCourse()
 
-      case routes.front.bachelor:
-        return await getStaticPathsPageBachelor()
+    case routes.front.bachelor:
+      return await getStaticPathsPageBachelor()
+
+    case routes.front.practicalTraining:
+      return await getStaticPathsPagePracticalTraining()
 
     default:
       return {

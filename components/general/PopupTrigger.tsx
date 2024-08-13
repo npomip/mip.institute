@@ -52,13 +52,15 @@ type PopupTriggerType = {
     | 'knowRequirement'
   testProgram?: string
   isActivePromocode?: string
+  isLightYellowBetaBtn?: boolean
 }
 
 const PopupTrigger = ({
   btn,
   cta,
   testProgram = null,
-  isActivePromocode
+  isActivePromocode,
+  isLightYellowBetaBtn
 }: PopupTriggerType) => {
   const promoCtaList = [
     'signUpForCourse',
@@ -247,6 +249,7 @@ const PopupTrigger = ({
             text={strings.trigger[cta]}
             ctheta={btn === 'text'}
             test={btn === 'test'}
+            isLiveCourse={isLightYellowBetaBtn}
           />
         </div>
       }

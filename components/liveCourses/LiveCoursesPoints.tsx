@@ -1,24 +1,22 @@
-import styles from '@/styles/components/liveCourses/LiveCorsesPoints.module.sass'
+import styles from '@/styles/components/liveCourses/LiveCoursesPoints.module.sass'
 import FullWrapper from '../layout/FullWrapper'
 
 interface LiveCorsesPointsProps {
   props: {
     title: string
     subtitle: string
-    color: {
-      code: string
-    }
+    color: string
     medalion: {
       text: string
     }[]
   }
 }
-const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
+const LiveCoursesPoints = ({ props }: LiveCorsesPointsProps) => {
   const { title, subtitle, color, medalion } = props
 
   return (
     <div
-      style={{ backgroundColor: `${color.code}` }}
+      style={{ backgroundColor: `${color}` }}
       className={styles.container}>
       <FullWrapper>
         <div className={styles.content}>
@@ -30,14 +28,14 @@ const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
                 {idx === 5 ? (
                   <div className={styles.medalionAbs}>
                     <div
-                      style={{ background: `${color.code}` }}
+                      style={{ background: `${color}` }}
                       className={styles.circle}></div>
                     <p>{el.text}</p>
                   </div>
                 ) : (
                   <div className={styles.medalion}>
                     <div
-                      style={{ background: `${color.code}` }}
+                      style={{ background: `${color}` }}
                       className={styles.circle}></div>
                     <p>{el.text}</p>
                   </div>
@@ -51,4 +49,4 @@ const LiveCorsesPoints = ({ props }: LiveCorsesPointsProps) => {
   )
 }
 
-export default LiveCorsesPoints
+export default LiveCoursesPoints

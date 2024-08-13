@@ -15,6 +15,7 @@ type ReviewsType = {
   reviewsRef?: any
   onMain?: boolean
   isLiveCourse?: boolean
+  subtitle?: string
 }
 
 const Reviews = ({
@@ -22,7 +23,8 @@ const Reviews = ({
   reviews,
   reviewsRef,
   onMain,
-  isLiveCourse
+  isLiveCourse,
+  subtitle
 }: ReviewsType) => {
   const { program } = useContext(ContextStaticProps)
   const uniqueReviewsCount = program?.unique_reviews?.length
@@ -83,12 +85,17 @@ const Reviews = ({
         )}
         {/* <p className={stls.reviewCount}>{reviews.length} отзывов</p> */}
         <h2 className={stls.title}>Отзывы наших студентов</h2>
-        <p className={stls.description}>
-          Мы собрали подробные отзывы учеников, которые прослушали курс и
-          получили профессию. Они рассказали свои истории, которые откликаются в
-          сердцах наших преподавателей и всей команды Московского Института
-          Психологии.
-        </p>
+        {subtitle ? (
+          <p className={stls.description}>{subtitle}</p>
+        ) : (
+          <p className={stls.description}>
+            Мы собрали подробные отзывы учеников, которые прослушали курс и
+            получили профессию. Они рассказали свои истории, которые откликаются
+            в сердцах наших преподавателей и всей команды Московского Института
+            Психологии.
+          </p>
+        )}
+
         <div className={stls.content}>
           <SwiperContainer
             reviewPrevBtn

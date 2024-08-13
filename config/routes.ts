@@ -49,6 +49,7 @@ const routes = {
     assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
     policiesPrivacy: '/policies/privacy.pdf',
     policiesTerms: '/policies/terms.pdf',
+    policiesOferta: '/policies/oferta-mip.pdf',
     regulation: '/policies/regulation.pdf',
     yandexAnalytics: '/policies/yandexAnalytics.pdf'
   },

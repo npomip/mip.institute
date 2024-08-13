@@ -1,5 +1,5 @@
 import base64pixel from '@/config/base64pixel'
-import styles from '@/styles/components/liveCourses/LiveCorsesTextImage.module.sass'
+import styles from '@/styles/components/liveCourses/LiveCoursesTextImage.module.sass'
 import Image from 'next/image'
 import Wrapper from '@/components/layout/Wrapper'
 
@@ -19,7 +19,7 @@ interface LiveCorsesTextImageProps {
     }[]
   }[]
 }
-const LiveCorsesTextImage = ({ props }: LiveCorsesTextImageProps) => {
+const LiveCoursesTextImage = ({ props }: LiveCorsesTextImageProps) => {
   const block = props.map(el => el.repeatBlock)
 
   return (
@@ -60,4 +60,4 @@ const LiveCorsesTextImage = ({ props }: LiveCorsesTextImageProps) => {
   )
 }
 
-export default LiveCorsesTextImage
+export default LiveCoursesTextImage

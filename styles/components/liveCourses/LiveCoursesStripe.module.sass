@@ -1,0 +1,75 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.section
+  @include m.dye(bg, c.$orange-300)
+  height: f.px(125)
+  @include m.gap($ptb: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(10))
+    background: none
+    width: 100%
+    @include m.gap($plr: f.px(15, em))
+    height: auto
+.text > div
+  text-align: center
+  @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+    text-align: unset
+    @include m.flex($fd: column)
+    @include m.gap($mb: f.px(17))
+
+.block
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: flex-start)
+    gap: f.px(17)
+
+.item
+  @include m.dye(c, white)
+  font-size: f.px(30)
+  font-weight: 500
+  @include m.media(laptop)
+    font-size: f.px(26.8)
+  @include m.media(phone, tablet)
+    display: none
+    @include m.dye(c, c.$dark-purple)
+    font-size: f.px(18)
+
+.bullet
+  display: inline-block
+  @include m.dye(bg, white)
+  @include m.gap($mtb: f.px(5), $mlr: f.px(10))
+  width: f.px(12)
+  height: f.px(12)
+  border-radius: 50%
+  @include m.media(laptop)
+    width: f.px(10)
+    height: f.px(10)
+  @include m.media(phone, tablet)
+    display: none
+
+.bulletMob
+  @include m.media(desktop, laptop)
+    display: none
+  @include m.media(phone, tablet)
+    display: inline-block
+    @include m.dye(bg, c.$orange-300)
+    // @include m.gap($mtb: f.px(5), $mlr: f.px(10))
+    min-width: f.px(8)
+    min-height: f.px(8)
+    border-radius: 50%
+
+.rowMob
+  @include m.media(desktop, laptop)
+    display: none
+  @include m.media(phone, tablet)
+    @include m.flex($ai: center)
+    gap: f.px(15)
+
+.itemMob
+  @include m.media(phone, tablet)
+    @include m.dye(c, c.$dark-purple)
+    font-size: f.px(18)
+    font-weight: 500
+    // max-width: f.px(320)

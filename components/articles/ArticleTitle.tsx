@@ -3,13 +3,15 @@ import stls from '@/styles/components/articles/ArticleTitle.module.sass'
 import Image from 'next/image'
 import { IconClock } from '@/components/icons'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import classNames from 'classnames'
+import { useEffect, useState } from 'react'
 
 type ArticleTitleType = {
   props: {
     readTime: number
     title?: string
     studyField?: string
-    date?: Date
+    date?: string
     picture: {
       url: string
       width: string
@@ -42,10 +44,17 @@ type ArticleTitleType = {
 }
 
 const ArticleTitle = ({ props }: ArticleTitleType) => {
-  const date = new Date(props?.date)
+  const [formattedDate, setFormattedDate] = useState('')
   const isLaptopLayout = useBetterMediaQuery(
     '(min-width: 769px) and (max-width: 1200px)'
   )
+
+  useEffect(() => {
+    if (props.date) {
+      const date = new Date(props.date)
+      setFormattedDate(date.toLocaleDateString())
+    }
+  }, [props.date])
 
   return (
     <>
@@ -56,7 +65,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
           {props.blogAuthor && props.blogAuthor.name}
         </p>
         <div className={stls.dateAndTime}>
-          <p className={stls.date}>{date.toLocaleDateString()}</p>
+          <p className={stls.date}>{formattedDate}</p>
           <IconClock colorCode='#545454' size='22' />
           <p className={stls.time}>{props.readTime} мин</p>
         </div>
@@ -86,7 +95,12 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
                   props.teacher?.portrait?.url
                 }
                 alt={'Фото преподавателя'}
-                className={stls.imgTeacher}
+                className={classNames({
+                  [stls.imgTeacher]: true,
+                  [stls.imgForBlog]: !Boolean(
+                    props.teacher?.portraitForBlog?.url
+                  )
+                })}
                 width={isLaptopLayout ? 140 : 170}
                 height={isLaptopLayout ? 150 : 180}
                 placeholder='blur'

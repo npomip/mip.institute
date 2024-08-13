@@ -71,7 +71,7 @@ export default async function handler(req, res) {
           subject: 'Ваша ссылка для обучения', // Subject line
           text: `
         Привет ${req.body.object.metadata.name}, вот твоя ссылка для обучения. Вперед к знаниям \n
-        https://lms.mip.institute/local/ilogin/rlogin.php?un=${req.body.object.metadata.email}&pw=${password}&ln=${req.body.object.metadata.surname}&fn=${req.body.object.metadata.name}&g=жизньсвободнаяотобид&e=${req.body.object.metadata.email}&t=${time}&k=${k}, \n
+        https://lms.mip.institute/local/ilogin/rlogin.php?un=${req.body.object.metadata.email}&pw=${password}&ln=${req.body.object.metadata.surname}&fn=${req.body.object.metadata.name}&g=${req.body.object.metadata.lmsId}&e=${req.body.object.metadata.email}&t=${time}&k=${k}, \n
         Твой логин: ${req.body.object.metadata.email},
         И пароль: ${password}
         ` // plain text body

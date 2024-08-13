@@ -22,6 +22,7 @@ type Props = {
   onClose: () => void
   program: {
     price
+    lmsId
   }
 }
 
@@ -50,6 +51,7 @@ const PaymentForm = ({ onClose, program }: Props) => {
     const referer = JSON.parse(sessionStorage.getItem('referer'))
     data.referer = referer
     data.price = program.price
+    data.lmsId = program.lmsId
     const utm = getCookie('utm')
     if (typeof utm === 'string') {
       data.utm = JSON.parse(utm)
@@ -176,30 +178,32 @@ const PaymentForm = ({ onClose, program }: Props) => {
         </div>
         <div className={stls.footer}>
           <div className={stls.checkboxBlock}>
-            <label>
+            <label htmlFor='agreement'>
               <input
                 aria-label='Согласие об оферте'
                 type='checkbox'
                 checked={isAgree}
-                onChange={() => setIsAgree(true)}
-                id='agreement'
+                onChange={() => setIsAgree(!isAgree)}
                 name='agreement'
                 className={stls.checkbox}
               />
-              мною прочитан
+              Согласен(-а) с условиями
               <a
                 href={routes.front.policiesOferta}
                 target='_blank'
                 rel='noopener noreferrer'
                 className={stls.link}>
-                <span className={stls.text}> договор оферты</span>
+                <span className={stls.text}> договора оферты</span>
               </a>
             </label>
           </div>
-
+          <div className={stls.price}>
+            <span>Сумма к оплате: </span>
+            <span>{program.price} руб.</span>
+          </div>
           <div className={stls.btnBlock}>
             <button className={stls.btn} disabled={isDisabled}>
-              Отправить
+              Оплатить
             </button>
           </div>
         </div>

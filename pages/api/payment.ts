@@ -32,7 +32,7 @@ const payment = async (
 	req: NextApiRequest,
 	res: NextApiResponse<TypeNextApiResponseLeadData | Error>
 ) => {
-	const { name, surname, phone,email,id,utm, referer, price, returnURL } = req.body
+	const { name, surname, phone,email,id,utm, referer, price, returnURL, lmsId } = req.body
 
 	const leadPage = `${routes.front.root}${req.body?.leadPage}`
 	// console.log('idempotenceKey ===', req.body);
@@ -58,8 +58,10 @@ const payment = async (
 			utm_content: utm?.utm_content || '',
 			utm_term: utm?.utm_term || '',
 			utm_campaign: utm?.utm_campaign || '',
+			referer : referer || '',
 			price,
-			ik: idempotenceKey
+			ik: idempotenceKey,
+			lmsId
 		},
 		receipt: {
 			customer: {
@@ -98,8 +100,6 @@ const payment = async (
 				}
 			}
 		)
-		// values.paymentStatus = 'В обработке'
-		// await axios.post(`${routesFront.root}/api/contact`, values)
 
 		res.status(200).json({
 			status: 200,

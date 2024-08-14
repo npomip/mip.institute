@@ -1,6 +1,7 @@
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { NextSeo } from 'next-seo'
 import PracticalList from '../practicalTraining/PracticalList'
+import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -25,6 +26,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
+      <PracticalHeroProgram breadcrumbs={breadcrumbs} practicalTraining={practicalTraining}/>
       <PracticalList
         title={'Зачем нужна практика будущему психологу во время обучения?'}
       />

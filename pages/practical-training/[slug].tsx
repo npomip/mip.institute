@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { revalidate, routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { PageBachelor, PagesProgram } from '@/components/pages'
+import PageTraining from '@/components/pages/PageTraining'
 
 const BachelorPage = ({
 practicalTraining
@@ -13,7 +14,7 @@ practicalTraining
 
   return (
     <>
-        {/* <PageBachelor /> */}
+        <PageTraining practicalTraining={practicalTraining} />
     </>
   )
 }

@@ -1,9 +1,9 @@
-import TypeLibLiveCourse from '@/types/lib/liveCourse/TypeLibLiveCourse'
-import TypeLibReviews from '@/types/lib/reviews/TypeLibReviews'
+import TypePagePracticalTrainingPropsQuery from '../TypePagePracticalTrainingPropsQuery'
 
 type TypePagePracticalTrainingProps = {
-  readonly practicalTraining: any | null
-
+  readonly practicalTraining: TypePagePracticalTrainingPropsQuery | null
 }
+
+
 
 export default TypePagePracticalTrainingProps

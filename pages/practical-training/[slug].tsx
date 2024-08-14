@@ -1,20 +1,21 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { revalidate, routes } from '@/config/index'
-import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import { PageBachelor, PagesProgram } from '@/components/pages'
 import PageTraining from '@/components/pages/PageTraining'
+import { routes } from '@/config/index'
+import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
+import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-const BachelorPage = ({
-practicalTraining
-}) => {
-  console.log(practicalTraining);
-  
+type Props = {
+  practicalTraining: PracticalTraining
+}
+
+const BachelorPage = ({ practicalTraining }: Props) => {
+  console.log(practicalTraining)
 
   // http://localhost:3000/practical-training/first-step
 
   return (
     <>
-        <PageTraining practicalTraining={practicalTraining} />
+      <PageTraining practicalTraining={practicalTraining} />
     </>
   )
 }

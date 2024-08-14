@@ -1,6 +1,12 @@
+import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { NextSeo } from 'next-seo'
+import PracticalList from '../practicalTraining/PracticalList'
 
-const PageTraining = ({ practicalTraining }) => {
+type Props = {
+  practicalTraining: PracticalTraining
+}
+
+const PageTraining = ({ practicalTraining }: Props) => {
   const segments = ['practical-training']
 
   const labels = ['Краткосрочная ступенчатая программа']
@@ -14,10 +20,14 @@ const PageTraining = ({ practicalTraining }) => {
     }
     return breadcrumb
   })
+  console.log(practicalTraining)
 
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
+      <PracticalList
+        title={'Зачем нужна практика будущему психологу во время обучения?'}
+      />
     </>
   )
 }

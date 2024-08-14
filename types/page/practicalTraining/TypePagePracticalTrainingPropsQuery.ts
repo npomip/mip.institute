@@ -28,7 +28,7 @@ type PracticalList = {
   item: PracticalListItem[];
 };
 
-type PracticalListItem = {
+export type PracticalListItem = {
   title: string;
   text: string;
   icon: string;

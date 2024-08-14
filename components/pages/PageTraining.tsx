@@ -20,14 +20,11 @@ const PageTraining = ({ practicalTraining }: Props) => {
     }
     return breadcrumb
   })
-  console.log(practicalTraining)
 
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
-      <PracticalList
-        title={'Зачем нужна практика будущему психологу во время обучения?'}
-      />
+      <PracticalList list={practicalTraining.practicalList.item} />
     </>
   )
 }

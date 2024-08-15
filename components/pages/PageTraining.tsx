@@ -2,6 +2,7 @@ import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracti
 import { NextSeo } from 'next-seo'
 import PracticalList from '../practicalTraining/PracticalList'
 import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
+import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -27,6 +28,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       <NextSeo nofollow={true} noindex={true} />
       <PracticalHeroProgram breadcrumbs={breadcrumbs} practicalTraining={practicalTraining}/>
       <PracticalList list={practicalTraining.practicalList.item} />
+      <PracticalProgramDescription description={practicalTraining.programDescription} cards={practicalTraining.descriptionCards.item}/>
     </>
   )
 }

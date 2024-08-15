@@ -18,7 +18,7 @@ export type PracticalTraining = {
   whatYouWillLearnPhoto: string | null;
   whatInProgram: WhatInProgram;
   programDescription: ProgramDescription;
-  descriptionCards: DescriptionCard[];
+  descriptionCards: DescriptionCard;
   teachers: any[]; // Assuming the structure of teacher objects is unknown
   qnas: any[]; // Assuming the structure of Q&A objects is unknown
   seo: any | null; // Assuming the structure of SEO objects is unknown
@@ -34,7 +34,7 @@ type HeroPicture = {
   width: number;
 };
 
-type PracticalListItem = {
+export type PracticalListItem = {
   title: string;
   text: string;
   icon: string;
@@ -65,20 +65,26 @@ type WhatInProgram = {
   list: SharedText[];
 };
 
-type ProgramDescription = {
+export type ProgramDescription = {
   title: string;
   subtitle: string;
   subtitleColor: string;
 };
 
+type DescriptionCardImage = {
+  height: number;
+  url: string;
+  width: number;
+}
+
 type DescriptionCard = {
   item: DescriptionCardItem[];
 };
 
-type DescriptionCardItem = {
+export type DescriptionCardItem = {
   title: string;
   subtitle: string;
-  picture: string | null;
+  picture: DescriptionCardImage;
 };
 
 type SharedText = {

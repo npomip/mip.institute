@@ -55,7 +55,7 @@
   @include m.media(laptop, desktop)
     @include m.flex($as: start)
 
-.title, .analisys
+.title
   color: white
   font-weight: 500
   line-height: 90%
@@ -69,6 +69,8 @@
     font-size: f.px(64)
     font-weight: 500
     line-height: 110%
+  @include m.media(laptop, desktop)
+    font-size: f.px(54)
   @include m.media(phone, tablet)
     color: white
     font-size: f.px(36)
@@ -136,6 +138,7 @@
   @include m.media(laptop, desktop)
     display: none
   @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(40))
     & > *:nth-child(1)
       @include m.gap($mb: f.px(10))
 

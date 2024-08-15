@@ -39,11 +39,11 @@ const PracticalProgramDescription = ({ description, cards}: Props) => {
   };
   const renderer = new marked.Renderer()
   renderer.em = text => {
-    return `<span className=${stls.strongText} style="color: ${description.subtitleColor}">${text}</span>`
+    return `<span class=${stls.strongText} style="color: ${description.subtitleColor}">${text}</span>`
   }
 
   renderer.strong = text => {
-    return `<span className=${stls.strongText}>${text}</span>`
+    return `<span class=${stls.strongText}>${text}</span>`
   }
   marked.setOptions({ renderer })
   return (
@@ -57,9 +57,9 @@ const PracticalProgramDescription = ({ description, cards}: Props) => {
               <TagOrange>Практика</TagOrange>
             </div>
             <h2 className={stls.title}>{title}</h2>
-            {showDescription && ( <p className={stls.desc}>
+            {showDescription && ( <div className={stls.desc}>
               {parse(marked(description.title))}
-            </p>
+            </div>
             )}
         </div>
         <div className={stls.cards}>
@@ -113,7 +113,7 @@ const PracticalProgramDescription = ({ description, cards}: Props) => {
             </div>}
         </div>
         <div className={stls.bottom}>
-          <p className={stls.desc}>{parse(marked(description.subtitle))}</p>
+          <div className={stls.desc}>{parse(marked(description.subtitle))}</div>
         </div>
       </Wrapper>
     </section>

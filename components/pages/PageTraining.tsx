@@ -2,6 +2,8 @@ import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracti
 import { NextSeo } from 'next-seo'
 import PracticalList from '../practicalTraining/PracticalList'
 import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
+import PracticalBriefProgram from '../practicalTraining/PracticalBriefProgram'
+import stls from '@/styles/pages/PageTraining.module.sass'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -23,11 +25,15 @@ const PageTraining = ({ practicalTraining }: Props) => {
   })
 
   return (
-    <>
+    <div className={stls.pageWrapper}>
       <NextSeo nofollow={true} noindex={true} />
-      <PracticalHeroProgram breadcrumbs={breadcrumbs} practicalTraining={practicalTraining}/>
+      <PracticalHeroProgram
+        breadcrumbs={breadcrumbs}
+        practicalTraining={practicalTraining}
+      />
       <PracticalList list={practicalTraining.practicalList.item} />
-    </>
+      <PracticalBriefProgram listProgram={practicalTraining.briefProgram} />
+    </div>
   )
 }
 

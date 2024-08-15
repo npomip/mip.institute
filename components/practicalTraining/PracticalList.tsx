@@ -22,38 +22,40 @@ const PracticalList = ({ list }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.tag}>
-          <TagOrange isWhiteText>Образование</TagOrange>
-        </div>
-        <h2 className={stls.title}>
-          Зачем
-          <span className={stls.colouredTitle}> нужна практика </span>
-          будущему психологу во время обучения?
-        </h2>
-        <div className={stls.violetBlock}>
-          <div className={stls.columns}>
-            <ul className={stls.listMainLeft}>
-              {leftColumnItems.map(el => (
-                <li className={stls.itemOnMain} key={el.title}>
-                  <div className={stls.icon}>{renderIcon(el.icon)}</div>
-                  <div className={stls.listText}>
-                    <div className={stls.listTitle}>{el.title}</div>
-                    <div className={stls.text}>{el.text}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <ul className={stls.listMainRight}>
-              {rightColumnItems.map(el => (
-                <li className={stls.itemOnMain} key={el.title}>
-                  <div className={stls.icon}>{renderIcon(el.icon)}</div>
-                  <div className={stls.listText}>
-                    <div className={stls.listTitle}>{el.title}</div>
-                    <div className={stls.text}>{el.text}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        <div className={stls.whiteBlock}>
+          <div className={stls.tag}>
+            <TagOrange isWhiteText>Образование</TagOrange>
+          </div>
+          <h2 className={stls.title}>
+            Зачем
+            <span className={stls.colouredTitle}> нужна практика </span>
+            будущему психологу во время обучения?
+          </h2>
+          <div className={stls.violetBlock}>
+            <div className={stls.columns}>
+              <ul className={stls.listMainLeft}>
+                {leftColumnItems.map(el => (
+                  <li className={stls.itemOnMain} key={el.title}>
+                    <div className={stls.icon}>{renderIcon(el.icon)}</div>
+                    <div className={stls.listText}>
+                      <div className={stls.listTitle}>{el.title}</div>
+                      <div className={stls.text}>{el.text}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <ul className={stls.listMainRight}>
+                {rightColumnItems.map(el => (
+                  <li className={stls.itemOnMain} key={el.title}>
+                    <div className={stls.icon}>{renderIcon(el.icon)}</div>
+                    <div className={stls.listText}>
+                      <div className={stls.listTitle}>{el.title}</div>
+                      <div className={stls.text}>{el.text}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </Wrapper>

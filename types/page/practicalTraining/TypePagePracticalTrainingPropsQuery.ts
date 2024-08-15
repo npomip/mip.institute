@@ -34,7 +34,7 @@ type HeroPicture = {
   width: number;
 };
 
-type PracticalListItem = {
+export type PracticalListItem = {
   title: string;
   text: string;
   icon: string;
@@ -44,12 +44,12 @@ type TermPoint = {
   text: string;
 };
 
-type BriefProgram = {
+export type BriefProgram = {
   title: string;
   record: BlogRecord[];
 };
 
-type BlogRecord = {
+export type BlogRecord = {
   text: string;
 };
 

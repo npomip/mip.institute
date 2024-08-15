@@ -8,6 +8,13 @@
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(43))
 
+.whiteBlock
+  @include m.dye(bg, white)
+  border-radius: f.px(20)
+  @include m.gap($ptb: f.px(45), $plr: f.px(60))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25), $plr: f.px(15))
+
 .title
   display: inline-block
   @include m.dye(c, black)
@@ -56,7 +63,7 @@
 
 .listTitle
   display: block
-  font-size: f.px(22)
+  font-size: f.px(20)
   font-style: normal
   font-weight: 500
   line-height: 130%

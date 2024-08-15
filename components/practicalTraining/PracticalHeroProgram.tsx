@@ -16,14 +16,8 @@ type Props = {
 }
 
 const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
-  const { bachelor } = useContext(ContextStaticProps)
 
   const cta = 'signUp'
-
-  const analysis = validTitles.includes(bachelor?.title)
-
-  const [open, setOpen] = useState(false)
-  const closeModal = () => setOpen(false)
 
   return (
     <>
@@ -66,7 +60,6 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
               <h1
                 className={classNames({
                   [stls.title]: true,
-                  [stls.analysis]: analysis
                 })}>
                 {practicalTraining?.title}
               </h1>

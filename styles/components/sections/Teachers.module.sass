@@ -43,8 +43,14 @@
     font-size: f.px(20)
   @include m.dye(c, c.$theta)
 
+.halfScreenTitle
+  @include m.gap($pl: f.px(60))
+  max-width: f.px(600)
+  @include m.media(phone, tablet)
+    @include m.gap($pl: 0)
+
 .highlight
-  color: #6F01C6
+  @include m.dye(c, c.$alpha)
   font-weight: 350
 
 .teachers

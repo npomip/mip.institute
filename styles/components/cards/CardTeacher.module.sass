@@ -7,15 +7,14 @@
   cursor: pointer
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(2), $mlr: f.px(2), $mb: f.px(60))
-    background: white
 
 .innerContainer
   min-height: f.px(220)
   border-radius: f.px(25)
-  border: f.px(1) solid #DCA8FF
+  border: f.px(1) solid
+  @include m.dye(border, c.$purple-100)
   @include m.media(phone, tablet)
     min-height: f.px(150)
-    // max-width: 350px
 
 .twoColumns
   width: 100%
@@ -49,12 +48,17 @@
 
 .leftBlock
   width: f.px(160)
+  @include m.dye(bg, white)
+  border-top-left-radius: f.px(25)
+  border-bottom-left-radius: f.px(25)
   @include m.gap($p:f.px(25))
   @include m.media(laptop)
     @include m.gap($p:f.px(15))
   @include m.media(tablet)
     @include m.gap($p:f.px(15))
   @include m.media(phone)
+    border-top-left-radius: f.px(25)
+    border-bottom-left-radius: f.px(25)
     width: f.px(100)
     @include m.gap($p:f.px(15))
 
@@ -87,6 +91,11 @@
     @include m.gap($p:f.px(15),$pt:0)
     min-height: f.px(160)
 
+.whiteBg
+  @include m.dye(bg, white)
+  border-left: f.px(1) solid
+  @include m.dye(border, c.$purple-100)
+
 .achievements
   font-weight: 400
   font-style: normal
@@ -116,4 +125,4 @@
   width: 20px
   @include m.gap($pr: f.px(10))
   & path
-    @include m.dye(fill, #6F01C6)
+    @include m.dye(fill, c.$alpha)

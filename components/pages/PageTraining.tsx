@@ -5,6 +5,7 @@ import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
 import PracticalBriefProgram from '../practicalTraining/PracticalBriefProgram'
 import stls from '@/styles/pages/PageTraining.module.sass'
 import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
+import { Teachers } from '../sections'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -12,11 +13,10 @@ type Props = {
 
 const PageTraining = ({ practicalTraining }: Props) => {
   const segments = ['practical-training']
-
   const labels = ['Краткосрочная ступенчатая программа']
   const slug = ['practical-training']
 
-  const breadcrumbs = segments.map((segment, index) => {
+  const breadcrumbs = segments.map((_, index) => {
     const breadcrumb = {
       label: labels[index],
       path: '/' + segments[index],
@@ -33,8 +33,21 @@ const PageTraining = ({ practicalTraining }: Props) => {
         practicalTraining={practicalTraining}
       />
       <PracticalList list={practicalTraining.practicalList.item} />
+      <PracticalProgramDescription
+        description={practicalTraining.programDescription}
+        cards={practicalTraining.descriptionCards.item}
+      />
       <PracticalBriefProgram listProgram={practicalTraining.briefProgram} />
-      <PracticalProgramDescription description={practicalTraining.programDescription} cards={practicalTraining.descriptionCards.item}/>
+      <Teachers
+        title={'Преподаватели'}
+        teachersList={practicalTraining.teachers}
+        isExperienceHidden
+        halfScreenTitle
+        isWhiteBackground
+        isSquareBtn
+        isTeacherRoundBtn={false}
+        titlePaddingLeft={70}
+      />
     </div>
   )
 }

@@ -2,7 +2,7 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 .container
-  @include m.dye(bg, #F4F4F4)
+  @include m.dye(bg, c.$gray-100)
   @include m.gap($pb: f.px(0), $pt: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(50))
@@ -136,12 +136,10 @@
 .orangeBlock
   z-index: 2
   position: absolute
-  display: flex
-  justify-content: center
-  align-items: center
+  @include m.flex($jc: center, $ai: center)
   @include m.dye(bg, c.$beta)
-  width: 60px
-  height: 60px
+  width: f.px(60)
+  height: f.px(60)
   border-radius: 50%
   @include m.media(phone, tablet)
     animation: 3s infinite normal slidePhone

@@ -13,6 +13,7 @@ import IconFlower from '@/components/icons/IconFlower'
 import IconClever from '@/components/icons/IconClever'
 import IconStar from '@/components/icons/IconStar'
 import content from 'constants/whatYouWillLearn'
+import highlightFirstWord from '@/helpers/highlightFirstWord'
 
 const WhatYouWillLearn = ({ onMain = false, title }) => {
   const { program } = useContext(ContextStaticProps)
@@ -35,13 +36,6 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
       default:
         return <IconStar isOrangeEmpty />
     }
-  }
-
-  const renderFirstWord = (word: string) => {
-    return word
-      .split(' ')
-      .filter((_, index) => index !== 0)
-      .join(' ')
   }
 
   return (
@@ -86,7 +80,7 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
                         }}>
                         {`${item.split(' ')[0]} `}
                       </span>
-                      <span className={stls.p}>{renderFirstWord(item)}</span>
+                      <span className={stls.p}>{highlightFirstWord(item)}</span>
                     </div>
                   </li>
                 ))}

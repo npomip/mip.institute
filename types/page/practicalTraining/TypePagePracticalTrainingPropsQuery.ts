@@ -10,7 +10,7 @@ export type PracticalTraining = {
   price: number | null;
   practicalList: PracticalList;
   heroPicture: HeroPicture;
-  diploma1: string | null;
+  diploma1: PracticalDiploma;
   termsPoints: TermPoint[];
   briefProgram: BriefProgram[];
   courseResult: CourseResult;
@@ -27,6 +27,12 @@ export type PracticalTraining = {
 type PracticalList = {
   item: PracticalListItem[];
 };
+
+export type PracticalDiploma = {
+  width: number
+  height: number
+  url: string
+}
 
 type HeroPicture = {
   height: number;

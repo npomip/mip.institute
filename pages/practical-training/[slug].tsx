@@ -9,15 +9,7 @@ type Props = {
 }
 
 const BachelorPage = ({ practicalTraining }: Props) => {
-  console.log(practicalTraining)
-
-  // http://localhost:3000/practical-training/first-step
-
-  return (
-    <>
-      <PageTraining practicalTraining={practicalTraining} />
-    </>
-  )
+  return <PageTraining practicalTraining={practicalTraining} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>

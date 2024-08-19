@@ -5,6 +5,7 @@ import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
 import PracticalBriefProgram from '../practicalTraining/PracticalBriefProgram'
 import stls from '@/styles/pages/PageTraining.module.sass'
 import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
+import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -35,6 +36,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       <PracticalList list={practicalTraining.practicalList.item} />
       <PracticalBriefProgram listProgram={practicalTraining.briefProgram} />
       <PracticalProgramDescription description={practicalTraining.programDescription} cards={practicalTraining.descriptionCards.item}/>
+      <PracticalWhatYouWillLearn listLearn={practicalTraining.whatYouWillLearn} photo={practicalTraining.whatYouWillLearnPhoto}/>
     </div>
   )
 }

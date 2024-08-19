@@ -4,24 +4,61 @@
 
 .container
   border: f.px(0.5) solid #848484
+  width: 100%
+  overflow: hidden
   border-radius: f.px(20)
-  @include m.media(desktop, laptop)
-    @include m.gap($ptb: f.px(47), $pl: f.px(101), $pr: f.px(150))
+  transition: height 0.5s ease
+  @include m.media(desktop)
+    // height: f.px(99.68)
+    height: f.px(70)
+    @include m.gap($ptb: f.px(44.5), $pl: f.px(101), $pr: f.px(150), $mb: f.px(10))
+  @include m.media(laptop)
+    height: f.px(80.8)
+    @include m.gap($ptb: f.px(8), $pl: f.px(101), $pr: f.px(150),  $mb: f.px(10))
+  @include m.media(phone, tablet)
+    border-radius: f.px(12)
+    height: f.px(57.76)
+    @include m.gap($ptb: f.px(8), $pl: f.px(61), $pr: f.px(91), $mb: f.px(5))
+.visible
+  @include m.media(desktop)
+    height: f.px(186)
+  @include m.media(laptop)
+    height: f.px(186)
+  @include m.media(phone, tablet)
+    height: f.px(137.76)
+
+.hidden
+  @include m.media(desktop)
+    // height: f.px(99.68)
+    height: f.px(70)
+  @include m.media(laptop)
+    height: f.px(80.8)
+  @include m.media(phone, tablet)
+    height: f.px(57.76)
 
 .blockNumber
-  transform: translate(f.px(-92), f.px(-34))
+  @include m.media(desktop, laptop)
+    transform: translate(f.px(-92), f.px(2.8))
+  @include m.media(phone, tablet)
+    transform: translate(f.px(-55.2), f.px(-5.2))
 
 .number
-  // display: inline-block
-  border-radius: f.px(30)
-  font-size: f.px(16)
-  font-weight: 350
-  @include m.gap($ptb: f.px(3), $plr: f.px(20))
+  @include m.media(desktop, laptop)
+    font-size: f.px(16)
+    border-radius: f.px(30)
+    @include m.gap($ptb: f.px(3), $plr: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(9.7)
+    border-radius: f.px(18)
+    @include m.gap($ptb: f.px(2), $plr: f.px(12))
+    font-weight: 350
 
 .text
   @include m.media(desktop, laptop)
+    font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
   @include m.dye(c, #000)
-  font-size: f.px(20)
   font-weight: 350
   line-height: 130%
 

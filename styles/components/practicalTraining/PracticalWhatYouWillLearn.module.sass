@@ -12,12 +12,15 @@
     @include m.gap($mb: f.px(20))
     font-size: f.px(32)
   @include m.media(phone)
-    @include m.gap($mb: f.px(20))
+    @include m.gap($mb: f.px(20), $ml: f.px(0))
     font-size: f.px(26)
 
 .columns
-  @include m.flex()
-  gap: f.px(30)
+  @include m.media(desktop, laptop)
+    @include m.flex()
+    gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)
 
 .imageBlock
   @include m.media(desktop, laptop)
@@ -25,5 +28,11 @@
     height: 100%
 
 .cardsBlock
-  @include m.media(desktop, laptop)
+  @include m.media(desktop)
     width: 50%
+    max-height: f.px(898)
+  @include m.media(laptop)
+    width: 50%
+    max-height: f.px(727)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))

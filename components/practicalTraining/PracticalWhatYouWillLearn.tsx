@@ -18,7 +18,7 @@ const PracticalWhatYouWillLearn = ({ listLearn, photo }: Props) => {
         </h2>
         <div className={stls.columns}>
           <div className={stls.imageBlock}>
-            <Image src={photo.url} width={photo.width} height={photo.height} alt='Чему вы научитесь'/>
+            <Image src={photo?.url} width={photo?.width} height={photo?.height} alt='Чему вы научитесь'/>
           </div>
           <div className={stls.cardsBlock}>
                 {listLearn.list.map((el, index) => (

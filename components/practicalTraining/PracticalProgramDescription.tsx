@@ -84,9 +84,9 @@ const PracticalProgramDescription = ({ description, cards }: Props) => {
                     <div className={stls.imageBlock}>
                       <Image
                         className={stls.cardImage}
-                        src={description.picture.url}
-                        width={description.picture.width}
-                        height={description.picture.height}
+                        src={description?.picture?.url}
+                        width={description?.picture?.width}
+                        height={description?.picture?.height}
                         alt={stls.cardTitle}
                       />
                     </div>

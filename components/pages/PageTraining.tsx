@@ -6,6 +6,8 @@ import PracticalBriefProgram from '../practicalTraining/PracticalBriefProgram'
 import stls from '@/styles/pages/PageTraining.module.sass'
 import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
 import { Teachers } from '../sections'
+import PracticalCertificate from '../practicalTraining/PracticalCertificate'
+import PracticalCourseResult from '../practicalTraining/PracticalCourseResult'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -37,6 +39,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
         description={practicalTraining.programDescription}
         cards={practicalTraining.descriptionCards.item}
       />
+      <PracticalCertificate image={practicalTraining.diploma1} />
       <PracticalBriefProgram listProgram={practicalTraining.briefProgram} />
       <Teachers
         title={'Преподаватели'}
@@ -48,6 +51,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isTeacherRoundBtn={false}
         titlePaddingLeft={70}
       />
+      <PracticalCourseResult results={practicalTraining.courseResult.list} />
     </div>
   )
 }

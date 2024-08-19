@@ -67,7 +67,7 @@ type WhatYouWillLearn = {
   list: SharedText[];
 };
 
-type WhatInProgram = {
+export type WhatInProgram = {
   list: SharedText[];
 };
 
@@ -93,7 +93,7 @@ export type DescriptionCardItem = {
   picture: DescriptionCardImage;
 };
 
-type SharedText = {
+export type SharedText = {
   text: string;
 };
 

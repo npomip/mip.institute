@@ -8,6 +8,7 @@ import PracticalProgramDescription from '../practicalTraining/PracticalProgramDe
 import { Teachers } from '../sections'
 import PracticalCertificate from '../practicalTraining/PracticalCertificate'
 import PracticalCourseResult from '../practicalTraining/PracticalCourseResult'
+import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -34,16 +35,16 @@ const PageTraining = ({ practicalTraining }: Props) => {
         breadcrumbs={breadcrumbs}
         practicalTraining={practicalTraining}
       />
-      <PracticalList list={practicalTraining.practicalList.item} />
+      <PracticalList list={practicalTraining?.practicalList.item} />
       <PracticalProgramDescription
-        description={practicalTraining.programDescription}
-        cards={practicalTraining.descriptionCards.item}
+        description={practicalTraining?.programDescription}
+        cards={practicalTraining?.descriptionCards.item}
       />
-      <PracticalCertificate image={practicalTraining.diploma1} />
-      <PracticalBriefProgram listProgram={practicalTraining.briefProgram} />
+      <PracticalCertificate image={practicalTraining?.diploma1} />
+      <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
       <Teachers
         title={'Преподаватели'}
-        teachersList={practicalTraining.teachers}
+        teachersList={practicalTraining?.teachers}
         isExperienceHidden
         halfScreenTitle
         isWhiteBackground
@@ -51,7 +52,8 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isTeacherRoundBtn={false}
         titlePaddingLeft={70}
       />
-      <PracticalCourseResult results={practicalTraining.courseResult.list} />
+      <PracticalCourseResult results={practicalTraining?.courseResult.list} />
+      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list}/>
     </div>
   )
 }

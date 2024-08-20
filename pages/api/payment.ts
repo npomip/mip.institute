@@ -1,3 +1,4 @@
+import dev from '@/config/dev'
 import routes from '@/config/routes'
 import axios from 'axios'
 import { NextApiRequest, NextApiResponse } from 'next'
@@ -12,19 +13,19 @@ export type TypeNextApiResponseLeadData = {
 	readonly transactionId?: number | string
 }
 
-const shopId = env.YOOKASSA_SHOP_ID_DEV
-const secretKey = env.YOOKASSA_SECRET_KEY_DEV
+// const shopId = env.YOOKASSA_SHOP_ID_DEV
+// const secretKey = env.YOOKASSA_SECRET_KEY_DEV
 
 // env.YOOKASSA_SHOP_ID_DEV
 // env.YOOKASSA_SHOP_ID_PROD
 // env.YOOKASSA_SECRET_KEY
 
-// const shopId = dev
-// 	? process.env.YOOKASSA_SHOP_ID_DEV
-// 	: process.env.YOOKASSA_SHOP_ID_PROD
-// const secretKey = dev
-// 	? process.env.YOOKASSA_SECRET_KEY_DEV
-// 	: process.env.YOOKASSA_SECRET_KEY_PROD
+const shopId = dev
+	? process.env.YOOKASSA_SHOP_ID_DEV
+	: process.env.YOOKASSA_SHOP_ID_PROD
+const secretKey = dev
+	? process.env.YOOKASSA_SECRET_KEY_DEV
+	: process.env.YOOKASSA_SECRET_KEY_PROD
 
 const idempotenceKey = uuidv4()
 

@@ -12,6 +12,7 @@ import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
 import ThreadBlock from '../practicalTraining/ThreadBlock'
 import ThreadBlockMobile from '../practicalTraining/ThreadBlockMobile'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -41,6 +42,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       />
       <PracticalList list={practicalTraining?.practicalList.item} />
       <ThreadBlock points={practicalTraining.termsPoints} />
+      <PracticalWhoIsProgramFor />
       <PracticalProgramDescription
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}

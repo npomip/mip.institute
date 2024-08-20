@@ -9,6 +9,9 @@ import { Teachers } from '../sections'
 import PracticalCertificate from '../practicalTraining/PracticalCertificate'
 import PracticalCourseResult from '../practicalTraining/PracticalCourseResult'
 import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
+import ThreadBlock from '../practicalTraining/ThreadBlock'
+import ThreadBlockMobile from '../practicalTraining/ThreadBlockMobile'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -28,6 +31,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
     return breadcrumb
   })
 
+  
   return (
     <div className={stls.pageWrapper}>
       <NextSeo nofollow={true} noindex={true} />
@@ -36,6 +40,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
         practicalTraining={practicalTraining}
       />
       <PracticalList list={practicalTraining?.practicalList.item} />
+      <ThreadBlock points={practicalTraining.termsPoints} />
       <PracticalProgramDescription
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}

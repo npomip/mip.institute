@@ -46,7 +46,7 @@ export type PracticalListItem = {
   icon: string;
 };
 
-type TermPoint = {
+export type TermPoint = {
   text: string;
 };
 

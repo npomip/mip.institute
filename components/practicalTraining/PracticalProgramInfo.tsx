@@ -37,7 +37,7 @@ const PracticalProgramInfo = ({practicalTraining}: Props) => {
     {
       index: 2,
       key: 'Срок обучения:',
-      val: `${practicalTraining.duration}`
+      val: `${practicalTraining?.duration}`
     },
     {
       index: 3,

@@ -11,11 +11,18 @@
     @include m.gap($plr: f.px(70), $mtb: f.px(25))
   @include m.media(phone, tablet)
     @include m.gap($mtb: f.px(25))
+    
 .bottom
   @include m.media(laptop, desktop)
     @include m.gap($plr: f.px(70), $mtb: f.px(25))
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(15))
+
+.titleContainer
+  @include m.media(phone, tablet)
+    display: flex
+    justify-content: center
+    width: 100%
 
 .title
   display: inline-block
@@ -24,7 +31,8 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(32)
-    max-width: f.px(200)
+    width: f.px(200)
+    text-align: center
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30), $pt: f.px(15))
     font-size: f.px(44)
@@ -35,11 +43,13 @@
     @include m.gap($mb: f.px(-50))
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(15))
+    display: none
   & > *
     @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .desc
   @include m.media(phone, tablet)
+    // font-weight: 350
     font-size: f.px(15)
     @include m.gap($mb: f.px(0))
   @include m.media(laptop, desktop)
@@ -61,6 +71,7 @@
     .cardTitle
       @include m.dye(bg, c.$beta)
       @include m.dye(c, #fff)
+      
     .cardSubtitle
       @include m.dye(c, #000)
     @include m.media(desktop, laptop)
@@ -75,9 +86,10 @@
     @include m.gap($pr: f.px(0))
 
 .cardInnerContainer
-  @include m.flex()
-
+  position: relative
+  display: flex
 .textBlock
+  flex: 1
   z-index: 1
   @include m.media(desktop)
     @include m.gap($mb: f.px(20), $mt: f.px(107), $ml: f.px(70))
@@ -92,7 +104,7 @@
 .cardTitle
   @include m.dye(bg, #fff)
   border-radius: f.px(50)
-  max-width: max-content
+  max-width: fit-content
   white-space: nowrap
   @include m.dye(c, c.$beta)
   @include m.media(desktop, laptop)
@@ -104,6 +116,10 @@
     font-weight: 500
     @include m.gap($ptb: f.px(9), $plr: f.px(14))
     font-size: f.px(15)
+    white-space: pre-wrap
+    text-align: center
+    max-width: f.px(125)
+    border-radius: f.px(10)
 
 .cardSubtitle
   @include m.dye(c, #fff)
@@ -114,10 +130,14 @@
   @include m.media(laptop)
     font-size: f.px(16)
   @include m.media(phone, tablet)
-    font-size: f.px(14)
+    font-size: f.px(10)
+    max-width: f.px(140)
 
 .imageBlock
+  flex: 1
+  top: 0
   overflow: visible
+  position: relative
   & > *
     overflow: visible !important
     width: auto
@@ -125,13 +145,16 @@
     max-width: 100%
 
 .cardImage
-  border-radius: f.px(43)
+  position: absolute
+  
+  object-fit: cover
+  border-radius: f.px(25)
   @include m.media(desktop)
-    transform: rotate(-25deg) scale(1.2) translateX(f.px(25))
+    transform: rotate(-25deg)  translateX(f.px(25))
   @include m.media(laptop)
     transform: rotate(-25deg) scale(1.2) translateX(f.px(20))
   @include m.media(phone, tablet)
-    transform: rotate(-25deg) scale(1.2) translateX(f.px(10))
+    transform: rotate(-25deg) scale(1.1) translateX(f.px(10))
 
 .orangeBlock
   z-index: 2

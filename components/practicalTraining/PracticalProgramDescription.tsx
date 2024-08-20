@@ -55,7 +55,9 @@ const PracticalProgramDescription = ({ description, cards }: Props) => {
           <div className={stls.tag}>
             <TagOrange>Практика</TagOrange>
           </div>
-          <h2 className={stls.title}>{title}</h2>
+          <div className={stls.titleContainer}>
+            <h2 className={stls.title}>{title}</h2>
+          </div>
           {showDescription && (
             <div className={stls.desc}>{parse(marked(description.title))}</div>
           )}
@@ -85,8 +87,9 @@ const PracticalProgramDescription = ({ description, cards }: Props) => {
                       <Image
                         className={stls.cardImage}
                         src={description?.picture?.url}
-                        width={description?.picture?.width}
-                        height={description?.picture?.height}
+                        width={440}
+                        height={694}
+                        // layout='responsive'
                         alt={stls.cardTitle}
                       />
                     </div>

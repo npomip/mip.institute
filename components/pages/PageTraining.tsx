@@ -13,6 +13,7 @@ import ThreadBlock from '../practicalTraining/ThreadBlock'
 import ThreadBlockMobile from '../practicalTraining/ThreadBlockMobile'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
+import GeneralFaq from '../general/GeneralFaq'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -61,6 +62,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       />
       <PracticalCourseResult results={practicalTraining?.courseResult.list} />
       <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list}/>
+      <GeneralFaq qnas={practicalTraining.qnas} />
     </div>
   )
 }

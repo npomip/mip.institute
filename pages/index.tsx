@@ -162,10 +162,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo
-        videoId='Voc_dKGqhFE'
+        videoId='rP37RRN2KfT1qtBQQBaH5e'
         title='Знакомство с институтом'
         isOnMain
       />
+      
       <About />
       <EducationProcess
         paddingTop={90}

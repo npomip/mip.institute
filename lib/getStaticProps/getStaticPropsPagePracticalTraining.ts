@@ -56,7 +56,6 @@ const getStaticPropsPracticalTraining = async ({
             whatYouWillLearn {
               list {
                 text
-                color
               }
             }
             whatYouWillLearnPhoto {

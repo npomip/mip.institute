@@ -11,8 +11,7 @@ const getStaticPropsPracticalTraining = async ({
   props: TypePagePracticalTrainingProps
   revalidate: number | boolean
 }> => {
-  const slug = context?.params?.slug?.toString() || null
-
+  const slug = context?.params?.slug?.toString() || null  
   try {
     const res = await apolloClient.query<TypePagePracticalTrainingPropsQuery>({
       query: gql`
@@ -57,6 +56,7 @@ const getStaticPropsPracticalTraining = async ({
             whatYouWillLearn {
               list {
                 text
+                color
               }
             }
             whatYouWillLearnPhoto {
@@ -139,13 +139,13 @@ const getStaticPropsPracticalTraining = async ({
         slug
       }
     })
-
+    
     return {
       props: {
         practicalTraining: res?.data?.practicalTraining?.[0] || null
       },
       revalidate: revalidate.default
-    }
+    }    
   } catch (error) {
     console.log('PRACTICAL')
 
@@ -154,7 +154,7 @@ const getStaticPropsPracticalTraining = async ({
     console.error('Результат:', error.result)
     console.log('errrrrrr', error.networkError.result)
     return error
-  }
+  }  
 }
 
 export default getStaticPropsPracticalTraining

@@ -15,7 +15,7 @@ export type PracticalTraining = {
   briefProgram: BriefProgram[];
   courseResult: CourseResult;
   whatYouWillLearn: WhatYouWillLearn;
-  whatYouWillLearnPhoto: string | null;
+  whatYouWillLearnPhoto: WhatYouWillLearnPhoto;
   whatInProgram: WhatInProgram;
   programDescription: ProgramDescription;
   descriptionCards: DescriptionCard;
@@ -63,8 +63,8 @@ type CourseResult = {
   list: SharedText[];
 };
 
-type WhatYouWillLearn = {
-  list: SharedText[];
+export type WhatYouWillLearn = {
+  list: WhatYouWillLearnItem[];
 };
 
 export type WhatInProgram = {
@@ -78,6 +78,12 @@ export type ProgramDescription = {
 };
 
 type DescriptionCardImage = {
+  height: number;
+  url: string;
+  width: number;
+}
+
+export type WhatYouWillLearnPhoto = {
   height: number;
   url: string;
   width: number;
@@ -97,5 +103,9 @@ export type SharedText = {
   text: string;
 };
 
+export type WhatYouWillLearnItem = {
+  text: string;
+  color: string;
+}
 
 export default TypePagePracticalTrainingPropsQuery

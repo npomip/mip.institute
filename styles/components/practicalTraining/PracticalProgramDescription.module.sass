@@ -5,13 +5,13 @@
   @include m.dye(bg, c.$gray-100)
   @include m.gap($pb: f.px(0), $pt: f.px(0))
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50))
+    @include m.gap($pb: f.px(0))
 .top
   @include m.media(laptop, desktop)
     @include m.gap($plr: f.px(70), $mtb: f.px(25))
   @include m.media(phone, tablet)
     @include m.gap($mtb: f.px(25))
-    
+
 .bottom
   @include m.media(laptop, desktop)
     @include m.gap($plr: f.px(70), $mtb: f.px(25))
@@ -71,7 +71,7 @@
     .cardTitle
       @include m.dye(bg, c.$beta)
       @include m.dye(c, #fff)
-      
+
     .cardSubtitle
       @include m.dye(c, #000)
     @include m.media(desktop, laptop)
@@ -114,12 +114,11 @@
     line-height: 130%
   @include m.media(phone, tablet)
     font-weight: 500
-    @include m.gap($ptb: f.px(9), $plr: f.px(14))
-    font-size: f.px(15)
+    @include m.gap($ptb: f.px(5), $plr: f.px(9.5))
+    font-size: f.px(12)
     white-space: pre-wrap
-    text-align: center
-    max-width: f.px(125)
-    border-radius: f.px(10)
+    // max-width: f.px(125)
+    border-radius: f.px(30)
 
 .cardSubtitle
   @include m.dye(c, #fff)
@@ -146,11 +145,11 @@
 
 .cardImage
   position: absolute
-  
+
   object-fit: cover
   border-radius: f.px(25)
   @include m.media(desktop)
-    transform: rotate(-25deg)  translateX(f.px(25))
+    transform: rotate(-25deg) translateX(f.px(25))
   @include m.media(laptop)
     transform: rotate(-25deg) scale(1.2) translateX(f.px(20))
   @include m.media(phone, tablet)

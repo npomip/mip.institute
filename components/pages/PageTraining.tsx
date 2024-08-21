@@ -13,6 +13,7 @@ import ThreadBlock from '../practicalTraining/ThreadBlock'
 import { Teachers } from '../sections'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
 import GeneralFaq from '../general/GeneralFaq'
+import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -46,6 +47,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}
       />
+      <PracticalWhatYouWillLearn listLearn={practicalTraining.whatYouWillLearn} photo={practicalTraining.whatYouWillLearnPhoto}/>
       <PracticalCertificate image={practicalTraining?.diploma1} />
       <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
       <Teachers

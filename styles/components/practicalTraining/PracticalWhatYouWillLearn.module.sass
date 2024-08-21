@@ -1,0 +1,41 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  @include m.dye(c, black)
+  text-align: left
+  @include m.gap($mb: f.px(35), $pt: f.px(15), $ml: f.px(70))
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.media(tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(32)
+  @include m.media(phone)
+    @include m.gap($mb: f.px(20), $ml: f.px(0))
+    font-size: f.px(26)
+
+.columns
+  @include m.media(desktop, laptop)
+    @include m.flex()
+    gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)
+
+.imageBlock
+  @include m.media(desktop, laptop)
+    width: 50%
+    height: 100%
+
+.cardsBlock
+  @include m.media(desktop)
+    @include m.flex($fd: column, $jc: flex-end)
+    width: 50%
+    height: f.px(898)
+  @include m.media(laptop)
+    @include m.flex($fd: column, $jc: flex-end)
+    width: 50%
+    height: f.px(807)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    @include m.flex($fd: column, $jc: flex-end)

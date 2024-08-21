@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import marked from 'marked'
 import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type Props = {
   block?: WhatYouWillLearnItem
@@ -11,9 +12,10 @@ type Props = {
 }
 
 const PracticalWhatYouWillLearnItem = ({ block, number }: Props) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const { ref, inView } = useInView({
     threshold: 0.5, 
-    rootMargin: '-30% 0px -50% 0px',
+    rootMargin: `${isMobileAndTabletLayout ? '0px 0px -50% 0px' : '-20% 0px -50% 0px'}`,
     triggerOnce: false
   });
   const renderer = new marked.Renderer()
@@ -35,7 +37,7 @@ const PracticalWhatYouWillLearnItem = ({ block, number }: Props) => {
       <div className={stls.blockNumber}>
         <span 
         className={stls.number} 
-        style={{backgroundColor: `${block.color}`}}
+        style={{backgroundColor: `${block.color}`, color: `${block.color === '#FFFFFF' ? 'black' : 'white'}`}}
         >0{number}</span>
       </div>
       <div className={stls.text}>

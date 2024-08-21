@@ -29,10 +29,13 @@
 
 .cardsBlock
   @include m.media(desktop)
+    @include m.flex($fd: column, $jc: flex-end)
     width: 50%
-    max-height: f.px(898)
+    height: f.px(898)
   @include m.media(laptop)
+    @include m.flex($fd: column, $jc: flex-end)
     width: 50%
-    max-height: f.px(727)
+    height: f.px(807)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(10))
+    @include m.flex($fd: column, $jc: flex-end)

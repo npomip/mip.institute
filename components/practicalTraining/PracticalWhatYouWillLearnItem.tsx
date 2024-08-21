@@ -37,7 +37,6 @@ const PracticalWhatYouWillLearnItem = ({ block, number }: Props) => {
       <div className={stls.blockNumber}>
         <span 
         className={stls.number} 
-        // style={{backgroundColor: `${block.color}`, color: `${block.color === '#FFFFFF' ? 'black' : 'white'}`}}
         >0{number}</span>
       </div>
       <div className={stls.text}>

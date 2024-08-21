@@ -56,7 +56,7 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
             }}>
             <span className={stls.filter}></span>
             <div className={stls.heading}>
-              <Breadcrumbs breadcrumbs={breadcrumbs} />
+              {/* <Breadcrumbs breadcrumbs={breadcrumbs} /> */}
               <h1
                 className={classNames({
                   [stls.title]: true,

@@ -23,6 +23,8 @@
     @include m.flex($fd: column-reverse)
 
 .imageBlock
+  & > *
+    border-radius: f.px(20)
   @include m.media(desktop, laptop)
     width: 50%
     height: 100%

@@ -14,9 +14,10 @@ type Props = {
 const PracticalWhatYouWillLearnItem = ({ block, number }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const { ref, inView } = useInView({
-    threshold: 0.5, 
-    rootMargin: `${isMobileAndTabletLayout ? '0px 0px -50% 0px' : '-20% 0px -50% 0px'}`,
-    triggerOnce: false
+    threshold: 0.1,
+    rootMargin: `${isMobileAndTabletLayout ? '0px 0px -50% 0px' : '-30% 0px -50% 0px'}`,
+    triggerOnce: false,
+    delay: 150,
   });
   const renderer = new marked.Renderer()
   renderer.strong = text => {

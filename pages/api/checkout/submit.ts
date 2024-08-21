@@ -4,6 +4,7 @@ import crypto from 'crypto'
 import nodemailer from 'nodemailer'
 import { env } from 'process'
 import routes from '@/config/routes'
+import dev from '@/config/dev'
 
 export default async function handler(req, res) {
   // res.setHeader('Access-Control-Allow-Origin', '*')
@@ -14,8 +15,12 @@ export default async function handler(req, res) {
 
     const payment_id = req.body.object.id
 
-    const shopId = env.YOOKASSA_SHOP_ID_DEV
-    const secretKey = env.YOOKASSA_SECRET_KEY_DEV
+    const shopId = dev
+	? process.env.YOOKASSA_SHOP_ID_DEV
+	: process.env.YOOKASSA_SHOP_ID_PROD
+const secretKey = dev
+	? process.env.YOOKASSA_SECRET_KEY_DEV
+	: process.env.YOOKASSA_SECRET_KEY_PROD
 
     if (req.body.object.status === 'waiting_for_capture') {
       console.log('CAPTURE')

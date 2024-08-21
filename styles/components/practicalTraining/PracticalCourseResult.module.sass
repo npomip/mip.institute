@@ -3,6 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  @include m.gap($pt: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(0))
 
 .title
   text-align: center

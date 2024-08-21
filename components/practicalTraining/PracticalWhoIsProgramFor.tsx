@@ -4,8 +4,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import parse from 'html-react-parser'
 import marked from 'marked'
 
-type Props = {
-}
+type Props = {}
 const list = [
   {
     text: '**У вас нет релевантного опыта консультирования,** вы не осмеливаетесь взять первого клиента, не чувствуете уверенности в собственных силах начать консультировать',
@@ -95,9 +94,9 @@ const list = [
             <path d="M20.4546 34.8395C20.6885 34.8395 20.878 34.6499 20.878 34.4161C20.878 34.1822 20.6885 33.9927 20.4546 33.9927C20.2208 33.9927 20.0312 34.1822 20.0312 34.4161C20.0312 34.6499 20.2208 34.8395 20.4546 34.8395Z" fill="white"/>
           </svg>`,
     color: '#6F01C6'
-  },
+  }
 ]
-const PracticalWhoIsProgramFor = ({ }: Props) => {
+const PracticalWhoIsProgramFor = ({}: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const renderIcon = (el: string) => {
     const svg = parse(el)
@@ -110,23 +109,30 @@ const PracticalWhoIsProgramFor = ({ }: Props) => {
   }
   marked.setOptions({ renderer })
   return (
-    <section className={stls.container}>
-        <h2 className={stls.title}>
-          <span className={stls.colouredTitle}>Для кого </span>
-          программа
-        </h2>
-        {isMobileAndTabletLayout ? 
-          <h3 className={stls.subTitle}><span className={stls.colouredTitle}>Начинающий </span> психолог</h3>
-          :<h3 className={stls.subTitle}>Начинающий  психолог</h3>
-        }
-        <div className={stls.cardsBlock}>
-          {list.map(el => (
-            <div className={stls.card} key={el.text}>
-              <div className={stls.icon}>{renderIcon(el.icon)}</div>
-              <div className={stls.text}>{parse(marked(el.text))}</div>
-            </div>
+    <section>
+      <Wrapper>
+        <div className={stls.container}>
+          <h2 className={stls.title}>
+            <span className={stls.colouredTitle}>Для кого </span>
+            программа
+          </h2>
+          {isMobileAndTabletLayout ? (
+            <h3 className={stls.subTitle}>
+              <span className={stls.colouredTitle}>Начинающий </span> психолог
+            </h3>
+          ) : (
+            <h3 className={stls.subTitle}>Начинающий психолог</h3>
+          )}
+          <div className={stls.cardsBlock}>
+            {list.map(el => (
+              <div className={stls.card} key={el.text}>
+                <div className={stls.icon}>{renderIcon(el.icon)}</div>
+                <div className={stls.text}>{parse(marked(el.text))}</div>
+              </div>
             ))}
+          </div>
         </div>
+      </Wrapper>
     </section>
   )
 }

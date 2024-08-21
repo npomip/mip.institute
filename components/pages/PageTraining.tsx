@@ -1,17 +1,16 @@
+import stls from '@/styles/pages/PageTraining.module.sass'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { NextSeo } from 'next-seo'
-import PracticalList from '../practicalTraining/PracticalList'
-import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
 import PracticalBriefProgram from '../practicalTraining/PracticalBriefProgram'
-import stls from '@/styles/pages/PageTraining.module.sass'
-import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
-import { Teachers } from '../sections'
 import PracticalCertificate from '../practicalTraining/PracticalCertificate'
 import PracticalCourseResult from '../practicalTraining/PracticalCourseResult'
+import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
+import PracticalList from '../practicalTraining/PracticalList'
+import PracticalPaymentForm from '../practicalTraining/PracticalPaymentForm'
+import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
 import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
 import ThreadBlock from '../practicalTraining/ThreadBlock'
-import ThreadBlockMobile from '../practicalTraining/ThreadBlockMobile'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { Teachers } from '../sections'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
 import GeneralFaq from '../general/GeneralFaq'
 
@@ -33,7 +32,6 @@ const PageTraining = ({ practicalTraining }: Props) => {
     return breadcrumb
   })
 
-  
   return (
     <div className={stls.pageWrapper}>
       <NextSeo nofollow={true} noindex={true} />
@@ -61,7 +59,8 @@ const PageTraining = ({ practicalTraining }: Props) => {
         titlePaddingLeft={70}
       />
       <PracticalCourseResult results={practicalTraining?.courseResult.list} />
-      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list}/>
+      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
+      <PracticalPaymentForm price={practicalTraining.price} />
       <GeneralFaq qnas={practicalTraining.qnas} />
     </div>
   )

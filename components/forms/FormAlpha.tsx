@@ -37,6 +37,7 @@ interface Props {
   inProfessions?: boolean
   isLiveCourse?: boolean
   isActivePromocode?: string
+  isViolet?: boolean
 }
 
 const FormAlpha = ({
@@ -49,7 +50,8 @@ const FormAlpha = ({
   promo = false,
   inProfessions = false,
   isLiveCourse = false,
-  isActivePromocode = ''
+  isActivePromocode = '',
+  isViolet = false
 }: Props) => {
   const {
     register,
@@ -95,7 +97,7 @@ const FormAlpha = ({
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm')
-    
+
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')
     const advcake_track_url = getCookie('advcake_track_url')
@@ -160,7 +162,8 @@ const FormAlpha = ({
         className={classNames({
           [stls.containet]: true,
           [stls.atFooter]: atFooter,
-          [stls.inProfessions]: inProfessions
+          [stls.inProfessions]: inProfessions,
+          [stls.inPracticalTraining]: isViolet
         })}
         onSubmit={handleSubmit(data => onSubmit(data))}>
         <div className={stls.group}>
@@ -171,10 +174,10 @@ const FormAlpha = ({
               placeholder='Ваше имя'
               disabled={isDisabled}
               {...register('name', {
-                required: `*Введите ваше имя`,
+                required: `*Имя обязательно`,
                 minLength: {
                   value: 2,
-                  message: `*Введите ваше имя`
+                  message: `*Не менее 2 символов`
                 },
                 maxLength: {
                   value: 32,
@@ -296,6 +299,7 @@ const FormAlpha = ({
                 text={cta}
                 isDisabled={isDisabled}
                 isLiveCourse={isLiveCourse}
+                isViolet={isViolet}
               />
             )}
           </div>

@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  padding-bottom: f.px(0)
 
 .svgtext
   font-size: f.px(20)
@@ -14,8 +15,6 @@
   @include m.media(phone, tablet)
     font-size: f.px(13)
     width: f.px(220)
-  // height: f.px(300)
-  // text-align: center
 
 .strongText
   font-weight: 500
@@ -28,8 +27,7 @@
     max-width: f.px(250)
     text-align: center
   span
-    color: #6F01C6
-  
+    @include m.dye(c, c.$alpha)
 
 .tag
   @include m.media(phone, tablet)

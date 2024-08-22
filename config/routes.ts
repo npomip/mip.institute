@@ -29,6 +29,8 @@ const routes = {
     liveCourse: '/live-courses/slug',
     bachelors: '/bachelor',
     bachelor: '/bachelor/slug',
+    practicalTrainings: '/practical-training',
+    practicalTraining: '/practical-training/slug',
     courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',

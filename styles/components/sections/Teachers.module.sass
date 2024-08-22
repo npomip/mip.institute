@@ -4,12 +4,12 @@
 .container
   @include m.gap($pb: f.px(0), $pt: f.px(0))
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50))
+    @include m.gap($pb: f.px(35))
 
 .onProfessions
   @include m.gap($pt: f.px(90))
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(50))
+    @include m.gap($pt: f.px(35))
 
 .course
   @include m.gap($pb: f.px(90))
@@ -43,8 +43,14 @@
     font-size: f.px(20)
   @include m.dye(c, c.$theta)
 
+.halfScreenTitle
+  @include m.gap($pl: f.px(60))
+  max-width: f.px(600)
+  @include m.media(phone, tablet)
+    @include m.gap($pl: 0)
+
 .highlight
-  color: #6F01C6
+  @include m.dye(c, c.$alpha)
   font-weight: 350
 
 .teachers

@@ -118,7 +118,7 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
                     top={-10}
                     mobileTop={-30}
                     mobileLeft={100}
-                    teachers
+                    isTeacherRoundBtn
                   />
                 </div>
                 <div className='custom-next-button-container'>
@@ -128,7 +128,7 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
                     top={-10}
                     mobileTop={-30}
                     mobileLeft={-115}
-                    teachers
+                    isTeacherRoundBtn
                   />
                 </div>
               </>

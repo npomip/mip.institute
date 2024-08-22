@@ -7,25 +7,27 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 interface Props {
   reviewPrevBtn?: boolean
   happyStudents?: boolean
-  teachers?: boolean
+  isTeacherRoundBtn?: boolean
   showOnMobile?: boolean
   isLiveCourse?: boolean
   top?: number
   left?: number
   mobileLeft?: number
   mobileTop?: number
+  isSquareBtn?: boolean
 }
 
 const CustomPrevButton = ({
   reviewPrevBtn = false,
   happyStudents = false,
-  teachers = false,
+  isTeacherRoundBtn = false,
   left = 0,
   top = 0,
   showOnMobile = false,
   mobileTop = 0,
   mobileLeft = 0,
-  isLiveCourse = false
+  isLiveCourse = false,
+  isSquareBtn
 }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   return (
@@ -40,11 +42,12 @@ const CustomPrevButton = ({
         [stls.containerPrev]: true,
         [stls.reviewPrevBtn]: reviewPrevBtn,
         [stls.happyStudentsPrevBtn]: happyStudents,
-        [stls.teachersPrevBtn]: teachers,
-        [stls.liveCourses]: isLiveCourse
+        [stls.teachersPrevBtn]: isTeacherRoundBtn,
+        [stls.liveCourses]: isLiveCourse,
+        [stls.squareBtn]: isSquareBtn
       })}>
       <button className='custom-prev-button'>
-        <IconPrevButton />
+        <IconPrevButton isSquareBtn={isSquareBtn} />
       </button>
     </div>
   )

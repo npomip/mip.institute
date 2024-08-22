@@ -104,13 +104,13 @@ const PagesProgram = ({
       <ButtonToTop />
       <HeroProgram breadcrumbs={breadcrumbs} />
       <PageNavigation sections={sections} />
-      <WhyBother />
       {programOverview && (
         <ProgramOverview
           showDescription={showDescription}
           toggleOverview={toggleOverview}
         />
       )}
+      <WhyBother />
 
       {checkSlug.includes(slug) ? (
         <>

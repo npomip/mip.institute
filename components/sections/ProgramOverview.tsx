@@ -24,7 +24,7 @@ const ProgramOverview = ({toggleOverview,showDescription}) => {
   return (
     <section className={classNames({
       [stls.container]: true,
-      [stls.showDescription]: showDescription
+      // [stls.showDescription]: showDescription
     })}>
       <Wrapper>
         <h2>Описание программы</h2>
@@ -53,9 +53,9 @@ const ProgramOverview = ({toggleOverview,showDescription}) => {
             ))}
         </div>
         </div>
-        <div className={stls.switchSection} onClick={toggleOverview}>
+        {/* <div className={stls.switchSection} onClick={toggleOverview}>
           <p>Зачем осваивать профессию психолога?</p>
-        </div>
+        </div> */}
       </Wrapper>
     </section>
   )

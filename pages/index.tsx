@@ -21,6 +21,7 @@ import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
 import PayLater from '@/components/sections/PayLater'
 import ProfessionalLeague from '@/components/sections/ProfessionalLeague'
+import ProgramsOnMain from '@/components/sections/ProgramsOnMain'
 import PsyTest from '@/components/sections/PsyTest'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
@@ -36,6 +37,7 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import { TypePageHomeProps } from '@/types/index'
+import allowedNames from 'constants/indexMain'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
@@ -50,24 +52,10 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   bachelors
 }) => {
   useHandleContextStaticProps({ programs })
-  // const [isTestOpen, setIsTestOpen] = useState(false)
-  const teachersFromMain = teachers?.filter(teacher => {
-    const allowedNames = [
-      'Алла Косина',
-      'Дмитрий Смыслов',
-      'Анна Шавырина',
-      'Ирина Перемолотова',
-      'Юлия Катасонова',
-      'Елена Харитонцева',
-      'Анастасия Волкова',
-      'Людмила Гиль',
-      'Вера Гаврилова',
-      'Егор Борисов',
-      'Андрей Бушев'
-    ]
 
-    return allowedNames.includes(teacher.name)
-  })
+  const teachersFromMain = teachers?.filter(teacher =>
+    allowedNames.includes(teacher.name)
+  )
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -99,9 +87,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     }
   }, [router.query])
 
-  // const handleOpen = () => {
-  //   setIsTestOpen(true)
-  // }
   return (
     <>
       <NextSeo
@@ -142,17 +127,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
       <Hero />
       <Directions />
-      {/* <Popup
-        open={isTestOpen}
-        onClose={() => setIsTestOpen(false)}
-        position={'center center'}>
-        {close => <PaymentForm onClose={close} />}
-      </Popup>
-      <div style={{ backgroundColor: 'red' }}>
-        <button onClick={handleOpen}>Оплатить</button>
-      </div> */}
-
       <PsyTest />
+      <ProgramsOnMain />
       <TopCourses />
       <BachelorCarousel
         title={'Высшее образование'}
@@ -166,7 +142,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title='Знакомство с институтом'
         isOnMain
       />
-      
+
       <About />
       <EducationProcess
         paddingTop={90}

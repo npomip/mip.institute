@@ -6,4 +6,25 @@ const sortOptions = [
   { value: { field: 'date', direction: 'asc' }, label: 'По новизне' }
 ]
 
-export default sortOptions
+const levelOptions = [
+  { value: 'higher', label: 'Высшее образование' },
+  { value: 'profi', label: 'Профессиональная переподготовка' },
+  { value: 'upgrade', label: 'Повышение квалификации' }
+]
+
+const formOptions = [
+  { value: 'online', label: 'Онлайн' },
+  { value: 'offline', label: 'Очно-заочно' }
+]
+
+const programsOptions = [
+  { value: 'online', label: 'Детская психология' },
+  { value: 'offline', label: 'Клиническая психология' },
+  { value: 'offline', label: 'Психотерапия' },
+  { value: 'offline', label: 'Общая психология' },
+  { value: 'offline', label: 'Консультирование' },
+  { value: 'offline', label: 'Организационная психология' },
+  { value: 'offline', label: 'Диетология и нутрициология' }
+]
+
+export { sortOptions, levelOptions, formOptions, programsOptions }

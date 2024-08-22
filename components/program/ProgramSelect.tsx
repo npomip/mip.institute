@@ -1,5 +1,6 @@
-import sortOptions from 'constants/programSelect'
+import { sortOptions } from 'constants/programSelect'
 import { useRouter } from 'next/router'
+import { ReactNode } from 'react'
 import Select from 'react-select'
 
 type Option = {
@@ -13,6 +14,9 @@ type Props = {
   onChange: (value: Option) => void
   marginTop?: string
   width?: string
+  onMainPage?: boolean
+  placeholder?: string
+  noOptionsMessage?: (obj: { inputValue: string }) => ReactNode
 }
 
 const ProgramSelect = ({
@@ -20,7 +24,10 @@ const ProgramSelect = ({
   mainColor = '#6f01c6',
   marginTop,
   width,
-  onChange
+  onChange,
+  onMainPage,
+  placeholder = 'Направление',
+  noOptionsMessage = () => 'Не нашлось подходящих направлений'
 }: Props) => {
   const customStyles = {
     control: base => {
@@ -30,9 +37,9 @@ const ProgramSelect = ({
         display: 'flex',
         flexWrap: 'nowrap',
         borderColor: `${mainColor}`,
-        borderRadius: '50px',
-        width: `${width ? width : 240}px`,
-        height: '40px',
+        borderRadius: `${onMainPage ? 10 : 50}px`,
+        width: `${onMainPage ? 350 : width ? width : 240}px`,
+        height: `${onMainPage ? 50 : 40}px`,
         fontFamily: 'Stem',
         fontSize: '14px',
         boxShadow: 'none',
@@ -45,6 +52,10 @@ const ProgramSelect = ({
           },
           '.react-select__dropdown-indicator': {
             color: 'white'
+          },
+          '.react-select__placeholder': {
+            color: 'white',
+            fontWeight: '500'
           }
         }
       }
@@ -54,8 +65,8 @@ const ProgramSelect = ({
       background: 'white',
       borderColor: '#E9E9E9',
       borderRadius: '10px',
-      marginTop: '0',
-      width: `${width ? width : 240}px`,
+      marginTop: `${onMainPage ? 5 : 0}px`,
+      width: `${onMainPage ? 350 : width ? width : 240}px`,
       padding: '10px',
       zIndex: '2'
     }),
@@ -102,7 +113,12 @@ const ProgramSelect = ({
     placeholder: base => {
       return {
         ...base,
-        paddingLeft: '10px'
+        paddingLeft: '10px',
+        color: 'black',
+        '&:hover': {
+          color: 'white',
+          fontWeight: '500'
+        }
       }
     }
   }
@@ -111,16 +127,15 @@ const ProgramSelect = ({
   const { query } = router
   const { studyFieldSlug } = query
 
+  const defaultValue =
+    options.filter(el => el.value === studyFieldSlug)[0] || null
+
   return (
     <Select
       options={options}
-      placeholder='Выберите направление'
-      noOptionsMessage={() => 'Не нашлось подходящих направлений'}
-      defaultValue={
-        options[0]?.value === 'default'
-          ? options[0]
-          : options.filter(el => el.value === studyFieldSlug)
-      }
+      placeholder={placeholder}
+      noOptionsMessage={noOptionsMessage}
+      defaultValue={onMainPage ? null : defaultValue}
       styles={customStyles}
       isSearchable={false}
       onChange={onChange}

@@ -64,7 +64,6 @@ const PagesProgram = ({
     utm = null // или какое-то другое значение по умолчанию
   }
   const isVario = utm?.utm_source === 'vario'
-  console.log(isVario)
 
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },

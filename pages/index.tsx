@@ -15,6 +15,7 @@ import {
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import Companies from '@/components/sections/Companies'
 import Directions from '@/components/sections/Directions'
+import DirectionsNew from '@/components/sections/DirectionsNew'
 import DistanceEducation from '@/components/sections/DistanceEducation'
 import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
@@ -68,7 +69,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 
     return allowedNames.includes(teacher.name)
   })
-
+  
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
@@ -141,7 +142,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         )}
       </Popup>
       <Hero />
-      <Directions />
+      {/* <Directions /> */}
+      <DirectionsNew programs={programs.length} bachelors={bachelors.length}/>
       {/* <Popup
         open={isTestOpen}
         onClose={() => setIsTestOpen(false)}

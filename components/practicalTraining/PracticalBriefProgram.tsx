@@ -12,9 +12,6 @@ const PracticalBriefProgram = ({ listProgram }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        {/* <div className={stls.tag}>
-          <TagOrange isWhiteText>Описание</TagOrange>
-        </div> */}
         <h2 className={stls.title}>
           Краткая
           <span className={stls.colouredTitle}> программа </span>

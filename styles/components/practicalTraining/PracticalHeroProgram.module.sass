@@ -15,6 +15,17 @@
     z-index: 3
     overflow: hidden
 
+.tag
+  z-index: 3
+  position: relative
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
+  & > *
+    font-style: normal
+    font-weight: 500
+    text-transform: uppercase
+    @include m.gap($ptb: f.px(8), $plr: f.px(35))
+
 .desktopBg
   max-width: f.px(1170)
   min-height: f.px(638)
@@ -47,7 +58,7 @@
   position: relative
   height: f.px(660)
   z-index: 1
-  @include m.gap($plr: f.px(63), $pt: f.px(10))
+  @include m.gap($plr: f.px(63), $pt: f.px(60))
 
 .label
   position: relative
@@ -86,8 +97,8 @@
   color: white
   font-size: f.px(20)
   font-weight: 500
-  line-height: 110%
-  width: f.px(720)
+  line-height: 130%
+  width: f.px(520)
   @include m.gap($mb: f.px(30))
 
 .descriptionMobile

@@ -25,7 +25,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                       <br />
                       (1 ступень)
                     </h3>
-                    <p className={stls.oldPrice}>30000 ₽</p>
+                    <p className={stls.oldPrice}>{price + 5000} ₽</p>
                     <p className={stls.newPrice}>{price ?? '30.000'} ₽</p>
                     <p className={stls.credit}>
                       Можно в рассрочку через банк-партнер

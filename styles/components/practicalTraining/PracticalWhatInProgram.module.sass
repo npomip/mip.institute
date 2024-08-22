@@ -1,0 +1,63 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+
+.title
+  font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  @include m.gap($mb: f.px(35), $ml: f.px(70))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(25), $ml: f.px(0))
+    font-size: f.px(26)
+
+.colouredTitle
+  @include m.dye(c, c.$alpha)
+
+.list
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: f.px(16)
+  width: 100%
+  @include m.media(phone, tablet)
+    grid-template-columns: repeat(1, 1fr)
+    gap: f.px(5)
+
+.element
+  border-radius: f.px(10)
+  border: f.px(0.5) solid
+  @include m.dye(border, c.$alpha)
+  background: white
+  max-height: f.px(123)
+  @include m.gap($ptb: f.px(36), $pl: f.px(70), $pr: f.px(30))
+  @include m.flex($ai: center, $jc: flex-start)
+  position: relative
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(15))
+    width: 100%
+    min-height: f.px(123)
+    @include m.flex($ai: center, $jc: flex-start)
+  & > p
+    margin-bottom: 0
+
+.icon
+  position: absolute
+  top: f.px(26)
+  left: f.px(19)
+  width: f.px(20)
+  height: f.px(20)
+
+.firstWord
+  font-weight: 500
+
+.text
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 350
+  line-height: 130%
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    width: auto

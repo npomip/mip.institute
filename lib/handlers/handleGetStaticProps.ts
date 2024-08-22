@@ -32,6 +32,7 @@ import TypePageLiveCourseProps from '@/types/page/liveCourse/props/TypePageLiveC
 import getStaticPropsPageLiveCourse from '../getStaticProps/getStaticPropsPageLiveCourse'
 import getStaticPropsBachelor from '../getStaticProps/getStaticPropsPageBachelor'
 import getStaticPropsBachelors from '../getStaticProps/getStaticPropsPageBachelors'
+import getStaticPropsPracticalTraining from '../getStaticProps/getStaticPropsPagePracticalTraining'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -76,8 +77,8 @@ const handleGetStaticProps = async ({
       case routes.front.payment:
         return await getStaticPropsDefault({ context })
 
-        case routes.front.gratefull:
-          return await getStaticPropsDefault({ context })
+      case routes.front.gratefull:
+        return await getStaticPropsDefault({ context })
 
       case routes.front.reviews:
         return await getStaticPropsPageReviews({ context })
@@ -118,6 +119,12 @@ const handleGetStaticProps = async ({
       case routes.front.bachelor:
         return await getStaticPropsBachelor({ context })
 
+      case routes.front.practicalTrainings:
+        return await getStaticPropsBachelors({ context })
+
+      case routes.front.practicalTraining:
+        return await getStaticPropsPracticalTraining({ context })
+
       default:
         return {
           props: {},
@@ -125,7 +132,7 @@ const handleGetStaticProps = async ({
         }
     }
   } catch (err) {
-    console.log('catch static props',err)
+    console.log('catch static props', err)
     return {
       props: {},
       revalidate: revalidate.default

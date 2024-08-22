@@ -1,0 +1,73 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, white)
+  border-radius: f.px(20)
+  @include m.media(desktop, laptop)
+    width: 100%
+    @include m.gap($plr: f.px(69), $pt: f.px(58), $pb: f.px(91))
+    max-width: f.px(1168, em)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(16), $ptb: f.px(35), $mt: f.px(-5))
+
+.title
+  @include m.dye(c, black)
+  text-align: center
+  @include m.gap($mb: f.px(30))
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(30)
+
+.subTitle
+  @include m.dye(c, black)
+  text-align: center
+  font-weight: 500
+  line-height: 130%
+  @include m.media(desktop, laptop)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    @include m.gap($mb: f.px(30))
+
+.icon
+  @include m.media(desktop, laptop)
+    width: f.px(47)
+    height: f.px(47)
+    border-radius: f.px(8)
+  @include m.media(phone, tablet)
+    width: f.px(163)
+    height: f.px(35)
+    border-radius: f.px(8)
+.card
+  @include m.media(desktop, laptop)
+    @include m.flex($fd: column)
+    gap: f.px(20)
+  @include m.media(phone, tablet)
+    @include m.flex($ai: flex-start)
+    gap: f.px(23)
+
+.colouredTitle
+  @include m.dye(c, c.$alpha)
+
+.text
+  @include m.dye(c, black)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(desktop, laptop)
+    font-size: f.px(16)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($pr: f.px(10))
+
+.cardsBlock
+  @include m.media(desktop, laptop)
+    @include m.flex()
+    gap: f.px(110)
+
+.strongText
+  font-weight: 500

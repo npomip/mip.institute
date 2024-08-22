@@ -1,0 +1,205 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+
+.violetBlock
+  border-radius: f.px(20)
+  @include m.gap($ptb: f.px(35), $plr: f.px(55))
+  background: linear-gradient(100deg, #1C1A1D -18.92%, #3E1A4B 43.28%, #6F01C6 105.48%)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25), $plr: f.px(20))
+
+.title
+  display: inline-block
+  @include m.dye(c, white)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(35))
+    font-size: f.px(44)
+    font-weight: 500
+  @include m.media(tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(32)
+  @include m.media(phone)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(28)
+
+.blocks
+  display: grid
+  grid-auto-flow: column
+  grid-auto-columns: 1fr 1fr
+  column-gap: f.px(10)
+  @include m.media(phone, tablet)
+    grid-auto-flow: row
+    grid-auto-columns: auto
+    row-gap: f.px(20)
+
+.bottomBlock
+  @include m.gap($pt: f.px(50), $pb: f.px(30), $plr: f.px(30), $mt: f.px(-30), $mlr: f.px(1))
+  min-height: f.px(190)
+  @include m.flex($jc: space-between)
+  border: f.px(1) solid
+  @include m.dye(border, white)
+  @include m.dye(c, white)
+  border-radius: f.px(20)
+  @include m.media(laptop)
+    @include m.gap($pt: f.px(40), $pb: f.px(20), $plr: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(15))
+    @include m.flex($fd: column)
+
+.leftColumn
+  width: 55%
+  @include m.media(phone, tablet)
+    width: 100%
+
+.topWhiteBlock
+  height: f.px(300)
+  @include m.dye(bg, white)
+  border-radius: f.px(20)
+  @include m.flex
+  position: relative
+  z-index: 2
+  background-color: red
+  @include m.media(phone, tablet)
+    height: auto
+
+.icon
+  @include m.gap($mr: f.px(15))
+
+.list
+  list-style: none
+  @include m.gap($pl: f.px(0))
+
+.item
+  @include m.flex()
+  @include m.gap($mt: f.px(15))
+
+.itemTitle
+  font-size: f.px(14)
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  display: inline-block
+  @include m.gap($mb: f.px(10))
+  @include m.media(phone)
+    @include m.gap($mb: f.px(5))
+
+.itemDescription
+  font-size: f.px(10)
+  font-style: normal
+  font-weight: 350
+  line-height: 120%
+  @include m.gap($mb:0)
+
+.number
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    display: inline
+
+.link
+  color: white
+  text-decoration: underline
+  text-decoration-skip-ink: auto
+  &:hover
+    @include m.dye(c, c.$beta)
+
+.card
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15))
+
+.topWhiteBlock
+  @include m.flex($jc: space-between)
+
+.topWhiteLeft
+  @include m.gap($pl: f.px(30), $ptb: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($pl: f.px(20), $ptb: f.px(20))
+
+.topWhiteRight
+  @include m.gap($pr: f.px(30), $pb: f.px(20))
+  @include m.flex($fd: column, $ai: flex-end, $jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.gap($pr: f.px(20), $pb: f.px(10))
+
+.courseName
+  font-size: f.px(25)
+  font-style: normal
+  font-weight: 500
+  @include m.gap($mb: f.px(15))
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+
+.oldPrice
+  @include m.dye(c, c.$psi)
+  font-size: f.px(22)
+  @include m.gap($mb: f.px(10))
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  text-decoration-line: line-through
+  @include m.media(laptop)
+    font-size: f.px(18)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
+    font-size: f.px(18)
+
+.newPrice
+  @include m.dye(c, c.$beta)
+  font-size: f.px(55)
+  @include m.gap($mb: 0)
+  font-style: normal
+  font-weight: 500
+  @include m.media(laptop)
+    font-size: f.px(32)
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+
+.credit
+  @include m.dye(c, c.$psi)
+  font-size: f.px(10)
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(8)
+
+.flag
+  width: f.px(86)
+  height: f.px(105)
+  @include m.dye(bg, c.$beta)
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 50%, 0 75%)
+  @include m.dye(c, white)
+  @include m.gap($pt: f.px(15))
+  text-align: center
+  font-size: f.px(25)
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    width: f.px(56)
+    height: f.px(75)
+
+.atCorner
+  text-align: right
+
+.bgForm
+  border-radius: f.px(20)
+  @include m.dye(bg, white)
+  @include m.gap($p: f.px(35))
+  @include m.media(desktop)
+    min-height: f.px(510)
+  @include m.media(phone, tablet)
+    @include m.gap($p: f.px(20))
+
+  p
+    font-size: f.px(25)
+    max-width: 90%
+    font-style: normal
+    font-weight: 500
+    line-height: 120%
+    @include m.media(phone, tablet)
+      font-size: f.px(20)

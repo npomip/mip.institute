@@ -67,6 +67,35 @@
     @include m.media(phone)
       width: 300px !important
 
+.inPracticalTraining
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode,
+  & .btn
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 100%)
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode
+    & input
+      margin-top: 6px
+      font-size: f.px(16)
+      border: f.px(1) solid
+      @include m.dye(border, c.$phi)
+      border-radius: f.px(4)
+      &::placeholder
+        @include m.dye(c, c.$psi)
+  & .dropdown
+    width: f.px(460) !important
+    @include m.media(laptop)
+      width: f.px(350) !important
+    @include m.media(tablet)
+      width: f.px(400) !important
+    @include m.media(phone)
+      width: f.px(270) !important
+
 .inpt
   & input,
   & textarea
@@ -103,7 +132,8 @@
 
 .err
   @include m.gap($mt: f.px(5))
-  @include m.dye(c, c.$nu)
+  font-size: f.px(12) !important
+  @include m.dye(c, red)
 
 .tickets
   flex-basis: 48%

@@ -21,6 +21,12 @@ type TeacherProps = {
   title: string
   onMain?: boolean
   teachersList?: any[]
+  isExperienceHidden?: boolean
+  halfScreenTitle?: boolean
+  isWhiteBackground?: boolean
+  isSquareBtn?: boolean
+  isTeacherRoundBtn?: boolean
+  titlePaddingLeft?: number
 }
 
 const Teachers = ({
@@ -28,7 +34,12 @@ const Teachers = ({
   teachersFromMain,
   title,
   onMain = false,
-  teachersList = null
+  teachersList = null,
+  isExperienceHidden,
+  halfScreenTitle = false,
+  isWhiteBackground,
+  isSquareBtn,
+  isTeacherRoundBtn = true
 }: TeacherProps) => {
   const { program, curProgramsType } = useContext(ContextStaticProps)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -68,9 +79,19 @@ const Teachers = ({
             <TagOrange>Опыт</TagOrange>
           </div>
         )}
-        <h2 className={stls.title}>{title}</h2>
-        <p className={stls.desc}>
-        Преподают практикующие психологи и психотерапевты России{' '}
+        <h2
+          className={classNames({
+            [stls.title]: true,
+            [stls.halfScreenTitle]: halfScreenTitle
+          })}>
+          {title}
+        </h2>
+        <p
+          className={classNames({
+            [stls.desc]: true,
+            [stls.halfScreenTitle]: halfScreenTitle
+          })}>
+          Преподают ведущие практикующие психологи и психотерапевты России{' '}
           <span className={stls.highlight}>с опытом от 7 до 25 лет</span>
         </p>
         <div className={stls.teachers}>
@@ -81,11 +102,11 @@ const Teachers = ({
             }}
             slidesPerView={isMobileAndTabletLayout ? 1 : 2}
             spaceBetween={30}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true
-            }}
+            // autoplay={{
+            //   delay: 5000,
+            //   disableOnInteraction: false,
+            //   pauseOnMouseEnter: true
+            // }}
             speed={2000}
             scrollbar={isMobileAndTabletLayout ? false : true}
             modules={[Scrollbar]}
@@ -97,6 +118,8 @@ const Teachers = ({
                   name={teacher.name}
                   achievements={teacher.achievements}
                   experience={teacher.experience}
+                  isExperienceHidden={isExperienceHidden}
+                  isWhiteBackground={isWhiteBackground}
                 />
               </SwiperSlide>
             ))}
@@ -108,7 +131,8 @@ const Teachers = ({
                 top={-10}
                 mobileTop={-30}
                 mobileLeft={100}
-                teachers
+                isTeacherRoundBtn={isTeacherRoundBtn}
+                isSquareBtn={isSquareBtn}
               />
             </div>
             <div className='custom-next-button-container'>
@@ -118,7 +142,8 @@ const Teachers = ({
                 top={-10}
                 mobileTop={-30}
                 mobileLeft={-115}
-                teachers
+                isTeacherRoundBtn={isTeacherRoundBtn}
+                isSquareBtn={isSquareBtn}
               />
             </div>
           </Swiper>

@@ -1,0 +1,177 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+.container
+  @include m.dye(bg, c.$gray-100)
+  @include m.gap($pb: f.px(0), $pt: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(0))
+.top
+  @include m.media(laptop, desktop)
+    @include m.gap($plr: f.px(70), $mtb: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($mtb: f.px(25))
+
+.bottom
+  @include m.media(laptop, desktop)
+    @include m.gap($plr: f.px(70), $mtb: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(15))
+
+.titleContainer
+  @include m.media(phone, tablet)
+    display: flex
+    justify-content: center
+    width: 100%
+
+.title
+  display: inline-block
+  @include m.flex($jc: center)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15))
+    font-size: f.px(32)
+    width: f.px(200)
+    text-align: center
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(30), $pt: f.px(15))
+    font-size: f.px(44)
+  @include m.dye(c, c.$theta)
+
+.tag
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(-50))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
+    display: none
+  & > *
+    @include m.gap($ptb: f.px(8), $plr: f.px(20))
+
+.desc
+  @include m.media(phone, tablet)
+    // font-weight: 350
+    font-size: f.px(15)
+    @include m.gap($mb: f.px(0))
+  @include m.media(laptop, desktop)
+    width: 50%
+    @include m.gap($mb: f.px(0))
+    font-size: f.px(20)
+  @include m.dye(c, c.$theta)
+
+.cards
+  position: relative
+
+.slide
+  overflow: hidden
+  border-radius: f.px(20)
+  background: linear-gradient(121deg, #221C25 -37.39%, #3B1C47 35.35%, #6F01C6 108.09%)
+  @include m.gap($mr: f.px(0))
+  &:nth-child(even)
+    background: #fff
+    .cardTitle
+      @include m.dye(bg, c.$beta)
+      @include m.dye(c, #fff)
+
+    .cardSubtitle
+      @include m.dye(c, #000)
+    @include m.media(desktop, laptop)
+      .cardImage
+        transform: rotate(25deg) scale(1.2) translateX(f.px(25))
+    @include m.media(phone, tablet)
+      .cardImage
+        transform: rotate(25deg) scale(1.2) translateX(f.px(10))
+
+.cardContainer
+  @include m.media(desktop, laptop)
+    @include m.gap($pr: f.px(0))
+
+.cardInnerContainer
+  position: relative
+  display: flex
+.textBlock
+  flex: 1
+  z-index: 1
+  @include m.media(desktop)
+    @include m.gap($mb: f.px(20), $mt: f.px(107), $ml: f.px(70))
+    width: 50%
+  @include m.media(laptop)
+    @include m.gap($mb: f.px(10), $mt: f.px(30), $ml: f.px(50))
+    width: 70%
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10), $mt: f.px(30), $ml: f.px(40))
+    width: 100%
+
+.cardTitle
+  @include m.dye(bg, #fff)
+  border-radius: f.px(50)
+  max-width: fit-content
+  white-space: nowrap
+  @include m.dye(c, c.$beta)
+  @include m.media(desktop, laptop)
+    @include m.gap($ptb: f.px(9), $plr: f.px(16))
+    font-size: f.px(20)
+    font-weight: 500
+    line-height: 130%
+  @include m.media(phone, tablet)
+    font-weight: 500
+    @include m.gap($ptb: f.px(5), $plr: f.px(9.5))
+    font-size: f.px(12)
+    white-space: pre-wrap
+    // max-width: f.px(125)
+    border-radius: f.px(30)
+
+.cardSubtitle
+  @include m.dye(c, #fff)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(desktop)
+    font-size: f.px(18)
+  @include m.media(laptop)
+    font-size: f.px(16)
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
+    max-width: f.px(140)
+
+.imageBlock
+  flex: 1
+  top: 0
+  overflow: visible
+  position: relative
+  & > *
+    overflow: visible !important
+    width: auto
+    height: auto
+    max-width: 100%
+
+.cardImage
+  position: absolute
+
+  object-fit: cover
+  border-radius: f.px(25)
+  @include m.media(desktop)
+    transform: rotate(-25deg) translateX(f.px(25))
+  @include m.media(laptop)
+    transform: rotate(-25deg) scale(1.2) translateX(f.px(20))
+  @include m.media(phone, tablet)
+    transform: rotate(-25deg) scale(1.1) translateX(f.px(10))
+
+.orangeBlock
+  z-index: 2
+  position: absolute
+  @include m.flex($jc: center, $ai: center)
+  @include m.dye(bg, c.$beta)
+  width: f.px(60)
+  height: f.px(60)
+  border-radius: 50%
+  @include m.media(phone, tablet)
+    animation: 3s infinite normal slidePhone
+.strongText
+  font-weight: 500
+
+@keyframes slidePhone
+  0%
+    transform: translate(f.px(150), f.px(-70))
+  50%
+    transform: translate(f.px(200), f.px(-70))
+  100%
+    transform: translate(f.px(150), f.px(-70))

@@ -25,8 +25,8 @@ const ProgramSelect = ({
   marginTop,
   width,
   onChange,
-  onMainPage,
-  placeholder = 'Направление',
+  onMainPage = false,
+  placeholder = 'Выберите направление',
   noOptionsMessage = () => 'Не нашлось подходящих направлений'
 }: Props) => {
   const customStyles = {
@@ -38,13 +38,17 @@ const ProgramSelect = ({
         flexWrap: 'nowrap',
         borderColor: `${mainColor}`,
         borderRadius: `${onMainPage ? 10 : 50}px`,
-        width: `${onMainPage ? 350 : width ? width : 240}px`,
+        width: '100%',
+        maxWidth: `${onMainPage ? 350 : width ? width : 240}px`,
         height: `${onMainPage ? 50 : 40}px`,
         fontFamily: 'Stem',
         fontSize: '14px',
         boxShadow: 'none',
         cursor: 'pointer',
         color: 'black',
+        '@media (max-width: 768px)': {
+          maxWidth: '100%'
+        },
         '&:hover': {
           backgroundColor: `${mainColor}`,
           '.react-select__single-value': {
@@ -66,7 +70,8 @@ const ProgramSelect = ({
       borderColor: '#E9E9E9',
       borderRadius: '10px',
       marginTop: `${onMainPage ? 5 : 0}px`,
-      width: `${onMainPage ? 350 : width ? width : 240}px`,
+      width: '100%',
+      maxWidth: `${onMainPage ? 360 : width ? width : 240}px`,
       padding: '10px',
       zIndex: '2'
     }),
@@ -128,7 +133,9 @@ const ProgramSelect = ({
   const { studyFieldSlug } = query
 
   const defaultValue =
-    options.filter(el => el.value === studyFieldSlug)[0] || null
+    options[0]?.value === 'default'
+      ? options[0]
+      : options.filter(el => el.value === studyFieldSlug)
 
   return (
     <Select

@@ -14,23 +14,22 @@ import SeminarCard from '@/components/sections/SlugTags'
 import SlugTags from '@/components/sections/SlugTags'
 import { NextSeo } from 'next-seo'
 
-const SeminarsStudyFieldPage = ({
-  events
-}) => {
-  const router = useRouter();
-  const { studyFieldSlug } = router.query;
-  // console.log(seminars)
+const SeminarsStudyFieldPage = ({ events }) => {
+  const router = useRouter()
+  const { studyFieldSlug } = router.query
 
   // Фильтрация семинаров по studyFieldSlug
-  const filteredSeminars = events?.filter((seminar) => seminar.studyFieldSlug === studyFieldSlug);
+  const filteredSeminars = events?.filter(
+    seminar => seminar.studyFieldSlug === studyFieldSlug
+  )
   return (
     <>
       <Wrapper>
         <NextSeo />
         <h1>Семинары слаг</h1>
-      {/* <StudyFieldSlugFilter props={events} slug='seminars'/>
+        {/* <StudyFieldSlugFilter props={events} slug='seminars'/>
       <SlugTags props={filteredSeminars} slug='seminars' withDate/> */}
-    </Wrapper>
+      </Wrapper>
     </>
   )
 }

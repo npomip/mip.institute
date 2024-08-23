@@ -25,7 +25,6 @@ const StickyBottom = () => {
       // document.addEventListener('scroll', () => {
       //   const scrollHeight = document.body.scrollHeight
       //   const pageYOffset = window.pageYOffset
-      //   console.log(pageYOffset, scrollHeight)
       //   pageYOffset > (scrollHeight * 10) / 1000 &&
       //   pageYOffset + window.innerHeight < (scrollHeight * 90) / 100 &&
       //   !isClosed
@@ -54,9 +53,8 @@ const StickyBottom = () => {
               {discount}
             </span>{' '}
             <br className={stls.smallMobileOnly} /> на все программы{' '}
-            <br className={stls.mobileOnly} /> 
-            <ProgramDiscountUntil />
-            !
+            <br className={stls.mobileOnly} />
+            <ProgramDiscountUntil />!
           </p>
           <div className={stls.btns}>
             <PopupTrigger btn='theta' cta='learnAboutUs' />
@@ -64,8 +62,13 @@ const StickyBottom = () => {
               <PopupTrigger btn='alpha' cta='consultMe' />
             </div>
           </div>
-          <div className="js-whatsapp-message-container" style={{display:"none"}}>
-            <p>Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения: {roistat_visit}</p>
+          <div
+            className='js-whatsapp-message-container'
+            style={{ display: 'none' }}>
+            <p>
+              Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер
+              обращения: {roistat_visit}
+            </p>
           </div>
           <div className={stls.btnMobile}>
             <PopupTrigger btn='theta' cta='learnMore' />

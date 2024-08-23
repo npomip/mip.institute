@@ -19,13 +19,11 @@ import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
-  
   // const { reviews } = useContext(ContextStaticProps)
 
   // const reviewsSorted = sortBasedOnNumericOrder({
   //   reviews: sortReviewsCreatedAtASC({ reviews })
   // })
-  // console.log(lifeCourse)
 
   // const router = useRouter()
 
@@ -56,9 +54,6 @@ const JournalPage = ({ lifeCourse, reviews }) => {
     setIsTestOpen(true)
   }
 
-  console.log(lifeCourse);
-  
-
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -70,7 +65,9 @@ const JournalPage = ({ lifeCourse, reviews }) => {
         {close => <PaymentForm program={lifeCourse} onClose={close} />}
       </Popup>
       <div style={{ backgroundColor: 'red' }}>
-        <Wrapper><button onClick={handleOpen}>Оплатить</button></Wrapper>
+        <Wrapper>
+          <button onClick={handleOpen}>Оплатить</button>
+        </Wrapper>
       </div>
       <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
@@ -80,7 +77,11 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       ))}
 
       <About isLiveCourse />
-      <Reviews subtitle={lifeCourse?.review_subtitle} reviews={lifeCourse?.unique_reviews} isLiveCourse />
+      <Reviews
+        subtitle={lifeCourse?.review_subtitle}
+        reviews={lifeCourse?.unique_reviews}
+        isLiveCourse
+      />
       <EntryForm isLiveCourse />
       <GeneralFaq qnas={lifeCourse?.qnas} />
     </>

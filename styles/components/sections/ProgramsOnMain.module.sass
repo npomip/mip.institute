@@ -10,14 +10,34 @@
     font-size: f.px(44)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
-    font-size: f.px(26)
+    font-size: f.px(30)
     max-width: f.px(200)
 
 .selects
   display: grid
   grid-auto-columns: 1fr 1fr 1fr
   grid-auto-flow: column
+  grid-area: auto
   column-gap: f.px(30)
+  @include m.media(phone, tablet)
+    grid-auto-columns: auto
+    grid-auto-flow: row
+    row-gap: f.px(10)
+
+.tags
+  @include m.flex
+  gap: f.px(15)
+  @include m.gap($mt: f.px(15))
+  @include m.media(phone, tablet)
+    flex-wrap: wrap
+    gap: f.px(8)
+
+.cards
+  display: grid
+  grid-auto-columns: 1fr 1fr 1fr
+  grid-auto-flow: column
+  column-gap: f.px(30)
+  @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
     grid-auto-columns: auto
     grid-auto-flow: row

@@ -14,19 +14,12 @@ const CoursesPage = ({ events }) => {
   //   seminars,
   //   curProgramsType: 'course'
   // })
-//   const titles = seminars.map(item => item.title);
-// const studyFields = seminars.map(item => item.studyField);
-
-// console.log(titles); // Массив всех значений title
-// console.log(studyFields)
-console.log(events)
+  //   const titles = seminars.map(item => item.title);
+  // const studyFields = seminars.map(item => item.studyField);
 
   return (
     <Wrapper>
-      <NextSeo 
-      nofollow={true}
-      noindex={true}
-      />
+      <NextSeo nofollow={true} noindex={true} />
       <h1>Семинары</h1>
       {/* <StudyFieldSlugFilter props={events} slug='seminars' />
       <SeminarCard props={events} slug='seminars' withDate/> */}

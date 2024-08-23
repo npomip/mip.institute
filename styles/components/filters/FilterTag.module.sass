@@ -3,7 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  border: 1px solid #947AFF
+  border: f.px(1) solid
+  @include m.dye(border, c.$purple-200)
   border-radius: f.px(50)
   @include m.gap($plr: f.px(20), $ptb: f.px(11))
   background: white
@@ -12,48 +13,44 @@
   font-weight: 350
   white-space: nowrap
   font-size: f.px(14)
-  @include m.media(phone, tablet)
   display: flex
-  // justify-content: baseline
-    
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(13), $ptb: f.px(9))
 
   &.active
-    // Стили для активного состояния
-    background-color: #947AFF
+    @include m.dye(bg, c.$purple-200)
     color: white
 
   &:hover
-    background: #947AFF
+    @include m.dye(bg, c.$purple-200)
     color: white
     font-weight: 350
 
 .category
-  border: 1px solid #FD521B
+  border: f.px(1) solid
+  @include m.dye(border, c.$orange-700)
   &:hover
-    background: #FD521B
+    @include m.dye(bg, c.$orange-700)
     color: white
     font-weight: 500
   &.active
-    // Стили для активного состояния
-    background-color: #FD521B
-    // color: white
+    @include m.dye(bg, c.$orange-700)
 
 .program
-  border: 1px solid
+  border: f.px(1) solid
   @include m.dye(border, c.$alpha)
   &:hover
     @include m.dye(bg, c.$alpha)
     font-weight: 500
 
   &.active
-    // Стили для активного состояния
     @include m.dye(bg, c.$alpha)
     font-weight: 500
     color: white
 
 .quantity
   padding-left: f.px(7)
-  color: #B5B5B5
+  @include m.dye(c, c.$psi)
 
 .popupTrigger
   padding-left: f.px(7)

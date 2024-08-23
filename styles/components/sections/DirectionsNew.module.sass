@@ -1,0 +1,97 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  background: #F5F6F6
+  position: relative
+  @include m.gap($pb: f.px(0))
+  @include m.media(tablet, phone)
+    @include m.gap($pb: f.px(0))
+.heading
+  @include m.media(desktop, laptop)
+    @include m.gap($mb: f.px(15))
+
+.title
+  display: inline-block
+  @include m.gap($pt: f.px(15), $pb: f.px(15), $mb: f.px(0), $mt: f.px(50))
+  @include m.dye(c, black)
+  font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
+    @include m.gap($pt: f.px(0), $pb: f.px(25), $mb: f.px(0))
+
+.navBlocksContainer
+  display: grid
+  width: 100%
+  gap: f.px(30)
+  @include m.media(desktop)
+    grid-template-columns: repeat(4, 1fr)
+  @include m.media(laptop)
+    grid-template-columns: repeat(3, 1fr)
+  @include m.media(phone)
+    gap: f.px(10)
+  @include m.media(tablet)
+    grid-template-columns: repeat(2, 1fr)
+
+.navTitle
+  font-weight: 500
+  line-height: 110%
+  @include m.media(desktop, laptop)
+    font-size: f.px(20)
+    width: f.px(180)
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.linkInner
+  @include m.dye(bg, white)
+  overflow: hidden
+  border: f.px(0.5) solid #6F01C6
+  border-radius: f.px(10)
+  @include m.flex($jc: space-between)
+  cursor: pointer
+  @include m.gap($ptb: f.px(30), $plr: f.px(25))
+  transition: background-color 0.3s ease, color 0.3s ease
+  @include m.media(tablet)
+    height: f.px(186)
+  @include m.media(phone)
+    height: f.px(181)
+  &:hover
+    @include m.dye(bg, c.$alpha)
+    .navTitle,.countPrograms
+      @include m.dye(c, white)
+    .icon
+      & > path
+        fill: white
+
+.content
+  @include m.flex($fd: column, $jc: space-between)
+  @include m.media(desktop, laptop)
+    gap: f.px(37)
+  @include m.media(phone, tablet)
+    gap: f.px(49)
+
+.contentBlock
+  @include m.media(desktop, laptop)
+    @include m.flex($fd: column, $ai:center)
+    gap: f.px(37)
+    @include m.gap($mb: f.px(45))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(40))
+
+.icon
+  @include m.media(desktop)
+    transform: translateX(f.px(24.4)) translateY(f.px(100.4))
+  @include m.media(laptop)
+    transform: translateX(f.px(30.2)) translateY(f.px(105.2))
+  @include m.media(phone, tablet)
+    transform: translateX(f.px(37.2)) translateY(f.px(100.4))
+
+.countPrograms
+  @include m.dye(c, black)
+  font-size: f.px(12)
+  font-weight: 350
+  line-height: 130%

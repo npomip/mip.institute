@@ -7,9 +7,9 @@ const sortOptions = [
 ]
 
 const levelOptions = [
-  { value: 'higher', label: 'Высшее образование' },
-  { value: 'profi', label: 'Профессиональная переподготовка' },
-  { value: 'upgrade', label: 'Повышение квалификации' }
+  { value: 'bachelor', label: 'Высшее образование' },
+  { value: 'professions', label: 'Профессиональная переподготовка' },
+  { value: 'courses', label: 'Повышение квалификации' },
 ]
 
 const formOptions = [

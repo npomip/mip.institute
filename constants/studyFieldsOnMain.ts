@@ -27,4 +27,10 @@ const studyFieldsCourses = [
   {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
 ]
 
-export {studyFields, studyFieldsProfessions, studyFieldsCourses}
+const studyFieldsBachelor = [
+  {label: 'Психолого-педагогическое образование',slug: 'psihologo-pedagogicheskoye-obrazovanie'},
+  {label: 'Психология', slug: 'psikhologiya'},
+  {label: 'Педагогическое образование', slug: 'pedagogicheskoe-obrazovanie'},
+]
+
+export {studyFields, studyFieldsProfessions, studyFieldsCourses, studyFieldsBachelor}

@@ -5,7 +5,8 @@ import Select from 'react-select'
 
 type Option = {
   label: string
-  value: any
+  value?: any
+  slug?: string
 }
 
 type Props = {

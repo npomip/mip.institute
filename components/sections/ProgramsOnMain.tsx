@@ -9,13 +9,12 @@ import stls from 'styles/components/sections/ProgramsOnMain.module.sass'
 import CardProfession from '../cards/CardProfession'
 import FilterTag from '../filters/FilterTag'
 import ProgramSelect from '../program/ProgramSelect'
+import BtnLinkProgram from '../btns/BtnLinkProgram'
 
 const ProgramsOnMain = () => {
   const { programs } = useContext(ContextStaticProps)
 
-  console.log({ programs })
   const list = programs.slice(0, 3)
-  console.log({ list })
 
   return (
     <section className={stls.container}>
@@ -58,6 +57,9 @@ const ProgramsOnMain = () => {
         {list.map(el => (
           <CardProfession key={el.id} profession={el} />
         ))}
+      </div>
+      <div className={stls.btnContainer}>
+        <BtnLinkProgram text='Показать еще' amount={42} isVisibleMobile />
       </div>
     </section>
   )

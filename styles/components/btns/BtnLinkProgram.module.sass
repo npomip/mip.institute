@@ -8,20 +8,26 @@
   font-size: f.px(16)
   font-style: normal
   font-weight: 350
-  @include m.media(desktop, laptop)
-    cursor: pointer
-    border: f.px(0.5) solid
-    @include m.dye(border, c.$alpha)
-    border-radius: f.px(10)
-    @include m.flex($ai: center, $jc: center)
-    @include m.gap($ptb: f.px(14), $plr: f.px(59))
-    width: f.px(268)
-    transition: background-color 0.3s ease, color 0.3s ease
-    &:hover
-      @include m.dye(bg, c.$alpha)
-      @include m.dye(c, white)
-  @include m.media(phone, tablet)
-    display: none
+  cursor: pointer
+  border: f.px(0.5) solid
+  @include m.dye(border, c.$alpha)
+  border-radius: f.px(10)
+  @include m.flex($ai: center, $jc: center)
+  @include m.gap($ptb: f.px(14), $plr: f.px(59))
+  width: f.px(268)
+  transition: background-color 0.3s ease, color 0.3s ease
+  &:hover
+    @include m.dye(bg, c.$alpha)
+    @include m.dye(c, white)
 
 .amount
   @include m.dye(c, c.$psi)
+
+.hidden
+  @include m.media(phone, tablet)
+    display: none
+
+.visible
+  @include m.media(phone, tablet)
+    border-width: f.px(1)
+    width: 100%

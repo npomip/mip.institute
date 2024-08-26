@@ -10,8 +10,8 @@ import ProgramsOnMain from './ProgramsOnMain'
 import BtnLinkProgram from '../btns/BtnLinkProgram'
 
 type Props = {
-  programs: number
-  bachelors: number
+  programs: any[]
+  bachelors: any[]
 }
 
 const DirectionsNew = ({ programs, bachelors }: Props) => {
@@ -23,6 +23,28 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
   const handleMouseLeave = () => {
     setHoveredIcon(null)
   }
+
+  const amountOfCourses = programs.filter(el => el.type === 'Course').length
+  const amountOfProfessions = programs.filter(
+    el => el.type === 'Profession'
+  ).length
+
+  const renderCounter = (type: string) => {
+    switch (type) {
+      case 'bachelor':
+        return <span>{bachelors.length} программы</span>
+      case 'course':
+        return <span>{amountOfCourses} курсов</span>
+      case 'profession':
+        return <span>{amountOfProfessions} программы</span>
+      default:
+        return <span>{bachelors.length} ступени</span>
+    }
+  }
+
+  const allPrograms = programs.concat(bachelors)
+  console.log({ allPrograms })
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -40,17 +62,7 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
                   <div className={stls.content}>
                     <h2 className={stls.navTitle}>{label}</h2>
                     <div className={stls.countPrograms}>
-                      {programType === 'bachelor' ? (
-                        <span>{bachelors} программы</span>
-                      ) : programType === 'course' ? (
-                        <span>{bachelors} курсов</span>
-                      ) : programType === 'profession' ? (
-                        <span>{bachelors} программы</span>
-                      ) : programType === 'practicalTrainings' ? (
-                        <span>{bachelors} ступени</span>
-                      ) : (
-                        ''
-                      )}
+                      {renderCounter(programType)}
                     </div>
                   </div>
                   <div className={stls.icon}>
@@ -62,9 +74,12 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
               </Link>
             ))}
           </div>
-          <BtnLinkProgram text='Все программы' amount={programs} />
+          <BtnLinkProgram
+            text='Все программы'
+            amount={programs?.length + bachelors?.length}
+          />
         </div>
-        <ProgramsOnMain />
+        <ProgramsOnMain allPrograms={allPrograms} />
       </Wrapper>
     </section>
   )

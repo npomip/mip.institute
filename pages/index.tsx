@@ -129,7 +129,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Hero />
       <Directions />
       {/* <Directions /> */}
-      <DirectionsNew programs={programs.length} bachelors={bachelors.length} />
+      <DirectionsNew programs={programs} bachelors={bachelors} />
       {/* <Popup
         open={isTestOpen}
         onClose={() => setIsTestOpen(false)}

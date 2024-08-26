@@ -1,26 +1,31 @@
-import sortOptions from 'constants/programSelect'
-import { useRouter } from 'next/router'
+import { ReactNode } from 'react'
 import Select from 'react-select'
 
-type Option = {
+export type SelectOption = {
   label: string
   value: any
 }
 
 type Props = {
-  options?: Array<Option>
+  options: Array<SelectOption>
   mainColor?: string
-  onChange: (value: Option) => void
+  onChange: (value: SelectOption) => void
   marginTop?: string
-  width?: string
+  placeholder?: string
+  noOptionsMessage?: (obj: { inputValue: string }) => ReactNode
+  value?: SelectOption
+  isDisabled?: boolean
 }
 
-const ProgramSelect = ({
-  options = sortOptions,
+const CustomSelect = ({
+  options,
   mainColor = '#6f01c6',
   marginTop,
-  width,
-  onChange
+  onChange,
+  placeholder = 'Выберите направление',
+  noOptionsMessage = () => 'Ничего не найдено',
+  value,
+  isDisabled
 }: Props) => {
   const customStyles = {
     control: base => {
@@ -30,14 +35,18 @@ const ProgramSelect = ({
         display: 'flex',
         flexWrap: 'nowrap',
         borderColor: `${mainColor}`,
-        borderRadius: '50px',
-        width: `${width ? width : 240}px`,
-        height: '40px',
+        borderRadius: `10px`,
+        width: '100%',
+        maxWidth: `350px`,
+        height: `50px`,
         fontFamily: 'Stem',
         fontSize: '14px',
         boxShadow: 'none',
         cursor: 'pointer',
         color: 'black',
+        '@media (max-width: 768px)': {
+          maxWidth: '100%'
+        },
         '&:hover': {
           backgroundColor: `${mainColor}`,
           '.react-select__single-value': {
@@ -45,6 +54,10 @@ const ProgramSelect = ({
           },
           '.react-select__dropdown-indicator': {
             color: 'white'
+          },
+          '.react-select__placeholder': {
+            color: 'white',
+            fontWeight: '500'
           }
         }
       }
@@ -54,10 +67,14 @@ const ProgramSelect = ({
       background: 'white',
       borderColor: '#E9E9E9',
       borderRadius: '10px',
-      marginTop: '0',
-      width: `${width ? width : 240}px`,
+      marginTop: `5px`,
+      width: '100%',
+      maxWidth: `350px`,
       padding: '10px',
-      zIndex: '2'
+      zIndex: '2',
+      '@media (max-width: 768px)': {
+        maxWidth: '100%'
+      }
     }),
     indicatorSeparator: base => ({
       ...base,
@@ -99,34 +116,33 @@ const ProgramSelect = ({
         }
       }
     },
-    placeholder: base => {
+    placeholder: (base, { isDisabled }) => {
       return {
         ...base,
-        paddingLeft: '10px'
+        paddingLeft: '10px',
+        color: isDisabled ? 'gray' : 'black',
+        '&:hover': {
+          color: 'white',
+          fontWeight: '500'
+        }
       }
     }
   }
 
-  const router = useRouter()
-  const { query } = router
-  const { studyFieldSlug } = query
-
   return (
     <Select
+      key={value?.label}
       options={options}
-      placeholder='Выберите направление'
-      noOptionsMessage={() => 'Не нашлось подходящих направлений'}
-      defaultValue={
-        options[0]?.value === 'default'
-          ? options[0]
-          : options.filter(el => el.value === studyFieldSlug)
-      }
+      placeholder={placeholder}
+      noOptionsMessage={noOptionsMessage}
       styles={customStyles}
       isSearchable={false}
       onChange={onChange}
       classNamePrefix='react-select'
+      value={value}
+      isDisabled={isDisabled}
     />
   )
 }
 
-export default ProgramSelect
+export default CustomSelect

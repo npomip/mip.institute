@@ -1,12 +1,10 @@
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/practicalTraining/ThreadBlock.module.sass'
-import Wrapper from '../layout/Wrapper'
 import { TermPoint } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
-import IconVioletCircle from '../icons/IconVioletCircle'
-import parse from 'html-react-parser'
 import marked from 'marked'
 import TagOrange from '../general/TagOrange'
+import Wrapper from '../layout/Wrapper'
 import ThreadBlockDesc from './ThreadBlockDesc'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import ThreadBlockMobile from './ThreadBlockMobile'
 
 type Props = {
@@ -30,7 +28,9 @@ const ThreadBlock = ({ points }: Props) => {
         <div className={stls.tag}>
           <TagOrange isWhiteText>Условия</TagOrange>
         </div>
-        <h2 className={stls.title}><span>Условия</span> участия в программе</h2>
+        <h2 className={stls.title}>
+          <span>Условия</span> участия в программе
+        </h2>
       </div>
       {isMobileAndTabletLayout ? (
         <ThreadBlockMobile points={points} />

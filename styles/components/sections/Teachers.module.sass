@@ -46,8 +46,11 @@
 .halfScreenTitle
   @include m.gap($pl: f.px(60))
   max-width: f.px(600)
-  @include m.media(phone, tablet)
+  @include m.media(tablet)
+  @include m.gap($pl: 0)
+  @include m.media(phone)
     @include m.gap($pl: 0)
+    max-width: f.px(270)
 
 .highlight
   @include m.dye(c, c.$alpha)

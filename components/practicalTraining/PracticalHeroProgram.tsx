@@ -1,13 +1,9 @@
 import PopupTrigger from '@/components/general/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
-import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/practicalTraining/PracticalHeroProgram.module.sass'
-import classNames from 'classnames'
-import validTitles from 'constants/bachelorHeroProgram'
-import { useContext, useState } from 'react'
-import Breadcrumbs from '../general/Breadcrumbs'
 import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
+import TagOrange from '../general/TagOrange'
 import PracticalProgramInfo from './PracticalProgramInfo'
 
 type Props = {
@@ -16,9 +12,22 @@ type Props = {
 }
 
 const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
-
   const cta = 'signUp'
+  const title = (
+    <>
+      Практические навыки
+      <br />
+      психологического
+      <br />
+      консультирования
+    </>
+  )
 
+  const tag = (
+    <div className={stls.tag}>
+      <TagOrange>1 ступень</TagOrange>
+    </div>
+  )
   return (
     <>
       <div
@@ -29,9 +38,8 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
         <span className={stls.filter}></span>
         <div className={stls.content}>
           <div>
-            <h1 className={stls.title}>
-              {practicalTraining?.title}
-            </h1>
+            {tag}
+            <h1 className={stls.title}>{title}</h1>
             <div className={stls.mobileFlex}>
               <div className={stls.descriptionMobile}>
                 <p className={stls.mobiledesc}>{practicalTraining?.subtitle}</p>
@@ -45,7 +53,7 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
         </div>
       </div>
       <div className={stls.info}>
-        <PracticalProgramInfo practicalTraining={practicalTraining}/>
+        <PracticalProgramInfo practicalTraining={practicalTraining} />
       </div>
       <section className={stls.container}>
         <Wrapper>
@@ -57,12 +65,8 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
             <span className={stls.filter}></span>
             <div className={stls.heading}>
               {/* <Breadcrumbs breadcrumbs={breadcrumbs} /> */}
-              <h1
-                className={classNames({
-                  [stls.title]: true,
-                })}>
-                {practicalTraining?.title}
-              </h1>
+              {tag}
+              <h1 className={stls.title}>{title}</h1>
               <div className={stls.descriptionDesktop}>
                 <p className={stls.mobiledesc}>{practicalTraining?.subtitle}</p>
               </div>
@@ -70,7 +74,7 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
                 <PopupTrigger btn='alpha' cta='signUpForCourse' />
                 <PopupTrigger btn='beta' cta='askQuestion' />
               </div>
-                <PracticalProgramInfo practicalTraining={practicalTraining}/>
+              <PracticalProgramInfo practicalTraining={practicalTraining} />
             </div>
           </div>
         </Wrapper>

@@ -3,14 +3,13 @@
 @use '@/styles/themes/default/colors' as c
 .container
   @include m.dye(bg, c.$gray-100)
-  @include m.gap($pb: f.px(0), $pt: f.px(0))
+  @include m.gap($pb: f.px(90), $pt: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(0))
 .top
   @include m.media(laptop, desktop)
-    @include m.gap($plr: f.px(70), $mtb: f.px(25))
+    @include m.gap($plr: f.px(70), $mb: f.px(25))
   @include m.media(phone, tablet)
-    @include m.gap($mtb: f.px(25))
 
 .bottom
   @include m.media(laptop, desktop)
@@ -66,6 +65,8 @@
   border-radius: f.px(20)
   background: linear-gradient(121deg, #221C25 -37.39%, #3B1C47 35.35%, #6F01C6 108.09%)
   @include m.gap($mr: f.px(0))
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
   &:nth-child(even)
     background: #fff
     .cardTitle

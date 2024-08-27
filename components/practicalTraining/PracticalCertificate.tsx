@@ -20,7 +20,7 @@ const PracticalCertificate = ({ image }: Props) => {
               [stls.left]: true
             })}>
             <div className={stls.text}>
-              <span className={stls.title}>Сертификат после обучения</span>
+              <h2 className={stls.title}>Сертификат после обучения</h2>
               <p className={stls.description}>
                 Удостоверение о повышении квалификации выдается после освоения всех 3-х ступеней
               </p>

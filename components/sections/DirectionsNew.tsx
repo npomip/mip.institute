@@ -32,18 +32,17 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
   const renderCounter = (type: string) => {
     switch (type) {
       case 'bachelor':
-        return <span>{bachelors.length} программы</span>
+        return `${bachelors.length} программы`
       case 'course':
-        return <span>{amountOfCourses} курсов</span>
+        return `${amountOfCourses} курсов`
       case 'profession':
-        return <span>{amountOfProfessions} программы</span>
+        return `${amountOfProfessions} программы`
       default:
-        return <span>{bachelors.length} ступени</span>
+        return `${bachelors.length} ступени`
     }
   }
 
   const allPrograms = programs.concat(bachelors)
-  console.log({ allPrograms })
 
   return (
     <section className={stls.container}>
@@ -62,7 +61,7 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
                   <div className={stls.content}>
                     <h2 className={stls.navTitle}>{label}</h2>
                     <div className={stls.countPrograms}>
-                      {renderCounter(programType)}
+                      <span>{renderCounter(programType)}</span>
                     </div>
                   </div>
                   <div className={stls.icon}>

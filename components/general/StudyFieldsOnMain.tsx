@@ -45,8 +45,8 @@ const StudyFieldsOnMain = ({
         [stls.tooltip]: !aside,
         [stls.flexend]: flexend
       })}>
-      {list.map(({ label, slug }, idx) => (
-        <Fragment key={slug + idx}>
+      {list.map(({ label, value }, idx) => (
+        <Fragment key={value + idx}>
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
               smallText={smallText}
@@ -57,9 +57,9 @@ const StudyFieldsOnMain = ({
                   : currentType === 'profession'
                   ? routes.front.professions
                   : routes.front.programs
-              }/${slug}`}
+              }/${value}`}
               aside={aside}
-              slug={slug}>
+              slug={value}>
               {label}
             </BtnField>
           </li>

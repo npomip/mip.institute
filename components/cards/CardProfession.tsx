@@ -5,22 +5,54 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const CardProfession = ({ profession = null }) => {
-  console.log(profession, 'profession');
-  
   const getHref = () => {
-    const baseRoute = 
-      profession.type === "Course" ? routes.front.courses :
-      profession.type === "Practice" ? routes.front.practice :
-      profession.__typename === "Bachelor" ? routes.front.bachelors :
-      routes.front.professions;
+    let baseRoute
+    switch (profession.type) {
+      case 'Course':
+        baseRoute = routes.front.courses
+        break
+      case 'Practice':
+        baseRoute = routes.front.practice
+        break
+      default:
+        baseRoute =
+          profession.__typename === 'Bachelor'
+            ? routes.front.bachelors
+            : routes.front.professions
+    }
 
-    const studyFieldSlug = profession.__typename === "Bachelor" ? '' : (profession.studyFieldSlug || 'studyfield');
-  return `${baseRoute}/${studyFieldSlug}${studyFieldSlug ? '/' : ''}${profession.slug}`;
-};
+    const studyFieldSlug =
+      profession.__typename === 'Bachelor'
+        ? ''
+        : profession.studyFieldSlug || 'studyfield'
+
+    return `${baseRoute}/${studyFieldSlug}${studyFieldSlug ? '/' : ''}${
+      profession.slug
+    }`
+  }
+
+  const renderTypeTag = () => {
+    switch (profession.typeLabel) {
+      case 'Профессия':
+        return 'Профессиональная переподготовка'
+      case 'Курс':
+        return 'Повышение квалификации'
+      default:
+        return 'Высшее образование'
+    }
+  }
+
+  const renderDocTag = () => {
+    switch (profession.typeLabel) {
+      case 'Курс':
+        return 'Удостоверение'
+      default:
+        return 'Диплом'
+    }
+  }
+
   return (
-    <Link
-      passHref
-      href={getHref()}>
+    <Link passHref href={getHref()}>
       <a className={stls.container}>
         {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
         <div className={stls.imgCard}>
@@ -34,16 +66,8 @@ const CardProfession = ({ profession = null }) => {
         </div>
         <div className={stls.content}>
           <div className={stls.tags}>
-            <span className={stls.type}>
-              {profession.typeLabel === 'Профессия'
-                ? 'Профессиональная переподготовка'
-                : 'Повышение квалификации'}
-            </span>
-            <span className={stls.type}>
-              {profession.typeLabel === 'Профессия'
-                ? 'Диплом'
-                : 'Удостоверение'}
-            </span>
+            <span className={stls.type}>{renderTypeTag()}</span>
+            <span className={stls.type}>{renderDocTag()}</span>
           </div>
           <h2 className={stls.title}>{profession.title}</h2>
           {profession.studyMounthsDuration && (

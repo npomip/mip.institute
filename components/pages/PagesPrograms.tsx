@@ -95,7 +95,6 @@ const PagesPrograms = ({
   }
 
   const sortedPrograms = sortBasedOnNumericOrder({ programs: filteredItems })
-  console.log({ sortedPrograms })
 
   return (
     <>

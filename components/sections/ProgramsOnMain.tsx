@@ -27,27 +27,28 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }
 
   const filterPrograms = () => {
-    return allPrograms.filter(program => {
-      const typeMatch = currentType
-        ? currentType.value === 'Bachelor'
-          ? program.__typename === 'Bachelor'
-          : program.type === currentType.value
-        : true
+  return allPrograms.filter(program => {
+    const typeMatch = currentType
+      ? currentType.value === 'Bachelor'
+        ? program.__typename === 'Bachelor'
+        : program.type === currentType.value
+      : true;
 
-      const labelMatch = selectedLabel
-        ? currentType?.value === 'Bachelor'
-          ? program.slug === selectedLabel.value
-          : program.studyFieldSlug === selectedLabel.value
-        : true
+    const labelMatch = selectedLabel
+      ? currentType?.value === 'Bachelor'
+        ? program.slug === selectedLabel.value
+        : program.studyFieldSlug === selectedLabel.value
+      : true;
 
-      const filterMatch =
-        activeFilters.length > 0
-          ? activeFilters.includes(program.studyField)
-          : true
+    const filterMatch =
+      activeFilters.length > 0
+        ? activeFilters.includes(program.studyField)
+        : true; 
 
-      return typeMatch && labelMatch && filterMatch
-    })
-  }
+    return typeMatch && labelMatch && filterMatch;
+  });
+};
+
 
   useEffect(() => {
     const newPrograms = filterPrograms()
@@ -65,8 +66,17 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }
 
   const handleFilterToggle = (label: string) => {
-    setActiveFilters(prev => (prev.includes(label) ? [] : [label]))
-  }
+  setActiveFilters(prev => {
+    if (label === '') {
+      return [];
+    } else if (prev.includes(label)) {
+      return prev;
+    } else {
+      return [label];
+    }
+  });
+};
+
 
   return (
     <section className={stls.container}>

@@ -5,12 +5,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const CardProfession = ({ profession = null }) => {
+  console.log(profession, 'profession');
+  
+  const getHref = () => {
+    const baseRoute = 
+      profession.type === "Course" ? routes.front.courses :
+      profession.type === "Practice" ? routes.front.practice :
+      profession.__typename === "Bachelor" ? routes.front.bachelors :
+      routes.front.professions;
+
+    const studyFieldSlug = profession.__typename === "Bachelor" ? '' : (profession.studyFieldSlug || 'studyfield');
+  return `${baseRoute}/${studyFieldSlug}${studyFieldSlug ? '/' : ''}${profession.slug}`;
+};
   return (
     <Link
       passHref
-      href={`${profession.type === "Course" ? routes.front.courses : profession.type === "Practice" ? routes.front.practice :  routes.front.professions}/${
-        profession.studyFieldSlug || 'studyfield'
-      }/${profession.slug}`}>
+      href={getHref()}>
       <a className={stls.container}>
         {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
         <div className={stls.imgCard}>

@@ -110,29 +110,27 @@ const PracticalWhoIsProgramFor = ({}: Props) => {
   marked.setOptions({ renderer })
   return (
     <section>
-      <Wrapper>
-        <div className={stls.container}>
-          <h2 className={stls.title}>
-            <span className={stls.colouredTitle}>Для кого </span>
-            программа
-          </h2>
-          {isMobileAndTabletLayout ? (
-            <h3 className={stls.subTitle}>
-              <span className={stls.colouredTitle}>Начинающий </span> психолог
-            </h3>
-          ) : (
-            <h3 className={stls.subTitle}>Начинающий психолог</h3>
-          )}
-          <div className={stls.cardsBlock}>
-            {list.map(el => (
-              <div className={stls.card} key={el.text}>
-                <div className={stls.icon}>{renderIcon(el.icon)}</div>
-                <div className={stls.text}>{parse(marked(el.text))}</div>
-              </div>
-            ))}
-          </div>
+      <div className={stls.container}>
+        <h2 className={stls.title}>
+          <span className={stls.colouredTitle}>Для кого </span>
+          программа
+        </h2>
+        {isMobileAndTabletLayout ? (
+          <p className={stls.subTitle}>
+            <span className={stls.colouredTitle}>Начинающий </span> психолог
+          </p>
+        ) : (
+          <p className={stls.subTitle}>Начинающий психолог</p>
+        )}
+        <div className={stls.cardsBlock}>
+          {list.map(el => (
+            <div className={stls.card} key={el.text}>
+              <div className={stls.icon}>{renderIcon(el.icon)}</div>
+              <div className={stls.text}>{parse(marked(el.text))}</div>
+            </div>
+          ))}
         </div>
-      </Wrapper>
+      </div>
     </section>
   )
 }

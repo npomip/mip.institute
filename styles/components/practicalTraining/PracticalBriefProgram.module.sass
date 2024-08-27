@@ -14,15 +14,15 @@
 .title
   @include m.dye(c, black)
   text-align: center
-  @include m.gap($mb: f.px(35), $pt: f.px(15))
+  @include m.gap($mb: f.px(35))
   font-size: f.px(44)
   font-weight: 500
   @include m.media(tablet)
     @include m.gap($mb: f.px(20))
     font-size: f.px(32)
   @include m.media(phone)
-    @include m.gap($mb: f.px(20))
-    font-size: f.px(26)
+    @include m.gap($mb: f.px(15))
+    font-size: f.px(30)
 
 .colouredTitle
   @include m.dye(c, c.$alpha)

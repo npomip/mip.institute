@@ -21,7 +21,11 @@ const CardTeacher = ({
 }: Props) => {
   return (
     <article className={stls.container}>
-      <div className={stls.innerContainer}>
+      <div
+        className={classNames({
+          [stls.innerContainer]: true,
+          [stls.practicalTeacher]: isWhiteBackground
+        })}>
         <div className={stls.twoColumns}>
           <div className={stls.leftBlock}>
             <div className={stls.portrait}>{portrait}</div>

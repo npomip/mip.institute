@@ -47,7 +47,10 @@ const PageTraining = ({ practicalTraining }: Props) => {
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}
       />
-      <PracticalWhatYouWillLearn listLearn={practicalTraining.whatYouWillLearn} photo={practicalTraining.whatYouWillLearnPhoto}/>
+      <PracticalWhatYouWillLearn
+        listLearn={practicalTraining.whatYouWillLearn}
+        photo={practicalTraining.whatYouWillLearnPhoto}
+      />
       <PracticalCertificate image={practicalTraining?.diploma1} />
       <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
       <Teachers

@@ -69,9 +69,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
         position={'center center'}>
         {close => <PaymentForm program={lifeCourse} onClose={close} />}
       </Popup>
-      <div style={{ backgroundColor: 'red' }}>
-        <Wrapper><button onClick={handleOpen}>Оплатить</button></Wrapper>
-      </div>
+
       <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
         <React.Fragment key={idx}>

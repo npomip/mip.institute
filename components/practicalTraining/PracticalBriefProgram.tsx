@@ -20,7 +20,7 @@ const PracticalBriefProgram = ({ listProgram }: Props) => {
           <span className={stls.colouredTitle}> программа </span>
           курса
         </h2>
-        <div>
+        <ul>
           {listProgram.map(el => (
             <PracticalBriefProgramItem
               title={el.title}
@@ -28,7 +28,7 @@ const PracticalBriefProgram = ({ listProgram }: Props) => {
               key={el.title}
             />
           ))}
-        </div>
+        </ul>
       </Wrapper>
     </section>
   )

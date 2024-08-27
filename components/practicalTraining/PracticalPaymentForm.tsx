@@ -20,11 +20,11 @@ const PracticalPaymentForm = ({ price }: Props) => {
               <div className={stls.card}>
                 <div className={stls.topWhiteBlock}>
                   <div className={stls.topWhiteLeft}>
-                    <h3 className={stls.courseName}>
+                    <p className={stls.courseName}>
                       Стоимость обучения
                       <br />
                       (1 ступень)
-                    </h3>
+                    </p>
                     <p className={stls.oldPrice}>{price + 5000} ₽</p>
                     <p className={stls.newPrice}>{price ?? '30.000'} ₽</p>
                     <p className={stls.credit}>
@@ -46,7 +46,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                 </div>
 
                 <div className={stls.bottomBlock}>
-                  <div className={stls.leftColumn}>
+                  <ul className={stls.leftColumn}>
                     {formList.map(el => (
                       <li className={stls.item} key={el.title}>
                         <div className={stls.icon}>
@@ -60,7 +60,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                         </div>
                       </li>
                     ))}
-                  </div>
+                  </ul>
                   <div className={stls.rightColumn}>
                     <li className={stls.item}>
                       <div className={stls.icon}>

@@ -4,7 +4,7 @@ import payment from '@/components/funcs/payment'
 import GeneralFaq from '@/components/general/GeneralFaq'
 import Wrapper from '@/components/layout/Wrapper'
 import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
-import LiveCoursesDescription from '@/components/liveCourses/LiveCoursesDescription'
+import LiveCoursesGetAcess from '@/components/liveCourses/LiveCoursesGetAcess'
 import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
 import LiveCoursesStripe from '@/components/liveCourses/LiveCoursesStripe'
 import { About, Faq, Reviews } from '@/components/sections'
@@ -75,10 +75,10 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
         <React.Fragment key={idx}>
-          <LifeCourseDynamicZones props={module} />
+          <LifeCourseDynamicZones props={module} openModal={handleOpen}/>
         </React.Fragment>
       ))}
-
+      <LiveCoursesGetAcess marginBottom={60} openModal={handleOpen}/>
       <About isLiveCourse />
       <Reviews subtitle={lifeCourse?.review_subtitle} reviews={lifeCourse?.unique_reviews} isLiveCourse />
       <EntryForm isLiveCourse />

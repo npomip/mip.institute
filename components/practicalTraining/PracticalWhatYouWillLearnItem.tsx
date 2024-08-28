@@ -26,8 +26,10 @@ const PracticalWhatYouWillLearnItem = React.memo(({ block, number }: Props) => {
   marked.setOptions({ renderer });
 
   const parsedText = useMemo(() => {
-    return block?.text ? parse(marked(block.text)) : null;
+    if (!block) return null;
+    return block.text ? parse(marked(block.text)) : null;
   }, [block]);
+
 
   return (
     <div 
@@ -44,5 +46,5 @@ const PracticalWhatYouWillLearnItem = React.memo(({ block, number }: Props) => {
     </div>
   );
 });
-
-export default PracticalWhatYouWillLearnItem;
+PracticalWhatYouWillLearnItem.displayName = 'PracticalWhatYouWillLearnItem';
+export default PracticalWhatYouWillLearnItem

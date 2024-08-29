@@ -243,6 +243,12 @@ const PopupTrigger = ({
     test: BtnGamma
   }[btn]
 
+  if (cta === 'callMeBack') {
+    return (
+      null
+    );
+  }
+
   return (
     <Popup
       trigger={

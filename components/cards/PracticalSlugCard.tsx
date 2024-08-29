@@ -11,7 +11,7 @@ interface Step {
     admissionDate: string
     slug: string
     duration: string
-    programPicture1: {
+    heroPicture: {
       url: string
       height: number
       width: number
@@ -26,7 +26,7 @@ const PracticalSlugCard: FC<Step> = ({ card }) => {
         <div className={stls.img}>
           <Image
             className={stls.image}
-            src={card.programPicture1.url}
+            src={card.heroPicture?.url}
             width={740}
             height={480}
           />
@@ -37,7 +37,7 @@ const PracticalSlugCard: FC<Step> = ({ card }) => {
           </p>
           <div className={stls.additionalInfo}>
             <p>
-              <span>Ближайшие зачисления:</span> {card.admissionDate}
+              <span>Ближайшие зачисления:</span> {card?.admissionDate}
             </p>
             <p>
               <span>Срок обучения:</span> {card.duration.split('/')[1].trim()}

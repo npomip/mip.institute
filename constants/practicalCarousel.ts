@@ -7,7 +7,7 @@ const card1 = {
     admissionDate: 'в разработке',
     slug: 'second-step',
     duration: '/',
-    programPicture1: {
+    heroPicture: {
         url: src1.src,
         height: src1.height,
         width: src1.width,
@@ -20,7 +20,7 @@ const card2 = {
     admissionDate: 'в разработке',
     slug: 'third-step',
     duration: '/',
-    programPicture1: {
+    heroPicture: {
         url: src2.src,
         height: src2.height,
         width: src2.width,

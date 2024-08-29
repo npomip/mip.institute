@@ -245,7 +245,14 @@ const PopupTrigger = ({
 
   if (cta === 'callMeBack') {
     return (
-      null
+      <div>
+          <ButtonComponent
+            text={strings.trigger[cta]}
+            ctheta={btn === 'text'}
+            test={btn === 'test'}
+            isLiveCourse={isLightYellowBetaBtn}
+          />
+        </div>
     );
   }
 

@@ -48,6 +48,17 @@ const getStaticPropsPageHome = async ({
           minTime
           maxTime
         }
+        practicalTrainings {
+          title
+          duration
+          slug
+          admissionDate
+          programPicture1 {
+            url
+            width
+            height
+          }
+        }
         teachers {
           id
           name

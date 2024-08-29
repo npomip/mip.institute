@@ -1,0 +1,40 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: relative
+  cursor: pointer
+  @include m.gap($pb: f.px(0), $pt: f.px(84))
+  @include m.media(tablet, phone)
+    @include m.gap($pb: f.px(50), $pt: f.px(50))
+
+.title
+  display: inline-block
+  font-weight: 500
+  @include m.gap($pt: f.px(15))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(44)
+  @include m.media(tablet, phone)
+    @include m.gap($mb: f.px(10), $pt: f.px(0))
+    font-size: f.px(30)
+
+.tag
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(15))
+  & > *
+    @include m.gap($ptb: f.px(8), $plr: f.px(20))
+
+.subtitle
+  font-size: f.px(30)
+  font-weight: 350
+  line-height: 120%
+  @include m.media(tablet, phone)
+    font-size: f.px(20)
+
+.disabled
+  pointer-events: none
+  filter: blur(1px)
+  opacity: 0.5
+  cursor: none

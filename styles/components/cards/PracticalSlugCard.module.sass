@@ -1,0 +1,41 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.oneCard
+  color: black
+  &:hover
+    .cardTitle
+      @include m.dye(c, c.$gamma)
+      transition: color 0.2s ease
+    .img
+      transition: transform 0.4s ease
+      transform: scale(0.98)
+
+.cardText
+  @include m.gap($pt: f.px(40), $pb: f.px(30), $mt: f.px(-30), $mlr: f.px(1), $pl: f.px(18))
+  @include m.dye(bg, c.$gray-50)
+  min-height: f.px(190)
+  @include m.flex($jc: space-between, $fd: column)
+  border: f.px(1) solid
+  @include m.dye(border, c.$alpha)
+  border-radius: f.px(10)
+  @include m.media(phone)
+    min-height: f.px(150)
+
+.cardTitle
+  font-size: f.px(23)
+  font-weight: 500
+  min-height: f.px(70)
+  @include m.gap($mt: f.px(10))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+
+.image
+  object-fit: cover
+  border-radius: f.px(10)
+
+.additionalInfo
+  @include m.dye(c, c.$iota-2)
+  @include m.media(phone, tablet)
+    font-size: f.px(16)

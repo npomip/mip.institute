@@ -6,7 +6,6 @@ import {
 } from 'constants/studyFieldsOnMain'
 import { useEffect, useState } from 'react'
 import stls from 'styles/components/sections/ProgramsOnMain.module.sass'
-import BtnLinkProgram from '../btns/BtnLinkProgram'
 import CardProfession from '../cards/CardProfession'
 import FilterTag from '../filters/FilterTag'
 import CustomSelect, { SelectOption } from '../general/CustomSelect'
@@ -19,6 +18,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const [currentType, setCurrentType] = useState<SelectOption | null>(null)
   const [selectedLabel, setSelectedLabel] = useState<SelectOption | null>(null)
   const [activeFilters, setActiveFilters] = useState<string[]>([])
+  const [number, setNumber] = useState(3)
   const [programs, setPrograms] = useState(allPrograms)
   const programsMap = {
     course: studyFieldsCourses,
@@ -27,28 +27,27 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }
 
   const filterPrograms = () => {
-  return allPrograms.filter(program => {
-    const typeMatch = currentType
-      ? currentType.value === 'Bachelor'
-        ? program.__typename === 'Bachelor'
-        : program.type === currentType.value
-      : true;
+    return allPrograms.filter(program => {
+      const typeMatch = currentType
+        ? currentType.value === 'Bachelor'
+          ? program.__typename === 'Bachelor'
+          : program.type === currentType.value
+        : true
 
-    const labelMatch = selectedLabel
-      ? currentType?.value === 'Bachelor'
-        ? program.slug === selectedLabel.value
-        : program.studyFieldSlug === selectedLabel.value
-      : true;
+      const labelMatch = selectedLabel
+        ? currentType?.value === 'Bachelor'
+          ? program.slug === selectedLabel.value
+          : program.studyFieldSlug === selectedLabel.value
+        : true
 
-    const filterMatch =
-      activeFilters.length > 0
-        ? activeFilters.includes(program.studyField)
-        : true; 
+      const filterMatch =
+        activeFilters.length > 0
+          ? activeFilters.includes(program.studyField)
+          : true
 
-    return typeMatch && labelMatch && filterMatch;
-  });
-};
-
+      return typeMatch && labelMatch && filterMatch
+    })
+  }
 
   useEffect(() => {
     const newPrograms = filterPrograms()
@@ -59,6 +58,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
     setCurrentType(selectedOption)
     setSelectedLabel(null)
     setActiveFilters([])
+    setNumber(3)
   }
 
   const handleSelectedLabel = (selectedOption: SelectOption) => {
@@ -66,17 +66,18 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }
 
   const handleFilterToggle = (label: string) => {
-  setActiveFilters(prev => {
-    if (label === '') {
-      return [];
-    } else if (prev.includes(label)) {
-      return prev;
-    } else {
-      return [label];
-    }
-  });
-};
+    setActiveFilters(prev => {
+      if (label === '') {
+        return []
+      } else if (prev.includes(label)) {
+        return prev
+      } else {
+        return [label]
+      }
+    })
+  }
 
+  const showMore = () => setNumber(prev => Math.min(prev + 6, programs.length))
 
   return (
     <section className={stls.container}>
@@ -102,9 +103,14 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           isDisabled={!selectedLabel}
         />
       </div>
-      <div className={stls.tags}>
-        {['', 'Консультирование', 'Психотерапия', 'Клиническая психология'].map(
-          label => (
+      {currentType?.value !== 'Bachelor' && (
+        <div className={stls.tags}>
+          {[
+            '',
+            'Консультирование',
+            'Психотерапия',
+            'Клиническая психология'
+          ].map(label => (
             <FilterTag
               key={label}
               onClick={() => handleFilterToggle(label)}
@@ -113,21 +119,19 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
               isCategories={label !== ''}>
               {label || 'Все курсы'}
             </FilterTag>
-          )
-        )}
-      </div>
+          ))}
+        </div>
+      )}
       <div className={stls.cards}>
-        {programs.slice(0, 3).map(el => (
-          <CardProfession key={el.id} profession={el} />
+        {programs.slice(0, number).map(el => (
+          <CardProfession key={el.id} profession={el} onMain />
         ))}
       </div>
-      {programs.length > 3 && (
+      {programs.length > number && programs.length > 3 && (
         <div className={stls.btnContainer}>
-          <BtnLinkProgram
-            text='Показать еще'
-            amount={programs.length}
-            isVisibleMobile
-          />
+          <button className={stls.btn} onClick={showMore}>
+            Показать еще
+          </button>
         </div>
       )}
     </section>

@@ -37,7 +37,7 @@ const CustomSelect = ({
         borderColor: `${mainColor}`,
         borderRadius: `10px`,
         width: '100%',
-        maxWidth: `350px`,
+        maxWidth: `380px`,
         height: `50px`,
         fontFamily: 'Stem',
         fontSize: '14px',

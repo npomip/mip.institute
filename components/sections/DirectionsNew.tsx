@@ -2,12 +2,9 @@ import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/DirectionsNew.module.sass'
 import navigationList from 'constants/navigationStudyFields'
 import Link from 'next/link'
-import parse from 'html-react-parser'
-import routes from '@/config/routes'
-import IconNavigation from '../icons/IconNavigation'
 import { useState } from 'react'
+import IconNavigation from '../icons/IconNavigation'
 import ProgramsOnMain from './ProgramsOnMain'
-import BtnLinkProgram from '../btns/BtnLinkProgram'
 
 type Props = {
   programs: any[]
@@ -37,6 +34,10 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
         return `${amountOfCourses} курсов`
       case 'profession':
         return `${amountOfProfessions} программы`
+      case 'lifeCourses':
+        return `1 курс`
+      case 'programs':
+        return `${programs.length + bachelors.length} программы`
       default:
         return `${bachelors.length} ступени`
     }
@@ -73,10 +74,6 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
               </Link>
             ))}
           </div>
-          <BtnLinkProgram
-            text='Все программы'
-            amount={programs?.length + bachelors?.length}
-          />
         </div>
         <ProgramsOnMain allPrograms={allPrograms} />
       </Wrapper>

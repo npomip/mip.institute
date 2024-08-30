@@ -89,7 +89,8 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
       <div className={stls.header}>
         <h3 className={stls.title}>
           Специальность
-          <br />"{program.title}"
+          <br />
+          &quot;{program.title}&quot;
         </h3>
       </div>
       <form

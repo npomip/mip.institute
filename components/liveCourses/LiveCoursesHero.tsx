@@ -42,7 +42,7 @@ const LiveCoursesHero = ({ title }) => {
                 <div className={stls.btn}>
                   <PopupTrigger
                     btn='alpha'
-                    cta='signUpForCourse'
+                    cta='sortOutGrievances'
                     isLightYellowBetaBtn
                   />
                 </div>
@@ -66,7 +66,7 @@ const LiveCoursesHero = ({ title }) => {
         <div className={stls.mobileBtn}>
           <PopupTrigger
             btn='alpha'
-            cta='signUpForCourse'
+            cta='sortOutGrievances'
             isLightYellowBetaBtn
           />
         </div>

@@ -29,6 +29,7 @@ import StickyTop from '@/components/layout/StickyTop'
 import promocodes from '@/helpers/promocodes'
 import Link from 'next/link'
 import { Analytics } from '@vercel/analytics/react'
+import RoistatScript from '@/components/scripts/RoistatScript'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -226,28 +227,27 @@ const MyApp = ({ Component, pageProps, router }) => {
     setIsPromo(false)
   }
 
+  const [roistatVisit, setRoistatVisit] = useState('')
+
+  const roistat_visit = getCookie('roistat_visit')
+
+  useEffect(() => {
+      setRoistatVisit(roistat_visit as string)
+    }, [roistat_visit])
+
+
+  console.log(roistat_visit);
+  
+
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
-      {/* {prod &&  */}
-      {/* <> */}
-      <Script strategy='beforeInteractive' src='/assets/js/vendors/roistatAB.js'/>
-      <Script
+      <Script 
       strategy='beforeInteractive'
-            id='roistat counter'
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function(w, d, s, h, id) {
-    w.roistatProjectId = id; w.roistatHost = h;
-    var p = d.location.protocol == "https:" ? "https://" : "http://";
-    var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
-    var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
-})(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
-          `
-            }}
-          />
-      {/* </> */}
-      {/* } */}
+      src='/assets/js/vendors/roistatAB.js'/>
+      <RoistatScript />
+      <Script async src='/assets/js/vendors/roistatWA.js' />
+          {roistatVisit && <div className="js-whatsapp-message-container" style={{display:'none'}}>Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения: {roistatVisit}</div>}
       
       <DefaultSeo {...SEO} />
       <div style={{display: 'none'}}>
@@ -326,7 +326,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         <>
           
 
-          {/* <Script async src='/assets/js/vendors/roistatWA.js' /> */}
+          <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
       )}
 

@@ -57,3 +57,11 @@
   &:hover
     @include m.dye(bg, c.$alpha)
     @include m.dye(c, white)
+
+.amount
+  @include m.gap($ml: f.px(5))
+  @include m.dye(c, c.$psi)
+  font-size: f.px(16)
+  font-weight: 350
+  @include m.media(phone, tablet)
+    font-size: f.px(14)

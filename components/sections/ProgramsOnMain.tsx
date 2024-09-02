@@ -66,6 +66,9 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }
 
   const handleFilterToggle = (label: string) => {
+    setCurrentType(null)
+    setSelectedLabel(null)
+    setNumber(3)
     setActiveFilters(prev => {
       if (label === '') {
         return []
@@ -103,14 +106,9 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           isDisabled={!selectedLabel}
         />
       </div>
-      {currentType?.value !== 'Bachelor' && (
-        <div className={stls.tags}>
-          {[
-            '',
-            'Консультирование',
-            'Психотерапия',
-            'Клиническая психология'
-          ].map(label => (
+      <div className={stls.tags}>
+        {['', 'Консультирование', 'Психотерапия', 'Клиническая психология'].map(
+          label => (
             <FilterTag
               key={label}
               onClick={() => handleFilterToggle(label)}
@@ -119,9 +117,9 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
               isCategories={label !== ''}>
               {label || 'Все курсы'}
             </FilterTag>
-          ))}
-        </div>
-      )}
+          )
+        )}
+      </div>
       <div className={stls.cards}>
         {programs.slice(0, number).map(el => (
           <CardProfession key={el.id} profession={el} onMain />
@@ -131,6 +129,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
         <div className={stls.btnContainer}>
           <button className={stls.btn} onClick={showMore}>
             Показать еще
+            <span className={stls.amount}>{programs.length - number}</span>
           </button>
         </div>
       )}

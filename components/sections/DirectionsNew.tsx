@@ -60,7 +60,7 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
                   onMouseEnter={() => handleMouseEnter({ icon })}
                   onMouseLeave={handleMouseLeave}>
                   <div className={stls.content}>
-                    <h2 className={stls.navTitle}>{label}</h2>
+                    <h3 className={stls.navTitle}>{label}</h3>
                     <div className={stls.countPrograms}>
                       <span>{renderCounter(programType)}</span>
                     </div>

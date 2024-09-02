@@ -229,6 +229,25 @@ const MyApp = ({ Component, pageProps, router }) => {
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
+      {prod && 
+      <>
+      <Script src='/assets/js/vendors/roistatAB.js'/>
+      <Script
+            id='roistat counter'
+            dangerouslySetInnerHTML={{
+              __html: `
+            (function(w, d, s, h, id) {
+              w.roistatProjectId = id; w.roistatHost = h;
+              var p = d.location.protocol == "https:" ? "https://" : "http://";
+              var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
+              var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
+            })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
+          `
+            }}
+          />
+      </>
+      }
+      
       <DefaultSeo {...SEO} />
       <div style={{display: 'none'}}>
         <Link href='/professions/detskaya-psihologiya/ava-terapevt'>АВА-терапевт</Link>
@@ -304,19 +323,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       {prod && (
         <>
-          <Script
-            id='roistat counter'
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function(w, d, s, h, id) {
-              w.roistatProjectId = id; w.roistatHost = h;
-              var p = d.location.protocol == "https:" ? "https://" : "http://";
-              var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
-              var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
-            })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
-          `
-            }}
-          />
+          
 
           {/* <Script async src='/assets/js/vendors/roistatWA.js' /> */}
         </>
@@ -383,18 +390,6 @@ const MyApp = ({ Component, pageProps, router }) => {
           __html: `window.addEventListener('DOMContentLoaded', function () {
             new GnzsRoiStatClass().init()
           })`
-        }}
-      />
-      <Script
-        id='variokub'
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function(e, x, pe, r, i, me, nt){
-            e[i]=e[i]||function(){(e[i].a=e[i].a||[]).push(arguments)},
-            me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],nt.parentNode.insertBefore(me,nt)})
-            (window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
-            ymab('metrika.86135986', 'init'/*, {clientFeatures}, {callback}*/);
-          `
         }}
       />
 

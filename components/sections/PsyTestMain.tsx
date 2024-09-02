@@ -18,9 +18,9 @@ const PsyTestMain = ({ startHandler }: Props) => {
         <div className={stls.content}>
           <TwoColumns>
             <div className={stls.left}>
-              <h1 id='test' className={stls.title}>
+              <h2 id='test' className={stls.title}>
                 Пройдите опрос и узнайте, какая программа вам подойдет
-              </h1>
+              </h2>
               <div className={stls.btns}>
                 <div className={stls.btn}>
                   <BtnAlpha text='Подобрать программу' onClick={startHandler} />
@@ -54,7 +54,7 @@ const PsyTestMain = ({ startHandler }: Props) => {
                 </div>
               </div>
               <div className={stls.mobileBtn}>
-                <BtnAlpha text='Подобрать программу' onClick={startHandler}  />
+                <BtnAlpha text='Подобрать программу' onClick={startHandler} />
               </div>
             </div>
           </TwoColumns>

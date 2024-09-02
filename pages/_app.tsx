@@ -14,7 +14,7 @@ import {
   getStudyFields,
   sortBasedOnNumericOrder
 } from '@/helpers/index'
-import { prod, gtmId, routes } from '@/config/index'
+import { prod, gtmId, routes, dev } from '@/config/index'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -202,26 +202,25 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
-  
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
   useEffect(() => {
     setTimeout(() => {
-      let foundPromo = false;
-      Object.keys(promocodes).forEach((code) => {
+      let foundPromo = false
+      Object.keys(promocodes).forEach(code => {
         if (stringedUtm?.includes(code)) {
-          setIsPromo(true);
-          setPromoText(promocodes[code]);
-          foundPromo = true;
+          setIsPromo(true)
+          setPromoText(promocodes[code])
+          foundPromo = true
         }
-      });
+      })
       if (!foundPromo) {
-        setIsPromo(false);
-        setPromoText('');
+        setIsPromo(false)
+        setPromoText('')
       }
-    }, 2000);
-  }, [utmCookie]);
+    }, 2000)
+  }, [utmCookie])
 
   const closePromo = () => {
     setIsPromo(false)
@@ -232,26 +231,43 @@ const MyApp = ({ Component, pageProps, router }) => {
   const roistat_visit = getCookie('roistat_visit')
 
   useEffect(() => {
-      setRoistatVisit(roistat_visit as string)
-    }, [roistat_visit])
+    setRoistatVisit(roistat_visit as string)
+  }, [roistat_visit])
 
-
-  console.log(roistat_visit);
-  
+  console.log(roistat_visit)
 
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
-      <Script 
-      strategy='beforeInteractive'
-      src='/assets/js/vendors/roistatAB.js'/>
-      <RoistatScript />
-      <Script async src='/assets/js/vendors/roistatWA.js' />
-          {roistatVisit && <div className="js-whatsapp-message-container" style={{display:'none'}}>Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения: {roistatVisit}</div>}
-      
+      {!dev && (
+        <>
+          <Script
+            strategy='beforeInteractive'
+            src='/assets/js/vendors/roistatAB.js'
+          />
+          <Script
+            strategy='beforeInteractive'
+            src='/assets/js/vendors/roistat.js'
+          />
+          {/* <RoistatScript /> */}
+          <Script async src='/assets/js/vendors/roistatWA.js' />
+        </>
+      )}
+
+      {roistatVisit && (
+        <div
+          className='js-whatsapp-message-container'
+          style={{ display: 'none' }}>
+          Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер
+          обращения: {roistatVisit}
+        </div>
+      )}
+
       <DefaultSeo {...SEO} />
-      <div style={{display: 'none'}}>
-        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>АВА-терапевт</Link>
+      <div style={{ display: 'none' }}>
+        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>
+          АВА-терапевт
+        </Link>
       </div>
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
@@ -293,7 +309,13 @@ const MyApp = ({ Component, pageProps, router }) => {
         <MenuState>
           <FieldsTooltipState>
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
-            {<StickyTop onClick={closePromo} isPromo={isPromo} promoText={promoText} />}
+            {
+              <StickyTop
+                onClick={closePromo}
+                isPromo={isPromo}
+                promoText={promoText}
+              />
+            }
             <Header isPromo={isPromo} />
             <main>
               <ApolloProvider client={client}>
@@ -324,8 +346,6 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       {prod && (
         <>
-          
-
           <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
       )}

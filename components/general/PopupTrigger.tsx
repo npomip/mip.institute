@@ -243,19 +243,6 @@ const PopupTrigger = ({
     test: BtnGamma
   }[btn]
 
-  if (cta === 'callMeBack') {
-    return (
-      <div>
-          <ButtonComponent
-            text={strings.trigger[cta]}
-            ctheta={btn === 'text'}
-            test={btn === 'test'}
-            isLiveCourse={isLightYellowBetaBtn}
-          />
-        </div>
-    );
-  }
-
   return (
     <Popup
       trigger={

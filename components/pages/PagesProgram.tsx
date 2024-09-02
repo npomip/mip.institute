@@ -133,12 +133,13 @@ const PagesProgram = ({
       {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
+      <RequestsCard />
+
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'Course' && ofType !== 'Practice' && (
         <YourResume resumeRef={resumeRef} />
       )}
       <SalaryCounter />
-      <RequestsCard />
 
       <Cta
         title={'Начните обучаться со скидкой'}

@@ -14,6 +14,7 @@ import { Teachers } from '../sections'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
 import GeneralFaq from '../general/GeneralFaq'
 import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
+import { SeoPageBachelor } from '../seo'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -35,7 +36,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
 
   return (
     <div className={stls.pageWrapper}>
-      <NextSeo nofollow={true} noindex={true} />
+      <SeoPageBachelor program={practicalTraining}/>
       <PracticalHeroProgram
         breadcrumbs={breadcrumbs}
         practicalTraining={practicalTraining}
@@ -47,7 +48,10 @@ const PageTraining = ({ practicalTraining }: Props) => {
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}
       />
-      <PracticalWhatYouWillLearn listLearn={practicalTraining.whatYouWillLearn} photo={practicalTraining.whatYouWillLearnPhoto}/>
+      <PracticalWhatYouWillLearn
+        listLearn={practicalTraining.whatYouWillLearn}
+        photo={practicalTraining.whatYouWillLearnPhoto}
+      />
       <PracticalCertificate image={practicalTraining?.diploma1} />
       <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
       <Teachers

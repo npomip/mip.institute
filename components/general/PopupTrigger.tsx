@@ -50,6 +50,7 @@ type PopupTriggerType = {
     | 'familiarize'
     | 'use'
     | 'knowRequirement'
+    | 'sortOutGrievances'
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
@@ -104,7 +105,8 @@ const PopupTrigger = ({
       participate: 'Участвовать',
       familiarize: 'Ознакомиться с программой',
       use: 'Применить',
-      knowRequirement: 'Узнать'
+      knowRequirement: 'Узнать',
+      sortOutGrievances: 'Разобраться с обидами'
     },
     title: {
       askQuestion: 'Задать вопрос',

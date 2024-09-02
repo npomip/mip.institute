@@ -12,15 +12,12 @@ const PracticalBriefProgram = ({ listProgram }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        {/* <div className={stls.tag}>
-          <TagOrange isWhiteText>Описание</TagOrange>
-        </div> */}
         <h2 className={stls.title}>
           Краткая
           <span className={stls.colouredTitle}> программа </span>
           курса
         </h2>
-        <div>
+        <ul>
           {listProgram.map(el => (
             <PracticalBriefProgramItem
               title={el.title}
@@ -28,7 +25,7 @@ const PracticalBriefProgram = ({ listProgram }: Props) => {
               key={el.title}
             />
           ))}
-        </div>
+        </ul>
       </Wrapper>
     </section>
   )

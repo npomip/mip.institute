@@ -89,12 +89,22 @@
     min-height: f.px(170)
   @include m.media(phone)
     @include m.gap($p:f.px(15),$pt:0)
-    min-height: f.px(160)
+    min-height: f.px(170)
 
 .whiteBg
   @include m.dye(bg, white)
   border-left: f.px(1) solid
   @include m.dye(border, c.$purple-100)
+  border-top-right-radius: f.px(10)
+  border-bottom-right-radius: f.px(10)
+
+.practicalTeacher
+  border-radius: f.px(10)
+  & > div > div.leftBlock
+    border-top-left-radius: f.px(10)
+    border-bottom-left-radius: f.px(10)
+    & > div
+      border-radius: f.px(10)
 
 .achievements
   font-weight: 400

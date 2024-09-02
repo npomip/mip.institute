@@ -4,9 +4,9 @@
 
 .container
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(60))
+    @include m.gap($ptb: f.px(90))
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(43))
+    @include m.gap($ptb: f.px(35))
 
 .whiteBlock
   @include m.dye(bg, white)
@@ -17,11 +17,11 @@
 
 .title
   display: inline-block
+  font-weight: 500
   @include m.dye(c, black)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(35), $pt: f.px(15))
     font-size: f.px(44)
-    font-weight: 500
     max-width: f.px(730)
   @include m.media(tablet)
     @include m.gap($mb: f.px(20))
@@ -106,3 +106,7 @@
   @include m.gap($pl: 0)
   @include m.media(phone, tablet)
     @include m.gap($pl: 0, $mb: 0)
+
+.icon
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 25, $h: 25)

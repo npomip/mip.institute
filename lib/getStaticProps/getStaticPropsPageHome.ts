@@ -13,6 +13,7 @@ const getStaticPropsPageHome = async ({
   props: TypePageHomeProps
   revalidate: number | boolean
 }> => {
+  try {
   const res = await apolloClient.query<TypePageHomePropsQuery>({
     query: gql`
       query GetStaticPropsPageHome {
@@ -47,6 +48,17 @@ const getStaticPropsPageHome = async ({
           admissionDate
           minTime
           maxTime
+        }
+        practicalTrainings {
+          title
+          duration
+          slug
+          # admissionDate
+          heroPicture {
+            url
+            width
+            height
+          }
         }
         teachers {
           id
@@ -87,6 +99,13 @@ const getStaticPropsPageHome = async ({
     props: res.data,
     revalidate: revalidate.default
   }
+} catch (error) {
+  console.error('Ошибка запроса:', error)
+  console.error('Статус код:', error.statusCode)
+  console.error('Результат:', error.result)
+  console.log('errrrrrr', error.networkError.result)
+  return error
+}
 }
 
 export default getStaticPropsPageHome

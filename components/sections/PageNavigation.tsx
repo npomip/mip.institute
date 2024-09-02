@@ -60,7 +60,7 @@ const PageNavigation = ({ sections }) => {
           ref={navigationRef}
         >
           <ul>
-            {sections.map((section) => renderNavItem(section))}
+            {sections?.map((section) => renderNavItem(section))}
           </ul>
         </div>
         <div
@@ -68,7 +68,7 @@ const PageNavigation = ({ sections }) => {
           ref={navigationRef}
         >
           <ul>
-            {sections.map((section) => renderNavItem(section))}
+            {sections?.map((section) => renderNavItem(section))}
           </ul>
         </div>
       </Wrapper>

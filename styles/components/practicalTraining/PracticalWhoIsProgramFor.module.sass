@@ -7,7 +7,7 @@
   border-radius: f.px(20)
   @include m.media(desktop, laptop)
     width: 100%
-    @include m.gap($plr: f.px(69), $pt: f.px(58), $pb: f.px(91))
+    @include m.gap($plr: f.px(69), $pt: f.px(58), $pb: f.px(91), $mlr: auto)
     max-width: f.px(1168, em)
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(16), $ptb: f.px(35), $mt: f.px(-5))
@@ -44,12 +44,12 @@
     height: f.px(35)
     border-radius: f.px(8)
 .card
+  gap: f.px(20)
   @include m.media(desktop, laptop)
     @include m.flex($fd: column)
-    gap: f.px(20)
   @include m.media(phone, tablet)
     @include m.flex($ai: flex-start)
-    gap: f.px(23)
+    @include m.gap($pr: f.px(25))
 
 .colouredTitle
   @include m.dye(c, c.$alpha)
@@ -62,7 +62,6 @@
     font-size: f.px(16)
   @include m.media(phone, tablet)
     font-size: f.px(15)
-    @include m.gap($pr: f.px(10))
 
 .cardsBlock
   @include m.media(desktop, laptop)

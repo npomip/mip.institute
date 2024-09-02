@@ -1,4 +1,5 @@
 import BachelorCarousel from '@/components/carousel/BachelorCarousel'
+import PracticalCarousel from '@/components/carousel/PracticalCarousel'
 import PaymentForm from '@/components/forms/PaymentForm'
 import { PopupCta } from '@/components/popups'
 import {
@@ -50,7 +51,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   programs,
   reviews,
   teachers,
-  bachelors
+  bachelors,
+  practicalTrainings
 }) => {
   useHandleContextStaticProps({ programs })
 
@@ -146,6 +148,13 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={'Высшее образование'}
         subtitle={'Программы бакалавриата от МИП'}
         cards={bachelors}
+      />
+      <PracticalCarousel
+        title={'Практическая подготовка'}
+        subtitle={
+          'Практико–ориентированные программы для начинающих и действующих психологов'
+        }
+        cards={practicalTrainings}
       />
       <ButtonToTop />
       <WhyBother />

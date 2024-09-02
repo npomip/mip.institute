@@ -9,6 +9,7 @@
   @include m.gap($ptb: f.px(35), $plr: f.px(55))
   background: linear-gradient(100deg, #1C1A1D -18.92%, #3E1A4B 43.28%, #6F01C6 105.48%)
   @include m.media(phone, tablet)
+    border-radius: f.px(10)
     @include m.gap($ptb: f.px(25), $plr: f.px(20))
 
 .title
@@ -33,7 +34,7 @@
   @include m.media(phone, tablet)
     grid-auto-flow: row
     grid-auto-columns: auto
-    row-gap: f.px(20)
+    row-gap: f.px(5)
 
 .bottomBlock
   @include m.gap($pt: f.px(50), $pb: f.px(30), $plr: f.px(30), $mt: f.px(-30), $mlr: f.px(1))
@@ -46,11 +47,13 @@
   @include m.media(laptop)
     @include m.gap($pt: f.px(40), $pb: f.px(20), $plr: f.px(20))
   @include m.media(phone, tablet)
+    border-radius: f.px(10)
     @include m.gap($plr: f.px(15))
     @include m.flex($fd: column)
 
 .leftColumn
   width: 55%
+  @include m.gap($mtb: f.px(0), $pl: f.px(0))
   @include m.media(phone, tablet)
     width: 100%
 
@@ -63,6 +66,7 @@
   z-index: 2
   background-color: red
   @include m.media(phone, tablet)
+    border-radius: f.px(10)
     height: auto
 
 .icon
@@ -194,6 +198,7 @@
     min-height: f.px(510)
   @include m.media(phone, tablet)
     @include m.gap($p: f.px(20))
+    border-radius: f.px(10)
 
   p
     font-size: f.px(25)

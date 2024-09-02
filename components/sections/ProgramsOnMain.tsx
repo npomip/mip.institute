@@ -20,6 +20,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const [activeFilters, setActiveFilters] = useState<string[]>([])
   const [number, setNumber] = useState(3)
   const [programs, setPrograms] = useState(allPrograms)
+
   const programsMap = {
     course: studyFieldsCourses,
     profession: studyFieldsProfessions,
@@ -29,13 +30,14 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const filterPrograms = () => {
     return allPrograms.filter(program => {
       const typeMatch = currentType
-        ? currentType.value === 'Bachelor'
-          ? program.__typename === 'Bachelor'
+        ? currentType.value === 'Bachelor' ||
+          currentType.value === 'PracticalTraining'
+          ? program.__typename === currentType.value
           : program.type === currentType.value
         : true
 
       const labelMatch = selectedLabel
-        ? currentType?.value === 'Bachelor'
+        ? currentType.value === 'Bachelor'
           ? program.slug === selectedLabel.value
           : program.studyFieldSlug === selectedLabel.value
         : true
@@ -97,7 +99,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           options={programsMap[currentType?.value.toLowerCase()] || []}
           placeholder='Направления'
           value={selectedLabel}
-          isDisabled={!currentType}
+          isDisabled={!currentType || currentType.value === 'PracticalTraining'}
         />
         <CustomSelect
           onChange={() => {}}

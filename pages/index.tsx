@@ -131,7 +131,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Hero />
       <Directions />
       {/* <Directions /> */}
-      <DirectionsNew programs={programs} bachelors={bachelors} />
+      <DirectionsNew
+        programs={programs}
+        bachelors={bachelors}
+        practicalTrainings={practicalTrainings}
+      />
       {/* <Popup
         open={isTestOpen}
         onClose={() => setIsTestOpen(false)}
@@ -149,13 +153,13 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         subtitle={'Программы бакалавриата от МИП'}
         cards={bachelors}
       />
-      <PracticalCarousel
+      {/* <PracticalCarousel
         title={'Практическая подготовка'}
         subtitle={
           'Практико–ориентированные программы для начинающих и действующих психологов'
         }
         cards={practicalTrainings}
-      />
+      /> */}
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo

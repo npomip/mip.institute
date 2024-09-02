@@ -9,9 +9,10 @@ import ProgramsOnMain from './ProgramsOnMain'
 type Props = {
   programs: any[]
   bachelors: any[]
+  practicalTrainings: any[]
 }
 
-const DirectionsNew = ({ programs, bachelors }: Props) => {
+const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
   const [hoveredIcon, setHoveredIcon] = useState(null)
   const handleMouseEnter = icon => {
     setHoveredIcon(icon)
@@ -26,6 +27,7 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
     el => el.type === 'Profession'
   ).length
 
+  const allPrograms = programs.concat(bachelors, practicalTrainings)
   const renderCounter = (type: string) => {
     switch (type) {
       case 'bachelor':
@@ -37,13 +39,11 @@ const DirectionsNew = ({ programs, bachelors }: Props) => {
       case 'lifeCourses':
         return `1 курс`
       case 'programs':
-        return `${programs.length + bachelors.length} программы`
+        return `${allPrograms.length + 1} программ`
       default:
-        return `${bachelors.length} ступени`
+        return `${practicalTrainings.length} ступень`
     }
   }
-
-  const allPrograms = programs.concat(bachelors)
 
   return (
     <section className={stls.container}>

@@ -246,6 +246,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             src='/assets/js/vendors/roistatAB.js'
           />
           <Script
+            id='roistatMain'
             strategy='beforeInteractive'
             dangerouslySetInnerHTML={{
               __html: `

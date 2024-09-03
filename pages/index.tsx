@@ -1,6 +1,4 @@
 import BachelorCarousel from '@/components/carousel/BachelorCarousel'
-import PracticalCarousel from '@/components/carousel/PracticalCarousel'
-import PaymentForm from '@/components/forms/PaymentForm'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -15,7 +13,6 @@ import {
 } from '@/components/sections'
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import Companies from '@/components/sections/Companies'
-import Directions from '@/components/sections/Directions'
 import DirectionsNew from '@/components/sections/DirectionsNew'
 import DistanceEducation from '@/components/sections/DistanceEducation'
 import EducationProcess from '@/components/sections/EducationProcess'
@@ -23,7 +20,6 @@ import EntryForm from '@/components/sections/EntryForm'
 import HappyStudents from '@/components/sections/HappyStudents'
 import PayLater from '@/components/sections/PayLater'
 import ProfessionalLeague from '@/components/sections/ProfessionalLeague'
-import ProgramsOnMain from '@/components/sections/ProgramsOnMain'
 import PsyTest from '@/components/sections/PsyTest'
 import SalaryCounter from '@/components/sections/SalaryCounter'
 import TopCourses from '@/components/sections/TopCourses'
@@ -129,23 +125,12 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         )}
       </Popup>
       <Hero />
-      <Directions />
       {/* <Directions /> */}
       <DirectionsNew
         programs={programs}
         bachelors={bachelors}
         practicalTrainings={practicalTrainings}
       />
-      {/* <Popup
-        open={isTestOpen}
-        onClose={() => setIsTestOpen(false)}
-        position={'center center'}>
-        {close => <PaymentForm onClose={close} />}
-      </Popup>
-      <div style={{ backgroundColor: 'red' }}>
-        <button onClick={handleOpen}>Оплатить</button>
-      </div> */}
-
       <PsyTest />
       <TopCourses />
       <BachelorCarousel

@@ -41,4 +41,6 @@ export { default as dataOchuVoMipHigherEduRight } from '@/data/docs/ochu-vo-mip/
 export { default as dataOchuVoMipAddEduLeft } from '@/data/docs/ochu-vo-mip/general/additional-education/dataOchuVoMipAddEduLeft'
 export { default as dataOchuVoMipAddEduRight } from '@/data/docs/ochu-vo-mip/general/additional-education/dataOchuVoMipAddEduRight'
 
+// ./docs/ochu-vo-mip/constituent/orderOfEnrollment
+export { default as dataOchuVoMipOrderLeft } from '@/data/docs/ochu-vo-mip/constituent/orderOfEnrollment/dataOchuVoMipOrderLeft'
 

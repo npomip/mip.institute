@@ -9,7 +9,8 @@ import {
   listGeneral,
   listProgram,
   listHigherEducation,
-  listAddEducation
+  listAddEducation,
+  listOrder
 } from 'constants/legalEdu'
 import { listGeneralMIP } from 'constants/legal'
 
@@ -144,6 +145,14 @@ const LegalDocs = ({
                 key={el.title + idx}
                 contentLeft={el.contentLeft}
                 contentRight={el.contentRight}
+              />
+            ))}
+
+            {listOrder.map((el, idx) => (
+              <ExpandableListItem
+                title={el.title}
+                key={el.title + idx}
+                contentLeft={el.contentLeft}
               />
             ))}
           </div>

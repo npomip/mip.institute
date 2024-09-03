@@ -10,7 +10,8 @@ import {
   dataOchuVoMipHigherEduLeft,
   dataOchuVoMipHigherEduRight,
   dataOchuVoMipAddEduLeft,
-  dataOchuVoMipAddEduRight
+  dataOchuVoMipAddEduRight,
+  dataOchuVoMipOrderLeft
 } from '@/data/index'
 
 export const listAdditional = [
@@ -34,6 +35,13 @@ export const listProgram = [
     title: 'Сведения об образовательной программе 44.03.02',
     contentLeft: dataOchuVoMipProgramLeft,
     contentRight: dataOchuVoMipProgramRight
+  }
+]
+
+export const listOrder = [
+  {
+    title: 'Приказы о зачислении',
+    contentLeft: dataOchuVoMipOrderLeft,
   }
 ]
 

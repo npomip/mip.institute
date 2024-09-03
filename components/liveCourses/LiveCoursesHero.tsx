@@ -6,8 +6,9 @@ import PopupTrigger from '../general/PopupTrigger'
 import { IconBirds } from '../icons'
 import Wrapper from '../layout/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { BtnAlpha } from '../btns'
 
-const LiveCoursesHero = ({ title }) => {
+const LiveCoursesHero = ({ title, openModal }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
@@ -40,11 +41,7 @@ const LiveCoursesHero = ({ title }) => {
                   русский писатель
                 </p>
                 <div className={stls.btn}>
-                  <PopupTrigger
-                    btn='alpha'
-                    cta='sortOutGrievances'
-                    isLightYellowBetaBtn
-                  />
+                  <BtnAlpha isLiveCourse text='Разобраться с обидами' onClick={openModal}/>
                 </div>
               </div>
               <div className={stls.tag}>LIFE</div>

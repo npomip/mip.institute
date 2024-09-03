@@ -63,7 +63,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
-      <LiveCoursesHero title={lifeCourse?.title} />
+      <LiveCoursesHero title={lifeCourse?.title} openModal={handleOpen}/>
       <Popup
         open={isTestOpen}
         onClose={() => setIsTestOpen(false)}

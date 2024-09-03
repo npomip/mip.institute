@@ -7,7 +7,7 @@ import { TypeDataDocs } from '@/types/index'
 type Props = {
   title: string
   contentLeft: TypeDataDocs
-  contentRight: TypeDataDocs
+  contentRight?: TypeDataDocs
 }
 
 const ExpandableListItem = ({ title, contentLeft, contentRight }: Props) => {

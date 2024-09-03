@@ -76,7 +76,7 @@ const ProgramSelect = ({
         ...base,
         display: 'flex',
         justifyContent: 'space-between',
-        fontWeight: isSelected ? '500' : '100',
+        fontWeight: isSelected ? 500 : 100,
         color: 'black',
         fontSize: '12px',
         backgroundColor: 'none',
@@ -86,6 +86,10 @@ const ProgramSelect = ({
         },
         '&:after': {
           content: isSelected ? '"✓"' : '""'
+        },
+        '&:hover': {
+          color: '#565350',
+          fontWeight: 500
         }
       }
     },

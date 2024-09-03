@@ -35,11 +35,14 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
         baseRoute =
           profession.__typename === 'Bachelor'
             ? routes.front.bachelors
+            : profession.__typename === 'PracticalTraining'
+            ? routes.front.practicalTrainings
             : routes.front.professions
     }
 
     const studyFieldSlug =
-      profession.__typename === 'Bachelor'
+      profession.__typename === 'Bachelor' ||
+      profession.__typename === 'PracticalTraining'
         ? ''
         : profession.studyFieldSlug || 'studyfield'
 
@@ -49,20 +52,34 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
   }
 
   const renderTypeTag = () => {
-    switch (profession.typeLabel) {
-      case 'Профессия':
+    const type =
+      profession.type === 'Profession' || profession.type === 'Course'
+        ? profession.type
+        : profession.__typename
+
+    switch (type) {
+      case 'Profession':
         return 'Профессиональная переподготовка'
-      case 'Курс':
+      case 'Course':
         return 'Повышение квалификации'
+      case 'PracticalTraining':
+        return 'Практическая подготовка'
       default:
         return 'Высшее образование'
     }
   }
 
   const renderDocTag = () => {
-    switch (profession.typeLabel) {
-      case 'Курс':
+    const type =
+      profession.type === 'Profession' || profession.type === 'Course'
+        ? profession.type
+        : profession.__typename
+
+    switch (type) {
+      case 'Course':
         return 'Удостоверение'
+      case 'PracticalTraining':
+        return 'Сертификат'
       default:
         return 'Диплом'
     }

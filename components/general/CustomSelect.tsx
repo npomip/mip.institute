@@ -57,7 +57,7 @@ const CustomSelect = ({
           },
           '.react-select__placeholder': {
             color: 'white',
-            fontWeight: '500'
+            fontWeight: 500
           }
         }
       }
@@ -93,7 +93,7 @@ const CustomSelect = ({
         ...base,
         display: 'flex',
         justifyContent: 'space-between',
-        fontWeight: isSelected ? '500' : '100',
+        fontWeight: isSelected ? 500 : 100,
         color: 'black',
         fontSize: '12px',
         backgroundColor: 'none',
@@ -103,6 +103,10 @@ const CustomSelect = ({
         },
         '&:after': {
           content: isSelected ? '"✓"' : '""'
+        },
+        '&:hover': {
+          color: '#565350',
+          fontWeight: 500
         }
       }
     },

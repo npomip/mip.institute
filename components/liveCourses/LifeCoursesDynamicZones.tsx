@@ -4,7 +4,7 @@ import LiveCoursesGetAcess from './LiveCoursesGetAcess'
 import LiveCoursesPoints from './LiveCoursesPoints'
 import LiveCoursesTextImage from './LiveCoursesTextImage'
 
-export default function LifeCourseDynamicZones({ props, openModal }) {
+export default function LifeCourseDynamicZones({ props, openModal }) {  
   switch (props.__typename) {
     case 'ComponentLiveCorsesBlock':
       return <>
@@ -17,7 +17,7 @@ export default function LifeCourseDynamicZones({ props, openModal }) {
       return <LiveCoursesDescription props={props} />
     case 'ComponentSharedVideoLinkWithTitle':
       return (
-        <YouTubeVideo props={props} />
+        <YouTubeVideo videoId='rP37RRN2KfT1qtBQQBaH5e' />
       )
     default:
       break

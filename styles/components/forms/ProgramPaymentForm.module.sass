@@ -6,7 +6,7 @@
   border-radius: f.px(20)
   @include m.dye(bg, white)
   min-width: f.px(600)
-  min-height: f.px(750)
+  min-height: f.px(700)
   height: fit-content
   @include m.gap($plr: f.px(30), $pt: f.px(10), $pb: f.px(30))
   @include m.media(phone, tablet)
@@ -207,3 +207,13 @@
     @include m.media(phone, tablet)
       @include m.gap($mb: f.px(10))
       font-size: f.px(14)
+
+.checkError
+  font-size: f.px(16)
+  font-weight: 400
+  @include m.dye(c, red)
+  @include m.gap($ptb: f.px(10), $mb: f.px(0))
+  & > *
+    color: black
+    &:hover
+      @include m.dye(c, c.$alpha)

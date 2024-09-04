@@ -27,6 +27,7 @@ const getStaticPropsPageHome = async ({
           typeLabel
           studyMounthsDuration
           studyHours
+          price
           heroPicture {
             url
             width
@@ -38,6 +39,7 @@ const getStaticPropsPageHome = async ({
         }
         bachelors {
           slug
+          offlineFullPrice
           heroPicture {
             url
             width
@@ -53,6 +55,7 @@ const getStaticPropsPageHome = async ({
           title
           duration
           slug
+          price
           # admissionDate
           heroPicture {
             url

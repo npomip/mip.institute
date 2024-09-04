@@ -4,9 +4,9 @@
 
 .container
   display: flex
-  @include m.gap($mb: f.px(15))
+  @include m.gap($pt: f.px(15), $plr: f.px(15))
+  background-color: white
   border-radius: f.px(10)
-  cursor: pointer
   @include m.media(phone, tablet)
     &:hover
       // outline: 1px solid violet
@@ -17,12 +17,10 @@
     justify-content: flex-start
     &:nth-child(2)
       @include m.gap($mt: f.px(15))
-      
 
 .img
   & > *
     border-radius: f.px(10)
-  
 
 .content
   flex-basis: 60%
@@ -32,7 +30,6 @@
     color: #B250FF
     // align-items: center
     // margin: 0 auto
-  
 
 .title
   font-size: f.px(16)

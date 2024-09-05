@@ -3,7 +3,6 @@ import { routes } from '@/config/index'
 import stls from '@/styles/components/cards/CardProfession.module.sass'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Popup from 'reactjs-popup'
 import Button from '../btns/Button'
@@ -15,7 +14,6 @@ type Props = {
 }
 
 const CardProfession = ({ profession = null, onMain = false }: Props) => {
-  const router = useRouter()
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleOpen = () => {
@@ -85,6 +83,10 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
     }
   }
 
+  const showMoreHandler = () => {
+    window.open(getHref(), '_blank')
+  }
+
   return (
     <>
       {onMain ? (
@@ -122,10 +124,7 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
               )}
               <div className={stls.btns}>
                 <Button text='Поступить' onClick={handleOpen} isVioletBg />
-                <Button
-                  text='Подробнее'
-                  onClick={() => router.push(getHref())}
-                />
+                <Button text='Подробнее' onClick={showMoreHandler} />
               </div>
             </div>
           </div>
@@ -175,7 +174,7 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
           <ProgramPaymentForm
             program={profession}
             onClose={close}
-            showMore={() => router.push(getHref())}
+            showMore={showMoreHandler}
           />
         )}
       </Popup>

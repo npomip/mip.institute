@@ -47,7 +47,6 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
   const [isLoading, setIsLoading] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
-  console.log({ program })
 
   const onSubmit = async data => {
     setIsDisabled(true)
@@ -85,13 +84,12 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
     const req = await genezis(data)
 
     if (req === 200) {
-      setIsLoading(false)
       window.open(
         `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
         '_blank'
       )
+      setIsLoading(false)
       setIsIpCheckFailed(false)
-      setIsDisabled(true)
     } else {
       console.log('err')
       setIsLoading(false)
@@ -144,6 +142,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
               <input
                 type='text'
                 aria-label='Ваше имя'
+                disabled={isDisabled}
                 placeholder='Ваше имя'
                 {...register('name', {
                   required: `*Введите ваше имя`,
@@ -164,6 +163,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
                 type='text'
                 aria-label='Ваша фамилия'
                 placeholder='Ваша фамилия'
+                disabled={isDisabled}
                 {...register('surname', {
                   required: `*Введите вашу фамилию`,
                   minLength: {
@@ -203,6 +203,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
                     inputClass={stls.phoneInput}
                     buttonClass={stls.flagButton}
                     dropdownClass={stls.dropdown}
+                    disabled={isDisabled}
                     containerStyle={{
                       marginBottom: `${errors.phone ? '5px' : '20px'}`
                     }}
@@ -220,6 +221,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
                 type='email'
                 aria-label='Ваша электронная почта'
                 placeholder='Ваша электронная почта'
+                disabled={isDisabled}
                 {...register('email', {
                   pattern: {
                     value:
@@ -294,7 +296,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
             isVioletBg
             isDisabled={disabled}
           />
-          <Button text='Подробнее' onClick={showMore} isDisabled={disabled} />
+          <Button text='Подробнее' onClick={showMore} />
         </div>
         <Popup open={isLoading} onClose={() => setIsLoading(false)}>
           <PopupLoading />

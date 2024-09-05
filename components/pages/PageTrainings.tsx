@@ -1,34 +1,28 @@
-// import { NextSeo } from 'next-seo'
-// import { useContext } from 'react'
-// import truncate from 'truncate'
-// import { routes, company } from '@/config/index'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
-import BachelorSlugCard from '../cards/BachelorSlugCard'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
 import ProgramsFilters from '../layout/ProgramsFilters'
 import Wrapper from '../layout/Wrapper'
-import stls from '@/styles/pages/PageBachelors.module.sass'
+import stls from '@/styles/pages/PageTrainings.module.sass'
 import Breadcrumbs from '../general/Breadcrumbs'
-import { NextSeo } from 'next-seo'
 import { SeoPageBachelors } from '../seo'
+import PracticalSlugCard from '../cards/PracticalSlugCard'
+import routes from '@/config/routes'
 import { GetStaticProps } from 'next'
 import { handleGetStaticProps } from '@/lib/index'
-import routes from '@/config/routes'
-// import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
   ofType?: 'course' | 'profession'
 }
 
-const PageBachelors = ({ programs = [], bachelors = [], practicalTrainings = []}) => {
+const PageTrainings = ({ programs = [], practicalTrainings = [], bachelors= [] }) => {
   const categories = getUniqueCategories(programs)
 
-  const label = 'Высшее образование'
+  const label = 'Практические навыки'
 
-  const segments = [`/bachelor`]
+  const segments = [`/practicalTraining`]
 
   const labels = [label]
-  const slug = ['bachelor']
+  const slug = ['practicalTraining']
 
   const breadcrumbs = segments.map((segment, index) => {
     const breadcrumb = {
@@ -45,7 +39,7 @@ const PageBachelors = ({ programs = [], bachelors = [], practicalTrainings = []}
       <SeoPageBachelors/>
       <FilterProvider items={programs}>
       <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
-      <h1 className={stls.title}>Высшее образование</h1>
+      <h1 className={stls.title}>Практические навыки</h1>
         <ProgramsFilters
           bachelors={bachelors}
           practicalTrainings={practicalTrainings}
@@ -53,13 +47,13 @@ const PageBachelors = ({ programs = [], bachelors = [], practicalTrainings = []}
           studyFields={[]}
         />
         <div className={stls.cards}>
-
-        {bachelors.map(bachelor => (
-          <BachelorSlugCard key={bachelor?.slug} card={bachelor} />
-        ))}
+          {practicalTrainings.map(practicalTraining => (
+            <PracticalSlugCard key={practicalTraining?.slug} card={practicalTraining} />
+          ))}
         </div>
       </FilterProvider>
     </Wrapper>
   )
 }
-export default PageBachelors
+
+export default PageTrainings

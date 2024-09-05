@@ -14,7 +14,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
   program,
   reviews,
-  studyFieldSlug
+  studyFieldSlug,
 }) => {
   useHandleContextStaticProps({
     programs,
@@ -74,6 +74,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     query: gql`
       query GetStaticPropsPagePrograms {
         bachelors {
+          title
+        }
+        practicalTrainings {
           title
         }
         programs {

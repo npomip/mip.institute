@@ -32,7 +32,7 @@
     max-width: f.px(350)
 
 .colouredTitle
-  @include m.dye(c, c.$alpha)
+  @include m.dye(c, c.$purple-800)
 
 .tag
   @include m.media(phone, tablet)
@@ -50,7 +50,7 @@
     @include m.gap($pt: f.px(15), $plr: f.px(15), $pb: f.px(0))
 
 .itemOnMain
-  color: white
+  @include m.dye(c, c.$white-900)
   list-style: none
   @include m.gap($mb: f.px(30))
   @include m.flex($ai: flex-start)

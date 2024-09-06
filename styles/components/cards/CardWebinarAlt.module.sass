@@ -1,7 +1,7 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
-  
+
 .container
   position: relative
   width: 100%
@@ -9,16 +9,16 @@
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, 0.05)
   border-radius: f.px(20)
   text-align: left
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, c.$white-900)
   cursor: pointer
   transition: background-color .2s ease-in-out
   &:focus-visible,
   &:hover
-    @include m.dye(bg, c.$pi)
+    @include m.dye(bg, c.$yellow-100)
     & .bell
       opacity: 1
     & .title
-      @include m.dye(c, c.$alpha)
+      @include m.dye(c, c.$purple-800)
     & .link
       text-decoration: underline
 
@@ -29,7 +29,7 @@
   max-width: max-content
   @include m.gap($p: f.px(15))
   border-radius: 50%
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   opacity: .2
   transition: opacity .2s ease-in-out
 
@@ -41,13 +41,13 @@
   font-size: f.px(18)
   font-weight: 500
   line-height: 120%
-  @include m.dye(c, c.$eta-2)
+  @include m.dye(c, c.$black-600)
 
 .dayOfWeek
   @include m.gap($mb: f.px(20))
   font-size: f.px(13)
   line-height: 120%
-  @include m.dye(c, c.$kappa)
+  @include m.dye(c, c.$gray-700)
 
 .speaker
   @include m.flex
@@ -65,20 +65,20 @@
   @include m.flex($fd: column)
   font-size: f.px(18)
   font-weight: 300
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .label
   @include m.gap($mb: f.px(8))
   font-size: f.px(13)
   line-height: 120%
-  @include m.dye(c, rgba(c.$theta, .4))
+  @include m.dye(c, rgba(c.$black-800, .4))
 
 .title
   @include m.gap($mb: f.px(56))
   font-size: f.px(22)
   font-weight: 500
   overflow-wrap: break-word
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
   transition: color .2s ease-in-out
 
 .link
@@ -86,5 +86,5 @@
   bottom: f.px(30)
   @include m.gap($mt: auto, $mb: 0)
   font-size: f.px(16)
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
   transition: text-decoration .2s ease-in-out

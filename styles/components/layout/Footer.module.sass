@@ -4,8 +4,8 @@
 
 .container
   position: relative
-  @include m.dye(bg, c.$tau)
-  @include m.dye(c, c.$upsilon)
+  @include m.dye(bg, c.$black-700)
+  @include m.dye(c, c.$gray-50)
   & > *
     display: flex
 
@@ -39,7 +39,7 @@
     @include m.gap($mb: f.px(27))
     font-size: f.px(18)
     font-weight: 300
-    @include m.dye(c, c.$nu)
+    @include m.dye(c, c.$white-900)
 
 .numbers
   font-weight: 300
@@ -58,7 +58,7 @@
   font-weight: 300
   // margin-bottom: 20px
   @include m.gap($mb: f.px(15))
-  @include m.dye(c, c.$upsilon)
+  @include m.dye(c, c.$gray-50)
 
 .address
   font-weight: 500
@@ -104,7 +104,7 @@
     z-index: 2
     @include m.flex($display: false, $fb: 20%)
     @include m.gap($p: f.px(50))
-    @include m.dye(bg, c.$gamma-2)
+    @include m.dye(bg, c.$black-700)
 
 .formTitles
   @include m.gap($mb: f.px(17))
@@ -127,7 +127,7 @@
     right: 0
     width: 30%
     height: 100%
-    @include m.dye(bg, c.$gamma-2)
+    @include m.dye(bg, c.$black-700)
 
 .newRight
   @include m.media(phone, tablet)
@@ -162,7 +162,7 @@
   justify-content: center
   // margin: 0 auto
   @include m.gap($mtb: f.px(25))
-  color: white
+  @include m.dye(c, c.$white-900)
   width: f.px(268)
   height: f.px(56)
   border: 1px solid #F87E1B

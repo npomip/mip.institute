@@ -16,7 +16,7 @@
     @include m.gap($mb: f.px(30))
     font-size: f.px(44)
   font-weight: 500
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .upperRound
   display: flex
@@ -46,7 +46,7 @@
       font-size: f.px(13)
 
 .upperRightRound
-  
+
   z-index: 1
   position: absolute
   height: f.px(73)
@@ -67,7 +67,7 @@
   width: 55.1%
   position: absolute
   border-top: f.px(1) solid black
-  background: #FBF4FF 
+  background: #FBF4FF
   // opacity: 0.1
   top: f.px(0)
   right: 0
@@ -108,7 +108,7 @@
     border-bottom: 1px solid #D1D1D1
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(35), $pb: f.px(28))
-    
+
     @include m.flex($ai: center)
 
 .img
@@ -151,10 +151,10 @@
   @include m.media(phone, tablet)
     font-size: f.px(10)
   font-weight: 500
-  @include m.dye(c, c.$kappa)
+  @include m.dye(c, c.$gray-700)
 
 .h3
-  color: #6F01C6
+  @include m.dye(c, c.$purple-800)
   font-weight: 500
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
@@ -221,7 +221,7 @@
   display: flex
   @include m.media(phone, tablet)
     flex-direction: column
-    
+
   // flex-direction: column
 
 .right

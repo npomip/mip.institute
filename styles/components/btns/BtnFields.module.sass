@@ -15,12 +15,12 @@
   @include m.flex($ai: center)
   @include m.gap($ptb: f.px(14), $plr: f.px(25))
   border: f.px(2) solid
-  @include m.dye(border, rgba(c.$nu, .2))
+  @include m.dye(border, rgba(c.$white-900, .2))
   border-radius: f.px(5)
   font-size: f.px(18)
   font-weight: 300
   text-align: center
-  @include m.dye(c, c.$nu)
+  @include m.dye(c, c.$white-900)
   &:hover
     transform: scale(1.01)
   &:focus
@@ -53,10 +53,10 @@
     width: 550px
     height: 350px
   @include m.gap($mtb: 0, $pt: f.px(37), $plr: f.px(37), $pb: f.px(37 - 12))
-  box-shadow: 0 f.px(7) f.px(50) rgba(c.$chi, .2)
+  box-shadow: 0 f.px(7) f.px(50) rgba(c.$black-900, .2)
   border-radius: f.px(9)
   // height: fit-content
-  @include m.dye(bg, c.$nu)  
+  @include m.dye(bg, c.$white-900)
   z-index: 124
   &.isShown
     display: block
@@ -65,12 +65,11 @@
     position: absolute
     top: f.px(2)
     left: f.px(15)
-    @include m.dye(bg, c.$nu)  
+    @include m.dye(bg, c.$white-900)
     width: 1em
     height: 1em
     border-radius: 25%
     transform: rotate(58deg) skewX(30deg) translate(15%, -50%)
-
 
 .studyField
   @include m.flex
@@ -79,7 +78,7 @@
 .card
   width: 700px
   display: grid
-  grid-template-columns: 1fr 1fr 
+  grid-template-columns: 1fr 1fr
   grid-gap: 35px
   & > *
     &:nth-child(2)
@@ -103,7 +102,7 @@
     min-height: f.px(30)
     max-height: f.px(30)
     border-radius: f.px(4)
-    @include m.dye(bg, c.$beta)
+    @include m.dye(bg, c.$orange-700)
     transition: background-color .2s ease-in-out
     pointer-events: none
     & path

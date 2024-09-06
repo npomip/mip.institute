@@ -9,11 +9,11 @@
   border-radius: f.px(25)
   @include m.flex($jc: flex-start, $ai: flex-start, $fd: column)
   border: 1px solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.media(phone, tablet)
     @include m.gap($p:f.px(12))
     border: 0.7px solid
-    @include m.dye(border, c.$alpha)
+    @include m.dye(border, c.$purple-800)
     & > *
       max-width: f.px(420)
 
@@ -28,15 +28,15 @@
 .p
   font-weight: 400
   font-size: f.px(16)
-  @include m.dye(c, c.$chi)
+  @include m.dye(c, c.$black-900)
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
     font-size: f.px(15) !important
 
 .purpleBlock
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   & > div > span
-    @include m.dye(c, c.$nu)
+    @include m.dye(c, c.$white-900)
   & > span
     & path
       stroke: #fff !important

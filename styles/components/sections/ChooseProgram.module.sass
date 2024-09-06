@@ -21,7 +21,6 @@
   @include m.media(phone, tablet)
     display: none
 
-
 .title
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(26))
@@ -52,14 +51,13 @@
   font-family: Stem, sans-serif
   font-weight: 500
   font-size: 22px
-  color: white
+  @include m.dye(c, c.$white-900)
   @include m.media(laptop, desktop)
     @include m.gap($mr: f.px(16))
   @include m.media(phone, tablet)
     display: block
     width: fit-content
     @include m.gap($mb: f.px(16))
-
 
 .violetText
   color: #B250FF
@@ -74,5 +72,3 @@
   @include m.gap($m: f.px(30))
   @include m.media(laptop, desktop)
     display: none
-
-

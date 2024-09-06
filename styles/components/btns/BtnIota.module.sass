@@ -12,14 +12,14 @@
   @include m.media(laptop, desktop)
     padding: f.px(100) f.px(50)
   border: f.px(2) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(25) 0 f.px(25) 0
   font-size: f.px(20)
   font-weight: 500
   line-height: 132%
   text-align: left
-  @include m.dye(bg, c.$alpha)
-  @include m.dye(c, c.$nu)
+  @include m.dye(bg, c.$purple-800)
+  @include m.dye(c, c.$white-900)
 
   &::after
     content: ''
@@ -29,7 +29,7 @@
     bottom: 0
     left: 0
     opacity: 0
-    box-shadow: 0 0 f.px(20, em) f.px(5, em) rgba(c.$theta, 0.2)
+    box-shadow: 0 0 f.px(20, em) f.px(5, em) rgba(c.$black-800, 0.2)
   &:hover
     transform: scale(1.02)
     &::after
@@ -43,9 +43,9 @@
   font-weight: 400
   cursor: not-allowed
   opacity: .5
-  @include m.dye(bg, c.$theta-2)
-  @include m.dye(border, c.$iota)
-  @include m.dye(c, c.$iota-2)
+  @include m.dye(bg, c.$gray-100)
+  @include m.dye(border, c.$gray-200)
+  @include m.dye(c, c.$gray-800)
   &:hover
     transform: scale(1)
     &::after

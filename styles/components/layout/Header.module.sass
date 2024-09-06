@@ -11,16 +11,15 @@
   // position: relative
   // z-index: 0
   // transform: translateY(f.px(26))
+  @include m.dye(bg, c.$purple-800)
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(4, em), $pb: f.px(1, em))
-  @include m.dye(bg, c.$alpha)
 
   &.promo
     @include m.gap($mt: f.px(112))
     // transform: translateY(f.px(112))
-    @include m.media(phone, tablet) 
+    @include m.media(phone, tablet)
       @include m.gap($mt: f.px(257))
-
 
 .top
   @include m.media(phone, tablet)
@@ -40,7 +39,7 @@
     @include m.gap($mr: f.px(10, em))
     font-size: f.px(10)
     font-weight: 400
-    @include m.dye(c, rgba(c.$nu, .5))
+    @include m.dye(c, rgba(c.$white-900, .5))
 
 .location
   @include m.media(laptop, desktop)
@@ -53,7 +52,7 @@
 .p
   @include m.gap($mb: 0)
   font-weight: 300
-  @include m.dye(c, c.$nu)
+  @include m.dye(c, c.$white-900)
 
 .topright
   @include m.flex
@@ -64,7 +63,7 @@
 
 .phone
   display: block
-  @media screen and ( max-width: 920px )    
+  @media screen and ( max-width: 920px )
     display: none
   @include m.media(laptop, desktop)
     & > *
@@ -74,7 +73,7 @@
 
 .phoneNoNum
   display: none
-  @media screen and ( max-width: 920px )    
+  @media screen and ( max-width: 920px )
     @include m.flex($jc: center, $ai: center)
 
 .row
@@ -102,15 +101,14 @@
   @include m.media(laptop, desktop)
     font-size: f.px(18)
     font-weight: 300
-    @include m.dye(c, c.$nu) 
+    @include m.dye(c, c.$white-900)
     outline: none
     @include onHover.highlightWithBottomLine($bottom: f.px(-10))
 
-.icons 
+.icons
   display: flex
   justify-content: center
   width: 200px
-  
 
 // .linkReviewLong
 //   @media screen and ( max-width: 860px )
@@ -132,7 +130,7 @@
   border: 1px solid #CDCDCD
   border-radius: 10px
   // margin: 10px
-  
+
   &.open
     display: block
 
@@ -163,7 +161,7 @@
     position: absolute
     top: f.px(0)
     left: 55%
-    @include m.dye(bg, c.$nu)  
+    @include m.dye(bg, c.$white-900)
     width: 1em
     height: 1em
     border-radius: 5%
@@ -185,14 +183,14 @@
   position: relative
   display: flex
   align-items: baseline
-  
+
   width: 400px
-  color: white
+  @include m.dye(c, c.$white-900)
   @include m.media(desktop)
     justify-content: flex-start
   @media screen and ( max-width: 1200px )
     width: 350px
-  @media screen and ( max-width: 920px )   
+  @media screen and ( max-width: 920px )
     display: none
   & > *
     margin: 0
@@ -205,7 +203,7 @@
   transform: translateY(-115%) translateX(600%)
   @media screen and ( max-width: 1200px )
     transform: translateY(-120%) translateX(350%)
-  background: #ED5623
+  @include m.dye(bg, c.$orange-900)
   padding: 10px
   border-radius: 2px
   @include m.flex($jc: center, $ai: center)
@@ -217,7 +215,7 @@
   transition: all 1s ease
 
 //for popup
-  
+
 .desriptionPopup
   // order: 1
   @include m.media(desktop)
@@ -268,18 +266,17 @@
     content: ''
     position: absolute
     left: f.px(15)
-    @include m.dye(bg, c.$nu)  
+    @include m.dye(bg, c.$white-900)
     width: 1em
     height: 1em
     border-radius: 5%
     transform: rotate(58deg) skewX(30deg) translate(280%, -50%)
 
-
 .directionsPopup
   color: black
   position: absolute
   width: 370px
-  height: 350px 
+  height: 350px
   border-radius: f.px(10)
   border: 1px solid #CDCDCD
   z-index: 2
@@ -291,7 +288,6 @@
   background: white
   cursor: default
   @include m.gap($ptb: f.px(20))
-
 
 .oneDirection
   height: 100%
@@ -324,7 +320,7 @@
   &:hover
     transition: background 0.5s ease
     background: #FFFFFF
-    
+
 .arrowIcon
   & svg
     stroke: #F87E1B
@@ -342,14 +338,14 @@
   visibility: hidden
   transition: all 1s ease
   border: 1px solid #FFFFFF
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
 
 .input
   opacity: 1
-  color: white
+  @include m.dye(c, c.$white-900)
   height: 45px
   border: 1px solid #FFFFFF
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   visibility: visible
   width: 250px
   @media screen and ( max-width: 1200px )
@@ -357,13 +353,13 @@
   transition: all 1s ease
   padding: 20px
   &::placeholder
-    color: white
+    @include m.dye(c, c.$white-900)
 
 .searchIconHidden
   cursor: pointer
   position: absolute
-  transform: translateY(-115%) 
-  background: #ED5623
+  transform: translateY(-115%)
+  @include m.dye(bg, c.$orange-900)
   padding: 10px
   border-radius: 2px
   @include m.flex($jc: center, $ai: center)
@@ -379,7 +375,7 @@
   visibility: hidden
   height: 20px
   width: 0px
-  color: white
+  @include m.dye(c, c.$white-900)
   opacity: 0
   z-index: 1
   transition: width 1s ease, height 1s ease, opacity 1s ease,transform 1s ease, visibility 1s ease
@@ -400,7 +396,7 @@
   @include m.media(laptop)
     margin-left: 25px
   opacity: 1
-  color: white
+  @include m.dye(c, c.$white-900)
   z-index: 1
   width: 170px
   height: 20px
@@ -438,7 +434,7 @@
 
 .card
   display: grid
-  grid-template-columns: 1fr 1fr 
+  grid-template-columns: 1fr 1fr
   grid-gap: 35px
   & > *
     &:nth-child(2)

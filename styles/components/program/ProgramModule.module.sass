@@ -76,13 +76,13 @@
     @include m.gap($mr: f.px(14))
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(8))
-    
+
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(12))
     font-size: f.px(18)
 
 .description
-  color: #6F01C6
+  @include m.dye(c, c.$purple-800)
   font-size: 22px
   font-weight: 350
   line-height: 120%

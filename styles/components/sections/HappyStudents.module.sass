@@ -72,11 +72,11 @@
 .reviews
   flex: 1 1 auto
   max-width: f.px(540)
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   border-radius: f.px(15)
   margin: f.px(10)
   .reviewsSubtitle
-    color: white
+    @include m.dye(c, c.$white-900)
     text-align: center
     max-width: f.px(450)
     margin: 0 auto

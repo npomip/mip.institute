@@ -55,7 +55,7 @@
   @include m.gap( $mb: f.px(20))
   align-self: center
   & > *
-    color: white
+    @include m.dye(c, c.$white-900)
     @include m.media(laptop, desktop)
       top: f.px(-10)
       @include m.gap($plr: f.px(46), $ptb: f.px(8), $mb:f.px(10))
@@ -81,7 +81,7 @@
       top: f.px(-5)
       font-size: f.px(12)
       background: #F87E1B
-      color: white
+      @include m.dye(c, c.$white-900)
       @include m.gap($ptb: f.px(4), $plr: f.px(23), $ml: f.px(10))
       border-radius: f.px(50)
       font-weight: 350

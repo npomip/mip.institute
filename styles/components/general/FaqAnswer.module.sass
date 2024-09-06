@@ -16,7 +16,7 @@
       bottom: 0
       width: 100%
       height: f.px(1)
-      @include m.dye(bg, c.$mu)
+      @include m.dye(bg, c.$white-900)
   &:nth-last-child(1)
     @include m.gap($mb: 0)
 
@@ -27,7 +27,7 @@
 .title
   @include m.flex($ai: center)
   @include m.gap($mb: f.px(10))
-  
+
   cursor: pointer
 
 .icon
@@ -36,7 +36,7 @@
     & > *
       max-width: 100%
   @include m.gap($mr: f.px(20))
-  
+
 .p
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)

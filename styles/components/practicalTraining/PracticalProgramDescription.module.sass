@@ -35,7 +35,7 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30), $pt: f.px(15))
     font-size: f.px(44)
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .tag
   @include m.media(laptop, desktop)
@@ -55,7 +55,7 @@
     width: 50%
     @include m.gap($mb: f.px(0))
     font-size: f.px(20)
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .cards
   position: relative
@@ -70,7 +70,7 @@
   &:nth-child(even)
     background: #fff
     .cardTitle
-      @include m.dye(bg, c.$beta)
+      @include m.dye(bg, c.$orange-700)
       @include m.dye(c, #fff)
 
     .cardSubtitle
@@ -107,7 +107,7 @@
   border-radius: f.px(50)
   max-width: fit-content
   white-space: nowrap
-  @include m.dye(c, c.$beta)
+  @include m.dye(c, c.$orange-700)
   @include m.media(desktop, laptop)
     @include m.gap($ptb: f.px(9), $plr: f.px(16))
     font-size: f.px(20)
@@ -160,7 +160,7 @@
   z-index: 2
   position: absolute
   @include m.flex($jc: center, $ai: center)
-  @include m.dye(bg, c.$beta)
+  @include m.dye(bg, c.$orange-700)
   width: f.px(60)
   height: f.px(60)
   border-radius: 50%

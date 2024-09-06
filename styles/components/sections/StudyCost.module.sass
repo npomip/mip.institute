@@ -8,7 +8,7 @@
     @include m.gap($ptb: f.px(50), $mt: f.px(18), $mb: f.px(50))
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(75), $mt: f.px(90))
-  @include m.dye(bg, c.$epsilon)
+  @include m.dye(bg, c.$pink-50)
 
 .title
   @include m.media(phone, tablet)
@@ -47,7 +47,7 @@
   @include m.media(laptop, desktop)
     @include m.flex
     border-bottom: f.px(1) solid
-    @include m.dye(border, c.$mu)
+    @include m.dye(border, c.$white-900)
 
 .infoitem
   @include m.media(laptop, desktop)
@@ -61,14 +61,14 @@
   @include m.gap($mb: f.px(5))
   font-size: f.px(13)
   font-weight: 300
-  @include m.dye(c, rgba(c.$chi, .5))
+  @include m.dye(c, rgba(c.$black-900, .5))
 
 .infoval
   font-size: f.px(13)
   font-weight: 500
 
 .subtitle
-  @include m.dye(c, c.$alpha)
+  @include m.dye(c, c.$purple-800)
   @include m.media(phone, tablet)
     max-width: 70%
     @include m.gap($mb: f.px(15))
@@ -145,10 +145,9 @@
   //   height: 1px
   //   @include m.gap($mt: f.px(96))
 
-
 .bgForm
   border-radius: 25px
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   padding: 33px
   @include m.media(desktop)
     height: 420px
@@ -157,7 +156,7 @@
   @include m.media(phone, tablet)
     display: none
   p
-    color: white
+    @include m.dye(c, c.$white-900)
     text-align: center
     // font-size: 15px
     @include m.media(desktop)

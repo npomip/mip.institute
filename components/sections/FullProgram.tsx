@@ -12,13 +12,17 @@ const FullProgram = () => {
             <ImgFullProgram1 />
           </div>
           <div className={stls.text}>
-            <h2 className={stls.title}>Вопрос по программе</h2>
+            <h2 className={stls.title}>Остались вопросы? Поможем определиться с программой</h2>
             <p className={stls.p}>
-              Остались вопросы по программе или конкретному модулю? Напишите нам в форме обратной связи.
+              Вы можете оставить заявку на обратную связь. 
+              Менеджеры приёмной комиссии свяжутся с вами 
+              и помогут подобрать программу под ваш запрос 
+              и уровень знаний, а также предоставят информацию 
+              об обучении и поступлении
             </p>
           </div>
           <div className={stls.btn}>
-            <PopupTrigger btn='alpha' cta='programQuestion' />
+            <PopupTrigger btn='alpha' cta='askQuestion' />
           </div>
         </div>
       </Wrapper>

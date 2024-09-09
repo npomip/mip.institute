@@ -13,7 +13,7 @@
   & > *
     color: #808080
     &:hover
-      color: #6F01C6
+      @include m.dye(c, c.$purple-800)
 
 .atFooter
   & .name,
@@ -30,12 +30,12 @@
       @include m.media(laptop, desktop)
         font-size: f.px(16)
         border: f.px(1) solid
-        @include m.dye(border, c.$phi)
+        @include m.dye(border, c.$gray-800)
         border-radius: f.px(4)
         background-color: transparent
-        @include m.dye(c, c.$nu)
+        @include m.dye(c, c.$white-900)
         &::placeholder
-          @include m.dye(c, c.$psi)
+          @include m.dye(c, c.$gray-500)
 
 .inProfessions
   & .name,
@@ -54,7 +54,7 @@
         margin-top: 6px
         font-size: f.px(16)
         border: f.px(1) solid
-        @include m.dye(border, c.$phi)
+        @include m.dye(border, c.$gray-800)
         border-radius: f.px(4)
         &::placeholder
           @include m.dye(c, #B3B3B3)
@@ -83,10 +83,10 @@
       margin-top: 6px
       font-size: f.px(16)
       border: f.px(1) solid
-      @include m.dye(border, c.$phi)
+      @include m.dye(border, c.$gray-800)
       border-radius: f.px(4)
       &::placeholder
-        @include m.dye(c, c.$psi)
+        @include m.dye(c, c.$gray-500)
   & .dropdown
     width: f.px(460) !important
     @include m.media(laptop)
@@ -112,10 +112,10 @@
       margin-top: 6px
       font-size: f.px(16)
       border: f.px(1) solid
-      @include m.dye(border, c.$purple-200)
+      @include m.dye(border, c.$purple-300)
       border-radius: f.px(4)
       &::placeholder
-        @include m.dye(c, c.$psi)
+        @include m.dye(c, c.$gray-500)
   & .dropdown
     width: f.px(460) !important
     @include m.media(laptop)
@@ -132,7 +132,7 @@
     border-radius: f.px(4)
     font-weight: 300
     &::placeholder
-      @include m.dye(c, c.$kappa)
+      @include m.dye(c, c.$gray-700)
   & textarea
     outline: none
 
@@ -156,7 +156,7 @@
 .agreement
   @include m.gap($mt: f.px(30))
   font-size: f.px(13)
-  @include m.dye(c, c.$kappa)
+  @include m.dye(c, c.$gray-700)
 
 .err
   @include m.gap($mt: f.px(5))
@@ -187,11 +187,11 @@
   font-family: Stem !important
 
 .phoneInput
-  @include m.dye(border, c.$purple-200)
+  @include m.dye(border, c.$purple-300)
 
 .flagButton
   background-color: white !important
-  border-color: c.$purple-200 !important
+  border-color: c.$purple-300 !important
 
 .dropdown
   width: 280px !important

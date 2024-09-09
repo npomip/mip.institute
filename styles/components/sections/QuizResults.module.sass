@@ -8,7 +8,7 @@
 
 .result
   display: block
-  
+
   text-align: center
   @include m.gap($pt: f.px(55), $mb: f.px(40))
   font-size: f.px(44)
@@ -25,12 +25,14 @@
       transform: translateZ(-1px)
       position: absolute
       content: ''
-      border: f.px(7) solid #947AFF
+      border: f.px(7) solid
+      @include m.dye(border, c.$purple-300)
       width: 102%
       bottom: f.px(6)
       left: -1%
       @include m.media(phone, tablet)
-        border: f.px(3) solid #947AFF
+        border: f.px(3) solid
+        @include m.dye(border, c.$purple-300)
   @include m.media(phone, tablet)
     font-size: f.px(28)
     @include m.gap($pt: f.px(50), $mb: f.px(20))

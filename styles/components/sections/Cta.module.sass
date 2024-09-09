@@ -27,8 +27,8 @@
     @include m.media(desktop)
       @include m.gap($ptb: f.px(64), $plr: f.px(40))
       @include m.flex($jc: space-between)
-    @include m.dye(bg, c.$alpha)
-    @include m.dye(c, c.$nu)
+    @include m.dye(bg, c.$purple-800)
+    @include m.dye(c, c.$white-900)
     @media screen and (min-width: bp.$tablet) and (max-width: 920px)
       @include m.flex($jc: space-between)
 
@@ -103,4 +103,3 @@
     @include m.gap($mr: f.px(30))
   @include m.media(desktop)
     @include m.flex($display: false, $fb: 28%)
-  

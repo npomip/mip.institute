@@ -23,7 +23,7 @@
     @include m.gap($pt: f.px(15))
     font-size: f.px(44)
     font-weight: 500
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .content
   @include m.media(phone, tablet)
@@ -36,9 +36,10 @@
 .reviewCount
   font-size: 13px
   font-weight: 700
-  color: #6F01C6
+  @include m.dye(c, c.$purple-800)
   display: inline-block
-  border: 1px solid #6F01C6
+  border: 1px solid
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(23)
   @include m.gap($mb: f.px(34), $ptb: f.px(10), $plr: f.px(17))
   @include m.media(phone, tablet)

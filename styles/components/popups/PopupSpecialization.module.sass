@@ -4,7 +4,7 @@
 
 .container
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(25)
   @include m.dye(bg, white)
   @include m.gap($plr: f.px(30), $pb: f.px(30), $pt: f.px(20))
@@ -28,7 +28,7 @@
 .title
   font-size: f.px(24)
   font-weight: 600
-  @include m.dye(c, c.$alpha)
+  @include m.dye(c, c.$purple-800)
   @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(10))
@@ -44,8 +44,8 @@
       font-size: f.px(12)
 
 .button
-  @include m.dye(c, c.$alpha)
+  @include m.dye(c, c.$purple-800)
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(5)
   @include m.gap($p: f.px(5))

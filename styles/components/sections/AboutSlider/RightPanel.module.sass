@@ -8,19 +8,19 @@
   flex-basis: 50%
   flex-shrink: 0
   transform: translateX(0)
-  transition:  transform 0.5s ease
+  transition: transform 0.5s ease
   @include m.media(laptop)
     flex-basis: 40%
   @include m.media(phone, tablet)
     flex-basis: 20%
 
-.slide-out 
-  transition:  transform 0.5s ease
+.slide-out
+  transition: transform 0.5s ease
   transform: translateX(100%)
 
-.slide-in 
+.slide-in
   border-radius: 40px
-  transition:  transform 0.5s ease
+  transition: transform 0.5s ease
   transform: translateX(0)
 
 .img
@@ -56,7 +56,7 @@
   right: 0
   bottom: f.px(5)
   left: 0
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   z-index: 1
   opacity: 0.05
 .innerImg

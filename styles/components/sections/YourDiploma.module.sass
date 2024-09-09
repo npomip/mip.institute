@@ -17,7 +17,7 @@
     @include m.gap($mb: f.px(30), $pt: f.px(15))
     font-size: f.px(44)
     font-weight: 500
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .tag
   @include m.media(phone, tablet)
@@ -28,7 +28,7 @@
 .subtitleContainer
   position: relative
   z-index: 2
-  background-color: c.$nu
+  background-color: c.$white-900
   @include m.media(desktop)
     @include m.flex($display: false, $fb: 50%)
 
@@ -47,7 +47,7 @@
     color: #131313
     font-weight: 300
     line-height: 130%
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .mainSubtitle
   display: inline
@@ -93,7 +93,7 @@
     height: f.px(192)
     // max-width: max-content
     border: f.px(1) solid
-    @include m.dye(border, rgba(c.$kappa, .2))
+    @include m.dye(border, rgba(c.$gray-700, .2))
     border-radius: f.px(15)
     & > *
       border-radius: f.px(15)

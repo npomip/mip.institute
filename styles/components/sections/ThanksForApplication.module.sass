@@ -12,11 +12,10 @@
     @include m.media( tablet, phone)
       font-size: 36px
 
-
 .insideContainer
   max-width: 500px
   // added in NY
-  // color: white
+  // @include m.dye(c, c.$white-900)
   // added in NY
 
 .icon
@@ -40,11 +39,11 @@
   border-radius: 15px
   transition: color 0.3s ease-in-out, background 0.3s ease-in-out, stroke 0.3s ease-in-out
   // added in NY
-  // color: white
+  // @include m.dye(c, c.$white-900)
   // added in NY
   &:hover
-    background: #6f01c6
-    color: white
+    @include m.dye(bg, c.$purple-800)
+    @include m.dye(c, c.$white-900)
     stroke: white
 
 .label
@@ -56,7 +55,7 @@
   border-radius: 50px
   p
     margin: 0 auto
-    color: white
+    @include m.dye(c, c.$white-900)
     font-family: Stem
     font-size: 12px
     font-weight: 350
@@ -99,7 +98,6 @@
   left: 0px
   @include m.media( tablet, phone)
     display: none
-
 
 .bottomPortal
   position: absolute

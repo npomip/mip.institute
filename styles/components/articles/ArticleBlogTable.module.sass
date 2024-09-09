@@ -29,7 +29,7 @@
       font-weight: 500
       &:nth-child(even)
         @include m.dye(c, white)
-        @include m.dye(bg, #947AFF)
+        @include m.dye(bg, c.$purple-300)
       @include m.media(phone, tablet)
         font-size: f.px(16)
         @include m.gap($p: f.px(25))
@@ -47,7 +47,7 @@
         &:nth-child(1)
           @include m.dye(c, black)
           font-size: f.px(20)
-        
+
         @include m.media(phone, tablet)
           font-size: f.px(14)
           @include m.gap($p: f.px(26))

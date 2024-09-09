@@ -6,7 +6,7 @@
   color: black
   &:hover
     .cardTitle
-      @include m.dye(c, c.$gamma)
+      @include m.dye(c, c.$purple-400)
       transition: color 0.2s ease
     .img
       transition: transform 0.4s ease
@@ -18,7 +18,7 @@
   min-height: f.px(190)
   @include m.flex($jc: space-between, $fd: column)
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(10)
   @include m.media(phone)
     min-height: f.px(150)
@@ -36,6 +36,6 @@
   border-radius: f.px(10)
 
 .additionalInfo
-  @include m.dye(c, c.$iota-2)
+  @include m.dye(c, c.$gray-800)
   @include m.media(phone, tablet)
     font-size: f.px(16)

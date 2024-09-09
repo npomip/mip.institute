@@ -12,8 +12,8 @@
   height: 100%
   min-height: 100%
   @include m.gap($ptb: f.px(4, em))
-  @include m.dye(bg, c.$alpha)
-  @include m.dye(c, c.$nu)
+  @include m.dye(bg, c.$purple-800)
+  @include m.dye(c, c.$white-900)
   overflow-y: auto
 
 .menuIsOpen
@@ -37,7 +37,7 @@
     @include m.gap($ptb: f.px(14, em))
     font-size: f.px(22)
     font-weight: 300
-    @include m.dye(c, c.$nu)
+    @include m.dye(c, c.$white-900)
   &:not(:last-child) a::after
     content: '',
     position: absolute
@@ -45,7 +45,7 @@
     left: 0
     width: 100%
     height: f.px(1)
-    @include m.dye(bg, rgba(c.$nu, .1))
+    @include m.dye(bg, rgba(c.$white-900, .1))
 
 .cta
   @include m.gap($mb: f.px(39, em))
@@ -56,7 +56,6 @@
 .sm
   @include m.flex
   margin-bottom: 100px
-
 
 .divName
   margin: 0px

@@ -5,9 +5,10 @@
 .container
   background: #FFF
   font-size: f.px(20)
-  
+
   @include m.gap($plr: f.px(55), $ptb: f.px(30))
-  border: 1px solid #6F01C6
+  border: 1px solid
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(10)
   @include m.media(laptop, desktop)
       width: 65vw
@@ -16,7 +17,7 @@
     font-size: f.px(15)
     @include m.gap($plr: f.px(30), $pb: f.px(30), $pt: f.px(20))
   button
-    color: #6F01C6
+    @include m.dye(c, c.$purple-800)
     // float: right
     display: flex
     width: 100%

@@ -11,7 +11,7 @@
 
       stroke: #F87E1B
   & stroke
-    @include m.dye(stroke, c.$nu)
+    @include m.dye(stroke, c.$white-900)
 
   & path
     stroke: #808080
@@ -22,12 +22,12 @@
     & path
       stroke: #6F01C6
   & path
-    @include m.dye(stroke, c.$alpha)
+    @include m.dye(stroke, c.$purple-800)
     stroke-width: f.px(1.1)
     @include m.media(phone, tablet)
       stroke-width: f.px(0.5)
   & rect
-    @include m.dye(stroke, c.$alpha)
+    @include m.dye(stroke, c.$purple-800)
     stroke-width: f.px(0.5)
     @include m.media(phone, tablet)
       stroke-width: f.px(0.5)

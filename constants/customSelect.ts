@@ -7,7 +7,7 @@ const levelOptions = [
 
 const formOptions = [
   { value: 'online', label: 'Онлайн' },
-  { value: 'offline', label: 'Очно-заочно' }
+  // { value: 'offline', label: 'Очно-заочно' }
 ]
 
 const programsOptions = [

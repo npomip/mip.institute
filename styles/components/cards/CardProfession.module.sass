@@ -7,11 +7,11 @@
   position: relative
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   border-radius: f.px(10)
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.dye(bg, c.$gray-50)
   @include m.media(phone, tablet)
     min-height: auto
-  @include m.dye(c, c.$chi)
+  @include m.dye(c, c.$black-900)
   transition: background-color .2s ease-in-out
   @include m.media(laptop, desktop)
     max-width: f.px(370)
@@ -24,7 +24,7 @@
     .title
       color: #6f01c6 !important
   &:focus
-    @include m.dye(bg, c.$nu)
+    @include m.dye(bg, c.$white-900)
 
 .containerLink
   position: relative

@@ -48,7 +48,7 @@
   @include m.dye(bg, white)
   overflow: hidden
   border: f.px(0.5) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(10)
   @include m.flex($jc: space-between)
   cursor: pointer
@@ -59,7 +59,7 @@
   @include m.media(phone)
     height: f.px(181)
   &:hover
-    @include m.dye(bg, c.$alpha)
+    @include m.dye(bg, c.$purple-800)
     .navTitle,.countPrograms
       @include m.dye(c, white)
     .icon

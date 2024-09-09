@@ -24,18 +24,18 @@
       @include m.media(laptop, desktop)
         font-size: f.px(16)
         border: f.px(1) solid
-        @include m.dye(border, c.$alpha)
+        @include m.dye(border, c.$purple-800)
         border-radius: f.px(4)
         background-color: transparent
       @include m.media(phone, tablet)
         @include m.gap($plr: f.px(10))
         font-size: f.px(14)
         border: f.px(1) solid
-        @include m.dye(border, c.$alpha)
+        @include m.dye(border, c.$purple-800)
         border-radius: f.px(4)
         background-color: transparent
         &::placeholder
-          @include m.dye(c, c.$psi)
+          @include m.dye(c, c.$gray-500)
 
 .title
   text-align: center
@@ -56,7 +56,7 @@
   position: absolute
   right: f.px(30)
   border: f.px(0.5) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(4)
   @include m.media(laptop, desktop)
     transform: scale(0.6)
@@ -64,7 +64,7 @@
     transform: scale(0.5)
   & > span > button
   @include m.gap($p: f.px(10))
-  @include m.dye(c, c.$alpha)
+  @include m.dye(c, c.$purple-800)
   @include m.dye(bg, c.$gray-50)
 
 .inpt
@@ -75,7 +75,7 @@
     border-radius: f.px(4)
     font-weight: 300
     &::placeholder
-      @include m.dye(c, c.$kappa)
+      @include m.dye(c, c.$gray-700)
   & textarea
     outline: none
 
@@ -130,7 +130,7 @@
 .btn
   padding: f.px(5)
   border-radius: f.px(4)
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   @include m.dye(c, white)
   @include m.gap($ptb: f.px(17), $plr: f.px(57))
   &:disabled
@@ -163,7 +163,7 @@
     width: 1.15em
     height: 1.15em
     border: 0.1em solid
-    @include m.dye(border, c.$alpha)
+    @include m.dye(border, c.$purple-800)
     border-radius: 0.15em
     &::before
       content: ""
@@ -185,7 +185,7 @@
   @include m.gap($mb: f.px(20))
   border-radius: f.px(4)
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.media(phone, tablet)
     padding: f.px(10)
   & > span
@@ -216,4 +216,4 @@
   & > *
     color: black
     &:hover
-      @include m.dye(c, c.$alpha)
+      @include m.dye(c, c.$purple-800)

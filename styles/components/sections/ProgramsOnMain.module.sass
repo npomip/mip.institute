@@ -48,19 +48,19 @@
   font-weight: 350
   cursor: pointer
   border: f.px(0.5) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(10)
   @include m.flex($ai: center, $jc: center)
   @include m.gap($ptb: f.px(14), $plr: f.px(59))
   width: f.px(268)
   transition: background-color 0.3s ease, color 0.3s ease
   &:hover
-    @include m.dye(bg, c.$alpha)
+    @include m.dye(bg, c.$purple-800)
     @include m.dye(c, white)
 
 .amount
   @include m.gap($ml: f.px(5))
-  @include m.dye(c, c.$psi)
+  @include m.dye(c, c.$gray-500)
   font-size: f.px(16)
   font-weight: 350
   @include m.media(phone, tablet)

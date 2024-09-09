@@ -58,11 +58,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }, [currentType, selectedLabel, activeFilters, allPrograms])
 
   const handleSetCurrentType = (selectedOption: SelectOption) => {
-    if (selectedOption.value === 'Bachelor') {
-      setAvailableOptions([{ value: 'offline', label: 'Очно-заочно' }])
-    } else {
-      setAvailableOptions([{ value: 'online', label: 'Онлайн' }])
-    }
+    setAvailableOptions([])
     setCurrentType(selectedOption)
     setSelectedLabel(null)
     setActiveFilters([])
@@ -70,12 +66,18 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }
 
   const handleSelectedLabel = (selectedOption: SelectOption) => {
+    if (currentType.value === 'Bachelor') {
+      setAvailableOptions([{ value: 'offline', label: 'Очно-заочно' }])
+    } else {
+      setAvailableOptions([{ value: 'online', label: 'Онлайн' }])
+    }
     setSelectedLabel(selectedOption)
   }
 
   const handleFilterToggle = (label: string) => {
     setCurrentType(null)
     setSelectedLabel(null)
+    setAvailableOptions([])
     setNumber(3)
     setActiveFilters(prev => {
       if (label === '') {
@@ -108,6 +110,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           isDisabled={!currentType || currentType.value === 'PracticalTraining'}
         />
         <CustomSelect
+          value={availableOptions?.[0]}
           onChange={() => {}}
           options={availableOptions}
           placeholder='Форма обучения'

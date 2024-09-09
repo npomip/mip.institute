@@ -13,8 +13,6 @@ import ProgramsFilters from '@/components/layout/ProgramsFilters'
 import { getUniqueCategories } from '@/components/funcs/getUniqueCategories'
 
 const ProgramsPage = ({ bachelors, programs }) => {
-console.log(bachelors, programs);
-
   // const router = useRouter()
 
   // const { query, asPath } = router

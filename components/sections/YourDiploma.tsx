@@ -119,42 +119,42 @@ const YourDiploma = ({
     )
 
   ofType === 'Course' &&
-      slides.push(
-        <div className={stls.diploma}>
-          {program?.diploma1 ? (
-            <ImgDiplomaDynamic
-              key='certificate'
-              src={program?.diploma1?.url}
-              width={program?.diploma1?.width && 700}
-              height={getImageHeight({
-                width: 700,
-                widthInitial: program?.diploma1?.width,
-                heightInitial: program?.diploma1?.height
-              })}
-              diplomaCertificate
-            />
-          ) : (
-            <ImgCertificate key='certificate' />
-          )}
-        </div>,
-        <div className={stls.diploma}>
-          {program?.diploma2 ? (
-            <ImgDiplomaDynamic
-              key='certificate-alt'
-              src={program?.diploma2?.url}
-              width={program?.diploma2?.width && 700}
-              height={getImageHeight({
-                width: 700,
-                widthInitial: program?.diploma2?.width,
-                heightInitial: program?.diploma2?.height
-              })}
-              diplomaCertificateAlt
-            />
-          ) : (
-            <ImgCertificateAlt key='certificate-alt' />
-          )}
-        </div>
-      )
+    slides.push(
+      <div className={stls.diploma}>
+        {program?.diploma1 ? (
+          <ImgDiplomaDynamic
+            key='certificate'
+            src={program?.diploma1?.url}
+            width={program?.diploma1?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma1?.width,
+              heightInitial: program?.diploma1?.height
+            })}
+            diplomaCertificate
+          />
+        ) : (
+          <ImgCertificate key='certificate' />
+        )}
+      </div>,
+      <div className={stls.diploma}>
+        {program?.diploma2 ? (
+          <ImgDiplomaDynamic
+            key='certificate-alt'
+            src={program?.diploma2?.url}
+            width={program?.diploma2?.width && 700}
+            height={getImageHeight({
+              width: 700,
+              widthInitial: program?.diploma2?.width,
+              heightInitial: program?.diploma2?.height
+            })}
+            diplomaCertificateAlt
+          />
+        ) : (
+          <ImgCertificateAlt key='certificate-alt' />
+        )}
+      </div>
+    )
 
   const mobileSwiperOptions = {
     slidesNum: 1,
@@ -164,9 +164,6 @@ const YourDiploma = ({
     slidesNum: 1,
     spaceBetween: 30
   }
-
-  console.log(ofType);
-  
 
   const [cut, setCut] = useState(184)
   const [showFullText, setShowFullText] = useState(false)

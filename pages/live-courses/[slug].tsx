@@ -20,13 +20,11 @@ import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
-  
   // const { reviews } = useContext(ContextStaticProps)
 
   // const reviewsSorted = sortBasedOnNumericOrder({
   //   reviews: sortReviewsCreatedAtASC({ reviews })
   // })
-  // console.log(lifeCourse)
 
   // const router = useRouter()
 
@@ -57,9 +55,6 @@ const JournalPage = ({ lifeCourse, reviews }) => {
     setIsTestOpen(true)
   }
 
-  console.log(lifeCourse);
-  
-
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -74,10 +69,10 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
         <React.Fragment key={idx}>
-          <LifeCourseDynamicZones props={module} openModal={handleOpen}/>
+          <LifeCourseDynamicZones props={module} openModal={handleOpen} />
         </React.Fragment>
       ))}
-      <LiveCoursesGetAcess marginBottom={60} openModal={handleOpen}/>
+      <LiveCoursesGetAcess marginBottom={60} openModal={handleOpen} />
       <About isLiveCourse />
       <Reviews subtitle={lifeCourse?.review_subtitle} reviews={lifeCourse?.unique_reviews} isLiveCourse />
       <LiveCoursesForm program={lifeCourse} />

@@ -6,4 +6,6 @@ const sortOptions = [
   { value: { field: 'date', direction: 'asc' }, label: 'По новизне' }
 ]
 
+
+
 export default sortOptions

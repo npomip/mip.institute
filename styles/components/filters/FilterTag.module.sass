@@ -28,7 +28,8 @@
     font-weight: 350
 
 .category
-  border: 1px solid #FD521B
+  border: f.px(1) solid
+  @include m.dye(border, c.$orange-700)
   &:hover
     background: #FD521B
     @include m.dye(c, c.$white-900)
@@ -53,7 +54,7 @@
 
 .quantity
   padding-left: f.px(7)
-  color: #B5B5B5
+  @include m.dye(c, c.$gray-500)
 
 .popupTrigger
   padding-left: f.px(7)

@@ -13,16 +13,12 @@ type TSeoPagesProgram = {
       isSEOFriendly: boolean
       metaDescription: string
       metaTitle: string
-      
     }
     title: string
   }
-  
 }
 
-const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
-  program
-}) => {
+const SeoPagesBachelor: FC<TSeoPagesProgram> = ({ program }) => {
   // TODO: pull the rest of SEO params from API
 
   const seo = program.seo
@@ -52,19 +48,17 @@ const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
   //   })
   // )?.filter(item => item) || null) as AdditionalRobotsProps
 
+  const isNoindex = !seo?.isSEOFriendly
 
-  const isNoindex = !seo?.isSEOFriendly 
-
-  const isNofollow = !seo?.isSEOFriendly 
+  const isNofollow = !seo?.isSEOFriendly
 
   const seoParams = {
-    title: seo?.metaTitle ,
+    title: seo?.metaTitle,
     programTitle: program?.title || 'Программа Высшего Образования',
-    desc: seo?.metaDescription ,
-    canonical: seo?.canonicalURL 
+    desc: seo?.metaDescription,
+    canonical: seo?.canonicalURL
   }
 
-  console.log(seoParams);
   return (
     <>
       <NextSeo
@@ -103,4 +97,3 @@ const SeoPagesBachelor: FC<TSeoPagesProgram> = ({
 }
 
 export default SeoPagesBachelor
-

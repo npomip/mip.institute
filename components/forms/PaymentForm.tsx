@@ -28,8 +28,6 @@ type Props = {
 
 const PaymentForm = ({ onClose, program }: Props) => {
   const router = useRouter()
-  console.log(program.price);
-  
   const {
     register,
     handleSubmit,
@@ -58,13 +56,11 @@ const PaymentForm = ({ onClose, program }: Props) => {
     } else {
       data.utm = null // или какое-то другое значение по умолчанию
     }
-    console.log(data)
     const resp = await payment(data)
-    console.log(resp);
     if (resp && resp.url) {
-      window.open(resp.url, '_blank');
+      window.open(resp.url, '_blank')
     } else {
-      console.error('No URL found in response');
+      console.error('No URL found in response')
     }
   }
 

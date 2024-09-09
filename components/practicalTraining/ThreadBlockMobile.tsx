@@ -8,8 +8,6 @@ type Props = {
 }
 
 const ThreadBlockMobile = ({ points }: Props) => {
-  console.log(points)
-
   const renderer = new marked.Renderer()
 
   renderer.strong = text => {

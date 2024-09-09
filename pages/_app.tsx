@@ -32,9 +32,10 @@ import { Analytics } from '@vercel/analytics/react'
 import RoistatScript from '@/components/scripts/RoistatScript'
 
 const MyApp = ({ Component, pageProps, router }) => {
-  const getDefaultStateProps = pageProps => {
+  const getDefaultStateProps = pageProps => {    
     const program = pageProps.program || null
     const bachelor = pageProps.bachelor || null
+    const practicalTrainings = pageProps.practicalTrainings || null
     const programs =
       sortBasedOnNumericOrder({ programs: pageProps.programs }) || []
     const courses =
@@ -77,7 +78,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       filteredPrograms,
       blogs,
       seminar,
-      bachelor
+      bachelor,
+      practicalTrainings
     }
   }
 
@@ -110,6 +112,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [blogs, setBlogs] = useState(defaultStateProps.blogs)
   const [seminar, setSeminar] = useState(defaultStateProps.seminar)
   const [bachelor, setBachelor] = useState(defaultStateProps.bachelor)
+  const [practicalTrainings, setPracticalTrainings] = useState(defaultStateProps.practicalTrainings)
   const updateTicketsQuantity = newQuantity => {
     setSeminar(prevSeminar => ({
       ...prevSeminar,
@@ -300,6 +303,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           setBlogs,
           seminar,
           bachelor,
+          practicalTrainings,
+          setPracticalTrainings,
           setBachelor,
           setSeminar,
           updateTicketsQuantity,

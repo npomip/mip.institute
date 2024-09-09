@@ -1,4 +1,4 @@
-import { formOptions, levelOptions } from 'constants/customSelect'
+import { levelOptions } from 'constants/customSelect'
 import {
   studyFieldsBachelor,
   studyFieldsCourses,
@@ -101,12 +101,12 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           value={selectedLabel}
           isDisabled={!currentType || currentType.value === 'PracticalTraining'}
         />
-        <CustomSelect
+        {/* <CustomSelect
           onChange={() => {}}
           options={formOptions}
           placeholder='Форма обучения'
           isDisabled={!selectedLabel}
-        />
+        /> */}
       </div>
       <div className={stls.tags}>
         {['', 'Консультирование', 'Психотерапия', 'Клиническая психология'].map(

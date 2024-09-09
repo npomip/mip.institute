@@ -7,26 +7,28 @@ type Props = {
 }
 
 const CardLinkedProgram = ({ portrait, title }: Props) => {
+  const text = [
+    'Обучение с третьего курса',
+    'Включено в стоимость',
+    'По окончанию обучения второй диплом'
+  ]
+
   return (
     <div className={stls.container}>
       {portrait && (
         <div className={stls.portrait}>
-          <span className={stls.filter}></span>
+          <span className={stls.filter} />
           {portrait}
         </div>
       )}
       <div className={stls.innerContainer}>
         <p className={stls.title}>{title}</p>
         <div className={stls.bottomPart}>
-          <p className={stls.subtitle}>
-            <span>Обучение с третьего курса</span>
-          </p>
-          <p className={stls.subtitle}>
-            <span>Включено в стоимость</span>
-          </p>
-          <p className={stls.subtitle}>
-            <span>По окончанию обучения второй диплом</span>
-          </p>
+          {text.map(el => (
+            <p className={stls.subtitle} key={el}>
+              {el}
+            </p>
+          ))}
         </div>
       </div>
     </div>

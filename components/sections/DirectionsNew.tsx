@@ -39,7 +39,7 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
       case 'lifeCourses':
         return `1 курс`
       case 'programs':
-        return `${allPrograms.length + 1} программ`
+        return `${allPrograms.length} программ`
       default:
         return `${practicalTrainings.length} ступень`
     }

@@ -1,0 +1,25 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  width: 100%
+  gap: f.px(30)
+  @include m.media(laptop, desktop)
+    min-height: f.px(583)
+    @include m.flex()
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)
+    gap: f.px(10)
+
+.leftColumn
+  border: f.px(1) solid c.$purple-350
+  @include m.dye(bg, c.$white-900)
+  border-radius: f.px(10)
+.rightColumn
+  border: f.px(1) solid c.$purple-350
+  @include m.dye(bg, c.$white-900)
+  border-radius: f.px(10)
+
+.isViolet
+  @include m.dye(bg, c.$purple-200)

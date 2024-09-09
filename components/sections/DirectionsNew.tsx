@@ -49,7 +49,7 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.heading}>
-          <h2 className={stls.title}>Направления обучения</h2>
+          <h2 className={stls.title}>Уровни обучения</h2>
         </div>
         <div className={stls.contentBlock}>
           <div className={stls.navBlocksContainer}>

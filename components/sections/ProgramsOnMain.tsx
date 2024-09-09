@@ -1,4 +1,4 @@
-import { formOptions, levelOptions } from 'constants/customSelect'
+import { levelOptions } from 'constants/customSelect'
 import {
   studyFieldsBachelor,
   studyFieldsCourses,
@@ -17,6 +17,7 @@ type Props = {
 const ProgramsOnMain = ({ allPrograms }: Props) => {
   const [currentType, setCurrentType] = useState<SelectOption | null>(null)
   const [selectedLabel, setSelectedLabel] = useState<SelectOption | null>(null)
+  const [availableOptions, setAvailableOptions] = useState<SelectOption[]>([])
   const [activeFilters, setActiveFilters] = useState<string[]>([])
   const [number, setNumber] = useState(3)
   const [programs, setPrograms] = useState(allPrograms)
@@ -57,6 +58,11 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   }, [currentType, selectedLabel, activeFilters, allPrograms])
 
   const handleSetCurrentType = (selectedOption: SelectOption) => {
+    if (selectedOption.value === 'Bachelor') {
+      setAvailableOptions([{ value: 'offline', label: 'Очно-заочно' }])
+    } else {
+      setAvailableOptions([{ value: 'online', label: 'Онлайн' }])
+    }
     setCurrentType(selectedOption)
     setSelectedLabel(null)
     setActiveFilters([])
@@ -103,7 +109,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
         />
         <CustomSelect
           onChange={() => {}}
-          options={formOptions}
+          options={availableOptions}
           placeholder='Форма обучения'
           isDisabled={!selectedLabel}
         />

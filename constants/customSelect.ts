@@ -5,11 +5,6 @@ const levelOptions = [
   { value: 'PracticalTraining', label: 'Практическая подготовка' }
 ]
 
-const formOptions = [
-  { value: 'online', label: 'Онлайн' },
-  // { value: 'offline', label: 'Очно-заочно' }
-]
-
 const programsOptions = [
   { value: 'online', label: 'Детская психология' },
   { value: 'offline', label: 'Клиническая психология' },
@@ -20,4 +15,4 @@ const programsOptions = [
   { value: 'offline', label: 'Диетология и нутрициология' }
 ]
 
-export { levelOptions, formOptions, programsOptions }
+export { levelOptions, programsOptions }

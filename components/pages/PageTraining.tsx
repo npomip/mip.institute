@@ -42,6 +42,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       <PracticalList list={practicalTraining?.practicalList.item} />
       <ThreadBlock points={practicalTraining.termsPoints} />
       <PracticalWhoIsProgramFor />
+      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
       <PracticalProgramDescription
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}
@@ -63,7 +64,6 @@ const PageTraining = ({ practicalTraining }: Props) => {
         titlePaddingLeft={70}
       />
       <PracticalCourseResult results={practicalTraining?.courseResult.list} />
-      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
       <PracticalPaymentForm price={practicalTraining.price} />
       {/* <GeneralFaq qnas={practicalTraining.qnas} /> */}
     </div>

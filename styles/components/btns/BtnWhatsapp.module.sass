@@ -8,12 +8,12 @@
   align-items: center
   @include m.gap($m: f.px(6), $ptb: f.px(12), $plr: f.px(12))
   border: f.px(1) solid
-  @include m.dye(border, c.$xi)
+  @include m.dye(border, c.$purple-600)
   border-radius: f.px(4)
   transition: background-color .2s ease-in-out
   &.mlzero
     @include m.gap($ml: 0)
   &.dark
-    @include m.dye(border, rgba(c.$nu, .1))
+    @include m.dye(border, rgba(c.$white-900, .1))
     &:focus, &:hover
-      @include m.dye(bg, rgba(c.$nu, .1))
+      @include m.dye(bg, rgba(c.$white-900, .1))

@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .btn
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   border-radius: 20px 0 20px 0
   margin-right: 10px
   @include m.media(phone, tablet)
@@ -21,7 +21,7 @@
 
 .licenseTitle
   position: relative
-  color: white
+  @include m.dye(c, c.$white-900)
   z-index: 2
   font-size: f.px(20)
   @include m.media(phone, tablet)
@@ -31,7 +31,7 @@
   margin-left: 25px
   display: flex
   // justify-content: flex-start
-    
+
     // color: gray
 .edu
   font-weight: 500
@@ -39,17 +39,17 @@
   display: flex
   @include m.media(phone, tablet)
     font-size: f.px(15)
-    
+
   margin-left: 29px
   // margin-right: 20px
   position: relative
   color: #F87E1B
   z-index: 10
-  
+
   &::before
     transform: translateX(-4px)
     content: 'лицензия '
-    color: white
+    @include m.dye(c, c.$white-900)
 .iconRus
   position: absolute
   @include m.media(phone, tablet)
@@ -71,7 +71,6 @@
     // transform: scale(1)
   mix-blend-mode: soft-light
 
-
 .license, .cuttedLicense
   height: f.px(250)
   @include m.media(phone, tablet)
@@ -88,7 +87,6 @@
 .cuttedLicense
   // transform: rotateX(90deg)
   height: f.px(120)
-  
 
 .leftLicense
   position: relative
@@ -100,12 +98,10 @@
   @include m.media(phone, tablet)
     margin-right: 0
     flex-wrap: nowrap
-  
 
 .card
   position: relative
-  
-  
+
   @include m.media(phone, tablet)
     scale: 0.75
   // margin-left: 50px

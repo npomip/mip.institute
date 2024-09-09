@@ -44,7 +44,7 @@
         & > *
           & > *
             & > *
-              fill: #6F01C6
+              @include m.dye(fill, c.$purple-800)
               stroke: white
 
   &.teachersNextBtn
@@ -113,7 +113,7 @@
         & > *
           & > *
             & > *
-              fill: #6F01C6
+              @include m.dye(fill, c.$purple-800)
               stroke: white
 
   &.liveCourses
@@ -179,7 +179,7 @@
         & > *
           & > *
             & > *
-              fill: #6F01C6
+              @include m.dye(fill, c.$purple-800)
               stroke: white
 
   &.teachersPrevBtn
@@ -194,7 +194,7 @@
           & > *
             transition: stroke 0.5s ease
             stroke: #FBF4FF
-            fill: #6F01C6
+            @include m.dye(fill, c.$purple-800)
             @include m.media(phone, tablet)
               // display: none
     &:hover
@@ -202,7 +202,7 @@
         & > *
           & > *
             & > *
-              fill: #6F01C6
+              @include m.dye(fill, c.$purple-800)
               stroke: white
 
   &.happyStudentsPrevBtn
@@ -227,7 +227,7 @@
         & > *
           & > *
             & > *
-              fill: #6F01C6
+              @include m.dye(fill, c.$purple-800)
               stroke: white
 
   &.liveCourses

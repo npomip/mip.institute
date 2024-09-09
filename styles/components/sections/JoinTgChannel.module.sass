@@ -4,14 +4,14 @@
 
 .container
   width: 100%
-  
+
   @include m.media(laptop, desktop)
     height: f.px(750)
   @include m.media(laptop)
     display: flex
     flex-wrap: wrap
     justify-content: center
-  color: white
+  @include m.dye(c, c.$white-900)
   position: relative
   h1
     font-size: 44px
@@ -28,8 +28,6 @@
   @include m.media( tablet, phone)
     max-width: 500px
   height: 100%
-  
-
 
 .label
   display: flex
@@ -59,7 +57,7 @@
     position: relative
     line-height: 105%
     z-index: 10
-  
+
 .linkToTg
   border-radius: f.px(4)
   height: f.px(60)
@@ -77,7 +75,7 @@
     font-size: 18px
     font-weight: 500
     text-transform: uppercase
-    color: white
+    @include m.dye(c, c.$white-900)
 .iconWaves
   @include m.gap($mb: f.px(46))
 

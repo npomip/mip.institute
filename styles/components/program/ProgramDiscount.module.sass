@@ -20,8 +20,8 @@
     // @include m.gap($pb: f.px(15))
     border-radius: 50%
     transform: rotate(10deg)
-  @include m.dye(bg, c.$beta)
-  @include m.dye(c, c.$nu)
+  @include m.dye(bg, c.$orange-700)
+  @include m.dye(c, c.$white-900)
   &.small
     @include m.media(phone, tablet)
       min-width: f.px(73)
@@ -55,12 +55,12 @@
       min-height: f.px(60)
       max-height: f.px(70)
     display: flex
-    @include m.dye(bg, c.$alpha)
+    @include m.dye(bg, c.$purple-800)
     border-radius: 20px
     transform: rotate(0deg)
   &.white
     @include m.dye(bg, white)
-    @include m.dye(c, c.$beta)
+    @include m.dye(c, c.$orange-700)
     @include m.media(tablet)
       border-radius: 50%
       transform: rotate(10deg) scale(0.9)

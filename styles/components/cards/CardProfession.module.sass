@@ -31,11 +31,11 @@
   cursor: pointer
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   border-radius: f.px(10)
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.dye(bg, c.$gray-50)
   @include m.media(phone, tablet)
     min-height: auto
-  @include m.dye(c, c.$chi)
+  @include m.dye(c, c.$black-900)
   transition: background-color .2s ease-in-out
   @include m.media(laptop, desktop)
     max-width: f.px(370)
@@ -48,7 +48,7 @@
     .title
       color: #6f01c6 !important
   &:focus
-    @include m.dye(bg, c.$nu)
+    @include m.dye(bg, c.$white-900)
 
 .type
   max-width: max-content
@@ -61,8 +61,8 @@
   letter-spacing: f.px(0.8)
   text-transform: uppercase
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
-  @include m.dye(c, c.$alpha)
+  @include m.dye(border, c.$purple-800)
+  @include m.dye(c, c.$purple-800)
   @include m.media(laptop)
     font-size: f.px(6)
   @include m.media(phone, tablet)
@@ -82,7 +82,7 @@
 .content
   @include m.gap($plr: f.px(30), $pt: f.px(36), $pb: f.px(40),$mt: f.px(-15))
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.dye(bg, c.$gray-50)
   border-bottom-left-radius: f.px(10)
   border-bottom-right-radius: f.px(10)
@@ -108,7 +108,7 @@
   z-index: 1
   width: f.px(60)
   height: f.px(60)
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   @include m.flex($ai:center, $jc: center)
   border-radius: f.px(10)
   @include m.dye(c, white)

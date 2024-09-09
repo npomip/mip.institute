@@ -15,8 +15,8 @@
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between)
     @include m.gap($ptb: f.px(74), $plr: f.px(70))
-    border-radius: f.px(100) 0 
-  @include m.dye(bg, c.$alpha)
+    border-radius: f.px(100) 0
+  @include m.dye(bg, c.$purple-800)
 
 .icon
   position: absolute
@@ -67,7 +67,7 @@
   @include m.media(laptop, desktop)
     font-size: f.px(44)
   font-weight: 500
-  @include m.dye(c, c.$nu)
+  @include m.dye(c, c.$white-900)
 
 .p
   @include m.media(phone, tablet)
@@ -79,8 +79,7 @@
     max-width: 31ch
   font-weight: 300
   line-height: 130%
-  @include m.dye(c, c.$nu)
-
+  @include m.dye(c, c.$white-900)
 
 .btn
   @include m.media(laptop, desktop)

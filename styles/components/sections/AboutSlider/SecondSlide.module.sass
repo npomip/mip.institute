@@ -5,9 +5,9 @@
 
 .container
   max-height: f.px(595)
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   border-radius: f.px(36)
-  color: white
+  @include m.dye(c, c.$white-900)
   @include m.gap($pb: f.px(85), $pl: f.px(71), $pr: f.px(58))
   @include m.media(laptop)
     @include m.gap($pb: f.px(78))
@@ -24,7 +24,7 @@
       font-size: f.px(12)
 
 .liveCourse
-  @include m.dye(bg, c.$purple-200)
+  @include m.dye(bg, c.$purple-300)
 
 .title
   font-size: f.px(30)

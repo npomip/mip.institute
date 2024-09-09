@@ -1,5 +1,6 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
 
 .content
   display: flex
@@ -101,13 +102,14 @@
   width: 100%
   height: f.px(3)
   border-radius: f.px(5)
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   -webkit-appearance: none
   cursor: pointer
   &::-webkit-slider-thumb
     -webkit-appearance: none
     background: white
-    border: 1px solid #6F01C6
+    border: 1px solid
+    @include m.dye(border, c.$purple-800)
     border-radius: 50%
     height: f.px(30)
     width: f.px(30)
@@ -117,7 +119,8 @@
       width: f.px(11)
 
 .value
-  border: 1px solid #6F01C6
+  border: 1px solid
+  @include m.dye(border, c.$purple-800)
   background: none
   width: 100%
   border-bottom: none
@@ -126,7 +129,8 @@
   margin-bottom: f.px(-12)
   @include m.gap($mb: f.px(-12), $ptb: f.px(19), $pl: f.px(30))
   &:focus
-    border: 1px solid #6F01C6
+    border: 1px solid
+    @include m.dye(border, c.$purple-800)
     border-bottom: none
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(12), $pl: f.px(12))
@@ -163,7 +167,7 @@
     left: f.px(17)
     @include m.gap($p: f.px(12))
     background: #7104C4
-    color: white
+    @include m.dye(c, c.$white-900)
     border-radius: f.px(50)
     font-size: f.px(25)
     font-weight: 350

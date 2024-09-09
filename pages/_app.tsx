@@ -14,7 +14,7 @@ import {
   getStudyFields,
   sortBasedOnNumericOrder
 } from '@/helpers/index'
-import { prod, gtmId, routes } from '@/config/index'
+import { prod, gtmId, routes, dev } from '@/config/index'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -29,6 +29,7 @@ import StickyTop from '@/components/layout/StickyTop'
 import promocodes from '@/helpers/promocodes'
 import Link from 'next/link'
 import { Analytics } from '@vercel/analytics/react'
+import RoistatScript from '@/components/scripts/RoistatScript'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {    
@@ -204,37 +205,81 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
-  
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
   useEffect(() => {
     setTimeout(() => {
-      let foundPromo = false;
-      Object.keys(promocodes).forEach((code) => {
+      let foundPromo = false
+      Object.keys(promocodes).forEach(code => {
         if (stringedUtm?.includes(code)) {
-          setIsPromo(true);
-          setPromoText(promocodes[code]);
-          foundPromo = true;
+          setIsPromo(true)
+          setPromoText(promocodes[code])
+          foundPromo = true
         }
-      });
+      })
       if (!foundPromo) {
-        setIsPromo(false);
-        setPromoText('');
+        setIsPromo(false)
+        setPromoText('')
       }
-    }, 2000);
-  }, [utmCookie]);
+    }, 2000)
+  }, [utmCookie])
 
   const closePromo = () => {
     setIsPromo(false)
   }
 
+  const [roistatVisit, setRoistatVisit] = useState('')
+
+  const roistat_visit = getCookie('roistat_visit')
+
+  useEffect(() => {
+    setRoistatVisit(roistat_visit as string)
+  }, [roistat_visit])
+
+  console.log(roistat_visit)
+
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
+      {!dev && (
+        <>
+          <Script
+            strategy='beforeInteractive'
+            src='/assets/js/vendors/roistatAB.js'
+          />
+          <Script
+            id='roistatMain'
+            strategy='beforeInteractive'
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function(w, d, s, h, id) {
+                w.roistatProjectId = id; w.roistatHost = h;
+                var p = d.location.protocol == "https:" ? "https://" : "http://";
+                var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
+                var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
+              })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
+              `}}
+          />
+          {/* <RoistatScript /> */}
+          <Script async src='/assets/js/vendors/roistatWA.js' />
+        </>
+      )} 
+
+      {roistatVisit && (
+        <div
+          className='js-whatsapp-message-container'
+          style={{ display: 'none' }}>
+          Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер
+          обращения: {roistatVisit}
+        </div>
+      )}
+
       <DefaultSeo {...SEO} />
-      <div style={{display: 'none'}}>
-        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>АВА-терапевт</Link>
+      <div style={{ display: 'none' }}>
+        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>
+          АВА-терапевт
+        </Link>
       </div>
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
@@ -278,7 +323,13 @@ const MyApp = ({ Component, pageProps, router }) => {
         <MenuState>
           <FieldsTooltipState>
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
-            {<StickyTop onClick={closePromo} isPromo={isPromo} promoText={promoText} />}
+            {
+              <StickyTop
+                onClick={closePromo}
+                isPromo={isPromo}
+                promoText={promoText}
+              />
+            }
             <Header isPromo={isPromo} />
             <main>
               <ApolloProvider client={client}>
@@ -309,21 +360,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       {prod && (
         <>
-          <Script
-            id='roistat counter'
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function(w, d, s, h, id) {
-              w.roistatProjectId = id; w.roistatHost = h;
-              var p = d.location.protocol == "https:" ? "https://" : "http://";
-              var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
-              var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
-            })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
-          `
-            }}
-          />
-
-          {/* <Script async src='/assets/js/vendors/roistatWA.js' /> */}
+          <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
       )}
 
@@ -388,18 +425,6 @@ const MyApp = ({ Component, pageProps, router }) => {
           __html: `window.addEventListener('DOMContentLoaded', function () {
             new GnzsRoiStatClass().init()
           })`
-        }}
-      />
-      <Script
-        id='variokub'
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function(e, x, pe, r, i, me, nt){
-            e[i]=e[i]||function(){(e[i].a=e[i].a||[]).push(arguments)},
-            me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],nt.parentNode.insertBefore(me,nt)})
-            (window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
-            ymab('metrika.86135986', 'init'/*, {clientFeatures}, {callback}*/);
-          `
         }}
       />
 

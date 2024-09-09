@@ -12,7 +12,7 @@
   min-height: f.px(220)
   border-radius: f.px(25)
   border: f.px(1) solid
-  @include m.dye(border, c.$purple-100)
+  @include m.dye(border, c.$pink-400)
   @include m.media(phone, tablet)
     min-height: f.px(150)
 
@@ -79,7 +79,7 @@
   flex-direction: column
   justify-content: space-between
   min-height: f.px(240)
-  @include m.dye(bg, c.$omega)
+  @include m.dye(bg, c.$pink-100)
   border-top-right-radius: f.px(25)
   border-bottom-right-radius: f.px(25)
   @include m.gap($p: f.px(25),$pt:0)
@@ -94,7 +94,7 @@
 .whiteBg
   @include m.dye(bg, white)
   border-left: f.px(1) solid
-  @include m.dye(border, c.$purple-100)
+  @include m.dye(border, c.$pink-400)
   border-top-right-radius: f.px(10)
   border-bottom-right-radius: f.px(10)
 
@@ -112,7 +112,7 @@
   line-height: 130%
   font-size: f.px(16)
   @include m.gap($pl:f.px(10))
-  @include m.dye(c, c.$chi)
+  @include m.dye(c, c.$black-900)
   @include m.gap($mb: 0)
   @include m.media(tablet)
     font-size: f.px(12)
@@ -135,4 +135,4 @@
   width: 20px
   @include m.gap($pr: f.px(10))
   & path
-    @include m.dye(fill, c.$alpha)
+    @include m.dye(fill, c.$purple-800)

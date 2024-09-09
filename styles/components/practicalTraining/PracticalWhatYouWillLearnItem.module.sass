@@ -8,17 +8,17 @@
   width: 100%
   overflow: hidden
   border-radius: f.px(20)
-  transition: height 0.5s ease, margin-top 0.5s ease, min-height 0.5s ease, margin-bottom 0.5s ease
+  transition: height 0.8s ease, margin-top 0.8s ease, min-height 0.8s ease, margin-bottom 0.8s ease
   &:nth-child(3n+1)
     .number
       @include m.dye(bg, white)
       @include m.dye(c, black)
   &:nth-child(3n+2)
     .number
-      @include m.dye(bg, c.$beta)
+      @include m.dye(bg, c.$orange-700)
   &:nth-child(3n+3)
     .number
-      @include m.dye(bg, c.$alpha)
+      @include m.dye(bg, c.$purple-800)
   &:nth-child(-n+2)
     z-index: 1
     height: f.px(186)
@@ -78,8 +78,6 @@
     height: f.px(70)
   @include m.media(laptop)
     height: f.px(60)
-  @include m.media(phone, tablet)
-    height: f.px(57.76)
 
 .blockNumber
   @include m.media(desktop)

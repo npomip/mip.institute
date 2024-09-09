@@ -1,0 +1,203 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.group
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap, $jc: space-between)
+
+.checkError
+  font-size: f.px(14)
+  font-weight: 300
+  @include m.gap($pt: f.px(17), $mb: f.px(0))
+  & > *
+    color: #808080
+    &:hover
+      @include m.dye(c, c.$purple-800)
+
+.atFooter
+  & .name,
+  & .email,
+  & .promocode,
+  & .btn
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 100%)
+  & .name,
+  // & .phone,
+  & .email,
+  & .promocode
+    & input
+      @include m.media(laptop, desktop)
+        font-size: f.px(16)
+        border: f.px(1) solid
+        @include m.dye(border, c.$gray-800)
+        border-radius: f.px(4)
+        background-color: transparent
+        @include m.dye(c, c.$white-900)
+        &::placeholder
+          @include m.dye(c, c.$gray-500)
+
+.inProfessions
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode,
+  & .btn
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 100%)
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode
+    & input
+      @include m.media(laptop, desktop)
+        margin-top: 6px
+        font-size: f.px(16)
+        border: f.px(1) solid
+        @include m.dye(border, c.$gray-800)
+        border-radius: f.px(4)
+        &::placeholder
+          @include m.dye(c, #B3B3B3)
+  & .dropdown
+    width: 460px !important
+    @include m.media(laptop)
+      width: 350px !important
+    @include m.media(tablet)
+      width: 600px !important
+    @include m.media(phone)
+      width: 300px !important
+
+.inPracticalTraining
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode,
+  & .btn
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 100%)
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode
+    & input
+      margin-top: 6px
+      font-size: f.px(16)
+      border: f.px(1) solid
+      @include m.dye(border, c.$gray-800)
+      border-radius: f.px(4)
+      &::placeholder
+        @include m.dye(c, c.$gray-500)
+  & .dropdown
+    width: f.px(460) !important
+    @include m.media(laptop)
+      width: f.px(350) !important
+    @include m.media(tablet)
+      width: f.px(400) !important
+    @include m.media(phone)
+      width: f.px(270) !important
+
+.inLiveCourses
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode,
+  & .btn
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 100%)
+  & .name,
+  & .phone,
+  & .email,
+  & .promocode
+    & input
+      margin-top: 6px
+      font-size: f.px(16)
+      border: f.px(1) solid
+      @include m.dye(border, c.$purple-300)
+      border-radius: f.px(4)
+      &::placeholder
+        @include m.dye(c, c.$gray-500)
+  & .dropdown
+    width: f.px(460) !important
+    @include m.media(laptop)
+      width: f.px(350) !important
+    @include m.media(tablet)
+      width: f.px(400) !important
+    @include m.media(phone)
+      width: f.px(270) !important
+.inpt
+  & input,
+  & textarea
+    width: 100%
+    @include m.gap($ptb: f.px(17), $plr: f.px(20))
+    border-radius: f.px(4)
+    font-weight: 300
+    &::placeholder
+      @include m.dye(c, c.$gray-700)
+  & textarea
+    outline: none
+
+.name,
+.phone,
+.email,
+.promocode
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 48%)
+
+.question
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 100%)
+
+.btn
+  @include m.media(laptop, desktop)
+    @include m.flex($display: false, $fb: 48%)
+    & > *
+      width: 100%
+
+.agreement
+  @include m.gap($mt: f.px(30))
+  font-size: f.px(13)
+  @include m.dye(c, c.$gray-700)
+
+.err
+  @include m.gap($mt: f.px(5))
+  font-size: f.px(12) !important
+  @include m.dye(c, red)
+
+.tickets
+  flex-basis: 48%
+  display: flex
+  justify-content: center
+
+.containerInput
+  & input
+    @include m.gap($ptb: f.px(17), $plr: f.px(20))
+    border-radius: f.px(4)
+    font-weight: 300
+    width: 100% !important
+    height: 54px !important
+    @include m.media(laptop)
+      height: 47px !important
+    @include m.media(tablet)
+      height: 68px !important
+  @include m.media(laptop, desktop)
+    font-size: f.px(16)
+    border-radius: f.px(4)
+
+.phoneInput,.dropdown
+  font-family: Stem !important
+
+.phoneInput
+  @include m.dye(border, c.$purple-300)
+
+.flagButton
+  background-color: white !important
+  border-color: c.$purple-300 !important
+
+.dropdown
+  width: 280px !important
+  @include m.media(laptop)
+    width: 250px !important
+  @include m.media(tablet)
+    width: 320px !important
+  @include m.media(phone)
+    width: 265px !important

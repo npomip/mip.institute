@@ -8,7 +8,8 @@
 .cards
   position: relative
   z-index: 3
-  border: f.px(1) solid #6f01c6
+  border: f.px(1) solid
+  @include m.dye(border, c.$purple-800)
   background-color: rgba(247, 248, 252, 0.4)
   border-radius: f.px(20)
   padding: f.px(60)
@@ -32,7 +33,7 @@
   @include m.media(phone, tablet)
     font-size: f.px(30)
   span
-    color: #6F01C6
+    @include m.dye(c, c.$purple-800)
 
 .oneCard
   display: flex
@@ -88,7 +89,8 @@
   position: relative
   flex: 1
   // width: 50%
-  border: f.px(1) solid #6f01c6
+  border: f.px(1) solid
+  @include m.dye(border, c.$purple-800)
   background-color: rgba(247, 248, 252, 0.5)
   border-radius: f.px(20)
 
@@ -112,7 +114,7 @@
       font-size: f.px(20)
       max-width: f.px(250)
     span
-      color: #6F01C6
+      @include m.dye(c, c.$purple-800)
 
 .docs
   @include m.gap($ptb: f.px(30), $pl: f.px(70))
@@ -135,4 +137,3 @@
     gap: f.px(30)
   span
     background-color: rgba(255, 255, 255, 0) !important
-

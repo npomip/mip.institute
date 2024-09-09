@@ -22,7 +22,7 @@ import {
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { TypeLibReviews } from '@/types/index'
 import { getCookie } from 'cookies-next'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
@@ -55,15 +55,20 @@ const PagesProgram = ({
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
+  const [isWithPrice, setIsWithPrice] = useState('price');
 
-  let utm
-  const getUtm = getCookie('utm')
-  if (typeof getUtm === 'string') {
-    utm = JSON.parse(getUtm)
-  } else {
-    utm = null // или какое-то другое значение по умолчанию
-  }
-  const isVario = utm?.utm_source === 'vario'
+  useEffect(() => {
+    // Данный код будет выполнен только на клиенте
+    const storedValue = localStorage.getItem('AB');
+    setIsWithPrice(storedValue);
+  }, []);
+
+  // if(window)
+
+  console.log(isWithPrice);
+  
+  
+
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
@@ -79,7 +84,7 @@ const PagesProgram = ({
       ref: resumeRef,
       condition: ofType === 'Profession'
     },
-    { id: 'cost', label: 'Стоимость', ref: costRef, condition: !isVario },
+    { id: 'cost', label: 'Стоимость', ref: costRef, condition: isWithPrice !== 'noprice' },
     { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
     { id: 'faq', label: 'FAQ', ref: faqRef, condition: true }
   ]
@@ -149,7 +154,7 @@ const PagesProgram = ({
         cta='reserve'
       />
 
-      {!isVario && <StudyCost costRef={costRef} />}
+      {isWithPrice !== 'noprice' && <StudyCost costRef={costRef} />}
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <EntryForm pb={isMobileAndTabletLayout ? 60 : 90} pt={0} />
       <Faq faqRef={faqRef} />

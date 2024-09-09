@@ -9,7 +9,7 @@
 
   &.fourtyPx
     svg
-      fill: #6F01C6
+      @include m.dye(fill, c.$purple-800)
       circle, line
         stroke: white
         transition: stroke 0.4s ease, fill 0.2s ease
@@ -29,7 +29,7 @@
         stroke: #6F01C6
     &:hover
       svg
-        fill: #6F01C6
+        @include m.dye(fill, c.$purple-800)
         circle, line
           stroke: white
 
@@ -37,13 +37,13 @@
     svg
       fill: white
       circle, line
-        @include m.dye(stroke, c.$purple-200)
+        @include m.dye(stroke, c.$purple-300)
         transition: stroke 0.4s ease, fill 0.2s ease
     @include m.sizeIcon($w: 45, $h: 45)
     @include m.media(phone, tablet)
       @include m.sizeIcon($w: 30, $h: 30)
     &:hover
       svg
-        fill: #6F01C6
+        @include m.dye(fill, c.$purple-800)
         circle, line
           stroke: white

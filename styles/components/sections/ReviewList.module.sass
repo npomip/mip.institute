@@ -15,16 +15,16 @@
   display: flex
   flex-direction: column
   border-radius: f.px(20)
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   max-width: 48.7%
-  
+
   @include m.media(laptop, desktop)
     @include m.gap( $plr: f.px(40), $pt: f.px(33), $mb: f.px(27))
   @include m.media(phone, tablet)
     max-width: 100%
     @include m.gap($mtb: f.px(15), $plr: f.px(30), $ptb: f.px(23))
   p
-    color: white
+    @include m.dye(c, c.$white-900)
     @include m.media(phone, tablet)
       // max-width: 25ch
       font-size: f.px(12)
@@ -93,13 +93,13 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($pb: f.px(5))
-    
+
 .icon
   position: absolute
   right: 0
-  top: f.px(-105) 
+  top: f.px(-105)
   @include m.media(laptop)
-    top: f.px(-90) 
+    top: f.px(-90)
   @include m.media(phone, tablet)
     display: none
   // transform: translate(800px, -120px)

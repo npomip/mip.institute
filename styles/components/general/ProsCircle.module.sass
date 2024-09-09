@@ -17,8 +17,7 @@
 
 .top, .right, .bottom, .left
   @include m.flex($fd: column)
-  @include m.dye(c, c.$nu)
-
+  @include m.dye(c, c.$white-900)
 
 .center
   position: absolute
@@ -29,7 +28,7 @@
   // @include m.gap($p: f.px(19))
   @include m.gap($p: f.px(19))
   border-radius: 50%
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, c.$white-900)
 
 .top
   position: absolute
@@ -79,7 +78,6 @@
   left: 5%
   transform: translateY(-50%)
 
-
 .subTitle
   @include m.gap($mb: f.px(3))
   @include m.media(phone, tablet)
@@ -94,4 +92,3 @@
     font-size: f.px(12)
   @include m.media(laptop, desktop)
     font-size: f.px(18)
-

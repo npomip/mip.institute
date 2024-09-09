@@ -17,7 +17,6 @@
   @include m.media(phone, tablet)
     @include m.gap( $mt: f.px(50))
 
-
 .title
   font-weight: 500
   font-size: f.px(21)
@@ -35,7 +34,7 @@
   right: 0
   bottom: 0
   left: 0
-  background: #6F01C6
+  @include m.dye(bg, c.$purple-800)
   z-index: 4
   opacity: 0.05
 

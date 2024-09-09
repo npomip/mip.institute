@@ -39,14 +39,14 @@
   &:hover
     background: #B250FF
     p
-      color: white
+      @include m.dye(c, c.$white-900)
   p
     max-width: f.px(320)
     margin: 0 auto
     font-weight: 500
   &.active
     background: #B250FF
-    color: white
+    @include m.dye(c, c.$white-900)
   &:nth-last-of-type(1)
     @include m.gap($mb: f.px(0), $mt: f.px(10))
 
@@ -54,4 +54,3 @@
   width: 100%
   @include m.media(desktop, laptop)
     display: none
-

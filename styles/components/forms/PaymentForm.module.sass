@@ -4,7 +4,7 @@
 
 .container
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   border-radius: f.px(25)
   @include m.dye(bg, white)
   @include m.gap($plr: f.px(30), $pb: f.px(30), $pt: f.px(20))
@@ -23,17 +23,17 @@
       @include m.media(laptop, desktop)
         font-size: f.px(16)
         border: f.px(1) solid
-        @include m.dye(border, c.$alpha)
+        @include m.dye(border, c.$purple-800)
         border-radius: f.px(4)
         background-color: transparent
       @include m.media(phone, tablet)
         font-size: f.px(16)
         border: f.px(1) solid
-        @include m.dye(border, c.$alpha)
+        @include m.dye(border, c.$purple-800)
         border-radius: f.px(4)
         background-color: transparent
         &::placeholder
-          @include m.dye(c, c.$psi)
+          @include m.dye(c, c.$gray-500)
 
 .closeButton
   @include m.media(laptop, desktop)
@@ -53,7 +53,7 @@
     border-radius: f.px(4)
     font-weight: 300
     &::placeholder
-      @include m.dye(c, c.$kappa)
+      @include m.dye(c, c.$gray-700)
   & textarea
     outline: none
 
@@ -108,7 +108,7 @@
 .btn
   padding: f.px(5)
   border-radius: f.px(4)
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   @include m.dye(c, white)
   @include m.gap($ptb: f.px(17), $plr: f.px(57))
   &:disabled

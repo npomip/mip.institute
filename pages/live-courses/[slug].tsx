@@ -4,6 +4,7 @@ import payment from '@/components/funcs/payment'
 import GeneralFaq from '@/components/general/GeneralFaq'
 import Wrapper from '@/components/layout/Wrapper'
 import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
+import LiveCoursesForm from '@/components/liveCourses/LiveCoursesForm'
 import LiveCoursesGetAcess from '@/components/liveCourses/LiveCoursesGetAcess'
 import LiveCoursesHero from '@/components/liveCourses/LiveCoursesHero'
 import LiveCoursesStripe from '@/components/liveCourses/LiveCoursesStripe'
@@ -57,7 +58,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
-      <LiveCoursesHero title={lifeCourse?.title} />
+      <LiveCoursesHero title={lifeCourse?.title} openModal={handleOpen}/>
       <Popup
         open={isTestOpen}
         onClose={() => setIsTestOpen(false)}
@@ -73,12 +74,8 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       ))}
       <LiveCoursesGetAcess marginBottom={60} openModal={handleOpen} />
       <About isLiveCourse />
-      <Reviews
-        subtitle={lifeCourse?.review_subtitle}
-        reviews={lifeCourse?.unique_reviews}
-        isLiveCourse
-      />
-      <EntryForm isLiveCourse />
+      <Reviews subtitle={lifeCourse?.review_subtitle} reviews={lifeCourse?.unique_reviews} isLiveCourse />
+      <LiveCoursesForm program={lifeCourse} />
       <GeneralFaq qnas={lifeCourse?.qnas} />
     </>
   )

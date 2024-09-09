@@ -3,8 +3,8 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  border: f.px(1) solid
-  @include m.dye(border, c.$purple-200)
+  border: 1px solid
+  @include m.dye(border, c.$purple-300)
   border-radius: f.px(50)
   @include m.gap($plr: f.px(20), $ptb: f.px(11))
   background: white
@@ -13,40 +13,44 @@
   font-weight: 350
   white-space: nowrap
   font-size: f.px(14)
-  display: flex
   @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(13), $ptb: f.px(9))
+  display: flex
+  // justify-content: baseline
 
   &.active
-    @include m.dye(bg, c.$purple-200)
-    color: white
+    // Стили для активного состояния
+    @include m.dye(bg, c.$purple-300)
+    @include m.dye(c, c.$white-900)
 
   &:hover
-    @include m.dye(bg, c.$purple-200)
-    color: white
+    @include m.dye(bg, c.$purple-300)
+    @include m.dye(c, c.$white-900)
     font-weight: 350
 
 .category
   border: f.px(1) solid
   @include m.dye(border, c.$orange-700)
   &:hover
-    @include m.dye(bg, c.$orange-700)
-    color: white
+    background: #FD521B
+    @include m.dye(c, c.$white-900)
     font-weight: 500
   &.active
-    @include m.dye(bg, c.$orange-700)
+    // Стили для активного состояния
+    background-color: #FD521B
+    // @include m.dye(c, c.$white-900)
 
 .program
-  border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  border: 1px solid
+  @include m.dye(border, c.$purple-800)
   &:hover
-    @include m.dye(bg, c.$alpha)
+    @include m.dye(bg, c.$purple-800)
     font-weight: 500
 
   &.active
-    @include m.dye(bg, c.$alpha)
+    // Стили для активного состояния
+    @include m.dye(bg, c.$purple-800)
     font-weight: 500
-    color: white
+    @include m.dye(c, c.$white-900)
 
 .quantity
   padding-left: f.px(7)

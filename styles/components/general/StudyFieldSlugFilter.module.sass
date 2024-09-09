@@ -12,7 +12,7 @@
   // margin: 0 auto
   & > *
     margin: 0
-    font-size: f.px(14) 
+    font-size: f.px(14)
     font-weight: 500
     border: f.px(1) solid black
     border-radius: f.px(24)
@@ -21,11 +21,11 @@
     @include m.gap($ptb: f.px(11), $plr: f.px(20), $mr: f.px(40), $mb: f.px(20))
     cursor: pointer
     &:hover
-      color: white
+      @include m.dye(c, c.$white-900)
       background: #7104C4
       border: f.px(1) solid #7104C4
 
 .active
   background: #7104C4
   border: f.px(1) solid #7104C4
-  color: white
+  @include m.dye(c, c.$white-900)

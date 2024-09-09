@@ -11,7 +11,7 @@
   @include m.media(laptop)
     @include m.gap($plr: f.px(20))
   box-shadow: 0 f.px(7) f.px(100) rgba(0, 0, 0, .09)
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, c.$white-900)
 
 .pros
   @include m.media(laptop, desktop)
@@ -36,7 +36,7 @@
     @include m.flex($fd: column)
     font-size: f.px(14)
     line-height: 120%
-    @include m.gap($mr: f.px(10)) 
+    @include m.gap($mr: f.px(10))
     &:nth-child(-n+3)
     &:nth-child(n + 2)
       max-width: f.px(155)
@@ -47,7 +47,7 @@
     @include m.gap($mr: f.px(11))
   @include m.media(laptop, desktop)
     max-width: f.px(37)
-    
+
     & > *
       width: 100%
 

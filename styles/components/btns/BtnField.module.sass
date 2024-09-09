@@ -10,18 +10,18 @@
   text-align: center
   &.tooltip
     border: f.px(1) solid
-    @include m.dye(border, rgba(c.$chi, .2))
+    @include m.dye(border, rgba(c.$black-900, .2))
     font-size: f.px(14)
     font-weight: 300
-    @include m.dye(c, c.$chi)
+    @include m.dye(c, c.$black-900)
   &.smallText
     word-wrap: nowrap
     width: fit-content
     border: f.px(2) solid
-    @include m.dye(border, rgba(c.$chi, .2))
+    @include m.dye(border, rgba(c.$black-900, .2))
     font-weight: 350
     white-space: nowrap
-    @include m.dye(c, c.$chi)
+    @include m.dye(c, c.$black-900)
     @include m.gap($ptb: f.px(12), $plr: f.px(16))
     font-size: f.px(12)
     & > *
@@ -32,18 +32,18 @@
     transition: background 0.5s ease, color 0.5s ease
     &:hover
       background: #FD521B
-      color: white
+      @include m.dye(c, c.$white-900)
 
   &.aside
     line-height: f.px(20)
     border: 1px solid
-    @include m.dye(border, c.$beta-2)
-    @include m.dye(bg, c.$nu)
-    @include m.dye(c, c.$chi)
+    @include m.dye(border, c.$pink-200)
+    @include m.dye(bg, c.$white-900)
+    @include m.dye(c, c.$black-900)
     &.active
       border: 0
-      @include m.dye(bg, c.$beta)
-      @include m.dye(c, c.$nu)
+      @include m.dye(bg, c.$orange-700)
+      @include m.dye(c, c.$white-900)
       &:hover,
       &:focus
         transform: scale(1)
@@ -55,9 +55,9 @@
 
   &.violet
     border: f.px(1) solid
-    @include m.dye(border, c.$alpha)
+    @include m.dye(border, c.$purple-800)
     @include m.gap($ptb: f.px(12), $plr: f.px(16))
     transition: background 0.5s ease, color 0.5s ease
     &:hover
-      @include m.dye(bg, c.$alpha)
-      color: white
+      @include m.dye(bg, c.$purple-800)
+      @include m.dye(c, c.$white-900)

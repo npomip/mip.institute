@@ -12,12 +12,12 @@
 .wrapper
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(53), $plr: f.px(10), $mb: f.px(0))
-    border-radius: 0px 0px 50px  33px 
+    border-radius: 0px 0px 50px 33px
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between, $ai: center)
     @include m.gap($ptb: f.px(30), $plr: f.px(80))
-    border-radius: 0 0 f.px(100) 0 
-  @include m.dye(bg, c.$pi)
+    border-radius: 0 0 f.px(100) 0
+  @include m.dye(bg, c.$yellow-100)
 
 .img
   @include m.media(phone, tablet)
@@ -34,12 +34,12 @@
 
 .text
   @include m.media(laptop, desktop)
-    @include m.flex($display: false, $fb: 50%, $as: center)
+    @include m.flex($display: false, $fb: 60%, $as: center)
     @include m.gap($mr: f.px(36))
 
 .title
   color: #F87E1B
-  
+
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(10))
     text-align: center
@@ -47,7 +47,7 @@
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(20))
     font-size: f.px(44)
-  font-weight: 500
+    font-weight: 500
 
 .p
   @include m.gap($mb: f.px(20))
@@ -59,8 +59,7 @@
     max-width: 31ch
   font-weight: 300
   line-height: 130%
-  @include m.dye(c, c.$theta)
-
+  @include m.dye(c, c.$black-800)
 
 .btn
   & > *
@@ -77,3 +76,4 @@
       & > *
         width: 100%
         border-radius: 15px
+

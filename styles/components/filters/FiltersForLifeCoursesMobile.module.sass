@@ -13,9 +13,9 @@
   @include m.gap($plr: f.px(15))
 
 .btn
-  background: #947AFF
+  @include m.dye(bg, c.$purple-300)
   width: 100%
-  color: white
+  @include m.dye(c, c.$white-900)
   @include m.gap($ptb: f.px(18), $mb: f.px(60), $mt: f.px(40))
   // border-top: f.px(2) solid red
   font-size: f.px(18)
@@ -35,4 +35,4 @@
   border-radius: f.px(3)
 
 .program
-  @include m.dye(bg, c.$beta)
+  @include m.dye(bg, c.$orange-700)

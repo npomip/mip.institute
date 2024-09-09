@@ -22,7 +22,7 @@
     @include m.gap($mb: f.px(60))
     font-size: f.px(44)
   font-weight: 500
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .p
   @include m.gap($mb: f.px(20))
@@ -32,13 +32,13 @@
     font-size: f.px(20)
     line-height: 130%
   font-weight: 300
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .list
   @include m.gap($m: 0, $p: 0)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(42))
-  
+
 .item
   @include m.flex
   @include m.media(phone, tablet)

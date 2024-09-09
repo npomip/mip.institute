@@ -1,0 +1,48 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.card
+  min-width: f.px(190)
+  height: f.px(250)
+  border-radius: f.px(15)
+  @include m.gap($plr: f.px(20), $pt: f.px(20), $pb: f.px(40))
+  @include m.flex($ai: flex-end, $jc: space-between, $fd: column)
+
+.whiteCard
+  @include m.dye(bg, c.$white-900)
+  border: f.px(1) solid c.$purple-200
+
+.purpleCard
+  @include m.dye(bg, c.$purple-200)
+  border: f.px(1) solid c.$purple-350
+  @include m.gap($mt: f.px(40))
+  @include m.media(phone, tablet)
+    @include m.gap($mt:0)
+
+.number
+  font-size: f.px(40)
+  font-weight: 350
+  border: f.px(1) solid c.$purple-200
+  border-radius: 50%
+  text-align: center
+  width: f.px(50)
+  height: f.px(50)
+
+.whiteNumber
+  @include m.dye(c, c.$white-900)
+  border: f.px(1) solid c.$white-900
+
+.purpleNumber
+  @include m.dye(c, c.$purple-200)
+  border: f.px(1) solid c.$purple-200
+
+.title
+  font-size: f.px(18)
+  font-weight: 500
+  line-height: 130%
+  @include m.gap($mb: f.px(25))
+
+.text
+  font-size: f.px(14)
+  font-weight: 350

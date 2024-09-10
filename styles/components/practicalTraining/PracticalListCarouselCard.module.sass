@@ -41,8 +41,16 @@
   font-size: f.px(18)
   font-weight: 500
   line-height: 130%
-  @include m.gap($mb: f.px(25))
+  & > p
+    margin: 0
 
 .text
   font-size: f.px(14)
   font-weight: 350
+
+.description
+  @include m.flex($fd: column, $ai: flex-start)
+  width: 100%
+
+.bigText
+  font-size: f.px(18)

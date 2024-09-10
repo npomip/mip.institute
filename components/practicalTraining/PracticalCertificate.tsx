@@ -4,6 +4,10 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import PopupTrigger from '../general/PopupTrigger'
 import Wrapper from '../layout/Wrapper'
+import TwoColumnsPractical from '../layout/TwoColumnsPractical'
+import ticket from '@/public/assets/imgs/practicalCarousel/ticket.jpg'
+import rocket from '@/public/assets/imgs/practicalCarousel/rocket.jpg'
+
 
 type Props = {
   image: PracticalDiploma
@@ -13,25 +17,39 @@ const PracticalCertificate = ({ image }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.blocks}>
+        <TwoColumnsPractical bigLeft fixHeight>
           <div
             className={classNames({
               [stls.layout]: true,
               [stls.left]: true
             })}>
             <div className={stls.text}>
-              <h2 className={stls.title}>Сертификат после обучения</h2>
+              <h2 className={stls.title}>
+                <span className={stls.colouredTitle}>
+                  Сертификат<br/>
+                </span>
+                после обучения</h2>
               <p className={stls.description}>
                 Удостоверение о повышении квалификации выдается после освоения всех 3-х ступеней
               </p>
             </div>
-            <div className={stls.img}>
-              <Image
-                src={image?.url}
-                width={image?.width}
-                height={image?.height}
-                alt='Сертификат'
-              />
+            <div className={stls.images}>
+              <div className={stls.imgTicket}>
+                <Image
+                  src={ticket}
+                  width={ticket.width}
+                  height={ticket.height}
+                  alt='Сертификат'
+                />
+              </div>
+              <div className={stls.imgCertificate}>
+                <Image
+                  src={image?.url}
+                  width={image?.width}
+                  height={image?.height}
+                  alt='Удостоверение'
+                />
+              </div>
             </div>
           </div>
           <div
@@ -39,25 +57,27 @@ const PracticalCertificate = ({ image }: Props) => {
               [stls.layout]: true,
               [stls.right]: true
             })}>
-            <span
-              className={classNames({
-                [stls.title]: true,
-                [stls.white]: true
-              })}>
-              Остались вопросы?
-            </span>
             <p
-              className={classNames({
-                [stls.description]: true,
-                [stls.white]: true
-              })}>
+              className={stls.titleRight}>
+              Остались вопросы?
+            </p>
+            <p
+              className={stls.descriptionRight}>
               Ответы на вопросы и консультация по обучению
             </p>
+            <div className={stls.imgRight}>
+                <Image
+                  src={rocket}
+                  width={rocket.width}
+                  height={rocket.height}
+                  alt='Ракета'
+                />
+              </div>
             <div className={stls.btn}>
-              <PopupTrigger btn='zeta' cta='askQuestion' />
+              <PopupTrigger btn='delta' cta='askQuestion' />
             </div>
           </div>
-        </div>
+        </TwoColumnsPractical>
       </Wrapper>
     </section>
   )

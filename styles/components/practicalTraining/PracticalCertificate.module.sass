@@ -2,81 +2,94 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.blocks
-  @include m.flex($jc: space-between)
-  gap: f.px(15)
-  @include m.media(phone, tablet)
-    @include m.flex($fd: column)
-
 .layout
-  border-radius: f.px(20)
+  border-radius: f.px(10)
   position: relative
   overflow: hidden
-  @include m.gap($pl: f.px(60), $pt: f.px(50))
-  @include m.media(phone, tablet)
-    border-radius: f.px(5)
-    @include m.gap($pl: f.px(20), $pt: f.px(20))
+  @include m.gap($pl: f.px(47), $pt: f.px(40))
 
 .left
-  width: f.px(700)
-  height: f.px(350)
   @include m.dye(bg, white)
-  @include m.flex($fd: row)
+  width: 100%
+  height: 100%
+  @include m.flex($fd: column)
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(20), $pr: f.px(20))
+    @include m.gap($pl: f.px(21), $ptb: f.px(40))
     @include m.flex($fd: column)
-    height: fit-content
     width: 100%
+
+.images
+  @include m.flex()
 
 .title
   display: inline-block
   font-size: f.px(44)
   font-style: normal
   font-weight: 500
-  min-width: f.px(380)
   @include m.media(laptop)
-    min-width: auto
   @include m.gap($mb: f.px(15))
   @include m.media(phone, tablet)
-    font-size: f.px(28)
+    font-size: f.px(30)
 
 .description
   font-size: f.px(20)
-  font-style: normal
   font-weight: 350
   line-height: 130%
-  max-width: f.px(250)
+  max-width: f.px(284)
   @include m.media(phone, tablet)
-    font-size: f.px(16)
+    @include m.gap($mb: f.px(90))
+    font-size: f.px(15)
+
+.descriptionRight
+  font-size: f.px(20)
+  font-weight: 350
+  text-align: center
+  line-height: 130%
+  max-width: f.px(284)
+  position: relative
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    max-width: none
+    z-index: 1
 
 .white
   @include m.dye(c, white)
-  max-width: f.px(290)
 
 .right
-  width: f.px(470)
-  height: f.px(350)
-  @include m.gap($pr: f.px(60))
-  background: linear-gradient(119deg, #1E1B1F -48.72%, #3E1B4B 30.67%, #6F01C6 110.05%)
+  @include m.flex($fd: column, $ai: center)
+  width: 100%
+  height: 100%
+  @include m.gap($plr: f.px(63), $ptb: f.px(59))
   @include m.media(phone, tablet)
-    height: f.px(220)
-    @include m.gap($pr: f.px(20))
-    width: 100%
+    @include m.gap($plr: f.px(52), $ptb: f.px(40))
 
-.img
-  border-radius: f.px(20)
-  height: fit-content
-  transform: rotate(25deg) translateY(f.px(40)) scale(1.5) translateX(f.px(30))
-  @include m.media(laptop)
-    transform: rotate(25deg) translateX(f.px(50)) scale(1.1)
+.titleRight
+  text-align: center
+  font-size: f.px(25)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20))
+
+.imgCertificate
+  transform: translateY(f.px(0)) translateX(f.px(-277))
   @include m.media(phone, tablet)
-    transform: rotate(0)
-  & > span > img
-    border-radius: f.px(20)
-    border: f.px(1) solid #6f01c6 !important
+    transform: translateY(f.px(16)) scale(1.4) translateX(f.px(-99))
+
+.imgTicket
+  transform: translateY(f.px(-131)) translateX(f.px(313))
+  @include m.media(laptop)
+    transform: translateY(f.px(-91)) translateX(f.px(273))
+  @include m.media(phone, tablet)
+    transform: translateY(f.px(-59)) scale(1.4) translateX(f.px(110))
+
+.imgRight
+  transform: rotate(17deg)
+  @include m.gap($mb: f.px(20))
 
 .btn > div > button
-  background-color: white
-  border-color: white
-  color: black
   width: 100%
+  @include m.gap($plr: f.px(20))
+.btn
+  width: 100%
+.colouredTitle
+  @include m.dye(c, c.$orange-700)

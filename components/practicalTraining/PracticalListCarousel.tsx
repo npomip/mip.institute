@@ -14,29 +14,30 @@ const PracticalList = ({ list }: Props) => {
   const slides = list.map((item, idx) => (
     <PracticalListCarouselCard
       key={item.text + idx}
-      card={item}
+      title={item.title}
+      text={item.text}
       number={idx + 1}
+      margin={25}
     />
   ))
 
-  const desktopSwiperOptions = {
-    slidesNum: 4.7,
-    spaceBetween: 25
-  }
-
-  const laptopSwiperOptions = {
-    slidesNum: 3.5,
-    spaceBetween: 25
-  }
-
-  const tabletSwiperOptions = {
-    slidesNum: 2,
-    spaceBetween: 25
-  }
-
-  const mobileSwiperOptions = {
-    slidesNum: 1.5,
-    spaceBetween: 30
+  const swiperOptions = {
+    mobile: {
+      slidesNum: 1.5,
+      spaceBetween: 30
+    },
+    tablet: {
+      slidesNum: 2,
+      spaceBetween: 25
+    },
+    laptop: {
+      slidesNum: 3.5,
+      spaceBetween: 25
+    },
+    desktop: {
+      slidesNum: 4.7,
+      spaceBetween: 25
+    }
   }
 
   const fingerRef = useRef(null)
@@ -51,10 +52,10 @@ const PracticalList = ({ list }: Props) => {
         </h2>
         <SwiperContainer
           slides={slides}
-          mobileOptions={mobileSwiperOptions}
-          tabletOptions={tabletSwiperOptions}
-          laptopOptions={laptopSwiperOptions}
-          desktopOptions={desktopSwiperOptions}
+          mobileOptions={swiperOptions.mobile}
+          tabletOptions={swiperOptions.tablet}
+          laptopOptions={swiperOptions.laptop}
+          desktopOptions={swiperOptions.desktop}
           hideNavigation
         />
         <div className={stls.finger}>

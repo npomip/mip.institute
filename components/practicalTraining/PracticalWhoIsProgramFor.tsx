@@ -1,35 +1,21 @@
-import stls from '@/styles/components/practicalTraining/PracticalWhoIsProgramFor.module.sass'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import src from '@/public/assets/imgs/practicalCarousel/Frame 40158.jpg'
+import stls from '@/styles/components/practicalTraining/PracticalWhoIsProgramFor.module.sass'
+import bubblesList from 'constants/practicalBubbles'
 import parse from 'html-react-parser'
 import marked from 'marked'
+import Image from 'next/image'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import Wrapper from '../layout/Wrapper'
-import src from '@/public/assets/imgs/practicalCarousel/Frame 40158.jpg'
-import bubblesList from 'constants/practicalBubbles'
-import Image from 'next/image'
-import classNames from 'classnames'
+import renderedList from 'constants/practicalWhoIsProgramFor'
 
-
-type Props = {}
-const list = [
-  {
-    text: '**У вас нет релевантного опыта консультирования,** вы не осмеливаетесь взять первого клиента, не чувствуете уверенности в собственных силах начать консультировать',
-  },
-  {
-    text: '**У вас присутствует страх** неправильно выявить запрос и не оказать необходимую помощь клиенту, вы боитесь заявить о себе и получить негативные отклики',
-  },
-  {
-    text: '**Вы хотите приобрести более глубокий практический опыт** для обретения веры в себя как психолога, получить обратную связь о своей работе от преподавателя',
-  }
-]
-const PracticalWhoIsProgramFor = ({}: Props) => {
+const PracticalWhoIsProgramFor = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const renderer = new marked.Renderer()
-  const bubblesListMob = bubblesList.slice(1, bubblesList.length - 4);
-  renderer.strong = text => {
-    return `<span className=${stls.strongText}>${text}</span>`
-  }
+  const mobileBubblesList = bubblesList.slice(1, bubblesList.length - 4)
+  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
   marked.setOptions({ renderer })
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -48,48 +34,50 @@ const PracticalWhoIsProgramFor = ({}: Props) => {
                 <span className={stls.colouredTitle}>Для кого </span>
                 программа
               </h2>
-                <p className={stls.subTitle}>Начинающий психолог</p>
+              <p className={stls.subTitle}>Начинающий психолог</p>
               <div className={stls.cardsBlock}>
-                {list.map((el, index) => (
-                  <div className={stls.card} key={el.text}>
+                {renderedList.map((item, index) => (
+                  <div className={stls.card} key={item}>
                     <span className={stls.number}>{index + 1}</span>
-                    <div className={stls.text}>{parse(marked(el.text))}</div>
+                    <div className={stls.text}>{parse(marked(item))}</div>
                   </div>
                 ))}
+              </div>
             </div>
-          </div>
             <div className={stls.bubbleContainer}>
-                {bubblesList.map((src, index) => (
-                  <div 
-                    className={`${stls.bubbleImage} ${stls[`bubbleImage${index}`]}`}
-                    key={index}
-                  >
+              {bubblesList.map((src, index) => (
+                <div
+                  className={`${stls.bubbleImage} ${
+                    stls[`bubbleImage${index}`]
+                  }`}
+                  key={index}>
+                  <Image
+                    src={src}
+                    alt='Пузыри'
+                    width={src.width}
+                    height={src.height}
+                  />
+                </div>
+              ))}
+            </div>
+            {isMobileAndTabletLayout && (
+              <div className={stls.bubbleContainerMob}>
+                {mobileBubblesList.map((src, index) => (
+                  <div
+                    className={`${stls.bubbleImage} ${
+                      stls[`bubbleImage${index}`]
+                    }`}
+                    key={index}>
                     <Image
-                      src={src} 
-                      alt='Пузыри' 
-                      width={src.width} 
+                      src={src}
+                      alt='Пузыри'
+                      width={src.width}
                       height={src.height}
                     />
                   </div>
                 ))}
-            </div>
-            {isMobileAndTabletLayout && 
-            <div className={stls.bubbleContainerMob}>
-                {bubblesListMob.map((src, index) => (
-                  <div 
-                    className={`${stls.bubbleImage} ${stls[`bubbleImage${index}`]}`}
-                    key={index}
-                  >
-                    <Image
-                      src={src} 
-                      alt='Пузыри' 
-                      width={src.width} 
-                      height={src.height}
-                    />
-                  </div>
-                ))}
-            </div>
-            }
+              </div>
+            )}
           </div>
         </TwoColumnsPractical>
       </Wrapper>

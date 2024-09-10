@@ -7,10 +7,10 @@ import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
 import PracticalList from '../practicalTraining/PracticalListCarousel'
 import PracticalPaymentForm from '../practicalTraining/PracticalPaymentForm'
 import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
+import PracticalStripe from '../practicalTraining/PracticalStripe'
 import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
 import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
-import ThreadBlock from '../practicalTraining/ThreadBlock'
 import { Teachers } from '../sections'
 import { SeoPageBachelor } from '../seo'
 
@@ -40,13 +40,13 @@ const PageTraining = ({ practicalTraining }: Props) => {
         practicalTraining={practicalTraining}
       />
       <PracticalList list={practicalTraining?.practicalList.item} />
-      <ThreadBlock points={practicalTraining.termsPoints} />
       <PracticalWhoIsProgramFor />
       <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
       <PracticalProgramDescription
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}
       />
+      <PracticalStripe />
       <PracticalWhatYouWillLearn
         listLearn={practicalTraining.whatYouWillLearn}
         photo={practicalTraining.whatYouWillLearnPhoto}

@@ -19,7 +19,7 @@ const PracticalWhoIsProgramFor = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <TwoColumnsPractical leftViolet>
+        <TwoColumnsPractical leftViolet fixHeight>
           <div className={stls.smallContainer}>
             <div className={stls.imageContainer}>
               <div className={stls.image}>

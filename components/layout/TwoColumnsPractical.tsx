@@ -7,36 +7,37 @@ type Props = {
   bigLeft?: boolean
   leftViolet?: boolean
   rightViolet?: boolean
+  fixHeight?: boolean
 }
 
 const TwoColumnsPractical = ({
   children,
   bigLeft = false,
   leftViolet = false,
-  rightViolet = false
+  rightViolet = false,
+  fixHeight = false
 }: Props) => {
   return (
     <div
       className={classNames({
         [stls.container]: true,
+        [stls.fixHeight]: fixHeight
       })}>
-      <div 
+      <div
         className={classNames({
           [stls.leftColumn]: true,
-          [stls.isViolet]: leftViolet,
+          [stls.isViolet]: leftViolet
         })}
-        style={{flexBasis: bigLeft ? '65%' : '35%'}}
-        >
-          {children[0]}
+        style={{ flexBasis: bigLeft ? '65%' : '35%' }}>
+        {children[0]}
       </div>
-      <div 
+      <div
         className={classNames({
           [stls.rightColumn]: true,
-          [stls.isViolet]: rightViolet,
-        })} 
-        style={{flexBasis: bigLeft ? '35%' : '65%'}}
-        >
-          {children[1]}
+          [stls.isViolet]: rightViolet
+        })}
+        style={{ flexBasis: bigLeft ? '35%' : '65%' }}>
+        {children[1]}
       </div>
     </div>
   )

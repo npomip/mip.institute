@@ -6,11 +6,15 @@
   width: 100%
   gap: f.px(30)
   @include m.media(laptop, desktop)
-    min-height: f.px(583)
+    min-height: fit-content
     @include m.flex()
   @include m.media(phone, tablet)
     @include m.flex($fd: column-reverse)
     gap: f.px(10)
+
+.fixHeight
+  @include m.media(laptop, desktop)
+    min-height: f.px(583)
 
 .leftColumn
   border: f.px(1) solid c.$purple-350

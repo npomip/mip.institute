@@ -1,9 +1,9 @@
 import stls from '@/styles/components/practicalTraining/PracticalPaymentForm.module.sass'
-import Wrapper from '../layout/Wrapper'
-import formList from 'constants/practicalPaymentForm'
-import IconThickRedRound from '../icons/IconThickRedRound'
 import classNames from 'classnames'
+import formList from 'constants/practicalPaymentForm'
 import { FormAlpha } from '../forms'
+import IconThickRound from '../icons/IconThickRound'
+import Wrapper from '../layout/Wrapper'
 
 type Props = {
   price: number
@@ -50,7 +50,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                     {formList.map(el => (
                       <li className={stls.item} key={el.title}>
                         <div className={stls.icon}>
-                          <IconThickRedRound />
+                          <IconThickRound />
                         </div>
                         <div className={stls.itemText}>
                           <span className={stls.itemTitle}>{el.title}</span>
@@ -64,7 +64,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   <div className={stls.rightColumn}>
                     <li className={stls.item}>
                       <div className={stls.icon}>
-                        <IconThickRedRound />
+                        <IconThickRound />
                       </div>
                       <div className={stls.itemText}>
                         <span className={stls.itemTitle}>

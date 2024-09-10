@@ -7,7 +7,6 @@ import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
 import PracticalList from '../practicalTraining/PracticalListCarousel'
 import PracticalPaymentForm from '../practicalTraining/PracticalPaymentForm'
 import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
-import PracticalStripe from '../practicalTraining/PracticalStripe'
 import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
 import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
@@ -46,7 +45,6 @@ const PageTraining = ({ practicalTraining }: Props) => {
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}
       />
-      <PracticalStripe />
       <PracticalWhatYouWillLearn
         listLearn={practicalTraining.whatYouWillLearn}
         photo={practicalTraining.whatYouWillLearnPhoto}

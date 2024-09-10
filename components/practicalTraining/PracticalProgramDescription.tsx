@@ -1,130 +1,66 @@
 import Wrapper from '@/components/layout/Wrapper'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/practicalTraining/PracticalProgramDescription.module.sass'
 import {
   DescriptionCardItem,
   ProgramDescription
 } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
-import parse from 'html-react-parser'
-import marked from 'marked'
+import classNames from 'classnames'
 import Image from 'next/image'
-import { useState } from 'react'
-import SwiperCore, { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import PracticalNextButton from '../general/PracticalNextButton'
-import PracticalPrevButton from '../general/PracticalPrevButton'
-import TagOrange from '../general/TagOrange'
-import { IconFinger } from '../icons'
-SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay])
+import IconThickRound from '../icons/IconThickRound'
+import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 
 type Props = {
-  description: ProgramDescription
   cards: DescriptionCardItem[]
+  description: ProgramDescription
 }
 
-const PracticalProgramDescription = ({ description, cards }: Props) => {
-  const [title, setTitle] = useState('Описание программы')
-  const [showDescription, setShowDescription] = useState(true)
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-  const handleSlideChange = swiper => {
-    const activeIndex = swiper.activeIndex
-    if (activeIndex === 0) {
-      setTitle('Описание программы')
-      setShowDescription(true)
-    } else if (activeIndex === 0 || activeIndex === 1) {
-      setTitle('Описание программы')
-      setShowDescription(true)
-    } else {
-      setTitle('Программа включает в себя:')
-      setShowDescription(false)
-    }
-  }
-  const renderer = new marked.Renderer()
-  renderer.em = text => {
-    return `<span class=${stls.strongText} style="color: ${description.subtitleColor}">${text}</span>`
-  }
-
-  renderer.strong = text => {
-    return `<span class=${stls.strongText}>${text}</span>`
-  }
-  marked.setOptions({ renderer })
+const PracticalProgramDescription = ({ cards, description }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.top}>
-          <div className={stls.tag}>
-            <TagOrange>Практика</TagOrange>
-          </div>
-          <div className={stls.titleContainer}>
-            <h2 className={stls.title}>{title}</h2>
-          </div>
-          {showDescription && (
-            <div className={stls.desc}>{parse(marked(description.title))}</div>
-          )}
+        <div className={stls.titleContainer}>
+          <h2 className={stls.title}>Описание программы</h2>
+          <p className={stls.remark}>
+            *Эта программа является{' '}
+            <span className={stls.underlined}>
+              первой образовательной
+              <br /> ступенью
+            </span>{' '}
+            практической отработки навыков <br /> психологического
+            консультирования.
+          </p>
         </div>
-        <div className={stls.cards}>
-          <Swiper
-            onSlideChange={handleSlideChange}
-            navigation={{
-              prevEl: '.custom-prev-button',
-              nextEl: '.custom-next-button'
-            }}
-            slidesPerView={isMobileAndTabletLayout ? 1 : 2}
-            spaceBetween={30}
-            slidesPerGroup={isMobileAndTabletLayout ? 1 : 2}
-            className={stls.mySwiper}>
-            {cards?.map((description, idx) => (
-              <SwiperSlide key={description.title + idx} className={stls.slide}>
-                <div className={stls.cardContainer}>
-                  <div className={stls.cardInnerContainer}>
-                    <div className={stls.textBlock}>
-                      <p className={stls.cardTitle}>{description.title}</p>
-                      <p className={stls.cardSubtitle}>
-                        {description.subtitle}
-                      </p>
-                    </div>
-                    <div className={stls.imageBlock}>
-                      <Image
-                        className={stls.cardImage}
-                        src={description.picture?.url}
-                        width={description.picture?.width}
-                        height={description.picture?.height}
-                        alt={stls.cardTitle}
-                      />
-                    </div>
-                  </div>
+        <TwoColumnsPractical>
+          <ul className={stls.listColumn}>
+            {cards.map(el => (
+              <li className={stls.item} key={el.title}>
+                <div className={stls.icon}>
+                  <IconThickRound fill='#D6C5FF' />
                 </div>
-              </SwiperSlide>
+                <div className={stls.itemText}>
+                  <span className={classNames(stls.text, stls.bold)}>
+                    {el.title}
+                  </span>{' '}
+                  <span className={stls.text}>{el.subtitle}</span>
+                </div>
+              </li>
             ))}
-          </Swiper>
-          <div className='custom-prev-button-container'>
-            <PracticalPrevButton
-              programPrevButton
-              left={-1130}
-              top={175}
-              mobileTop={-195}
-              mobileLeft={-509}
+          </ul>
+
+          <div className={stls.image}>
+            <Image
+              src={cards[0]?.picture?.url}
+              alt='Лекция'
+              width={1000}
+              height={755}
+              layout='responsive'
             />
           </div>
-          <div className='custom-next-button-container'>
-            <PracticalNextButton
-              programNextButton
-              left={41}
-              top={175}
-              mobileTop={-195}
-              mobileLeft={50}
-            />
-          </div>
-          {isMobileAndTabletLayout && (
-            <div className={stls.orangeBlock}>
-              <IconFinger />
-            </div>
-          )}
-        </div>
-        <div className={stls.bottom}>
-          <div className={stls.desc}>{parse(marked(description.subtitle))}</div>
-        </div>
+        </TwoColumnsPractical>
       </Wrapper>
+      <div className={stls.stripe}>
+        <h3 className={stls.stripeText}>{description.subtitle}</h3>
+      </div>
     </section>
   )
 }

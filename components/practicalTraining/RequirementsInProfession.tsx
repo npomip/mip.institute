@@ -3,7 +3,8 @@ import Wrapper from '../layout/Wrapper'
 import RequirementsWithProgress from './RequirementWithProgress'
 import stls from '@/styles/components/practicalTraining/RequirementsInProfession.module.sass'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import { OneNumber } from '../icons'
+import CubicBlockFourSide from '../general/CubicBlockFourSide'
+import { practicalTrainReq } from 'constants/practicalTrainReq'
 
 const RequirementsInProfession = () => {
   const [activeIndex, setActiveIndex] = useState(0) // Индекс текущего активного блока
@@ -20,7 +21,6 @@ const RequirementsInProfession = () => {
   // Обработчик клика по блоку
   const handleClick = index => {
     setActiveIndex(index)
-    // setRotate(rotate + 90) // Устанавливаем активный блок для запуска прогресса
   }
 
   const gap = 8
@@ -28,8 +28,6 @@ const RequirementsInProfession = () => {
   const laptopPosition = activeIndex * 77 + 30 + gap * activeIndex
 
   const isDesktopLayout = useBetterMediaQuery('(min-width: 1201px)')
-
-  console.log(rotate)
 
   return (
     <section className={stls.container}>
@@ -53,6 +51,7 @@ const RequirementsInProfession = () => {
                 key={block.id}
                 onClick={() => handleClick(index)}>
                 <RequirementsWithProgress
+                  card={practicalTrainReq[index]}
                   onClick={()=>setRotate(block.rotate)}
                   text={block.text} // Текст блока
                   id={block.id}
@@ -62,66 +61,8 @@ const RequirementsInProfession = () => {
               </div>
             ))}
           </div>
-          <div className={stls.scene}>
-            <div
-              className={stls.cube}
-              style={{
-                transform: `rotateX(${rotate}deg)`,
-                transition: 'transform 1s ease' // плавная анимация
-              }}>
-              <div className={`${stls.card} ${stls.first}`}>
-                <div className={stls.text}>
-                  <p className={stls.title}>Образование</p>
-                  <p className={stls.subtitle}>
-                    Необходимо наличие{' '}
-                    <span>высшего образования по психологии</span> или
-                    прохождение программы{' '}
-                    <span>профессиональной переподготовки.</span>
-                  </p>
-                </div>
-                <p className={stls.num}>1</p>
-              </div>
-
-              <div className={`${stls.card} ${stls.second}`}>
-                <div className={stls.text}>
-                  <p className={stls.title}>Опыт консультирования</p>
-                  <p className={stls.subtitle}>
-                    Необходимо наличие{' '}
-                    <span>высшего образования по психологии</span> или
-                    прохождение программы{' '}
-                    <span>профессиональной переподготовки.</span>
-                  </p>
-                </div>
-                <p className={stls.num}>2</p>
-              </div>
-
-              <div className={`${stls.card} ${stls.third}`}>
-                <div className={stls.text}>
-                  <p className={stls.title}>Повыщение квалификации</p>
-                  <p className={stls.subtitle}>
-                    Необходимо наличие{' '}
-                    <span>высшего образования по психологии</span> или
-                    прохождение программы{' '}
-                    <span>профессиональной переподготовки.</span>
-                  </p>
-                </div>
-                <p className={stls.num}>3</p>
-              </div>
-
-              <div className={`${stls.card} ${stls.forth}`}>
-                <div className={stls.text}>
-                  <p className={stls.title}>Участие</p>
-                  <p className={stls.subtitle}>
-                    Необходимо наличие{' '}
-                    <span>высшего образования по психологии</span> или
-                    прохождение программы{' '}
-                    <span>профессиональной переподготовки.</span>
-                  </p>
-                </div>
-                <p className={stls.num}>4</p>
-              </div>
-            </div>
-          </div>
+          <CubicBlockFourSide rotate={rotate} />
+          
         </div>
       </Wrapper>
     </section>

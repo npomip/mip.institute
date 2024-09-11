@@ -1,0 +1,136 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($mt: f.px(70), $pb: f.px(0))
+
+.h2
+  font-size: f.px(44)
+  max-width: f.px(700)
+  line-height: 120%
+  font-weight: 500
+  span
+    color: c.$orange-700
+.progressContainerWrapper
+  display: flex
+  gap: f.px(30)
+  // width: 50%
+
+/* Контейнер для всех прогресс-баров */
+.progressBars
+  position: relative
+  width: f.px(370)
+  display: flex
+  flex-direction: column
+  gap: f.px(8) /* Расстояние между прогресс-барами */
+
+
+/* Контейнер для каждого прогресс-бара */
+.progressContainer 
+  position: relative
+  width: f.px(370)
+  height: f.px(88)
+  // background-color: #e0e0e0
+  border-radius: f.px(10)
+  overflow: hidden
+  cursor: pointer
+  border: 1px solid c.$purple-350
+  // display: flex
+
+/* Стрелка */
+.arrow 
+  position: absolute
+  right: f.px(-40)
+  font-size: 24px
+  color: c.$purple-200
+
+
+/* Заполняемая часть прогресс-бара */
+.progressFill 
+  height: 100%
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$purple-200)
+  width: 0 /* Изначально пусто */
+  transition: width 0.2s ease /* Плавное изменение ширины */
+
+
+/* Текст с процентом в центре прогресс-бара */
+.progressText 
+  white-space: nowrap
+
+.progressBarWrapp
+  
+
+.scene
+  width: 100%
+  height: 375px
+  // perspective: f.px(600)
+
+
+.cube 
+  width: 100%
+  height: 100%
+  position: relative
+  transform-style: preserve-3d
+  transition: transform 1s ease-in-out
+  // height: 400px
+
+
+.card
+  width: 100%
+  height: 100%
+  position: absolute
+  border-radius: f.px(10)
+  display: flex
+  @include m.gap($pl: f.px(105), $pr: f.px(65))
+  align-items: center
+  justify-content: space-between
+  @include m.dye(bg, c.$purple-200)
+
+  &>*
+    @include m.gap($mb: f.px(0))
+
+.first
+  transform: rotateX( 0deg) translateZ(180px)
+
+.second
+  transform: rotateX(270deg) translateZ(180px)
+
+.third
+  transform: rotateX(180deg) translateZ(180px)
+
+.forth
+  transform: rotateX(90deg) translateZ(180px)
+
+.text
+  .title
+    font-size: f.px(30)
+    font-weight: 500
+    @include m.gap($mb: f.px(15))
+  .subtitle
+    font-size: f.px(22)
+    font-weight: 350
+    max-width: f.px(400)
+    span
+      text-decoration-line: underline
+      font-weight: 500
+      text-underline-offset: f.px(5)
+      text-decoration-thickness: f.px(1)
+
+
+.textWrapper
+  position: absolute
+  top: 0
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: space-between
+  @include m.gap($plr: f.px(20))
+  // flex-direction: column
+
+.num
+  font-size: f.px(250)
+  font-weight: 500
+  color: c.$white-900

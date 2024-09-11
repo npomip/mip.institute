@@ -10,6 +10,7 @@ import PracticalProgramDescription from '../practicalTraining/PracticalProgramDe
 import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
 import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
+import RequirementsInProfession from '../practicalTraining/RequirementsInProfession'
 import ThreadBlock from '../practicalTraining/ThreadBlock'
 import { Teachers } from '../sections'
 import { SeoPageBachelor } from '../seo'
@@ -39,6 +40,8 @@ const PageTraining = ({ practicalTraining }: Props) => {
         breadcrumbs={breadcrumbs}
         practicalTraining={practicalTraining}
       />
+      <RequirementsInProfession />
+
       <PracticalList list={practicalTraining?.practicalList.item} />
       <ThreadBlock points={practicalTraining.termsPoints} />
       <PracticalWhoIsProgramFor />

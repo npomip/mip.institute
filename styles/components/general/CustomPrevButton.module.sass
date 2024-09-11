@@ -80,14 +80,17 @@
     & > *
       & > *
         & > *
+          border: f.px(1) solid c.$purple-350
+          border-radius: f.px(5)
           & > *
-            transition: stroke 0.5s ease
-      &:hover
+            @include m.dye(fill, c.$purple-200)
+            @include m.dye(stroke, white)
+    &:hover
+      & > *
         & > *
           & > *
             & > *
-              & > *
-                stroke: white
+              fill: c.$purple-350
 
   &.happyStudentsNextBtn
     transition: stroke 2s ease
@@ -262,11 +265,14 @@
     & > *
       & > *
         & > *
+          border: f.px(1) solid c.$purple-350
+          border-radius: f.px(5)
           & > *
-            & > *
+            @include m.dye(fill, c.$purple-200)
+            @include m.dye(stroke, white)
     &:hover
       & > *
         & > *
           & > *
             & > *
-              stroke: white
+              fill: c.$purple-350

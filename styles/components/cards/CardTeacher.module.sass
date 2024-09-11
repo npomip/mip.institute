@@ -11,8 +11,7 @@
 .innerContainer
   min-height: f.px(220)
   border-radius: f.px(25)
-  border: f.px(1) solid
-  @include m.dye(border, c.$pink-400)
+  border: f.px(1) solid c.$purple-350
   @include m.media(phone, tablet)
     min-height: f.px(150)
 
@@ -93,18 +92,17 @@
 
 .whiteBg
   @include m.dye(bg, white)
-  border-left: f.px(1) solid
-  @include m.dye(border, c.$pink-400)
-  border-top-right-radius: f.px(10)
-  border-bottom-right-radius: f.px(10)
+  border-left: f.px(1) solid c.$purple-350
+  border-top-right-radius: f.px(15)
+  border-bottom-right-radius: f.px(15)
 
 .practicalTeacher
-  border-radius: f.px(10)
+  border-radius: f.px(15)
   & > div > div.leftBlock
-    border-top-left-radius: f.px(10)
-    border-bottom-left-radius: f.px(10)
+    border-top-left-radius: f.px(15)
+    border-bottom-left-radius: f.px(15)
     & > div
-      border-radius: f.px(10)
+      border-radius: f.px(15)
 
 .achievements
   font-weight: 400

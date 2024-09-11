@@ -8,7 +8,6 @@ import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import ticket from '@/public/assets/imgs/practicalCarousel/ticket.jpg'
 import rocket from '@/public/assets/imgs/practicalCarousel/rocket.jpg'
 
-
 type Props = {
   image: PracticalDiploma
 }
@@ -26,11 +25,14 @@ const PracticalCertificate = ({ image }: Props) => {
             <div className={stls.text}>
               <h2 className={stls.title}>
                 <span className={stls.colouredTitle}>
-                  Сертификат<br/>
+                  Сертификат
+                  <br />
                 </span>
-                после обучения</h2>
+                после обучения
+              </h2>
               <p className={stls.description}>
-                Удостоверение о повышении квалификации выдается после освоения всех 3-х ступеней
+                Удостоверение о повышении квалификации выдается после освоения
+                всех 3-х ступеней
               </p>
             </div>
             <div className={stls.images}>
@@ -57,22 +59,18 @@ const PracticalCertificate = ({ image }: Props) => {
               [stls.layout]: true,
               [stls.right]: true
             })}>
-            <p
-              className={stls.titleRight}>
-              Остались вопросы?
-            </p>
-            <p
-              className={stls.descriptionRight}>
+            <p className={stls.titleRight}>Остались вопросы?</p>
+            <p className={stls.descriptionRight}>
               Ответы на вопросы и консультация по обучению
             </p>
             <div className={stls.imgRight}>
-                <Image
-                  src={rocket}
-                  width={rocket.width}
-                  height={rocket.height}
-                  alt='Ракета'
-                />
-              </div>
+              <Image
+                src={rocket}
+                width={rocket.width}
+                height={rocket.height}
+                alt='Ракета'
+              />
+            </div>
             <div className={stls.btn}>
               <PopupTrigger btn='delta' cta='askQuestion' />
             </div>

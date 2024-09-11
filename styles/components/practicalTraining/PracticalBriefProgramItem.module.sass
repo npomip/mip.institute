@@ -5,6 +5,7 @@
 .container
   border-radius: f.px(20)
   @include m.dye(bg, white)
+  border: f.px(1) solid c.$purple-350
   @include m.flex($fd: column)
   @include m.gap($pl: f.px(60), $pr: f.px(50), $ptb: f.px(30), $mb: f.px(10))
   @include m.media(phone, tablet)
@@ -28,8 +29,10 @@
   font-style: normal
   font-weight: 350
   line-height: 130%
+  list-style: disc
   @include m.gap($pl: f.px(15), $mt: f.px(10))
   @include m.media(phone, tablet)
     font-size: f.px(12)
   & > li::marker
+    background-color: c.$purple-350
     font-size: f.px(12)

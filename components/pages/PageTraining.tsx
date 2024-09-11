@@ -2,7 +2,6 @@ import stls from '@/styles/pages/PageTraining.module.sass'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import PracticalBriefProgram from '../practicalTraining/PracticalBriefProgram'
 import PracticalCertificate from '../practicalTraining/PracticalCertificate'
-import PracticalCourseResult from '../practicalTraining/PracticalCourseResult'
 import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
 import PracticalList from '../practicalTraining/PracticalListCarousel'
 import PracticalPaymentForm from '../practicalTraining/PracticalPaymentForm'
@@ -57,11 +56,10 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isExperienceHidden
         halfScreenTitle
         isWhiteBackground
+        showOnMobile={false}
         isSquareBtn
         isTeacherRoundBtn={false}
-        titlePaddingLeft={70}
       />
-      <PracticalCourseResult results={practicalTraining?.courseResult.list} />
       <PracticalPaymentForm price={practicalTraining.price} />
       {/* <GeneralFaq qnas={practicalTraining.qnas} /> */}
     </div>

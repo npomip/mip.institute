@@ -3,18 +3,35 @@ import Wrapper from '@/components/layout/Wrapper'
 import FaqAnswer from '@/components/general/FaqAnswer'
 import PopupTrigger from '@/components/general/PopupTrigger'
 
-const GeneralFaq = ({qnas}) => {
+
+type Props = {
+  qnas: any[]
+  isPractical?: boolean
+}
+
+const GeneralFaq = ({qnas, isPractical = false}: Props) => {
 
   return (
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.heading}>
           {' '}
-          <h2 className={stls.title}>Часто задаваемые вопросы</h2>
+          <h2 className={stls.title}>
+            Часто задаваемые 
+            <span className={isPractical ? stls.colouredTitle : ''}>
+              {' '}вопросы
+            </span>
+          </h2>
           <div className={stls.laptopdesktop}>
-            <p className={stls.p}>
-              У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам!
-            </p>
+            {isPractical ? (
+              <p className={stls.p}>
+                У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам в течение 5 минут!
+              </p>
+            ) : (
+                <p className={stls.p}>
+                  У Вас есть вопросы? Оставьте заявку! <br />И мы перезвоним Вам!
+                </p>
+            )}
             <div className={stls.btn}>
             <PopupTrigger btn='zeta' cta='askQuestion' />
             </div>
@@ -27,6 +44,7 @@ const GeneralFaq = ({qnas}) => {
             {qnas &&
               qnas.map(({ question, answer }, idx) => (
                 <FaqAnswer
+                  isPractical={isPractical}
                   key={question + idx}
                   question={question}
                   answer={answer}

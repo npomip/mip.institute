@@ -1,0 +1,129 @@
+import stls from '@/styles/components/popups/PopupReviewNew.module.sass'
+import Popup from 'reactjs-popup'
+import marked from 'marked'
+import parse from 'html-react-parser'
+import {
+  BtnAlpha,
+  BtnBeta,
+  BtnGamma,
+  BtnDelta,
+  BtnEpsilon,
+  BtnZeta,
+  BtnEta,
+  BtnText,
+  BtnTheta,
+  BtnClose
+} from '@/components/btns'
+import Image from 'next/image'
+import IconClosePopupPractical from '../icons/IconClosePopupPractical'
+import { useState } from 'react'
+
+type PopupReviewNewType = {
+  btn:
+    | 'alpha'
+    | 'beta'
+    | 'gamma'
+    | 'delta'
+    | 'epsilon'
+    | 'zeta'
+    | 'eta'
+    | 'theta'
+    | 'text'
+    | 'test'
+  cta:
+    | 'askQuestion'
+  name: string
+  slides: {
+        answer: string;
+        question: string;
+    }[]
+  image
+}
+
+const PopupReviewNew = ({
+  btn,
+  cta,
+  slides,
+  image,
+  name
+}: PopupReviewNewType) => {
+
+  const strings = {
+    trigger: {
+      askQuestion: 'Читать всю историю',
+    },
+    title: {
+      askQuestion: 'Читать всю историю',
+    },
+    blockForAmo: {
+      askQuestion: 'Читать всю историю',
+    }
+  }
+
+  const ButtonComponent = {
+    alpha: BtnAlpha,
+    beta: BtnBeta,
+    gamma: BtnGamma,
+    delta: BtnDelta,
+    epsilon: BtnEpsilon,
+    zeta: BtnZeta,
+    eta: BtnEta,
+    theta: BtnTheta,
+    text: BtnText,
+    test: BtnGamma
+  }[btn]
+  const renderer = new marked.Renderer()
+  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
+  marked.setOptions({ renderer })
+  const SlideContent = ({ slide }) => {
+  const formattedAnswer = slide.answer.replace(/(–\s)/g, '<br />$1').replace(/(\d+\.\s)/g, '<br />$1');;
+
+  return (
+    <>
+      <div className={stls.question}>
+        {slide.question}
+      </div>
+      <div className={stls.answer}>
+        {parse(marked(formattedAnswer))}
+      </div>
+    </>
+  );
+};
+  return (
+    <Popup
+      trigger={
+        <div>
+          <ButtonComponent
+            text={strings.trigger[cta]}
+            ctheta={btn === 'text'}
+            test={btn === 'test'}
+          />
+        </div> 
+      }
+      modal
+      nested>
+        {close => (
+        <div className={stls.container}>
+          <div className={stls.leftBlock}>
+            <div className={stls.personImage}>
+              <Image 
+                src={image}
+                alt='Выпускник'
+              />
+            </div>
+            <p className={stls.name}>{name}</p>
+            <SlideContent slide={slides[0]} />
+          </div>
+          <div className={stls.rigthBlock}>
+            <SlideContent slide={slides[1]} />
+          </div>
+          <button className={stls.closeBtn} onClick={close}>
+            <IconClosePopupPractical />
+          </button>
+        </div>
+      )}
+    </Popup>
+  )
+}
+
+export default PopupReviewNew

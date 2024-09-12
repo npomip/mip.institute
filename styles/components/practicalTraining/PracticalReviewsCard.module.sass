@@ -1,0 +1,100 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.card
+  border-radius: f.px(10)
+  @include m.gap($plr: f.px(35), $pt: f.px(62), $pb: f.px(20), $mb: f.px(35))
+  @include m.flex($ai: center, $fd: column)
+  gap: f.px(49)
+
+.whiteCard
+  @include m.dye(bg, c.$white-900)
+  border: f.px(1) solid c.$purple-200
+  .text
+    -webkit-line-clamp: 17
+    max-height: calc(25 * 1rem)
+  .image
+    top: f.px(-60)
+    left: f.px(30)
+  .btn
+    &>*
+      &>*
+        @include m.dye(border, c.$purple-200)
+        @include m.dye(c, c.$purple-200)
+
+.purpleCard
+  @include m.dye(bg, c.$purple-200)
+  border: f.px(1) solid c.$purple-350
+  @include m.gap($mt: f.px(40))
+  .text
+    -webkit-line-clamp: 15
+    max-height: calc(25 * 1rem)
+  .image
+    top: f.px(-20)
+    left: f.px(30)
+  .btn
+    &>*
+      &>*
+        @include m.dye(border, c.$white-900)
+        @include m.dye(bg, c.$white-900)
+        @include m.dye(c, c.$purple-200)
+  @include m.media(phone, tablet)
+    @include m.gap($mt:0)
+
+.number
+  font-size: f.px(40)
+  font-weight: 350
+  border: f.px(1) solid c.$purple-200
+  border-radius: 50%
+  text-align: center
+  width: f.px(50)
+  height: f.px(50)
+
+.whiteNumber
+  @include m.dye(c, c.$white-900)
+  border: f.px(1) solid c.$white-900
+
+.purpleNumber
+  @include m.dye(c, c.$purple-200)
+  border: f.px(1) solid c.$purple-200
+
+.title
+  font-size: f.px(20)
+  font-weight: 500
+  line-height: 120%
+  & > p
+    @include m.gap($mb: f.px(10))
+
+.text
+  font-size: f.px(16)
+  font-weight: 350
+  line-height: 130%
+  overflow: hidden
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-box-orient: vertical
+
+.description
+  @include m.flex($fd: column, $ai: flex-start)
+  width: 100%
+
+.image
+  position: absolute
+  & > span
+    border-radius: 50%
+
+.btn
+  @include m.media(desktop, laptop)
+    &>*
+      &>*
+        @include m.gap($plr: f.px(46))
+        border-radius: f.px(4)
+        white-space: nowrap
+  @include m.media(phone, tablet)
+    width: 100%
+    &>*
+      &>*
+        @include m.gap($plr: f.px(0))
+        border-radius: f.px(4)
+        white-space: nowrap

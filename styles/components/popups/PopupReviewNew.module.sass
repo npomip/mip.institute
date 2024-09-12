@@ -1,0 +1,52 @@
+@use "sass:math"
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.phonetablet
+  @include m.media(laptop, desktop)
+    display: none
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.flex()
+  max-width: f.px(1175)
+  border: f.px(1) solid c.$purple-300
+  border-radius: f.px(10)
+  @include m.gap($ptb: f.px(43), $plr: f.px(36))
+  gap: f.px(43)
+
+.leftBlock
+  flex-basis: 40%
+
+.rigthBlock
+  flex-basis: 60%
+
+.personImage
+  border-radius: 50%
+  @include m.gap($mb: f.px(15))
+
+.strongText
+  font-size: f.px(16)
+  font-weight: 500
+
+.answer
+  font-size: f.px(16)
+  font-weight: 350
+  line-height: 130%
+
+.question
+  font-size: f.px(18)
+  font-weight: 500
+  line-height: 130%
+  @include m.gap($mb: f.px(10))
+
+.name
+  font-size: f.px(18)
+  font-weight: 500
+  @include m.gap($mb: f.px(30))
+
+.closeBtn
+  position: absolute
+  top: f.px(23)
+  right: f.px(32)

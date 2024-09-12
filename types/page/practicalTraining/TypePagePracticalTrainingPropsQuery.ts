@@ -109,13 +109,14 @@ export type WhatYouWillLearnItem = {
   color: string;
 }
 
-export type Review = {
-  review: {
-    slide: {
-      question: string
-      answer: string
-    }[]
-  } []
+export type ReviewSlide = {
+  answer: string;
+  question: string;
+};
 
+export type ReviewType = {
+  slide: ReviewSlide[];
 }
+export type Review = ReviewType[];
+
 export default TypePagePracticalTrainingPropsQuery

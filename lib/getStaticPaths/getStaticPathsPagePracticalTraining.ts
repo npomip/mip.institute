@@ -33,7 +33,7 @@ const getStaticPathsPagePracticalTraining = async (): Promise<{
     console.error('Ошибка запроса:', error)
     console.error('Статус код:', error.statusCode)
     console.error('Результат:', error.result)
-    console.log('errrrrrr', error.networkError.result.errors[0])
+    // console.log('errrrrrr', error.networkError.result.errors[0])
     return error
   }
 }

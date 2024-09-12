@@ -14,6 +14,7 @@ import { Teachers } from '../sections'
 import { SeoPageBachelor } from '../seo'
 import GeneralFaq from '../general/GeneralFaq'
 import PracticalConditions from '../practicalTraining/PracticalConditions'
+import PracticalReviews from '../practicalTraining/PracticalReviews'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -53,6 +54,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       />
       <PracticalCertificate image={practicalTraining?.diploma1} />
       <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
+      <PracticalReviews review={practicalTraining.review}/>
       <Teachers
         title={'Преподаватели'}
         teachersList={practicalTraining?.teachers}

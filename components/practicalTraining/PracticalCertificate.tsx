@@ -7,6 +7,8 @@ import Wrapper from '../layout/Wrapper'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import ticket from '@/public/assets/imgs/practicalCarousel/ticket.jpg'
 import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'
+import certificate from '@/public/assets/imgs/practicalCarousel/certificate.jpg'
+
 
 type Props = {
   image: PracticalDiploma
@@ -46,9 +48,9 @@ const PracticalCertificate = ({ image }: Props) => {
               </div>
               <div className={stls.imgCertificate}>
                 <Image
-                  src={image?.url}
-                  width={image?.width}
-                  height={image?.height}
+                  src={certificate}
+                  width={certificate.width}
+                  height={certificate.height}
                   alt='Удостоверение'
                 />
               </div>

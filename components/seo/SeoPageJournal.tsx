@@ -13,7 +13,6 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
   // TODO: pull the rest of SEO params from API
 
   const { metaTitle, metaDescription } = blog?.seo
-  // console.log(metaDescription, metaTitle)
   const publishDate = new Date(blog?.date)
 
   const additionalMetaRobotsKeys = [
@@ -48,9 +47,7 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
 
   const seoParams = {
     title: `${
-      metaTitle
-        ? metaTitle
-        : 'статья Московского Института Психологии'
+      metaTitle ? metaTitle : 'статья Московского Института Психологии'
     }`,
     desc: metaDescription
       ? 'Интересная статья о психологии по теме' + ' ' + metaDescription

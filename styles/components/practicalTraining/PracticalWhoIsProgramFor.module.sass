@@ -68,6 +68,9 @@
   border-bottom-right-radius: f.px(10)
   background-position: calc(100% + f.px(270))
   background-repeat: no-repeat
+  @include m.media(phone, tablet)
+    border-top-right-radius: f.px(5)
+    border-bottom-right-radius: f.px(5)
 
 .imageContainer
   @include m.flex($fd: column, $ai: center)

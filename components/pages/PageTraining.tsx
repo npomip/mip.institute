@@ -13,6 +13,7 @@ import RequirementsInProfession from '../practicalTraining/RequirementsInProfess
 import { Teachers } from '../sections'
 import { SeoPageBachelor } from '../seo'
 import GeneralFaq from '../general/GeneralFaq'
+import PracticalConditions from '../practicalTraining/PracticalConditions'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -62,10 +63,11 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isSquareBtn
         isTeacherRoundBtn={false}
       />
+      <PracticalConditions />
       <RequirementsInProfession />
 
       <PracticalPaymentForm price={practicalTraining.price} />
-      <GeneralFaq qnas={practicalTraining.qnas} isPractical/>
+      <GeneralFaq qnas={practicalTraining.qnas} isPractical />
     </div>
   )
 }

@@ -9,7 +9,7 @@
     min-height: fit-content
     @include m.flex()
   @include m.media(phone, tablet)
-    @include m.flex($fd: column-reverse)
+    @include m.flex($fd: column)
     gap: f.px(10)
 
 .fixHeight
@@ -20,10 +20,19 @@
   border: f.px(1) solid c.$purple-350
   @include m.dye(bg, c.$white-900)
   border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
+
 .rightColumn
   border: f.px(1) solid c.$purple-350
   @include m.dye(bg, c.$white-900)
   border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
 
 .isViolet
   @include m.dye(bg, c.$purple-200)
+
+.reversed
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)

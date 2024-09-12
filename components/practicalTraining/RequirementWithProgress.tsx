@@ -2,10 +2,6 @@ import stls from '@/styles/components/practicalTraining/RequirementsInProfession
 import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 
-// type Props = {
-//   points: TermPoint[]
-// }
-
 const RequirementsWithProgress = ({
   targetProgress,
   isActive,

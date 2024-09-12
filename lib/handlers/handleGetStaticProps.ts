@@ -33,12 +33,15 @@ import getStaticPropsPageLiveCourse from '../getStaticProps/getStaticPropsPageLi
 import getStaticPropsBachelor from '../getStaticProps/getStaticPropsPageBachelor'
 import getStaticPropsBachelors from '../getStaticProps/getStaticPropsPageBachelors'
 import getStaticPropsPracticalTraining from '../getStaticProps/getStaticPropsPagePracticalTraining'
-
+import getStaticPropsPracticalTrainings from '../getStaticProps/getStaticPropsPagePracticalTrainings'
+import TypePageBachelorProps from '@/types/page/bachelor/props/TypePageBachelorProps'
+import TypePagePracticalTrainingProps from '@/types/page/practicalTraining/props/TypePagePracticalTrainingProps'
+import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps'
+import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps'
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
   type?: string | null
 } & TypeGeneralGetStaticPropsContext
-
 const handleGetStaticProps = async ({
   page,
   type,
@@ -57,6 +60,10 @@ const handleGetStaticProps = async ({
     | TypePageSeminarProps
     | TypePageLiveCoursesProps
     | TypePageLiveCourseProps
+    | TypePageBachelorProps
+    | TypePageBachelorsProps
+    | TypePagePracticalTrainingProps
+    | TypePagePracticalTrainingsProps
     | {}
   revalidate: number | boolean
 }> => {
@@ -120,7 +127,7 @@ const handleGetStaticProps = async ({
         return await getStaticPropsBachelor({ context })
 
       case routes.front.practicalTrainings:
-        return await getStaticPropsBachelors({ context })
+        return await getStaticPropsPracticalTrainings({ context })
 
       case routes.front.practicalTraining:
         return await getStaticPropsPracticalTraining({ context })

@@ -6,7 +6,7 @@
   color: black
   &:hover
     .cardTitle
-      @include m.dye(c, c.$gamma)
+      @include m.dye(c, c.$purple-400)
       transition: color 0.2s ease
     .img
       transition: transform 0.4s ease
@@ -36,6 +36,6 @@
   border-radius: f.px(10)
 
 .additionalInfo
-  @include m.dye(c, c.$iota-2)
+  @include m.dye(c, c.$gray-800)
   @include m.media(phone, tablet)
     font-size: f.px(16)

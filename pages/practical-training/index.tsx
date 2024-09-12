@@ -1,22 +1,21 @@
 import { GetStaticProps } from 'next';
 import { routes } from '@/config/index';
-import { PageBachelors } from '@/components/pages';
 import { handleGetStaticProps } from '@/lib/index';
-import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps';
+import PageTrainings from '@/components/pages/PageTrainings';
 import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps';
+import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps';
 
-// Типизация Props для компонента
+// Определите интерфейс для пропсов
 interface ProgramsPageProps {
-  bachelors: TypePageBachelorsProps[] | null;
-  programs: any;
   practicalTrainings: TypePagePracticalTrainingsProps[] | null;
+  programs: any;
+  bachelors: TypePageBachelorsProps[] | null;
 }
 
-const ProgramsPage: React.FC<ProgramsPageProps> = ({ bachelors, programs, practicalTrainings }) => {
-
+const ProgramsPage: React.FC<ProgramsPageProps> = ({ practicalTrainings, programs, bachelors }) => {
   return (
     <>
-      <PageBachelors programs={programs} bachelors={bachelors} practicalTrainings={practicalTrainings} />
+      <PageTrainings programs={programs} practicalTrainings={practicalTrainings} bachelors={bachelors} />
     </>
   );
 };
@@ -24,7 +23,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ bachelors, programs, practi
 export const getStaticProps: GetStaticProps<ProgramsPageProps> = async context => {
   const bachelorsData = await handleGetStaticProps({ context, page: routes.front.bachelors });
   const practicalTrainingsData = await handleGetStaticProps({ context, page: routes.front.practicalTrainings });
-
+  
   const bachelors = 'bachelors' in bachelorsData.props ? bachelorsData.props.bachelors : null;
   const programs = 'programs' in bachelorsData.props ? bachelorsData.props.programs : null;
   const practicalTrainings = 'practicalTrainings' in practicalTrainingsData.props ? practicalTrainingsData.props.practicalTrainings : null;

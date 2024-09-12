@@ -1,22 +1,12 @@
 import routes from '@/config/routes'
 import stls from '@/styles/components/cards/PracticalSlugCard.module.sass'
+import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, ReactNode } from 'react'
 
 interface Step {
-  card: {
-    id: number
-    title?: string
-    admissionDate: string
-    slug: string
-    duration: string
-    heroPicture: {
-      url: string
-      height: number
-      width: number
-    }
-  }
+  card: PracticalTraining
 }
 
 const PracticalSlugCard: FC<Step> = ({ card }) => {
@@ -26,7 +16,7 @@ const PracticalSlugCard: FC<Step> = ({ card }) => {
         <div className={stls.img}>
           <Image
             className={stls.image}
-            src={card.heroPicture?.url}
+            src={card.heroPicture.url}
             width={740}
             height={480}
           />
@@ -37,10 +27,10 @@ const PracticalSlugCard: FC<Step> = ({ card }) => {
           </p>
           <div className={stls.additionalInfo}>
             <p>
-              <span>Ближайшие зачисления:</span> {card?.admissionDate}
+              <span>Ближайшие зачисления:</span> ежемесячное
             </p>
             <p>
-              <span>Срок обучения:</span> {card.duration.split('/')[1].trim()}
+              <span>Срок обучения:</span> {card.duration}
             </p>
           </div>
         </div>

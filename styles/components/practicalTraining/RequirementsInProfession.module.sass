@@ -1,0 +1,153 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($mtb: f.px(70), $pb: f.px(0))
+
+.h2
+  font-size: f.px(44)
+  max-width: f.px(700)
+  line-height: 120%
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
+  span
+    color: c.$orange-700
+.progressContainerWrapper
+  display: flex
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    flex-direction: column
+
+.withId
+  display: flex
+  gap: f.px(20)
+  align-items: center
+  p
+    @include m.gap($mb: f.px(0))
+  
+
+/* Контейнер для всех прогресс-баров */
+.progressBars
+  position: relative
+  width: f.px(370)
+  display: flex
+  flex-direction: column
+  gap: f.px(8) /* Расстояние между прогресс-барами */
+  @include m.media(phone, tablet)
+    width: 100%
+
+
+
+/* Контейнер для каждого прогресс-бара */
+.progressContainer 
+  position: relative
+  width: f.px(370)
+  height: f.px(88)
+  border-radius: f.px(10)
+  cursor: pointer
+  border: 1px solid c.$purple-350
+  @include m.media(phone, tablet)
+    width: 100%
+    border-radius: f.px(5)
+
+/* Стрелка */
+.arrow 
+  position: absolute
+  right: f.px(-40)
+  font-size: 24px
+  color: c.$purple-200
+  @include m.media(phone, tablet)
+    display: none
+
+/* Заполняемая часть прогресс-бара */
+.progressFill 
+  height: 100%
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$purple-200)
+  width: 0 /* Изначально пусто */
+  transition: width 0.2s ease /* Плавное изменение ширины */
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
+
+/* Текст с процентом в центре прогресс-бара */
+.progressText 
+  white-space: nowrap
+
+.textWrapper
+  position: absolute
+  top: 0
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: space-between
+  @include m.gap($plr: f.px(20))
+
+.mobileCard 
+  @include m.dye(bg, c.$purple-200)
+  border-radius: f.px(5)
+  display: none // по умолчанию скрыт на десктопе
+  overflow: hidden
+  grid-template-rows: 0fr // изначально высота 0
+  transition: grid-template-rows 500ms ease // анимация изменения высоты
+  @include m.media(phone, tablet) 
+    display: grid // показываем блок на мобильных устройствах
+    
+
+.mobileCard > *
+  overflow: hidden
+
+.isShown
+  display: grid
+  grid-template-rows: 1fr
+  @include m.gap($mt: f.px(28))
+  @include m.media(laptop, desktop)
+    display: none
+
+.num
+  font-size: f.px(135)
+  font-weight: 500
+  color: c.$white-900
+  @include m.gap($mb: 0)
+
+
+.title
+  font-size: f.px(20)
+  font-weight: 500
+  @include m.gap($mb: f.px(15))
+.subtitle
+  font-size: f.px(16)
+  font-weight: 350
+  max-width: f.px(400)
+  span
+    text-decoration-line: underline
+    font-weight: 500
+    text-underline-offset: f.px(5)
+    text-decoration-thickness: f.px(1)
+
+.spanActive
+  font-weight: 500
+
+
+.arrowMob
+  bottom: f.px(-40)
+  right: 47%
+  position: absolute
+  color: c.$purple-200
+  font-size: 34px
+  display: none
+  &.isShown
+    @include m.media(laptop, desktop)
+      display: none
+    @include m.media(phone, tablet) 
+      display: block
+
+.hiddenBlock
+  @include m.gap($pl: f.px(20), $pr: f.px(38))
+  p
+    line-height: 130%
+  .subtitle
+    @include m.gap($mb: f.px(41))
+  

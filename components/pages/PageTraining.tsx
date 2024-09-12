@@ -9,6 +9,7 @@ import PracticalProgramDescription from '../practicalTraining/PracticalProgramDe
 import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
 import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
 import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
+import RequirementsInProfession from '../practicalTraining/RequirementsInProfession'
 import { Teachers } from '../sections'
 import { SeoPageBachelor } from '../seo'
 import GeneralFaq from '../general/GeneralFaq'
@@ -61,6 +62,8 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isSquareBtn
         isTeacherRoundBtn={false}
       />
+      <RequirementsInProfession />
+
       <PracticalPaymentForm price={practicalTraining.price} />
       <GeneralFaq qnas={practicalTraining.qnas} isPractical/>
     </div>

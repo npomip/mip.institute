@@ -24,7 +24,7 @@ const list = [
     },
     {
       id: 4,
-      label: 'Высшее образование',
+      label: 'Бакалавриат',
       href: routes.front.bachelors,
       programType: 'bachelor',
       hoverSelect: false

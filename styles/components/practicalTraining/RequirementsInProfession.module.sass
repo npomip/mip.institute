@@ -139,7 +139,10 @@
   font-size: 34px
   display: none
   &.isShown
-    display: block
+    @include m.media(laptop, desktop)
+      display: none
+    @include m.media(phone, tablet) 
+      display: block
 
 .hiddenBlock
   @include m.gap($pl: f.px(20), $pr: f.px(38))

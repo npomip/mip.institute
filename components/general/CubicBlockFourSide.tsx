@@ -12,7 +12,7 @@ const CubicBlockFourSide = ({rotate}) => {
           transition: 'transform 1s ease' // плавная анимация
         }}>
           {practicalTrainReq.map((el, i) => (
-            <div className={`${stls.card} ${stls[`card${i+1}`]}`} >
+            <div key={el.title} className={`${stls.card} ${stls[`card${i+1}`]}`} >
               <div className={stls.text}>
                 <p className={stls.title}>{el.title}</p>
                 <p className={stls.subtitle}>{el.subtitle}</p>

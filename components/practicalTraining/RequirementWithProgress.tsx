@@ -17,10 +17,6 @@ const RequirementsWithProgress = ({
 }) => {
   const [progress, setProgress] = useState(0)
 
-  const [isShown, setIsShown] = useState(false)
-
-  console.log(isActive)
-
   useEffect(() => {
     if (isActive) {
       let currentProgress = 0

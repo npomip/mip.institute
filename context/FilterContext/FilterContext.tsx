@@ -55,7 +55,6 @@ export function FilterProvider({ children, items }) {
   // const prices = items.map(el => el.price)
 
   // const minmaxDuration = findMinMaxForSlider(durations)
-  // console.log(minmaxDuration);
   // const minmaxPrice = findMinMaxForSlider(prices)
   // initialFilters.duration = {
   //   min: minmaxDuration.min,

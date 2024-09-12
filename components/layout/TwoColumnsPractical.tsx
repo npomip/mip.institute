@@ -8,6 +8,7 @@ type Props = {
   leftViolet?: boolean
   rightViolet?: boolean
   fixHeight?: boolean
+  isMobileReversed?: boolean
 }
 
 const TwoColumnsPractical = ({
@@ -15,13 +16,15 @@ const TwoColumnsPractical = ({
   bigLeft = false,
   leftViolet = false,
   rightViolet = false,
-  fixHeight = false
+  fixHeight = false,
+  isMobileReversed = false
 }: Props) => {
   return (
     <div
       className={classNames({
         [stls.container]: true,
-        [stls.fixHeight]: fixHeight
+        [stls.fixHeight]: fixHeight,
+        [stls.reversed]: isMobileReversed
       })}>
       <div
         className={classNames({

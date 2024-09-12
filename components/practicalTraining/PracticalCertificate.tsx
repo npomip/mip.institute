@@ -6,7 +6,7 @@ import PopupTrigger from '../general/PopupTrigger'
 import Wrapper from '../layout/Wrapper'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import ticket from '@/public/assets/imgs/practicalCarousel/ticket.jpg'
-import rocket from '@/public/assets/imgs/practicalCarousel/rocket.jpg'
+import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'
 
 type Props = {
   image: PracticalDiploma

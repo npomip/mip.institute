@@ -5,37 +5,46 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
 
   try {
-    const id = req.body &&  req.body['leads[status][0][id]']
+    const id = req.body && req.body['leads[status][0][id]']
 
-    if(req.body) {
-      const newLead =  await checkOrUpdateTokens()
+    if (req.body) {
+      const newLead = await checkOrUpdateTokens()
       const checkLeadId = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/${id}`
-      
+
       const access_token = newLead.access_token
 
       const options = {
         headers: {
-          'Authorization': `Bearer ${access_token}`,
+          Authorization: `Bearer ${access_token}`
         }
-      };
+      }
 
-    const checkLeadIdResponse = await axios.get(checkLeadId, options);
-    
-    const leadData = checkLeadIdResponse.data
+      const checkLeadIdResponse = await axios.get(checkLeadId, options)
 
-    const TRANSACTION_ID = leadData.custom_fields_values.find(item => item.field_name === 'Баннер/Объявление').values[0].value
-    const amount = leadData.price
-    const adv_id ='886'
+      const leadData = checkLeadIdResponse.data
 
-    const newresponse =await axios.get(
-      `https://sravni.go2cloud.org/aff_goal?a=lsr&goal_name=issued&adv_id=${adv_id}&transaction_id=${TRANSACTION_ID}&amount=${amount}&revenue=${amount*0.3}`
-    )
-    console.log(newresponse.data);
-    
-    res.status(200).json({ message: 'Данные успешно обработаны', response: newresponse?.data })
+      const TRANSACTION_ID = leadData.custom_fields_values.find(
+        item => item.field_name === 'Баннер/Объявление'
+      ).values[0].value
+      const amount = leadData.price
+      const adv_id = '886'
+
+      const newresponse = await axios.get(
+        `https://sravni.go2cloud.org/aff_goal?a=lsr&goal_name=issued&adv_id=${adv_id}&transaction_id=${TRANSACTION_ID}&amount=${amount}&revenue=${
+          amount * 0.3
+        }`
+      )
+
+      res
+        .status(200)
+        .json({
+          message: 'Данные успешно обработаны',
+          response: newresponse?.data
+        })
     }
-    
   } catch (err) {
-    res.status(500).json({ message: 'Ошибка обработки данных', err: err?.response?.data })
+    res
+      .status(500)
+      .json({ message: 'Ошибка обработки данных', err: err?.response?.data })
   }
 }

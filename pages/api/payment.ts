@@ -36,7 +36,6 @@ const payment = async (
 	const { name, surname, phone,email,id,utm, referer, price, returnURL, lmsId } = req.body
 
 	const leadPage = `${routes.front.root}${req.body?.leadPage}`
-	// console.log('idempotenceKey ===', req.body);
 
 	const requestData = {
 		amount: {

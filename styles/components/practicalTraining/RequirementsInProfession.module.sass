@@ -2,9 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  @include m.gap($mtb: f.px(70), $pb: f.px(0))
-
 .h2
   font-size: f.px(44)
   max-width: f.px(700)
@@ -26,7 +23,6 @@
   align-items: center
   p
     @include m.gap($mb: f.px(0))
-  
 
 /* Контейнер для всех прогресс-баров */
 .progressBars
@@ -38,10 +34,8 @@
   @include m.media(phone, tablet)
     width: 100%
 
-
-
 /* Контейнер для каждого прогресс-бара */
-.progressContainer 
+.progressContainer
   position: relative
   width: f.px(370)
   height: f.px(88)
@@ -53,7 +47,7 @@
     border-radius: f.px(5)
 
 /* Стрелка */
-.arrow 
+.arrow
   position: absolute
   right: f.px(-40)
   font-size: 24px
@@ -62,7 +56,7 @@
     display: none
 
 /* Заполняемая часть прогресс-бара */
-.progressFill 
+.progressFill
   height: 100%
   border-radius: f.px(10)
   @include m.dye(bg, c.$purple-200)
@@ -72,7 +66,7 @@
     border-radius: f.px(5)
 
 /* Текст с процентом в центре прогресс-бара */
-.progressText 
+.progressText
   white-space: nowrap
 
 .textWrapper
@@ -85,16 +79,15 @@
   justify-content: space-between
   @include m.gap($plr: f.px(20))
 
-.mobileCard 
+.mobileCard
   @include m.dye(bg, c.$purple-200)
   border-radius: f.px(5)
   display: none // по умолчанию скрыт на десктопе
   overflow: hidden
   grid-template-rows: 0fr // изначально высота 0
   transition: grid-template-rows 500ms ease // анимация изменения высоты
-  @include m.media(phone, tablet) 
+  @include m.media(phone, tablet)
     display: grid // показываем блок на мобильных устройствах
-    
 
 .mobileCard > *
   overflow: hidden
@@ -111,7 +104,6 @@
   font-weight: 500
   color: c.$white-900
   @include m.gap($mb: 0)
-
 
 .title
   font-size: f.px(20)
@@ -130,7 +122,6 @@
 .spanActive
   font-weight: 500
 
-
 .arrowMob
   bottom: f.px(-40)
   right: 47%
@@ -141,7 +132,7 @@
   &.isShown
     @include m.media(laptop, desktop)
       display: none
-    @include m.media(phone, tablet) 
+    @include m.media(phone, tablet)
       display: block
 
 .hiddenBlock
@@ -150,4 +141,3 @@
     line-height: 130%
   .subtitle
     @include m.gap($mb: f.px(41))
-  

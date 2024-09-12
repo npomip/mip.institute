@@ -152,8 +152,6 @@ const getStaticPropsPracticalTraining = async ({
       revalidate: revalidate.default
     }    
   } catch (error) {
-    console.log('PRACTICAL')
-
     console.error('Ошибка запроса:', error)
     console.error('Статус код:', error.statusCode)
     console.error('Результат:', error.result)

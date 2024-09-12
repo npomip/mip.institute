@@ -39,13 +39,11 @@ const LivePaymentForm = ({
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
+      phone: ''
     }
   })
 
   const [isDisabled, setIsDisabled] = useState(false)
-
-
 
   const router = useRouter()
 
@@ -61,13 +59,11 @@ const LivePaymentForm = ({
     } else {
       data.utm = null // или какое-то другое значение по умолчанию
     }
-    console.log(data)
     const resp = await payment(data)
-    console.log(resp);
     if (resp && resp.url) {
-      window.open(resp.url, '_blank');
+      window.open(resp.url, '_blank')
     } else {
-      console.error('No URL found in response');
+      console.error('No URL found in response')
     }
   }
 
@@ -152,11 +148,11 @@ const LivePaymentForm = ({
           </div>
 
           <div className={stls.btn}>
-              <BtnAlpha
-                text={cta}
-                isDisabled={isDisabled}
-                isLiveCourse={isLiveCourse}
-              />
+            <BtnAlpha
+              text={cta}
+              isDisabled={isDisabled}
+              isLiveCourse={isLiveCourse}
+            />
           </div>
         </div>
       </form>

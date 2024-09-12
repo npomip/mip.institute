@@ -25,7 +25,6 @@ export default async function handler(req, res) {
     const adv_id ='886'
 
     const TRANSACTION_ID = leadData.custom_fields_values.find(item => item.field_name === 'Баннер/Объявление').values[0].value
-    console.log(TRANSACTION_ID, 'TRAAAAANSACT');
     
     // постбек на отклонить
     const newresponse =await axios.get(

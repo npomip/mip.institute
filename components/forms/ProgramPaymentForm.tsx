@@ -91,7 +91,6 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
       setIsLoading(false)
       setIsIpCheckFailed(false)
     } else {
-      console.log('err')
       setIsLoading(false)
       setIsIpCheckFailed(true)
     }

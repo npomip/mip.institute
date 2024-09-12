@@ -18,7 +18,7 @@ const MainStudyFields = ({
 }: StudyFieldsType) => {
   return (
     <ul className={stls.wrapper}>
-      {list.map(({ label, href, programType }, idx) => (
+      {list.map(({ label, href, programType, hoverSelect }, idx) => (
         <Fragment key={idx}>
           <li
             className={cn({
@@ -26,9 +26,9 @@ const MainStudyFields = ({
               [stls.active]: currentType === programType
             })}
             onClick={close && close}>
-            <Link href={href} passHref>
+                <Link href={href} passHref>
               <a
-                onMouseEnter={() => setCurrentType(programType)}
+                onMouseEnter={hoverSelect ? () => setCurrentType(programType) : null}
                 className={cn({
                   [stls.mainFields]: true,
                   [stls.active]: currentType === programType

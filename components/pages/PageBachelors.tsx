@@ -11,13 +11,16 @@ import stls from '@/styles/pages/PageBachelors.module.sass'
 import Breadcrumbs from '../general/Breadcrumbs'
 import { NextSeo } from 'next-seo'
 import { SeoPageBachelors } from '../seo'
+import { GetStaticProps } from 'next'
+import { handleGetStaticProps } from '@/lib/index'
+import routes from '@/config/routes'
 // import { SeoOrganizationJsonLd } from '@/components/seo'
 
 type PagesProgramsType = {
   ofType?: 'course' | 'profession'
 }
 
-const PageBachelors = ({ programs = [], bachelors = [] }) => {
+const PageBachelors = ({ programs = [], bachelors = [], practicalTrainings = []}) => {
   const categories = getUniqueCategories(programs)
 
   const label = 'Высшее образование'
@@ -45,6 +48,7 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
       <h1 className={stls.title}>Высшее образование</h1>
         <ProgramsFilters
           bachelors={bachelors}
+          practicalTrainings={practicalTrainings}
           allPrograms={programs}
           studyFields={[]}
         />
@@ -58,5 +62,4 @@ const PageBachelors = ({ programs = [], bachelors = [] }) => {
     </Wrapper>
   )
 }
-
 export default PageBachelors

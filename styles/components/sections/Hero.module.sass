@@ -4,12 +4,11 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   position: relative
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(25))
   @include m.media(laptop, desktop)
-    overflow: visible
     @include m.gap($pt: f.px(65, em), $pb: f.px(55))
 .content
   max-width: f.px(1400)
@@ -23,11 +22,11 @@
   @include m.media(laptop, desktop)
     height: 91%
   width: 100%
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
 
 .title,
 .desc
-  @include m.dye(c, c.$nu)
+  @include m.dye(c, c.$white-900)
 
 .title
   position: relative

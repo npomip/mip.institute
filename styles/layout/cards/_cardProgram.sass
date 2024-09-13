@@ -25,16 +25,16 @@
     border-radius: f.px(20)
     overflow: hidden
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  @include m.dye(bg, c.$omega)
-  @include m.dye(c, c.$chi)
+  @include m.dye(bg, c.$pink-100)
+  @include m.dye(c, c.$black-900)
   transition: background-color .2s ease-in-out
   &:hover,
   &:focus
-    @include m.dye(bg, c.$nu)
+    @include m.dye(bg, c.$white-900)
     & .arrowRight
-      @include m.dye(bg, c.$alpha)
+      @include m.dye(bg, c.$purple-800)
     & .title
-      @include m.dye(c, c.$alpha)
+      @include m.dye(c, c.$purple-800)
 
 @mixin type($calpha: false, $cbeta: false)
   max-width: max-content
@@ -43,14 +43,14 @@
   font-size: f.px(13)
   border-radius: f.px(23)
   border: f.px(1) solid
-  @include m.dye(border, c.$iota)
-  @include m.dye(c, c.$theta)
+  @include m.dye(border, c.$gray-200)
+  @include m.dye(c, c.$black-800)
   @if ($calpha == true)
-    @include m.dye(bg, c.$alpha)
-    @include m.dye(c, c.$kappa)
+    @include m.dye(bg, c.$purple-800)
+    @include m.dye(c, c.$gray-700)
   @if ($cbeta == true)
-    @include m.dye(bg, c.$beta)
-    @include m.dye(c, c.$kappa)
+    @include m.dye(bg, c.$orange-700)
+    @include m.dye(c, c.$gray-700)
 
 @mixin title
   @include m.gap($mb: 0)
@@ -69,7 +69,7 @@
   font-size: f.px(13)
   font-weight: 500
   line-height: 120%
-  @include m.dye(c, c.$kappa)
+  @include m.dye(c, c.$gray-700)
 
 @mixin arrowRight
   position: absolute
@@ -79,5 +79,5 @@
   width: f.px(45)
   height: f.px(45)
   border-radius: f.px(20) 0
-  @include m.dye(bg, c.$zeta-2)
+  @include m.dye(bg, c.$pink-300)
   transition: background-color .2s ease-in-out

@@ -21,8 +21,8 @@
     max-height: f.px(128)
     border-radius: f.px(14)
   &:nth-child(2n)
-    background: #6F01C6
-    color: white
+    @include m.dye(bg, c.$purple-800)
+    @include m.dye(c, c.$white-900)
     .desc
       max-width: 150px
       @include m.media(phone, tablet)
@@ -37,7 +37,7 @@
 
   &:nth-child(2)
     position: relative
-    background-color: #6F01C6
+    @include m.dye(bg, c.$purple-800)
     background: url('/assets/imgs/general/lection.jpg')
     background-position: center center
     background-size: cover
@@ -49,13 +49,13 @@
       right: 0
       bottom: 0
       left: 0
-      background: #6F01C6
+      @include m.dye(bg, c.$purple-800)
       z-index: 4
       opacity: 0.05
 
 .liveCourse
   &:nth-child(2n)
-    @include m.dye(bg, c.$purple-200)
+    @include m.dye(bg, c.$purple-300)
   &:nth-child(2n+1)
     @include m.dye(bg, c.$yellow-50)
   &:nth-child(2)

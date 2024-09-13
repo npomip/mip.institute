@@ -1,5 +1,4 @@
 import BachelorCarousel from '@/components/carousel/BachelorCarousel'
-import PaymentForm from '@/components/forms/PaymentForm'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -14,7 +13,7 @@ import {
 } from '@/components/sections'
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import Companies from '@/components/sections/Companies'
-import Directions from '@/components/sections/Directions'
+import DirectionsNew from '@/components/sections/DirectionsNew'
 import DistanceEducation from '@/components/sections/DistanceEducation'
 import EducationProcess from '@/components/sections/EducationProcess'
 import EntryForm from '@/components/sections/EntryForm'
@@ -36,6 +35,7 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import { TypePageHomeProps } from '@/types/index'
+import allowedNames from 'constants/indexMain'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
@@ -47,27 +47,14 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   programs,
   reviews,
   teachers,
-  bachelors
+  bachelors,
+  practicalTrainings
 }) => {
   useHandleContextStaticProps({ programs })
-  // const [isTestOpen, setIsTestOpen] = useState(false)
-  const teachersFromMain = teachers?.filter(teacher => {
-    const allowedNames = [
-      'Косина Алла Александровна',
-      'Смыслов Дмитрий Анатольевич',
-      'Шавырина Анна Алексеевна',
-      'Перемолотова Ирина Александровна',
-      'Катасонова Юлия Викторовна',
-      'Харитонцева Елена Олеговна',
-      'Волкова Анастасия Михайловна',
-      'Гиль Людмила Владимировна',
-      'Гаврилова Вера Вячеславовна',
-      'Борисов Егор Игоревич',
-      'Бушев Андрей Игоревич'
-    ]
 
-    return allowedNames.includes(teacher.name)
-  })
+  const teachersFromMain = teachers?.filter(teacher =>
+    allowedNames.includes(teacher.name)
+  )
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -99,9 +86,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     }
   }, [router.query])
 
-  // const handleOpen = () => {
-  //   setIsTestOpen(true)
-  // }
   return (
     <>
       <NextSeo
@@ -141,24 +125,26 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         )}
       </Popup>
       <Hero />
-      <Directions />
-      {/* <Popup
-        open={isTestOpen}
-        onClose={() => setIsTestOpen(false)}
-        position={'center center'}>
-        {close => <PaymentForm onClose={close} />}
-      </Popup>
-      <div style={{ backgroundColor: 'red' }}>
-        <button onClick={handleOpen}>Оплатить</button>
-      </div> */}
-
+      {/* <Directions /> */}
+      <DirectionsNew
+        programs={programs}
+        bachelors={bachelors}
+        practicalTrainings={practicalTrainings}
+      />
       <PsyTest />
       <TopCourses />
-      <BachelorCarousel
+      {/* <BachelorCarousel
         title={'Высшее образование'}
         subtitle={'Программы бакалавриата от МИП'}
         cards={bachelors}
-      />
+      /> */}
+      {/* <PracticalCarousel
+        title={'Практическая подготовка'}
+        subtitle={
+          'Практико–ориентированные программы для начинающих и действующих психологов'
+        }
+        cards={practicalTrainings}
+      /> */}
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo
@@ -166,7 +152,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title='Знакомство с институтом'
         isOnMain
       />
-      
+
       <About />
       <EducationProcess
         paddingTop={90}

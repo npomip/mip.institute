@@ -4,7 +4,7 @@
 
 .container
   position: relative
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, c.$white-900)
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(45), $plr: f.px(19))
     border-radius: f.px(25) f.px(3) f.px(3) f.px(3)
@@ -22,11 +22,11 @@
   @include m.gap($mb: f.px(5))
   font-size: f.px(28)
   font-weight: 500
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .desc
   font-size: f.px(13)
-  @include m.dye(c, c.$kappa)
+  @include m.dye(c, c.$gray-700)
   @include m.media(phone, tablet)
     max-width: 30ch
   @include m.media(laptop, desktop)
@@ -36,9 +36,8 @@
   & input,
   & textarea
     border: f.px(1) solid
-    @include m.dye(border, c.$iota)
+    @include m.dye(border, c.$gray-200)
     &:focus
-      @include m.dye(border, c.$beta)
+      @include m.dye(border, c.$orange-700)
   & p
-    @include m.dye(c, c.$chi)
-      
+    @include m.dye(c, c.$black-900)

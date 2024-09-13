@@ -8,28 +8,28 @@
 
   &.calpha
     border-radius: 50%
-    @include m.dye(bg, c.$nu)
+    @include m.dye(bg, c.$white-900)
     & path
-      @include m.dye(stroke, c.$alpha)
+      @include m.dye(stroke, c.$purple-800)
     & rect
-      @include m.dye(stroke, c.$nu)
+      @include m.dye(stroke, c.$white-900)
 
   &.inverse
     border-radius: 50%
-    @include m.dye(bg, c.$beta)
+    @include m.dye(bg, c.$orange-700)
     & path
-      @include m.dye(stroke, c.$nu)
+      @include m.dye(stroke, c.$white-900)
     & rect
-      @include m.dye(stroke, c.$beta)
+      @include m.dye(stroke, c.$orange-700)
 
   &.violetRound
     border-radius: 50%
     @include m.media(laptop, desktop)
-      @include m.dye(bg, c.$beta)
+      @include m.dye(bg, c.$orange-700)
       & path
-        @include m.dye(stroke, c.$nu)
+        @include m.dye(stroke, c.$white-900)
       & rect
-        @include m.dye(stroke, c.$beta)
+        @include m.dye(stroke, c.$orange-700)
     @include m.media(phone, tablet)
       @include m.dye(bg, #FBF4FF)
       & path
@@ -95,4 +95,3 @@
         stroke-width: f.px(0.5)
     @include m.media(phone, tablet)
       @include m.sizeIcon($w: 25, $h: 25)
-

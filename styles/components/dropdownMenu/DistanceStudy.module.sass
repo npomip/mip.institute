@@ -15,7 +15,7 @@
 .btn
   // font-size: 18px
   // font-weight: 500
-  // color: white
+  // @include m.dye(c, c.$white-900)
   // margin-top: 30px
   // @include m.gap($ptb: f.px(27), $plr: f.px(130))
   // background: #F87E1B
@@ -29,4 +29,4 @@
   transition: background 0.5s ease, color 0.5s ease
   &:hover
     background: #FD521B
-    color: white
+    @include m.dye(c, c.$white-900)

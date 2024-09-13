@@ -18,10 +18,13 @@ import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
 import Breadcrumbs from '../general/Breadcrumbs'
 import TBreadcrumb from '@/types/general/TBreadcrumb'
+import TypeLibBachelors from '@/types/lib/bachelors/TypeLibBachelors'
+import TypeLibPracticalTrainings from '@/types/lib/practicalTrainings/TypeLibPracticalTrainings'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms
   bachelors?: any[]
+  practicalTrainings?: any[]
   studyFields?: string[]
   allPrograms: any[]
   breadcrumbs: TBreadcrumb[]
@@ -32,7 +35,8 @@ const PagesPrograms = ({
   studyFields,
   allPrograms,
   breadcrumbs,
-  bachelors = []
+  bachelors,
+  practicalTrainings
 }: PagesProgramsType) => {
   let filteredItems = useFilteredItems()
 
@@ -107,6 +111,7 @@ const PagesPrograms = ({
         <div className={stls.sorting}>
           <ProgramsFilters
             bachelors={bachelors}
+            practicalTrainings={practicalTrainings}
             allPrograms={allPrograms}
             studyFields={
               query.studyFieldSlug && filter === 'popular'

@@ -7,7 +7,7 @@
 .violetBlock
   border-radius: f.px(20)
   @include m.gap($pt: f.px(36), $plr: f.px(69), $pb: f.px(51))
-  @include m.dye(bg, c.$purple-200)
+  @include m.dye(bg, c.$purple-300)
   @include m.media(phone, tablet)
     border-radius: f.px(10)
     @include m.gap($ptb: f.px(25), $plr: f.px(20))
@@ -95,11 +95,11 @@
     display: inline
 
 .link
-  color: white
+  @include m.dye(c, c.$white-900)
   text-decoration: underline
   text-decoration-skip-ink: auto
   &:hover
-    @include m.dye(c, c.$beta)
+    @include m.dye(c, c.$orange-700)
 
 .card
   @include m.media(phone, tablet)
@@ -129,7 +129,7 @@
     font-size: f.px(20)
 
 .oldPrice
-  @include m.dye(c, c.$psi)
+  @include m.dye(c, c.$gray-500)
   font-size: f.px(22)
   @include m.gap($mb: f.px(10))
   font-style: normal
@@ -143,7 +143,7 @@
     font-size: f.px(18)
 
 .newPrice
-  @include m.dye(c, c.$beta)
+  @include m.dye(c, c.$orange-700)
   font-size: f.px(55)
   @include m.gap($mb: 0)
   font-style: normal
@@ -154,7 +154,7 @@
     font-size: f.px(26)
 
 .credit
-  @include m.dye(c, c.$psi)
+  @include m.dye(c, c.$gray-500)
   font-size: f.px(10)
   font-style: normal
   font-weight: 500
@@ -165,7 +165,7 @@
 .flag
   width: f.px(86)
   height: f.px(105)
-  @include m.dye(bg, c.$beta)
+  @include m.dye(bg, c.$orange-700)
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 50%, 0 75%)
   @include m.dye(c, white)
   @include m.gap($pt: f.px(15))

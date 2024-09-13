@@ -11,7 +11,7 @@ import { Fragment } from 'react'
 
 type StudyFieldsType = {
   aside?: boolean
-  ofType?: 'course' | 'profession' | null
+  ofType?: 'course' | 'profession' | null | 'bachelor'| 'practicalTraining'
   close?: any
   flexend?: boolean
   smallText?: boolean
@@ -35,6 +35,8 @@ const StudyFieldsOnMain = ({
       ? studyFieldsCourses
       : ofType === 'profession'
       ? studyFieldsProfessions
+      : ofType === 'bachelor' || ofType === 'practicalTraining'
+      ? null
       : studyFields
 
   return (
@@ -45,8 +47,8 @@ const StudyFieldsOnMain = ({
         [stls.tooltip]: !aside,
         [stls.flexend]: flexend
       })}>
-      {list.map(({ label, slug }, idx) => (
-        <Fragment key={slug + idx}>
+      {list?.map(({ label, value }, idx) => (
+        <Fragment key={value + idx}>
           <li className={stls.studyField} onClick={close && close}>
             <BtnField
               smallText={smallText}
@@ -57,9 +59,9 @@ const StudyFieldsOnMain = ({
                   : currentType === 'profession'
                   ? routes.front.professions
                   : routes.front.programs
-              }/${slug}`}
+              }/${value}`}
               aside={aside}
-              slug={slug}>
+              slug={value}>
               {label}
             </BtnField>
           </li>

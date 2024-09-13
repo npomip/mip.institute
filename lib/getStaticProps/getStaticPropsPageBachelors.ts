@@ -1,20 +1,20 @@
 import {
   TypeGeneralGetStaticPropsContext,
-  TypePageLiveCoursesProps,
-  TypePageLiveCoursesPropsQuery
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
 import { log } from 'console'
+import TypePageBachelorsPropsQuery from '@/types/page/bachelors/query/TypePageBachelorsPropsQuery'
+import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps'
 
 const getStaticPropsBachelors = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
-  props: TypePageLiveCoursesProps
+  props: TypePageBachelorsProps
   revalidate: number | boolean
 }> => {
-  const res = await apolloClient.query<TypePageLiveCoursesPropsQuery>({
+  const res = await apolloClient.query<TypePageBachelorsPropsQuery>({
     query: gql`
       query getStaticPropsBachelors {
         programs {

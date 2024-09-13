@@ -1,30 +1,52 @@
 const studyFields = [
-  {label: 'Консультирование',slug: 'konsultirovanie'},
-  {label: 'Детская психология', slug: 'detskaya-psihologiya'},
-  {label: 'Психотерапия', slug: 'psihoterapiya'},
-  {label: 'Общая психология', slug: 'obshaya-psihologiya'},
-  {label: 'Клиническая психология', slug: 'klinicheskaya-psihologiya'},
-  {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
-  {label: 'Диетология и нутрициология', slug: 'dietologiya-i-nutriciologiya'}
+  { label: 'Консультирование', value: 'konsultirovanie' },
+  { label: 'Детская психология', value: 'detskaya-psihologiya' },
+  { label: 'Психотерапия', value: 'psihoterapiya' },
+  { label: 'Общая психология', value: 'obshaya-psihologiya' },
+  { label: 'Клиническая психология', value: 'klinicheskaya-psihologiya' },
+  {
+    label: 'Организационная психология',
+    value: 'organizacionnaya-psihologiya'
+  },
+  { label: 'Диетология и нутрициология', value: 'dietologiya-i-nutriciologiya' }
 ]
 
 const studyFieldsProfessions = [
-  {label: 'Общая психология', slug: 'obshaya-psihologiya'},
-  {label: 'Клиническая психология', slug: 'klinicheskaya-psihologiya'},
-  {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
-  {label: 'Диетология и нутрициология', slug: 'dietologiya-i-nutriciologiya'},
-  {label: 'Консультирование',slug: 'konsultirovanie'},
-  {label: 'Детская психология', slug: 'detskaya-psihologiya'},
-  {label: 'Психотерапия', slug: 'psihoterapiya'},
-  
+  { label: 'Общая психология', value: 'obshaya-psihologiya' },
+  { label: 'Клиническая психология', value: 'klinicheskaya-psihologiya' },
+  {
+    label: 'Организационная психология',
+    value: 'organizacionnaya-psihologiya'
+  },
+  {
+    label: 'Диетология и нутрициология',
+    value: 'dietologiya-i-nutriciologiya'
+  },
+  { label: 'Консультирование', value: 'konsultirovanie' },
+  { label: 'Детская психология', value: 'detskaya-psihologiya' },
+  { label: 'Психотерапия', value: 'psihoterapiya' }
 ]
 
 const studyFieldsCourses = [
-  {label: 'Консультирование',slug: 'konsultirovanie'},
-  {label: 'Детская психология', slug: 'detskaya-psihologiya'},
-  {label: 'Психотерапия', slug: 'psihoterapiya'},
-  {label: 'Общая психология', slug: 'obshaya-psihologiya'},
-  {label: 'Организационная психология', slug: 'organizacionnaya-psihologiya'},
+  { label: 'Консультирование', value: 'konsultirovanie' },
+  { label: 'Детская психология', value: 'detskaya-psihologiya' },
+  { label: 'Психотерапия', value: 'psihoterapiya' },
+  { label: 'Общая психология', value: 'obshaya-psihologiya' },
+  { label: 'Организационная психология', value: 'organizacionnaya-psihologiya' }
 ]
 
-export {studyFields, studyFieldsProfessions, studyFieldsCourses}
+const studyFieldsBachelor = [
+  {
+    label: 'Психолого-педагогическое образование',
+    value: 'psihologo-pedagogicheskoye-obrazovanie'
+  },
+  { label: 'Психология', value: 'psikhologiya' },
+  { label: 'Педагогическое образование', value: 'pedagogicheskoe-obrazovanie' }
+]
+
+export {
+  studyFields,
+  studyFieldsProfessions,
+  studyFieldsCourses,
+  studyFieldsBachelor
+}

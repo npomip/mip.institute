@@ -1,55 +1,42 @@
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import { TypePageProgramsProps, TypePageProgramsPropsQuery, TypeGeneralGetStaticPropsContext } from '@/types/index'
-import { gql } from '@apollo/client'
-import apolloClient from '@/lib/apolloClient'
-import { revalidate, routes } from '@/config/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { PageBachelors, PagesPrograms } from '@/components/pages'
-import { SeoPagesPrograms } from '@/components/seo'
-import { FilterProvider } from '@/context/FilterContext/FilterContext'
-import { useRouter } from 'next/router'
-import { handleGetStaticProps } from '@/lib/index'
-import ProgramsFilters from '@/components/layout/ProgramsFilters'
-import { getUniqueCategories } from '@/components/funcs/getUniqueCategories'
+import { GetStaticProps } from 'next';
+import { routes } from '@/config/index';
+import { PageBachelors } from '@/components/pages';
+import { handleGetStaticProps } from '@/lib/index';
+import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps';
+import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps';
 
-const ProgramsPage = ({ bachelors, programs }) => {
-console.log(bachelors, programs);
+// Типизация Props для компонента
+interface ProgramsPageProps {
+  bachelors: TypePageBachelorsProps[] | null;
+  programs: any;
+  practicalTrainings: TypePagePracticalTrainingsProps[] | null;
+}
 
-  // const router = useRouter()
-
-  // const { query, asPath } = router
-  // const {ofType} = query
-  // const currentFieldSlug = studyFields.find(el => el.studyFieldSlug === query.studyFieldSlug)
-
-  // const label = ofType === 'professions' ? 'Профессиональная переподготовка' : ofType === 'courses' ? 'Повышение квалификации' : 'Все курсы'
-
-  // const segments = [`/${query.ofType}`, asPath]
-
-  // const labels = [label, currentFieldSlug.studyField]
-  // const slug = ['live-courses']
-
-  // const breadcrumbs = segments.map((segment, index) => {
-  //   const breadcrumb = {
-  //     label: labels[index],
-  //     path: segments[index],
-  //     slug: slug[index]
-  //   }
-  //   return breadcrumb
-  // })
-
+const ProgramsPage: React.FC<ProgramsPageProps> = ({ bachelors, programs, practicalTrainings }) => {
 
   return (
     <>
-    <PageBachelors programs={programs} bachelors={bachelors} />
-      {/* <SeoPagesPrograms programs={programs} />
-      <FilterProvider items={programs}>
-        <PagesPrograms programs={programs} studyFields={studyFields} allPrograms={allPrograms} breadcrumbs={breadcrumbs} />
-      </FilterProvider> */}
+      <PageBachelors programs={programs} bachelors={bachelors} practicalTrainings={practicalTrainings} />
     </>
-  )
-}
+  );
+};
 
-export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.bachelors })
+export const getStaticProps: GetStaticProps<ProgramsPageProps> = async context => {
+  const bachelorsData = await handleGetStaticProps({ context, page: routes.front.bachelors });
+  const practicalTrainingsData = await handleGetStaticProps({ context, page: routes.front.practicalTrainings });
 
-export default ProgramsPage
+  const bachelors = 'bachelors' in bachelorsData.props ? bachelorsData.props.bachelors : null;
+  const programs = 'programs' in bachelorsData.props ? bachelorsData.props.programs : null;
+  const practicalTrainings = 'practicalTrainings' in practicalTrainingsData.props ? practicalTrainingsData.props.practicalTrainings : null;
+
+  return {
+    props: {
+      bachelors,
+      programs,
+      practicalTrainings,
+    },
+    revalidate: 60,
+  };
+};
+
+export default ProgramsPage;

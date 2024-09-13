@@ -17,7 +17,8 @@
   .slider
     position: absolute
     cursor: pointer
-    border: 1px solid #947AFF
+    border: 1px solid
+    @include m.dye(border, c.$purple-300)
     inset: 0
     // background: #9fccfa
     border-radius: 50px
@@ -33,13 +34,13 @@
       // color: red
       transform: translate(50%, 50%)
       inset: 0
-      background-color: #947AFF
+      @include m.dye(bg, c.$purple-300)
       border-radius: 50px
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4)
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)
 
   input:checked + .slider
-    background: #947AFF
+    @include m.dye(bg, c.$purple-300)
     &::before
       transform: translate(200%, 50%)
       background-color: white

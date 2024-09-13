@@ -99,6 +99,12 @@ const getStaticPropsPracticalTraining = async ({
                 idx
               }
             }
+            review {
+              slide {
+                question
+                answer
+              }
+            }
             qnas {
               question
               answer

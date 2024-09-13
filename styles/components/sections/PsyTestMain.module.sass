@@ -4,9 +4,9 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   @include m.flex($fd: column, $jc: space-between)
-  @include m.gap($mb: f.px(60))
+  // @include m.gap($mb: f.px(60))
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(20))
 
@@ -22,11 +22,11 @@
   @include m.media(laptop, desktop)
     height: 91%
   width: 100%
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
 
 .title
   position: relative
-  @include m.dye(c, c.$nu)
+  @include m.dye(c, c.$white-900)
   font-weight: 500
   line-height: 110%
   z-index: 1

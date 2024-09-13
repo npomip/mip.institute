@@ -5,6 +5,7 @@ type TypePageHomePropsQuery = {
   readonly reviews: TypeLibReviews | null
   readonly teachers: TypeLibTeachers | null
   readonly bachelors: any | null
+  readonly practicalTrainings: any | null
 }
 
 export default TypePageHomePropsQuery

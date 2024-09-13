@@ -19,18 +19,18 @@ export default function ProgramList({ ofType, currentType }: Props) {
 
   return (
     <div className={styles.program}>
-      {list.map(({ label, slug }, index) => (
+      {list.map(({ label, value }, index) => (
         <Program
           ofType={ofType}
           index={index}
-          slug={slug}
-          key={`${slug}-${index}`}
+          slug={value}
+          key={`${value}-${index}`}
           label={label}
           href={`${
             ofType === 'course'
               ? routes.front.courses
               : routes.front.professions
-          }/${slug}`}
+          }/${value}`}
           openListIndex={openListIndex} // Передаем состояние открытого списка
           setOpenListIndex={setOpenListIndex}
           showIcon={ofType !== 'course'}

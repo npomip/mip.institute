@@ -5,15 +5,13 @@
 
 .container
   position: relative
-  cursor: pointer
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
-  // @include m.flex($fd: column)
   border-radius: f.px(10)
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.dye(bg, c.$gray-50)
   @include m.media(phone, tablet)
     min-height: auto
-  @include m.dye(c, c.$chi)
+  @include m.dye(c, c.$black-900)
   transition: background-color .2s ease-in-out
   @include m.media(laptop, desktop)
     max-width: f.px(370)
@@ -26,7 +24,31 @@
     .title
       color: #6f01c6 !important
   &:focus
-    @include m.dye(bg, c.$nu)
+    @include m.dye(bg, c.$white-900)
+
+.containerLink
+  position: relative
+  cursor: pointer
+  box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
+  border-radius: f.px(10)
+  @include m.dye(border, c.$purple-800)
+  @include m.dye(bg, c.$gray-50)
+  @include m.media(phone, tablet)
+    min-height: auto
+  @include m.dye(c, c.$black-900)
+  transition: background-color .2s ease-in-out
+  @include m.media(laptop, desktop)
+    max-width: f.px(370)
+    overflow: hidden
+    @include m.flex($fd: column, $fb: 50%)
+    @include m.gap($mr: 1%)
+    &:nth-child(2n)
+      @include m.gap($mr: 0)
+  &:hover
+    .title
+      color: #6f01c6 !important
+  &:focus
+    @include m.dye(bg, c.$white-900)
 
 .type
   max-width: max-content
@@ -39,12 +61,12 @@
   letter-spacing: f.px(0.8)
   text-transform: uppercase
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
-  @include m.dye(c, c.$alpha)
+  @include m.dye(border, c.$purple-800)
+  @include m.dye(c, c.$purple-800)
   @include m.media(laptop)
     font-size: f.px(6)
   @include m.media(phone, tablet)
-    font-size: f.px(10)
+    font-size: f.px(8)
 
 .title
   font-weight: 500
@@ -52,19 +74,18 @@
   transition: color .2s ease-in-out
   @include m.gap($mb: 0)
   @include m.media(laptop, desktop)
-    font-size: f.px(23)
+    font-size: f.px(24)
     @include m.gap($mt: f.px(20))
   @include m.media(phone, tablet)
-    font-size: f.px(15)
+    font-size: f.px(18)
 
 .content
   @include m.gap($plr: f.px(30), $pt: f.px(36), $pb: f.px(40),$mt: f.px(-15))
   border: f.px(1) solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.dye(bg, c.$gray-50)
   border-bottom-left-radius: f.px(10)
   border-bottom-right-radius: f.px(10)
-  // min-height: f.px(202)
   height: 100%
   @include m.flex($fd:column, $jc: space-between)
   @include m.media(phone, tablet)
@@ -74,9 +95,9 @@
     gap: f.px(10)
     @include m.media(phone, tablet)
       gap: 0
-      @include m.gap($mb: f.px(10))
+      font-size: f.px(10)
+      @include m.gap($mb: f.px(9))
       flex-direction: column
-
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(18))
     height: auto
@@ -87,7 +108,7 @@
   z-index: 1
   width: f.px(60)
   height: f.px(60)
-  @include m.dye(bg, c.$alpha)
+  @include m.dye(bg, c.$purple-800)
   @include m.flex($ai:center, $jc: center)
   border-radius: f.px(10)
   @include m.dye(c, white)
@@ -116,18 +137,26 @@
   position: relative
   &>*
     border-radius: f.px(10)
-    height: 100px
+    height: f.px(100)
     width: 100%
     &>*
-      height: 100px
+      height: f.px(100)
       width: 100%
   @include m.media(phone, tablet)
     object-fit: fill
 
 .img
   display: flex
-  height: 100px
-  width: 100px
-
+  height: f.px(100)
+  width: f.px(100)
   border-radius: f.px(10)
   object-fit: cover
+
+.btns
+  @include m.flex($ai:center, $jc: space-between)
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet, laptop)
+    @include m.flex($fd: column)
+    gap: f.px(10)
+    & > button
+      width: 100%

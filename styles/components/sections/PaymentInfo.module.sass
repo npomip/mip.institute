@@ -7,7 +7,7 @@
     @include m.gap($ptb: f.px(50))
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(100))
-  @include m.dye(bg, c.$epsilon)
+  @include m.dye(bg, c.$pink-50)
 
 .p
   max-width: 82ch
@@ -21,12 +21,11 @@
 
 .highlight
   font-weight: 400
-  @include m.dye(c, c.$beta)
+  @include m.dye(c, c.$orange-700)
 
 .number,
 .email
-  @include m.dye(c, c.$chi)
+  @include m.dye(c, c.$black-900)
   &:focus,
   &:hover
     text-decoration: underline
-    

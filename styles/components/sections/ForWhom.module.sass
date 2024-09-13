@@ -9,7 +9,7 @@
     @include m.gap($ptb: f.px(50))
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(90))
-  @include m.dye(bg, c.$pi)
+  @include m.dye(bg, c.$yellow-100)
 
 .title
   @include m.gap($mb: f.px(15))
@@ -34,9 +34,6 @@
   @include m.media(laptop, desktop)
     @include m.flex( $jc: space-between)
 
-    
-    
-
 .item
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $jc: center, $ai: center)
@@ -48,8 +45,6 @@
         max-width: f.px(320)
         & strong
           width: f.px(450)
-        
-      
 
   &:nth-last-child(1)
     @include m.gap($mb: f.px(0))
@@ -78,11 +73,11 @@
       font-size: f.px(15)
     @include m.media(phone)
       max-width: f.px(300)
-      
+
   @include m.media(desktop)
     max-width: f.px(357)
     font-size: f.px(18)
-      
+
   @include m.media(laptop)
     max-width: f.px(330)
     font-size: f.px(18)

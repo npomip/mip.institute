@@ -8,7 +8,7 @@
     @include m.gap($pt: f.px(30))
 
 .title
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
   font-weight: 500
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(60))
@@ -22,8 +22,8 @@
     top: f.px(-10)
     left: f.px(20)
     font-size: f.px(16)
-    @include m.dye(bg, c.$beta)
-    color: white
+    @include m.dye(bg, c.$orange-700)
+    @include m.dye(c, c.$white-900)
     @include m.gap($ptb: f.px(8), $plr: f.px(23))
     border-radius: f.px(50)
     font-weight: 350

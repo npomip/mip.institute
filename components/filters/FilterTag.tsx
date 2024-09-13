@@ -21,12 +21,10 @@ const FilterTag = ({
   isCategories = false,
   isProgram = false,
   quantity,
-  withPopup=false,
-  popupText=''
+  withPopup = false,
+  popupText = ''
 }: FilterTagProps) => {
-  const isTabletLayout = useBetterMediaQuery(
-    '(max-width: 768px)'
-  )
+  const isTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const contentStyle = {
     background: '#ffffff',
     minWidth: isTabletLayout ? '250px' : '400px',
@@ -37,7 +35,6 @@ const FilterTag = ({
     border: '1px solid #CDCDCD'
   }
 
-  
   return (
     <span
       onClick={onClick}
@@ -51,21 +48,18 @@ const FilterTag = ({
       {<span className={stls.quantity}>{quantity}</span>}
       {withPopup && (
         <Popup
-        trigger={open => (
-          <span className={stls.popupTrigger}>
-            <IconInfo yellow />
-          </span>
-        )}
-        on={isTabletLayout ? 'click' : 'hover'}
-        position={'left center'}
-        {...{ contentStyle }}
-        offsetX={5}>
-        <span className={stls.popupText}>
-          {popupText}
-        </span>
-      </Popup>
+          trigger={open => (
+            <span className={stls.popupTrigger}>
+              <IconInfo yellow />
+            </span>
+          )}
+          on={isTabletLayout ? 'click' : 'hover'}
+          position={'left center'}
+          {...{ contentStyle }}
+          offsetX={5}>
+          <span className={stls.popupText}>{popupText}</span>
+        </Popup>
       )}
-      
     </span>
   )
 }

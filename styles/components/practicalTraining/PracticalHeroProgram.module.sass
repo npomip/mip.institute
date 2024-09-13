@@ -67,13 +67,13 @@
     @include m.flex($as: start)
 
 .title
-  color: white
+  @include m.dye(c, c.$white-900)
   font-weight: 500
   line-height: 90%
   @include m.gap($mb: f.px(20))
   position: relative
   z-index: 1
-  @include m.dye(c, c.$nu)
+  @include m.dye(c, c.$white-900)
   @include m.media(laptop, desktop)
     min-width: 12ch
     @include m.gap($mt: f.px(30))
@@ -83,7 +83,7 @@
   @include m.media(laptop, desktop)
     font-size: f.px(54)
   @include m.media(phone, tablet)
-    color: white
+    @include m.dye(c, c.$white-900)
     font-size: f.px(36)
     font-weight: 500
     line-height: 110%
@@ -94,7 +94,7 @@
   font-size: f.px(55)
 
 .descriptionDesktop
-  color: white
+  @include m.dye(c, c.$white-900)
   font-size: f.px(20)
   font-weight: 500
   line-height: 130%
@@ -102,7 +102,7 @@
   @include m.gap($mb: f.px(30))
 
 .descriptionMobile
-  color: white
+  @include m.dye(c, c.$white-900)
   font-size: f.px(15)
   z-index: 1
   font-weight: 500
@@ -111,7 +111,7 @@
     display: none
 
 .moreText
-  @include m.dye(c, c.$epsilon)
+  @include m.dye(c, c.$pink-50)
   text-decoration-line: underline
   text-underline-offset: f.px(2)
   font-size: f.px(15)

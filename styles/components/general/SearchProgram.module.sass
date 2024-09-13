@@ -1,5 +1,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/utils/mixin' as m
+@use '@/styles/themes/default/colors' as c
 
 .programs
   transform: translate(-8%, -5%)
@@ -25,7 +26,7 @@
   height: f.px(56)
   @include m.gap($pl: f.px(18), $mb: f.px(38))
   font-size: f.px(16)
-  color: white
+  @include m.dye(c, c.$white-900)
   background: #2E2D2C
   border: f.px(0.5) solid white
   border-radius: f.px(5)

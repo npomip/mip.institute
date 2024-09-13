@@ -12,7 +12,7 @@
     padding-right: 2.8%
   box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
   border-radius: f.px(20)
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, c.$white-900)
   @include m.media(phone, tablet)
     box-shadow: none
     border: none
@@ -37,7 +37,7 @@
     &:nth-of-type(1), &:nth-of-type(2)
       @include m.gap($pt: f.px(28))
 
-    @include m.dye(border, rgba(c.$theta, .1))
+    @include m.dye(border, rgba(c.$black-800, .1))
   @include m.media(laptop)
     flex-basis: 18%
   @include m.media(desktop)
@@ -50,7 +50,7 @@
     & + .item
       padding-left: 2.4%
       border-left: f.px(1) solid
-      @include m.dye(border, rgba(c.$theta, .1))
+      @include m.dye(border, rgba(c.$black-800, .1))
 
 .icon
   @include m.media(phone, tablet)
@@ -70,7 +70,7 @@
   @include m.media(laptop, desktop)
     font-size: f.px(14)
   font-weight: 500
-  @include m.dye(c, c.$kappa)
+  @include m.dye(c, c.$gray-700)
 
 .val
   max-width: 12ch
@@ -96,4 +96,4 @@
   color: #808080
   font-weight: 500
   span
-    @include m.dye(c, c.$alpha)
+    @include m.dye(c, c.$purple-800)

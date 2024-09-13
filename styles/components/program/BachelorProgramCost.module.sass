@@ -13,7 +13,6 @@
   font-weight: 500
   @include m.gap($mb: f.px(10))
 
-
 .tag
   font-size: f.px(9)
   font-weight: 350
@@ -53,7 +52,6 @@
     // padding-top: 20px
     align-items: center
     white-space: nowrap
-  
 
 .regular
   position: relative
@@ -82,7 +80,7 @@
   flex-direction: column
   align-items: center
   width: 100%
-  & > * 
+  & > *
     width: 100%
 
 .violetBtn,.orangeBtn
@@ -93,7 +91,7 @@
 
 .violetBtn
   button
-    color: #6F01C6
+    @include m.dye(c, c.$purple-800)
 
 .orangeBtn
   button

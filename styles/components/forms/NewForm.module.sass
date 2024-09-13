@@ -14,7 +14,7 @@
   & > *
     color: #808080
     &:hover
-      color: #6F01C6
+      @include m.dye(c, c.$purple-800)
 
 .atFooter
   & .name,
@@ -32,12 +32,12 @@
       @include m.media(laptop, desktop)
         font-size: f.px(16)
         border: f.px(1) solid
-        @include m.dye(border, c.$phi)
+        @include m.dye(border, c.$gray-800)
         border-radius: f.px(4)
         background-color: transparent
-        @include m.dye(c, c.$nu)
+        @include m.dye(c, c.$white-900)
         &::placeholder
-          @include m.dye(c, c.$psi)
+          @include m.dye(c, c.$gray-500)
 
 .inpt
   & input,
@@ -53,7 +53,7 @@
     font-weight: 300
     font-size: 20px
     &::placeholder
-      @include m.dye(c, c.$kappa)
+      @include m.dye(c, c.$gray-700)
   & textarea
     outline: none
 
@@ -71,14 +71,14 @@
 .btn
   & > *
     border-radius: 15px
-    @include m.dye(c, c.$nu)
-    @include m.dye(bg, c.$alpha)
+    @include m.dye(c, c.$white-900)
+    @include m.dye(bg, c.$purple-800)
     @include m.gap($ptb: f.px(18), $plr: f.px(15))
     @include m.media(tablet, phone)
       width: 100%
       @include m.gap($mtb: f.px(25))
   @include m.media(laptop, desktop)
-  
+
     @include m.flex($display: false, $fb: 38%)
     width: 100%
     & > *
@@ -92,11 +92,11 @@
 .agreement
   @include m.gap($mt: f.px(30))
   font-size: f.px(13)
-  @include m.dye(c, c.$kappa)
+  @include m.dye(c, c.$gray-700)
 
 .err
   @include m.gap($mt: f.px(5))
-  @include m.dye(c, c.$alpha)
+  @include m.dye(c, c.$purple-800)
 
 .violetButton
   @include m.media(tablet, phone)

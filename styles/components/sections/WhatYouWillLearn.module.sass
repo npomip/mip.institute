@@ -10,7 +10,7 @@
     @include m.gap($pb: f.px(43))
   @include m.media(laptop, desktop)
     @include m.gap($ptb: f.px(60))
-  @include m.dye(bg, c.$nu)
+  @include m.dye(bg, c.$white-900)
 
 .title
   display: inline-block
@@ -26,7 +26,7 @@
     @include m.gap($mb: f.px(35), $pt: f.px(15))
     font-size: f.px(44)
     font-weight: 500
-  @include m.dye(c, c.$theta)
+  @include m.dye(c, c.$black-800)
 
 .list
   margin: 0
@@ -45,11 +45,11 @@
   border-radius: f.px(25)
   @include m.flex($jc: flex-start, $ai: flex-start, $fd: column)
   border: 1px solid
-  @include m.dye(border, c.$alpha)
+  @include m.dye(border, c.$purple-800)
   @include m.media(phone, tablet)
     @include m.gap($p: f.px(20))
     border: 0.7px solid
-    @include m.dye(border, c.$alpha)
+    @include m.dye(border, c.$purple-800)
     & > *
       max-width: f.px(420)
 
@@ -102,8 +102,8 @@
   border: 1px solid
   // opacity: 0.6
   background: rgba(255, 255, 255, 0.7)
-  @include m.dye(border, c.$beta)
-  @include m.dye(bg, c.$upsilon)
+  @include m.dye(border, c.$orange-700)
+  @include m.dye(bg, c.$white-800)
   @include m.gap($pt: f.px(35), $pb: f.px(10))
   @include m.media(tablet)
     @include m.gap($pt: f.px(30), $pl: f.px(30), $pr: f.px(15))

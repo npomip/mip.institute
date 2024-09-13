@@ -65,11 +65,11 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
                       <span>{renderCounter(programType)}</span>
                     </div>
                   </div>
-                  {/* <div className={stls.icon}>
+                  <div className={stls.icon}>
                     <IconNavigation hover={hoveredIcon?.icon === icon}>
                       {icon}
                     </IconNavigation>
-                  </div> */}
+                  </div>
                 </div>
               </Link>
             ))}

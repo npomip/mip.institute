@@ -30,12 +30,11 @@
   gap: f.px(20) f.px(30)
   @include m.media(laptop,desktop)
     grid-template-columns: repeat(3, 1fr)
-  @include m.media(tablet)
-    grid-template-columns: repeat(2, 1fr)
   @include m.media(phone)
     gap: f.px(10)
 
 .navTitle
+  @include m.gap($mb: f.px(0))
   font-weight: 500
   line-height: 110%
   @include m.media(desktop, laptop)
@@ -43,8 +42,10 @@
     width: f.px(180)
   @include m.media(phone, tablet)
     font-size: f.px(18)
+    width: f.px(180)
 
 .linkInner
+  position: relative
   @include m.dye(bg, white)
   overflow: hidden
   border: f.px(0.5) solid
@@ -56,20 +57,15 @@
   transition: background-color 0.3s ease, color 0.3s ease
   @include m.media(tablet)
     height: f.px(186)
-  @include m.media(phone)
-    height: f.px(181)
   &:hover
     @include m.dye(bg, c.$purple-800)
     .navTitle,.countPrograms
       @include m.dye(c, white)
-    .icon
-      & > path
-        fill: white
 
 .content
   @include m.flex($fd: column, $jc: space-between)
   @include m.media(desktop, laptop)
-    gap: f.px(37)
+    gap: f.px(47)
   @include m.media(phone, tablet)
     gap: f.px(49)
 
@@ -82,12 +78,9 @@
     @include m.gap($mb: f.px(40))
 
 .icon
-  @include m.media(desktop)
-    transform: translateX(f.px(24.4)) translateY(f.px(104))
-  @include m.media(laptop)
-    transform: translateX(f.px(30.2)) translateY(f.px(108))
-  @include m.media(phone, tablet)
-    transform: translateX(f.px(30.2)) translateY(f.px(101))
+  position: absolute
+  bottom: 0
+  right: 0
 
 .countPrograms
   @include m.dye(c, black)

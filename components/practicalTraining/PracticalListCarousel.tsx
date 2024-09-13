@@ -17,7 +17,7 @@ const PracticalList = ({ list }: Props) => {
       title={item.title}
       text={item.text}
       number={idx + 1}
-      margin={25}
+      margin={20}
     />
   ))
 

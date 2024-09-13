@@ -4,9 +4,11 @@
 
 .card
   border-radius: f.px(10)
-  @include m.gap($plr: f.px(35), $pt: f.px(62), $pb: f.px(20), $mb: f.px(35))
+  @include m.gap($plr: f.px(35), $pt: f.px(62), $pb: f.px(20))
   @include m.flex($ai: center, $fd: column)
   gap: f.px(49)
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
 
 .whiteCard
   @include m.dye(bg, c.$white-900)
@@ -15,8 +17,18 @@
     -webkit-line-clamp: 17
     max-height: calc(25 * 1rem)
   .image
-    top: f.px(-60)
-    left: f.px(30)
+    top: f.px(-230)
+    left: f.px(-120)
+    transform: scale(.25)
+    @include m.media(laptop)
+      top: f.px(-210)
+    @include m.media(tablet)
+      top: f.px(-190)
+      left: f.px(-90)
+    @include m.media(phone)
+      transform: scale(.22)
+      top: f.px(-230)
+
   .btn
     &>*
       &>*

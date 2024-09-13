@@ -1,22 +1,20 @@
-import stls from '@/styles/components/popups/PopupReviewNew.module.sass'
-import Popup from 'reactjs-popup'
-import marked from 'marked'
-import parse from 'html-react-parser'
 import {
   BtnAlpha,
   BtnBeta,
-  BtnGamma,
   BtnDelta,
   BtnEpsilon,
-  BtnZeta,
   BtnEta,
+  BtnGamma,
   BtnText,
   BtnTheta,
-  BtnClose
+  BtnZeta
 } from '@/components/btns'
+import stls from '@/styles/components/popups/PopupReviewNew.module.sass'
+import parse from 'html-react-parser'
+import marked from 'marked'
 import Image from 'next/image'
+import Popup from 'reactjs-popup'
 import IconClosePopupPractical from '../icons/IconClosePopupPractical'
-import { useState } from 'react'
 
 type PopupReviewNewType = {
   btn:
@@ -30,13 +28,12 @@ type PopupReviewNewType = {
     | 'theta'
     | 'text'
     | 'test'
-  cta:
-    | 'askQuestion'
+  cta: 'askQuestion'
   name: string
   slides: {
-        answer: string;
-        question: string;
-    }[]
+    answer: string
+    question: string
+  }[]
   image
 }
 
@@ -47,16 +44,15 @@ const PopupReviewNew = ({
   image,
   name
 }: PopupReviewNewType) => {
-
   const strings = {
     trigger: {
-      askQuestion: 'Читать всю историю',
+      askQuestion: 'Читать всю историю'
     },
     title: {
-      askQuestion: 'Читать всю историю',
+      askQuestion: 'Читать всю историю'
     },
     blockForAmo: {
-      askQuestion: 'Читать всю историю',
+      askQuestion: 'Читать всю историю'
     }
   }
 
@@ -76,19 +72,17 @@ const PopupReviewNew = ({
   renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
   marked.setOptions({ renderer })
   const SlideContent = ({ slide }) => {
-  const formattedAnswer = slide.answer.replace(/(–\s)/g, '<br />$1').replace(/(\d+\.\s)/g, '<br />$1');;
+    const formattedAnswer = slide.answer
+      .replace(/(–\s)/g, '<br />$1')
+      .replace(/(\d+\.\s)/g, '<br />$1')
 
-  return (
-    <>
-      <div className={stls.question}>
-        {slide.question}
-      </div>
-      <div className={stls.answer}>
-        {parse(marked(formattedAnswer))}
-      </div>
-    </>
-  );
-};
+    return (
+      <>
+        <div className={stls.question}>{slide.question}</div>
+        <div className={stls.answer}>{parse(marked(formattedAnswer))}</div>
+      </>
+    )
+  }
   return (
     <Popup
       trigger={
@@ -98,18 +92,15 @@ const PopupReviewNew = ({
             ctheta={btn === 'text'}
             test={btn === 'test'}
           />
-        </div> 
+        </div>
       }
       modal
       nested>
-        {close => (
+      {close => (
         <div className={stls.container}>
           <div className={stls.leftBlock}>
             <div className={stls.personImage}>
-              <Image 
-                src={image}
-                alt='Выпускник'
-              />
+              <Image src={image} alt='Выпускник' />
             </div>
             <p className={stls.name}>{name}</p>
             <SlideContent slide={slides[0]} />

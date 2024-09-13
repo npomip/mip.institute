@@ -11,9 +11,9 @@ type Props = {
   answer: string
   markedTitle?: boolean
   slides: {
-        answer: string;
-        question: string;
-    }[]
+    answer: string
+    question: string
+  }[]
   margin?: number
   image
 }
@@ -42,8 +42,8 @@ const PracticalReviewsCard = ({
         [stls.purpleCard]: even
       })}>
       <div className={stls.image}>
-        <Image 
-          src={image} 
+        <Image
+          src={image}
           alt='Фото'
           width={image.width}
           height={image.height}
@@ -55,20 +55,20 @@ const PracticalReviewsCard = ({
         </div>
         <div
           className={classNames({
-            [stls.text]: true,
+            [stls.text]: true
           })}>
           {answer.split('\n').map((line, index) => (
-                <div key={index}>{line}</div>
-            ))}
+            <div key={index}>{line}</div>
+          ))}
         </div>
       </div>
       <div className={stls.btn}>
-        <PopupReviewNew 
-            btn='zeta' 
-            cta='askQuestion' 
-            slides={slides}
-            image={image}
-            name={name}
+        <PopupReviewNew
+          btn='zeta'
+          cta='askQuestion'
+          slides={slides}
+          image={image}
+          name={name}
         />
       </div>
     </div>

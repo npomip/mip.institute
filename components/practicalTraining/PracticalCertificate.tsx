@@ -5,10 +5,9 @@ import Image from 'next/image'
 import PopupTrigger from '../general/PopupTrigger'
 import Wrapper from '../layout/Wrapper'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
-import ticket from '@/public/assets/imgs/practicalCarousel/ticket.jpg'
+import ticket from '@/public/assets/imgs/practicalCarousel/ticket.png'
 import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'
-import certificate from '@/public/assets/imgs/practicalCarousel/certificate.jpg'
-
+import certificate from '@/public/assets/imgs/practicalCarousel/certificate.png'
 
 type Props = {
   image: PracticalDiploma

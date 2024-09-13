@@ -74,15 +74,17 @@
 
 .imageContainer
   @include m.flex($fd: column, $ai: center)
-  gap: f.px(30)
 
 .image
-  @include m.gap($mt: f.px(93))
+  @include m.gap($mt: f.px(50))
   & > span
     border: f.px(1) solid c.$purple-350 !important
     border-radius: 50%
+    transform: scale(.75)
+    @include m.media(phone, tablet)
+      transform: scale(.7)
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(40))
+    @include m.gap($mt: f.px(0))
 
 .subTitleImage
   text-align: center

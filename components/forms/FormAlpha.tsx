@@ -86,7 +86,7 @@ const FormAlpha = ({
     setIsDisabled(true)
     setLoading(true)
 
-    const roistatAB = JSON.parse(localStorage.getItem('AB'))
+    const roistatAB = localStorage.getItem('AB')
 
     // handle loader
     data.roistatAB = roistatAB

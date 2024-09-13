@@ -15,10 +15,10 @@
 
 .left
   @include m.media(phone, tablet)
-    @include m.flex($jc: center)
+    @include m.flex($jc: center, $fd: column)
     @include m.gap($mb: f.px(50))
   @include m.media(laptop, desktop)
-    display: flex
+    @include m.flex($fd: column)
     flex: 1
     @include m.gap($mr: 5%)
     @include m.flex($display: false, $fb: 25%)
@@ -92,6 +92,7 @@
     width: 100%
 
 .diplomaTitle
+  @include m.dye(c, c.$orange-700)
   @include m.media(phone, tablet)
     @include m.gap($ml: f.px(13))
   @include m.media(laptop, desktop)

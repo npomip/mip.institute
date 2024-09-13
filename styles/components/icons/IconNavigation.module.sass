@@ -3,10 +3,10 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.sizeIcon($w: 47, $h: 47)
+  @include m.sizeIcon($w: 150, $h: 150)
   @include m.flex
   @include m.media(phone, tablet)
-    @include m.sizeIcon($w: 55, $h: 5)
+    @include m.sizeIcon($w: 120, $h: 120)
   &.hover
-    path
-      fill: white
+    svg
+      stroke: white

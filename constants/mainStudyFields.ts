@@ -31,7 +31,7 @@ const list = [
     },
     {
       id: 5,
-      label: 'Практические навыки',
+      label: 'Практическая подготовка',
       href: routes.front.practicalTrainings,
       programType: 'practicalTraining',
       hoverSelect: false

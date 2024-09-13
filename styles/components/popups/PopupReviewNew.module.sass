@@ -17,13 +17,15 @@
   gap: f.px(43)
 
 .leftBlock
-  flex-basis: 40%
+  flex-basis: 45%
 
 .rigthBlock
-  flex-basis: 60%
+  flex-basis: 55%
 
 .personImage
-  border-radius: 50%
+  width: f.px(150)
+  & > span > img
+    border-radius: 50%
   @include m.gap($mb: f.px(15))
 
 .strongText
@@ -39,6 +41,7 @@
   font-size: f.px(18)
   font-weight: 500
   line-height: 130%
+  max-width: f.px(350)
   @include m.gap($mb: f.px(10))
 
 .name

@@ -10,9 +10,9 @@
 
 .titleContainer
   @include m.flex($jc: space-between, $ai: flex-end)
-  @include m.media(phone)
+  @include m.media(phone, tablet)
     @include m.flex($ai: flex-end)
-    @include m.flex($fd:column)
+    @include m.gap($mb: f.px(15))
     width: 100%
 
 .remark
@@ -22,7 +22,8 @@
   font-weight: 350
   line-height: 130%
   @include m.media(phone, tablet)
-    font-size: f.px(10)
+    @include m.gap($mb: f.px(0))
+    font-size: f.px(9)
 
 .underlined
   font-weight: 500
@@ -30,20 +31,18 @@
 
 .listColumn
   @include m.gap($plr: f.px(20))
-  // @include m.gap($mtb: f.px(20), $pl: f.px(15), $mlr: auto)
 
 .title
   font-weight: 500
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30), $pt: f.px(15))
     font-size: f.px(44)
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(15))
-    font-size: f.px(32)
+    @include m.gap($mb: f.px(0))
+    font-size: f.px(30)
 
 .item
-  @include m.flex()
-  @include m.gap($mt: f.px(18))
+  @include m.flex($ai: flex-start)
+  @include m.gap($mt: f.px(14))
   min-width: f.px(270)
   @include m.media(desktop)
     max-width: f.px(270)
@@ -55,6 +54,8 @@
 
 .icon
   @include m.gap($mr: f.px(15))
+  @include m.media(laptop, desktop)
+    transform: scale(.55)
 
 .text
   font-size: f.px(16)

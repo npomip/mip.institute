@@ -8,7 +8,6 @@ type Props = {
 }
 
 const PracticalWhatInProgram = ({ list }: Props) => {
-  
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -23,9 +22,7 @@ const PracticalWhatInProgram = ({ list }: Props) => {
                 <div className={stls.icon}>
                   <IconVioletCircle />
                 </div>
-                <p className={stls.text}>
-                  {el.text}
-                </p>
+                <p className={stls.text}>{el.text}</p>
               </div>
             ))}
           </div>

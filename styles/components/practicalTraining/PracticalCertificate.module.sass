@@ -61,7 +61,7 @@
   height: 100%
   @include m.gap($plr: f.px(63), $ptb: f.px(59))
   @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(52), $ptb: f.px(40))
+    @include m.gap($plr: f.px(45), $ptb: f.px(40))
 
 .titleRight
   text-align: center
@@ -71,16 +71,18 @@
   @include m.gap($mb: f.px(20))
 
 .imgCertificate
-  transform: translateY(f.px(0)) translateX(f.px(-277))
+  transform: translateY(f.px(-20)) translateX(f.px(-207)) scale(.85)
   @include m.media(phone, tablet)
-    transform: translateY(f.px(16)) scale(1.4) translateX(f.px(-99))
+    transform: translateY(f.px(10)) translateX(f.px(-139))
 
 .imgTicket
-  transform: translateY(f.px(-131)) translateX(f.px(313))
+  transform: translateY(f.px(-91)) translateX(f.px(340)) scale(1.3)
   @include m.media(laptop)
     transform: translateY(f.px(-91)) translateX(f.px(273))
-  @include m.media(phone, tablet)
-    transform: translateY(f.px(-59)) scale(1.4) translateX(f.px(110))
+  @include m.media(tablet)
+    transform: translateY(f.px(-49)) scale(1.3) translateX(f.px(190))
+  @include m.media(phone)
+    transform: translateY(f.px(-49)) scale(1.5) translateX(f.px(110))
 
 .imgRight
   transform: rotate(17deg)

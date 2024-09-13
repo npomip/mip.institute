@@ -26,24 +26,24 @@
 .portrait
   border-radius: 50%
   overflow: hidden
-  min-width: 140px
-  max-width: 140px
-  min-height: 140px
-  max-height: 140px
-  border-radius: 25px
+  min-width: f.px(140)
+  max-width: f.px(140)
+  min-height: f.px(140)
+  max-height: f.px(140)
+  border-radius: f.px(25)
   @include m.gap($mb: f.px(15))
   @include m.media(laptop,tablet)
     @include m.gap($mb: f.px(10))
-    min-width: 120px
-    max-width: 120px
-    min-height: 120px
-    max-height: 120px
+    min-width: f.px(120)
+    max-width: f.px(120)
+    min-height: f.px(120)
+    max-height: f.px(120)
   @include m.media(phone)
     @include m.gap($mb: f.px(10))
-    min-width: 90px
-    max-width: 90px
-    min-height: 90px
-    max-height: 90px
+    min-width: f.px(90)
+    max-width: f.px(90)
+    min-height: f.px(90)
+    max-height: f.px(90)
 
 .leftBlock
   width: f.px(160)
@@ -73,10 +73,8 @@
     font-size: f.px(12)
 
 .rightBlock
-  display: flex
   width: 100%
-  flex-direction: column
-  justify-content: space-between
+  @include m.flex($fd: column, $jc: space-between)
   min-height: f.px(240)
   @include m.dye(bg, c.$pink-100)
   border-top-right-radius: f.px(25)
@@ -95,14 +93,24 @@
   border-left: f.px(1) solid c.$purple-350
   border-top-right-radius: f.px(15)
   border-bottom-right-radius: f.px(15)
+  @include m.media(phone, tablet)
+    border-top-right-radius: f.px(5)
+    border-bottom-right-radius: f.px(5)
 
 .practicalTeacher
   border-radius: f.px(15)
   & > div > div.leftBlock
     border-top-left-radius: f.px(15)
     border-bottom-left-radius: f.px(15)
+    @include m.media(phone, tablet)
+      border-top-left-radius: f.px(5)
+      border-bottom-left-radius: f.px(5)
     & > div
       border-radius: f.px(15)
+      @include m.media(phone, tablet)
+        border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
 
 .achievements
   font-weight: 400
@@ -120,9 +128,7 @@
     font-size: f.px(10)
 
 .experience
-  display: flex
-  align-items: center
-  flex-direction: row
+  @include m.flex($ai: center, $fd: row)
   font-size: f.px(16)
   @include m.media(tablet)
     font-size: f.px(12)
@@ -130,7 +136,7 @@
     font-size: f.px(10)
 
 .icon
-  width: 20px
+  width: f.px(20)
   @include m.gap($pr: f.px(10))
   & path
     @include m.dye(fill, c.$purple-800)

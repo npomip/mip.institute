@@ -29,4 +29,5 @@
 
 .list
   padding-left: 0
-  @include m.gap($pl: f.px(0), $pb: f.px(40))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(0))

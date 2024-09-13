@@ -54,7 +54,6 @@ const PageTraining = ({ practicalTraining }: Props) => {
       />
       <PracticalCertificate image={practicalTraining?.diploma1} />
       <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
-      <PracticalReviews review={practicalTraining.review}/>
       <Teachers
         title={'Преподаватели'}
         teachersList={practicalTraining?.teachers}
@@ -66,9 +65,10 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isTeacherRoundBtn={false}
       />
       <PracticalConditions />
+      <PracticalReviews review={practicalTraining.review} />
       <RequirementsInProfession />
 
-      <PracticalPaymentForm price={practicalTraining.price} />
+      {/* <PracticalPaymentForm price={practicalTraining.price} /> */}
       <GeneralFaq qnas={practicalTraining.qnas} isPractical />
     </div>
   )

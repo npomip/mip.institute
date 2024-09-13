@@ -20,7 +20,7 @@
 .list
   display: grid
   grid-template-columns: repeat(2, 1fr)
-  gap: f.px(16)
+  gap: f.px(10) f.px(16)
   width: 100%
   @include m.media(phone, tablet)
     grid-template-columns: repeat(1, 1fr)
@@ -37,6 +37,7 @@
   gap: f.px(22)
   position: relative
   @include m.media(phone, tablet)
+    border-radius: f.px(5)
     @include m.gap($ptb: f.px(15), $pl: f.px(70))
     width: 100%
     min-height: f.px(123)
@@ -45,12 +46,12 @@
     margin-bottom: 0
 
 .icon
-  min-width: f.px(20)
-  min-height: f.px(20)
+  @include m.media(desktop, laptop)
+    transform: scale(.55)
   @include m.media(phone, tablet)
     position: absolute
     top: f.px(26)
-    left: f.px(19)
+    left: f.px(20)
 
 .firstWord
   font-weight: 500

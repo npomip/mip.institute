@@ -1,5 +1,5 @@
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import src from '@/public/assets/imgs/practicalCarousel/Frame 40158.jpg'
+import src from '@/public/assets/imgs/practicalCarousel/beginner.png'
 import stls from '@/styles/components/practicalTraining/PracticalWhoIsProgramFor.module.sass'
 import bubblesList from 'constants/practicalBubbles'
 import parse from 'html-react-parser'

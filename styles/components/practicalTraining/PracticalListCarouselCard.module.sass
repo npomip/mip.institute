@@ -8,6 +8,9 @@
   border-radius: f.px(15)
   @include m.gap($plr: f.px(20), $pt: f.px(20), $pb: f.px(40))
   @include m.flex($ai: flex-end, $jc: space-between, $fd: column)
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(50))
+    border-radius: f.px(5)
 
 .whiteCard
   @include m.dye(bg, c.$white-900)
@@ -18,7 +21,7 @@
   border: f.px(1) solid c.$purple-350
   @include m.gap($mt: f.px(40))
   @include m.media(phone, tablet)
-    @include m.gap($mt:0)
+    @include m.gap($mt: f.px(20))
 
 .number
   font-size: f.px(40)

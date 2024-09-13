@@ -6,7 +6,7 @@ import {
 } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import classNames from 'classnames'
 import Image from 'next/image'
-import IconThickRound from '../icons/IconThickRound'
+import IconVioletCircle from '../icons/IconVioletCircle'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 
 type Props = {
@@ -35,7 +35,7 @@ const PracticalProgramDescription = ({ cards, description }: Props) => {
             {cards.map(el => (
               <li className={stls.item} key={el.title}>
                 <div className={stls.icon}>
-                  <IconThickRound fill='#D6C5FF' />
+                  <IconVioletCircle />
                 </div>
                 <div className={stls.itemText}>
                   <span className={classNames(stls.text, stls.bold)}>

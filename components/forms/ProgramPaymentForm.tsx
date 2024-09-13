@@ -51,8 +51,9 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
   const onSubmit = async data => {
     setIsDisabled(true)
     setIsLoading(true)
-
+    const roistatAB = JSON.parse(localStorage.getItem('AB'))
     // handle loader
+    data.roistatAB = roistatAB
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     data.utms = utms

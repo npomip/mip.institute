@@ -41,7 +41,7 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
       case 'programs':
         return `${allPrograms.length} программ`
       default:
-        return `${practicalTrainings.length} ступень`
+        return `${practicalTrainings.length} ступени`
     }
   }
 

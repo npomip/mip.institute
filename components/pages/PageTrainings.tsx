@@ -17,7 +17,7 @@ type PagesProgramsType = {
 const PageTrainings = ({ programs = [], practicalTrainings = [], bachelors= [] }) => {
   const categories = getUniqueCategories(programs)
 
-  const label = 'Практические навыки'
+  const label = 'Практическая подготовка'
 
   const segments = [`/practical-training`]
 
@@ -39,7 +39,7 @@ const PageTrainings = ({ programs = [], practicalTrainings = [], bachelors= [] }
       <SeoPageBachelors/>
       <FilterProvider items={programs}>
       <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
-      <h1 className={stls.title}>Практические навыки</h1>
+      <h1 className={stls.title}>Практическая подготовка</h1>
         <ProgramsFilters
           bachelors={bachelors}
           practicalTrainings={practicalTrainings}

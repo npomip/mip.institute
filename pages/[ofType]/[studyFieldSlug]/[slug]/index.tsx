@@ -35,7 +35,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
       : program?.type === 'Course'
       ? 'Повышение квалификации'
       : program?.type === 'Practice'
-      ? 'Практические навыки'
+      ? 'Практическая подготовка'
       : 'Все курсы'
   const labels = [label, program?.studyField]
 

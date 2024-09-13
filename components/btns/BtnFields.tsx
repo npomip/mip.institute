@@ -4,16 +4,8 @@ import { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { closeFieldsTooltipOnOuterClick } from '@/helpers/index'
-import StudyFields from '@/components/general/StudyFields'
 import Wrapper from '../layout/Wrapper'
-// import getProgramsData from '@/lib/data/getProgramsData'
-// import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
-// import CardTooltip from '../cards/CardTooltip'
-// import BtnField from './BtnField'
 import MainStudyFields from '../general/MainStudyFields'
-import { ContextStaticProps } from '@/context/index'
-import { useRouter } from 'next/router'
-import routes from '@/config/routes'
 import StudyFieldsOnMain from '../general/StudyFieldsOnMain'
 
 const BtnFields = () => {
@@ -24,8 +16,7 @@ const BtnFields = () => {
     closeFieldsTooltipOnOuterClick(closeFieldsTooltip)
   }, [])
 
-  const [currentType, setCurrentType] = useState('')
-
+  const [currentType, setCurrentType] = useState(null)
 
   return (
     <Wrapper>
@@ -42,7 +33,7 @@ const BtnFields = () => {
             [stls.isShown]: fieldsTooltipIsOpen
           })}>
           <MainStudyFields currentType={currentType} setCurrentType={setCurrentType} />
-          <StudyFieldsOnMain currentType={currentType} ofType={currentType === 'course' ? 'course' : currentType === 'profession' ? 'profession' : null} orang />
+          <StudyFieldsOnMain currentType={currentType} ofType={currentType} orang />
         </div>
       </div>
     </Wrapper>

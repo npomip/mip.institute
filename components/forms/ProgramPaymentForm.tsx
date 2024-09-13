@@ -51,8 +51,9 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
   const onSubmit = async data => {
     setIsDisabled(true)
     setIsLoading(true)
-
+    const roistatAB = localStorage.getItem('AB')
     // handle loader
+    data.roistatAB = roistatAB
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     data.utms = utms
@@ -256,7 +257,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
             </div>
           </div>
         </form>
-        {program.studyMounthsDuration && (
+        {/* {program.studyMounthsDuration && (
           <div className={stls.info}>
             <span>Срок обучения</span>
             <span>
@@ -272,7 +273,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
         <div className={stls.info}>
           <span>Формат</span>
           <span>Онлайн</span>
-        </div>
+        </div> */}
         {isIpCheckFailed && (
           <p className={stls.checkError}>
             Невозможно отправить форму.

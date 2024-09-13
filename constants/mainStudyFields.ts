@@ -5,19 +5,36 @@ const list = [
       id: 1,
       label: 'Дополнительное образование',
       href: routes.front.programs,
-      programType: 'null'
+      programType: 'null',
+      hoverSelect: true
     },
     {
-      id: 1,
+      id: 2,
       label: 'Профессиональная переподготовка',
       href: routes.front.professions,
-      programType: 'profession'
+      programType: 'profession',
+      hoverSelect: true
     },
     {
-      id: 1,
+      id: 3,
       label: 'Повышение квалификации',
       href: routes.front.courses,
-      programType: 'course'
+      programType: 'course',
+      hoverSelect: true
+    },
+    {
+      id: 4,
+      label: 'Бакалавриат',
+      href: routes.front.bachelors,
+      programType: 'bachelor',
+      hoverSelect: false
+    },
+    {
+      id: 5,
+      label: 'Практическая подготовка',
+      href: routes.front.practicalTrainings,
+      programType: 'practicalTraining',
+      hoverSelect: false
     }
   ]
 

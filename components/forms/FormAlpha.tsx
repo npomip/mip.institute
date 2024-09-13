@@ -86,7 +86,10 @@ const FormAlpha = ({
     setIsDisabled(true)
     setLoading(true)
 
+    const roistatAB = localStorage.getItem('AB')
+
     // handle loader
+    data.roistatAB = roistatAB
     data.leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     data.utms = utms

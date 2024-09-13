@@ -16,7 +16,9 @@ const createLead = async (req, res) => {
     blockForAmo,
     edPartners,
     roistat_visit,
-    referer
+    referer,
+    roistatAB
+
   } = req.body
 
   function convertStringToObject(str: string): Record<string, string> {
@@ -65,7 +67,8 @@ const createLead = async (req, res) => {
         },
         { key: 'roistat', value: roistat_visit || '' },
         { key: '_ym_uid', value: ymUid || '' },
-        { key: 'referer', value: referer || '' }
+        { key: 'referer', value: referer || '' },
+        { key: 'roistatAB', value: roistatAB || '' },
       ],
       host: 'mip.institute', // домен вашего сайта (ОБЯЗАТЕЛЬНО)
       token: 'b6ce2e21-c68e-476f-87fe-ae268db2e9c2'

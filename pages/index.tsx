@@ -133,11 +133,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <PsyTest />
       <TopCourses />
-      <BachelorCarousel
+      {/* <BachelorCarousel
         title={'Высшее образование'}
         subtitle={'Программы бакалавриата от МИП'}
         cards={bachelors}
-      />
+      /> */}
       {/* <PracticalCarousel
         title={'Практическая подготовка'}
         subtitle={

@@ -5,18 +5,18 @@ import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
 import { log } from 'console'
-import TypePageBachelorsPropsQuery from '@/types/page/bachelors/query/TypePageBachelorsPropsQuery'
-import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps'
+import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps'
+import TypePagePracticalTrainingsPropsQuery from '@/types/page/practicalTrainings/query/TypePagePracticalTrainingsPropsQuery'
 
-const getStaticPropsBachelors = async ({
+const getStaticPropsPagePracticalTrainings = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
-  props: TypePageBachelorsProps
+  props: TypePagePracticalTrainingsProps
   revalidate: number | boolean
 }> => {
-  const res = await apolloClient.query<TypePageBachelorsPropsQuery>({
+  const res = await apolloClient.query<TypePagePracticalTrainingsPropsQuery>({
     query: gql`
-      query getStaticPropsBachelors {
+      query getStaticPropsPagePracticalTrainings {
         programs {
           id
           title
@@ -40,12 +40,10 @@ const getStaticPropsBachelors = async ({
           }
         }
 
-        bachelors {
-          educationCode
+        practicalTrainings {
           title
-          minTime
-          maxTime
-          admissionDate
+          subtitle
+          duration
           slug
           heroPicture {
             url
@@ -65,4 +63,4 @@ const getStaticPropsBachelors = async ({
   }
 }
 
-export default getStaticPropsBachelors
+export default getStaticPropsPagePracticalTrainings

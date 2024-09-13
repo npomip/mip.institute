@@ -16,7 +16,7 @@ import { validOfTypeValues } from 'constants/staticPropsValidation'
 
 const ProgramsPage: NextPage<
   TypePageProgramsProps & { studyFields: any } & { allPrograms: any[] }
-> = ({ programs, studyFields, allPrograms, bachelors }) => {
+> = ({ programs, studyFields, allPrograms, bachelors, practicalTrainings }) => {
   useHandleContextStaticProps({ programs })
 
   const router = useRouter()
@@ -54,6 +54,7 @@ const ProgramsPage: NextPage<
       <FilterProvider items={programs}>
         <PagesPrograms
           bachelors={bachelors}
+          practicalTrainings={practicalTrainings}
           programs={programs}
           studyFields={studyFields}
           allPrograms={allPrograms}
@@ -71,6 +72,9 @@ export const getStaticProps = async ({ params }) => {
     query: gql`
       query GetStaticPropsPagePrograms {
         bachelors {
+          title
+        }
+        practicalTrainings {
           title
         }
         programs {
@@ -101,6 +105,7 @@ export const getStaticProps = async ({ params }) => {
 
   const programs = res.data.programs
   const bachelors = res.data.bachelors
+  const practicalTrainings = res.data.practicalTrainings
 
   // Фильтрация программ на основе параметров ofType и studyFieldSlug
   let filteredPrograms = programs.filter(
@@ -171,7 +176,8 @@ export const getStaticProps = async ({ params }) => {
       programs: filteredPrograms,
       studyFields,
       ofType,
-      bachelors
+      bachelors,
+      practicalTrainings
     },
     revalidate: revalidate.default
   }

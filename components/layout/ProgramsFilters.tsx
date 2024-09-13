@@ -14,7 +14,8 @@ import ProgramSelect from '../program/ProgramSelect'
 const ProgramsFilters = ({
   studyFields = [],
   allPrograms = [],
-  bachelors = []
+  bachelors = [],
+  practicalTrainings = []
 }) => {
   const dispatch = useFilterDispatch()
 
@@ -172,6 +173,16 @@ const ProgramsFilters = ({
             quantity={bachelors.length.toString()}
             isProgram>
             Высшее образование
+          </FilterTag>
+        )}
+
+        {practicalTrainings.length > 0 && (
+          <FilterTag
+            onClick={() => handleNavigation('/practical-training')}
+            isActive={router.asPath === '/practical-training'}
+            quantity={practicalTrainings.length.toString()}
+            isProgram>
+            Практические навыки
           </FilterTag>
         )}
 

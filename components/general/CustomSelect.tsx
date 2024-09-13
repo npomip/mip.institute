@@ -34,7 +34,7 @@ const CustomSelect = ({
         marginTop: `${marginTop ? marginTop : 0}px`,
         display: 'flex',
         flexWrap: 'nowrap',
-        borderColor: `${mainColor}`,
+        borderColor: `${isDisabled ? '#E9E9E9': mainColor}`,
         borderRadius: `10px`,
         width: '100%',
         maxWidth: `380px`,

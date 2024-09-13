@@ -17,7 +17,7 @@ const getStaticPropsPageHome = async ({
   const res = await apolloClient.query<TypePageHomePropsQuery>({
     query: gql`
       query GetStaticPropsPageHome {
-        programs {
+        programs(sort: "index_number.idx:asc") {
           id
           title
           slug

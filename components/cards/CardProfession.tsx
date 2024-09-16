@@ -12,10 +12,9 @@ type Props = {
   profession: any
   onMain?: boolean
 }
-
 const CardProfession = ({ profession = null, onMain = false }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-
+  
   const handleOpen = () => {
     setIsModalOpen(true)
   }
@@ -90,45 +89,55 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
   return (
     <>
       {onMain ? (
-        <div className={stls.container}>
-          {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
-          <div className={stls.imgCard}>
-            <Image
-              src={profession.heroPicture.url}
-              width={760}
-              height={430}
-              alt='Фото программы'
-              className={stls.img}
-            />
-          </div>
-          <div className={stls.content}>
-            <div className={stls.tags}>
-              <span className={stls.type}>{renderTypeTag()}</span>
-              <span className={stls.type}>{renderDocTag()}</span>
-            </div>
-            <p className={stls.title}>{profession.title}</p>
-            <div>
-              {profession.studyMounthsDuration && (
-                <div className={stls.duration}>
-                  <span className={stls.months}>
-                    <ProgramStudyDuration
-                      studyMounthsDuration={profession.studyMounthsDuration}
-                      monthsOnly
-                    />{' '}
-                  </span>
-                  <span
-                    className={
-                      stls.hours
-                    }>{`/ ${profession.studyHours} часов`}</span>
+        <Link passHref href={getHref()}>
+          <a>
+            <div className={stls.container}>
+              {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
+              <div className={stls.imgCard}>
+                <Image
+                  src={profession.heroPicture.url}
+                  width={760}
+                  height={430}
+                  alt='Фото программы'
+                  className={stls.img}
+                />
+              </div>
+              <div className={stls.content}>
+                <div className={stls.tags}>
+                  <span className={stls.type}>{renderTypeTag()}</span>
+                  <span className={stls.type}>{renderDocTag()}</span>
                 </div>
-              )}
-              <div className={stls.btns}>
-                <Button text='Поступить' onClick={handleOpen} isVioletBg />
-                <Button text='Подробнее' onClick={showMoreHandler} />
+                <p className={stls.title}>{profession.title}</p>
+                <div>
+                  {profession.studyMounthsDuration && (
+                    <div className={stls.duration}>
+                      <span className={stls.months}>
+                        <ProgramStudyDuration
+                          studyMounthsDuration={profession.studyMounthsDuration}
+                          monthsOnly
+                        />{' '}
+                      </span>
+                      <span
+                        className={
+                          stls.hours
+                        }>{`/ ${profession.studyHours} часов`}</span>
+                    </div>
+                  )}
+                  <div className={stls.btns}>
+                    <Button text='Поступить' onClick={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      handleOpen(); 
+                    }} 
+                    isVioletBg 
+                    />
+                    <Button text='Подробнее' onClick={showMoreHandler} />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </a>
+        </Link>
       ) : (
         <Link passHref href={getHref()}>
           <a className={stls.containerLink}>

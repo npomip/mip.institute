@@ -52,7 +52,7 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
             <div className={stls.orangeBlock}>
               <ul className={stls.listMain}>
                 {content.map((el, i) => (
-                  <li className={stls.itemOnMain} key={title}>
+                  <li className={stls.itemOnMain} key={`${title}-${i}`}>
                     <div className={stls.icon}>{renderIcon(i)}</div>
                     <div className={stls.listText}>
                       <div className={stls.listTitle}>{el.title}</div>
@@ -66,7 +66,7 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
             <ul className={stls.list}>
               {list &&
                 list[0].map((item, idx) => (
-                  <li key={item + idx} className={stls.item}>
+                  <li key={`${item}-${idx}`} className={stls.item}>
                     <IconPortalViolet />
                     <div
                       className={classNames({

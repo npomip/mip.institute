@@ -139,10 +139,14 @@
   @include m.flex($ai: flex-start, $jc: space-between)
   max-width: 100%
   position: relative
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: space-between)
 
 .radioGroup,
 .giftBlock
   width: 45%
+  @include m.media(phone, tablet)
+    width: 100%
 
 .violetLine
   position: absolute
@@ -155,7 +159,7 @@
   background-color: c.$purple-350
   @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(20), $mb: f.px(30))
+    display: none
 
 .container
   height: fit-content

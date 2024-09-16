@@ -281,14 +281,16 @@ const PracticalPaymentForm = ({ price }: Props) => {
                       name='agreement'
                       className={stls.checkbox}
                     />
-                    Согласен(-а) с условиями
-                    <a
-                      href={routes.front.policiesOferta}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className={stls.link}>
-                      <span className={stls.text}> договора оферты</span>
-                    </a>
+                    <span>
+                      Согласен(-а) с условиями
+                      <a
+                        href={routes.front.policiesOferta}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className={stls.link}>
+                        <span className={stls.text}> договора оферты</span>
+                      </a>
+                    </span>
                   </label>
                 </div>
               </div>

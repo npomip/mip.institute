@@ -1,20 +1,21 @@
-import stls from '@/styles/components/practicalTraining/PracticalPaymentForm.module.sass'
-import formList from 'constants/practicalPaymentForm'
-import Wrapper from '../layout/Wrapper'
-import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import routes from '@/config/routes'
-import genezis from '../funcs/genezis'
+import stls from '@/styles/components/practicalTraining/PracticalPaymentForm.module.sass'
+import classNames from 'classnames'
+import formList from 'constants/practicalPaymentForm'
 import { getCookie } from 'cookies-next'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import gift from 'public/assets/imgs/practicalCarousel/gift.png'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
-import Button from '../btns/Button'
 import Popup from 'reactjs-popup'
+import Button from '../btns/Button'
+import genezis from '../funcs/genezis'
+import TwoColumnsPractical from '../layout/TwoColumnsPractical'
+import Wrapper from '../layout/Wrapper'
 import { PopupLoading } from '../popups'
-import Image from 'next/image'
-import gift from 'public/assets/imgs/practicalCarousel/gift.png'
-import { useRouter } from 'next/router'
 
 type Props = {
   price: number
@@ -28,57 +29,76 @@ type FormValues = {
 }
 
 const PracticalPaymentForm = ({ price }: Props) => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
     control,
     formState: { errors, dirtyFields }
   } = useForm<FormValues>({
-    defaultValues: { name: '', surname: '', email: '', phone: '' }
+    defaultValues: {
+      name: '',
+      surname: '',
+      email: '',
+      phone: ''
+    }
   })
 
   const [isAgree, setIsAgree] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [isDisabled, setIsDisabled] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
-  const router = useRouter()
+  const [isDisabled, setIsDisabled] = useState(false)
 
   const onSubmit = async data => {
     setIsDisabled(true)
     setIsLoading(true)
-    // Сбор данных для отправки
+    const roistatAB = localStorage.getItem('AB')
+    // handle loader
+    data.roistatAB = roistatAB
+    data.leadPage = router.asPath
+    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    data.utms = utms
+    sessionStorage.removeItem('utms')
+    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    data.referer = referer
+    sessionStorage.removeItem('referer')
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    data.ymUid = ymUid
     const clickId = getCookie('utm')
-    const utm = typeof clickId === 'string' ? JSON.parse(clickId) : null
 
-    const extraData = {
-      roistatAB: localStorage.getItem('AB'),
-      leadPage: router.asPath,
-      utms: JSON.parse(sessionStorage.getItem('utms')),
-      referer: JSON.parse(sessionStorage.getItem('referer')),
-      ymUid: JSON.parse(localStorage.getItem('_ym_uid')),
-      price,
-      roistat_visit: getCookie('roistat_visit'),
-      advcake_track_id: getCookie('advcake_track_id'),
-      advcake_track_url: getCookie('advcake_track_url'),
-      blockForAmo: 'Поступить',
-      utm
+    const roistat_visit = getCookie('roistat_visit')
+    const advcake_track_id = getCookie('advcake_track_id')
+    const advcake_track_url = getCookie('advcake_track_url')
+    // const price = program?.price || program?.offlineFullPrice / 2 || null
+    data.price = price
+
+    data.blockForAmo = 'Поступить'
+
+    if (typeof clickId === 'string') {
+      data.utm = JSON.parse(clickId)
+    } else {
+      data.utm = null // или какое-то другое значение по умолчанию
     }
 
-    const response = await genezis({ ...data, ...extraData })
-    setIsLoading(false)
+    data.advcake_track_id = advcake_track_id
+    data.advcake_track_url = advcake_track_url
+    data.roistat_visit = roistat_visit
+    const req = await genezis(data)
 
-    if (response === 200) {
+    if (req === 200) {
       window.open(
         `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
         '_blank'
       )
+      setIsLoading(false)
       setIsIpCheckFailed(false)
     } else {
+      setIsLoading(false)
       setIsIpCheckFailed(true)
     }
   }
 
-  const isFormDisabled =
+  const disabled =
     !dirtyFields.email ||
     !dirtyFields.name ||
     !dirtyFields.phone ||
@@ -90,7 +110,8 @@ const PracticalPaymentForm = ({ price }: Props) => {
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
-          <span className={stls.colouredTitle}>Оплата </span> обучения
+          <span className={stls.colouredTitle}>Оплата </span>
+          обучения
         </h2>
         <TwoColumnsPractical bigLeft rightViolet>
           <div className={stls.leftBlock}>
@@ -103,11 +124,12 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   <div key={value} className={stls.radioItem}>
                     <input
                       type='radio'
+                      value={value}
                       id={`radio-${idx}`}
                       className={stls.radio}
                       name='payment'
-                      value={value}
                     />
+
                     <label htmlFor={`radio-${idx}`} className={stls.radioLabel}>
                       {label}
                     </label>
@@ -118,7 +140,9 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   переподготовки
                 </p>
               </div>
+
               <div className={stls.violetLine}></div>
+
               <div className={stls.giftBlock}>
                 <p className={stls.giftTitle}>ИТОГО:</p>
                 <p className={stls.giftSubtitle}>
@@ -130,8 +154,10 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   <Image src={gift} width={170} height={170} alt='Подарок' />
                 </div>
                 <p className={stls.giftText}>
-                  При оплате до 14 сентября курс <br /> “Жизнь, свободная от
-                  обид” <br />
+                  При оплате до 14 сентября курс
+                  <br />
+                  “Жизнь, свободная от обид”
+                  <br />
                   <span className={stls.giftTextBold}>в подарок</span>
                 </p>
               </div>
@@ -142,137 +168,161 @@ const PracticalPaymentForm = ({ price }: Props) => {
             <p className={stls.formTitle}>
               Заполни заявку, чтобы узнать детали и купить на лучших условиях
             </p>
-            <form onSubmit={handleSubmit(onSubmit)} className={stls.form}>
+            <form method='post' className={stls.form}>
               <div className={stls.group}>
-                <InputField
-                  label='Ваше имя'
-                  type='text'
-                  name='name'
-                  register={register}
-                  errors={errors}
-                  disabled={isDisabled}
-                />
-                <InputField
-                  label='Ваша фамилия'
-                  type='text'
-                  name='surname'
-                  register={register}
-                  errors={errors}
-                  disabled={isDisabled}
-                />
-                <PhoneInputField
-                  control={control}
-                  errors={errors}
-                  disabled={isDisabled}
-                />
-                <InputField
-                  label='Ваша электронная почта'
-                  type='email'
-                  name='email'
-                  register={register}
-                  errors={errors}
-                  disabled={isDisabled}
-                />
-              </div>
-
-              <div className={stls.footer}>
-                <label className={stls.checkboxBlock}>
+                <div className={classNames(stls.inpt, stls.name)}>
                   <input
-                    type='checkbox'
-                    checked={isAgree}
-                    onChange={() => setIsAgree(!isAgree)}
+                    type='text'
+                    aria-label='Ваше имя'
                     disabled={isDisabled}
+                    placeholder='Ваше имя'
+                    {...register('name', {
+                      required: `*Введите ваше имя`,
+                      minLength: {
+                        value: 2,
+                        message: `*Введите ваше имя`
+                      },
+                      maxLength: {
+                        value: 32,
+                        message: `*Не больше 32 символов`
+                      }
+                    })}
                   />
-                  Согласен(-а) с условиями
-                  <a
-                    href={routes.front.policiesOferta}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className={stls.link}>
-                    {' '}
-                    договора оферты
-                  </a>
-                </label>
+                  <p className={stls.err}>
+                    {errors.name && errors.name.message}
+                  </p>
+                </div>
+                <div className={classNames(stls.inpt, stls.name)}>
+                  <input
+                    type='text'
+                    aria-label='Ваша фамилия'
+                    placeholder='Ваша фамилия'
+                    disabled={isDisabled}
+                    {...register('surname', {
+                      required: `*Введите вашу фамилию`,
+                      minLength: {
+                        value: 2,
+                        message: `*Введите вашу фамилию`
+                      },
+                      maxLength: {
+                        value: 32,
+                        message: `*Не больше 32 символов`
+                      }
+                    })}
+                  />
+                  <p className={stls.err}>
+                    {errors.surname && errors.surname.message}
+                  </p>
+                </div>
+
+                <div className={classNames(stls.inpt, stls.phone)}>
+                  <Controller
+                    name='phone'
+                    control={control}
+                    rules={{
+                      minLength: {
+                        value: 8,
+                        message: `*Минимум 8 цифр`
+                      },
+                      required: `*Номер телефона обязателен`
+                    }}
+                    render={({ field: { onChange, value } }) => (
+                      <PhoneInput
+                        value={value}
+                        onChange={onChange}
+                        country='ru'
+                        localization={ru}
+                        placeholder='Ваш телефон'
+                        containerClass={stls.containerInput}
+                        inputClass={stls.phoneInput}
+                        buttonClass={stls.flagButton}
+                        dropdownClass={stls.dropdown}
+                        disabled={isDisabled}
+                        containerStyle={{
+                          marginBottom: `${errors.phone ? '5px' : '20px'}`
+                        }}
+                      />
+                    )}
+                  />
+                  {errors.phone && (
+                    <p className={stls.err}>
+                      {errors.phone && errors.phone.message}
+                    </p>
+                  )}
+                </div>
+                <div className={classNames(stls.inpt, stls.email)}>
+                  <input
+                    type='email'
+                    aria-label='Ваша электронная почта'
+                    placeholder='Ваша электронная почта'
+                    disabled={isDisabled}
+                    {...register('email', {
+                      pattern: {
+                        value:
+                          /[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                        message:
+                          'Пожалуйста, введите корректный адрес электронной почты в формате example@mail.ru'
+                      }
+                    })}
+                  />
+                  <p className={stls.err}>
+                    {errors.email && errors.email.message}
+                  </p>
+                </div>
               </div>
-
-              {isIpCheckFailed && (
-                <p className={stls.checkError}>
-                  Невозможно отправить форму. <br />
-                  Пожалуйста, свяжитесь с нами по номеру{' '}
-                  <a href='tel:+7-499-110-86-32'>+7 (499) 110-86-32</a> или{' '}
-                  <a
-                    href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'
-                    target='_blank'
-                    rel='noopener noreferrer'>
-                    Напишите в WhatsApp
-                  </a>
-                </p>
-              )}
-
-              <div className={stls.buttons}>
-                <Button
-                  text='Записаться'
-                  isDisabled={isFormDisabled}
-                  onClick={() => {}}
-                />
+              <div className={stls.footer} style={{ flexBasis: '100%' }}>
+                <div className={stls.checkboxBlock}>
+                  <label htmlFor='agreement'>
+                    <input
+                      aria-label='Согласие об оферте'
+                      type='checkbox'
+                      checked={isAgree}
+                      onChange={() => setIsAgree(!isAgree)}
+                      name='agreement'
+                      className={stls.checkbox}
+                    />
+                    Согласен(-а) с условиями
+                    <a
+                      href={routes.front.policiesOferta}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={stls.link}>
+                      <span className={stls.text}> договора оферты</span>
+                    </a>
+                  </label>
+                </div>
               </div>
             </form>
-
-            {isLoading && (
-              <Popup open={isLoading} onClose={() => setIsLoading(false)}>
-                <PopupLoading />
-              </Popup>
+            {isIpCheckFailed && (
+              <p className={stls.checkError}>
+                Невозможно отправить форму.
+                <br />
+                Пожалуйста, свяжитесь с нами по номеру{' '}
+                <a href='tel:+7-499-110-86-32'>+7 (499) 110-86-32</a> или{' '}
+                <a
+                  className={stls.whatsUpNumber}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>
+                  Напишите в WhatsApp
+                </a>
+              </p>
             )}
+            <div className={stls.buttons}>
+              <Button
+                text='Записаться'
+                onClick={handleSubmit(data => onSubmit(data))}
+                isDisabled={disabled}
+              />
+            </div>
+            <Popup open={isLoading} onClose={() => setIsLoading(false)}>
+              <PopupLoading />
+            </Popup>
           </div>
         </TwoColumnsPractical>
       </Wrapper>
     </section>
   )
 }
-
-const InputField = ({ label, type, name, register, errors, disabled }) => (
-  <div className={stls.inpt}>
-    <input
-      type={type}
-      aria-label={label}
-      placeholder={label}
-      disabled={disabled}
-      {...register(name, {
-        required: `*Введите ${label.toLowerCase()}`,
-        minLength: { value: 2, message: `*Введите минимум 2 символа` },
-        maxLength: { value: 32, message: `*Не больше 32 символов` }
-      })}
-    />
-    {errors[name] && <p className={stls.err}>{errors[name]?.message}</p>}
-  </div>
-)
-
-const PhoneInputField = ({ control, errors, disabled }) => (
-  <div className={stls.phone}>
-    <Controller
-      name='phone'
-      control={control}
-      rules={{
-        required: '*Введите номер телефона',
-        minLength: { value: 8, message: '*Минимум 8 цифр' }
-      }}
-      render={({ field: { onChange, value } }) => (
-        <PhoneInput
-          value={value}
-          onChange={onChange}
-          country='ru'
-          localization={ru}
-          placeholder='Ваш телефон'
-          containerClass={stls.containerInput}
-          inputClass={stls.phoneInput}
-          buttonClass={stls.flagButton}
-          dropdownClass={stls.dropdown}
-          disabled={disabled}
-        />
-      )}
-    />
-    {errors.phone && <p className={stls.err}>{errors.phone?.message}</p>}
-  </div>
-)
 
 export default PracticalPaymentForm

@@ -9,8 +9,6 @@ type Props = {
 }
 
 const BachelorPage = ({ practicalTraining }: Props) => {
-  console.log(practicalTraining.review,'practicalTraining');
-  
   return <PageTraining practicalTraining={practicalTraining} />
 }
 

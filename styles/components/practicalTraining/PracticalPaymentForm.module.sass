@@ -2,139 +2,84 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-
-.violetBlock
-  border-radius: f.px(20)
-  @include m.gap($ptb: f.px(35), $plr: f.px(55))
-  background: linear-gradient(100deg, #1C1A1D -18.92%, #3E1A4B 43.28%, #6F01C6 105.48%)
-  @include m.media(phone, tablet)
-    border-radius: f.px(10)
-    @include m.gap($ptb: f.px(25), $plr: f.px(20))
-
 .title
-  display: inline-block
-  @include m.dye(c, white)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(35))
-    font-size: f.px(44)
-    font-weight: 500
-  @include m.media(tablet)
-    @include m.gap($mb: f.px(20))
-    font-size: f.px(32)
-  @include m.media(phone)
-    @include m.gap($mb: f.px(20))
-    font-size: f.px(28)
-
-.blocks
-  display: grid
-  grid-auto-flow: column
-  grid-auto-columns: 1fr 1fr
-  column-gap: f.px(10)
-  @include m.media(phone, tablet)
-    grid-auto-flow: row
-    grid-auto-columns: auto
-    row-gap: f.px(5)
-
-.bottomBlock
-  @include m.gap($pt: f.px(50), $pb: f.px(30), $plr: f.px(30), $mt: f.px(-30), $mlr: f.px(1))
-  min-height: f.px(190)
-  @include m.flex($jc: space-between)
-  border: f.px(1) solid
-  @include m.dye(border, white)
-  @include m.dye(c, white)
-  border-radius: f.px(20)
-  @include m.media(laptop)
-    @include m.gap($pt: f.px(40), $pb: f.px(20), $plr: f.px(20))
-  @include m.media(phone, tablet)
-    border-radius: f.px(10)
-    @include m.gap($plr: f.px(15))
-    @include m.flex($fd: column)
-
-.leftColumn
-  width: 55%
-  @include m.gap($mtb: f.px(0), $pl: f.px(0))
-  @include m.media(phone, tablet)
-    width: 100%
-
-.topWhiteBlock
-  height: f.px(300)
-  @include m.dye(bg, white)
-  border-radius: f.px(20)
-  @include m.flex
-  position: relative
-  z-index: 2
-  background-color: red
-  @include m.media(phone, tablet)
-    border-radius: f.px(10)
-    height: auto
-
-.icon
-  @include m.gap($mr: f.px(15))
-
-.list
-  list-style: none
-  @include m.gap($pl: f.px(0))
-
-.item
-  @include m.flex()
-  @include m.gap($mt: f.px(15))
-
-.itemTitle
-  font-size: f.px(14)
+  font-size: f.px(44)
   font-style: normal
   font-weight: 500
   line-height: 120%
-  display: inline-block
-  @include m.gap($mb: f.px(10))
-  @include m.media(phone)
-    @include m.gap($mb: f.px(5))
+  @include m.gap($mb: f.px(35))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15), $ml: f.px(0), $mr: f.px(20))
+    font-size: f.px(30)
 
-.itemDescription
-  font-size: f.px(10)
-  font-style: normal
+.colouredTitle
+  @include m.dye(c, c.$orange-700)
+
+.leftBlock
+  @include m.gap($pt: f.px(25), $plr: f.px(45))
+
+.leftBlockTitle
+  display: block
+  max-width: f.px(360)
+  text-align: center
+  @include m.gap($mtb: 0, $mlr: auto)
+  font-size: f.px(22)
+  font-weight: 500
+  line-height: 120%
+
+.radioGroup
+  @include m.flex($fd: column)
+
+.radio
+  appearance: none
+  width: f.px(14)
+  height: f.px(14)
+  border: f.px(1) solid c.$orange-900
+  @include m.gap($mr: f.px(14))
+  border-radius: 50%
+  cursor: pointer
+
+  &:checked
+    background-color: orange
+    border-color: orange
+    & > .radioLabel
+      font-weight: 500 !important
+
+.radioItem
+  @include m.flex($ai: flex-start)
+  @include m.gap($mt: f.px(30))
+  max-width: f.px(360)
+
+.radio
+  appearance: none
+  width: f.px(14)
+  height: f.px(14)
+  border: f.px(1) solid c.$orange-900
+  border-radius: 50%
+  @include m.gap($mb: f.px(15))
+  flex-shrink: 0
+
+  &:checked
+    background-color: orange
+    border-color: orange
+
+.radioLabel
+  cursor: pointer
+  font-size: f.px(18)
   font-weight: 350
   line-height: 120%
-  @include m.gap($mb:0)
 
-.number
-  @include m.gap($mb: f.px(0))
-  @include m.media(phone, tablet)
-    display: inline
-
-.link
-  @include m.dye(c, c.$white-900)
-  text-decoration: underline
-  text-decoration-skip-ink: auto
-  &:hover
-    @include m.dye(c, c.$orange-700)
-
-.card
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(15))
-
-.topWhiteBlock
-  @include m.flex($jc: space-between)
-
-.topWhiteLeft
-  @include m.gap($pl: f.px(30), $ptb: f.px(30))
-  @include m.media(phone, tablet)
-    @include m.gap($pl: f.px(20), $ptb: f.px(20))
-
-.topWhiteRight
-  @include m.gap($pr: f.px(30), $pb: f.px(20))
-  @include m.flex($fd: column, $ai: flex-end, $jc: space-between)
-  @include m.media(phone, tablet)
-    @include m.gap($pr: f.px(20), $pb: f.px(10))
-
-.courseName
-  font-size: f.px(25)
-  font-style: normal
+.radio:checked + .radioLabel
   font-weight: 500
-  @include m.gap($mb: f.px(15))
-  line-height: 120%
-  @include m.media(phone, tablet)
-    font-size: f.px(20)
+
+.remark
+  max-width: f.px(250)
+  font-size: f.px(10)
+  @include m.gap($mt: f.px(15))
+  font-weight: 500
+
+.leftContent
+  @include m.flex($jc: space-between)
 
 .oldPrice
   @include m.dye(c, c.$gray-500)
@@ -161,50 +106,237 @@
   @include m.media(phone, tablet)
     font-size: f.px(26)
 
-.credit
-  @include m.dye(c, c.$gray-500)
-  font-size: f.px(10)
-  font-style: normal
+.giftBlock
+  @include m.flex($ai: center, $jc: center, $fd: column)
+  @include m.gap($mt: f.px(30))
+
+.giftTitle
+  @include m.dye(c, c.$orange-700)
+  font-size: f.px(22)
   font-weight: 500
   line-height: 120%
-  @include m.media(phone, tablet)
-    font-size: f.px(8)
+  text-transform: uppercase
 
-.flag
-  width: f.px(86)
-  height: f.px(105)
-  @include m.dye(bg, c.$orange-700)
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 50%, 0 75%)
-  @include m.dye(c, white)
-  @include m.gap($pt: f.px(15))
+.giftSubtitle
+  font-size: f.px(14)
+  font-weight: 500
+  line-height: 120%
+  text-transform: uppercase
+
+.giftImage
+  @include m.gap($mt: f.px(20))
+
+.giftText
+  font-size: f.px(18)
+  font-weight: 350
+  line-height: 120%
   text-align: center
-  font-size: f.px(25)
+
+.giftTextBold
+  font-weight: 500
+
+.leftContent
+  @include m.flex($ai: flex-start, $jc: space-between)
+  max-width: 100%
+  position: relative
+
+.radioGroup,
+.giftBlock
+  width: 45%
+
+.violetLine
+  position: absolute
+  left: 50%
+  top: 0
+  bottom: 0
+  width: f.px(1)
+  transform: translateX(-50%)
+  width: f.px(1)
+  background-color: c.$purple-350
+  @include m.gap($mt: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(20), $mb: f.px(30))
+
+.container
+  height: fit-content
+  @include m.media(phone, tablet)
+    min-width: f.px(300)
+  & .name,
+  & .email,
+  & .phone
+    border-radius: f.px(4)
+    @include m.dye(bg, c.$white-900)
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 46%)
+      @include m.gap($mb: f.px(20))
+  & .name,
+  & .email
+    & input
+      @include m.media(laptop, desktop)
+        font-size: f.px(16)
+        // border: f.px(1) solid
+        // @include m.dye(border, c.$purple-800)
+        border-radius: f.px(4)
+        background-color: transparent
+      @include m.media(phone, tablet)
+        @include m.gap($plr: f.px(10))
+        font-size: f.px(14)
+        border: f.px(1) solid
+        @include m.dye(border, c.$purple-800)
+        border-radius: f.px(4)
+        background-color: transparent
+        &::placeholder
+          @include m.dye(c, c.$gray-500)
+
+.formContainer
+  @include m.gap($ptb: f.px(30), $plr: f.px(25))
+
+.formTitle
+  text-align: center
+  font-size: f.px(23)
   font-style: normal
   font-weight: 500
   line-height: 120%
+  @include m.gap($plr: f.px(45), $pb: f.px(30))
+
+.inpt
+  & input,
+  & textarea
+    width: 100%
+    @include m.gap($ptb: f.px(17), $plr: f.px(20))
+    border-radius: f.px(4)
+    font-weight: 300
+    &::placeholder
+      @include m.dye(c, c.$gray-700)
+  & textarea
+    outline: none
+
+.containerInput
+  & input
+    @include m.gap($ptb: f.px(17), $plr: f.px(20))
+    border-radius: f.px(4)
+    // border-color: #6f01c6 !important
+    font-weight: 300
+    width: 100% !important
+    height: 54px !important
+    @include m.media(laptop)
+      height: 47px !important
+    @include m.media(tablet)
+      height: 68px !important
+    @include m.media(laptop, desktop)
+      font-size: f.px(16)
+      border-radius: f.px(4)
+
+.phoneInput,.dropdown
+  font-family: Stem !important
+
+.flagButton
+  // border-color: #6f01c6 !important
+  background-color: white !important
+
+.dropdown
+  width: 345px !important
+  @include m.media(laptop)
+    width: 240px !important
+  @include m.media(tablet)
+    width: 330px !important
+  @include m.media(phone)
+    width: 270px !important
+
+.err
+  @include m.gap($mt: f.px(5))
+  @include m.dye(c, red)
+
+.footer
+  @include m.flex($ai: center, $jc: center)
+  margin-left: f.px(5)
   @include m.media(phone, tablet)
-    font-size: f.px(16)
-    width: f.px(56)
-    height: f.px(75)
+    margin-left: 0
 
-.atCorner
-  text-align: right
-
-.bgForm
-  border-radius: f.px(20)
-  @include m.dye(bg, white)
-  @include m.gap($p: f.px(35))
-  @include m.media(desktop)
-    min-height: f.px(510)
+.btnBlock
+  @include m.media(laptop, desktop)
+    @include m.flex($ai: center, $jc: flex-start)
   @include m.media(phone, tablet)
-    @include m.gap($p: f.px(20))
-    border-radius: f.px(10)
+    @include m.flex($ai: center, $jc: center)
 
-  p
-    font-size: f.px(25)
-    max-width: 90%
-    font-style: normal
+.btn
+  padding: f.px(5)
+  border-radius: f.px(4)
+  @include m.dye(bg, c.$purple-800)
+  @include m.dye(c, white)
+  @include m.gap($ptb: f.px(17), $plr: f.px(57))
+  &:disabled
+    cursor: not-allowed
+    opacity: .5
+    &:hover
+      transform: scale(1)
+      &::after
+        opacity: 0
+    &:focus
+      transform: scale(1)
+
+.text
+  font-weight: 450
+  @include m.dye(c, black)
+
+.checkboxBlock > label
+  @include m.flex($ai: center)
+  font-size: f.px(16)
+  font-weight: 350
+  gap: f.px(5)
+  @include m.gap($mb: f.px(18))
+  & > input[type="checkbox"]
+    display: grid
+    place-content: center
+    appearance: none
+    @include m.dye(bg, white)
+    margin: 0
+    font: inherit
+    width: 1.15em
+    height: 1.15em
+    border-radius: 0.15em
+    &::before
+      content: ""
+      width: 0.65em
+      height: 0.65em
+      transform: scale(0)
+      transition: 120ms transform ease-in-out
+      box-shadow: inset 1em 1em #6f01c6
+    &:checked::before
+      transform: scale(1)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(12)
+
+.buttons
+  @include m.flex($ai: center, $jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+  & > button
+    width: 100%
+    font-size: f.px(18)
+    @include m.dye(bg, c.$white-900)
+    @include m.dye(c, c.$purple-200)
     font-weight: 500
-    line-height: 120%
+    border: none
     @include m.media(phone, tablet)
-      font-size: f.px(20)
+      @include m.gap($mb: f.px(10))
+      font-size: f.px(14)
+    &:disabled
+      cursor: not-allowed
+      font-weight: 500
+      opacity: .5
+      &:hover
+        transform: scale(1)
+        &::after
+          opacity: 0
+
+.checkError
+  font-size: f.px(16)
+  font-weight: 400
+  @include m.dye(c, red)
+  @include m.gap($ptb: f.px(10), $mb: f.px(0))
+  & > *
+    color: black
+    &:hover
+      @include m.dye(c, c.$purple-800)

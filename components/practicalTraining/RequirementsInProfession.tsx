@@ -8,14 +8,18 @@ import { practicalTrainReq } from 'constants/practicalTrainReq'
 
 const RequirementsInProfession = () => {
   const [activeIndex, setActiveIndex] = useState(0) // Индекс текущего активного блока
-  const [rotate, setRotate] = useState(0);
-
+  const [rotate, setRotate] = useState(0)
 
   const blocks = [
     { id: 0, targetProgress: 50, text: 'Образование', rotate: 0 },
     { id: 1, targetProgress: 65, text: 'Опыт консультирования ', rotate: 90 },
-    { id: 2, targetProgress: 95, text: 'Повышение квалификации', rotate: 180 },
-    { id: 3, targetProgress: 100, text: 'Участие в супервизиях и интервизиях', rotate: 270 }
+    { id: 2, targetProgress: 85, text: 'Повышение квалификации', rotate: 180 },
+    {
+      id: 3,
+      targetProgress: 100,
+      text: 'Участие в супервизиях и интервизиях',
+      rotate: 270
+    }
   ]
 
   // Обработчик клика по блоку
@@ -32,9 +36,17 @@ const RequirementsInProfession = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.h2}>
-          <span>Требования</span> к практикующим психологам
-        </h2>
+        <div className={stls.header}>
+          <h2 className={stls.h2}>
+            <span>Требования</span> к практикующим психологам
+          </h2>
+          {activeIndex === 3 && (
+            <span className={stls.textDesktop}>
+              Поздравляем! Вы прошли этот трудный, но увлекательный путь! Вы
+              готовы оказывать профессиональную психологическую помощь людям.
+            </span>
+          )}
+        </div>
         <div className={stls.progressContainerWrapper}>
           <div className={stls.progressBars}>
             <div
@@ -52,7 +64,7 @@ const RequirementsInProfession = () => {
                 onClick={() => handleClick(index)}>
                 <RequirementsWithProgress
                   card={practicalTrainReq[index]}
-                  onClick={()=>setRotate(block.rotate)}
+                  onClick={() => setRotate(block.rotate)}
                   text={block.text} // Текст блока
                   id={block.id}
                   targetProgress={block.targetProgress}
@@ -62,7 +74,14 @@ const RequirementsInProfession = () => {
             ))}
           </div>
           <CubicBlockFourSide rotate={rotate} />
-          
+        </div>
+        <div className={stls.addInfo}>
+          <span className={stls.addInfoTitle}>*Личная терапия</span>
+          <p className={stls.addInfoText}>
+            Если опыт прохождения личной терапии отсутствует, его можно
+            получить, проработав внутренние проблемы с другим сертифицированным
+            специалистом.
+          </p>
         </div>
       </Wrapper>
     </section>

@@ -11,6 +11,10 @@
     font-size: f.px(30)
   span
     color: c.$orange-700
+
+.header
+  @include m.flex($jc: space-between, $ai: flex-start)
+
 .progressContainerWrapper
   display: flex
   gap: f.px(30)
@@ -62,7 +66,7 @@
   border-radius: f.px(10)
   @include m.dye(bg, c.$purple-200)
   width: 0 /* Изначально пусто */
-  transition: width 0.2s ease /* Плавное изменение ширины */
+  transition: width 0.2s linear /* Плавное изменение ширины */
   @include m.media(phone, tablet)
     border-radius: f.px(5)
 
@@ -142,3 +146,33 @@
     line-height: 130%
   .subtitle
     @include m.gap($mb: f.px(41))
+
+.textDesktop
+  text-align: right
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 350
+  line-height: 130%
+  max-width: f.px(400)
+  @include m.media(phone, tablet)
+    display: none
+
+.addInfo
+  max-width: f.px(330)
+  @include m.dye(c, c.$gray-700)
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(10))
+
+.addInfoTitle
+  font-size: f.px(14)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+
+.addInfoText
+  font-size: f.px(12)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(phone, tablet)
+    font-size: f.px(10)

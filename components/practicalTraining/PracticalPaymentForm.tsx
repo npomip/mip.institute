@@ -48,42 +48,43 @@ const PracticalPaymentForm = ({ price }: Props) => {
   const [isLoading, setIsLoading] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
+  const [selectedValue, setSelectedValue] = useState(formList[0].value)
+  const [selectedPrice, setSelectedPrice] = useState(price)
+  const [animatePrice, setAnimatePrice] = useState(false)
 
-  const onSubmit = async data => {
+  const onSubmit = async (data: FormValues) => {
     setIsDisabled(true)
     setIsLoading(true)
-    const roistatAB = localStorage.getItem('AB')
-    // handle loader
-    data.roistatAB = roistatAB
-    data.leadPage = router.asPath
-    const utms = JSON.parse(sessionStorage.getItem('utms'))
-    data.utms = utms
-    sessionStorage.removeItem('utms')
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
-    data.referer = referer
-    sessionStorage.removeItem('referer')
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
-    data.ymUid = ymUid
-    const clickId = getCookie('utm')
 
+    const roistatAB = localStorage.getItem('AB')
+    const leadPage = router.asPath
+    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    const clickId = getCookie('utm')
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')
     const advcake_track_url = getCookie('advcake_track_url')
-    // const price = program?.price || program?.offlineFullPrice / 2 || null
-    data.price = price
 
-    data.blockForAmo = 'Поступить'
-
-    if (typeof clickId === 'string') {
-      data.utm = JSON.parse(clickId)
-    } else {
-      data.utm = null // или какое-то другое значение по умолчанию
+    const reqData = {
+      ...data,
+      roistatAB,
+      leadPage,
+      utms,
+      referer,
+      ymUid,
+      price: selectedPrice,
+      blockForAmo: 'Поступить',
+      utm:
+        typeof clickId === 'string'
+          ? JSON.parse(decodeURIComponent(clickId))
+          : null,
+      advcake_track_id,
+      advcake_track_url,
+      roistat_visit
     }
 
-    data.advcake_track_id = advcake_track_id
-    data.advcake_track_url = advcake_track_url
-    data.roistat_visit = roistat_visit
-    const req = await genezis(data)
+    const req = await genezis(reqData)
 
     if (req === 200) {
       window.open(
@@ -105,6 +106,37 @@ const PracticalPaymentForm = ({ price }: Props) => {
     !dirtyFields.surname ||
     !isAgree ||
     isDisabled
+
+  const priceHandle = value => {
+    switch (value) {
+      case 'one':
+        return price
+      case 'onePlusProf':
+        return 15000
+      case 'all':
+        return 45000
+      case 'two':
+        return 12000
+      case 'twoPlusProf':
+        return 17000
+      case 'three':
+        return 14000
+      case 'threePlusProf':
+        return 19000
+    }
+  }
+
+  const handleRadioChange = e => {
+    const value = e.target.value
+    setSelectedValue(value)
+    setAnimatePrice(true) // Начинаем анимацию
+
+    setTimeout(() => {
+      const price = priceHandle(value)
+      setSelectedPrice(price)
+      setAnimatePrice(false) // Завершаем анимацию
+    }, 300) // Время должно совпадать с продолжительностью анимации в Sass
+  }
 
   return (
     <section className={stls.container}>
@@ -128,8 +160,9 @@ const PracticalPaymentForm = ({ price }: Props) => {
                       id={`radio-${idx}`}
                       className={stls.radio}
                       name='payment'
+                      onChange={handleRadioChange}
+                      checked={selectedValue === value}
                     />
-
                     <label htmlFor={`radio-${idx}`} className={stls.radioLabel}>
                       {label}
                     </label>
@@ -149,7 +182,14 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   (стоимость программы практики)
                 </p>
                 <p className={stls.oldPrice}>{price + 5000} ₽</p>
-                <p className={stls.newPrice}>{price} ₽</p>
+                <p
+                  className={classNames({
+                    [stls.newPrice]: true,
+                    [stls.fadeOut]: animatePrice,
+                    [stls.fadeIn]: !animatePrice
+                  })}>
+                  {selectedPrice} ₽
+                </p>
                 <div className={stls.giftImage}>
                   <Image src={gift} width={170} height={170} alt='Подарок' />
                 </div>

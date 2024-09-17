@@ -17,6 +17,8 @@
 
 .leftBlock
   @include m.gap($pt: f.px(25), $plr: f.px(45))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(20), $plr: f.px(25))
 
 .leftBlockTitle
   display: block
@@ -26,6 +28,9 @@
   font-size: f.px(22)
   font-weight: 500
   line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(15))
 
 .radioGroup
   @include m.flex($fd: column)
@@ -49,6 +54,9 @@
   @include m.flex($ai: flex-start)
   @include m.gap($mt: f.px(30))
   max-width: f.px(360)
+  @include m.media(phone, tablet)
+    max-width: f.px(560)
+    @include m.gap($mt: f.px(10))
 
 .radio
   appearance: none
@@ -58,7 +66,6 @@
   border-radius: 50%
   @include m.gap($mb: f.px(15))
   flex-shrink: 0
-
   &:checked
     background-color: orange
     border-color: orange
@@ -68,6 +75,8 @@
   font-size: f.px(18)
   font-weight: 350
   line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
 
 .radio:checked + .radioLabel
   font-weight: 500
@@ -75,8 +84,10 @@
 .remark
   max-width: f.px(250)
   font-size: f.px(10)
-  @include m.gap($mt: f.px(15))
+  @include m.gap($mt: f.px(15), $mb:f.px(30))
   font-weight: 500
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
 
 .leftContent
   @include m.flex($jc: space-between)
@@ -101,10 +112,15 @@
   @include m.gap($mb: 0)
   font-style: normal
   font-weight: 500
-  @include m.media(laptop)
+  transition: opacity 0.3s ease-in-out
+  @include m.media(laptop, phone, tablet)
     font-size: f.px(32)
-  @include m.media(phone, tablet)
-    font-size: f.px(26)
+
+.fadeIn
+  opacity: 1
+
+.fadeOut
+  opacity: 0
 
 .giftBlock
   @include m.flex($ai: center, $jc: center, $fd: column)
@@ -116,6 +132,8 @@
   font-weight: 500
   line-height: 120%
   text-transform: uppercase
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
 
 .giftSubtitle
   font-size: f.px(14)
@@ -131,6 +149,8 @@
   font-weight: 350
   line-height: 120%
   text-align: center
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
 
 .giftTextBold
   font-weight: 500
@@ -156,8 +176,8 @@
   width: f.px(1)
   transform: translateX(-50%)
   width: f.px(1)
-  background-color: c.$purple-350
-  @include m.gap($mt: f.px(30))
+  background-color: c.$purple-200
+  @include m.gap($mtb: f.px(30))
   @include m.media(phone, tablet)
     display: none
 
@@ -178,15 +198,11 @@
     & input
       @include m.media(laptop, desktop)
         font-size: f.px(16)
-        // border: f.px(1) solid
-        // @include m.dye(border, c.$purple-800)
         border-radius: f.px(4)
         background-color: transparent
       @include m.media(phone, tablet)
         @include m.gap($plr: f.px(10))
         font-size: f.px(14)
-        border: f.px(1) solid
-        @include m.dye(border, c.$purple-800)
         border-radius: f.px(4)
         background-color: transparent
         &::placeholder
@@ -194,6 +210,8 @@
 
 .formContainer
   @include m.gap($ptb: f.px(30), $plr: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($p: f.px(20))
 
 .formTitle
   text-align: center
@@ -201,7 +219,10 @@
   font-style: normal
   font-weight: 500
   line-height: 120%
-  @include m.gap($plr: f.px(45), $pb: f.px(30))
+  @include m.gap($plr: f.px(45), $pb: f.px(30), $mb: 0)
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    @include m.gap($plr: f.px(30), $pb: f.px(20))
 
 .inpt
   & input,
@@ -219,7 +240,6 @@
   & input
     @include m.gap($ptb: f.px(17), $plr: f.px(20))
     border-radius: f.px(4)
-    // border-color: #6f01c6 !important
     font-weight: 300
     width: 100% !important
     height: 54px !important
@@ -235,7 +255,6 @@
   font-family: Stem !important
 
 .flagButton
-  // border-color: #6f01c6 !important
   background-color: white !important
 
 .dropdown
@@ -252,7 +271,7 @@
   @include m.dye(c, red)
 
 .footer
-  @include m.flex($ai: center, $jc: center)
+  @include m.flex($jc: flex-start)
   margin-left: f.px(5)
   @include m.media(phone, tablet)
     margin-left: 0
@@ -285,7 +304,7 @@
 
 .checkboxBlock > label
   @include m.flex($ai: center)
-  font-size: f.px(16)
+  font-size: f.px(12)
   font-weight: 350
   gap: f.px(5)
   @include m.gap($mb: f.px(18))

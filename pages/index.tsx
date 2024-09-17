@@ -124,6 +124,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
           />
         )}
       </Popup>
+      
       <Hero />
       {/* <Directions /> */}
       <DirectionsNew

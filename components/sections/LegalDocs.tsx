@@ -8,6 +8,7 @@ import {
   listEntrance,
   listGeneral,
   listProgram,
+  listProgram2,
   listHigherEducation,
   listAddEducation,
   listOrder
@@ -140,6 +141,15 @@ const LegalDocs = ({
             ))}
 
             {listProgram.map((el, idx) => (
+              <ExpandableListItem
+                title={el.title}
+                key={el.title + idx}
+                contentLeft={el.contentLeft}
+                contentRight={el.contentRight}
+              />
+            ))}
+
+            {listProgram2.map((el, idx) => (
               <ExpandableListItem
                 title={el.title}
                 key={el.title + idx}

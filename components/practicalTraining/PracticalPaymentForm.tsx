@@ -48,9 +48,6 @@ const PracticalPaymentForm = ({ price }: Props) => {
   const [isLoading, setIsLoading] = useState(false)
   const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
-  const [selectedValue, setSelectedValue] = useState(formList[0].value)
-  const [selectedPrice, setSelectedPrice] = useState(price)
-  const [animatePrice, setAnimatePrice] = useState(false)
 
   const onSubmit = async (data: FormValues) => {
     setIsDisabled(true)
@@ -73,7 +70,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
       utms,
       referer,
       ymUid,
-      price: selectedPrice,
+      price: finalPrice,
       blockForAmo: 'Поступить',
       utm:
         typeof clickId === 'string'
@@ -107,23 +104,19 @@ const PracticalPaymentForm = ({ price }: Props) => {
     !isAgree ||
     isDisabled
 
-  const priceHandle = value => {
-    switch (value) {
-      case 'one':
-        return price
-      case 'onePlusProf':
-        return 15000
-      case 'all':
-        return 45000
-      case 'two':
-        return 12000
-      case 'twoPlusProf':
-        return 17000
-      case 'three':
-        return 14000
-      case 'threePlusProf':
-        return 19000
-    }
+  const [selectedValue, setSelectedValue] = useState(formList[0].value)
+  const [finalPrice, setFinalPrice] = useState(price)
+  const [oldPrice, setOldPrice] = useState(price)
+  const [animatePrice, setAnimatePrice] = useState(false)
+
+  const prices = {
+    one: price,
+    onePlusProf: [25000, 30000],
+    all: [80000, 95000],
+    two: 30000,
+    twoPlusProf: [25000, 30000],
+    three: 35000,
+    threePlusProf: [30000, 35000]
   }
 
   const handleRadioChange = e => {
@@ -131,9 +124,11 @@ const PracticalPaymentForm = ({ price }: Props) => {
     setSelectedValue(value)
     setAnimatePrice(true) // Начинаем анимацию
 
+    // Завершаем анимацию через CSS
     setTimeout(() => {
-      const price = priceHandle(value)
-      setSelectedPrice(price)
+      const price = prices[value]
+      setFinalPrice(Array.isArray(price) ? price[0] : price)
+      setOldPrice(Array.isArray(price) ? price[1] : null)
       setAnimatePrice(false) // Завершаем анимацию
     }, 300) // Время должно совпадать с продолжительностью анимации в Sass
   }
@@ -181,14 +176,14 @@ const PracticalPaymentForm = ({ price }: Props) => {
                 <p className={stls.giftSubtitle}>
                   (стоимость программы практики)
                 </p>
-                <p className={stls.oldPrice}>{price + 5000} ₽</p>
+                {oldPrice && <p className={stls.oldPrice}>{oldPrice} ₽</p>}
                 <p
                   className={classNames({
                     [stls.newPrice]: true,
                     [stls.fadeOut]: animatePrice,
                     [stls.fadeIn]: !animatePrice
                   })}>
-                  {selectedPrice} ₽
+                  {finalPrice} ₽
                 </p>
                 <div className={stls.giftImage}>
                   <Image src={gift} width={170} height={170} alt='Подарок' />

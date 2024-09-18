@@ -70,7 +70,7 @@ const routes = {
     users: '/users'
   },
   external: {
-    ochuVoMipLicense: 'https://islod.obrnadzor.gov.ru/rlic/details/0B110A13-100E-130E-0C13-130F0F100E100E0F100D/',
+    ochuVoMipLicense: 'https://islod.obrnadzor.gov.ru/rlic/details/0B110B0A-0D0D-100D-0E0E-0F0D131211111110120D/',
     license:
       'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
     vk: 'https://m.vk.com/mip_institute',

@@ -29,6 +29,10 @@ export { default as dataOchuVoMipEntranceRight } from '@/data/docs/ochu-vo-mip/c
 export { default as dataOchuVoMipProgramLeft } from '@/data/docs/ochu-vo-mip/constituent/program/dataOchuVoMipProgramLeft'
 export { default as dataOchuVoMipProgramRight } from '@/data/docs/ochu-vo-mip/constituent/program/dataOchuVoMipProgramRight'
 
+// ./docs/ochu-vo-mip/constituent/program2
+export { default as dataOchuVoMipProgram2Left } from '@/data/docs/ochu-vo-mip/constituent/program2/dataOchuVoMipProgram2Left'
+export { default as dataOchuVoMipProgram2Right } from '@/data/docs/ochu-vo-mip/constituent/program2/dataOchuVoMipProgram2Right'
+
 // ./docs/ochu-vo-mip/general/common
 export { default as dataOchuVoMipCommonLeft } from '@/data/docs/ochu-vo-mip/general/common/dataOchuVoMipCommonLeft'
 export { default as dataOchuVoMipCommonRight } from '@/data/docs/ochu-vo-mip/general/common/dataOchuVoMipCommonRight'

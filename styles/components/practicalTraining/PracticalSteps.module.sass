@@ -3,3 +3,32 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+
+.mySwiper
+    flex-basis: 40%
+
+.innerContainer
+    @include m.dye(bg, c.$purple-200)
+    @include m.gap($ptb: f.px(40), $plr: f.px(60))
+    border-radius: f.px(10)
+    border: f.px(1) solid c.$purple-350
+
+.title
+    text-align: center
+    font-size: f.px(44)
+    font-weight: 500
+    line-height: 120%
+
+.blocks
+    @include m.flex()
+    gap: f.px(30)
+
+.slide
+    // opacity: 0.2
+    // position: relative
+    // width: f.px(129)
+    // height: f.px(305)
+    // border-radius: f.px(10)
+    // cursor: pointer
+    // border: 1px solid c.$purple-350
+    // @include m.dye(bg, c.$white-900)

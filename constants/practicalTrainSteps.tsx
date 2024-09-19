@@ -8,7 +8,7 @@ export const practicalTrainSteps = [{
   id: 1,
   title: '1 СТУПЕНЬ',
   subtitle: <>Получите сертификат о прохождении практики</>,
-  src: step1
+  src: step1,
 },{
   id: 2,
   title: '2 СТУПЕНЬ',

@@ -2,30 +2,50 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  flex-basis: 45%
+  @include m.flex($ai: flex-end)
+  gap: f.px(20)
+  @include m.media(phone, tablet)
+    display: none
+
 .stepBlock
   opacity: 0.2
   position: relative
   width: f.px(129)
-  height: f.px(305)
   border-radius: f.px(10)
   cursor: pointer
   border: 1px solid c.$purple-350
   @include m.flex($ai: center, $jc: center)
+  transition: opacity 0.8s linear
+  &:nth-of-type(1)
+    height: f.px(104)
+  &:nth-of-type(2)
+    height: f.px(203)
+  &:nth-of-type(3)
+    height: f.px(305)
+
+.active
+  opacity: 1
 
 .fill
   position: absolute
   bottom: 0
   left: 0
   right: 0
-  opacity: 1.2
-  height: f.px(0)
+  opacity: 1
   @include m.dye(bg, c.$white-900)
+  height: f.px(0)
   transition: height 0.8s linear
+  border-radius: f.px(10)
 
 .number
   text-align: center
-  @include m.dye(c, c.$black-900)
+  @include m.dye(c, c.$white-900)
   font-size: f.px(40)
   font-weight: 350
   line-height: 110%
   z-index: 1
+
+.completed
+  @include m.dye(c, c.$purple-350)

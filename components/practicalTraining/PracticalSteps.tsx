@@ -2,69 +2,66 @@ import React, { useState } from 'react'
 import stls from '@/styles/components/practicalTraining/PracticalSteps.module.sass'
 import { TermPoint } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import Wrapper from '../layout/Wrapper'
-import SwiperCore, { Mousewheel, EffectFade } from 'swiper'
+import SwiperCore, { Mousewheel, EffectFade, EffectCoverflow } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css/effect-fade'
 import CubicBlockThreeSide from '../general/CubicBlockThreeSide'
 import StepBlocks from './StepBlocks'
 import { practicalTrainSteps } from 'constants/practicalTrainSteps'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery';
+import IconPracticalStepNext from '../icons/IconPracticalStepNext'
 
-SwiperCore.use([Mousewheel, EffectFade])
+
+SwiperCore.use([Mousewheel, EffectFade, EffectCoverflow])
 
 type Props = {
   points: TermPoint[]
 }
 
 const PracticalSteps = () => {
-
-  const [rotate, setRotate] = useState(0)
-  const [fill, setFill] = useState(0)
-
-  const blocks = [
-    { id: 0, height: 25, rotate: 0 },
-    { id: 1, height: 75, rotate: 90 },
-    { id: 2, height: 100, rotate: 180 },
-  ]
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)');
 
   const handleSlideChange = (swiper) => {
-    const currentIndex = swiper.activeIndex
-    setRotate(blocks[currentIndex].rotate)
-    setFill(blocks[currentIndex].height)
-  }
+    const newIndex = swiper.activeIndex;
+    setCurrentIndex(newIndex);
+  };
+
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.innerContainer}>
           <h2 className={stls.title}>Шаги практики</h2>
-          <div className={stls.blocks}>
+          {isMobileAndTabletLayout &&
+          <div className={stls.iconMob}>
+            <IconPracticalStepNext />
+          </div>
+           }
             <Swiper
-              // direction={'vertical'}
+              direction={isMobileAndTabletLayout ? 'horizontal' : 'vertical'}
               slidesPerView={1}
-              spaceBetween={0}
+              spaceBetween={isMobileAndTabletLayout ? 10 : 0}
               mousewheel={{
                 releaseOnEdges: true
               }}
-              speed={600}
               effect={'fade'}
               fadeEffect={{
                 crossFade: true
               }}
-              onSlideChange={handleSlideChange}
+              speed={800}
               className={stls.mySwiper}
-              style={{ height: '20vh' }}
+              onSlideChange={handleSlideChange}
+              style={{ height: '30rem', width: '100%' }}
               >
-              {blocks.map((el) => 
+              <StepBlocks currentIndex={currentIndex}/>
+              {practicalTrainSteps.map((el) => 
                 <SwiperSlide 
-                  key={`${el.id}+${el.rotate}`}
-                  className={stls.slide}
+                key={`${el.id}+${el.title}`}
+                className={stls.slide}
                 >
-                  <StepBlocks fill={el.height} id={el.id}/>
+                  <CubicBlockThreeSide title={el.title} subtitle={el.subtitle} src={el.src}/>
                 </SwiperSlide>
               )}
             </Swiper>
-            <CubicBlockThreeSide rotate={rotate}/>
-          </div>
-        </div>
       </Wrapper>
     </section>
   )

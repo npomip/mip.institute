@@ -3,65 +3,47 @@
 @use '@/styles/themes/default/colors' as c
 
 .scene
-  // width: 100%
-  flex-basis: 60%
-  height: f.px(375)
-  @include m.media(phone, tablet)
-    display: none
+  // flex-basis: 60%
+  height: 100%
+  @include m.flex($ai: flex-end)
 
 .icon
   position: absolute
-  top: f.px(31)
+  top: f.px(123)
+  @include m.media(phone, tablet)
+    position: static
+    @include m.gap($mb: f.px(31))
 
 .image
-  @include m.gap($mb: f.px(-90))
-
-.cube
-  width: 100%
-  height: 100%
-  position: relative
-  transform-style: preserve-3d
-  transition: transform 1s ease-in-out
+  flex-basis: 35%
+  @include m.gap($mb: f.px(-30), $mr: f.px(-18))
+  @include m.media(phone, tablet)
+    flex-basis: 55%
 
 .card
-  width: 100%
-  height: 100%
-  position: absolute
+  height: f.px(305)
   border-radius: f.px(10)
-  overflow: hidden
-  display: flex
   @include m.dye(bg, c.$white-900)
   @include m.gap($pl: f.px(51), $pr: f.px(0))
-  align-items: center
-  justify-content: space-between
-  @include m.media(laptop)
-    @include m.gap($pl: f.px(35))
+  overflow: hidden
+  @include m.flex($ai: center, $jc: space-between)
   @include m.media(phone, tablet)
-    flex-direction: column-reverse
-
-  // &>*
-  //   @include m.gap($mb: f.px(0))
-
-.card1
-  transform: rotateX( 0deg) translateZ(f.px(180))
-
-.card2
-  transform: rotateX(270deg) translateZ(f.px(180))
-
-.card3
-  transform: rotateX(180deg) translateZ(f.px(180))
+    @include m.flex($fd: column, $ai: flex-start)
+    height: f.px(220)
+    @include m.gap($pl: f.px(30), $pr: f.px(0), $pt: f.px(35))
+    // flex-direction: column-reverse
 
 .text
+  flex-basis: 50%
   .title
     font-size: f.px(25)
     font-weight: 500
     @include m.gap($mb: f.px(15))
+    @include m.media(phone, tablet)
+      font-size: f.px(25)
   .subtitle
     font-size: f.px(18)
     font-weight: 300
     max-width: f.px(400)
-    span
-      text-decoration-line: underline
-      font-weight: 500
-      text-underline-offset: f.px(5)
-      text-decoration-thickness: f.px(1)
+    @include m.media(phone, tablet)
+      font-size: f.px(15)

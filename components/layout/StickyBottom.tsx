@@ -48,7 +48,9 @@ const StickyBottom = () => {
           <div className={stls.content}>
             <div className={stls.text}>
               <span className={stls.title}>Скидка до {discount}</span>
-              <span className={stls.description}>на все программы и курсы</span>
+              <span className={stls.description}>
+                на все программы и курсы{' '}
+              </span>
               <span className={stls.discount}>
                 <ProgramDiscountUntil />
               </span>

@@ -43,8 +43,8 @@ const PageTraining = ({ practicalTraining }: Props) => {
         practicalTraining={practicalTraining}
       />
       <PracticalList list={practicalTraining?.practicalList.item} />
-      <PracticalWhoIsProgramFor />
       <PracticalSteps />
+      <PracticalWhoIsProgramFor />
       <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
       <PracticalProgramDescription
         description={practicalTraining?.programDescription}

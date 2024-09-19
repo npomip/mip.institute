@@ -3,6 +3,10 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+    @include m.media(laptop, desktop)
+        @include m.gap($pb: f.px(30))
+    @include m.media(phone, tablet)
+        @include m.gap($pb: f.px(0))
 
 .mySwiper
     border-radius: f.px(10)

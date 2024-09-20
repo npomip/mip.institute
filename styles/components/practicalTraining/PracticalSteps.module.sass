@@ -8,6 +8,10 @@
     @include m.media(phone, tablet)
         @include m.gap($pb: f.px(0))
 
+.innerContainer
+    @include m.media(phone, tablet)
+        @include m.flex($fd: column, $ai: center)
+
 .mySwiper
     border-radius: f.px(10)
     @include m.dye(bg, c.$purple-200)
@@ -17,7 +21,17 @@
     overflow: hidden
     gap: f.px(30)
     @include m.media(phone, tablet)
+        display: none
         @include m.gap($ptb: f.px(40), $plr: f.px(20))
+
+.myMobSwiper
+    border-radius: f.px(10)
+    @include m.dye(bg, c.$purple-200)
+    border: f.px(1) solid c.$purple-350
+    @include m.gap($ptb: f.px(40), $plr: f.px(20))
+    @include m.flex($fd: row-reverse, $ai: flex-end)
+    overflow: hidden
+    gap: f.px(30)
 
 .swiperWrapper
     @include m.flex()
@@ -35,6 +49,6 @@
         font-size: f.px(30)
 
 .iconMob
-    transform: translateY(f.px(130)) translateX(f.px(160))
+    transform: translateY(f.px(130))
     position: relative
     z-index: 2

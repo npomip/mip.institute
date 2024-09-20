@@ -9,15 +9,18 @@ export const practicalTrainSteps = [{
   title: '1 СТУПЕНЬ',
   subtitle: <>Получите сертификат о прохождении практики</>,
   src: step1,
+  mobHeight: 220,
 },{
   id: 2,
   title: '2 СТУПЕНЬ',
   subtitle: <>Получите сертификат о прохождении практики</>,
-  src: step2
+  src: step2,
+  mobHeight: 240,
 },{
   id: 3,
   title: '3 СТУПЕНЬ',
   subtitle: <>Получите удостоверение о повышении квалификации и сертификат о прохождении супервизии</>,
-  src: step3
+  src: step3,
+  mobHeight: 260,
 },
 ]

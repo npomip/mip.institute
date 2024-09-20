@@ -3,7 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 
 .scene
-  // flex-basis: 60%
   height: 100%
   @include m.flex($ai: flex-end)
 
@@ -18,7 +17,9 @@
   flex-basis: 35%
   @include m.gap($mb: f.px(-30), $mr: f.px(-18))
   @include m.media(phone, tablet)
-    flex-basis: 55%
+    width: 50%
+    height: 50%
+    transform: translateX(f.px(164)) translateY(f.px(-150))
 
 .card
   height: f.px(305)
@@ -28,13 +29,14 @@
   overflow: hidden
   @include m.flex($ai: center, $jc: space-between)
   @include m.media(phone, tablet)
+    width: 100%
     @include m.flex($fd: column, $ai: flex-start)
-    height: f.px(220)
     @include m.gap($pl: f.px(30), $pr: f.px(0), $pt: f.px(35))
-    // flex-direction: column-reverse
 
 .text
   flex-basis: 50%
+  @include m.media(phone, tablet)
+    max-width: f.px(200)
   .title
     font-size: f.px(25)
     font-weight: 500

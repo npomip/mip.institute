@@ -1,45 +1,26 @@
-// import { NextSeo } from 'next-seo'
-// import { useContext } from 'react'
-// import truncate from 'truncate'
-// import { routes, company } from '@/config/index'
 import {
-  HeroPrograms,
-  FilterSearch,
-  Programs,
-  ContactForm,
-  YourDiploma,
-  FullProgram,
-  Teachers,
   BriefProgramContents,
+  Faq,
   PageNavigation,
-  HeroProgram,
-  Faq
+  Teachers,
+  YourDiploma
 } from '@/components/sections'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import pic from '@/public/assets/imgs/forWhom/hasDoubtsImage.png'
+import { useRef } from 'react'
+import NoteBlock from '../general/NoteBlock'
+import BachelorHeroProgram from '../higherEducation/BachelorHeroProgram'
+import ForWhomHE from '../higherEducation/ForWhomHE'
+import Wrapper from '../layout/Wrapper'
+import BachelorStudyCost from '../sections/BachelorStudyCost'
+import DistanceEducation from '../sections/DistanceEducation'
+import EducationProcess from '../sections/EducationProcess'
 import EntryForm from '../sections/EntryForm'
+import FourSteps from '../sections/FourSteps'
 import LinkedPrograms from '../sections/LinkedPrograms'
 import SalaryCounter from '../sections/SalaryCounter'
-import stls from '@/styles/pages/PageBachelor.module.sass'
-import FourSteps from '../sections/FourSteps'
-import DistanceEducation from '../sections/DistanceEducation'
-import BachelorStudyCost from '../sections/BachelorStudyCost'
-import ForWhomHE from '../higherEducation/ForWhomHE'
-import NoteBlock from '../general/NoteBlock'
-import pic from '@/public/assets/imgs/forWhom/hasDoubtsImage.png'
-import Wrapper from '../layout/Wrapper'
-import { useRef } from 'react'
-import BachelorHeroProgram from '../higherEducation/BachelorHeroProgram'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import EducationProcess from '../sections/EducationProcess'
-import { NextSeo } from 'next-seo'
 import { SeoPageBachelor } from '../seo'
-// import { SeoOrganizationJsonLd } from '@/components/seo'
-
-type PagesProgramsType = {
-  ofType?: 'course' | 'profession'
-}
-
-// http://localhost:3000/bachelor/psihologo-pedagogicheskoye-obrazovanie
 
 const PageBachelor = ({ bachelor }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -67,11 +48,8 @@ const PageBachelor = ({ bachelor }) => {
     },
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'cost', label: 'Стоимость', ref: costRef, condition: true }
-    // { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
   ]
   const segments = ['bachelor']
-  // const segments = router.asPath.split('/').filter(segment => segment !== '')
-
   const labels = ['Высшее образование']
   const slug = ['bachelor']
 
@@ -79,7 +57,6 @@ const PageBachelor = ({ bachelor }) => {
     const breadcrumb = {
       label: labels[index],
       path: '/' + segments[index],
-      // path: '/' + segments.slice(0, index + 1).join('/'),
       slug: slug[index]
     }
     return breadcrumb
@@ -87,7 +64,7 @@ const PageBachelor = ({ bachelor }) => {
 
   return (
     <>
-    <SeoPageBachelor program={bachelor}/>
+      <SeoPageBachelor program={bachelor} />
       <BachelorHeroProgram breadcrumbs={breadcrumbs} />
       <PageNavigation sections={sections} />
       <ForWhomHE />
@@ -146,7 +123,7 @@ const PageBachelor = ({ bachelor }) => {
         teachersRef={teachersRef}
       />
       <YourDiploma isBachelor diplomaRef={diplomaRef} />
-      <SalaryCounter isBachelor />
+      <SalaryCounter title={bachelor?.title} />
       <DistanceEducation
         title='Конкурентное преимущество обучения в МИП:'
         list={bachelor?.benefits}

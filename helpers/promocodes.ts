@@ -11,7 +11,9 @@ const promocodes = {
   shahimat: 'Шах и Мат',
   eninaanna:'ЕНИНА',
   dashtolc: 'dashatolc',
-  sobchak: 'СОБЧАК'
+  sobchak: 'СОБЧАК',
+  sulim: 'СУЛИМ',
+  strelezc: 'СТРЕЛЕЦ'
 };
 
 export default promocodes

@@ -14,7 +14,7 @@ const titles = {
   'Педагогическое образование': 'педагог-психолог'
 }
 
-const SalaryCounter = ({ title }: SalaryCounterType) => {
+const SalaryCounter = ({ title='психолог' }: SalaryCounterType) => {
   const [consultation, setConsultation] = useState(5)
   const [consultationsRange, setConsultationsRange] = useState({
     min: 1,

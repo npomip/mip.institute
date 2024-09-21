@@ -5,10 +5,16 @@ import classNames from 'classnames'
 import TagOrange from '../general/TagOrange'
 
 type SalaryCounterType = {
-  isBachelor?: boolean
+  title: string
 }
 
-const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
+const titles = {
+  Психология: 'психолог',
+  'Психолого–педагогическое образование': 'педагог-психолог',
+  'Педагогическое образование': 'педагог-психолог'
+}
+
+const SalaryCounter = ({ title='психолог' }: SalaryCounterType) => {
   const [consultation, setConsultation] = useState(5)
   const [consultationsRange, setConsultationsRange] = useState({
     min: 1,
@@ -18,8 +24,10 @@ const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
   const [daysRange, setDaysRange] = useState({ min: 1, max: 31 })
   const [price, setPrice] = useState(2500)
   const [priceRange, setPriceRange] = useState({ min: 1500, max: 5000 })
-  const overall = (consultation * days * price).toLocaleString('ru-RU', { minimumFractionDigits: 0, maximumFractionDigits: 2 })
-  const [perMonth, setPerMonth] = useState(overall)
+  const overall = (consultation * days * price).toLocaleString('ru-RU', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
+  })
 
   const consultationHandler = e => {
     setConsultation(e.target.value)
@@ -33,43 +41,31 @@ const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
     setPrice(e.target.value)
   }
 
-  // const inputPrice = (e) => {
-  //   setPrice(e.target.value)
-  // }
-
-  // const inputDays = (e) => {
-  //   setPrice(e.target.value)
-  // }
-
-  // const inputConsultations = (e) => {
-  //   setConsultation(e.target.value)
-  // }
-
   return (
-    <section>
+    <section className={stls.container}>
       <Wrapper>
-        {isBachelor 
-        ?
-        <>
-          <div className={stls.tag}>
-              <TagOrange>Доход</TagOrange>
-          </div>
-          <h2 className={stls.title}>Сколько может <br/><span>зарабатывать педагог-психолог?</span></h2>
-        </> 
-        :
-        <>
-          <div className={stls.tag}>
-              <TagOrange>Доход</TagOrange>
-          </div>
-          <h2 className={stls.title}>Сколько может <span>зарабатывать психолог?</span></h2>
-        </>
-        }
-        <p className={stls.checkSalaryText}>Рассчитайте свой ежемесячный доход с помощью калькулятора</p>
+        <div className={stls.tag}>
+          <TagOrange>Доход</TagOrange>
+        </div>
+
+        <h2 className={stls.title}>
+          Сколько может {titles[title] === 'педагог-психолог' && <br />}
+          <span>зарабатывать {titles[title]}?</span>
+        </h2>
+
+        <p className={stls.checkSalaryText}>
+          Рассчитайте свой ежемесячный доход с помощью калькулятора
+        </p>
         <div className={stls.content}>
           <div className={stls.calculatorContainer}>
             <div className={stls.innerContainer}>
               <p className={stls.subtitle}>Количество консультаций в день</p>
-              <input max={10} value={consultation} onChange={consultationHandler} className={stls.value}/>
+              <input
+                max={10}
+                value={consultation}
+                onChange={consultationHandler}
+                className={stls.value}
+              />
               <input
                 className={stls.range}
                 min={consultationsRange.min}
@@ -84,7 +80,11 @@ const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
               </div>
 
               <p className={stls.subtitle}>Количество рабочих дней в месяц</p>
-              <input value={days} onChange={daysHandler} className={stls.value}/>
+              <input
+                value={days}
+                onChange={daysHandler}
+                className={stls.value}
+              />
               <input
                 className={stls.range}
                 min={daysRange.min}
@@ -99,7 +99,11 @@ const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
               </div>
 
               <p className={stls.subtitle}>Стоимость одной консультации</p>
-              <input value={price} onChange={priceHandler} className={stls.value}/>
+              <input
+                value={price}
+                onChange={priceHandler}
+                className={stls.value}
+              />
               <input
                 className={stls.range}
                 step={100}
@@ -124,7 +128,10 @@ const SalaryCounter = ({isBachelor = false}: SalaryCounterType) => {
           </div>
           <div className={stls.cards}>
             <div className={stls.cardOne}>
-              <p>*Средняя стоимость консультации выпускников МИП — <br /> 3 000 р./час</p>
+              <p>
+                *Средняя стоимость консультации выпускников МИП — <br /> 3 000
+                р./час
+              </p>
             </div>
             <div className={stls.cardTwo}>
               <p>До 5 консультаций в день может проводить психолог</p>

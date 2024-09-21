@@ -144,7 +144,7 @@ const PagesProgram = ({
       {ofType !== 'Course' && ofType !== 'Practice' && (
         <YourResume resumeRef={resumeRef} />
       )}
-      <SalaryCounter />
+      <SalaryCounter title='Психология'  />
 
       <Cta
         title={'Начните обучаться со скидкой'}

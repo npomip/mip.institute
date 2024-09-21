@@ -173,7 +173,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         cta='chooseProgram'
       />
       <WhatYouWillLearn title={'Чему вы научитесь в МИП'} onMain />
-      <SalaryCounter />
+      <SalaryCounter title='Психология' />
       <Teachers
         onMain
         title={'Ведущие преподаватели'}

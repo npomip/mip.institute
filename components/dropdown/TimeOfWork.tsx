@@ -22,8 +22,8 @@ const TimeOfWork: React.FC<Icon1Props> = ({ className, selected = false }) => {
         <IconOrangeDot />
         <p className={stls.title}>График работы:</p>
       </div>
-      <p className={stls.description}>ПН-ЧТ 09:00 - 19:00</p>
-      <p className={stls.description}>СБ-ВС выходной</p>
+      <p className={stls.description}>ПН-СБ 09:00 - 19:00</p>
+      <p className={stls.description}>ВС выходной</p>
       <div className={stls.wrapper}>
         <IconOrangeDot />
         <p className={stls.title}>Адрес офиса:</p>

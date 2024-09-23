@@ -32,6 +32,7 @@ const BachelorSlugCard: FC<Step> = ({ card }) => {
             src={card.heroPicture.url}
             width={740}
             height={480}
+            alt='Программа'
           />
         </div>
         <div className={stls.cardText}>

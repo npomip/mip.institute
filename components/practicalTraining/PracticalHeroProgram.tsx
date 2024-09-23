@@ -3,6 +3,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/practicalTraining/PracticalHeroProgram.module.sass'
 import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
+import { useRouter } from 'next/router'
 import TagOrange from '../general/TagOrange'
 import PracticalProgramInfo from './PracticalProgramInfo'
 
@@ -23,9 +24,13 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
     </>
   )
 
+  const router = useRouter()
+
+  const step = router.query.slug === 'first-step'
+  
   const tag = (
     <div className={stls.tag}>
-      <TagOrange>1 ступень</TagOrange>
+      <TagOrange>{step ? '1 ступень' : '2 ступень' }</TagOrange>
     </div>
   )
   return (

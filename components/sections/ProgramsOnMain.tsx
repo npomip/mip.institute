@@ -124,7 +124,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
       </div>
       <div className={stls.cards}>
         {programs.slice(0, number).map(el => (
-          <CardProfession key={el.id} profession={el} onMain />
+          <CardProfession key={`${el.id} - ${el.title}`} profession={el} onMain />
         ))}
       </div>
       {programs.length > number && programs.length > 3 && (

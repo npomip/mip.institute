@@ -12,7 +12,8 @@ const promocodes = {
   eninaanna:'ЕНИНА',
   dashtolc: 'dashatolc',
   sobchak: 'СОБЧАК',
-  sulim: 'СУЛИМ'
+  sulim: 'СУЛИМ',
+  strelezc: 'СТРЕЛЕЦ'
 };
 
 export default promocodes

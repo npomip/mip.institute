@@ -7,6 +7,8 @@ import {
   dataOchuVoMipCommonRight,
   dataOchuVoMipProgramLeft,
   dataOchuVoMipProgramRight,
+  dataOchuVoMipProgram2Left,
+  dataOchuVoMipProgram2Right,
   dataOchuVoMipHigherEduLeft,
   dataOchuVoMipHigherEduRight,
   dataOchuVoMipAddEduLeft,
@@ -35,6 +37,14 @@ export const listProgram = [
     title: 'Сведения об образовательной программе 44.03.02',
     contentLeft: dataOchuVoMipProgramLeft,
     contentRight: dataOchuVoMipProgramRight
+  }
+]
+
+export const listProgram2 = [
+  {
+    title: 'Сведения об образовательной программе 37.03.01',
+    contentLeft: dataOchuVoMipProgram2Left,
+    contentRight: dataOchuVoMipProgram2Right
   }
 ]
 

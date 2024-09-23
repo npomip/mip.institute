@@ -41,9 +41,15 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
       case 'programs':
         return `${allPrograms.length} программ`
       default:
-        return `${practicalTrainings.length} ступень`
+        return `${practicalTrainings.length} ступени`
     }
   }
+  const handleMouseDown = (event, href) => {
+    if (event.button === 1) { 
+      event.preventDefault(); 
+      window.open(href, '_blank'); 
+    }
+  };
 
   return (
     <section className={stls.container}>
@@ -55,22 +61,24 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
           <div className={stls.navBlocksContainer}>
             {navigationList.map(({ label, href, icon, programType }) => (
               <Link href={href} passHref key={label}>
-                <div
-                  className={stls.linkInner}
-                  onMouseEnter={() => handleMouseEnter({ icon })}
-                  onMouseLeave={handleMouseLeave}>
-                  <div className={stls.content}>
-                    <h3 className={stls.navTitle}>{label}</h3>
-                    <div className={stls.countPrograms}>
-                      <span>{renderCounter(programType)}</span>
+                <a onMouseDown={(event) => handleMouseDown(event, href)} rel='noreferrer'>
+                  <div
+                    className={stls.linkInner}
+                    onMouseEnter={() => handleMouseEnter({ icon })}
+                    onMouseLeave={handleMouseLeave}>
+                    <div className={stls.content}>
+                      <h3 className={stls.navTitle}>{label}</h3>
+                      <div className={stls.countPrograms}>
+                        <span>{renderCounter(programType)}</span>
+                      </div>
+                    </div>
+                    <div className={stls.icon}>
+                      <IconNavigation hover={hoveredIcon?.icon === icon}>
+                        {icon}
+                      </IconNavigation>
                     </div>
                   </div>
-                  <div className={stls.icon}>
-                    <IconNavigation hover={hoveredIcon?.icon === icon}>
-                      {icon}
-                    </IconNavigation>
-                  </div>
-                </div>
+                </a>
               </Link>
             ))}
           </div>

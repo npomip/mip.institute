@@ -2,11 +2,16 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(50))
+
 .content
   display: flex
   width: 100%
   flex-direction: row
-
   @include m.media(phone, tablet)
     flex-direction: column
 
@@ -28,7 +33,7 @@
       position: absolute
       content: ''
       z-index: -1
-      border: f.px(5) solid #F87E1B
+      border: f.px(5) solid c.$orange-700
       width: 100%
       right: 0
       bottom: f.px(5)
@@ -73,8 +78,7 @@
     @include m.gap($plr: f.px(25))
 
 .calcFooter
-  display: flex
-  justify-content: space-between
+  @include m.flex($jc: space-between)
   @include m.gap($mt: f.px(0), $mb: f.px(35))
   @include m.media(phone, tablet)
     @include m.gap($mtb: f.px(20))
@@ -92,13 +96,12 @@
       font-size: f.px(15)
 
 .minmax
-  display: flex
-  justify-content: space-between
+  @include m.flex($jc: space-between)
   @include m.gap($mt: f.px(13))
   font-size: f.px(18)
   font-weight: 350
+
 .range
-  // flex: 0 0 80%
   width: 100%
   height: f.px(3)
   border-radius: f.px(5)
@@ -108,8 +111,7 @@
   &::-webkit-slider-thumb
     -webkit-appearance: none
     background: white
-    border: 1px solid
-    @include m.dye(border, c.$purple-800)
+    border: f.px(1) solid c.$purple-800
     border-radius: 50%
     height: f.px(30)
     width: f.px(30)
@@ -119,8 +121,7 @@
       width: f.px(11)
 
 .value
-  border: 1px solid
-  @include m.dye(border, c.$purple-800)
+  border: f.px(1) solid c.$purple-800
   background: none
   width: 100%
   border-bottom: none
@@ -129,8 +130,7 @@
   margin-bottom: f.px(-12)
   @include m.gap($mb: f.px(-12), $ptb: f.px(19), $pl: f.px(30))
   &:focus
-    border: 1px solid
-    @include m.dye(border, c.$purple-800)
+    border: f.px(1) solid c.$purple-800
     border-bottom: none
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(12), $pl: f.px(12))
@@ -141,15 +141,13 @@
   flex: 1 1 auto
   background: linear-gradient(180deg, #FCF8FF 0%, #C7B9FF 131.61%)
   @include m.media(phone, tablet)
-    display: flex
-    flex-direction: row
-    justify-content: space-between
+    @include m.flex($fd: row, $jc: space-between)
     @include m.gap($mt: f.px(10))
     min-height: f.px(170)
 .cardOne, .cardTwo
   min-width: f.px(270)
   position: relative
-  border: f.px(2) solid #6F01C6
+  border: f.px(2) solid c.$purple-800
   font-size: f.px(23)
   @include m.gap($pt: f.px(103), $pb: f.px(72), $mt: f.px(-40))
   border-radius: f.px(12)
@@ -166,7 +164,7 @@
     top: f.px(20)
     left: f.px(17)
     @include m.gap($p: f.px(12))
-    background: #7104C4
+    @include m.dye(bg, c.$purple-800)
     @include m.dye(c, c.$white-900)
     border-radius: f.px(50)
     font-size: f.px(25)

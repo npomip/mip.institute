@@ -1,4 +1,5 @@
 import routes from '@/config/routes'
+import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 import stls from '@/styles/components/practicalTraining/PracticalPaymentForm.module.sass'
 import classNames from 'classnames'
 import formList from 'constants/practicalPaymentForm'
@@ -176,14 +177,14 @@ const PracticalPaymentForm = ({ price }: Props) => {
                 <p className={stls.giftSubtitle}>
                   (стоимость программы практики)
                 </p>
-                {oldPrice && <p className={stls.oldPrice}>{oldPrice} ₽</p>}
+                {oldPrice && <p className={stls.oldPrice}>{toNumberWithSpaces(oldPrice)} ₽</p>}
                 <p
                   className={classNames({
                     [stls.newPrice]: true,
                     [stls.fadeOut]: animatePrice,
                     [stls.fadeIn]: !animatePrice
                   })}>
-                  {finalPrice} ₽
+                  {toNumberWithSpaces(finalPrice)} ₽
                 </p>
                 <div className={stls.giftImage}>
                   <Image src={gift} width={170} height={170} alt='Подарок' />

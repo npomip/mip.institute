@@ -12,6 +12,8 @@ import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
+import IconPortalViolet from '../icons/IconPortalViolet'
+import classNames from 'classnames'
 
 const StickyBottom = () => {
   const router = useRouter()
@@ -44,6 +46,9 @@ const StickyBottom = () => {
           [stls.isShown]: isShown,
           [stls.isClosed]: isClosed
         })}>
+        <div className={stls.shape}>
+          <IconForStickyBottom />
+        </div>
         <Wrapper>
           <div className={stls.content}>
             <div className={stls.text}>
@@ -55,21 +60,31 @@ const StickyBottom = () => {
                 <ProgramDiscountUntil />
               </span>
             </div>
-            <div className={stls.shape}>
-              <IconForStickyBottom />
-            </div>
-
+            <span className={classNames(stls.portal, stls.big)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.medium)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.small, stls.right)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.small)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.tiny)}>
+              <IconPortalViolet />
+            </span>
             <Popup
               trigger={
-                <button>
+                <button className={stls.info}>
                   <IconInfoOrange />
                 </button>
               }
-              position='top center'
+              position='top left'
               on={window.innerWidth <= 768 ? 'click' : 'hover'}
               closeOnDocumentClick
               arrow={false}
-              offsetY={15}
               contentStyle={{
                 boxShadow: 'none'
               }}>

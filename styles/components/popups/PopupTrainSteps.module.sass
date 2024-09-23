@@ -1,0 +1,51 @@
+@use "sass:math"
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.phonetablet
+  @include m.media(laptop, desktop)
+    display: none
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.media(laptop, desktop)
+    max-width: f.px(686)
+    min-height: f.px(306)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(30), $plr: f.px(30))
+  @include m.flex($fd: column)
+  border: f.px(1) solid c.$orange-700
+  border-radius: f.px(10)
+  @include m.gap($ptb: f.px(40), $plr: f.px(49))
+  gap: f.px(20)
+
+.strongText
+  font-size: f.px(16)
+  font-weight: 500
+
+.title
+  @include m.gap($mb: f.px(0))
+  font-size: f.px(25)
+  font-weight: 500
+  line-height: 120%
+
+.text
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 130%
+  text-align: justify
+  & > span
+    font-weight: 500
+
+.btnText
+  @include m.media(phone, tablet)
+    display: none
+.closeBtn
+  @include m.flex($ai: center)
+  font-size: f.px(18)
+  gap: f.px(14)
+  position: absolute
+  top: f.px(34)
+  right: f.px(49)
+  @include m.dye(c, c.$orange-700)

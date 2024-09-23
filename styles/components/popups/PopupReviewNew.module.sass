@@ -15,6 +15,9 @@
   border-radius: f.px(10)
   @include m.gap($ptb: f.px(43), $plr: f.px(36))
   gap: f.px(43)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(43), $plr: f.px(20))
+    @include m.flex($fd: column)
 
 .leftBlock
   flex-basis: 45%
@@ -27,6 +30,8 @@
   & > span > img
     border-radius: 50%
   @include m.gap($mb: f.px(15))
+  @include m.media(phone, tablet)
+    width: f.px(75)
 
 .strongText
   font-size: f.px(16)

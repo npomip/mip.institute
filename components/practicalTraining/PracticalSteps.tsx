@@ -53,7 +53,7 @@ const PracticalSteps = () => {
                 key={`${el.id}+${el.title}`}
                 className={stls.slide}
                 >
-                  <CubicBlockThreeSide title={el.title} subtitle={el.subtitle} src={el.src} mobHeight={el.mobHeight}/>
+                  <CubicBlockThreeSide title={el.title} subtitle={el.subtitle} src={el.src} mobHeight={el.mobHeight} fullText={el.fullText}/>
                 </SwiperSlide>
               )}
             </Swiper>
@@ -76,7 +76,7 @@ const PracticalSteps = () => {
                 key={`${el.id}+${el.title}`}
                 className={stls.slide}
                 >
-                  <CubicBlockThreeSide title={el.title} subtitle={el.subtitle} src={el.src} mobHeight={el.mobHeight}/>
+                  <CubicBlockThreeSide title={el.title} subtitle={el.subtitle} src={el.src} mobHeight={el.mobHeight} fullText={el.fullText}/>
                 </SwiperSlide>
               )}
             </Swiper>

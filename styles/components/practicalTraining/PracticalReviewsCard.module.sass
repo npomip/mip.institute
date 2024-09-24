@@ -17,17 +17,20 @@
     -webkit-line-clamp: 17
     max-height: calc(25 * 1rem)
   .image
-    top: f.px(-230)
-    left: f.px(-120)
-    transform: scale(.25)
-    @include m.media(laptop)
-      top: f.px(-210)
-    @include m.media(tablet)
-      top: f.px(-190)
-      left: f.px(-90)
-    @include m.media(phone)
-      transform: scale(.22)
-      top: f.px(-230)
+    position: absolute
+    top: f.px(-70)
+    left: f.px(30)
+    // top: f.px(-230)
+    // left: f.px(-120)
+    // transform: scale(.25)
+    // @include m.media(laptop)
+    //   top: f.px(-210)
+    // @include m.media(tablet)
+    //   top: f.px(-190)
+    //   left: f.px(-90)
+    // @include m.media(phone)
+    //   transform: scale(.22)
+    //   top: f.px(-230)
 
   .btn
     &>*
@@ -43,12 +46,9 @@
     -webkit-line-clamp: 15
     max-height: calc(25 * 1rem)
   .image
-    transform: scale(.25)
-    top: f.px(-190)
-    left: f.px(-120)
-    @include m.media(phone)
-      transform: scale(.22)
-      top: f.px(-230)
+    position: absolute
+    top: f.px(-70)
+    left: f.px(30)
   .btn
     &>*
       &>*
@@ -57,6 +57,10 @@
         @include m.dye(c, c.$purple-200)
   @include m.media(phone, tablet)
     @include m.gap($mt:0)
+.whiteCard, .purpleCard
+  position: relative
+.imageClass
+  object-fit: cover
 
 .number
   font-size: f.px(40)

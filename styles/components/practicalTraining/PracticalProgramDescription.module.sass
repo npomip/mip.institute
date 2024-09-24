@@ -90,8 +90,13 @@
     @include m.gap($mb: f.px(17))
 
 .image
+  // object-fit: fill
   & > span > img
-    object-fit: cover
+    // object-fit: cover
     border-radius: f.px(10)
     @include m.media(phone, tablet)
       border-radius: f.px(5)
+
+.imageClass
+  height: 100%
+  object-fit: cover

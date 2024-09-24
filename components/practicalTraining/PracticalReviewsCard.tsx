@@ -43,10 +43,11 @@ const PracticalReviewsCard = ({
       })}>
       <div className={stls.image}>
         <Image
+        className={stls.imageClass}
           src={image.url ?? image}
           alt='Фото'
-          width={image.width}
-          height={image.height}
+          width={112}
+          height={112}
         />
       </div>
       <div className={stls.description}>

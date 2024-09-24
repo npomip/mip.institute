@@ -26,12 +26,15 @@
   flex-basis: 55%
 
 .personImage
-  width: f.px(150)
+  // width: f.px(150)
   & > span > img
     border-radius: 50%
   @include m.gap($mb: f.px(15))
   @include m.media(phone, tablet)
-    width: f.px(75)
+    // width: f.px(75)
+
+.personImg
+  object-fit: cover
 
 .strongText
   font-size: f.px(16)

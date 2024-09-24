@@ -100,7 +100,13 @@ const PopupReviewNew = ({
         <div className={stls.container}>
           <div className={stls.leftBlock}>
             <div className={stls.personImage}>
-              <Image src={image} alt='Выпускник' />
+              <Image
+                src={image.url ?? image}
+                alt='Выпускник'
+                width={112}
+                height={112}
+                className={stls.personImg}
+              />
             </div>
             <p className={stls.name}>{name}</p>
             <SlideContent slide={slides[0]} />

@@ -93,7 +93,7 @@ const Teachers = ({
             [stls.desc]: true,
             [stls.halfScreenSubtitle]: halfScreenTitle
           })}>
-          Преподают ведущие практикующие психологи и психотерапевты России{' '}
+          Преподают ведущие практикующие психологи России{' '}
           <span className={stls.highlight}>с опытом от 7 до 25 лет</span>
         </p>
         <div className={stls.teachers}>

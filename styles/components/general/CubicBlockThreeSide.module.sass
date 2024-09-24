@@ -15,12 +15,12 @@
     @include m.gap($mb: f.px(31))
 
 .image
-  flex-basis: 35%
+  flex-basis: 37%
   @include m.gap($mb: f.px(-30), $mr: f.px(-18))
   @include m.media(phone, tablet)
-    width: 50%
-    height: 50%
-    transform: translateX(f.px(164)) translateY(f.px(-150))
+    width: 60%
+    height: 60%
+    transform: translateX(f.px(150)) translateY(f.px(-180))
 
 .card
   height: f.px(305)
@@ -28,7 +28,7 @@
   @include m.dye(bg, c.$white-900)
   @include m.gap($pl: f.px(51), $pr: f.px(0))
   overflow: hidden
-  @include m.flex($ai: center, $jc: space-between)
+  @include m.flex($ai: flex-start, $jc: space-between)
   @include m.media(phone, tablet)
     width: 100%
     @include m.flex($fd: column, $ai: flex-start)
@@ -41,8 +41,9 @@
   .title
     font-size: f.px(25)
     font-weight: 500
-    @include m.gap($mb: f.px(15))
+    @include m.gap($mb: f.px(15), $mt: f.px(110))
     @include m.media(phone, tablet)
+      @include m.gap($mt: f.px(-10))
       font-size: f.px(25)
   .subtitle
     font-size: f.px(18)

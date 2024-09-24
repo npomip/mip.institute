@@ -8,6 +8,7 @@
   @include m.media(laptop, desktop)
     min-height: fit-content
     @include m.flex()
+    align-items: flex-start
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
     gap: f.px(10)

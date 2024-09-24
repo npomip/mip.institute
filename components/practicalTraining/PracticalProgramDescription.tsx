@@ -6,6 +6,7 @@ import {
 } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import classNames from 'classnames'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import IconVioletCircle from '../icons/IconVioletCircle'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 
@@ -15,6 +16,12 @@ type Props = {
 }
 
 const PracticalProgramDescription = ({ cards, description }: Props) => {
+
+  const router = useRouter()
+  const {query} = router
+  
+  const step = query.slug === 'second-step' ? 'второй' : query.slug === 'third-step' ? 'третьей' : 'первой'
+  
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -23,7 +30,7 @@ const PracticalProgramDescription = ({ cards, description }: Props) => {
           <p className={stls.remark}>
             *Эта программа является{' '}
             <span className={stls.underlined}>
-              первой образовательной
+              {step} образовательной
               <br /> ступенью
             </span>{' '}
             практической отработки навыков <br /> психологического
@@ -53,8 +60,8 @@ const PracticalProgramDescription = ({ cards, description }: Props) => {
               src={cards[0]?.picture?.url}
               alt='Лекция'
               width={1000}
-              height={1200}
-              layout='responsive'
+              height={750}
+              // layout='responsive'
             />
           </div>
         </TwoColumnsPractical>

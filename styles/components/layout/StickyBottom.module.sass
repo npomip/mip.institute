@@ -12,15 +12,12 @@
   @include m.flex($ai: center)
   width: 100%
   @include m.media(phone, tablet)
-    height: f.px(67)
+    height: f.px(74)
+    @include m.gap($pl: f.px(5))
   @include m.media(laptop, desktop)
     height: f.px(82)
   overflow: hidden
-  box-shadow: 0 f.px(4) f.px(4) rgba(0, 0, 0, .25)
   @include m.dye(bg, c.$purple-800)
-  // @include m.dye(bg, c.$purple-400-2)
-  // @include m.dye(bg, c.$black-800)
-  // @include m.dye(bg, c.$black-700)
   @include m.dye(c, c.$white-900)
   & > *
     position: relative
@@ -30,75 +27,159 @@
   &.isClosed
     transform: translateY(100%)
 
-.shape
-  position: absolute
-  @include m.media(phone)
-    top: 40%
-    left: f.px(-440)
-  @include m.media(tablet)
-    top: 10%
-    left: f.px(-560)
-  @include m.media(laptop)
-    top: 50%
-    left: -8%
-  @include m.media(desktop)
-    top: 50%
-    left: -10%
-  width: 100%
-  height: 100%
-  min-height: f.px(82)
-  transform: translateY(-50%)
-  & > *
-    min-height: f.px(82)
-    & > *
-      min-height: f.px(82)
+.content
+  @include m.flex
+  @include m.gap($ml: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(0))
+
+.title
+  display: block
+  font-size: f.px(33)
+  font-weight: 700
+  line-height: 110%
+  text-transform: uppercase
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.text
+  @include m.gap($mr: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(10))
+
+.description
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 400
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
 
 .discount
-  position: relative
+  font-style: normal
+  font-weight: 400
   @include m.media(phone, tablet)
-    font-size: f.px(14)
-    @include m.gap($mr: f.px(15))
-  @include m.media(laptop, desktop)
-    font-size: f.px(22)
-  font-weight: 300
-  line-height: 120%
-  @include m.gap($mb: 0)
+    font-size: f.px(10)
+    display: block
 
-.highlight
-  font-weight: 500
+.shape
+  position: absolute
+  z-index: 1
+  @include m.media(phone)
+    transform: scale(.25)
+    top: -40%
+    left: f.px(-33)
+  @include m.media(tablet)
+    transform: scale(.25)
+    top: -30%
+    left: f.px(-28)
+  @include m.media(laptop)
+    transform: scale(.35)
+    top: -38%
+    left: f.px(-32)
 
 .btns
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
     @include m.flex
+    transform: translateX(5%)
     & > *:nth-child(1)
       @media screen and (min-width: 971px)
         @include m.gap($mr: f.px(25))
+        & > button
+          padding: f.px(15) f.px(60)
 
 .btn2
+  & > div > button
+    padding: f.px(15) f.px(50)
   @media screen and (max-width: 970px)
-    display: none
-
-.btnMobile
-  @include m.media(phone, tablet)
-    & > *
-      min-width: f.px(109)
-      & > *
-        font-size: f.px(14)
-  @include m.media(laptop, desktop)
     display: none
 
 .close
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.gap($ml: f.px(10), $mr: f.px(14))
+    @include m.gap($mr: f.px(14))
 
-.mobileOnly
+.btnMobile
+  @include m.media(phone, tablet)
+    & > *
+      min-width: f.px(109)
+      & > *
+        font-size: f.px(10)
   @include m.media(laptop, desktop)
     display: none
 
-.smallMobileOnly
-  @media screen and (min-width: 390px)
-    display: none
+.tooltip
+  border-radius: f.px(5)
+  border: f.px(1) solid c.$purple-800
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($ptb: f.px(15), $plr: f.px(20))
+  font-size: f.px(12)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(desktop)
+    width: f.px(390)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(10), $plr: f.px(15))
+    min-width: f.px(190)
+    font-size: f.px(10)
+
+.info
+  transform: translateY(-20%)
+  @include m.media(phone, tablet)
+    transform: translateY(-30%)
+
+.icon
+  @include m.gap($mb: f.px(14))
+  & > span
+    @include m.sizeIcon($w: 20, $h: 20)
+
+.portal
+  position: absolute
+  transform: rotate(25deg)
+  & > span > svg > path
+    @include m.dye(stroke, c.$purple-300)
+    @include m.dye(fill, c.$purple-300)
+
+.big
+  width: f.px(25)
+  left: f.px(-140)
+  bottom: f.px(-10)
+  @include m.media(phone, tablet)
+    width: f.px(10)
+    left: f.px(150)
+    bottom: f.px(0)
+
+.medium
+  width: f.px(15)
+  left: f.px(520)
+  bottom: f.px(0)
+  @include m.media(phone, tablet)
+    width: f.px(7)
+    left: f.px(100)
+    bottom: f.px(-10)
+
+.small
+  width: f.px(10)
+  left: f.px(-60)
+  bottom: f.px(40)
+  @include m.media(phone, tablet)
+    width: f.px(5)
+    left: f.px(60)
+    bottom: f.px(43)
+
+.right
+  left: f.px(340)
+  bottom: f.px(40)
+  @include m.media(phone, tablet)
+    left: f.px(260)
+
+.tiny
+  width: f.px(7)
+  left: f.px(590)
+  bottom: f.px(50)
+  @include m.media(phone, tablet)
+    bottom: f.px(-10)
+    left: f.px(320)

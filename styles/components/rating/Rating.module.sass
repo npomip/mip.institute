@@ -11,6 +11,7 @@
 .title
   font-weight: 500
   line-height: 110%
+  @include m.gap($mb: f.px(35))
   @include m.media(phone, tablet)
     font-size: f.px(26)
   @include m.media(laptop, desktop)
@@ -19,10 +20,19 @@
 .subTitle
   font-weight: 350
   line-height: 110%
+  @include m.gap($mb: f.px(25))
   @include m.media(phone, tablet)
     font-size: f.px(16)
   @include m.media(laptop, desktop)
     font-size: f.px(35)
+
+.ratingCards
+  display: grid
+  @include m.media(laptop, desktop)
+    grid-template-columns: repeat(3, 1fr)
+  gap: f.px(40)
+  @include m.media(phone, tablet)
+    grid-template-columns: repeat(1, 1fr)
 
 .strongText
   font-weight: 500

@@ -115,6 +115,8 @@ export type ReviewSlide = {
 };
 
 export type ReviewType = {
+  name: string;
+  image: DescriptionCardImage[]
   slide: ReviewSlide[];
 }
 export type Review = ReviewType[];

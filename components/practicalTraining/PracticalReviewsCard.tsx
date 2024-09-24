@@ -43,7 +43,7 @@ const PracticalReviewsCard = ({
       })}>
       <div className={stls.image}>
         <Image
-          src={image}
+          src={image.url ?? image}
           alt='Фото'
           width={image.width}
           height={image.height}

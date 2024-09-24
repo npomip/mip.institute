@@ -100,6 +100,12 @@ const getStaticPropsPracticalTraining = async ({
               }
             }
             review {
+              name
+              image{
+                url
+                width
+                height
+              }
               slide {
                 question
                 answer

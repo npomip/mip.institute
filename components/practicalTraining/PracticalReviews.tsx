@@ -42,8 +42,8 @@ const PracticalReviews = ({ review }: Props) => {
             <SwiperSlide key={idx} className={stls.slide}>
               <PracticalReviewsCard
                 key={el.slide[0].answer}
-                name='Елена'
-                image={person}
+                name={el?.name || 'Елена'}
+                image={el?.image || person}
                 answer={el.slide[0].answer
                   .replace(/\*\*(.*?)\*\*/g, '')
                   .replace(/^Ответ:\s*/, '')

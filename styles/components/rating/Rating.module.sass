@@ -1,0 +1,31 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0, $pt: f.px(50), $pb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: 0, $pt: f.px(62), $pb: f.px(62))
+
+.title
+  font-weight: 500
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+  @include m.media(laptop, desktop)
+    font-size: f.px(64)
+
+.subTitle
+  font-weight: 350
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    font-size: f.px(35)
+
+.strongText
+  font-weight: 500
+
+.coloredText
+  @include m.dye(c, c.$purple-800)

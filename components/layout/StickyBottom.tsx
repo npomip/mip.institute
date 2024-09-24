@@ -1,19 +1,22 @@
-import stls from '@/styles/components/layout/StickyBottom.module.sass'
-import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
-import cn from 'classnames'
+import PopupTrigger from '@/components/general/PopupTrigger'
+import IconCloseCircle from '@/components/icons/IconCloseCircle'
+import IconForStickyBottom from '@/components/icons/IconForStickyBottom'
+import IconInfoOrange from '@/components/icons/IconInfoOrange'
+import Wrapper from '@/components/layout/Wrapper'
+import ProgramDiscountUntil from '@/components/program/ProgramDiscountUntil'
 import { routes } from '@/config/index'
 import { discount } from '@/data/price'
-import Wrapper from '@/components/layout/Wrapper'
-import IconWavyShape from '@/components/icons/IconWavyShape'
-import PopupTrigger from '@/components/general/PopupTrigger'
-import { IconCloseCircle } from '@/components/icons'
-import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
+import stls from '@/styles/components/layout/StickyBottom.module.sass'
+import cn from 'classnames'
 import { getCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import Popup from 'reactjs-popup'
+import IconPortalViolet from '../icons/IconPortalViolet'
+import classNames from 'classnames'
 
 const StickyBottom = () => {
   const router = useRouter()
-
   const [isShown, setIsShown] = useState(true)
   const [isClosed, setIsClosed] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -43,23 +46,61 @@ const StickyBottom = () => {
           [stls.isShown]: isShown,
           [stls.isClosed]: isClosed
         })}>
+        <div className={stls.shape}>
+          <IconForStickyBottom />
+        </div>
         <Wrapper>
-          <div className={stls.shape}>
-            <IconWavyShape />
+          <div className={stls.content}>
+            <div className={stls.text}>
+              <span className={stls.title}>Скидка до {discount}</span>
+              <span className={stls.description}>
+                на все программы и курсы{' '}
+              </span>
+              <span className={stls.discount}>
+                <ProgramDiscountUntil />
+              </span>
+            </div>
+            <span className={classNames(stls.portal, stls.big)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.medium)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.small, stls.right)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.small)}>
+              <IconPortalViolet />
+            </span>
+            <span className={classNames(stls.portal, stls.tiny)}>
+              <IconPortalViolet />
+            </span>
+            <Popup
+              trigger={
+                <button className={stls.info}>
+                  <IconInfoOrange />
+                </button>
+              }
+              position='top left'
+              on={window.innerWidth <= 768 ? 'click' : 'hover'}
+              closeOnDocumentClick
+              arrow={false}
+              contentStyle={{
+                boxShadow: 'none'
+              }}>
+              <div className={stls.tooltip}>
+                <div className={stls.icon}>
+                  <IconInfoOrange />
+                </div>
+                Информацию о скидках и дополнительных бонусах при поступлении
+                уточняйте у менеджеров приемной комиссии
+              </div>
+            </Popup>
           </div>
-          <p className={stls.discount}>
-            <span className={stls.highlight}>
-              Скидка {/* -50% */}
-              {discount}
-            </span>{' '}
-            <br className={stls.smallMobileOnly} /> на все программы{' '}
-            <br className={stls.mobileOnly} />
-            <ProgramDiscountUntil />!
-          </p>
           <div className={stls.btns}>
-            <PopupTrigger btn='theta' cta='learnAboutUs' />
+            <PopupTrigger btn='alpha' cta='submitApplication' />
             <div className={stls.btn2}>
-              <PopupTrigger btn='alpha' cta='consultMe' />
+              <PopupTrigger btn='beta' cta='consultMe' />
             </div>
           </div>
           <div
@@ -71,7 +112,7 @@ const StickyBottom = () => {
             </p>
           </div>
           <div className={stls.btnMobile}>
-            <PopupTrigger btn='theta' cta='learnMore' />
+            <PopupTrigger btn='alpha' cta='submitApplication' />
           </div>
         </Wrapper>
         <button className={stls.close} onClick={() => setIsClosed(true)}>

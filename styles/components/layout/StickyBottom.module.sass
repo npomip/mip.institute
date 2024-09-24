@@ -29,6 +29,9 @@
 
 .content
   @include m.flex
+  @include m.gap($ml: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(0))
 
 .title
   display: block
@@ -61,25 +64,26 @@
 
 .shape
   position: absolute
-  z-index: -1
+  z-index: 1
   @include m.media(phone)
     transform: scale(.25)
     top: -40%
     left: f.px(-33)
   @include m.media(tablet)
     transform: scale(.25)
-    top: -35%
+    top: -30%
     left: f.px(-28)
   @include m.media(laptop)
-    transform: scale(.25)
-    top: -40%
-    left: f.px(-38)
+    transform: scale(.35)
+    top: -38%
+    left: f.px(-32)
 
 .btns
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
     @include m.flex
+    transform: translateX(5%)
     & > *:nth-child(1)
       @media screen and (min-width: 971px)
         @include m.gap($mr: f.px(25))
@@ -96,7 +100,7 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.gap($ml: f.px(10), $mr: f.px(14))
+    @include m.gap($mr: f.px(14))
 
 .btnMobile
   @include m.media(phone, tablet)

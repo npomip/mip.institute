@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .mySwiper
-  @include m.gap($pt: f.px(60))
+  @include m.gap($pt: f.px(60), $pb: f.px(40))
 
 .title
   font-weight: 500
@@ -46,11 +46,11 @@
 
 @keyframes slidePhone
   0%
-    transform: translate(f.px(250), f.px(-50))
+    transform: translate(f.px(250), f.px(-200))
   50%
-    transform: translate(f.px(200), f.px(-50))
+    transform: translate(f.px(200), f.px(-200))
   100%
-    transform: translate(f.px(250), f.px(-50))
+    transform: translate(f.px(250), f.px(-200))
 
 @keyframes slideTablet
   0%

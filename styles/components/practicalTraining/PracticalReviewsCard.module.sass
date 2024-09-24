@@ -43,8 +43,12 @@
     -webkit-line-clamp: 15
     max-height: calc(25 * 1rem)
   .image
-    top: f.px(-20)
-    left: f.px(30)
+    transform: scale(.25)
+    top: f.px(-190)
+    left: f.px(-120)
+    @include m.media(phone)
+      transform: scale(.22)
+      top: f.px(-230)
   .btn
     &>*
       &>*

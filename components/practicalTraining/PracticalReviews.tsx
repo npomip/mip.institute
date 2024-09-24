@@ -16,8 +16,7 @@ type Props = {
 }
 
 const PracticalReviews = ({ review }: Props) => {
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')  
   const fingerRef = useRef(null)
 
   return (
@@ -42,10 +41,10 @@ const PracticalReviews = ({ review }: Props) => {
           {review.map((el, idx) => (
             <SwiperSlide key={idx} className={stls.slide}>
               <PracticalReviewsCard
-                key={el.slide[idx].answer}
+                key={el.slide[0].answer}
                 name='Елена'
                 image={person}
-                answer={el.slide[idx].answer
+                answer={el.slide[0].answer
                   .replace(/\*\*(.*?)\*\*/g, '')
                   .replace(/^Ответ:\s*/, '')
                   .replace(/–/g, '\n–')

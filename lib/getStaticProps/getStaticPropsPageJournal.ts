@@ -217,7 +217,7 @@ const getStaticPropsPageJournal = async ({
       props: {
         blog: res?.data?.blog?.[0] || null
       },
-      revalidate: revalidate.default
+      revalidate: revalidate.day
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)

@@ -35,7 +35,7 @@ const getStaticPropsPageJournals = async ({
 
   return {
     props: res.data,
-    revalidate: revalidate.default
+    revalidate: revalidate.day
   }
 }
 

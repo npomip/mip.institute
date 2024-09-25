@@ -6,10 +6,11 @@ import IconRatingStar from '../icons/IconRatingStar';
 type Props = {
   rating: number
   quantity: number
-  img: StaticImageData
+  img: StaticImageData,
+  link: string
 };
 
-const RatingCard =({rating, quantity, img}: Props) => {
+const RatingCard =({rating, quantity, img, link}: Props) => {
 
   return (
     <div className={stls.container}>
@@ -33,7 +34,7 @@ const RatingCard =({rating, quantity, img}: Props) => {
           )}
         </div> 
       </div>
-      <a className={stls.link}>
+      <a href={link} className={stls.link} target='_blank' rel='noreferrer'>
         <Image className={stls.image} src={img} alt='Лого'/>
       </a>
     </div>

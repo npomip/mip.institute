@@ -11,7 +11,7 @@ const Rating = () => {
         <h2 className={stls.subTitle}><span className={stls.strongText}>Оцените нас – </span>помогите нам стать лучше</h2>
         <div className={stls.ratingCards}>
         {ratingList.map((el, idx) => 
-          <RatingCard key={`${el.quantity} + ${idx}`} rating={el.rating} quantity={el.quantity} img={el.image}/>
+          <RatingCard key={`${el.quantity} + ${idx}`} rating={el.rating} quantity={el.quantity} img={el.image} link={el.link}/>
         )}
         </div>
       </Wrapper>

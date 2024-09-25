@@ -17,26 +17,10 @@ type Props = {
 
 const PracticalProgramDescription = ({ cards, description }: Props) => {
 
-  const router = useRouter()
-  const {query} = router
-  
-  const step = query.slug === 'second-step' ? 'второй' : query.slug === 'third-step' ? 'третьей' : 'первой'
-  
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.titleContainer}>
           <h2 className={stls.title}>Описание программы</h2>
-          <p className={stls.remark}>
-            *Эта программа является{' '}
-            <span className={stls.underlined}>
-              {step} образовательной
-              <br /> ступенью
-            </span>{' '}
-            практической отработки навыков <br /> психологического
-            консультирования.
-          </p>
-        </div>
         <TwoColumnsPractical>
           <ul className={stls.listColumn}>
             {cards.map(el => (

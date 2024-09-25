@@ -10,6 +10,7 @@ import StepBlocks from './StepBlocks'
 import { practicalTrainSteps } from 'constants/practicalTrainSteps'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery';
 import IconPracticalStepNext from '../icons/IconPracticalStepNext'
+import { IconFinger } from '../icons'
 
 type Props = {
   points: TermPoint[]
@@ -56,6 +57,9 @@ const PracticalSteps = () => {
                   <CubicBlockThreeSide title={el.title} subtitle={el.subtitle} src={el.src} mobHeight={el.mobHeight} fullText={el.fullText}/>
                 </SwiperSlide>
               )}
+              <div className={stls.finger}>
+                <IconFinger />
+              </div>
             </Swiper>
           }
             <Swiper
@@ -79,6 +83,9 @@ const PracticalSteps = () => {
                   <CubicBlockThreeSide title={el.title} subtitle={el.subtitle} src={el.src} mobHeight={el.mobHeight} fullText={el.fullText}/>
                 </SwiperSlide>
               )}
+              <div className={stls.finger}>
+                <IconFinger />
+              </div>
             </Swiper>
         </div>
       </Wrapper>

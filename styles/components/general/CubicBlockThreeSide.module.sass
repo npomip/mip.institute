@@ -16,6 +16,8 @@
 
 .image
   flex-basis: 37%
+  @include m.media(laptop)
+    flex-basis: 50%
   @include m.gap($mb: f.px(-30), $mr: f.px(-18))
   @include m.media(phone, tablet)
     width: 60%
@@ -36,6 +38,8 @@
 
 .text
   flex-basis: 50%
+  @include m.media(laptop)
+    flex-basis: 60%
   @include m.media(phone, tablet)
     max-width: f.px(200)
   .title

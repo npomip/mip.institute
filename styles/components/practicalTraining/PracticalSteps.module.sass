@@ -52,3 +52,57 @@
     transform: translateY(f.px(130))
     position: relative
     z-index: 2
+
+.finger
+    z-index: 2
+    position: absolute
+    @include m.flex($ai: center, $jc: center)
+    @include m.dye(stroke, c.$orange-700)
+    @include m.dye(bg, c.$white-900)
+    border: f.px(1) solid c.$orange-700
+    width: f.px(80)
+    height: f.px(80)
+    border-radius: 50%
+    animation: 3s infinite normal slideDesktop
+    @include m.media(laptop)
+        animation: 3s infinite normal slideLaptop
+    @include m.media(tablet)
+        animation: 3s infinite normal slideTablet
+        width: f.px(60)
+        height: f.px(60)
+    @include m.media(phone)
+        animation: 3s infinite normal slidePhone
+        width: f.px(60)
+        height: f.px(60)
+
+@keyframes slidePhone
+    0%
+        transform: translate(f.px(-200), f.px(-10))
+    50%
+        transform: translate(f.px(-150), f.px(-10))
+    100%
+        transform: translate(f.px(-200), f.px(-10))
+
+@keyframes slideTablet
+    0%
+        transform: translate(f.px(-200), f.px(-100))
+    50%
+        transform: translate(f.px(-150), f.px(-100))
+    100%
+        transform: translate(f.px(-200), f.px(-100))
+
+@keyframes slideLaptop
+    0%
+        transform: translate(f.px(-450), f.px(-50))
+    50%
+        transform: translate(f.px(-450), f.px(-0))
+    100%
+        transform: translate(f.px(-450), f.px(-50))
+
+@keyframes slideDesktop
+    0%
+        transform: translate(f.px(-550), f.px(-50))
+    50%
+        transform: translate(f.px(-550), f.px(-0))
+    100%
+        transform: translate(f.px(-550), f.px(-50))

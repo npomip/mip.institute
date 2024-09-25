@@ -71,7 +71,7 @@ const PopupReviewNew = ({
   const renderer = new marked.Renderer()
   renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
   marked.setOptions({ renderer })
-  const SlideContent = ({ slide }) => {
+  const SlideContent = ({ slide, isFirstSlide  }) => {
     const formattedAnswer = slide.answer
       .replace(/(–\s)/g, '<br />$1')
       .replace(/(\d+\.\s)/g, '<br />$1')
@@ -79,7 +79,10 @@ const PopupReviewNew = ({
     return (
       <>
         <div className={stls.question}>{slide.question}</div>
-        <div className={stls.answer}>{parse(marked(formattedAnswer))}</div>
+        <div className={stls.answer}>
+          {isFirstSlide && <span className={stls.strongText}>Ответ:</span>}
+          {parse(marked(formattedAnswer))}
+        </div>
       </>
     )
   }
@@ -109,10 +112,10 @@ const PopupReviewNew = ({
               />
             </div>
             <p className={stls.name}>{name}</p>
-            <SlideContent slide={slides[0]} />
+            <SlideContent isFirstSlide={true} slide={slides[0]} />
           </div>
           <div className={stls.rigthBlock}>
-            <SlideContent slide={slides[1]} />
+            <SlideContent isFirstSlide={false} slide={slides[1]} />
           </div>
           <button className={stls.closeBtn} onClick={close}>
             <IconClosePopupPractical />

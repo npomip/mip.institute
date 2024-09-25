@@ -33,7 +33,8 @@ const PracticalReviewsCard = ({
   marked.setOptions({ renderer })
 
   const renderedTitle = markedTitle ? parse(marked(name)) : name
-
+  const renderedText = marked(answer)
+  const lines = renderedText.split('<br />');
   return (
     <div
       className={classNames({
@@ -58,8 +59,8 @@ const PracticalReviewsCard = ({
           className={classNames({
             [stls.text]: true
           })}>
-          {answer.split('\n').map((line, index) => (
-            <div key={index}>{line}</div>
+          {lines.map((line, index) => (
+            <div key={index}>{parse(line)}</div>
           ))}
         </div>
       </div>

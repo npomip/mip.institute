@@ -18,7 +18,8 @@ type Props = {
 const PracticalReviews = ({ review }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')  
   const fingerRef = useRef(null)
-
+  console.log(review);
+  
   return (
     <section ref={fingerRef} className={stls.container}>
       <Wrapper>
@@ -45,10 +46,9 @@ const PracticalReviews = ({ review }: Props) => {
                 name={el?.name || 'Елена'}
                 image={el?.image || person}
                 answer={el.slide[0].answer
-                  .replace(/\*\*(.*?)\*\*/g, '')
-                  .replace(/^Ответ:\s*/, '')
-                  .replace(/–/g, '\n–')
-                  .trim()}
+                  .replace(/–/g, '<br />–')
+                  .trim()
+                }
                 slides={el.slide}
                 number={idx + 1}
                 markedTitle

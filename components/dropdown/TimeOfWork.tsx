@@ -30,10 +30,8 @@ const TimeOfWork: React.FC<Icon1Props> = ({ className, selected = false }) => {
       </div>
       <p className={stls.description}>Москва</p>
       <p className={stls.description}>Докучаев переулок, 8</p>
-      <Link href={routes.front.contact}>
-        <a href={routes.front.contact} className={stls.contacts}>
-          Контакты
-        </a>
+      <Link href={routes.front.contact} className={stls.contacts}>
+        Контакты
       </Link>
     </div>
   )

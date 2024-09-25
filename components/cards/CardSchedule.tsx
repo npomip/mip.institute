@@ -8,29 +8,27 @@ import { IconPlayer } from '@/components/icons'
 
 const CardSchedule = ({ mobileLayout = false }) => {
   return (
-    <Link href={routes.front.webinars}>
-      <a className={stls.linkContainer}>
-        <article
-          className={cn({
-            [stls.container]: true,
-            [stls.mobileLayout]: mobileLayout
-          })}>
-          <div className={stls.img}>
-            <ImgAllWebinars />
-          </div>
-          <div className={stls.content}>
-            <div className={stls.circle}>
-              <div className={stls.icon}>
-                <IconPlayer />
-              </div>
-            </div>
-            <h3 className={stls.title}>Расписание всех&nbsp;вебинаров</h3>
-            <div className={stls.btn}>
-              <CtaText text='Смотреть все' cnu />
+    <Link href={routes.front.webinars} passHref className={stls.linkContainer}>
+      <article
+        className={cn({
+          [stls.container]: true,
+          [stls.mobileLayout]: mobileLayout
+        })}>
+        <div className={stls.img}>
+          <ImgAllWebinars />
+        </div>
+        <div className={stls.content}>
+          <div className={stls.circle}>
+            <div className={stls.icon}>
+              <IconPlayer />
             </div>
           </div>
-        </article>
-      </a>
+          <h3 className={stls.title}>Расписание всех&nbsp;вебинаров</h3>
+          <div className={stls.btn}>
+            <CtaText text='Смотреть все' cnu />
+          </div>
+        </div>
+      </article>
     </Link>
   )
 }

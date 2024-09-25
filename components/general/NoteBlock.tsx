@@ -7,14 +7,20 @@ type Props = {
   title: any
   description: string
   marginTop?: number
-  marginBottom?:number
+  marginBottom?: number
 }
 
-const NoteBlock = ({ imageSrc, title, description, marginTop=0, marginBottom=0 }: Props) => {
+const NoteBlock = ({
+  imageSrc,
+  title,
+  description,
+  marginTop = 0,
+  marginBottom = 0
+}: Props) => {
   return (
-    <div style={{marginTop, marginBottom}} className={stls.container}>
+    <div style={{ marginTop, marginBottom }} className={stls.container}>
       <div className={stls.image}>
-        <Image src={imageSrc} />
+        <Image src={imageSrc} alt='Изображение' />
       </div>
       <div className={stls.text}>
         <div className={stls.title}>{title}</div>

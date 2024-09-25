@@ -8,43 +8,43 @@ export default function CardTooltip({ profession, clickHandler }) {
     <div className={styles.container}>
       {profession.type === 'Profession' ? (
         <Link
+          passHref
           key={profession.id + profession.type}
           href={`${routes.front.professions}/${
             profession.studyFieldSlug || 'studyfield'
-          }/${profession.slug}`}>
-          <a onClick={clickHandler}>
-            <div className={styles.card}>
-              <div className={styles.img}>
-                <ForPopup
-                  src={profession?.heroPicture?.url}
-                  alt={profession?.title}
-                  height={80}
-                  width={110}
-                />
-              </div>
-              <div className={styles.title}>{profession.title}</div>
+          }/${profession.slug}`}
+          onClick={clickHandler}>
+          <div className={styles.card}>
+            <div className={styles.img}>
+              <ForPopup
+                src={profession?.heroPicture?.url}
+                alt={profession?.title}
+                height={80}
+                width={110}
+              />
             </div>
-          </a>
+            <div className={styles.title}>{profession.title}</div>
+          </div>
         </Link>
       ) : (
         <Link
+          passHref
           key={profession.id + profession.type + 1}
           href={`${routes.front.courses}/${
             profession.studyFieldSlug || 'studyfield'
-          }/${profession.slug}`}>
-          <a onClick={clickHandler}>
-            <div className={styles.card}>
-              <div className={styles.img}>
-                <ForPopup
-                  src={profession?.heroPicture?.url}
-                  alt={profession?.title}
-                  height={80}
-                  width={110}
-                />
-              </div>
-              <div className={styles.title}>{profession.title}</div>
+          }/${profession.slug}`}
+          onClick={clickHandler}>
+          <div className={styles.card}>
+            <div className={styles.img}>
+              <ForPopup
+                src={profession?.heroPicture?.url}
+                alt={profession?.title}
+                height={80}
+                width={110}
+              />
             </div>
-          </a>
+            <div className={styles.title}>{profession.title}</div>
+          </div>
         </Link>
       )}
     </div>

@@ -48,6 +48,7 @@ const LiveCoursesTextImage = ({ props }: LiveCorsesTextImageProps) => {
                       placeholder='blur'
                       blurDataURL={base64pixel}
                       quality={100}
+                      alt='Картинка'
                     />
                   </div>
                 )}

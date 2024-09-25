@@ -11,30 +11,30 @@ interface Step {
 
 const PracticalSlugCard: FC<Step> = ({ card }) => {
   return (
-    <Link passHref href={`${routes.front.practicalTrainings}/${card.slug}`}>
-      <a className={stls.oneCard}>
-        <div className={stls.img}>
-          <Image
-            className={stls.image}
-            src={card.heroPicture.url}
-            width={740}
-            height={480}
-          />
-        </div>
-        <div className={stls.cardText}>
-          <p className={stls.cardTitle}>
-            {card.title}
+    <Link
+      passHref
+      className={stls.oneCard}
+      href={`${routes.front.practicalTrainings}/${card.slug}`}>
+      <div className={stls.img}>
+        <Image
+          className={stls.image}
+          src={card.heroPicture.url}
+          width={740}
+          height={480}
+          alt='Программа'
+        />
+      </div>
+      <div className={stls.cardText}>
+        <p className={stls.cardTitle}>{card.title}</p>
+        <div className={stls.additionalInfo}>
+          <p>
+            <span>Ближайшие зачисления:</span> ежемесячное
           </p>
-          <div className={stls.additionalInfo}>
-            <p>
-              <span>Ближайшие зачисления:</span> ежемесячное
-            </p>
-            <p>
-              <span>Срок обучения:</span> {card.duration}
-            </p>
-          </div>
+          <p>
+            <span>Срок обучения:</span> {card.duration}
+          </p>
         </div>
-      </a>
+      </div>
     </Link>
   )
 }

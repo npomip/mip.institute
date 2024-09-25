@@ -67,12 +67,14 @@ export default function ProgramMobile({
                   />
                 ))}
           {ofType === null ? (
-            <Link href={`${routes.front.programs}/${slug}`}>
-              <a className={styles.viewAll}>Смотреть все </a>
+            <Link
+              href={`${routes.front.programs}/${slug}`}
+              className={styles.viewAll}>
+              Смотреть все
             </Link>
           ) : (
-            <Link href={href}>
-              <a className={styles.viewAll}>Смотреть все </a>
+            <Link href={href} className={styles.viewAll}>
+              Смотреть все
             </Link>
           )}
         </>

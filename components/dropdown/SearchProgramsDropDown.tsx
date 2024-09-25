@@ -34,7 +34,7 @@ export default function SearchProgramsDropDown() {
       {
         href: routes.front.reviews,
         val: 'Отзывы'
-      },
+      }
       // {
       //   href: routes.front.payment,
       //   val: 'Оплата обучения'
@@ -217,7 +217,7 @@ export default function SearchProgramsDropDown() {
             {list.map(item => (
               <div key={item.href + item.val} className={stls.popupLink}>
                 <Link href={item.href} passHref>
-                  <a>{item.val}</a>
+                  {item.val}
                 </Link>
                 <div className={stls.arrowIcon}>
                   <IconArrowRight />
@@ -230,17 +230,16 @@ export default function SearchProgramsDropDown() {
       {!isEdpartners && (
         <div className={stls.nums}>
           <a
-          href={'tel:+7-499-110-86-32'}
-          className={isInputVisible ? stls.hiddenText : stls.showText}>
-          +7 (499) 110-86-32
-        </a>
-        <a
-        href={'tel:+7-499-110-88-19'}
-        className={isInputVisible ? stls.hiddenText : stls.showText}>
-        +7 (499) 110-88-19
-      </a>
+            href={'tel:+7-499-110-86-32'}
+            className={isInputVisible ? stls.hiddenText : stls.showText}>
+            +7 (499) 110-86-32
+          </a>
+          <a
+            href={'tel:+7-499-110-88-19'}
+            className={isInputVisible ? stls.hiddenText : stls.showText}>
+            +7 (499) 110-88-19
+          </a>
         </div>
-        
       )}
       {/* <a href={'tel:+7-499-110-86-32'} className={isInputVisible ? stls.hiddenText : stls.showText}>+7 (499) 110-86-32</a> */}
     </div>

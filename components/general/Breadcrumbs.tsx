@@ -25,15 +25,15 @@ const Breadcrumbs = ({ breadcrumbs, isJournal = false }: Props) => {
         {breadcrumbs.map(el => (
           <li key={el.label}>
             <span className={stls.triangle}></span>
-            <Link className={stls.links} href={el.path}>
-              <a
-                onClick={() => {
-                  if (isJournal) {
-                    handleClick(el)
-                  }
-                }}>
-                {el.label}
-              </a>
+            <Link
+              className={stls.links}
+              href={el.path}
+              onClick={() => {
+                if (isJournal) {
+                  handleClick(el)
+                }
+              }}>
+              {el.label}
             </Link>
           </li>
         ))}

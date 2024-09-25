@@ -1,8 +1,9 @@
+import Image, { StaticImageData } from 'next/image'
+import { ReactNode } from 'react'
 import stls from '@/styles/components/cards/CardLinkedProgram.module.sass'
-import { StaticImageData } from 'next/image'
 
 type Props = {
-  portrait: string | StaticImageData | JSX.Element
+  portrait: string | StaticImageData | ReactNode // Уточняем тип
   title: string
 }
 
@@ -18,7 +19,17 @@ const CardLinkedProgram = ({ portrait, title }: Props) => {
       {portrait && (
         <div className={stls.portrait}>
           <span className={stls.filter} />
-          {portrait}
+          {typeof portrait === 'string' ? (
+            <Image src={portrait} alt={title} layout='fill' />
+          ) : portrait instanceof Object && 'src' in portrait ? (
+            <Image
+              src={portrait as StaticImageData}
+              alt={title}
+              layout='fill'
+            />
+          ) : (
+            portrait
+          )}
         </div>
       )}
       <div className={stls.innerContainer}>

@@ -58,12 +58,12 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
-      <LiveCoursesHero title={lifeCourse?.title} openModal={handleOpen}/>
+      <LiveCoursesHero title={lifeCourse?.title} openModal={handleOpen} />
       <Popup
         open={isTestOpen}
         onClose={() => setIsTestOpen(false)}
         position={'center center'}>
-        {close => <PaymentForm program={lifeCourse} onClose={close} />}
+        <PaymentForm program={lifeCourse} onClose={close} />
       </Popup>
 
       <LiveCoursesStripe />
@@ -74,7 +74,11 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       ))}
       <LiveCoursesGetAcess marginBottom={60} openModal={handleOpen} />
       <About isLiveCourse />
-      <Reviews subtitle={lifeCourse?.review_subtitle} reviews={lifeCourse?.unique_reviews} isLiveCourse />
+      <Reviews
+        subtitle={lifeCourse?.review_subtitle}
+        reviews={lifeCourse?.unique_reviews}
+        isLiveCourse
+      />
       <LiveCoursesForm program={lifeCourse} />
       <GeneralFaq qnas={lifeCourse?.qnas} />
     </>

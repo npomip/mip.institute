@@ -37,11 +37,9 @@ const MenuMobile = () => {
           <ul className={stls.navList}>
             {links.map((item, idx) => (
               <li key={item.text + idx} className={stls.navItem}>
-                <Link href={item.href}>
-                  <a onClick={closeMenu}>
-                    <span>{item.text}</span>
-                    {item.withIcon && <IconMoreThan small cnu />}
-                  </a>
+                <Link href={item.href} onClick={closeMenu} passHref>
+                  <span>{item.text}</span>
+                  {item.withIcon && <IconMoreThan small cnu />}
                 </Link>
               </li>
             ))}

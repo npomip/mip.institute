@@ -67,13 +67,9 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
     <section
       className={classNames({
         [stls.container]: true
-        // [stls.onProfessions]: !onMain
       })}>
       <Wrapper>
         {title}
-        {/* <div className={stls.tag}>
-          <TagOrange>ТОП</TagOrange>
-        </div> */}
         <div className={stls.teachers}>
           <Swiper
             navigation={{
@@ -82,16 +78,6 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
             }}
             slidesPerView={isMobileAndTabletLayout ? 1 : 3}
             spaceBetween={30}
-            // autoplay={{
-            //   delay: 5000,
-            //   disableOnInteraction: false,
-            //   pauseOnMouseEnter: true
-            // }}
-            // speed={2000}
-            // autoHeight={true}
-            // pagination={{
-            //   clickable: true
-            // }}
             scrollbar={true}
             modules={[Navigation, Scrollbar]}
             className={stls.mySwiper}>
@@ -101,11 +87,9 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
                 className={stls.slide}
                 onClick={() => handleSlideClick(course)}>
                 <CardLinkedProgram
-                  // href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
                   key={course.title + idx}
                   portrait={course?.image}
                   title={course.title}
-                  // studyHours={course.studyHours}
                 />
               </SwiperSlide>
             ))}

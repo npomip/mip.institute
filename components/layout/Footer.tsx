@@ -59,15 +59,14 @@ const Footer = () => {
                     [stls.linkItem]: true,
                     [stls.staticLinkItem]: true
                   })}>
-                  <Link href={link.href}>
-                    <a
-                      target='_self'
-                      className={classNames({
-                        [stls.link]: true,
-                        [stls.staticLink]: true
-                      })}>
-                      {link.val}
-                    </a>
+                  <Link
+                    href={link.href}
+                    target='_self'
+                    className={classNames({
+                      [stls.link]: true,
+                      [stls.staticLink]: true
+                    })}>
+                    {link.val}
                   </Link>
                 </li>
               ))}
@@ -84,14 +83,13 @@ const Footer = () => {
                     [stls.linkItem]: true,
                     [stls.fieldsLinkItem]: true
                   })}>
-                  <Link href={link.href}>
-                    <a
-                      className={classNames({
-                        [stls.link]: true,
-                        [stls.fieldsLink]: true
-                      })}>
-                      {link.val}
-                    </a>
+                  <Link
+                    href={link.href}
+                    className={classNames({
+                      [stls.link]: true,
+                      [stls.fieldsLink]: true
+                    })}>
+                    {link.val}
                   </Link>
                 </li>
               ))}
@@ -101,14 +99,13 @@ const Footer = () => {
                   [stls.linkItem]: true,
                   [stls.fieldsLinkItem]: true
                 })}>
-                <Link href={'/journal'}>
-                  <a
-                    className={classNames({
-                      [stls.link]: true,
-                      [stls.fieldsLink]: true
-                    })}>
-                    {'Журнал'}
-                  </a>
+                <Link
+                  href={'/journal'}
+                  className={classNames({
+                    [stls.link]: true,
+                    [stls.fieldsLink]: true
+                  })}>
+                  Журнал
                 </Link>
               </li>
               <li className={stls.logo}>

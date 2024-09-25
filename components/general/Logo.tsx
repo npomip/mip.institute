@@ -17,22 +17,22 @@ const Logo = ({
 }: Props) => {
   return (
     <div className={stls.container}>
-      <Link href={routes.front.home}>
-        <a
-          className={classNames({
-            [stls.logo]: true,
-            [stls.atHeader]: atHeader,
-            [stls.atFooter]: atFooter
-          })}>
-          <IconLogo withTitle={withTitle} atFooter={atFooter} />
-          {withTitle && (
-            <p className={stls.title}>
-              Московский <br />
-              Институт <br />
-              Психологии
-            </p>
-          )}
-        </a>
+      <Link
+        passHref
+        href={routes.front.home}
+        className={classNames({
+          [stls.logo]: true,
+          [stls.atHeader]: atHeader,
+          [stls.atFooter]: atFooter
+        })}>
+        <IconLogo withTitle={withTitle} atFooter={atFooter} />
+        {withTitle && (
+          <p className={stls.title}>
+            Московский <br />
+            Институт <br />
+            Психологии
+          </p>
+        )}
       </Link>
     </div>
   )

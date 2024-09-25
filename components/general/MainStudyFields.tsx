@@ -26,15 +26,17 @@ const MainStudyFields = ({
               [stls.active]: currentType === programType
             })}
             onClick={close && close}>
-                <Link href={href} passHref>
-              <a
-                onMouseEnter={hoverSelect ? () => setCurrentType(programType) : null}
-                className={cn({
-                  [stls.mainFields]: true,
-                  [stls.active]: currentType === programType
-                })}>
-                {label}
-              </a>
+            <Link
+              href={href}
+              passHref
+              onMouseEnter={
+                hoverSelect ? () => setCurrentType(programType) : null
+              }
+              className={cn({
+                [stls.mainFields]: true,
+                [stls.active]: currentType === programType
+              })}>
+              {label}
             </Link>
           </li>
         </Fragment>

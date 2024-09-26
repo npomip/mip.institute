@@ -73,6 +73,8 @@
   border: f.px(2) solid
   @include m.dye(border, c.$gray-200)
   border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    display: inline
 
 .label
   @include m.flex($jc: center, $ai: center)

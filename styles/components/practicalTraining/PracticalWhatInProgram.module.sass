@@ -9,18 +9,18 @@
   font-style: normal
   font-weight: 500
   line-height: 120%
-  @include m.gap($mb: f.px(35), $ml: f.px(70))
+  @include m.gap($mb: f.px(35))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(25), $ml: f.px(0))
-    font-size: f.px(26)
+    @include m.gap($mb: f.px(15), $ml: f.px(0), $mr: f.px(20))
+    font-size: f.px(30)
 
 .colouredTitle
-  @include m.dye(c, c.$purple-800)
+  @include m.dye(c, c.$orange-700)
 
 .list
   display: grid
   grid-template-columns: repeat(2, 1fr)
-  gap: f.px(16)
+  gap: f.px(10) f.px(16)
   width: 100%
   @include m.media(phone, tablet)
     grid-template-columns: repeat(1, 1fr)
@@ -29,14 +29,16 @@
 .element
   border-radius: f.px(10)
   border: f.px(0.5) solid
-  @include m.dye(border, c.$purple-800)
-  background: white
-  max-height: f.px(123)
-  @include m.gap($ptb: f.px(36), $pl: f.px(70), $pr: f.px(30))
-  @include m.flex($ai: center, $jc: flex-start)
+  @include m.dye(border, c.$purple-350)
+  @include m.dye(bg, c.$white-900)
+  min-height: f.px(123)
+  @include m.gap($ptb: f.px(23), $pl: f.px(27), $pr: f.px(30))
+  @include m.flex($ai: center)
+  gap: f.px(22)
   position: relative
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(15))
+    border-radius: f.px(5)
+    @include m.gap($ptb: f.px(15), $pl: f.px(70))
     width: 100%
     min-height: f.px(123)
     @include m.flex($ai: center, $jc: flex-start)
@@ -44,11 +46,12 @@
     margin-bottom: 0
 
 .icon
-  position: absolute
-  top: f.px(26)
-  left: f.px(19)
-  width: f.px(20)
-  height: f.px(20)
+  @include m.media(desktop, laptop)
+    transform: scale(.55)
+  @include m.media(phone, tablet)
+    position: absolute
+    top: f.px(26)
+    left: f.px(20)
 
 .firstWord
   font-weight: 500

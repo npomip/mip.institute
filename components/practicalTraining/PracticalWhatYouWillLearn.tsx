@@ -4,8 +4,10 @@ import {
   WhatYouWillLearn,
   WhatYouWillLearnPhoto
 } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
-import Image from 'next/image'
-import PracticalWhatYouWillLearnItem from './PracticalWhatYouWillLearnItem'
+import { useRef } from 'react'
+import SwiperContainer from '../general/SwiperContainer'
+import { IconFinger } from '../icons'
+import PracticalListCarouselCard from './PracticalListCarouselCard'
 
 type Props = {
   listLearn: WhatYouWillLearn
@@ -13,28 +15,68 @@ type Props = {
 }
 
 const PracticalWhatYouWillLearn = ({ listLearn, photo }: Props) => {
+  const slides = listLearn.list.map(({ text }, idx) => {
+    const getCardTitle = (itemText: string, index: number): string => {
+      const textParts = itemText.split(' ')
+      return index === 6 ? textParts.slice(0, 2).join(' ') : textParts[0]
+    }
+
+    const getListItemText = (itemText: string, itemIndex: number): string => {
+      const textParts = itemText.split(' ')
+      return itemIndex === 6
+        ? textParts.slice(2).join(' ')
+        : textParts.slice(1).join(' ')
+    }
+
+    return (
+      <PracticalListCarouselCard
+        key={text}
+        title={getCardTitle(text, idx)}
+        text={getListItemText(text, idx)}
+        number={idx + 1}
+        markedTitle
+      />
+    )
+  })
+
+  const swiperOptions = {
+    mobile: {
+      slidesNum: 1.5,
+      spaceBetween: 30
+    },
+    tablet: {
+      slidesNum: 2,
+      spaceBetween: 25
+    },
+    laptop: {
+      slidesNum: 3.5,
+      spaceBetween: 25
+    },
+    desktop: {
+      slidesNum: 4.7,
+      spaceBetween: 25
+    }
+  }
+
+  const fingerRef = useRef(null)
+
   return (
-    <section className={stls.container}>
+    <section ref={fingerRef} className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Чему вы научитесь</h2>
-        <div className={stls.columns}>
-          <div className={stls.imageBlock}>
-            <Image
-              src={photo?.url}
-              width={photo?.width}
-              height={photo?.height}
-              alt='Чему вы научитесь'
-            />
-          </div>
-          <div className={stls.cardsBlock}>
-            {listLearn.list.map((el, index) => (
-              <PracticalWhatYouWillLearnItem
-                block={el}
-                number={index + 1}
-                key={el.text}
-              />
-            ))}
-          </div>
+        <h2 className={stls.title}>
+          Чему вы
+          <span className={stls.colouredTitle}> научитесь </span>
+        </h2>
+        <SwiperContainer
+          slides={slides}
+          mobileOptions={swiperOptions.mobile}
+          tabletOptions={swiperOptions.tablet}
+          laptopOptions={swiperOptions.laptop}
+          desktopOptions={swiperOptions.desktop}
+          hideNavigation
+        />
+        <div className={stls.finger}>
+          <IconFinger />
         </div>
       </Wrapper>
     </section>

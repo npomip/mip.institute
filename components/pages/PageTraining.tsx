@@ -1,20 +1,21 @@
 import stls from '@/styles/pages/PageTraining.module.sass'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
-import { NextSeo } from 'next-seo'
 import PracticalBriefProgram from '../practicalTraining/PracticalBriefProgram'
 import PracticalCertificate from '../practicalTraining/PracticalCertificate'
-import PracticalCourseResult from '../practicalTraining/PracticalCourseResult'
 import PracticalHeroProgram from '../practicalTraining/PracticalHeroProgram'
-import PracticalList from '../practicalTraining/PracticalList'
+import PracticalList from '../practicalTraining/PracticalListCarousel'
 import PracticalPaymentForm from '../practicalTraining/PracticalPaymentForm'
 import PracticalProgramDescription from '../practicalTraining/PracticalProgramDescription'
 import PracticalWhatInProgram from '../practicalTraining/PracticalWhatInProgram'
-import ThreadBlock from '../practicalTraining/ThreadBlock'
-import { Teachers } from '../sections'
-import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
-import GeneralFaq from '../general/GeneralFaq'
 import PracticalWhatYouWillLearn from '../practicalTraining/PracticalWhatYouWillLearn'
+import PracticalWhoIsProgramFor from '../practicalTraining/PracticalWhoIsProgramFor'
+import RequirementsInProfession from '../practicalTraining/RequirementsInProfession'
+import { Teachers } from '../sections'
 import { SeoPageBachelor } from '../seo'
+import GeneralFaq from '../general/GeneralFaq'
+import PracticalConditions from '../practicalTraining/PracticalConditions'
+import PracticalReviews from '../practicalTraining/PracticalReviews'
+import PracticalSteps from '../practicalTraining/PracticalSteps'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -36,14 +37,15 @@ const PageTraining = ({ practicalTraining }: Props) => {
 
   return (
     <div className={stls.pageWrapper}>
-      <SeoPageBachelor program={practicalTraining}/>
+      <SeoPageBachelor program={practicalTraining} />
       <PracticalHeroProgram
         breadcrumbs={breadcrumbs}
         practicalTraining={practicalTraining}
       />
       <PracticalList list={practicalTraining?.practicalList.item} />
-      <ThreadBlock points={practicalTraining.termsPoints} />
+      <PracticalSteps />
       <PracticalWhoIsProgramFor />
+      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
       <PracticalProgramDescription
         description={practicalTraining?.programDescription}
         cards={practicalTraining?.descriptionCards.item}
@@ -60,14 +62,16 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isExperienceHidden
         halfScreenTitle
         isWhiteBackground
+        showOnMobile={false}
         isSquareBtn
         isTeacherRoundBtn={false}
-        titlePaddingLeft={70}
       />
-      <PracticalCourseResult results={practicalTraining?.courseResult.list} />
-      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
+      <PracticalConditions />
+      <PracticalReviews review={practicalTraining.review} />
+      <RequirementsInProfession />
+
       <PracticalPaymentForm price={practicalTraining.price} />
-      {/* <GeneralFaq qnas={practicalTraining.qnas} /> */}
+      {/* <GeneralFaq qnas={practicalTraining.qnas} isPractical /> */}
     </div>
   )
 }

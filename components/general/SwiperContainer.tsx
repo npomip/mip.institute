@@ -71,10 +71,10 @@ const SwiperContainer = ({
   const getCurrentLayoutKey = () => {
     const currentLayout = layouts.find(layout => {
       const firstKey = Object.keys(layout)[0]
-      if (layout[firstKey]) return layout
+      return layout[firstKey]
     })
 
-    if (!currentLayout) return null
+    if (!currentLayout) return 'mobile'
 
     const currentLayoutKey = Object.keys(currentLayout)[0]
 
@@ -95,7 +95,7 @@ const SwiperContainer = ({
 
     const { slidesNum } = swiperOptions[currentLayoutKey]
 
-    return slidesNum
+    return slidesNum !== undefined ? slidesNum : 0
   }
 
   const checkIfSwiperEnabled = () => {
@@ -144,6 +144,7 @@ const SwiperContainer = ({
         [stls.topCourses]: topCourses
       })}>
       {slides &&
+        slides.length > 0 &&
         slides.map((slide, idx) => (
           <SwiperSlide key={`slide-${idx}`}>
             {diplomas ? (

@@ -10,10 +10,8 @@ async function createOrUpdateLead(formData) {
     return { success: true, data: responseNewLead.data };
     
   } catch (error) {
-    console.log(error.response.data)
     formData.error = error.response.data
     const res = await axios.post(`${routes.front.root}/api/contact`, formData)
-    console.log('RES IN UODATE LEAD', res)
     return res
   }
 }

@@ -55,19 +55,13 @@ const PagesProgram = ({
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
-  const [isWithPrice, setIsWithPrice] = useState('price');
+  const [isWithPrice, setIsWithPrice] = useState('price')
 
   useEffect(() => {
     // Данный код будет выполнен только на клиенте
-    const storedValue = localStorage.getItem('AB');
-    setIsWithPrice(storedValue);
-  }, []);
-
-  // if(window)
-
-  console.log(isWithPrice);
-  
-  
+    const storedValue = localStorage.getItem('AB')
+    setIsWithPrice(storedValue)
+  }, [])
 
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
@@ -84,7 +78,12 @@ const PagesProgram = ({
       ref: resumeRef,
       condition: ofType === 'Profession'
     },
-    { id: 'cost', label: 'Стоимость', ref: costRef, condition: isWithPrice !== 'noprice' },
+    {
+      id: 'cost',
+      label: 'Стоимость',
+      ref: costRef,
+      condition: isWithPrice !== 'noprice'
+    },
     { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
     { id: 'faq', label: 'FAQ', ref: faqRef, condition: true }
   ]

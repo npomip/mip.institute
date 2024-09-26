@@ -100,6 +100,12 @@ const getStaticPropsPracticalTraining = async ({
               }
             }
             review {
+              name
+              image{
+                url
+                width
+                height
+              }
               slide {
                 question
                 answer
@@ -152,8 +158,6 @@ const getStaticPropsPracticalTraining = async ({
       revalidate: revalidate.default
     }    
   } catch (error) {
-    console.log('PRACTICAL')
-
     console.error('Ошибка запроса:', error)
     console.error('Статус код:', error.statusCode)
     console.error('Результат:', error.result)

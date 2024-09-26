@@ -30,7 +30,7 @@ const PracticalProgramInfo = ({practicalTraining}: Props) => {
       key: 'Уровень:',
       val: (
         <>
-          краткосрочная <br /> ступенчатая программа:
+          программа практической подготовки
         </>
       )
     },
@@ -42,7 +42,11 @@ const PracticalProgramInfo = ({practicalTraining}: Props) => {
     {
       index: 3,
       key: 'Форма обучения:',
-      val: 'дистанционная'
+      val:(
+        <>
+          очно–заочная <br /> (онлайн)
+        </>
+      ) 
     },
     {
       index: 4,

@@ -19,6 +19,7 @@ export type PracticalTraining = {
   whatInProgram: WhatInProgram;
   programDescription: ProgramDescription;
   descriptionCards: DescriptionCard;
+  review: Review;
   teachers: any[]; // Assuming the structure of teacher objects is unknown
   qnas: any[]; // Assuming the structure of Q&A objects is unknown
   seo: any | null; // Assuming the structure of SEO objects is unknown
@@ -107,5 +108,17 @@ export type WhatYouWillLearnItem = {
   text: string;
   color: string;
 }
+
+export type ReviewSlide = {
+  answer: string;
+  question: string;
+};
+
+export type ReviewType = {
+  name: string;
+  image: DescriptionCardImage[]
+  slide: ReviewSlide[];
+}
+export type Review = ReviewType[];
 
 export default TypePagePracticalTrainingPropsQuery

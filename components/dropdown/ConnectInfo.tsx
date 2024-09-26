@@ -38,7 +38,7 @@ const ConnectInfo: React.FC<Icon1Props> = ({ className, selected = false }) => {
             className={stls.whatsUpNumber}
             target='_blank'
             rel='noopener noreferrer'
-            href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>
+            href='https://api.whatsapp.com/send/?phone=%2B74991108819&amp;text&amp;type=phone_number&amp;app_absent=0'>
             {' '}
             WhatsApp
           </a>

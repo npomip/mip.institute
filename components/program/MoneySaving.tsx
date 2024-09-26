@@ -23,7 +23,7 @@ export default function MoneySaving() {
               {/* <br/> */}
               {' '}
               <a className={styles.phoneNumber}
-              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>WhatsApp </a>
+              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108819&amp;text&amp;type=phone_number&amp;app_absent=0'>WhatsApp </a>
             </p>
         </div>
         <div className={styles.one}>
@@ -34,7 +34,7 @@ export default function MoneySaving() {
               Или напишите на
               {' '}
               <a className={styles.phoneNumber}
-              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>WhatsApp </a>
+              target="_blank" rel="noopener noreferrer" href='https://api.whatsapp.com/send/?phone=%2B74991108819&amp;text&amp;type=phone_number&amp;app_absent=0'>WhatsApp </a>
             </p>
         </div>
       </div>

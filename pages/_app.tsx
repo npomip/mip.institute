@@ -32,7 +32,7 @@ import { Analytics } from '@vercel/analytics/react'
 import RoistatScript from '@/components/scripts/RoistatScript'
 
 const MyApp = ({ Component, pageProps, router }) => {
-  const getDefaultStateProps = pageProps => {    
+  const getDefaultStateProps = pageProps => {
     const program = pageProps.program || null
     const bachelor = pageProps.bachelor || null
     const practicalTrainings = pageProps.practicalTrainings || null
@@ -112,7 +112,9 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [blogs, setBlogs] = useState(defaultStateProps.blogs)
   const [seminar, setSeminar] = useState(defaultStateProps.seminar)
   const [bachelor, setBachelor] = useState(defaultStateProps.bachelor)
-  const [practicalTrainings, setPracticalTrainings] = useState(defaultStateProps.practicalTrainings)
+  const [practicalTrainings, setPracticalTrainings] = useState(
+    defaultStateProps.practicalTrainings
+  )
   const updateTicketsQuantity = newQuantity => {
     setSeminar(prevSeminar => ({
       ...prevSeminar,
@@ -257,12 +259,13 @@ const MyApp = ({ Component, pageProps, router }) => {
                 var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
                 var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
               })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
-              `}}
+              `
+            }}
           />
           {/* <RoistatScript /> */}
           <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
-      )} 
+      )}
 
       {roistatVisit && (
         <div
@@ -372,7 +375,6 @@ const MyApp = ({ Component, pageProps, router }) => {
               const availableParams = ['aff_click_id', 'sub_id1', 'sub_id2', 'sub_id3', 'sub_id4', 'sub_id5', 'aff_param1', 'aff_param2', 'aff_param3', 'aff_param4', 'aff_param5', 'idfa', 'gaid'];
               const t = new URL('https://edpartners.scaletrk.com/click');
               const r = t.searchParams;
-              console.log(url);
               r.append('a', url.get('a'));
               r.append('o', url.get('o'));
               r.append('return', 'click_id');

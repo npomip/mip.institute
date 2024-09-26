@@ -9,6 +9,7 @@ type Props = {
 }
 
 const BachelorPage = ({ practicalTraining }: Props) => {
+  
   return <PageTraining practicalTraining={practicalTraining} />
 }
 

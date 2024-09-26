@@ -1,0 +1,68 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.scene
+  width: 100%
+  height: f.px(375)
+  @include m.media(phone, tablet)
+    display: none
+    // height: fit-content
+
+
+.cube 
+  width: 100%
+  height: 100%
+  position: relative
+  transform-style: preserve-3d
+  transition: transform 1s ease-in-out
+
+.card
+  width: 100%
+  height: 100%
+  position: absolute
+  border-radius: f.px(10)
+  display: flex
+  @include m.gap($pl: f.px(105), $pr: f.px(65))
+  align-items: center
+  justify-content: space-between
+  @include m.dye(bg, c.$purple-200)
+  @include m.media(laptop)
+    @include m.gap($pl: f.px(35))
+  @include m.media(phone, tablet)
+    flex-direction: column-reverse
+
+  &>*
+    @include m.gap($mb: f.px(0))
+
+.card1
+  transform: rotateX( 0deg) translateZ(f.px(180))
+
+.card2
+  transform: rotateX(270deg) translateZ(f.px(180))
+
+.card3
+  transform: rotateX(180deg) translateZ(f.px(180))
+
+.card4
+  transform: rotateX(90deg) translateZ(f.px(180))
+
+.text
+  .title
+    font-size: f.px(30)
+    font-weight: 500
+    @include m.gap($mb: f.px(15))
+  .subtitle
+    font-size: f.px(22)
+    font-weight: 350
+    max-width: f.px(400)
+    span
+      text-decoration-line: underline
+      font-weight: 500
+      text-underline-offset: f.px(5)
+      text-decoration-thickness: f.px(1)
+
+.num
+  font-size: f.px(250)
+  font-weight: 500
+  color: c.$white-900

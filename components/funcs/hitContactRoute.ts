@@ -1,7 +1,7 @@
 import { routes } from '@/config/index'
 import client from '@/lib/apolloClient'
-import CHECK_TOKENS from "@/lib/graphQL/CHECK_TOKENS"
-import UPDATE_TOKEN from "@/lib/graphQL/UPDATE_TOKENS"
+import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
+import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
 import axios from 'axios'
 import moment from 'moment'
 import { v4 as uuidv4 } from 'uuid'
@@ -15,29 +15,29 @@ const hitContactRoute = async values => {
       query: CHECK_TOKENS,
       variables: { title: 'amo' },
       fetchPolicy: 'network-only'
-    });
+    })
 
-    if(values?.utm?.utm_source
-      === 'edpartners'){
-    const edPartners = await axios.post(`${routes.front.root}/api/edPartners`, values)
-    
-    values.edPartners = edPartners.data.success
+    if (values?.utm?.utm_source === 'edpartners') {
+      const edPartners = await axios.post(
+        `${routes.front.root}/api/edPartners`,
+        values
+      )
+
+      values.edPartners = edPartners.data.success
     }
-    
+
     const tokenId = checkTokenData?.amos[0]?.id
     const expireTime = checkTokenData?.amos[0]?.expired_in
     const oldAccess_token = checkTokenData?.amos[0]?.access
     const oldRefresh_token = checkTokenData?.amos[0]?.refresh
     const nowUNIXtime = moment().unix()
     const differenceInTime = expireTime - nowUNIXtime
-    
-    if(differenceInTime < 1800) {
-      console.log('Time to upd token')
+
+    if (differenceInTime < 1800) {
       const exchangeTokensResponse = await axios.post(
         `${routes.front.root}/api/amoCRMexchangeToken`,
         checkTokenData?.amos[0]
       )
-      console.log(exchangeTokensResponse.data.access_token, tokenId, nowUNIXtime)
       const { data } = await client.mutate({
         mutation: UPDATE_TOKEN,
         variables: {
@@ -49,26 +49,25 @@ const hitContactRoute = async values => {
               expired_in: nowUNIXtime + 84400
             }
           }
-        },
+        }
       })
       values.access = data.updateAmo.amo.access
-      const newLead =  await createOrUpdateLead(values)
+      const newLead = await createOrUpdateLead(values)
       return newLead.data.status
     } else {
       values.access = oldAccess_token
-      const newLead =  await createOrUpdateLead(values)
+      const newLead = await createOrUpdateLead(values)
       return newLead.data.status
     }
   } catch (err) {
-    console.log(err);
+    console.log(err)
     try {
       const res = await axios.post(`${routes.front.root}/api/contact`, values)
-    return res.status
+      return res.status
     } catch (error) {
       return error
     }
   }
 }
-
 
 export default hitContactRoute

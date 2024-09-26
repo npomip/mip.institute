@@ -16,7 +16,7 @@ const IconVioletSquare = () => {
           height='47'
           rx='5'
           transform='rotate(180 47 47)'
-          fill='#6F01C6'
+          fill='#D6C5FF'
         />
         <path
           d='M20 24.1622L22.6351 26.7973L28.4324 21'

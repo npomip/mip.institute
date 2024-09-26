@@ -3,41 +3,74 @@
 @use '@/styles/themes/default/colors' as c
 
 .title
-  @include m.dye(c, black)
-  text-align: left
   font-weight: 500
-  @include m.gap($mb: f.px(35), $pt: f.px(15), $ml: f.px(70))
-  font-size: f.px(44)
+  text-align: center
+  @include m.dye(c, c.$black-800)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(35), $mlr: f.px(150))
+    font-size: f.px(44)
   @include m.media(tablet)
     @include m.gap($mb: f.px(20))
     font-size: f.px(32)
+    text-align: left
   @include m.media(phone)
-    @include m.gap($mb: f.px(15), $ml: f.px(0))
+    text-align: left
+    @include m.gap($mb: f.px(20))
     font-size: f.px(30)
 
-.columns
-  @include m.media(desktop, laptop)
-    @include m.flex()
-    gap: f.px(30)
-  @include m.media(phone, tablet)
-    @include m.flex($fd: column-reverse)
+.colouredTitle
+  @include m.dye(c, c.$orange-700)
 
-.imageBlock
-  & > *
-    border-radius: f.px(20)
-  @include m.media(desktop, laptop)
-    width: 50%
-    height: 100%
-
-.cardsBlock
-  @include m.media(desktop)
-    @include m.flex($fd: column, $jc: flex-end)
-    width: 50%
-    height: f.px(898)
+.finger
+  z-index: 2
+  position: absolute
+  @include m.flex($ai: center, $jc: center)
+  @include m.dye(stroke, c.$orange-700)
+  @include m.dye(bg, c.$white-900)
+  border: f.px(1) solid c.$orange-700
+  width: f.px(80)
+  height: f.px(80)
+  border-radius: 50%
+  animation: 3s infinite normal slideDesktop
   @include m.media(laptop)
-    @include m.flex($fd: column, $jc: flex-end)
-    width: 50%
-    height: f.px(807)
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10))
-    @include m.flex($fd: column, $jc: flex-end)
+    animation: 3s infinite normal slideLaptop
+  @include m.media(tablet)
+    animation: 3s infinite normal slideTablet
+    width: f.px(60)
+    height: f.px(60)
+  @include m.media(phone)
+    animation: 3s infinite normal slidePhone
+    width: f.px(60)
+    height: f.px(60)
+
+@keyframes slidePhone
+  0%
+    transform: translate(f.px(250), f.px(-50))
+  50%
+    transform: translate(f.px(200), f.px(-50))
+  100%
+    transform: translate(f.px(250), f.px(-50))
+
+@keyframes slideTablet
+  0%
+    transform: translate(f.px(300), f.px(-40))
+  50%
+    transform: translate(f.px(250), f.px(-40))
+  100%
+    transform: translate(f.px(300), f.px(-40))
+
+@keyframes slideLaptop
+  0%
+    transform: translate(f.px(540), f.px(-50))
+  50%
+    transform: translate(f.px(500), f.px(-50))
+  100%
+    transform: translate(f.px(540), f.px(-50))
+
+@keyframes slideDesktop
+  0%
+    transform: translate(f.px(675), f.px(-60))
+  50%
+    transform: translate(f.px(640), f.px(-60))
+  100%
+    transform: translate(f.px(675), f.px(-60))

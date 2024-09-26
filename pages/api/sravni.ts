@@ -5,7 +5,6 @@ export default async function handler(req, res) {
 
   const { price, utm } = req.body
   const offer_id = '2319'
-  console.log(req.body, 'req.body');
   
   try {
     const newresponse = await axios.get(

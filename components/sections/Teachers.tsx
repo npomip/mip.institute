@@ -27,6 +27,7 @@ type TeacherProps = {
   isSquareBtn?: boolean
   isTeacherRoundBtn?: boolean
   titlePaddingLeft?: number
+  showOnMobile?: boolean
 }
 
 const Teachers = ({
@@ -39,7 +40,8 @@ const Teachers = ({
   halfScreenTitle = false,
   isWhiteBackground,
   isSquareBtn,
-  isTeacherRoundBtn = true
+  isTeacherRoundBtn = true,
+  showOnMobile = true
 }: TeacherProps) => {
   const { program, curProgramsType } = useContext(ContextStaticProps)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -89,9 +91,9 @@ const Teachers = ({
         <p
           className={classNames({
             [stls.desc]: true,
-            [stls.halfScreenTitle]: halfScreenTitle
+            [stls.halfScreenSubtitle]: halfScreenTitle
           })}>
-          Преподают ведущие практикующие психологи и психотерапевты России{' '}
+          Преподают ведущие практикующие психологи России{' '}
           <span className={stls.highlight}>с опытом от 7 до 25 лет</span>
         </p>
         <div className={stls.teachers}>
@@ -126,7 +128,7 @@ const Teachers = ({
 
             <div className='custom-prev-button-container'>
               <CustomPrevButton
-                showOnMobile
+                showOnMobile={showOnMobile}
                 left={10}
                 top={-10}
                 mobileTop={-30}
@@ -137,7 +139,7 @@ const Teachers = ({
             </div>
             <div className='custom-next-button-container'>
               <CustomNextButton
-                showOnMobile
+                showOnMobile={showOnMobile}
                 left={15}
                 top={-10}
                 mobileTop={-30}

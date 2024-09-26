@@ -30,12 +30,14 @@ const TopCourses = () => {
         <ImgTopCourse
           src={course?.heroPicture?.url}
           alt={course?.title}
-          width={390}
-          height={getImageHeight({
-            width: 530,
-            widthInitial: course?.heroPicture?.width,
-            heightInitial: course?.heroPicture?.height
-          })}
+          width={course?.heroPicture?.width}
+          height={course?.heroPicture?.height}
+          // width={390}
+          // height={getImageHeight({
+          //   width: 530,
+          //   widthInitial: course?.heroPicture?.width,
+          //   heightInitial: course?.heroPicture?.height
+          // })}
         />
       )
     }))

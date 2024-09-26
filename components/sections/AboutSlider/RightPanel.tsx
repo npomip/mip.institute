@@ -19,6 +19,10 @@ const RightPanel = ({ imageUrl, slideDirection }: Props) => {
             alt='divan'
             width={500}
             height={500}
+            style={{
+              width: '100%',
+              height: 'auto'
+            }}
           />
         </div>
       </div>

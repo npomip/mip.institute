@@ -13,7 +13,16 @@ const ThirdSlide = () => {
       </p>
       <div className={stls.filterImg}>
         <span className={stls.filter}></span>
-        <Image src={pic} alt='Лекция' className={stls.img} placeholder='blur' />
+        <Image 
+          src={pic} 
+          alt='Лекция' 
+          className={stls.img} 
+          placeholder='blur'
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
+        />
       </div>
     </div>
   )

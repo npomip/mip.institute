@@ -36,13 +36,10 @@
   @include m.media(phone)
     height: f.px(377)
     width: f.px(362)
-  & > *
-    object-fit: cover
-    border-radius: f.px(40)
-    @include m.media(phone, tablet)
-      border-radius: f.px(11)
-    & > *
-      object-fit: cover
+  object-fit: cover
+  border-radius: f.px(40)
+  @include m.media(phone, tablet)
+    border-radius: f.px(11)
 
 .filterImg
   position: relative

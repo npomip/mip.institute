@@ -114,6 +114,10 @@ const EducationProcess = ({
               height={260}
               src={img}
               alt='Как идет обучение?'
+              // style={{
+              //   width: '100%',
+              //   height: 'auto'
+              // }}
             />
           </div>
         </TwoColumns>

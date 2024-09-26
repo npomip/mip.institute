@@ -21,8 +21,8 @@ const ConnectInfo: React.FC<Icon1Props> = ({ className, selected = false }) => {
         <p className={stls.title}>Приемная комиссия:</p>
         <div className={stls.iconWrapper}>
           <IconOrangeDot />
-          <a className={stls.phoneNumber} href='tel:+7-499-110-86-32'>
-            +7 (499) 110-86-32
+          <a className={stls.phoneNumber} href='tel:+7-499-110-88-19'>
+            +7 (499) 110-88-19
           </a>
         </div>
         <div className={stls.iconWrapper}>
@@ -38,7 +38,7 @@ const ConnectInfo: React.FC<Icon1Props> = ({ className, selected = false }) => {
             className={stls.whatsUpNumber}
             target='_blank'
             rel='noopener noreferrer'
-            href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>
+            href='https://api.whatsapp.com/send/?phone=%2B74991108819&amp;text&amp;type=phone_number&amp;app_absent=0'>
             {' '}
             WhatsApp
           </a>

@@ -336,12 +336,12 @@ const PracticalPaymentForm = ({ price }: Props) => {
                 Невозможно отправить форму.
                 <br />
                 Пожалуйста, свяжитесь с нами по номеру{' '}
-                <a href='tel:+7-499-110-86-32'>+7 (499) 110-86-32</a> или{' '}
+                <a href='tel:+7-499-110-88-19'>+7 (499) 110-88-19</a> или{' '}
                 <a
                   className={stls.whatsUpNumber}
                   target='_blank'
                   rel='noopener noreferrer'
-                  href='https://api.whatsapp.com/send/?phone=%2B74991108632&amp;text&amp;type=phone_number&amp;app_absent=0'>
+                  href='https://api.whatsapp.com/send/?phone=%2B74991108819&amp;text&amp;type=phone_number&amp;app_absent=0'>
                   Напишите в WhatsApp
                 </a>
               </p>

@@ -22,11 +22,13 @@ const EntryForm = ({
   isLiveCourse = false,
   withPromo = true,
   onBachelor = false,
-  pt=0,
-  pb=90
+  pt = 0,
+  pb = 90
 }: Props) => {
   return (
-    <section style={{paddingTop: pt, paddingBottom: pb}} className={stls.container}>
+    <section
+      style={{ paddingTop: pt, paddingBottom: pb }}
+      className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
           {onBachelor ? 'Как поступить' : 'Заявка на поступление'}
@@ -86,10 +88,11 @@ const EntryForm = ({
                 <ImgEntryForm isLiveCourse={isLiveCourse} />
               </div>
             </div>
-            <div className={classNames({
-            [stls.form]: true,
-            [stls.bachelorForm]: onBachelor,
-          })}>
+            <div
+              className={classNames({
+                [stls.form]: true,
+                [stls.bachelorForm]: onBachelor
+              })}>
               <p>
                 {onBachelor && (
                   <>

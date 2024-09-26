@@ -23,7 +23,7 @@ const ProfessionalLeague = () => {
             <Image src={img} alt='Волна' />
           </div>
           <div className={stls.waveMobile}>
-            <Image src={imgMob} alt='Волна' />
+            <Image src={imgMob} alt='Волна' fill />
           </div>
           <span className={stls.filter}></span>
           <div className={stls.tag}>
@@ -31,7 +31,7 @@ const ProfessionalLeague = () => {
           </div>
           <div className={stls.header}>
             <span className={stls.title}>
-              Московский институт психологии – партнер ОППЛ {' '}
+              Московский институт психологии – партнер ОППЛ{' '}
               {isMobileLayout && <br />}
               (Общероссийской профессиональной психотерапевтической лиги)
             </span>
@@ -64,6 +64,11 @@ const ProfessionalLeague = () => {
                     width={460}
                     src={pic}
                     alt='Краткосрочная психотерапия'
+                    sizes='100vw'
+                    style={{
+                      width: '100%',
+                      height: 'auto'
+                    }}
                     className={stls.image}
                   />
                 </div>

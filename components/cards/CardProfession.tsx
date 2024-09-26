@@ -96,8 +96,9 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
               <Image
                 src={profession.heroPicture.url}
                 width={760}
-                height={430}
                 alt='Фото программы'
+                height={200}
+                priority={true}
                 className={stls.img}
               />
             </div>
@@ -139,39 +140,41 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
           </div>
         </Link>
       ) : (
-        <Link passHref href={getHref()} className={stls.containerLink}>
-          {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
-          <div className={stls.imgCard}>
-            <Image
-              src={profession.heroPicture.url}
-              width={760}
-              height={430}
-              alt='Фото программы'
-              className={stls.img}
-            />
-          </div>
-          <div className={stls.content}>
-            <div className={stls.tags}>
-              <span className={stls.type}>{renderTypeTag()}</span>
-              <span className={stls.type}>{renderDocTag()}</span>
+        <div className={stls.containerLink}>
+          <Link passHref href={getHref()}>
+            {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
+            <div className={stls.imgCard}>
+              <Image
+                src={profession.heroPicture.url}
+                width={760}
+                height={430}
+                alt='Фото программы'
+                className={stls.img}
+              />
             </div>
-            <p className={stls.title}>{profession.title}</p>
-            {profession.studyMounthsDuration && (
-              <div className={stls.duration}>
-                <span className={stls.months}>
-                  <ProgramStudyDuration
-                    studyMounthsDuration={profession.studyMounthsDuration}
-                    monthsOnly
-                  />{' '}
-                </span>
-                <span
-                  className={
-                    stls.hours
-                  }>{`/ ${profession.studyHours} часов`}</span>
+            <div className={stls.content}>
+              <div className={stls.tags}>
+                <span className={stls.type}>{renderTypeTag()}</span>
+                <span className={stls.type}>{renderDocTag()}</span>
               </div>
-            )}
-          </div>
-        </Link>
+              <p className={stls.title}>{profession.title}</p>
+              {profession.studyMounthsDuration && (
+                <div className={stls.duration}>
+                  <span className={stls.months}>
+                    <ProgramStudyDuration
+                      studyMounthsDuration={profession.studyMounthsDuration}
+                      monthsOnly
+                    />{' '}
+                  </span>
+                  <span
+                    className={
+                      stls.hours
+                    }>{`/ ${profession.studyHours} часов`}</span>
+                </div>
+              )}
+            </div>
+          </Link>
+        </div>
       )}
       <Popup
         open={isModalOpen}

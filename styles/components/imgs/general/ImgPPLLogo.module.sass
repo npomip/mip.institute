@@ -1,3 +1,19 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+
+.container
+  position: relative
+  width: f.px(110)
+  height: f.px(154)
+  @include m.media(phone, tablet)
+    top: f.px(10)
+    left: f.px(10)
+    position: absolute
+    width: f.px(40)
+    height: f.px(60)
+
+.img
+  object-fit: contain
+  @include m.media(phone, tablet)
+    object-fit: cover

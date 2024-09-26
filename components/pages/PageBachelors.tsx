@@ -20,7 +20,11 @@ type PagesProgramsType = {
   ofType?: 'course' | 'profession'
 }
 
-const PageBachelors = ({ programs = [], bachelors = [], practicalTrainings = []}) => {
+const PageBachelors = ({
+  programs = [],
+  bachelors = [],
+  practicalTrainings = []
+}) => {
   const categories = getUniqueCategories(programs)
 
   const label = 'Высшее образование'
@@ -38,14 +42,13 @@ const PageBachelors = ({ programs = [], bachelors = [], practicalTrainings = []}
     }
     return breadcrumb
   })
-  
 
   return (
     <Wrapper>
-      <SeoPageBachelors/>
+      <SeoPageBachelors />
       <FilterProvider items={programs}>
-      <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
-      <h1 className={stls.title}>Высшее образование</h1>
+        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <h1 className={stls.title}>Высшее образование</h1>
         <ProgramsFilters
           bachelors={bachelors}
           practicalTrainings={practicalTrainings}
@@ -53,10 +56,9 @@ const PageBachelors = ({ programs = [], bachelors = [], practicalTrainings = []}
           studyFields={[]}
         />
         <div className={stls.cards}>
-
-        {bachelors.map(bachelor => (
-          <BachelorSlugCard key={bachelor?.slug} card={bachelor} />
-        ))}
+          {bachelors.map(bachelor => (
+            <BachelorSlugCard key={bachelor?.slug} card={bachelor} />
+          ))}
         </div>
       </FilterProvider>
     </Wrapper>

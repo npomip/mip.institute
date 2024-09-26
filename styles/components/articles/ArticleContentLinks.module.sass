@@ -4,7 +4,8 @@
 
 .container
   @include m.gap($mt: 0, $pl: f.px(20))
-  & > li > p
+  & > li > a
+    @include m.dye(c, black)
     cursor: pointer
     &:hover
       font-weight: 500

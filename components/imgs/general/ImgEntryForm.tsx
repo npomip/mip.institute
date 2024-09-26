@@ -10,7 +10,12 @@ interface Props {
 const ImgEntryForm = ({ isLiveCourse }: Props) => {
   return (
     <div className={stls.container}>
-      <Image src={isLiveCourse ? picLiveCourses : pic} alt='Трубит горн' />
+      <Image
+        src={isLiveCourse ? picLiveCourses : pic}
+        alt='Трубит горн'
+        fill
+        className={stls.backgroundImage}
+      />
     </div>
   )
 }

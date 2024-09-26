@@ -136,19 +136,14 @@
 .imgCard
   display: flex
   position: relative
-  &>*
+  & > img
     border-radius: f.px(10)
-    height: f.px(100)
     width: 100%
-    &>*
-      height: f.px(100)
-      width: 100%
   @include m.media(phone, tablet)
     object-fit: fill
 
 .img
   display: flex
-  height: f.px(100)
   width: f.px(100)
   border-radius: f.px(10)
   object-fit: cover

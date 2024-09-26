@@ -24,30 +24,29 @@ interface Step {
 
 const BachelorSlugCard: FC<Step> = ({ card }) => {
   return (
-    <Link
-      passHref
-      href={`${routes.front.bachelors}/${card.slug}`}
-      className={stls.oneCard}>
-      <div className={stls.img}>
-        <Image
-          className={stls.image}
-          src={card.heroPicture.url}
-          width={740}
-          height={480}
-          alt='Программа'
-        />
-      </div>
-      <div className={stls.cardText}>
-        <p className={stls.cardTitle}>
-          {card.educationCode} {card.title}
-        </p>
-        <div className={stls.additionalInfo}>
-          <p>
-            <span>Ближайшие зачисления:</span> {card.admissionDate}
+    <Link href={`${routes.front.bachelors}/${card.slug}`} passHref>
+      <div className={stls.oneCard}>
+        <div className={stls.img}>
+          <Image
+            className={stls.image}
+            src={card.heroPicture.url}
+            width={740}
+            height={330}
+            alt='Программа'
+          />
+        </div>
+        <div className={stls.cardText}>
+          <p className={stls.cardTitle}>
+            {card.educationCode} {card.title}
           </p>
-          <p>
-            <span>Срок обучения:</span> {card.minTime} - {card.maxTime} года
-          </p>
+          <div className={stls.additionalInfo}>
+            <p>
+              <span>Ближайшие зачисления:</span> {card.admissionDate}
+            </p>
+            <p>
+              <span>Срок обучения:</span> {card.minTime} - {card.maxTime} года
+            </p>
+          </div>
         </div>
       </div>
     </Link>

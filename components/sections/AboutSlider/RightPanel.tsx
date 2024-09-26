@@ -15,10 +15,10 @@ const RightPanel = ({ imageUrl, slideDirection }: Props) => {
           <span className={stls.filter}></span>
           <Image
             className={stls.innerImg}
-            width={585}
-            height={576}
             src={imageUrl}
-            alt={'divan'}
+            alt='divan'
+            width={500}
+            height={500}
           />
         </div>
       </div>

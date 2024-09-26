@@ -2,14 +2,15 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container > span
-  position: inherit !important
-  display: flex
-  width: 100%
-  @include m.media(phone, tablet)
-    display: none !important
+.container
+  & > img
+    position: absolute !important
+    display: flex
+    width: 100%
+    @include m.media(phone, tablet)
+      display: none !important
 
-#tablet > span
+#tablet > img
   display: none !important
   @include m.media(tablet)
     display: flex !important
@@ -17,7 +18,7 @@
   @include m.media(phone)
     display: none !important
 
-#mobile > span
+#mobile > img
   display: none !important
   @include m.media(phone)
     display: inline-block !important

@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  background: #F4EBFC
+  @include m.dye(bg, c.$pink-100)
   @include m.gap($mb: f.px(90))
 
 .questionTitle
@@ -31,12 +31,11 @@
 .radio
   width: f.px(30)
   height: f.px(30)
-  background: #947AFF !important
+  background: c.$purple-300 !important
   cursor: pointer
   @include m.gap($mr: f.px(30))
-  border: 1px solid red
   &:checked
-    accent-color: #947AFF
+    accent-color: c.$purple-300
   @include m.media(phone, tablet)
     height: f.px(20)
 
@@ -71,6 +70,6 @@
   cursor: pointer
   @include m.gap($mr: f.px(20))
   &:checked
-    accent-color: #947AFF
+    accent-color: c.$purple-300
   @include m.media(phone, tablet)
     height: f.px(20)

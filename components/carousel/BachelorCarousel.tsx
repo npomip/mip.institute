@@ -4,9 +4,9 @@ import { getImageHeight } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/carousel/BachelorCarousel.module.sass'
 import classNames from 'classnames'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import BachelorSlugCard from '../cards/BachelorSlugCard'
 import TagOrange from '../general/TagOrange'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const BachelorCarousel = ({ title, subtitle, cards }) => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')

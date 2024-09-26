@@ -18,6 +18,7 @@ import { prod, gtmId, routes, dev } from '@/config/index'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import 'swiper/css/scrollbar';
 import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'

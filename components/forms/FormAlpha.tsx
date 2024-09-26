@@ -316,7 +316,7 @@ const FormAlpha = ({
           {isIpCheckFailed && (
             <p className={stls.checkError}>
               Невозможно отправить форму, пожалуйста, свяжитесь с нами по номеру{' '}
-              <a href='tel:+7-499-110-86-32'>+7 (499) 110-86-32</a> или{' '}
+              <a href='tel:+7-499-110-88-19'>+7 (499) 110-88-19</a> или{' '}
               <a
                 className={stls.whatsUpNumber}
                 target='_blank'

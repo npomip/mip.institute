@@ -21,8 +21,8 @@ const ConnectInfo: React.FC<Icon1Props> = ({ className, selected = false }) => {
         <p className={stls.title}>Приемная комиссия:</p>
         <div className={stls.iconWrapper}>
           <IconOrangeDot />
-          <a className={stls.phoneNumber} href='tel:+7-499-110-86-32'>
-            +7 (499) 110-86-32
+          <a className={stls.phoneNumber} href='tel:+7-499-110-88-19'>
+            +7 (499) 110-88-19
           </a>
         </div>
         <div className={stls.iconWrapper}>

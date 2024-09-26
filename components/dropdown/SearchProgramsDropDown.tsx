@@ -227,22 +227,13 @@ export default function SearchProgramsDropDown() {
           </div>
         </div>
       </div>
-      {!isEdpartners && (
         <div className={stls.nums}>
           <a
-          href={'tel:+7-499-110-86-32'}
+          href={'tel:+7-499-110-88-19'}
           className={isInputVisible ? stls.hiddenText : stls.showText}>
-          +7 (499) 110-86-32
+          +7 (499) 110-88-19
         </a>
-        <a
-        href={'tel:+7-499-110-88-19'}
-        className={isInputVisible ? stls.hiddenText : stls.showText}>
-        +7 (499) 110-88-19
-      </a>
         </div>
-        
-      )}
-      {/* <a href={'tel:+7-499-110-86-32'} className={isInputVisible ? stls.hiddenText : stls.showText}>+7 (499) 110-86-32</a> */}
     </div>
   )
 }

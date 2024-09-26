@@ -1,4 +1,3 @@
-import TagOrange from '@/components/general/TagOrange'
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/practicalTraining/PracticalBriefProgram.module.sass'
 import { BriefProgram } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
@@ -17,7 +16,7 @@ const PracticalBriefProgram = ({ listProgram }: Props) => {
           <span className={stls.colouredTitle}> программа </span>
           курса
         </h2>
-        <ul>
+        <ul className={stls.list}>
           {listProgram.map(el => (
             <PracticalBriefProgramItem
               title={el.title}

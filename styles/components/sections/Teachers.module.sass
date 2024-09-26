@@ -44,7 +44,7 @@
   @include m.dye(c, c.$black-800)
 
 .halfScreenTitle
-  @include m.gap($pl: f.px(60))
+  @include m.gap($pl: f.px(60), $pt: 0)
   max-width: f.px(600)
   @include m.media(tablet)
   @include m.gap($pl: 0)
@@ -52,9 +52,17 @@
     @include m.gap($pl: 0)
     max-width: f.px(270)
 
+.halfScreenSubtitle
+  margin-bottom: 0
+  max-width: f.px(600)
+  @include m.media(tablet)
+    @include m.gap($pl: 0, $mb: f.px(20))
+  @include m.media(phone)
+    @include m.gap($pl: 0, $mb: f.px(20))
+    max-width: f.px(270)
+
 .highlight
-  @include m.dye(c, c.$purple-800)
-  font-weight: 350
+  font-weight: 500
 
 .teachers
   position: relative
@@ -64,6 +72,3 @@
     display: none
   @include m.media(laptop, desktop)
     text-align: center
-
-.slide
-  border-radius: f.px(10)

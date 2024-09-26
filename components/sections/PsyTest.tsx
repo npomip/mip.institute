@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/PsyTest.module.sass'
 import { useState } from 'react'
-import SwiperCore, { Navigation, Pagination } from 'swiper'
+import SwiperCore from 'swiper'
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import quiz from '../../constants/quizQuestions'
 import Wrapper from '../layout/Wrapper'

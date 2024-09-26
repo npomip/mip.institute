@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/HappyStudents.module.sass'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
+import SwiperCore from 'swiper'
+import { Navigation, Pagination } from 'swiper/modules';
 import IconCurveLineReview from '../icons/IconCurveLineReview'
 import Otzovic from '../imgs/footerReviews/Otzovic'
 import Tutortop from '../imgs/footerReviews/Tutortop'

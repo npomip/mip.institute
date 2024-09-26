@@ -4,7 +4,8 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/general/SwiperContainer.module.sass'
 import classNames from 'classnames'
 import Popup from 'reactjs-popup'
-import SwiperCore, { Grid, Navigation, Pagination } from 'swiper'
+import SwiperCore from 'swiper'
+import { Grid, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { PopupImage } from '../popups'
 
@@ -32,6 +33,7 @@ interface Props {
   tabletOptions?: IOption
   laptopOptions?: IOption
   desktopOptions?: IOption
+  close?: () => void;
 }
 
 const SwiperContainer = ({
@@ -50,7 +52,8 @@ const SwiperContainer = ({
   isMultiRow = false,
   autoHeight = false,
   hideNavigation = false,
-  isLiveCourse = false
+  isLiveCourse = false,
+  close
 }: Props) => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
   const isTabletLayout = useBetterMediaQuery(
@@ -71,10 +74,10 @@ const SwiperContainer = ({
   const getCurrentLayoutKey = () => {
     const currentLayout = layouts.find(layout => {
       const firstKey = Object.keys(layout)[0]
-      if (layout[firstKey]) return layout
+      return layout[firstKey]
     })
 
-    if (!currentLayout) return null
+    if (!currentLayout) return 'mobile'
 
     const currentLayoutKey = Object.keys(currentLayout)[0]
 
@@ -95,7 +98,7 @@ const SwiperContainer = ({
 
     const { slidesNum } = swiperOptions[currentLayoutKey]
 
-    return slidesNum
+    return slidesNum !== undefined ? slidesNum : 0
   }
 
   const checkIfSwiperEnabled = () => {
@@ -144,11 +147,12 @@ const SwiperContainer = ({
         [stls.topCourses]: topCourses
       })}>
       {slides &&
+        slides.length > 0 &&
         slides.map((slide, idx) => (
           <SwiperSlide key={`slide-${idx}`}>
             {diplomas ? (
               <Popup trigger={<div>{slide}</div>} modal nested>
-                {close => <PopupImage image={slide} close={close} />}
+                <PopupImage image={slide} close={close} />
               </Popup>
             ) : (
               slide

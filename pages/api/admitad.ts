@@ -6,7 +6,6 @@ export default async function handler(req, res) {
   const { id, price, utm } = req.body
   const campaign_code = '381f96bb08'
   const postback_key = '9ec3E32C0a9862cDD9C31C7251059F51'
-  console.log(req.body)
 
   try {
     const newresponse = await axios.post(

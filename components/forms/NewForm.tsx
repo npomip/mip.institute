@@ -61,7 +61,6 @@ const NewForm = ({
   const onSubmit = async data => {
     const ipCheck = await ipCheckFunc()
     if (ipCheck === 200) {
-      console.log('IP 200')
       setIsDisabled(true)
       data.leadPage = router.asPath
       const utms = JSON.parse(sessionStorage.getItem('utms'))

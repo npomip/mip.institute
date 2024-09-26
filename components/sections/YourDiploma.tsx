@@ -24,13 +24,15 @@ type YourDiplomaType = {
   diplomaRef?: React.RefObject<HTMLElement | null>
   onMain?: boolean
   isBachelor?: boolean
+  close?: () => void;
 }
 
 const YourDiploma = ({
   ofType = null,
   diplomaRef = null,
   onMain = false,
-  isBachelor = false
+  isBachelor = false,
+  close
 }: YourDiplomaType) => {
   const slides = []
 
@@ -225,9 +227,7 @@ const YourDiploma = ({
                 trigger={<div className={stls.trigger}>{slide}</div>}
                 modal
                 nested>
-                {close => (
                   <PopupImage image={slide.props.children} close={close} />
-                )}
               </Popup>
             ))}
           </div>

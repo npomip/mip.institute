@@ -6,6 +6,8 @@
   @include m.flex()
   width: 100%
   height: f.px(244)
+  @include m.media(phone, tablet)
+    height: f.px(167)
 
 .img
   border-radius: f.px(20)

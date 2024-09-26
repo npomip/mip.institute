@@ -68,6 +68,9 @@
 .rightImg
   object-fit: cover
   border-radius: f.px(25)
+  @include m.media(phone, tablet)
+    width: 100%
+    height: auto
 
 .leftTitle
   @include m.gap($mt: f.px(30), $mb: f.px(45))

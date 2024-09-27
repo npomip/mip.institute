@@ -140,13 +140,12 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
           </div>
         </Link>
       ) : (
-        <div className={stls.containerLink}>
-          <Link passHref href={getHref()}>
+          <Link passHref href={getHref()} className={stls.containerLink}>
             {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
             <div className={stls.imgCard}>
               <Image
                 src={profession.heroPicture.url}
-                width={760}
+                width={730}
                 height={430}
                 alt='Фото программы'
                 className={stls.img}
@@ -174,7 +173,6 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
               )}
             </div>
           </Link>
-        </div>
       )}
       <Popup
         open={isModalOpen}

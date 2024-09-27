@@ -49,6 +49,9 @@
 .imgTitle
   border-radius: f.px(10)
   object-fit: fill
+  @include m.media(phone, tablet)
+    width: 100%
+    height: auto
 
 .imgTeacherWithAchievements
   flex: 0.33

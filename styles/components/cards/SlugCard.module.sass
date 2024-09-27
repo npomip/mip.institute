@@ -49,9 +49,9 @@
     .seminarImg
       border-radius: f.px(10)
       .img
-        scale: 1.1
+        transform: scale(1.1)
   .seminarText
-    flex: 1
+    flex-basis: 35%
     margin-top: 0
     border: f.px(2) solid #6F01C6
     margin-left: f.px(26)
@@ -85,23 +85,25 @@
 .seminarImg
   display: flex
   position: relative
+  overflow: hidden
+  min-height: f.px(213)
   // height: fit-content
-  &>*
-    border-radius: f.px(10)
-    height: 100px
-    width: 100%
-    &>*
-      height: 100px
-      width: 100%
+  // &>*
+  //   border-radius: f.px(10)
+  //   height: 100px
+  //   width: 100%
+  //   &>*
+  //     height: 100px
+  //     width: 100%
   @include m.media(phone, tablet)
     object-fit: fill
 
 .img
   display: flex
-  height: 100px
-  width: 100px
   border-radius: f.px(10)
   object-fit: cover
+  width: 100%
+  height: auto
 
 .seminarText
   border: f.px(1) solid #6F01C6

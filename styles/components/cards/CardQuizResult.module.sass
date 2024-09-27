@@ -4,13 +4,10 @@
 
 .container
   text-decoration: none
-  // @include m.flex($fd: row, $jc: flex-start, $ai: flex-start)
   display: flex
   cursor: pointer
   height: fit-content
   width: 100%
-  @include m.media(phone, tablet)
-    // @include m.gap($mt: f.px(50))
 
 .title
   font-weight: 500
@@ -22,19 +19,18 @@
 
 .portrait
   position: relative
-  min-width: f.px(200)
-  max-width: f.px(200)
-  min-height: f.px(200)
-  max-height: f.px(200)
-  // width: 200px
-  // @include m.gap($mr: f.px(30))
-  // flex-grow: 1
   @include m.media(phone, tablet)
     @include m.gap($mr: f.px(15))
-    min-width: f.px(130)
-    max-width: f.px(130)
-    min-height: f.px(130)
-    max-height: f.px(130)
+  & > img
+    min-width: f.px(200)
+    max-width: f.px(200)
+    min-height: f.px(200)
+    max-height: f.px(200)
+    @include m.media(phone, tablet)
+      min-width: f.px(130)
+      max-width: f.px(130)
+      min-height: f.px(130)
+      max-height: f.px(130)
 
 .filter
   border-radius: f.px(25)
@@ -59,14 +55,8 @@
 .description
   padding-left: f.px(20)
   @include m.flex($ai: flex-start, $jc:space-between, $fd: column)
-  // width: 50%
-  // height: 200px
-  @include m.media(tablet)
-    // width: 340px
-  @include m.media(phone)
+  @include m.media(phone, tablet)
     padding-left: 0px
-    // width: 240px
-    // height: 130px
 
 .innerContainer
   height: 100%
@@ -89,4 +79,3 @@
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(10), $ptb: f.px(9))
     font-size: f.px(12)
-    // @include m.gap( $mb: f.px(5))

@@ -1,4 +1,5 @@
 import { ImgReview } from '@/components/imgs'
+import getImageHeight from '@/helpers/getImageHeight'
 import styles from '@/styles/components/sections/ReviewList.module.sass'
 
 export default function Review({ review }) {
@@ -10,12 +11,15 @@ export default function Review({ review }) {
             src={review?.picture?.[0]?.url}
             alt={review.name}
             width={100}
-            height={100}
+            height={getImageHeight({
+              width: 100,
+              widthInitial: review?.picture?.[0]?.width,
+              heightInitial: review?.picture?.[0]?.height
+            })}
           />
         </div>
         <div className={styles.name}>
           <p>{review.title}</p>
-
           <p>{review.name}</p>
           <p>{review.profession}</p>
         </div>

@@ -40,11 +40,9 @@
 
 .img
   display: flex
-  // object-fit: cover
-  // width: fit-content
   min-width: f.px(100)
+  max-width: f.px(100)
   max-height: f.px(100)
-  // max-height: f.px(260)
   @include m.gap($mb: f.px(25))
   border-radius: f.px(20)
   overflow: hidden
@@ -53,7 +51,6 @@
   line-height: 130%
   @include m.media(phone, tablet)
     line-height: 100%
-  // padding-right: 30px
 
 .name
   @include m.gap($ml: f.px(24))

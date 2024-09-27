@@ -37,6 +37,10 @@ const QuizResults = ({ result }: Props) => {
           alt={course?.title}
           height={200}
           width={200}
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
           className={stls.img}
         />
       )

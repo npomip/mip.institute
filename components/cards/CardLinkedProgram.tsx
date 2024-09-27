@@ -20,12 +20,24 @@ const CardLinkedProgram = ({ portrait, title }: Props) => {
         <div className={stls.portrait}>
           <span className={stls.filter} />
           {typeof portrait === 'string' ? (
-            <Image src={portrait} alt={title} layout='fill' />
+            <Image
+              src={portrait}
+              alt={title}
+              sizes='100vw'
+              style={{
+                width: '100%',
+                height: 'auto'
+              }}
+            />
           ) : portrait instanceof Object && 'src' in portrait ? (
             <Image
               src={portrait as StaticImageData}
               alt={title}
-              layout='fill'
+              sizes='100vw'
+              style={{
+                width: '100%',
+                height: 'auto'
+              }}
             />
           ) : (
             portrait

@@ -17,8 +17,8 @@ const RightPanel = ({ imageUrl, slideDirection }: Props) => {
             className={stls.innerImg}
             src={imageUrl}
             alt='divan'
-            width={500}
-            height={500}
+            width={600}
+            height={600}
             style={{
               width: '100%',
               height: 'auto'

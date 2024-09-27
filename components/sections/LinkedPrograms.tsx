@@ -5,7 +5,7 @@ import stls from '@/styles/components/sections/LinkedPrograms.module.sass'
 import classNames from 'classnames'
 import { useState } from 'react'
 import Popup from 'reactjs-popup'
-import { Navigation, Scrollbar } from 'swiper/modules';
+import { Navigation, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import CardLinkedProgram from '../cards/CardLinkedProgram'
 import CustomNextButton from '../general/CustomNextButton'
@@ -29,7 +29,7 @@ type Specialization = {
 type Props = {
   specializations: Specialization[]
   title: string | JSX.Element
-  close?: () => void;
+  close?: () => void
 }
 
 type Slide = {
@@ -124,12 +124,12 @@ const LinkedPrograms = ({ specializations, title, close }: Props) => {
           open={isOpen}
           onClose={() => setIsOpen(false)}
           position={'center center'}>
-            <PopupSpecialization
-              image={currentSlide?.image}
-              title={currentSlide?.title}
-              descriptionList={currentSlide?.record}
-              onClose={close}
-            />
+          <PopupSpecialization
+            image={currentSlide?.image}
+            title={currentSlide?.title}
+            descriptionList={currentSlide?.record}
+            onClose={close}
+          />
         </Popup>
       </Wrapper>
     </section>

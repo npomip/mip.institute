@@ -32,12 +32,6 @@ const TopCourses = () => {
           alt={course?.title}
           width={course?.heroPicture?.width}
           height={course?.heroPicture?.height}
-          // width={390}
-          // height={getImageHeight({
-          //   width: 530,
-          //   widthInitial: course?.heroPicture?.width,
-          //   heightInitial: course?.heroPicture?.height
-          // })}
         />
       )
     }))

@@ -55,12 +55,15 @@ const BachelorHeroProgram = ({ breadcrumbs }: Props) => {
                   position='right center'
                   modal
                   nested>
-                  {close => (
-                    <BachelorFullProgramPopup
-                      close={close}
-                      content={bachelor?.fullDescription}
-                    />
-                  )}
+                  {
+                    // @ts-ignore
+                    close => (
+                      <BachelorFullProgramPopup
+                        close={close}
+                        content={bachelor?.fullDescription}
+                      />
+                    )
+                  }
                 </Popup>
               </div>
             </div>

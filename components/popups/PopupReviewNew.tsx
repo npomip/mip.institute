@@ -71,7 +71,7 @@ const PopupReviewNew = ({
   const renderer = new marked.Renderer()
   renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
   marked.setOptions({ renderer })
-  const SlideContent = ({ slide, isFirstSlide  }) => {
+  const SlideContent = ({ slide, isFirstSlide }) => {
     const formattedAnswer = slide.answer
       .replace(/(–\s)/g, '<br />$1')
       .replace(/(\d+\.\s)/g, '<br />$1')
@@ -99,29 +99,32 @@ const PopupReviewNew = ({
       }
       modal
       nested>
-      {close => (
-        <div className={stls.container}>
-          <div className={stls.leftBlock}>
-            <div className={stls.personImage}>
-              <Image
-                src={image.url ?? image}
-                alt='Выпускник'
-                width={112}
-                height={112}
-                className={stls.personImg}
-              />
+      {
+        // @ts-ignore
+        close => (
+          <div className={stls.container}>
+            <div className={stls.leftBlock}>
+              <div className={stls.personImage}>
+                <Image
+                  src={image.url ?? image}
+                  alt='Выпускник'
+                  width={112}
+                  height={112}
+                  className={stls.personImg}
+                />
+              </div>
+              <p className={stls.name}>{name}</p>
+              <SlideContent isFirstSlide={true} slide={slides[0]} />
             </div>
-            <p className={stls.name}>{name}</p>
-            <SlideContent isFirstSlide={true} slide={slides[0]} />
+            <div className={stls.rigthBlock}>
+              <SlideContent isFirstSlide={false} slide={slides[1]} />
+            </div>
+            <button className={stls.closeBtn} onClick={close}>
+              <IconClosePopupPractical />
+            </button>
           </div>
-          <div className={stls.rigthBlock}>
-            <SlideContent isFirstSlide={false} slide={slides[1]} />
-          </div>
-          <button className={stls.closeBtn} onClick={close}>
-            <IconClosePopupPractical />
-          </button>
-        </div>
-      )}
+        )
+      }
     </Popup>
   )
 }

@@ -51,12 +51,15 @@ const LicensePopUp = ({ showFullText = false, onBachelor = false }: Props) => {
         lockScroll
         nested
         closeOnDocumentClick>
-        {close => (
-          <PopupImage
-            image={onBachelor ? <ImgLicence isOchuVoMip /> : <ImgLicence />}
-            close={close}
-          />
-        )}
+        {
+          // @ts-ignore
+          close => (
+            <PopupImage
+              image={onBachelor ? <ImgLicence isOchuVoMip /> : <ImgLicence />}
+              close={close}
+            />
+          )
+        }
       </Popup>
     </div>
   )

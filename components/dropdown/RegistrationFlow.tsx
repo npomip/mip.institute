@@ -76,13 +76,16 @@ function RegistrationFlow() {
 
   return (
     <Popup open={true} modal closeOnDocumentClick={false}>
-      {close => (
-        <div>
-          {step === 1 && <Step1 onNext={handleNextStep} />}
-          {step === 2 && <Step2 onNext={handleNextStep} />}
-          {step === 3 && <Step3 onComplete={close} />}
-        </div>
-      )}
+      {
+        // @ts-ignore
+        close => (
+          <div>
+            {step === 1 && <Step1 onNext={handleNextStep} />}
+            {step === 2 && <Step2 onNext={handleNextStep} />}
+            {step === 3 && <Step3 onComplete={close} />}
+          </div>
+        )
+      }
     </Popup>
   )
 }

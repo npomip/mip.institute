@@ -1,12 +1,12 @@
-import stls from '@/styles/components/sections/Webinars.module.sass'
-import { useMediaQuery } from 'react-responsive'
-import Wrapper from '@/components/layout/Wrapper'
-import SwiperContainer from '@/components/general/SwiperContainer'
-import CardWebinar from '@/components/cards/CardWebinar'
 import CardSchedule from '@/components/cards/CardSchedule'
+import CardWebinar from '@/components/cards/CardWebinar'
+import SwiperContainer from '@/components/general/SwiperContainer'
 import ImgPortrait1 from '@/components/imgs/webinars/ImgPortrait1'
 import ImgPortrait2 from '@/components/imgs/webinars/ImgPortrait2'
 import ImgPortrait3 from '@/components/imgs/webinars/ImgPortrait3'
+import Wrapper from '@/components/layout/Wrapper'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import stls from '@/styles/components/sections/Webinars.module.sass'
 import classNames from 'classnames'
 
 type WebinarsType = {
@@ -58,7 +58,7 @@ const Webinars = ({ standalone = false }: WebinarsType) => {
     <CardWebinar key={data.topic + idx} webinarData={data} />
   ))
 
-  const isMobileLayout = useMediaQuery({ query: '(max-width: 768px)' })
+  const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
 
   if (!isMobileLayout) webinarsSlides.push(<CardSchedule />)
 

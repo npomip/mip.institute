@@ -47,12 +47,15 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
               }
               modal
               nested>
-              {close => (
-                <PopupImage
-                  image={<ImgLicence isOchuVoMip={isOchuVoMip} />}
-                  close={close}
-                />
-              )}
+              {
+                // @ts-ignore
+                close => (
+                  <PopupImage
+                    image={<ImgLicence isOchuVoMip={isOchuVoMip} />}
+                    close={close}
+                  />
+                )
+              }
             </Popup>
             <span className={stls.label}>
               <span className={stls.labelIcon}>

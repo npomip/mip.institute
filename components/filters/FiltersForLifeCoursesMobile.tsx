@@ -38,20 +38,23 @@ export default function FiltersForLifeCoursesMobile({
           padding: '0'
         }}
         overlayStyle={{ background: 'rgba(0, 0, 0, 0.35)' }}>
-        {close => (
-          <div className={stls.modal}>
-            <ResetFilter />
-            {children}
-            <button
-              className={stls.btn}
-              onClick={() => {
-                scrollToRef.current.scrollIntoView({ behavior: 'smooth' })
-                close()
-              }}>
-              {btnTitle}
-            </button>
-          </div>
-        )}
+        {
+          // @ts-ignore
+          close => (
+            <div className={stls.modal}>
+              <ResetFilter />
+              {children}
+              <button
+                className={stls.btn}
+                onClick={() => {
+                  scrollToRef.current.scrollIntoView({ behavior: 'smooth' })
+                  close()
+                }}>
+                {btnTitle}
+              </button>
+            </div>
+          )
+        }
       </Popup>
     </div>
   )

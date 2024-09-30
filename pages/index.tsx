@@ -113,16 +113,19 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <SeoOrganizationJsonLd />
 
       <Popup open={open} modal nested>
-        {close => (
-          <PopupCta
-            title='Задать вопрос'
-            desc={desc}
-            cta='Задать вопрос'
-            question
-            close={close}
-            blockForAmo='Переход по ссылке'
-          />
-        )}
+        {
+          // @ts-ignore
+          close => (
+            <PopupCta
+              title='Задать вопрос'
+              desc={desc}
+              cta='Задать вопрос'
+              question
+              close={close}
+              blockForAmo='Переход по ссылке'
+            />
+          )
+        }
       </Popup>
 
       <Hero />

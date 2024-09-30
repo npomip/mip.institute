@@ -6,6 +6,7 @@ import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracti
 import { useRouter } from 'next/router'
 import TagOrange from '../general/TagOrange'
 import PracticalProgramInfo from './PracticalProgramInfo'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type Props = {
   breadcrumbs: TBreadcrumb[]
@@ -13,6 +14,7 @@ type Props = {
 }
 
 const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const cta = 'signUp'
   const title = (
     <>
@@ -35,7 +37,7 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
   )
   return (
     <>
-      <div
+      {isMobileAndTabletLayout && <div
         className={stls.mobileBg}
         style={{
           backgroundImage: `url(${practicalTraining?.heroPicture?.url})`
@@ -57,6 +59,7 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
           </div>
         </div>
       </div>
+      }
       <div className={stls.info}>
         <PracticalProgramInfo practicalTraining={practicalTraining} />
       </div>

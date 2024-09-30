@@ -59,13 +59,14 @@ const JournalPage = ({ lifeCourse, reviews }) => {
     <>
       <NextSeo nofollow={true} noindex={true} />
       <LiveCoursesHero title={lifeCourse?.title} openModal={handleOpen} />
-      <Popup
-        open={isTestOpen}
-        onClose={() => setIsTestOpen(false)}
-        position={'center center'}>
-        <PaymentForm program={lifeCourse} onClose={close} />
-      </Popup>
-
+      {close => (
+        <Popup
+          open={isTestOpen}
+          onClose={() => setIsTestOpen(false)}
+          position={'center center'}>
+          <PaymentForm program={lifeCourse} onClose={close} />
+        </Popup>
+      )}
       <LiveCoursesStripe />
       {lifeCourse?.article?.map((module, idx) => (
         <React.Fragment key={idx}>

@@ -281,7 +281,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         strategy="afterInteractive"
       />
       <Script id="sendsay-init" strategy="afterInteractive">
-        {`SENDSAY.activatePopup("https://sendsay.ru/form/x_16799332371017125/5/");`}
+        {`if (typeof SENDSAY !== 'undefined') { SENDSAY.activatePopup("https://sendsay.ru/form/x_16799332371017125/5/"); }`}
       </Script>
 
       <DefaultSeo {...SEO} />

@@ -51,7 +51,7 @@ const PracticalProgramDescription = ({ cards, description }: Props) => {
         </TwoColumnsPractical>
       </Wrapper>
       <div className={stls.stripe}>
-        <h3 className={stls.stripeText}>{description.subtitle}</h3>
+        <p className={stls.stripeText}>{description.subtitle}</p>
       </div>
     </section>
   )

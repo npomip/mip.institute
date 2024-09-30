@@ -50,7 +50,10 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }: Props) => {
                   className='DiplomaExpandableItem__popup'
                   modal
                   nested>
-                  {close => <PopupImage image={diploma.image} close={close} />}
+                  {
+                    // @ts-ignore
+                    close => <PopupImage image={diploma.image} close={close} />
+                  }
                 </Popup>
               </li>
             ))}

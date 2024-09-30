@@ -257,18 +257,21 @@ const PopupTrigger = ({
       }
       modal
       nested>
-      {close => (
-        <PopupCta
-          promo={promo}
-          title={strings.title[cta]}
-          desc={strings.desc[cta]}
-          cta={strings.trigger[cta]}
-          question={question}
-          close={close}
-          blockForAmo={strings.blockForAmo[cta]}
-          isActivePromocode={isActivePromocode}
-        />
-      )}
+      {
+        // @ts-ignore
+        close => (
+          <PopupCta
+            promo={promo}
+            title={strings.title[cta]}
+            desc={strings.desc[cta]}
+            cta={strings.trigger[cta]}
+            question={question}
+            close={close}
+            blockForAmo={strings.blockForAmo[cta]}
+            isActivePromocode={isActivePromocode}
+          />
+        )
+      }
     </Popup>
   )
 }

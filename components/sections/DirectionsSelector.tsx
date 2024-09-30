@@ -1,8 +1,8 @@
-import stls from '@/styles/components/sections/DirectionsSelector.module.sass'
-import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import routes from '@/config/routes'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import stls from '@/styles/components/sections/DirectionsSelector.module.sass'
 import classNames from 'classnames'
-import { useMediaQuery } from 'react-responsive'
+import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import ProgramList from './ChooseProgram/ProgramList'
 
 type Props = {
@@ -28,7 +28,7 @@ const DirectionsSelector: FC<Props> = ({
     }
   ]
 
-  const isMobileLayout = useMediaQuery({ query: '(max-width: 768px)' })
+  const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
 
   // Состояние для активного элемента
   const [activeItem, setActiveItem] = useState(1)

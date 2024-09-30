@@ -140,51 +140,54 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
           </div>
         </Link>
       ) : (
-          <Link passHref href={getHref()} className={stls.containerLink}>
-            {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
-            <div className={stls.imgCard}>
-              <Image
-                src={profession.heroPicture.url}
-                width={730}
-                height={430}
-                alt='Фото программы'
-                className={stls.img}
-              />
+        <Link passHref href={getHref()} className={stls.containerLink}>
+          {profession.isPopular && <div className={stls.hot}>ХИТ</div>}
+          <div className={stls.imgCard}>
+            <Image
+              src={profession.heroPicture.url}
+              width={730}
+              height={430}
+              alt='Фото программы'
+              className={stls.img}
+            />
+          </div>
+          <div className={stls.content}>
+            <div className={stls.tags}>
+              <span className={stls.type}>{renderTypeTag()}</span>
+              <span className={stls.type}>{renderDocTag()}</span>
             </div>
-            <div className={stls.content}>
-              <div className={stls.tags}>
-                <span className={stls.type}>{renderTypeTag()}</span>
-                <span className={stls.type}>{renderDocTag()}</span>
+            <p className={stls.title}>{profession.title}</p>
+            {profession.studyMounthsDuration && (
+              <div className={stls.duration}>
+                <span className={stls.months}>
+                  <ProgramStudyDuration
+                    studyMounthsDuration={profession.studyMounthsDuration}
+                    monthsOnly
+                  />{' '}
+                </span>
+                <span
+                  className={
+                    stls.hours
+                  }>{`/ ${profession.studyHours} часов`}</span>
               </div>
-              <p className={stls.title}>{profession.title}</p>
-              {profession.studyMounthsDuration && (
-                <div className={stls.duration}>
-                  <span className={stls.months}>
-                    <ProgramStudyDuration
-                      studyMounthsDuration={profession.studyMounthsDuration}
-                      monthsOnly
-                    />{' '}
-                  </span>
-                  <span
-                    className={
-                      stls.hours
-                    }>{`/ ${profession.studyHours} часов`}</span>
-                </div>
-              )}
-            </div>
-          </Link>
+            )}
+          </div>
+        </Link>
       )}
       <Popup
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         position={'center center'}>
-        {close => (
-          <ProgramPaymentForm
-            program={profession}
-            onClose={close}
-            showMore={showMoreHandler}
-          />
-        )}
+        {
+          // @ts-ignore
+          close => (
+            <ProgramPaymentForm
+              program={profession}
+              onClose={close}
+              showMore={showMoreHandler}
+            />
+          )
+        }
       </Popup>
     </>
   )

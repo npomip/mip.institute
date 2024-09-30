@@ -49,6 +49,10 @@ const LiveCoursesTextImage = ({ props }: LiveCorsesTextImageProps) => {
                       blurDataURL={base64pixel}
                       quality={100}
                       alt='Картинка'
+                      style={{
+                        width: '100%',
+                        height: 'auto'
+                      }}
                     />
                   </div>
                 )}

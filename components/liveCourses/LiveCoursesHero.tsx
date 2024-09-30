@@ -41,23 +41,41 @@ const LiveCoursesHero = ({ title, openModal }) => {
                   русский писатель
                 </p>
                 <div className={stls.btn}>
-                  <BtnAlpha isLiveCourse text='Разобраться с обидами' onClick={openModal}/>
+                  <BtnAlpha
+                    isLiveCourse
+                    text='Разобраться с обидами'
+                    onClick={openModal}
+                  />
                 </div>
               </div>
               <div className={stls.tag}>LIFE</div>
             </div>
           </div>
           <div className={stls.rightColumn}>
-              <div className={stls.birds}>
-                <IconBirds />
-              </div>
-              <div className={stls.hug}>
+            <div className={stls.birds}>
+              <IconBirds />
+            </div>
+            <div className={stls.hug}>
+              {isMobileAndTabletLayout ? (
                 <Image
                   className={stls.img}
-                  src={isMobileAndTabletLayout ? srcMobile : src}
+                  src={srcMobile}
                   alt='Объятия'
+                  style={{
+                    width: '100%',
+                    height: 'auto'
+                  }}
                 />
-              </div>
+              ) : (
+                <Image
+                  className={stls.img}
+                  src={src}
+                  alt='Объятия'
+                  width={580}
+                  height={480}
+                />
+              )}
+            </div>
           </div>
         </div>
         <div className={stls.mobileBtn}>

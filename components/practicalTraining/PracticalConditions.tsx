@@ -50,6 +50,7 @@ const PracticalConditions = () => {
                 width={rocket.width}
                 height={rocket.height}
                 alt='Ракета'
+                style={{width: '100%', height: 'auto'}}
               />
             </div>
             <div className={stls.btn}>

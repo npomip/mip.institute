@@ -43,6 +43,7 @@ const PracticalCertificate = ({ image }: Props) => {
                   width={ticket.width}
                   height={ticket.height}
                   alt='Сертификат'
+                  style={{width: '100%', height: 'auto'}}
                 />
               </div>
               <div className={stls.imgCertificate}>
@@ -51,6 +52,7 @@ const PracticalCertificate = ({ image }: Props) => {
                   width={certificate.width}
                   height={certificate.height}
                   alt='Удостоверение'
+                  style={{width: '100%', height: 'auto'}}
                 />
               </div>
             </div>
@@ -70,6 +72,7 @@ const PracticalCertificate = ({ image }: Props) => {
                 width={rocket.width}
                 height={rocket.height}
                 alt='Ракета'
+                style={{width: '100%', height: 'auto'}}
               />
             </div>
             <div className={stls.btn}>

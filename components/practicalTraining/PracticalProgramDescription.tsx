@@ -54,6 +54,7 @@ const PracticalProgramDescription = ({ cards, description }: Props) => {
               alt='Лекция'
               width={1000}
               height={750}
+              style={{width: '100%', height: 'auto'}}
               // layout='responsive'
             />
           </div>

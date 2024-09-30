@@ -23,7 +23,7 @@ const PracticalWhoIsProgramFor = () => {
           <div className={stls.smallContainer}>
             <div className={stls.imageContainer}>
               <div className={stls.image}>
-                <Image src={src} alt='Начинающий психолог' />
+                <Image src={src} alt='Начинающий психолог' style={{width: '100%', height: 'auto'}}/>
               </div>
               <p className={stls.subTitleImage}>Начинающий психолог</p>
             </div>
@@ -56,6 +56,7 @@ const PracticalWhoIsProgramFor = () => {
                     alt='Пузыри'
                     width={src.width}
                     height={src.height}
+                    style={{width: '100%', height: 'auto'}}
                   />
                 </div>
               ))}

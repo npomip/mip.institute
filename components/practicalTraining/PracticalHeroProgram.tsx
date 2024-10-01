@@ -28,13 +28,18 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
 
   const router = useRouter()
 
-  const step = router.query.slug === 'first-step'
-  
+  const step = router.query.slug;
+
   const tag = (
     <div className={stls.tag}>
-      <TagOrange>{step ? '1 ступень' : '2 ступень' }</TagOrange>
+      <TagOrange>
+        {step === 'first-step' ? '1 ступень' : 
+        step === 'second-step' ? '2 ступень' : 
+        step === 'third-step' ? '3 ступень' : 
+        'Неизвестная ступень'}
+      </TagOrange>
     </div>
-  )
+  );
   return (
     <>
       {isMobileAndTabletLayout && <div

@@ -423,6 +423,13 @@ const MyApp = ({ Component, pageProps, router }) => {
         })(document, window, "tmr-code");`
         }}
       />
+      <Script 
+        id='vk' 
+        dangerouslySetInnerHTML={{ 
+          __html: `!function(){var t=document.createElement("script");
+          t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?173',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1904296-h2y40"),VK.Retargeting.Hit()},document.head.appendChild(t)}()
+          `}}
+      />
       <Script
         id='WA AMO script'
         src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
@@ -466,6 +473,13 @@ const MyApp = ({ Component, pageProps, router }) => {
             alt='Top.Mail.Ru'
           />
         </div>
+      </noscript>
+      <noscript>
+        <img 
+          src='https://vk.com/rtrg?p=VK-RTRG-1904296-h2y40'
+          style={{position:'fixed', left: '-999px' }}
+          alt='vk.com'
+        />
       </noscript>
     </>
   )

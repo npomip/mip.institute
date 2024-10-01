@@ -18,8 +18,7 @@ type Props = {
 const PracticalReviews = ({ review }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')  
   const fingerRef = useRef(null)
-  console.log(review);
-  
+    
   return (
     <section ref={fingerRef} className={stls.container}>
       <Wrapper>

@@ -10,6 +10,14 @@ const staticLinks = [
       href: routes.front.professions
     },
     {
+      val: 'Высшее образование (Бакалавриат)',
+      href: routes.front.bachelors
+    },
+    {
+      val: 'Практическая подготовка',
+      href: routes.front.practicalTrainings
+    },
+    {
       val: 'Вебинары',
       href: routes.front.webinars
     },

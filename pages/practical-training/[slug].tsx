@@ -4,6 +4,7 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
+import preview from '@/config/preview'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -13,7 +14,7 @@ const BachelorPage = ({ practicalTraining }: Props) => {
   
   return (
     <>
-      <NextSeo nofollow={true} noindex={true} />
+      <NextSeo nofollow={preview} noindex={preview} />
       <PageTraining practicalTraining={practicalTraining} />
     </>
   )

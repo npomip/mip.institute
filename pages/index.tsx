@@ -149,7 +149,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo
-        videoId='rP37RRN2KfT1qtBQQBaH5e'
+        videoId='2WALhR1ZcszBWNRXQ2kNSB'
         title='Знакомство с институтом'
         isOnMain
       />

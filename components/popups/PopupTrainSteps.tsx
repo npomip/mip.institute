@@ -1,7 +1,5 @@
 import stls from '@/styles/components/popups/PopupTrainSteps.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
-import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 import Popup from 'reactjs-popup'
 import IconPracticalStepInfo from '../icons/IconPracticalStepInfo'
 import IconClosePopupSteps from '../icons/IconClosePopupSteps'
@@ -12,9 +10,12 @@ type PopupTrainStepsType = {
 }
 
 const PopupTrainSteps = ({ title, text }: PopupTrainStepsType) => {
-  const renderer = new marked.Renderer()
-  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
-  marked.setOptions({ renderer })
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={stls.strongText}>{children}</span>
+    )
+  }
+
   return (
     <Popup
       trigger={
@@ -29,7 +30,9 @@ const PopupTrainSteps = ({ title, text }: PopupTrainStepsType) => {
         close => (
           <div className={stls.container}>
             <h2 className={stls.title}>{title}</h2>
-            <div className={stls.text}>{text}</div>
+            <div className={stls.text}>
+              <ReactMarkdown components={customRenderers}>{text}</ReactMarkdown>
+            </div>
             <button className={stls.closeBtn} onClick={close}>
               <span className={stls.btnText}>Закрыть окно</span>
               <IconClosePopupSteps />

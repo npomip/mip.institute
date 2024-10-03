@@ -1,20 +1,17 @@
 import stls from '@/styles/components/practicalTraining/ThreadBlock.module.sass'
 import { TermPoint } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
-import parse from 'html-react-parser'
-import marked from 'marked'
+import ReactMarkdown from 'react-markdown'
 
 type Props = {
   points: TermPoint[]
 }
 
 const ThreadBlockMobile = ({ points }: Props) => {
-  const renderer = new marked.Renderer()
-
-  renderer.strong = text => {
-    return `<span className=${stls.strongText}>${text}</span>`
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={stls.strongText}>{children}</span>
+    )
   }
-
-  marked.setOptions({ renderer })
 
   const positions = [
     { x: 110, y: 100, textX: -105, textY: 20 }, // Для первой точки
@@ -38,11 +35,7 @@ const ThreadBlockMobile = ({ points }: Props) => {
         />
 
         {points.map((point, index) => {
-          const parsedText = marked(point.text)
-
-          // Определение позиций для каждой точки
-
-          const { x, y, textX, textY } = positions[index] || { x: 0, y: 0 } // Обработка индекса, если точек больше или меньше, чем задано
+          const { x, y, textX, textY } = positions[index] || { x: 0, y: 0 }
 
           return (
             <g key={index} transform={`translate(${x}, ${y})`}>
@@ -56,7 +49,11 @@ const ThreadBlockMobile = ({ points }: Props) => {
               </text>
               <circle cx='0' cy='8' r='8.5' fill='#6F01C6' />
               <foreignObject x={textX} y={textY} width='300' height='150'>
-                <div className={stls.text}>{parse(parsedText)}</div>
+                <div className={stls.text}>
+                  <ReactMarkdown components={customRenderers}>
+                    {point.text}
+                  </ReactMarkdown>
+                </div>
               </foreignObject>
             </g>
           )

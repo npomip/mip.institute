@@ -1,7 +1,9 @@
 import stls from '@/styles/components/articles/ArticleBlogListWithBackgroundAndTitle.module.sass'
 import styles from '@/styles/pages/JournalSlug.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
+import { useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import DOMPurify from 'dompurify'
 
 type ArticleBlogListWithBackgroundAndTitleItemType = {
   props: {
@@ -15,25 +17,34 @@ const ArticleBlogListWithBackgroundAndTitleItem = ({
   props
 }: ArticleBlogListWithBackgroundAndTitleItemType) => {
   const { text, icon } = props
+  const [sanitizedIcon, setSanitizedIcon] = useState('')
 
-  const renderer = new marked.Renderer()
-  renderer.code = html => {
-    return `<div class="${stls.icon}">${html}</div>`
-  }
-  renderer.paragraph = text => {
-    return `<p>${text}</p>`
-  }
-  renderer.strong = title => {
-    return `<span class="${styles.strongText}">${title}</span>`
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const cleanIcon = DOMPurify.sanitize(icon || '', {
+        USE_PROFILES: { svg: true }
+      })
+      setSanitizedIcon(cleanIcon)
+    }
+  }, [icon])
 
-  marked.setOptions({ renderer })
-
-  const parsedIcon = parse(marked(icon))
+  const customRenderers = {
+    code: ({ children }: { children: React.ReactNode }) => (
+      <div className={stls.icon}>{children}</div>
+    ),
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={styles.strongText}>{children}</span>
+    )
+  }
 
   return (
     <div className={stls.innerBox}>
-      <div className={stls.icon}>{parsedIcon}</div>
+      <ReactMarkdown
+        className={stls.icon}
+        rehypePlugins={[rehypeRaw]}
+        components={customRenderers}>
+        {sanitizedIcon}
+      </ReactMarkdown>
       <p>{text}</p>
     </div>
   )

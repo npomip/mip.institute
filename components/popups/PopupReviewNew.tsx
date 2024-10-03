@@ -10,9 +10,8 @@ import {
   BtnZeta
 } from '@/components/btns'
 import stls from '@/styles/components/popups/PopupReviewNew.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 import Popup from 'reactjs-popup'
 import IconClosePopupPractical from '../icons/IconClosePopupPractical'
 
@@ -34,7 +33,9 @@ type PopupReviewNewType = {
     answer: string
     question: string
   }[]
-  image
+  image: {
+    url: string
+  }
 }
 
 const PopupReviewNew = ({
@@ -68,20 +69,18 @@ const PopupReviewNew = ({
     text: BtnText,
     test: BtnGamma
   }[btn]
-  const renderer = new marked.Renderer()
-  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
-  marked.setOptions({ renderer })
+
   const SlideContent = ({ slide, isFirstSlide }) => {
     const formattedAnswer = slide.answer
-      .replace(/(–\s)/g, '<br />$1')
-      .replace(/(\d+\.\s)/g, '<br />$1')
+      .replace(/(–\s)/g, '\n\n$1')
+      .replace(/(\d+\.\s)/g, '\n\n$1')
 
     return (
       <>
         <div className={stls.question}>{slide.question}</div>
         <div className={stls.answer}>
           {isFirstSlide && <span className={stls.strongText}>Ответ:</span>}
-          {parse(marked(formattedAnswer))}
+          <ReactMarkdown>{formattedAnswer}</ReactMarkdown>
         </div>
       </>
     )
@@ -106,7 +105,7 @@ const PopupReviewNew = ({
             <div className={stls.leftBlock}>
               <div className={stls.personImage}>
                 <Image
-                  src={image.url ?? image}
+                  src={image.url ?? ''}
                   alt='Выпускник'
                   width={112}
                   height={112}

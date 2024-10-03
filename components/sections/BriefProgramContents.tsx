@@ -1,12 +1,11 @@
-import stls from '@/styles/components/sections/BriefProgramContents.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
-import ProgramModulesQty from '@/components/program/ProgramModulesQty'
 import ProgramModules from '@/components/program/ProgramModules'
-import BachelorProgramModules from '../program/BachelorProgramModules'
-import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
-import marked from 'marked'
+import ProgramModulesQty from '@/components/program/ProgramModulesQty'
+import stls from '@/styles/components/sections/BriefProgramContents.module.sass'
 import classNames from 'classnames'
 import { MutableRefObject } from 'react'
+import BachelorProgramModules from '../program/BachelorProgramModules'
+import splitIntoSemesters from '@/helpers/splitIntoSemesters'
 
 type Props = {
   planRef: MutableRefObject<any>
@@ -21,7 +20,8 @@ const BriefProgramContents = ({
   title = null,
   coloredBackground = false
 }: Props) => {
-  const topics = program?.length > 0 && getListItemsInnerHtml(marked(program))
+  const { semesters } = splitIntoSemesters(program)
+
   return (
     <section
       ref={planRef}
@@ -49,7 +49,7 @@ const BriefProgramContents = ({
               )}
             </div>
             <div className={stls.qty}>
-              <ProgramModulesQty quantity={topics.length} />
+              <ProgramModulesQty quantity={semesters?.length} />
             </div>
           </div>
 

@@ -1,6 +1,7 @@
-import parse from 'html-react-parser'
-import marked from 'marked'
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
 import styles from '@/styles/pages/JournalSlug.module.sass'
+
 type ArticleFullColoredTextBlockType = {
   props: {
     text?: string
@@ -11,23 +12,21 @@ type ArticleFullColoredTextBlockType = {
 const ArticleFullColoredTextBlock = ({
   props
 }: ArticleFullColoredTextBlockType) => {
-  const renderer = new marked.Renderer()
-  renderer.paragraph = text => {
-    return `<p>${text}</p>`
-  }
-  renderer.em = function (text) {
-    return `<span style="color: ${props?.textColor}">${text}</span>`
-  }
-
-  renderer.strong = text => {
-    return `<span className=${styles.strongText}>${text}</span>`
+  const customRenderers = {
+    em: ({ children }: { children: React.ReactNode }) => (
+      <span style={{ color: props?.textColor }}>{children}</span>
+    ),
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={styles.strongText}>{children}</span>
+    ),
+    p: ({ children }: { children: React.ReactNode }) => <p>{children}</p>
   }
 
-  marked.setOptions({ renderer })
-
-  const text = marked(props.text)
-
-  return <>{parse(text)}</>
+  return (
+    <ReactMarkdown components={customRenderers}>
+      {props.text || ''}
+    </ReactMarkdown>
+  )
 }
 
 export default ArticleFullColoredTextBlock

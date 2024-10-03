@@ -1,30 +1,26 @@
-import stls from '@/styles/components/program/ProgramModules.module.sass'
 import BachelorProgramModule from '@/components/program/BachelorProgramModule'
-import { getListItemsInnerHtml, getParagraphInnerHtml } from '@/helpers/index'
-import marked from 'marked'
+import stls from '@/styles/components/program/ProgramModules.module.sass'
 
 const BachelorProgramModules = ({ program }) => {
-  const topics = program?.length > 0 && getListItemsInnerHtml(marked(program))
-  const titles = program?.length > 0 && getParagraphInnerHtml(marked(program))
+  const semesters = program.split(/\n\n(?=\d)/).map(sem => {
+    const [title, ...topics] = sem.split('\n').filter(Boolean)
+    const cleanedTopics = topics
+      .map(topic => topic.replace(/^\s*-\s*/, '').trim())
+      .filter(topic => topic.length > 0)
 
-  const list =
-    titles &&
-    titles.map((topic, idx) => ({
-      title: topic,
-      topics: topics?.[idx]
-    }))
+    return { title, topics: cleanedTopics }
+  })
 
   return (
     <ul className={stls.container}>
-      {list &&
-        list.map(({ title, topics }, idx) => (
-          <BachelorProgramModule
-            key={title + idx}
-            title={title}
-            topics={topics}
-            isOpened={idx === 0}
-          />
-        ))}
+      {semesters.map(({ title, topics }, idx) => (
+        <BachelorProgramModule
+          key={title + idx}
+          title={title}
+          topics={topics}
+          isOpened={idx === 0}
+        />
+      ))}
     </ul>
   )
 }

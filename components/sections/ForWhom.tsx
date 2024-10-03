@@ -7,42 +7,50 @@ import {
 } from '@/components/icons'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
-import { getListItemsInnerHtml } from '@/helpers/index'
-import parse from 'html-react-parser'
-import marked from 'marked'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 const ForWhom = () => {
   const { program } = useContext(ContextStaticProps)
 
-  const subtitle = program?.forWhomSubtitle && program?.forWhomSubtitle
+  const subtitle = program?.forWhomSubtitle || ''
 
-  const list =
-    program?.ForWhom?.length > 0 &&
-    getListItemsInnerHtml(marked(program.ForWhom))
+  const markdownContent = program?.ForWhom || ''
+
+  const renderIcon = idx => {
+    switch (idx) {
+      case 0:
+        return <IconToTheMoon />
+      case 1:
+        return <IconRemoteWork />
+      default:
+        return <IconGettingup />
+    }
+  }
+
+  const customRenderers = {
+    ul: ({ children }) => <ul className={stls.list}>{children}</ul>,
+    li: ({ node, ...props }) => {
+      const index = node.position.start.line - 1
+      return (
+        <li className={stls.item}>
+          <div className={stls.icon}>{renderIcon(index)}</div>
+          <p className={stls.p}>{props.children}</p>
+        </li>
+      )
+    }
+  }
+
   return (
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Для кого программа</h2>
         <div className={stls.subtitle}>
-          {subtitle && parse(subtitle)}
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{subtitle}</ReactMarkdown>
         </div>
-        <ul className={stls.list}>
-          {list &&
-            list[0].map((item, idx) => (
-              <li key={item + idx} className={stls.item}>
-                <div className={stls.icon}>
-                  {idx === 0 ? (
-                    <IconToTheMoon />
-                  ) : idx === 1 ? (
-                    <IconRemoteWork />
-                  ) : (
-                    <IconGettingup />
-                  )}
-                </div>
-                <p className={stls.p}>{parse(item)}</p>
-              </li>
-            ))}
-        </ul>
+        <ReactMarkdown components={customRenderers} rehypePlugins={[rehypeRaw]}>
+          {markdownContent}
+        </ReactMarkdown>
       </Wrapper>
     </section>
   )

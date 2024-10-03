@@ -1,7 +1,6 @@
 import stls from '@/styles/components/practicalTraining/PracticalListCarouselCard.module.sass'
 import classNames from 'classnames'
-import marked from 'marked'
-import parse from 'html-react-parser'
+import ReactMarkdown from 'react-markdown'
 
 type Props = {
   number: number
@@ -19,11 +18,12 @@ const PracticalListCarouselCard = ({
   margin = 0
 }: Props) => {
   const even = number % 2 === 0
-  const renderer = new marked.Renderer()
-  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
-  marked.setOptions({ renderer })
 
-  const renderedTitle = markedTitle ? parse(marked(title)) : title
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={stls.strongText}>{children}</span>
+    )
+  }
 
   return (
     <div
@@ -42,7 +42,11 @@ const PracticalListCarouselCard = ({
       </div>
       <div className={stls.description}>
         <div className={stls.title} style={{ marginBottom: `${margin}px` }}>
-          {renderedTitle}
+          {markedTitle ? (
+            <ReactMarkdown components={customRenderers}>{title}</ReactMarkdown>
+          ) : (
+            title
+          )}
         </div>
         <div
           className={classNames({

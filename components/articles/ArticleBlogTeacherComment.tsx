@@ -1,8 +1,7 @@
 import base64pixel from '@/config/base64pixel'
 import stls from '@/styles/components/articles/ArticleBlogTeacherComment.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 
 type ArticleBlogTeacherCommentType = {
   props: {
@@ -24,23 +23,18 @@ type ArticleBlogTeacherCommentType = {
 const ArticleBlogTeacherComment = ({
   props
 }: ArticleBlogTeacherCommentType) => {
-  const comment = props?.comment
-
-  const renderer = new marked.Renderer()
-
-  renderer.strong = text => {
-    return `<span className=${stls.strongText}>${text}</span>`
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={stls.strongText}>{children}</span>
+    )
   }
-  marked.setOptions({ renderer })
-
-  const text = marked(props.specialization)
 
   return (
     <div className={stls.contentBox}>
       <div className={stls.imgContainer}>
         <Image
           src={props.teacher.portrait.url}
-          alt={'alt'}
+          alt={props.teacher.name}
           className={stls.img}
           width={173}
           height={226}
@@ -49,11 +43,17 @@ const ArticleBlogTeacherComment = ({
         />
       </div>
       <div className={stls.textContent}>
-        <div className={stls.textContentSpecialization}>{parse(text)}</div>
+        <div className={stls.textContentSpecialization}>
+          <ReactMarkdown components={customRenderers}>
+            {props.specialization || ''}
+          </ReactMarkdown>
+        </div>
         <div
           style={{ borderLeft: `2px solid ${props.borderColor}` }}
           className={stls.textContentComment}>
-          <p>{parse(comment)}</p>
+          <ReactMarkdown components={customRenderers}>
+            {props.comment || ''}
+          </ReactMarkdown>
         </div>
       </div>
     </div>

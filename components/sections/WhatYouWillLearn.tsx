@@ -1,8 +1,8 @@
 import Wrapper from '@/components/layout/Wrapper'
 import { ContextStaticProps } from '@/context/index'
-import { getListItemsInnerHtml } from '@/helpers/index'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
-import marked from 'marked'
 import { useContext } from 'react'
 import TagOrange from '@/components/general/TagOrange'
 import IconPortalViolet from '@/components/icons/IconPortalViolet'
@@ -17,12 +17,10 @@ import highlightFirstWord from '@/helpers/highlightFirstWord'
 
 const WhatYouWillLearn = ({ onMain = false, title }) => {
   const { program } = useContext(ContextStaticProps)
-  let list =
-    program?.WhatYouWillLearn?.length > 0 &&
-    getListItemsInnerHtml(marked(program.WhatYouWillLearn))
+  const markdownContent = program?.WhatYouWillLearn || ''
 
-  const renderIcon = (x: number) => {
-    switch (x) {
+  const renderIcon = index => {
+    switch (index) {
       case 0:
         return <IconSun />
       case 1:
@@ -36,6 +34,28 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
       default:
         return <IconStar isOrangeEmpty />
     }
+  }
+  const customRenderers = {
+    ul: ({ children }) => <ul className={stls.list}>{children}</ul>,
+    li: ({ children }) => (
+      <li className={stls.item}>
+        <IconPortalViolet />
+        <div
+          className={classNames({
+            [stls.description]: true,
+            [stls.main]: onMain
+          })}>
+          <span
+            className={stls.firstWord}
+            style={{
+              display: onMain ? 'inline' : 'block'
+            }}>
+            {`${children.split(' ')[0]} `}
+          </span>
+          <span className={stls.p}>{highlightFirstWord(children)}</span>
+        </div>
+      </li>
+    )
   }
 
   return (
@@ -63,28 +83,11 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
               </ul>
             </div>
           ) : (
-            <ul className={stls.list}>
-              {list &&
-                list[0].map((item, idx) => (
-                  <li key={`${item}-${idx}`} className={stls.item}>
-                    <IconPortalViolet />
-                    <div
-                      className={classNames({
-                        [stls.description]: true,
-                        [stls.main]: onMain
-                      })}>
-                      <span
-                        className={stls.firstWord}
-                        style={{
-                          display: onMain ? 'inline' : 'block'
-                        }}>
-                        {`${item.split(' ')[0]} `}
-                      </span>
-                      <span className={stls.p}>{highlightFirstWord(item)}</span>
-                    </div>
-                  </li>
-                ))}
-            </ul>
+            <ReactMarkdown
+              components={customRenderers}
+              rehypePlugins={[rehypeRaw]}>
+              {markdownContent}
+            </ReactMarkdown>
           )}
         </div>
       </Wrapper>

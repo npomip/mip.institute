@@ -5,7 +5,7 @@ import stls from '@/styles/components/practicalTraining/PracticalReviews.module.
 import { ReviewType } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { useRef } from 'react'
 import SwiperCore from 'swiper'
-import { Scrollbar } from 'swiper/modules';
+import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { IconFinger } from '../icons'
 import PracticalReviewsCard from './PracticalReviewsCard'
@@ -17,10 +17,9 @@ type Props = {
 }
 
 const PracticalReviews = ({ review }: Props) => {
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')  
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const fingerRef = useRef(null)
-  console.log(review);
-  
+
   return (
     <section ref={fingerRef} className={stls.container}>
       <Wrapper>
@@ -46,10 +45,7 @@ const PracticalReviews = ({ review }: Props) => {
                 key={el.slide[0].answer}
                 name={el?.name || 'Елена'}
                 image={el?.image || person}
-                answer={el.slide[0].answer
-                  .replace(/–/g, '<br />–')
-                  .trim()
-                }
+                answer={el.slide[0].answer.replace(/–/g, '<br />–').trim()}
                 slides={el.slide}
                 number={idx + 1}
                 markedTitle

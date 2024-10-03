@@ -1,11 +1,16 @@
-import stls from '@/styles/components/sections/MeetYourTeachers.module.sass'
-import parse from 'html-react-parser'
-import { getImageHeight } from '@/helpers/index'
-import Wrapper from '@/components/layout/Wrapper'
 import PopupTrigger from '@/components/general/PopupTrigger'
 import { ImgTeacher } from '@/components/imgs'
+import Wrapper from '@/components/layout/Wrapper'
+import stls from '@/styles/components/sections/MeetYourTeachers.module.sass'
+import ReactMarkdown from 'react-markdown'
 
 const MeetYourTeachers = ({ teachers }) => {
+  const customRenderers = {
+    p: ({ children }: { children: React.ReactNode }) => (
+      <div className={stls.bio}>{children}</div>
+    )
+  }
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -16,7 +21,6 @@ const MeetYourTeachers = ({ teachers }) => {
               <li key={teacher.name} className={stls.teacher}>
                 <div className={stls.img}>
                   <ImgTeacher
-                  
                     src={teacher?.portrait?.url}
                     alt={teacher?.name}
                     width={270}
@@ -25,7 +29,9 @@ const MeetYourTeachers = ({ teachers }) => {
                 </div>
                 <div>
                   <div className={stls.name}>{teacher.name}</div>
-                  <div className={stls.bio}>{parse(teacher.achievements)}</div>
+                  <ReactMarkdown components={customRenderers}>
+                    {teacher.achievements}
+                  </ReactMarkdown>
                 </div>
               </li>
             ))}

@@ -41,7 +41,6 @@
     "react-transition-group": "^4.4.2",
     "reactjs-popup": "^2.0.4",
     "rehype-raw": "^7.0.0",
-    "rimraf": "^6.0.1",
     "sharp": "^0.33.5",
     "swiper": "^11.1.14",
     "truncate": "^3.0.0",

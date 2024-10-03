@@ -1,10 +1,9 @@
-import stls from '@/styles/components/sections/TeachersLineUp/TeachersLineUp.module.sass'
-import parse from 'html-react-parser'
-import { getImageHeight } from '@/helpers/index'
-import Wrapper from '@/components/layout/Wrapper'
 import { ImgTeacher } from '@/components/imgs'
-import { BtnAlpha } from '@/components/btns'
+import Wrapper from '@/components/layout/Wrapper'
+import { getImageHeight } from '@/helpers/index'
+import stls from '@/styles/components/sections/TeachersLineUp/TeachersLineUp.module.sass'
 import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 const TeachersFiles = ({ teachers }) => {
   const [value, setValue] = useState(4)
@@ -13,13 +12,19 @@ const TeachersFiles = ({ teachers }) => {
     setValue(prev => prev + 4)
   }
 
+  const customRenderers = {
+    p: ({ children }: { children: React.ReactNode }) => (
+      <div className={stls.bio}>{children}</div>
+    )
+  }
+
   return (
     <section className={stls.container}>
       <Wrapper>
         <h1 className={stls.title}>Познакомьтесь с вашими наставниками</h1>
         <ul className={stls.teachers}>
           {teachers &&
-            teachers.slice(0,value).map(teacher => (
+            teachers.slice(0, value).map(teacher => (
               <li key={teacher.name} className={stls.teacher}>
                 <div className={stls.img}>
                   <ImgTeacher
@@ -35,7 +40,9 @@ const TeachersFiles = ({ teachers }) => {
                 </div>
                 <div>
                   <div className={stls.name}>{teacher.name}</div>
-                  <div className={stls.bio}>{parse(teacher.achievements)}</div>
+                  <ReactMarkdown components={customRenderers}>
+                    {teacher.achievements}
+                  </ReactMarkdown>
                 </div>
               </li>
             ))}

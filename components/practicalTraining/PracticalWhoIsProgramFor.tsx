@@ -2,8 +2,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import src from '@/public/assets/imgs/practicalCarousel/beginner.png'
 import stls from '@/styles/components/practicalTraining/PracticalWhoIsProgramFor.module.sass'
 import bubblesList from 'constants/practicalBubbles'
-import parse from 'html-react-parser'
-import marked from 'marked'
+import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import Wrapper from '../layout/Wrapper'
@@ -11,10 +10,13 @@ import renderedList from 'constants/practicalWhoIsProgramFor'
 
 const PracticalWhoIsProgramFor = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-  const renderer = new marked.Renderer()
   const mobileBubblesList = bubblesList.slice(1, bubblesList.length - 4)
-  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
-  marked.setOptions({ renderer })
+
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={stls.strongText}>{children}</span>
+    )
+  }
 
   return (
     <section className={stls.container}>
@@ -23,7 +25,11 @@ const PracticalWhoIsProgramFor = () => {
           <div className={stls.smallContainer}>
             <div className={stls.imageContainer}>
               <div className={stls.image}>
-                <Image src={src} alt='Начинающий психолог' style={{width: '100%', height: 'auto'}}/>
+                <Image
+                  src={src}
+                  alt='Начинающий психолог'
+                  style={{ width: '100%', height: 'auto' }}
+                />
               </div>
               <p className={stls.subTitleImage}>Начинающий психолог</p>
             </div>
@@ -39,7 +45,11 @@ const PracticalWhoIsProgramFor = () => {
                 {renderedList.map((item, index) => (
                   <div className={stls.card} key={item}>
                     <span className={stls.number}>{index + 1}</span>
-                    <div className={stls.text}>{parse(marked(item))}</div>
+                    <div className={stls.text}>
+                      <ReactMarkdown components={customRenderers}>
+                        {item}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -56,7 +66,7 @@ const PracticalWhoIsProgramFor = () => {
                     alt='Пузыри'
                     width={src.width}
                     height={src.height}
-                    style={{width: '100%', height: 'auto'}}
+                    style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
               ))}

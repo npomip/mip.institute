@@ -1,7 +1,6 @@
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/practicalTraining/ThreadBlock.module.sass'
 import { TermPoint } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
-import marked from 'marked'
 import TagOrange from '../general/TagOrange'
 import Wrapper from '../layout/Wrapper'
 import ThreadBlockDesc from './ThreadBlockDesc'
@@ -13,14 +12,6 @@ type Props = {
 
 const ThreadBlock = ({ points }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-
-  const renderer = new marked.Renderer()
-
-  renderer.strong = text => {
-    return `<span className=${stls.strongText}>${text}</span>`
-  }
-
-  marked.setOptions({ renderer })
 
   return (
     <Wrapper>

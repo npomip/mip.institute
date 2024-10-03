@@ -2,7 +2,7 @@ import stls from '@/styles/components/program/BachelorProgramModule.module.sass'
 import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { IconMinus, IconPlus } from '@/components/icons'
-import parse from 'html-react-parser'
+import ReactMarkdown from 'react-markdown'
 
 type Props = {
   title: string
@@ -22,6 +22,12 @@ const BachelorProgramModule = ({ title, topics, isOpened }: Props) => {
     isOpened && setOpen(true)
   }, [])
 
+  const customRenderers = {
+    p: ({ children }: { children: React.ReactNode }) => (
+      <p className={stls.p}>{children}</p>
+    )
+  }
+
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
@@ -39,7 +45,9 @@ const BachelorProgramModule = ({ title, topics, isOpened }: Props) => {
               {topics &&
                 topics.map((topic, idx) => (
                   <li key={topic + idx} className={stls.item}>
-                    <p className={stls.p}>{parse(topic)}</p>
+                    <ReactMarkdown components={customRenderers}>
+                      {topic}
+                    </ReactMarkdown>
                   </li>
                 ))}
             </ul>

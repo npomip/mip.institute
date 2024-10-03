@@ -1,8 +1,7 @@
 import stls from '@/styles/components/practicalTraining/PracticalReviewsCard.module.sass'
 import classNames from 'classnames'
-import marked from 'marked'
-import parse from 'html-react-parser'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 import PopupReviewNew from '../popups/PopupReviewNew'
 
 type Props = {
@@ -15,7 +14,7 @@ type Props = {
     question: string
   }[]
   margin?: number
-  image
+  image: any
 }
 
 const PracticalReviewsCard = ({
@@ -28,13 +27,15 @@ const PracticalReviewsCard = ({
   margin = 0
 }: Props) => {
   const even = number % 2 === 0
-  const renderer = new marked.Renderer()
-  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
-  marked.setOptions({ renderer })
 
-  const renderedTitle = markedTitle ? parse(marked(name)) : name
-  const renderedText = marked(answer)
-  const lines = renderedText.split('<br />');
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={stls.strongText}>{children}</span>
+    )
+  }
+  const renderedText = answer.replace(/<br\s*\/?>/gi, '\n\n')
+  const lines = renderedText.split('\n\n')
+
   return (
     <div
       className={classNames({
@@ -53,14 +54,17 @@ const PracticalReviewsCard = ({
       </div>
       <div className={stls.description}>
         <div className={stls.title} style={{ marginBottom: `${margin}px` }}>
-          {renderedTitle}
+          {markedTitle ? (
+            <ReactMarkdown components={customRenderers}>{name}</ReactMarkdown>
+          ) : (
+            name
+          )}
         </div>
-        <div
-          className={classNames({
-            [stls.text]: true
-          })}>
+        <div className={stls.text}>
           {lines.map((line, index) => (
-            <div key={index}>{parse(line)}</div>
+            <ReactMarkdown key={index} components={customRenderers}>
+              {line}
+            </ReactMarkdown>
           ))}
         </div>
       </div>

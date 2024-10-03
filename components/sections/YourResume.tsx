@@ -4,18 +4,24 @@ import cn from 'classnames'
 import { ImgResume1 } from '@/components/imgs'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
-import { getListItemsInnerHtml, toNumberWithSpaces } from '@/helpers/index'
-import marked from 'marked'
+import { toNumberWithSpaces } from '@/helpers/index'
 import ResumeDiplomas from '@/components/imgs/general/ResumeDiplomas'
 import Clip from '@/components/imgs/general/Clip'
 import IconGratefullPortal from '@/components/icons/IconGratefullPortal'
+import ReactMarkdown from 'react-markdown'
 
 const YourResume = ({ resumeRef = null }) => {
   const { program } = useContext(ContextStaticProps)
 
-  const list =
-    program?.resumeSkills?.length > 0 &&
-    getListItemsInnerHtml(marked(program.resumeSkills))
+  const resumeSkills = program?.resumeSkills || ''
+  const customRenderers = {
+    ul: ({ children }) => <ul className={stls.list}>{children}</ul>,
+    li: ({ children }) => (
+      <li className={stls.item}>
+        <p className={stls.itemText}>{children}</p>
+      </li>
+    )
+  }
 
   return (
     <section ref={resumeRef} className={stls.container}>
@@ -67,12 +73,9 @@ const YourResume = ({ resumeRef = null }) => {
             <div className={stls.left}>
               <p className={stls.skills}>Профессиональные навыки:</p>
               <ul className={stls.list}>
-                {list &&
-                  list[0].map((item, idx) => (
-                    <li key={item + idx} className={stls.item}>
-                      <p className={stls.itemText}>{item}</p>
-                    </li>
-                  ))}
+                <ReactMarkdown components={customRenderers}>
+                  {resumeSkills}
+                </ReactMarkdown>
               </ul>
             </div>
             <div className={stls.right}>

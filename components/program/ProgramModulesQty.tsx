@@ -1,9 +1,8 @@
 import stls from '@/styles/components/program/ProgramModulesQty.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
-import { getParagraphInnerHtml } from '@/helpers/index'
-import marked from 'marked'
 import getDeclension from '@/helpers/getDeclension'
+import parseProgramContent from '@/helpers/parseProgramContent'
 
 type Props = {
   quantity: number
@@ -12,9 +11,7 @@ type Props = {
 const ProgramModulesQty = ({ quantity }: Props) => {
   const { program } = useContext(ContextStaticProps)
 
-  const titles =
-    program?.shortContents?.length > 0 &&
-    getParagraphInnerHtml(marked(program.shortContents))
+  const { titles } = parseProgramContent(program?.shortContents)
 
   return (
     <div className={stls.container}>

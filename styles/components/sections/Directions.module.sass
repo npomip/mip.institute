@@ -7,7 +7,7 @@
   z-index: 1
   display: flex
   flex-direction: column
-  background: #FEF2E8
+  @include m.dye(bg, c.$yellow-100)
   @include m.gap($pt: f.px(25), $pb: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(25))
@@ -19,7 +19,7 @@
 .title
   display: inline-block
   @include m.gap($pt: f.px(15), $pb: f.px(15), $mb: f.px(0))
-  color: #F87E1B
+  @include m.dye(c, c.$orange-700)
   font-size: f.px(44)
   font-style: normal
   font-weight: 500
@@ -35,9 +35,7 @@
     @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .flexContainer
-  display: flex
-  justify-content: flex-start
-  align-items: baseline
+  @include m.flex($ai: baseline, $jc: flex-start)
   gap: 100px
   @include m.media(laptop)
     justify-content: space-between
@@ -54,7 +52,7 @@
   background: white
   @include m.gap($ptb: f.px(19), $plr: f.px(20), $mb: f.px(20))
   border-radius: f.px(25)
-  border: f.px(1) solid #B250FF
+  border: f.px(1) solid c.$purple-400
   width: f.px(400)
   font-size: f.px(20)
   text-align: center
@@ -71,7 +69,7 @@
     @include m.gap($mb: f.px(10))
 
 .courses
-  background: #B250FF
+  @include m.dye(bg, c.$purple-400)
   @include m.gap($ptb: f.px(19), $plr: f.px(20), $mb: f.px(20))
   border-radius: f.px(25)
   @include m.dye(c, c.$white-900)

@@ -31,8 +31,9 @@ const YouTubeVideo = ({ isOnMain, videoId, title, props }: Props) => {
         )}
         <div className={stls.playerWrapper}>
           <iframe
-            src={`https://kinescope.io/embed/${props?.videoLink ? props?.videoLink : videoId}`}
-            frameBorder='0'
+            src={`https://kinescope.io/embed/${
+              props?.videoLink ? props?.videoLink : videoId
+            }`}
             allow='autoplay; fullscreen; picture-in-picture; encrypted-media;'></iframe>
         </div>
       </Wrapper>

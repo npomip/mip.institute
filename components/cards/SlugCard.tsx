@@ -22,7 +22,6 @@ type CardType = {
     title: string
   }
   slug: string
-  withDate?: boolean
   firstCard?: boolean
   isLifeCourses?: boolean
 }
@@ -30,11 +29,9 @@ type CardType = {
 const SlugCard = ({
   item,
   slug,
-  withDate,
   firstCard = false,
   isLifeCourses = false
 }: CardType) => {
-  const newDate = new Date(item?.date)
   const dateOfCourse = new Date(item?.date).toLocaleString('ru-RU', {
     day: 'numeric',
     month: 'long'

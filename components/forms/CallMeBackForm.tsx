@@ -11,31 +11,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Popup from 'reactjs-popup'
-
-const CHECK_TOKENS = gql`
-  query amoTokens($title: String!) {
-    amos(where: { title: $title }) {
-      id
-      title
-      refresh
-      access
-      expired_in
-    }
-  }
-`
-
-const UPDATE_TOKEN = gql`
-  mutation UpdateTokens($input: updateAmoInput!) {
-    updateAmo(input: $input) {
-      amo {
-        id
-        access
-        refresh
-        expired_in
-      }
-    }
-  }
-`
+import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
+import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
 
 type FormValues = {
   name: string

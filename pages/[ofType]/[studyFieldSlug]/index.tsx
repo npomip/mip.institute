@@ -1,18 +1,17 @@
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import {
-  TypePageProgramsProps,
-  TypePageProgramsPropsQuery,
-  TypeGeneralGetStaticPropsContext
-} from '@/types/index'
-import { gql } from '@apollo/client'
-import apolloClient from '@/lib/apolloClient'
-import { revalidate } from '@/config/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
 import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
+import { revalidate } from '@/config/index'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
-import { useRouter } from 'next/router'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import apolloClient from '@/lib/apolloClient'
+import {
+  TypePageProgramsProps,
+  TypePageProgramsPropsQuery
+} from '@/types/index'
+import { gql } from '@apollo/client'
 import { validOfTypeValues } from 'constants/staticPropsValidation'
+import { GetStaticPaths, NextPage } from 'next'
+import { useRouter } from 'next/router'
 
 const ProgramsPage: NextPage<
   TypePageProgramsProps & { studyFields: any } & { allPrograms: any[] }

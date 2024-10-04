@@ -3,12 +3,12 @@ import ProgramsFilters from '@/components/layout/ProgramsFilters'
 import Wrapper from '@/components/layout/Wrapper'
 import { ContactForm, HeroPrograms } from '@/components/sections'
 import {
-  useFilter,
   useFilterDispatch,
   useFilteredItems
 } from '@/context/FilterContext/FilterContext'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import stls from '@/styles/components/sections/Programs.module.sass'
+import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { TypeLibPrograms } from '@/types/index'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -17,9 +17,6 @@ import ResetFilter from '../filters/ResetFilter'
 import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
 import Breadcrumbs from '../general/Breadcrumbs'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
-import TypeLibBachelors from '@/types/lib/bachelors/TypeLibBachelors'
-import TypeLibPracticalTrainings from '@/types/lib/practicalTrainings/TypeLibPracticalTrainings'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms

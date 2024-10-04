@@ -1,15 +1,14 @@
-import stls from '@/styles/pages/Contact.module.sass'
-import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
-import { NextSeo, CorporateContactJsonLd } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company, preview } from '@/config/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import { Contacts } from '@/components/sections'
-import { SeoOrganizationJsonLd } from '@/components/seo'
 import JoinInSocialChannels from '@/components/sections/JoinInSocialChannels'
+import { SeoOrganizationJsonLd } from '@/components/seo'
+import { company, preview, routes } from '@/config/index'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
+import { TypePageDefaultProps } from '@/types/index'
+import { GetStaticProps, NextPage } from 'next'
+import { CorporateContactJsonLd, NextSeo } from 'next-seo'
+import truncate from 'truncate'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

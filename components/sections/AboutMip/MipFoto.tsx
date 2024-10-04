@@ -15,19 +15,16 @@ export default function MipFoto() {
         height={400}
         layout='responsive'
         src={photo}
-        
       />
       <div className={stls.figure}></div>
       <div className={stls.shadow}></div>
       <div className={stls.round}></div>
       <div className={stls.spiralContainer}>
         <IconSpiral />
-        
       </div>
       <div className={stls.smallSpiral}>
         <IconSmallSpiral />
       </div>
-    
     </div>
   )
 }

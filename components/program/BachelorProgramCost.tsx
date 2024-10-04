@@ -1,10 +1,8 @@
-import stls from '@/styles/components/program/BachelorProgramCost.module.sass'
-import { ContextStaticProps } from '@/context/index'
-import { ReactNode, useContext } from 'react'
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
-import { discountNum } from '@/data/price'
-import PopupTrigger from '../general/PopupTrigger'
+import stls from '@/styles/components/program/BachelorProgramCost.module.sass'
 import classNames from 'classnames'
+import { ReactNode } from 'react'
+import PopupTrigger from '../general/PopupTrigger'
 
 type Props = {
   title: string | ReactNode

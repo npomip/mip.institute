@@ -23,7 +23,6 @@ const JournalPage = ({ lifeCourses }) => {
   const minmaxPrice = findMinMaxForSlider(prices)
 
   const segments = ['live-courses']
-  // const segments = router.asPath.split('/').filter(segment => segment !== '')
 
   const labels = ['LIFE курсы']
   const slug = ['live-courses']
@@ -42,17 +41,6 @@ const JournalPage = ({ lifeCourses }) => {
     <Wrapper>
       <NextSeo nofollow={true} noindex={true} />
       <FilterProvider items={lifeCourses}>
-        {/* {liveCourses.map(el => (
-        <p>{el.title}</p>
-      ))} */}
-        {/* <SeoPagesJournals />
-      <h1 className={stls.title}>Блог МИП</h1>
-      <StudyFieldSlugFilter
-        selectedField={selectedField}
-        setSelectedField={setSelectedField}
-        props={blogs}
-        slug='journal'
-      /> */}
         <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
         <h1 className={stls.title}>LIFE курсы</h1>
         <FiltersWithTag

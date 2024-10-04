@@ -3,17 +3,14 @@
 @use '@/styles/themes/default/colors' as c
 
 .wrapper
-  margin-top: 30px
-  margin-bottom: 27px
-  display: flex
-  align-items: center
-  flex-direction: column
-  font-size: 14px
+  @include m.gap($mtb: f.px(27))
+  @include m.flex($fd: column, $ai: center)
+  font-size: f.px(14)
   & p
     font-weight: 500
 
 .icon
-  margin-top: 27px
+  @include m.gap($mt: f.px(27))
   width: 100%
   display: flex
   justify-content: center

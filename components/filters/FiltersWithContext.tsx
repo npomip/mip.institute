@@ -53,7 +53,6 @@ const FiltersWithContext = ({ cost, duration }) => {
           max={cost.max}
           step={100}
           measure={'руб.'}
-          // classNameStyle='eeeeee'
         />
       </FilterContainer>
     </div>

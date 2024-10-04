@@ -114,6 +114,7 @@ const LivePaymentForm = ({
                   value={value}
                   onChange={onChange}
                   country='ru'
+                  localization={ru}
                   placeholder='Ваш телефон'
                   containerClass={stls.containerInput}
                   inputClass={stls.phoneInput}

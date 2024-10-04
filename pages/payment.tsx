@@ -1,11 +1,3 @@
-import stls from '@/styles/pages/Payment.module.sass'
-import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company } from '@/config/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import {
   PaymentBtns,
@@ -13,6 +5,13 @@ import {
   PaymentInfo
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import { company, routes } from '@/config/index'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
+import { TypePageDefaultProps } from '@/types/index'
+import { GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

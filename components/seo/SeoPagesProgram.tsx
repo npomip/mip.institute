@@ -17,8 +17,6 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
   program,
   curProgramsStudyFieldSlug
 }) => {
-  // TODO: pull the rest of SEO params from API
-
   const seo = program?.seo
 
   const additionalMetaRobotsKeys = [
@@ -45,15 +43,6 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
       return null
     })
   )?.filter(item => item) || null) as AdditionalRobotsProps
-
-  // nosnippet?: boolean;
-  // maxSnippet?: number;
-  // maxImagePreview?: ImagePrevSize;
-  // maxVideoPreview?: number;
-  // noarchive?: boolean;
-  // unavailableAfter?: string;
-  // noimageindex?: boolean;
-  // notranslate?: boolean;
 
   const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')
 

@@ -4,11 +4,10 @@
 
 .container
   display: inline-block
-  background: #F87E1B
+  @include m.dye(bg, c.$orange-700)
   font-size: f.px(16)
   font-weight: 350
-  color: #FFF
-  // @include m.gap($plr: f.px(17), $ptb: f.px(8))
+  @include m.dye(c, c.$white-900)
   border-radius: f.px(50)
   @include m.media(phone, tablet)
     font-size: f.px(12)

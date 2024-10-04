@@ -1,4 +1,3 @@
-import BachelorCarousel from '@/components/carousel/BachelorCarousel'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -92,8 +91,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={preview ? true : false}
-        noindex={preview ? true : false}
+        nofollow={preview}
+        noindex={preview}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

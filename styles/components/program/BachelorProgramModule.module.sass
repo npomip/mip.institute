@@ -24,15 +24,12 @@
     @include m.gap($mb: f.px(10))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(15))
-  // cursor: pointer
 
 .icon
   @include m.gap($mr: f.px(20))
   & > *
     @include m.sizeIcon($w: 40, $h: 40)
     & path
-      // @include m.dye(stroke, #6F01C6)
-      // stroke-width: f.px(0.8)
 
 .pTitle
   @include m.gap($mb: 0)
@@ -70,7 +67,7 @@
   @include m.flex($ai: center)
   &::before
     content: '•'
-    color: #F87E1B
+    @include m.dye(c, c.$orange-700)
     font-size: f.px(35)
     line-height: 10%
     @include m.gap($mr: f.px(14))

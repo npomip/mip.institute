@@ -1,20 +1,18 @@
-import { GetStaticProps, NextPage } from 'next'
+import { ActiveLicenses } from '@/components/sections'
+import AboutMip from '@/components/sections/AboutMip/AboutMip'
+import AboutPageContactForm from '@/components/sections/AboutPageContactForm'
+import ChooseProgram from '@/components/sections/ChooseProgram/ChooseProgram'
+import TeachersFiles from '@/components/sections/TeachersLineUp/TeachersFiles'
+import WhoIsOurSpeakers from '@/components/sections/WhoIsOurSpeakers/WhoIsOurSpeakers'
+import { SeoOrganizationJsonLd } from '@/components/seo'
+import { company, preview, routes } from '@/config/index'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
 import { TypeLibTeachers, TypePageTeachersProps } from '@/types/index'
+import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { routes, company, preview } from '@/config/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { SeoOrganizationJsonLd } from '@/components/seo'
-import AboutMip from '@/components/sections/AboutMip/AboutMip'
-import WhoIsOurSpeakers from '@/components/sections/WhoIsOurSpeakers/WhoIsOurSpeakers'
-import ChooseProgram from '@/components/sections/ChooseProgram/ChooseProgram'
-import { ActiveLicenses } from '@/components/sections'
 import { sortBasedOnNumericOrder } from '../helpers'
-import TeachersFiles from '@/components/sections/TeachersLineUp/TeachersFiles'
-import AboutPageContactForm from '@/components/sections/AboutPageContactForm'
-import { useContext } from 'react'
-import { ContextStaticProps } from '../context'
 
 const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   useHandleContextStaticProps({ programs })
@@ -26,14 +24,8 @@ const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
     `,
     desc: truncate(company.about, 120),
     canonical: `${routes.front.root}${routes.front.about}`
-
   }
 
-  
-  const {
-    courses,
-    professions,
-  } = useContext(ContextStaticProps)
   return (
     <>
       <NextSeo

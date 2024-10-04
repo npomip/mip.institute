@@ -276,7 +276,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         </div>
       )}
 
-      <Script 
+      {/* <Script 
           id='sendsay-popup' 
           src="https://image.sendsay.ru/app/js/forms/forms.min.js"
           onLoad={() => {
@@ -288,8 +288,20 @@ const MyApp = ({ Component, pageProps, router }) => {
                   console.error("SENDSAY is not defined");
               }
           }}
-      />
+      /> */}
 
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-16700039578"/>
+      <Script 
+      id='google-tag'
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16700039578');
+          `,
+        }} 
+      />
 
       <DefaultSeo {...SEO} />
       <div style={{ display: 'none' }}>

@@ -4,6 +4,7 @@ const footerLinks = [
     { href: routes.external.advCake, title: 'Партнерская программа' },
     { href: routes.external.referralProgram, title: 'Пригласи друга' },
     { href: routes.front.policiesTerms, title: 'Договор оферты' },
+    { href: routes.front.policiesOfertaEvent, title: 'Договор оферты мероприятий' },
     { href: routes.front.policiesPrivacy, title: 'Политика конфиденциальности' },
     {
       href: routes.external.license,

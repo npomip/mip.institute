@@ -53,6 +53,7 @@ const routes = {
     policiesPrivacy: '/policies/privacy.pdf',
     policiesTerms: '/policies/terms.pdf',
     policiesOferta: '/policies/oferta-mip.pdf',
+    policiesOfertaEvent: '/policies/oferta-event.pdf',
     regulation: '/policies/regulation.pdf',
     yandexAnalytics: '/policies/yandexAnalytics.pdf'
   },

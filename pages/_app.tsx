@@ -275,14 +275,21 @@ const MyApp = ({ Component, pageProps, router }) => {
           обращения: {roistatVisit}
         </div>
       )}
-      <Script async src='https://image.sendsay.ru/app/js/forms/forms.min.js' />
-      <Script
-        src="https://image.sendsay.ru/app/js/forms/forms.min.js"
-        strategy="afterInteractive"
+
+      <Script 
+          id='sendsay-popup' 
+          src="https://image.sendsay.ru/app/js/forms/forms.min.js"
+          onLoad={() => {
+              // @ts-ignore
+              if (window.SENDSAY) {
+              // @ts-ignore
+                  SENDSAY.activatePopup("https://sendsay.ru/form/x_16799332371017125/5/");
+              } else {
+                  console.error("SENDSAY is not defined");
+              }
+          }}
       />
-      <Script id="sendsay-init" strategy="afterInteractive">
-        {`if (typeof SENDSAY !== 'undefined') { SENDSAY.activatePopup("https://sendsay.ru/form/x_16799332371017125/5/"); }`}
-      </Script>
+
 
       <DefaultSeo {...SEO} />
       <div style={{ display: 'none' }}>

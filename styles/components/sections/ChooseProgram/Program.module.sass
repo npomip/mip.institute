@@ -14,13 +14,13 @@
   display: flex
   justify-content: space-between
   align-items: center
-  border-bottom: f.px(1) solid #B250FF
+  border-bottom: f.px(1) solid c.$purple-400
   font-weight: 500
   font-family: Stem, sans-serif
   font-size: f.px(18)
   @include m.gap($mt: f.px(20), $pt: f.px(10), $pb: f.px(15))
   &:hover
-    color: #B250FF
+    @include m.dye(c, c.$purple-400)
     cursor: pointer
   @include m.media(phone, tablet)
     margin: 0 auto
@@ -38,7 +38,7 @@
     display: none
 
 .viewAll
-  color: #B250FF
+  @include m.dye(c, c.$purple-400)
   text-decoration-line: underline
   font-weight: 500
   font-size: f.px(16)
@@ -58,7 +58,7 @@
   transition: transform 0.3s ease
 
 .labelViolet
-  color: #B250FF
+  @include m.dye(c, c.$purple-400)
 
 .iconDesktop
   @include m.gap($mr: f.px(48))

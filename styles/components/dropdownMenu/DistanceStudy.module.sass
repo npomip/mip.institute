@@ -4,29 +4,20 @@
 
 .wrapper
   @include m.gap($mtb: f.px(27))
-  display: flex
-  flex-direction: column
-  align-items: center
-  font-size: 16px
+  @include m.flex($fd: column, $ai: center)
+  font-size: f.px(16)
   font-weight: 500
   & p
     margin: 1px
 
 .btn
-  // font-size: 18px
-  // font-weight: 500
-  // @include m.dye(c, c.$white-900)
-  // margin-top: 30px
-  // @include m.gap($ptb: f.px(27), $plr: f.px(130))
-  // background: #F87E1B
-  font-size: 16px
+  font-size: f.px(16)
   font-weight: 350
-  color: #FD521B
-  margin-top: 30px
-  @include m.gap($ptb: f.px(13), $plr: f.px(120))
+  @include m.dye(c, c.$orange-900)
+  @include m.gap($ptb: f.px(13), $plr: f.px(120), $mt: f.px(30))
   border-radius: f.px(5)
-  border: 2px solid #FD521B
+  border: 2px solid c.$orange-900
   transition: background 0.5s ease, color 0.5s ease
   &:hover
-    background: #FD521B
+    @include m.dye(bg, c.$orange-900)
     @include m.dye(c, c.$white-900)

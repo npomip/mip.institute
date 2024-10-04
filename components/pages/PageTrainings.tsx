@@ -1,22 +1,16 @@
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
-import { getUniqueCategories } from '../funcs/getUniqueCategories'
+import stls from '@/styles/pages/PageTrainings.module.sass'
+import PracticalSlugCard from '../cards/PracticalSlugCard'
+import Breadcrumbs from '../general/Breadcrumbs'
 import ProgramsFilters from '../layout/ProgramsFilters'
 import Wrapper from '../layout/Wrapper'
-import stls from '@/styles/pages/PageTrainings.module.sass'
-import Breadcrumbs from '../general/Breadcrumbs'
 import { SeoPageBachelors } from '../seo'
-import PracticalSlugCard from '../cards/PracticalSlugCard'
-import routes from '@/config/routes'
-import { GetStaticProps } from 'next'
-import { handleGetStaticProps } from '@/lib/index'
 
-type PagesProgramsType = {
-  ofType?: 'course' | 'profession'
-}
-
-const PageTrainings = ({ programs = [], practicalTrainings = [], bachelors= [] }) => {
-  const categories = getUniqueCategories(programs)
-
+const PageTrainings = ({
+  programs = [],
+  practicalTrainings = [],
+  bachelors = []
+}) => {
   const label = 'Практическая подготовка'
 
   const segments = [`/practical-training`]
@@ -32,14 +26,13 @@ const PageTrainings = ({ programs = [], practicalTrainings = [], bachelors= [] }
     }
     return breadcrumb
   })
-  
 
   return (
     <Wrapper>
-      <SeoPageBachelors/>
+      <SeoPageBachelors />
       <FilterProvider items={programs}>
-      <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
-      <h1 className={stls.title}>Практическая подготовка</h1>
+        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <h1 className={stls.title}>Практическая подготовка</h1>
         <ProgramsFilters
           bachelors={bachelors}
           practicalTrainings={practicalTrainings}
@@ -48,7 +41,10 @@ const PageTrainings = ({ programs = [], practicalTrainings = [], bachelors= [] }
         />
         <div className={stls.cards}>
           {practicalTrainings.map(practicalTraining => (
-            <PracticalSlugCard key={practicalTraining?.slug} card={practicalTraining} />
+            <PracticalSlugCard
+              key={practicalTraining?.slug}
+              card={practicalTraining}
+            />
           ))}
         </div>
       </FilterProvider>

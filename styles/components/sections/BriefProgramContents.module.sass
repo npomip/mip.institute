@@ -9,16 +9,15 @@
     @include m.gap($pb: f.px(0), $mt: f.px(90))
     & > *
       @include m.gap($pt: f.px(80), $plr: f.px(100), $pb: f.px(80))
-      border: f.px(0.5) solid #6F01C6
+      border: f.px(0.5) solid c.$purple-800
       border-bottom: none
       border-radius: f.px(100) f.px(5) 0 0
-      // box-shadow: 0 f.px(4) f.px(40) rgba(0, 0, 0, .05)
 .coloredBackground
   &>*
     background: #F9F8FF
-    border-bottom: 0.5px solid #6F01C6
+    border-bottom: 0.5px solid c.$purple-800
     @include m.media(phone, tablet)
-      border-top: 0.5px solid #6F01C6
+      border-top: 0.5px solid c.$purple-800
 
       border-radius: 8px 0px 0px 0px
       @include m.gap($pt: f.px(30))
@@ -33,22 +32,22 @@
     @include m.gap($mr: 8%, $mb: f.px(30))
 
 .title
+  font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
     font-size: f.px(40)
-  font-weight: 500
   @include m.dye(c, c.$black-800)
 
 .p
+  font-weight: 300
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(0))
     font-size: f.px(20)
-  font-weight: 300
   @include m.dye(c, c.$black-800)
 
 .qty
@@ -81,6 +80,6 @@
       // bottom: 50%
       position: absolute
       content: '•'
-      color: #F87E1B
+      @include m.dye(c, c.$orange-700)
       font-size: 1em
       scale: 2

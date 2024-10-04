@@ -9,32 +9,20 @@ import IconHero from '../icons/IconHero'
 import IconHeroWave from '../icons/IconHeroWave'
 
 const Hero = () => {
-  let hiddenGemCount = 0
-  const hiddenGem = e => {
-    if (hiddenGemCount < 7) {
-      hiddenGemCount++
-    } else {
-      const el = e.currentTarget
-      setTimeout(() => {
-        el.classList.remove(stls.hiddenGem)
-        hiddenGemCount = 0
-      }, 6000)
-      el.classList.add(stls.hiddenGem)
-    }
-  }
-  
   return (
     <section className={stls.container}>
       <div className={stls.bg}></div>
-
       <Wrapper>
         <div className={stls.leftbg}></div>
         <div className={stls.content}>
           <TwoColumns>
             <div className={stls.left}>
-            <h1 className={stls.title}>Московский институт психологии</h1>
+              <h1 className={stls.title}>Московский институт психологии</h1>
               <p className={stls.desc}>
-                Поможем освоить профессию психолога и прокачать навыки действующим специалистам! <br />Высшее образование, курсы профессиональной переподготовки и повышения квалификации
+                Поможем освоить профессию психолога и прокачать навыки
+                действующим специалистам! <br />
+                Высшее образование, курсы профессиональной переподготовки и
+                повышения квалификации
               </p>
               <div className={stls.btns}>
                 <div className={stls.btn}>

@@ -1,6 +1,3 @@
-import classNames from 'classnames'
-import FullWrapper from '../layout/FullWrapper'
-import Wrapper from '../layout/Wrapper'
 import stls from '@/styles/components/liveCourses/LiveCoursesStripe.module.sass'
 import React from 'react'
 
@@ -16,40 +13,36 @@ const secondLine = [
 const LiveCoursesStripe = () => {
   return (
     <section className={stls.section}>
-      {/* <FullWrapper> */}
-        {/* <Wrapper> */}
-          <div className={stls.text}>
-            <div className={stls.block}>
-              {firstLine.map((el, i) => (
-                <React.Fragment key={el}>
-                  <div className={stls.rowMob}>
-                    <div className={stls.bulletMob}></div>
-                    <span className={stls.itemMob}>{el}</span>
-                  </div>
-                  <span className={stls.item}>{el}</span>
-                  {i !== firstLine.length - 1 && (
-                    <div className={stls.bullet}></div>
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-            <div className={stls.block}>
-              {secondLine.map((el, i) => (
-                <React.Fragment key={el}>
-                  <div className={stls.rowMob}>
-                    <div className={stls.bulletMob}></div>
-                    <span className={stls.itemMob}>{el}</span>
-                  </div>
-                  <span className={stls.item}>{el}</span>
-                  {i !== secondLine.length - 1 && (
-                    <div className={stls.bullet}></div>
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        {/* </Wrapper> */}
-      {/* </FullWrapper> */}
+      <div className={stls.text}>
+        <div className={stls.block}>
+          {firstLine.map((el, i) => (
+            <React.Fragment key={el}>
+              <div className={stls.rowMob}>
+                <div className={stls.bulletMob}></div>
+                <span className={stls.itemMob}>{el}</span>
+              </div>
+              <span className={stls.item}>{el}</span>
+              {i !== firstLine.length - 1 && (
+                <div className={stls.bullet}></div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+        <div className={stls.block}>
+          {secondLine.map((el, i) => (
+            <React.Fragment key={el}>
+              <div className={stls.rowMob}>
+                <div className={stls.bulletMob}></div>
+                <span className={stls.itemMob}>{el}</span>
+              </div>
+              <span className={stls.item}>{el}</span>
+              {i !== secondLine.length - 1 && (
+                <div className={stls.bullet}></div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

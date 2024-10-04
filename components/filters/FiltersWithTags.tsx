@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
-import stls from '@/styles/components/filters/FiltersWithTag.module.sass'
-import classNames from 'classnames'
-import FiltersForLifeCoursesMobile from './FiltersForLifeCoursesMobile'
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
 import FilterTag from '@/components/filters/FilterTag'
 import {
   useFilter,
   useFilterDispatch
 } from '@/context/FilterContext/FilterContext'
+import stls from '@/styles/components/filters/FiltersWithTag.module.sass'
 import InputSearchDesktop from '../general/InputSearchDesktop'
 import ProgramSelect from '../program/ProgramSelect'
+import FiltersForLifeCoursesMobile from './FiltersForLifeCoursesMobile'
 
 interface FilterTagProps {
   minmaxDuration: {

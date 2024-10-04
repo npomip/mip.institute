@@ -1,48 +1,18 @@
-import stls from '@/styles/components/sections/StudyCost.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import ProgramDiscount from '@/components/program/ProgramDiscount'
-import ProgramCost from '@/components/program/ProgramCost'
-import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
 import { IconCircleCheck } from '@/components/icons'
-import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
-import MoneySaving from '../program/MoneySaving'
+import Wrapper from '@/components/layout/Wrapper'
+import ProgramCost from '@/components/program/ProgramCost'
+import ProgramDiscount from '@/components/program/ProgramDiscount'
+import { ContextStaticProps } from '@/context/index'
+import stls from '@/styles/components/sections/StudyCost.module.sass'
+import { useContext } from 'react'
 import { FormAlpha } from '../forms'
-import getNextWednesday from '@/helpers/getNextThursday'
+import MoneySaving from '../program/MoneySaving'
+import points from 'constants/studyCost'
 
 const StudyCost = ({ costRef }) => {
   const { program } = useContext(ContextStaticProps)
 
   const title = program?.title || ''
-  const studyHours = program?.studyHours || 0
-  const studyForm = program?.studyForm || ''
-  const studyFormLabel = program?.studyFormlabel || ''
-  const studyMounthsDuration = program?.studyMounthsDuration || 0
-
-  const info = [
-    { key: 'Зачисление:', val: getNextWednesday(new Date()) },
-    {
-      key: 'Форма обучения:',
-      val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel
-    },
-    {
-      key: 'Срок обучения:',
-      val: <ProgramStudyDuration studyMounthsDuration={studyMounthsDuration} />
-    },
-    {
-      key: 'Рассрочка:',
-      val: 'От “Тинькофф банка”'
-    }
-  ]
-
-  const points = [
-    'Онлайн вебинары с возможностью просмотра записей в течение всего курса обучения',
-    'Тестирование и работа над ошибками после каждой дисциплины',
-    'Лекционные и полезные дополнительные материалы к дисциплинам',
-    'Индивидуальные и групповые домашние задания с обратной связью от преподавателей',
-    'Онлайн-встречи с разбором вопросов от слушателей',
-    'Практические упражнения с решением ситуационных задач'
-  ]
 
   return (
     <section ref={costRef} className={stls.container}>

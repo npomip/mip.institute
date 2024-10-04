@@ -15,7 +15,6 @@
   font-size: f.px(14)
   @include m.media(phone, tablet)
   display: flex
-  // justify-content: baseline
 
   &.active
     // Стили для активного состояния
@@ -31,13 +30,12 @@
   border: f.px(1) solid
   @include m.dye(border, c.$orange-700)
   &:hover
-    background: #FD521B
+    @include m.dye(bg, c.$orange-900)
     @include m.dye(c, c.$white-900)
     font-weight: 500
   &.active
     // Стили для активного состояния
-    background-color: #FD521B
-    // @include m.dye(c, c.$white-900)
+    @include m.dye(bg, c.$orange-900)
 
 .program
   border: 1px solid
@@ -47,7 +45,6 @@
     font-weight: 500
 
   &.active
-    // Стили для активного состояния
     @include m.dye(bg, c.$purple-800)
     font-weight: 500
     @include m.dye(c, c.$white-900)

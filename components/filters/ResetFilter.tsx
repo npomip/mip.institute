@@ -1,7 +1,4 @@
-import React from 'react'
 import stls from '@/styles/components/filters/ResetFilter.module.sass'
-import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
-import { useRouter } from 'next/router'
 
 interface ResetFilterProps {
   // className?: string;
@@ -9,7 +6,6 @@ interface ResetFilterProps {
   onIndex?: boolean
 }
 const ResetFilter = ({ onIndex = false, onClick }: ResetFilterProps) => {
-
   return (
     <div
       className={

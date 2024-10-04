@@ -4,9 +4,7 @@ import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
 import Wrapper from '@/components/layout/Wrapper'
 import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
-import { getImageHeight } from '@/helpers/index'
 import stls from '@/styles/components/sections/TopCourses.module.sass'
-import classNames from 'classnames'
 import targetTitles from 'constants/topCourses'
 import { useContext } from 'react'
 import TagOrange from '../general/TagOrange'
@@ -68,11 +66,7 @@ const TopCourses = () => {
   }
 
   return (
-    <section
-      className={classNames({
-        [stls.container]: true
-        // [stls.onProfessions]: !onMain
-      })}>
+    <section className={stls.container}>
       <Wrapper>
         <div className={stls.heading}>
           <div className={stls.tag}>

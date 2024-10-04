@@ -70,7 +70,7 @@
   @include m.flex($ai: center)
   &::before
     content: '•'
-    color: #F87E1B
+    @include m.dye(c, c.$orange-700)
     font-size: f.px(35)
     line-height: 10%
     @include m.gap($mr: f.px(14))

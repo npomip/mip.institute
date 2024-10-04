@@ -1,6 +1,7 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/utils/mixin/media' as bp
+@use '@/styles/themes/default/colors' as c
 
 .container
   cursor: pointer
@@ -11,8 +12,7 @@
   justify-content: center
   align-items: center
   @include m.gap($mtb: f.px(10))
-  border: f.px(1) solid #F87E1B
+  border: f.px(1) solid c.$orange-700
   border-radius: f.px(4)
   &:hover
     opacity: 0.8
-  

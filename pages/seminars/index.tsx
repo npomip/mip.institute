@@ -1,28 +1,14 @@
-import { GetStaticProps, NextPage } from 'next'
+import Wrapper from '@/components/layout/Wrapper'
 import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import Seminars from '@/components/sections/SlugTags'
-import { useRouter } from 'next/router'
-import Wrapper from '@/components/layout/Wrapper'
-import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
-import { useState } from 'react'
-import SeminarCard from '@/components/sections/SlugTags'
+import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 
 const CoursesPage = ({ events }) => {
-  // useHandleContextStaticProps({
-  //   seminars,
-  //   curProgramsType: 'course'
-  // })
-  //   const titles = seminars.map(item => item.title);
-  // const studyFields = seminars.map(item => item.studyField);
-
   return (
     <Wrapper>
       <NextSeo nofollow={true} noindex={true} />
       <h1>Семинары</h1>
-      {/* <StudyFieldSlugFilter props={events} slug='seminars' />
-      <SeminarCard props={events} slug='seminars' withDate/> */}
     </Wrapper>
   )
 }

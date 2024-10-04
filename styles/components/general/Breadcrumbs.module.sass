@@ -9,11 +9,11 @@
   ul
     li
       a
-        color: #FFF
+        @include m.dye(c, c.$white-900)
         font-size: f.px(12)
         font-weight: 350
         &:hover
-          color: #F87E1B 
+          @include m.dye(c, c.$orange-700)
 
 .isJournal
   a
@@ -41,4 +41,4 @@
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(18))
   .triangle
-    border-color: transparent transparent transparent #000  
+    border-color: transparent transparent transparent #000

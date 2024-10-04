@@ -13,26 +13,17 @@
   left: 0
   right: 0
   position: fixed
-  // height: 100px
-  // width: 100px
-  display: flex
-  justify-content: center
-  align-items: center
+  @include m.flex($jc: center, $ai: center)
   z-index: 12
   background-color: rgba(0, 0, 0, 0.5)
-  // background: black
-  // opacity: 0.5
 
 .popUpContainer
   background: white
+
 .formWrapper
-  // height: 100%
-  // position: fixed
-  
   width: fit-content
   height: fit-content
   background: white
-  // opacity: 1.5
 
 .title
   font-size: 14px
@@ -51,8 +42,6 @@
     margin-bottom: f.px(15)
   &:nth-last-child(2)
     margin-bottom: f.px(15)
-    
-
 
 .phoneNumber
   color: black
@@ -70,7 +59,7 @@
   font-weight: 350
   &:hover
     font-weight: 500
-    color: #F87E1B
+    @include m.dye(c, c.$orange-700)
 
 .callBack
   & > *
@@ -82,7 +71,6 @@
       font-size: 14px
       font-weight: 500
       text-decoration: underline
-      // text-underline-offset: 4px
       line-height: 120%
       background-color: white
       color: black

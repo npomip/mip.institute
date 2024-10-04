@@ -5,21 +5,16 @@
 .container
   text-decoration: none
   color: black
-  @include m.flex
+  @include m.flex($fd: column, $ai: flex-start, $jc: flex-start)
   cursor: pointer
-  flex-direction: column
-  align-items: flex-start
-  justify-content: flex-start
-  // height: f.px(450)
   @include m.gap( $mt: f.px(70))
   height: fit-content
   width: 100%
   @include m.media(phone, tablet)
     @include m.gap( $mt: f.px(50))
-  // transition: transform 1s ease
   &:hover
     .title
-      color: #B250FF
+      @include m.dye(c, c.$purple-400)
       transition: color 0.2s ease
     .portrait
       transition: transform 0.4s ease
@@ -35,11 +30,6 @@
 
 .portrait
   position: relative
-  // min-height: f.px(300)
-  // min-width: 160px
-  // max-width: 160px
-  // min-height: 160px
-  // max-height: 160px
 
 .filter
   border-radius: f.px(25)
@@ -53,7 +43,7 @@
   opacity: 0.05
 
 .subtitle
-  color: #505050
+  @include m.dye(c, c.$gray-800)
   font-size: f.px(18)
   font-weight: 350
   @include m.gap( $mb: f.px(10))

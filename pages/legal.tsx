@@ -1,19 +1,3 @@
-import stls from '@/styles/pages/Legal.module.sass'
-import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
-import {
-  dataDocsConstituentLeft,
-  dataDocsConstituentRight,
-  dataDocsGeneralLeft,
-  dataDocsGeneralRight,
-  dataDocsRegulationsLeft,
-  dataDocsRegulationsRight
-} from '@/data/index'
-import { routes, company, preview } from '@/config/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
 import PageTitle from '@/components/layout/PageTitle'
 import {
   ActiveLicenses,
@@ -22,6 +6,20 @@ import {
   LegalInfo
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import { company, preview, routes } from '@/config/index'
+import {
+  dataDocsConstituentLeft,
+  dataDocsConstituentRight,
+  dataDocsRegulationsLeft,
+  dataDocsRegulationsRight
+} from '@/data/index'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
+import stls from '@/styles/pages/Legal.module.sass'
+import { TypePageDefaultProps } from '@/types/index'
+import { GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

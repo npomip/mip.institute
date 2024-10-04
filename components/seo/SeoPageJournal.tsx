@@ -1,17 +1,13 @@
-import { FC } from 'react'
-import { NextSeo, ArticleJsonLd } from 'next-seo'
-import { routes, company, themeColor, dev, preview } from '@/config/index'
-import { AdditionalRobotsProps } from 'next-seo/lib/types'
+import { company, preview, routes, themeColor } from '@/config/index'
 import TypeLibJournal from '@/types/lib/journal/TypeLibJournal'
+import { ArticleJsonLd, NextSeo } from 'next-seo'
+import { FC } from 'react'
 
 type TSeoPagesProgram = {
   blog: TypeLibJournal
-  // curProgramsStudyFieldSlug?: string
 }
 
 const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
-  // TODO: pull the rest of SEO params from API
-
   const { metaTitle, metaDescription } = blog?.seo
   const publishDate = new Date(blog?.date)
 
@@ -25,25 +21,6 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
     'noimageindex',
     'notranslate'
   ]
-  // const parsedMetaRobots = ((
-  //   seo?.metaRobots &&
-  //   seo?.metaRobots.split(',').map(item => {
-  //     const trimmedItem = item?.trim()
-
-  //     if (additionalMetaRobotsKeys.some(key => trimmedItem?.includes(key))) {
-  //       const [key, value] = trimmedItem?.split(':')
-
-  //       return { [key]: value || true }
-  //     }
-
-  //     return null
-  //   })
-  // )?.filter(item => item) || null) as AdditionalRobotsProps
-
-  // const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')
-
-  // const isNofollow =
-  //   !seo?.isSEOFriendly || seo?.metaRobots?.includes('nofollow')
 
   const seoParams = {
     title: `${
@@ -62,9 +39,8 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
         description={seoParams.desc}
         canonical={seoParams.canonical}
         themeColor={themeColor}
-        nofollow={preview ? true : false}
-        noindex={preview ? true : false}
-        // {...((parsedMetaRobots && { robotsProps: parsedMetaRobots }) || {})}
+        nofollow={preview}
+        noindex={preview}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,

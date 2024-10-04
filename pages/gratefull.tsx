@@ -6,6 +6,7 @@ import { routes, company } from '@/config/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import Gratefull from '@/components/sections/Gratefull'
 import { useRouter } from 'next/router'
+import Script from 'next/script'
 
 const GratefullPage: NextPage<TypePageDefaultProps> = () => {
   const router = useRouter()
@@ -47,7 +48,14 @@ const GratefullPage: NextPage<TypePageDefaultProps> = () => {
         }}
       />
       <SeoOrganizationJsonLd />
-      
+      <Script
+      id='registration'
+      dangerouslySetInnerHTML={{
+          __html: `
+            gtag('event', 'conversion', {'send_to': 'AW-16700039578/VJ5XCJ7eotkZEJrDmZs-'});
+          `,
+        }}
+      />
       <Gratefull />
       <div className="i-flocktory" data-fl-action="exchange" data-fl-user-name={name} data-fl-user-email={email}></div>
     </>

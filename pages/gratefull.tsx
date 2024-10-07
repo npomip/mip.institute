@@ -52,7 +52,7 @@ const GratefullPage: NextPage<TypePageDefaultProps> = () => {
       id='registration'
       dangerouslySetInnerHTML={{
           __html: `
-            gtag('event', 'conversion', {'send_to': 'AW-16700039578/VJ5XCJ7eotkZEJrDmZs-'});
+            gtag('event', 'conversion', {'send_to': 'AW-822792302/ktI6CJG-0toZEO6gq4gD'});
           `,
         }}
       />

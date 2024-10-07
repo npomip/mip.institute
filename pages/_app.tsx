@@ -290,7 +290,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           }}
       /> */}
 
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-16700039578"/>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-822792302"/>
       <Script 
       id='google-tag'
         dangerouslySetInnerHTML={{
@@ -298,7 +298,8 @@ const MyApp = ({ Component, pageProps, router }) => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-16700039578');
+
+            gtag('config', 'AW-822792302');
           `,
         }} 
       />

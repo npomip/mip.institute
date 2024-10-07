@@ -1,5 +1,5 @@
 import axios from 'axios';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const taskAdd = async (req, res) => {
   const {leadId, name, phone,email, responsible_user_id, access}=req.body 
@@ -12,7 +12,7 @@ const taskAdd = async (req, res) => {
         'Authorization': `Bearer ${access}`,
       },
     };
-    const dateForManager = moment().unix() + 1800
+    const dateForManager = dayjs().unix() + 1800
 
     const addTask= [
       {

@@ -3,12 +3,12 @@ import { Contacts } from '@/components/sections'
 import JoinInSocialChannels from '@/components/sections/JoinInSocialChannels'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, preview, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { TypePageDefaultProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
 import { CorporateContactJsonLd, NextSeo } from 'next-seo'
-import truncate from 'truncate'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

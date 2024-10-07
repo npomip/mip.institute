@@ -14,7 +14,6 @@ import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
 import genezis from '../funcs/genezis'
 import getTicket from '../funcs/getTicket'
-import ipCheckFunc from '../funcs/ipCheckFunc'
 
 type FormValues = {
   name: string
@@ -141,7 +140,6 @@ const FormAlpha = ({
         setIsDisabled(true)
         setThanksIsOpen(true)
       } else {
-        console.log('err')
         setLoading(false)
         setIsIpCheckFailed(true)
       }

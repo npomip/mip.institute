@@ -11,13 +11,13 @@
   @include m.dye(bg, c.$pink-50)
 
 .title
+  font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(0))
     font-size: f.px(44)
-  font-weight: 500
 
 .content
   @include m.media(phone, tablet)
@@ -34,10 +34,10 @@
     @include m.flex($display: false, $fb: 33%)
 
 .heading
+  position: relative
   @include m.media(phone, tablet)
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $jc: space-between)
-  position: relative
 
 .info
   @include m.gap($mb: f.px(30))
@@ -82,7 +82,6 @@
     font-weight: 500
 
 .discount
-  // @include m.gap($mt: f.px(28))
   @include m.media(laptop, desktop)
     @include m.gap($ml: f.px(18))
     z-index: 2
@@ -110,10 +109,8 @@
 
 .right
   @include m.media(phone, tablet)
-    // display: none
     @include m.flex($display: false, $fb: 33%)
   @include m.media(laptop, desktop)
-    // @include m.gap($pl: f.px(20))
     @include m.flex($display: false, $fb: 33%)
   ul
     @include m.gap($pl: f.px(16), $pr: f.px(16))
@@ -121,29 +118,23 @@
       padding: 0
 
 .point
-  // @include m.media(laptop, desktop)
   @include m.flex
   @include m.gap($mb: f.px(11))
   font-size: f.px(16)
   font-weight: 300
 
 .pointicon
-  // @include m.media(laptop, desktop)
   @include m.gap($mr: f.px(22))
   & > *
     fill: red
 
 .center
   flex-basis: 33%
-  // margin-top: 95px
   display: flex
   @include m.gap($plr: f.px(8))
   flex-direction: column
   @include m.media(phone, tablet)
     display: none
-  // .forGap
-  //   height: 1px
-  //   @include m.gap($mt: f.px(96))
 
 .bgForm
   border-radius: 25px
@@ -158,7 +149,6 @@
   p
     @include m.dye(c, c.$white-900)
     text-align: center
-    // font-size: 15px
     @include m.media(desktop)
       font-size: 18px
     @include m.media(laptop)

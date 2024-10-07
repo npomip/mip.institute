@@ -26,6 +26,7 @@ import YouTubeVideo from '@/components/sections/YouTubeVideo'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
 import preview from '@/config/preview'
+import truncate from '@/helpers/general/truncate'
 import {
   sortBasedOnNumericOrder,
   sortReviewsCreatedAtASC
@@ -40,7 +41,6 @@ import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
-import truncate from 'truncate'
 
 const HomePage: NextPage<TypePageHomeProps> = ({
   programs,

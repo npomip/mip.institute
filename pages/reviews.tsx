@@ -1,6 +1,7 @@
 import ReviewList from '@/components/sections/Reviews/ReviewList'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, preview, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
 import {
   sortBasedOnNumericOrder,
   sortUniqueReviewsCreatedAtASC
@@ -10,7 +11,6 @@ import { handleGetStaticProps } from '@/lib/index'
 import { TypePageReviewsProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
 
 const ReviewsPage: NextPage<TypePageReviewsProps> = ({
   programs,

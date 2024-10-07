@@ -44,7 +44,7 @@
     font-size: f.px(20)
   @include m.media(laptop)
     @include m.gap($mb: f.px(39))
-    color: #131313
+    @include m.dye(c, c.$black-800)
     font-weight: 300
     line-height: 130%
   @include m.dye(c, c.$black-800)
@@ -63,7 +63,7 @@
 
     font-size: f.px(20)
     font-weight: 700
-    color: #F87E1B
+    @include m.dye(c, c.$orange-700)
     text-decoration-line: underline
     text-underline-offset: f.px(5)
   @include m.media(phone, tablet)
@@ -78,7 +78,6 @@
 .left
   @include m.media(laptop, desktop)
   flex-basis: 49%
-  // @include m.gap($mr: f.px(30))
 
 .swiper
   position: relative
@@ -91,7 +90,6 @@
   & > *
     display: flex
     height: f.px(192)
-    // max-width: max-content
     border: f.px(1) solid
     @include m.dye(border, rgba(c.$gray-700, .2))
     border-radius: f.px(15)
@@ -99,9 +97,7 @@
       border-radius: f.px(15)
 
 .supplement
-
   & > *
-    // max-width: f.px(291)
     height: f.px(390)
     width: f.px(270)
     @include m.media(phone, tablet)
@@ -134,7 +130,6 @@
   @include m.media(phone, tablet)
     width: 305px
   border-radius: 15px
-  // height: 200px
   &:first-child
     grid-area: A
     grid-row: span 1

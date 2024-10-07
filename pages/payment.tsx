@@ -6,12 +6,12 @@ import {
 } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { TypePageDefaultProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

@@ -61,7 +61,7 @@
   position: relative
   z-index: 2
   border-radius: f.px(29)
-  background: #F9F0FF
+  @include m.dye(bg, c.$pink-50)
   height: f.px(160)
   @include m.gap($mb: f.px(8), $mlr: f.px(33), $pl: f.px(41))
   @include m.media(phone, tablet)
@@ -90,7 +90,7 @@
 
 .decs
   font-size: f.px(18)
-  color: #1A1A1A
+  @include m.dye(c, c.$black-800)
   font-weight: 300
   line-height: 120%
   @include m.gap($mb: f.px(0), $pb: f.px(6))
@@ -101,10 +101,10 @@
   font-size: f.px(10)
   font-weight: 200
   line-height: 120%
-  color: #1A1A1A
+  @include m.dye(c, c.$black-800)
   @include m.media(phone, tablet)
     max-width: f.px(260)
-    color: #565350
+    @include m.dye(c, c.$gray-800)
     @include m.gap($pb: f.px(14), $mb:f.px(0))
 
 .tagOne

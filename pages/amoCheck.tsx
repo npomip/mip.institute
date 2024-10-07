@@ -1,10 +1,10 @@
 import CallMeBackForm from '@/components/forms/CallMeBackForm'
 import { company, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { TypePageDefaultProps } from '@/types/index'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

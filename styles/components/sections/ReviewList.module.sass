@@ -26,7 +26,6 @@
   p
     @include m.dye(c, c.$white-900)
     @include m.media(phone, tablet)
-      // max-width: 25ch
       font-size: f.px(12)
   @include m.media(laptop, desktop)
     font-size: f.px(16)
@@ -83,7 +82,7 @@
 
 .subtitle
   @include m.gap($mb: 0, $pt: f.px(20), $pb: f.px(57))
-  color: #424242
+  @include m.dye(c, c.$gray-800)
   font-size: f.px(20)
   font-weight: 500
   max-width: f.px(570)
@@ -99,4 +98,3 @@
     top: f.px(-90)
   @include m.media(phone, tablet)
     display: none
-  // transform: translate(800px, -120px)

@@ -16,7 +16,7 @@ type TSeoPagesProgram = {
 }
 
 const SeoPagesBachelor: FC<TSeoPagesProgram> = ({ program }) => {
-  const seo = program.seo
+  const seo = program?.seo
 
   const additionalMetaRobotsKeys = [
     'nosnippet',

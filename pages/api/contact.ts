@@ -1,10 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import nodemailer from 'nodemailer'
-import { dev, routes } from '@/config/index'
-import url from 'url'
-import http from 'http'
-import moment from 'moment'
+import { dev } from '@/config/index'
+import dayjs from 'dayjs'
 import { WebServiceClient } from '@maxmind/geoip2-node'
 
 const contact = async (req, res) => {
@@ -42,7 +40,7 @@ const contact = async (req, res) => {
   })
 
   // moment init
-  const now = moment()
+  const now = dayjs()
 
   // get protocol
   const protocol = req.headers['x-forwarded-proto']

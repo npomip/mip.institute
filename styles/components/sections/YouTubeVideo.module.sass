@@ -17,7 +17,7 @@
   @include m.gap($mb: f.px(20))
   p
     @include m.gap($mb: f.px(0), $ml: f.px(10))
-    color: #B3B3B3
+    @include m.dye(c, c.$gray-500)
     font-size: f.px(15)
     @include m.media(phone, tablet)
       font-size: f.px(12)

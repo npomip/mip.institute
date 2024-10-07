@@ -12,12 +12,12 @@ import {
   dataOchuVoMipDocsConstituentLeft,
   dataOchuVoMipDocsConstituentRight
 } from '@/data/index'
+import truncate from '@/helpers/general/truncate'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/Legal.module.sass'
 import { TypePageDefaultProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
-import truncate from 'truncate'
 
 const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

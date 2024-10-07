@@ -4,6 +4,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import { PaymentDebitCard, PaymentInfo } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/Payment.module.sass'
@@ -12,7 +13,6 @@ import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Script from 'next/script'
 import { useState } from 'react'
-import truncate from 'truncate'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })

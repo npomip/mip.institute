@@ -3,7 +3,7 @@ import client from '@/lib/apolloClient'
 import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
 import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
 import axios from 'axios'
-import moment from 'moment'
+import dayjs from 'dayjs'
 import { v4 as uuidv4 } from 'uuid'
 import createOrUpdateLead from './createOtUpdateLead'
 
@@ -30,7 +30,7 @@ const hitContactRoute = async values => {
     const expireTime = checkTokenData?.amos[0]?.expired_in
     const oldAccess_token = checkTokenData?.amos[0]?.access
     const oldRefresh_token = checkTokenData?.amos[0]?.refresh
-    const nowUNIXtime = moment().unix()
+    const nowUNIXtime = dayjs().unix()
     const differenceInTime = expireTime - nowUNIXtime
 
     if (differenceInTime < 1800) {

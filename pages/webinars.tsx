@@ -1,13 +1,13 @@
 import { GetStaticProps, NextPage } from 'next'
 import { TypeLibWebinars, TypePageWebinarsProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { routes, company, preview } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { lazy } from 'react'
+import truncate from '@/helpers/general/truncate'
 const WebinarsAlt = lazy(() => import('@/components/sections/WebinarsAlt'))
 
 const WebinarsPage: NextPage<TypePageWebinarsProps> = ({

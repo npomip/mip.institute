@@ -1,11 +1,11 @@
 import Gratefull from '@/components/sections/Gratefull'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
 import { TypePageDefaultProps } from '@/types/index'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import truncate from 'truncate'
 
 const GratefullPage: NextPage<TypePageDefaultProps> = () => {
   const router = useRouter()

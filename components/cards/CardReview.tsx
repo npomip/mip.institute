@@ -1,7 +1,7 @@
 import stls from '@/styles/components/cards/CardReview.module.sass'
 import classNames from 'classnames'
 import { ReactNode, useEffect, useState } from 'react'
-import truncate from 'truncate'
+import truncate from '@/helpers/general/truncate'
 
 interface Props {
   isLiveCourse?: boolean

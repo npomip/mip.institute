@@ -4,8 +4,8 @@ import { TypeLibPrograms } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import getSeoDescription from '../funcs/getSeoDescription'
-import getSeoTitle from '../funcs/getSeoTitle'
+import getSeoDescription from '@/helpers/funcs/getSeoDescription'
+import getSeoTitle from '@/helpers/funcs/getSeoTitle'
 
 type TSeoPagesProgram = {
   curProgramsStudyFieldSlug?: string

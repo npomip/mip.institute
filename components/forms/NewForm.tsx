@@ -1,4 +1,4 @@
-import hitContactRoute from '@/components/funcs/hitContactRoute'
+import hitContactRoute from '@/helpers/funcs/hitContactRoute'
 import { PopupLoading, PopupThankyou } from '@/components/popups'
 import routes from '@/config/routes'
 import stls from '@/styles/components/forms/NewForm.module.sass'
@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Popup from 'reactjs-popup'
-import ipCheckFunc from '../funcs/ipCheckFunc'
+import ipCheckFunc from '@/helpers/funcs/ipCheckFunc'
 
 type FormValues = {
   name: string

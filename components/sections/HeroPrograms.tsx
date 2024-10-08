@@ -7,7 +7,7 @@ import {
 import stls from '@/styles/components/sections/HeroPrograms.module.sass'
 import { useRouter } from 'next/router'
 import FiltersForLifeCoursesMobile from '../filters/FiltersForLifeCoursesMobile'
-import titleName from '../funcs/titleNameFunction'
+import titleName from '@/helpers/funcs/titleNameFunction'
 import InputSearch from '@/ui/InputSearch'
 
 type MinMax = {

@@ -1,4 +1,4 @@
-import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
+import { findMinMaxForSlider } from '@/helpers/funcs/findMinMaxForSlider'
 import Wrapper from '@/components/layout/Wrapper'
 import SlugTagsLiveCourses from '@/components/sections/SlugTagsLiveCourses'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'

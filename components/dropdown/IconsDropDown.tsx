@@ -12,7 +12,7 @@ import DistanceStudy from './DistanceStudy'
 import IconDropDownDocuments from '../icons/IconDropDownDocuments'
 import DocumentsSection from './DocumentsSection'
 import { getCookie } from 'cookies-next'
-import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
+import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
 
 function IconsDropDown() {
   const [selectedIcon, setSelectedIcon] = useState(null)

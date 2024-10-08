@@ -1,4 +1,4 @@
-import Rating from '@/components/rating/Rating'
+import Rating from '@/components/sections/Rating'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'

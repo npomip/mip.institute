@@ -1,4 +1,4 @@
-import { getUniqueCategories } from '@/components/funcs/getUniqueCategories'
+import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
 import { createContext, useContext, useEffect, useReducer } from 'react'
 
 interface IFilter {

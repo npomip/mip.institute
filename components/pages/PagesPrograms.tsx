@@ -14,8 +14,8 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import CardProfession from '../cards/CardProfession'
 import ResetFilter from '../filters/ResetFilter'
-import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
-import { getUniqueCategories } from '../funcs/getUniqueCategories'
+import { findMinMaxForSlider } from '@/helpers/funcs/findMinMaxForSlider'
+import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 
 type PagesProgramsType = {

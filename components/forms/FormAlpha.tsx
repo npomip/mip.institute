@@ -12,8 +12,8 @@ import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
-import genezis from '../funcs/genezis'
-import getTicket from '../funcs/getTicket'
+import genezis from '@/helpers/funcs/genezis'
+import getTicket from '@/helpers/funcs/getTicket'
 
 type FormValues = {
   name: string

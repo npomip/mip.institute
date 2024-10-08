@@ -9,7 +9,7 @@ import { BtnClose } from '../btns'
 import routes from '@/config/routes'
 import { useRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
-import payment from '../funcs/payment'
+import payment from '@/helpers/funcs/payment'
 
 type FormValues = {
   name: string

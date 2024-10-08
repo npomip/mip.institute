@@ -3,7 +3,7 @@ import Wrapper from '../layout/Wrapper'
 import RequirementsWithProgress from './RequirementWithProgress'
 import stls from '@/styles/components/practicalTraining/RequirementsInProfession.module.sass'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import CubicBlockFourSide from '../general/CubicBlockFourSide'
+import CubicBlockFourSide from './CubicBlockFourSide'
 import { practicalTrainReq } from 'constants/practicalTrainReq'
 
 const RequirementsInProfession = () => {

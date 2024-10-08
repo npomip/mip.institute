@@ -1,5 +1,3 @@
-import TagOrange from '@/components/general/TagOrange'
-import TagWhite from '@/components/general/TagWhite'
 import stls from '@/styles/components/sections/AboutSlider/FirstSlide.module.sass'
 import classNames from 'classnames'
 

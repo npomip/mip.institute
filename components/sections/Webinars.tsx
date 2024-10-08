@@ -1,6 +1,6 @@
 import CardSchedule from '@/components/cards/CardSchedule'
 import CardWebinar from '@/components/cards/CardWebinar'
-import SwiperContainer from '@/components/general/SwiperContainer'
+import SwiperContainer from '@/ui/SwiperContainer'
 import Wrapper from '@/components/layout/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/Webinars.module.sass'

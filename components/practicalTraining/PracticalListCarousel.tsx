@@ -2,7 +2,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/practicalTraining/PracticalListCarousel.module.sass'
 import { PracticalListItem } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { useRef } from 'react'
-import SwiperContainer from '../general/SwiperContainer'
+import SwiperContainer from '@/ui/SwiperContainer'
 import { IconFinger } from '../icons'
 import PracticalListCarouselCard from './PracticalListCarouselCard'
 

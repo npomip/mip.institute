@@ -1,10 +1,10 @@
-import PopupTrigger from '@/components/general/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/practicalTraining/PracticalHeroProgram.module.sass'
 import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
+import PopupTrigger from '@/ui/PopupTrigger'
+import Tag from '@/ui/Tag'
 import { useRouter } from 'next/router'
-import TagOrange from '../general/TagOrange'
 import PracticalProgramInfo from './PracticalProgramInfo'
 
 type Props = {
@@ -27,10 +27,10 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
   const router = useRouter()
 
   const step = router.query.slug === 'first-step'
-  
+
   const tag = (
     <div className={stls.tag}>
-      <TagOrange>{step ? '1 ступень' : '2 ступень' }</TagOrange>
+      <Tag type='orange'>{step ? '1 ступень' : '2 ступень'}</Tag>
     </div>
   )
   return (

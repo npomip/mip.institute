@@ -8,7 +8,7 @@ import stls from '@/styles/components/sections/HeroPrograms.module.sass'
 import { useRouter } from 'next/router'
 import FiltersForLifeCoursesMobile from '../filters/FiltersForLifeCoursesMobile'
 import titleName from '../funcs/titleNameFunction'
-import InputSearchDesktop from '../general/InputSearchDesktop'
+import InputSearch from '@/ui/InputSearch'
 
 type MinMax = {
   min: number
@@ -37,7 +37,7 @@ const HeroPrograms = ({ minmaxDuration, minmaxPrice }: Props) => {
         <div className={stls.heading}>
           <h1 className={stls.title}>{titleName(asPath)}</h1>
           <div className={stls.input}>
-            <InputSearchDesktop
+            <InputSearch
               value={filters.input.text}
               onChange={changeHandler}
               isProgram

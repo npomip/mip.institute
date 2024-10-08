@@ -1,4 +1,4 @@
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import PageTitle from '@/components/layout/PageTitle'
 import Wrapper from '@/components/layout/Wrapper'
 import { PaymentDebitCard, PaymentInfo } from '@/components/sections'

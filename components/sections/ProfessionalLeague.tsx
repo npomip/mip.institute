@@ -5,8 +5,8 @@ import stls from '@/styles/components/sections/ProfessionalLeague.module.sass'
 import leagueList from 'constants/professionalLeague'
 import Image from 'next/image'
 import { useState } from 'react'
-import ExpandableItemCross from '../general/ExpandableItemCross'
-import TagOrange from '../general/TagOrange'
+import ExpandableItemCross from '@/ui/ExpandableItemCross'
+import Tag from '@/ui/Tag'
 import ImgPPLLogo from '../imgs/general/ImgPPLLogo'
 import Wrapper from '../layout/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
@@ -27,7 +27,7 @@ const ProfessionalLeague = () => {
           </div>
           <span className={stls.filter}></span>
           <div className={stls.tag}>
-            <TagOrange>ОППЛ</TagOrange>
+            <Tag type='orange'>ОППЛ</Tag>
           </div>
           <div className={stls.header}>
             <span className={stls.title}>

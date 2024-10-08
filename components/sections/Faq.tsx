@@ -1,5 +1,5 @@
-import FaqAnswer from '@/components/general/FaqAnswer'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import FaqAnswer from '@/ui/FaqAnswer'
+import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/Faq.module.sass'

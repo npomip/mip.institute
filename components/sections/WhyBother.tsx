@@ -1,8 +1,7 @@
 import TwoColumns from '@/components/layout/TwoColumns'
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/WhyBother.module.sass'
-import TagOrange from '../general/TagOrange'
-import TagWhite from '../general/TagWhite'
+import Tag from '@/ui/Tag'
 import whyBotherPoints from 'constants/whyBother'
 
 const WhyBother = () => {
@@ -18,19 +17,19 @@ const WhyBother = () => {
             <TwoColumns>
               <div className={stls.img}>
                 <div className={stls.tagOne}>
-                  <TagWhite>Психология</TagWhite>
+                  <Tag type='white'>Психология</Tag>
                 </div>
                 <div className={stls.tagTwo}>
-                  <TagOrange>Преимущества</TagOrange>
+                  <Tag type='orange'>Преимущества</Tag>
                 </div>
               </div>
               <div className={stls.points}>
                 <div className={stls.mobileTags}>
                   <div className={stls.tagOneMobile}>
-                    <TagWhite>Психология</TagWhite>
+                    <Tag type='white'>Психология</Tag>
                   </div>
                   <div className={stls.tagTwoMobile}>
-                    <TagOrange>Преимущества</TagOrange>
+                    <Tag type='orange'>Преимущества</Tag>
                   </div>
                 </div>
                 {whyBotherPoints.map((el, i) => (

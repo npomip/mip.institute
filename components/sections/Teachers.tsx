@@ -6,14 +6,14 @@ import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/Teachers.module.sass'
 import { TypeLibTeachers } from '@/types/index'
+import CustomNextButton from '@/ui/CustomNextButton'
+import CustomPrevButton from '@/ui/CustomPrevButton'
+import Tag from '@/ui/Tag'
 import classNames from 'classnames'
 import { useContext } from 'react'
 import SwiperCore from 'swiper'
-import { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import TagOrange from '../general/TagOrange'
-import CustomPrevButton from '../general/CustomPrevButton'
-import CustomNextButton from '../general/CustomNextButton'
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay])
 
 type TeacherProps = {
@@ -79,7 +79,7 @@ const Teachers = ({
       <Wrapper>
         {onMain && (
           <div className={stls.tag}>
-            <TagOrange>Опыт</TagOrange>
+            <Tag type='orange'>Опыт</Tag>
           </div>
         )}
         <h2

@@ -5,9 +5,9 @@ import {
   BtnWhatsapp,
   BtnYt
 } from '@/components/btns'
-import GeneralAddress from '@/components/general/GeneralAddress'
-import FooterBottom from '@/components/general/FooterBottom'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import GeneralAddress from '@/components/sections/GeneralAddress'
+import FooterBottom from '@/components/sections/FooterBottom'
+import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
 import { company } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
@@ -19,8 +19,8 @@ import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import BtnDzen from '../btns/BtnDzen'
 import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
-import Logo from '../general/Logo'
-import SearchProgram from '../general/SearchProgram'
+import Logo from '@/ui/Logo'
+import SearchProgram from '@/ui/SearchProgram'
 import PopupFooterReviews from '../popups/PopupFooterReviews'
 
 const Footer = () => {

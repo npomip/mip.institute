@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/Cta.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import { ImgCta1 } from '@/components/imgs'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import classNames from 'classnames'
 
 type CtaType = {
@@ -22,12 +22,13 @@ type CtaType = {
   question?: boolean
 }
 
-const Cta = ({ title = null, desc = null, cta, onMain=false }: CtaType) => {
+const Cta = ({ title = null, desc = null, cta, onMain = false }: CtaType) => {
   return (
-    <section className={classNames({
-      [stls.container]: true,
-      [stls.onProfessions]: !onMain
-    })}>
+    <section
+      className={classNames({
+        [stls.container]: true,
+        [stls.onProfessions]: !onMain
+      })}>
       <Wrapper>
         <div className={stls.img}>
           <ImgCta1 />

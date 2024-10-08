@@ -2,7 +2,7 @@ import stls from '@/styles/components/cards/CardSchedule.module.sass'
 import Link from 'next/link'
 import cn from 'classnames'
 import { routes } from '@/config/index'
-import CtaText from '@/components/general/CtaText'
+import CtaText from '@/ui/CtaText'
 import ImgAllWebinars from '@/components/imgs/webinars/ImgAllWebinars'
 import { IconPlayer } from '@/components/icons'
 

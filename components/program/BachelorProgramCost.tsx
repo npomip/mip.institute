@@ -2,7 +2,7 @@ import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 import stls from '@/styles/components/program/BachelorProgramCost.module.sass'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 
 type Props = {
   title: string | ReactNode

@@ -1,6 +1,6 @@
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/PayLater.module.sass'
-import TagOrange from '../general/TagOrange'
+import Tag from '@/ui/Tag'
 import IconBrain from '../icons/IconBrain'
 import IconCircleStar from '../icons/IconCircleStar'
 import IconDocCircle from '../icons/IconDocCircle'
@@ -61,7 +61,7 @@ const PayLater = () => {
         <div className={stls.titleWithIcon}>
           <div>
             <div className={stls.tag}>
-              <TagOrange>Оплата</TagOrange>
+              <Tag type='orange'>Оплата</Tag>
             </div>
             <h2>Обучайтесь сейчас –платите потом</h2>
           </div>

@@ -5,7 +5,7 @@ import {
   useFilterDispatch
 } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersWithTag.module.sass'
-import InputSearchDesktop from '../general/InputSearchDesktop'
+import InputSearch from '@/ui/InputSearch'
 import ProgramSelect from '../program/ProgramSelect'
 import FiltersForLifeCoursesMobile from './FiltersForLifeCoursesMobile'
 
@@ -59,10 +59,7 @@ const FiltersWithTag = ({ minmaxPrice, minmaxDuration }: FilterTagProps) => {
       </div>
 
       <div className={stls.filtersWithInput}>
-        <InputSearchDesktop
-          value={filters.input.text}
-          onChange={changeHandler}
-        />
+        <InputSearch value={filters.input.text} onChange={changeHandler} />
         <FiltersForLifeCoursesMobile btnTitle={'Показать курсы'}>
           <FiltersForLifeCourses cost={minmaxPrice} duration={minmaxDuration} />
         </FiltersForLifeCoursesMobile>

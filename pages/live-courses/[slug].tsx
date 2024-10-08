@@ -1,5 +1,5 @@
 import PaymentForm from '@/components/forms/PaymentForm'
-import GeneralFaq from '@/components/general/GeneralFaq'
+import GeneralFaq from '@/components/liveCourses/GeneralFaq'
 import LifeCourseDynamicZones from '@/components/liveCourses/LifeCoursesDynamicZones'
 import LiveCoursesForm from '@/components/liveCourses/LiveCoursesForm'
 import LiveCoursesGetAcess from '@/components/liveCourses/LiveCoursesGetAcess'

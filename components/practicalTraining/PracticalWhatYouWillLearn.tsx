@@ -5,7 +5,7 @@ import {
   WhatYouWillLearnPhoto
 } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { useRef } from 'react'
-import SwiperContainer from '../general/SwiperContainer'
+import SwiperContainer from '@/ui/SwiperContainer'
 import { IconFinger } from '../icons'
 import PracticalListCarouselCard from './PracticalListCarouselCard'
 

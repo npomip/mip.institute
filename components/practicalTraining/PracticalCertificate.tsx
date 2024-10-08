@@ -2,7 +2,7 @@ import stls from '@/styles/components/practicalTraining/PracticalCertificate.mod
 import { PracticalDiploma } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import classNames from 'classnames'
 import Image from 'next/image'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '../layout/Wrapper'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import ticket from '@/public/assets/imgs/practicalCarousel/ticket.png'
@@ -43,7 +43,7 @@ const PracticalCertificate = ({ image }: Props) => {
                   width={ticket.width}
                   height={ticket.height}
                   alt='Сертификат'
-                  style={{width: '100%', height: 'auto'}}
+                  style={{ width: '100%', height: 'auto' }}
                 />
               </div>
               <div className={stls.imgCertificate}>
@@ -52,7 +52,7 @@ const PracticalCertificate = ({ image }: Props) => {
                   width={certificate.width}
                   height={certificate.height}
                   alt='Удостоверение'
-                  style={{width: '100%', height: 'auto'}}
+                  style={{ width: '100%', height: 'auto' }}
                 />
               </div>
             </div>
@@ -72,7 +72,7 @@ const PracticalCertificate = ({ image }: Props) => {
                 width={rocket.width}
                 height={rocket.height}
                 alt='Ракета'
-                style={{width: '100%', height: 'auto'}}
+                style={{ width: '100%', height: 'auto' }}
               />
             </div>
             <div className={stls.btn}>

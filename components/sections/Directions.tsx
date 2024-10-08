@@ -1,10 +1,10 @@
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/Directions.module.sass'
-import TagOrange from '../general/TagOrange'
+import Tag from '@/ui/Tag'
+import { useState } from 'react'
 import IconForBottomDirections from '../icons/IconForBottomDirections'
 import ProgramList from './ChooseProgram/ProgramList'
 import DirectionsSelector from './DirectionsSelector'
-import { useState } from 'react'
 
 const Directions = () => {
   const [currentType, setCurrentType] = useState('profession')
@@ -16,7 +16,7 @@ const Directions = () => {
           <div className={stls.content}>
             <div className={stls.heading}>
               <div className={stls.tag}>
-                <TagOrange>Выбор</TagOrange>
+                <Tag type='orange'>Выбор</Tag>
               </div>
               <h2 className={stls.title}>Направления</h2>
             </div>

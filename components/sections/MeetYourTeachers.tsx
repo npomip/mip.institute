@@ -1,4 +1,4 @@
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import { ImgTeacher } from '@/components/imgs'
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/MeetYourTeachers.module.sass'

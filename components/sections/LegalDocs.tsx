@@ -2,7 +2,7 @@ import { IconDoc } from '@/components/icons'
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/sections/LegalDocs.module.sass'
 import { TypeDataDocs } from '@/types/index'
-import ExpandableListItem from '../general/ExpandableListItem'
+import ExpandableListItem from '@/ui/ExpandableListItem'
 import {
   listAdditional,
   listEntrance,

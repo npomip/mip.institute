@@ -1,4 +1,4 @@
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/components/layout/Wrapper'
 import SeminarTickets from '@/components/sections/SeminarTickets'
 import { routes } from '@/config/index'

@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react'
 import stls from 'styles/components/sections/ProgramsOnMain.module.sass'
 import CardProfession from '../cards/CardProfession'
 import FilterTag from '../filters/FilterTag'
-import CustomSelect, { SelectOption } from '../general/CustomSelect'
+import CustomSelect from '@/ui/CustomSelect'
+import { SelectOption } from '@/ui/CustomSelect/CustomSelect'
 
 type Props = {
   allPrograms: any[]

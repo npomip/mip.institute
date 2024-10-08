@@ -1,7 +1,7 @@
 import Wrapper from '@/components/layout/Wrapper'
 import stls from '@/styles/components/layout/StickyTop.module.sass'
 import classNames from 'classnames'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import { IconCloseCircle } from '../icons'
 import IconPortalViolet from '../icons/IconPortalViolet'
 

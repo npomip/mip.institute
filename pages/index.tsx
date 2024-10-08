@@ -136,18 +136,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <PsyTest />
       <TopCourses />
-      {/* <BachelorCarousel
-        title={'Высшее образование'}
-        subtitle={'Программы бакалавриата от МИП'}
-        cards={bachelors}
-      /> */}
-      {/* <PracticalCarousel
-        title={'Практическая подготовка'}
-        subtitle={
-          'Практико–ориентированные программы для начинающих и действующих психологов'
-        }
-        cards={practicalTrainings}
-      /> */}
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/WebinarsAlt.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import Popup from 'reactjs-popup'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import { PopupCta } from '@/components/popups'
 import CardWebinarAlt from '@/components/cards/CardWebinarAlt'
 import { ImgWebinar } from '@/components/imgs'

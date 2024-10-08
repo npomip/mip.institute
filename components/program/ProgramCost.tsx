@@ -3,7 +3,7 @@ import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 import { discountNum } from '@/data/price'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import classNames from 'classnames'
 import IconScrewedArrow from '../icons/IconScrewedArrow'
 

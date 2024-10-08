@@ -1,4 +1,4 @@
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import IconCloseCircle from '@/components/icons/IconCloseCircle'
 import IconForStickyBottom from '@/components/icons/IconForStickyBottom'
 import IconInfoOrange from '@/components/icons/IconInfoOrange'

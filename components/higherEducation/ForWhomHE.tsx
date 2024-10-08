@@ -2,7 +2,7 @@ import stls from '@/styles/components/higherEducation/ForWhomHE.module.sass'
 import Wrapper from '@/components/layout/Wrapper'
 import CardForWhom from '@/components/cards/CardForWhom'
 import forWhomList from 'constants/forWhomHE'
-import NoteBlock from '../general/NoteBlock'
+import NoteBlock from '@/ui/NoteBlock'
 import pic from '@/public/assets/imgs/forWhom/hasDoubtsImage.png'
 
 export const ForWhomHE = () => {

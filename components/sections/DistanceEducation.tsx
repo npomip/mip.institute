@@ -3,7 +3,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/DistanceEducation.module.sass'
 import { useRef, useState } from 'react'
 import CardDistanceEducation from '../cards/CardDistanceEducation'
-import SwiperContainer from '../general/SwiperContainer'
+import SwiperContainer from '@/ui/SwiperContainer'
 import { IconFinger } from '../icons'
 import { distanceEducationList } from 'constants/distanceEducationList'
 

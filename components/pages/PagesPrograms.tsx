@@ -16,7 +16,7 @@ import CardProfession from '../cards/CardProfession'
 import ResetFilter from '../filters/ResetFilter'
 import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
 import { getUniqueCategories } from '../funcs/getUniqueCategories'
-import Breadcrumbs from '../general/Breadcrumbs'
+import Breadcrumbs from '@/ui/Breadcrumbs'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms

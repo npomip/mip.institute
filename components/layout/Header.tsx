@@ -1,7 +1,7 @@
 import { BtnFields } from '@/components/btns'
 import BtnHumburger from '@/components/btns/BtnHumburger'
 import BtnPhone from '@/components/btns/BtnPhone'
-import Logo from '@/components/general/Logo'
+import Logo from '@/ui/Logo'
 import MenuMobile from '@/components/layout/MenuMobile'
 import Wrapper from '@/components/layout/Wrapper'
 import { routes } from '@/config/index'

@@ -7,8 +7,8 @@ import {
   BtnWhatsapp,
   BtnYt
 } from '@/components/btns'
-import Logo from '@/components/general/Logo'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import Logo from '@/ui/Logo'
+import PopupTrigger from '@/ui/PopupTrigger'
 import { IconMoreThan } from '@/components/icons'
 import Wrapper from '@/components/layout/Wrapper'
 import MenuContext from '@/context/menu/menuContext'

@@ -8,8 +8,8 @@ import Popup from 'reactjs-popup'
 import { Navigation, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import CardLinkedProgram from '../cards/CardLinkedProgram'
-import CustomNextButton from '../general/CustomNextButton'
-import CustomPrevButton from '../general/CustomPrevButton'
+import CustomNextButton from '@/ui/CustomNextButton'
+import CustomPrevButton from '@/ui/CustomPrevButton'
 import PopupSpecialization from '../popups/PopupSpecialization'
 
 type Picture = {

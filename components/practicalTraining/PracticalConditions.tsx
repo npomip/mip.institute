@@ -2,7 +2,7 @@ import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'
 import classNames from 'classnames'
 import Image from 'next/image'
 import stls from 'styles/components/practicalTraining/PracticalConditions.module.sass'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import IconVioletCircle from '../icons/IconVioletCircle'
 import TwoColumnsPractical from '../layout/TwoColumnsPractical'
 import Wrapper from '../layout/Wrapper'
@@ -50,7 +50,7 @@ const PracticalConditions = () => {
                 width={rocket.width}
                 height={rocket.height}
                 alt='Ракета'
-                style={{width: '100%', height: 'auto'}}
+                style={{ width: '100%', height: 'auto' }}
               />
             </div>
             <div className={stls.btn}>

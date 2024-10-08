@@ -1,7 +1,7 @@
 import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
 import { useRouter } from 'next/router'
-import RangeSlide from '../general/RangeSlide'
+import RangeSlide from '@/ui/RangeSlide'
 import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 

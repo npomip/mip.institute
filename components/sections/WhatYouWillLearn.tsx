@@ -1,19 +1,19 @@
+import IconClever from '@/components/icons/IconClever'
+import IconFlower from '@/components/icons/IconFlower'
+import IconPortalViolet from '@/components/icons/IconPortalViolet'
+import IconStar from '@/components/icons/IconStar'
+import IconStarLong from '@/components/icons/IconStarLong'
+import IconSun from '@/components/icons/IconSun'
 import Wrapper from '@/components/layout/Wrapper'
 import { ContextStaticProps } from '@/context/index'
+import highlightFirstWord from '@/helpers/highlightFirstWord'
+import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
+import Tag from '@/ui/Tag'
+import classNames from 'classnames'
+import content from 'constants/whatYouWillLearn'
+import { useContext } from 'react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
-import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
-import { useContext } from 'react'
-import TagOrange from '@/components/general/TagOrange'
-import IconPortalViolet from '@/components/icons/IconPortalViolet'
-import classNames from 'classnames'
-import IconSun from '@/components/icons/IconSun'
-import IconStarLong from '@/components/icons/IconStarLong'
-import IconFlower from '@/components/icons/IconFlower'
-import IconClever from '@/components/icons/IconClever'
-import IconStar from '@/components/icons/IconStar'
-import content from 'constants/whatYouWillLearn'
-import highlightFirstWord from '@/helpers/highlightFirstWord'
 
 const WhatYouWillLearn = ({ onMain = false, title }) => {
   const { program } = useContext(ContextStaticProps)
@@ -65,7 +65,9 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
           <h2 className={stls.title}>{title}</h2>
           {onMain && (
             <div className={stls.tag}>
-              <TagOrange isWhiteText>Знания</TagOrange>
+              <Tag type='orange' isWhiteText>
+                Знания
+              </Tag>
             </div>
           )}
           {onMain ? (

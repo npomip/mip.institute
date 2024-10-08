@@ -1,4 +1,4 @@
-import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
+import StudyFieldSlugFilter from '@/components/articles/StudyFieldSlugFilter'
 import Wrapper from '@/components/layout/Wrapper'
 import SlugTags from '@/components/sections/SlugTags'
 import SeoPagesJournals from '@/components/seo/SeoPageJournals'

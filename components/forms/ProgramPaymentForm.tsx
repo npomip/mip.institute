@@ -12,7 +12,7 @@ import Popup from 'reactjs-popup'
 import { BtnClose } from '../btns'
 import Button from '../btns/Button'
 import { PopupLoading } from '../popups'
-import genezis from '../funcs/genezis'
+import genezis from '@/helpers/funcs/genezis'
 
 type FormValues = {
   name: string

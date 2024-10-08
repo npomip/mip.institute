@@ -9,7 +9,7 @@ import routes from '@/config/routes'
 import { BtnField } from '../btns'
 import { useRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
-import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
+import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
 
 export default function SearchProgramsDropDown() {
   const list = useMemo(

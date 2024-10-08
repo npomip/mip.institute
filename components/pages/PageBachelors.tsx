@@ -1,7 +1,7 @@
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/pages/PageBachelors.module.sass'
 import BachelorSlugCard from '../cards/BachelorSlugCard'
-import { getUniqueCategories } from '../funcs/getUniqueCategories'
+import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import ProgramsFilters from '../layout/ProgramsFilters'
 import Wrapper from '../layout/Wrapper'

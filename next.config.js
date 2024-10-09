@@ -24,63 +24,80 @@ module.exports = /* withPWA( */ {
         source: '/:path*',
         headers: createSecureHeaders({
           frameGuard: false
-        }),
-        
+        })
       },
       {
         source: '/api/edPartners',
         headers: [
           { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS, PUT, DELETE' },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS, PUT, DELETE'
+          },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' },
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-        ],
+          { key: 'Access-Control-Allow-Credentials', value: 'true' }
+        ]
       },
       {
         source: '/api/checkAndCreateLead',
         headers: [
           { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS, PUT, DELETE' },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS, PUT, DELETE'
+          },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' },
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-        ],
+          { key: 'Access-Control-Allow-Credentials', value: 'true' }
+        ]
       },
       {
         source: '/api/affiseDeniedLead',
         headers: [
           { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS, PUT, DELETE' },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS, PUT, DELETE'
+          },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' },
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-        ],
+          { key: 'Access-Control-Allow-Credentials', value: 'true' }
+        ]
       },
       {
         source: '/api/createLead',
         headers: [
           { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS, PUT, DELETE' },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS, PUT, DELETE'
+          },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' },
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-        ],
+          { key: 'Access-Control-Allow-Credentials', value: 'true' }
+        ]
       },
       {
         source: '/api/addNote',
         headers: [
           { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS, PUT, DELETE' },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS, PUT, DELETE'
+          },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' },
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-        ],
+          { key: 'Access-Control-Allow-Credentials', value: 'true' }
+        ]
       },
       {
         source: '/api/taskAdd',
         headers: [
           { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS, PUT, DELETE' },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS, PUT, DELETE'
+          },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' },
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-        ],
-      },
+          { key: 'Access-Control-Allow-Credentials', value: 'true' }
+        ]
+      }
     ]
   },
   async redirects() {
@@ -189,8 +206,7 @@ module.exports = /* withPWA( */ {
       {
         source:
           '/professions/prakticheskaya-psihologiya/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
-        destination:
-          '/professions/konsultirovanie/psiholog-konsultant',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
@@ -343,14 +359,12 @@ module.exports = /* withPWA( */ {
       },
       {
         source: '/programs/defektologiya',
-        destination:
-          '/professions/detskaya-psihologiya/defektolog',
+        destination: '/professions/detskaya-psihologiya/defektolog',
         permanent: true
       },
       {
         source: '/courses/defektolog',
-        destination:
-          '/professions/detskaya-psihologiya/defektolog',
+        destination: '/professions/detskaya-psihologiya/defektolog',
         permanent: true
       },
       {
@@ -367,20 +381,17 @@ module.exports = /* withPWA( */ {
       },
       {
         source: '/courses/prakticheskaya-psihologiya',
-        destination:
-          '/professions/konsultirovanie/prakticheskij-psiholog',
+        destination: '/professions/konsultirovanie/prakticheskij-psiholog',
         permanent: true
       },
       {
         source: '/programs/prakticheskaya-psihologiya',
-        destination:
-          '/professions/konsultirovanie/prakticheskij-psiholog',
+        destination: '/professions/konsultirovanie/prakticheskij-psiholog',
         permanent: true
       },
       {
         source: '/professions/prakticheskaya-psihologiya',
-        destination:
-          '/professions/konsultirovanie/prakticheskij-psiholog',
+        destination: '/professions/konsultirovanie/prakticheskij-psiholog',
         permanent: true
       },
       {
@@ -397,8 +408,7 @@ module.exports = /* withPWA( */ {
       },
       {
         source: '/courses/socialnaya-psihologiya',
-        destination:
-          '/professions/obshaya-psihologiya/socialnyj-psiholog',
+        destination: '/professions/obshaya-psihologiya/socialnyj-psiholog',
         permanent: true
       },
       {
@@ -408,7 +418,8 @@ module.exports = /* withPWA( */ {
         permanent: true
       },
       {
-        source: '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant',
+        source:
+          '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant',
         destination:
           '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
@@ -427,8 +438,7 @@ module.exports = /* withPWA( */ {
       },
       {
         source: '/professions/pedagogika',
-        destination:
-          '/professions/detskaya-psihologiya/pedagog-psiholog',
+        destination: '/professions/detskaya-psihologiya/pedagog-psiholog',
         permanent: true
       },
       {
@@ -440,172 +450,181 @@ module.exports = /* withPWA( */ {
       {
         source: '/professions/klinicheskaya-psihologiya/klinicheskij-psiholog',
         destination:
-        '/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
+          '/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/prakticheskij-psiholog-s-dop.-kvalifikaciej-psiholog-psihoterapevt',
-        destination:
-        '/professions/konsultirovanie/prakticheskij-psiholog',
+        source:
+          '/professions/konsultirovanie/prakticheskij-psiholog-s-dop.-kvalifikaciej-psiholog-psihoterapevt',
+        destination: '/professions/konsultirovanie/prakticheskij-psiholog',
         permanent: true
       },
       {
-        source: '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        source:
+          '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         destination:
-        '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/prakticheskaya-konfliktologiya-i-mediaciya',
+        source:
+          '/professions/konsultirovanie/prakticheskaya-konfliktologiya-i-mediaciya',
         destination:
-        '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
+          '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
         permanent: true
       },
       {
         source: '/professions/konsultirovanie/kratkosrochnaya-psihoterapiya',
         destination:
-        '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
+          '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/metaforicheskie-karty-v-psihologicheskom-konsultirovanii',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike',
+        source:
+          '/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike',
         destination:
-        '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
+          '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/pesochnaya-terapiya-v-psihologicheskom-konsultirovanii',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/pesochnaya-terapiya-v-psihologicheskom-konsultirovanii',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/skazkoterapiya-v-psihologicheskom-konsultirovanii',
-        destination:
-        '/professions/konsultirovanie/art-terapevt',
+        source:
+          '/professions/konsultirovanie/skazkoterapiya-v-psihologicheskom-konsultirovanii',
+        destination: '/professions/konsultirovanie/art-terapevt',
         permanent: true
       },
       {
         source: '/professions/detskaya-psihologiya/defektolog',
         destination:
-        '/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
+          '/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
         permanent: true
       },
 
       {
         source: '/professions/obshaya-psihologiya/psihologiya-lichnosti',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
+        source:
+          '/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
         destination:
-        '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
+          '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
         permanent: true
       },
       {
         source: '/professions/dietologiya-i-nutriciologiya/nutriciologiya',
         destination:
-        '/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog',
+          '/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog',
         permanent: true
       },
       {
         source: '/professions/konsultirovanie/prakticheskij-psiholog',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
         source: '/professions/obshaya-psihologiya/psihologiya',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
         source: '/professions/obshaya-psihologiya/socialnyj-psiholog',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/proektivnye-metodiki-v-psihologicheskom-konsultirovanii',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/proektivnye-metodiki-v-psihologicheskom-konsultirovanii',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/psihodiagnostika-detej-i-vzroslyh-v-prakticheskoj-psihologii',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/psihologicheskoe-internet-konsultirovanie',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/psihologicheskoe-internet-konsultirovanie',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-detej-i-podrostkov',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-detej-i-podrostkov',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-i-diagnostika-lichnosti',
-        destination:
-        '/professions/konsultirovanie/psiholog-konsultant',
+        source:
+          '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-i-diagnostika-lichnosti',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-s-ispolzovaniem-metodov-art-terapii',
-        destination:
-        '/professions/konsultirovanie/art-terapevt',
+        source:
+          '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-s-ispolzovaniem-metodov-art-terapii',
+        destination: '/professions/konsultirovanie/art-terapevt',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/osnovy-psihologicheskogo-konsultirovaniya-i-professionalnyj-kouching',
+        source:
+          '/professions/konsultirovanie/osnovy-psihologicheskogo-konsultirovaniya-i-professionalnyj-kouching',
         destination:
-        '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
       },
       {
-        source: '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
-        destination:
-        '/professions/organizacionnaya-psihologiya/mediator',
+        source:
+          '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
+        destination: '/professions/organizacionnaya-psihologiya/mediator',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij',
+        source:
+          '/professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij',
         destination:
-        '/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii',
+          '/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/semejnoe-psihologicheskoe-konsultirovanie',
+        source:
+          '/professions/konsultirovanie/semejnoe-psihologicheskoe-konsultirovanie',
         destination:
-        '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+          '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
         permanent: true
       },
       {
-        source: '/professions/konsultirovanie/teoriya-i-praktika-individualnogo-i-semejnogo-konsultirovaniya',
+        source:
+          '/professions/konsultirovanie/teoriya-i-praktika-individualnogo-i-semejnogo-konsultirovaniya',
         destination:
-        '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+          '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
         permanent: true
       },
+      {
+        source: '/courses/psihoterapiya/bazovye-navyki-geshtalt-terapii',
+        destination: '/professions/psihoterapiya/geshtalt-terapevt',
+        permanent: true
+      }
     ]
   }
 }

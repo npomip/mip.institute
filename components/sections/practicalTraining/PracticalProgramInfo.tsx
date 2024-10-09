@@ -40,7 +40,7 @@ const PracticalProgramInfo = ({ practicalTraining }: Props) => {
       key: 'Форма обучения:',
       val: (
         <>
-          очно–заочная <br /> (онлайн)
+          заочная <br /> (онлайн)
         </>
       )
     },

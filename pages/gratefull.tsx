@@ -6,6 +6,7 @@ import { TypePageDefaultProps } from '@/types/index'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
+import Script from 'next/script'
 
 const GratefullPage: NextPage<TypePageDefaultProps> = () => {
   const router = useRouter()
@@ -44,7 +45,14 @@ const GratefullPage: NextPage<TypePageDefaultProps> = () => {
         }}
       />
       <SeoOrganizationJsonLd />
-
+      <Script
+        id='registration'
+        dangerouslySetInnerHTML={{
+          __html: `
+            gtag('event', 'conversion', {'send_to': 'AW-822792302/ktI6CJG-0toZEO6gq4gD'});
+          `
+        }}
+      />
       <Gratefull />
       <div
         className='i-flocktory'

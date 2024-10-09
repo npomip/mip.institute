@@ -276,6 +276,34 @@ const MyApp = ({ Component, pageProps, router }) => {
         </div>
       )}
 
+      {/* <Script 
+          id='sendsay-popup' 
+          src="https://image.sendsay.ru/app/js/forms/forms.min.js"
+          onLoad={() => {
+              // @ts-ignore
+              if (window.SENDSAY) {
+              // @ts-ignore
+                  SENDSAY.activatePopup("https://sendsay.ru/form/x_16799332371017125/5/");
+              } else {
+                  console.error("SENDSAY is not defined");
+              }
+          }}
+      /> */}
+
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-822792302"/>
+      <Script 
+      id='google-tag'
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-822792302');
+          `,
+        }} 
+      />
+
       <DefaultSeo {...SEO} />
       <div style={{ display: 'none' }}>
         <Link href='/professions/detskaya-psihologiya/ava-terapevt'>
@@ -415,6 +443,13 @@ const MyApp = ({ Component, pageProps, router }) => {
         })(document, window, "tmr-code");`
         }}
       />
+      <Script 
+        id='vk' 
+        dangerouslySetInnerHTML={{ 
+          __html: `!function(){var t=document.createElement("script");
+          t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?173',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1904296-h2y40"),VK.Retargeting.Hit()},document.head.appendChild(t)}()
+          `}}
+      />
       <Script
         id='WA AMO script'
         src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
@@ -458,6 +493,13 @@ const MyApp = ({ Component, pageProps, router }) => {
             alt='Top.Mail.Ru'
           />
         </div>
+      </noscript>
+      <noscript>
+        <img 
+          src='https://vk.com/rtrg?p=VK-RTRG-1904296-h2y40'
+          style={{position:'fixed', left: '-999px' }}
+          alt='vk.com'
+        />
       </noscript>
     </>
   )

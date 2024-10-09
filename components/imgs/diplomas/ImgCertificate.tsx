@@ -1,6 +1,6 @@
 import stls from '@/styles/components/imgs/diplomas/ImgCertificate.module.sass'
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/diplomas/certificate.jpg'
+import pic from '@/public/assets/imgs/diplomas/certificateNew.jpg'
 
 const ImgCertificate = ({ width = 0, height = 0 }) => {
   return (

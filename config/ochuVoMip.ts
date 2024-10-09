@@ -30,8 +30,8 @@ const ochuVoMip = {
     phoneNumbers: {
       default: {
         city: 'Москва',
-        href: 'tel:+7-499-110-86-32',
-        val: '+7 (499) 110-86-32',
+        href: 'tel:+7-499-110-88-19',
+        val: '+7 (499) 110-88-19',
         contactType: 'Учебный отдел',
         areaServed: ['RU', 'KZ', 'UZ'],
         languages: ['Russian', 'Kazakh', 'Uzbek']

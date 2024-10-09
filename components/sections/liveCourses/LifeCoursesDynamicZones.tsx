@@ -18,7 +18,7 @@ export default function LifeCourseDynamicZones({ props, openModal }) {
     case 'ComponentSharedRepeatListWithTitle':
       return <LiveCoursesDescription props={props} />
     case 'ComponentSharedVideoLinkWithTitle':
-      return <YouTubeVideo videoId='rP37RRN2KfT1qtBQQBaH5e' />
+      return <YouTubeVideo videoId='2WALhR1ZcszBWNRXQ2kNSB' />
     default:
       break
   }

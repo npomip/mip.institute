@@ -1,9 +1,10 @@
-import Wrapper from '@/ui/Wrapper'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/practicalTraining/PracticalHeroProgram.module.sass'
 import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Tag from '@/ui/Tag'
+import Wrapper from '@/ui/Wrapper'
 import { useRouter } from 'next/router'
 import PracticalProgramInfo from './PracticalProgramInfo'
 
@@ -13,6 +14,7 @@ type Props = {
 }
 
 const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const cta = 'signUp'
   const title = (
     <>
@@ -26,37 +28,49 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
 
   const router = useRouter()
 
-  const step = router.query.slug === 'first-step'
+  const step = router.query.slug
 
   const tag = (
     <div className={stls.tag}>
-      <Tag type='orange'>{step ? '1 ступень' : '2 ступень'}</Tag>
+      <Tag type='orange'>
+        {step === 'first-step'
+          ? '1 ступень'
+          : step === 'second-step'
+          ? '2 ступень'
+          : step === 'third-step'
+          ? '3 ступень'
+          : 'Неизвестная ступень'}
+      </Tag>
     </div>
   )
   return (
     <>
-      <div
-        className={stls.mobileBg}
-        style={{
-          backgroundImage: `url(${practicalTraining?.heroPicture?.url})`
-        }}>
-        <span className={stls.filter}></span>
-        <div className={stls.content}>
-          <div>
-            {tag}
-            <h1 className={stls.title}>{title}</h1>
-            <div className={stls.mobileFlex}>
-              <div className={stls.descriptionMobile}>
-                <p className={stls.mobiledesc}>{practicalTraining?.subtitle}</p>
+      {isMobileAndTabletLayout && (
+        <div
+          className={stls.mobileBg}
+          style={{
+            backgroundImage: `url(${practicalTraining?.heroPicture?.url})`
+          }}>
+          <span className={stls.filter}></span>
+          <div className={stls.content}>
+            <div>
+              {tag}
+              <h1 className={stls.title}>{title}</h1>
+              <div className={stls.mobileFlex}>
+                <div className={stls.descriptionMobile}>
+                  <p className={stls.mobiledesc}>
+                    {practicalTraining?.subtitle}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className={stls.btnsMobile}>
-              <PopupTrigger btn='alpha' cta={cta} />
-              <PopupTrigger btn='beta' cta='askQuestion' />
+              <div className={stls.btnsMobile}>
+                <PopupTrigger btn='alpha' cta={cta} />
+                <PopupTrigger btn='beta' cta='askQuestion' />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
       <div className={stls.info}>
         <PracticalProgramInfo practicalTraining={practicalTraining} />
       </div>

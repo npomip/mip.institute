@@ -4,6 +4,8 @@ import { handleGetStaticProps } from '@/lib/index';
 import PageTrainings from '@/components/pages/PageTrainings';
 import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps';
 import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps';
+import { NextSeo } from 'next-seo';
+import preview from '@/config/preview'
 
 // Определите интерфейс для пропсов
 interface ProgramsPageProps {
@@ -15,6 +17,7 @@ interface ProgramsPageProps {
 const ProgramsPage: React.FC<ProgramsPageProps> = ({ practicalTrainings, programs, bachelors }) => {
   return (
     <>
+      <NextSeo nofollow={preview} noindex={preview} />
       <PageTrainings programs={programs} practicalTrainings={practicalTrainings} bachelors={bachelors} />
     </>
   );

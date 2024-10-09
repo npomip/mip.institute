@@ -29,7 +29,7 @@ const CardTeacher = ({
         <div className={stls.twoColumns}>
           <div className={stls.leftBlock}>
             <div className={stls.portrait}>{portrait}</div>
-            <h3 className={stls.name}>{name}</h3>
+            <p className={stls.name}>{name}</p>
           </div>
           <div
             className={classNames({

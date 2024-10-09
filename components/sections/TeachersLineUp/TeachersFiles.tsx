@@ -1,5 +1,5 @@
 import { ImgTeacher } from '@/components/imgs'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { getImageHeight } from '@/helpers/index'
 import stls from '@/styles/components/sections/TeachersLineUp/TeachersLineUp.module.sass'
 import { useState } from 'react'

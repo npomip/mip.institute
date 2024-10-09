@@ -1,5 +1,5 @@
-import stls from '@/styles/components/layout/PageTitle.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import stls from './PageTitle.module.sass'
+import Wrapper from '@/ui/Wrapper'
 import { ReactNode } from 'react'
 
 type Props = {

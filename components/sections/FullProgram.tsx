@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/FullProgram.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ImgFullProgram1 } from '@/components/imgs'
 import PopupTrigger from '@/ui/PopupTrigger'
 

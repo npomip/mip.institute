@@ -3,8 +3,8 @@ import stls from '@/styles/pages/PageBachelors.module.sass'
 import BachelorSlugCard from '../cards/BachelorSlugCard'
 import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
 import Breadcrumbs from '@/ui/Breadcrumbs'
-import ProgramsFilters from '../layout/ProgramsFilters'
-import Wrapper from '../layout/Wrapper'
+import ProgramsFilters from '@/components/program/ProgramsFilters'
+import Wrapper from '@/ui/Wrapper'
 import { SeoPageBachelors } from '../seo'
 
 type PagesProgramsType = {

@@ -1,7 +1,7 @@
 import base64pixel from '@/config/base64pixel'
 import styles from '@/styles/components/sections/liveCourses/LiveCoursesTextImage.module.sass'
 import Image from 'next/image'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 
 interface LiveCorsesTextImageProps {
   props: {

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ForWhom.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import {
   IconGettingup,
   IconRemoteWork,

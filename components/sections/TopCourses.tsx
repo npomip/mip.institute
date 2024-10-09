@@ -1,6 +1,6 @@
 import CardTopProgram from '@/components/cards/CardTopProgram'
 import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/TopCourses.module.sass'

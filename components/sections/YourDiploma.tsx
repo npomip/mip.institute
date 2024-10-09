@@ -6,7 +6,7 @@ import {
   ImgDiplomaDynamic,
   ImgSupplement
 } from '@/components/imgs'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { PopupImage } from '@/components/popups'
 import { ContextStaticProps } from '@/context/index'
 import { getImageHeight } from '@/helpers/index'

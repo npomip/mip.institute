@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/FourSteps.module.sass'
 import BachelorStepCard from '../cards/BachelorStepCard'
 import { IconCircleCheck } from '../icons'

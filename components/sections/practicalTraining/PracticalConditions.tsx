@@ -5,7 +5,7 @@ import stls from 'styles/components/sections/practicalTraining/PracticalConditio
 import PopupTrigger from '@/ui/PopupTrigger'
 import IconVioletCircle from '@/components/icons/IconVioletCircle'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import conditions from 'constants/practicalConditions'
 
 const PracticalConditions = () => {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import RequirementsWithProgress from './RequirementWithProgress'
 import stls from '@/styles/components/sections/practicalTraining/RequirementsInProfession.module.sass'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'

@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { closeFieldsTooltipOnOuterClick } from '@/helpers/index'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import MainStudyFields from '../sections/MainStudyFields'
 import StudyFieldsOnMain from '../sections/StudyFieldsOnMain'
 

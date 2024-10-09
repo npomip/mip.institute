@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import stls from '@/styles/components/layout/Header.module.sass'
+import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
 import { IconArrowRight, IconSearchAlt } from '../icons'
 import getProgramsData from '@/lib/data/getProgramsData'

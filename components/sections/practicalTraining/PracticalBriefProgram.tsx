@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/practicalTraining/PracticalBriefProgram.module.sass'
 import { BriefProgram } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import PracticalBriefProgramItem from './PracticalBriefProgramItem'

@@ -1,6 +1,6 @@
 import stls from '@/styles/components/popups/PopupFields.module.sass'
 import { BtnClose } from '@/components/btns'
-import ProgramsFilters from '@/components/layout/ProgramsFilters'
+import ProgramsFilters from '@/components/program/ProgramsFilters'
 
 type Props = {
   close: () => void

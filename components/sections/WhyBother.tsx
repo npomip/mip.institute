@@ -1,5 +1,5 @@
-import TwoColumns from '@/components/layout/TwoColumns'
-import Wrapper from '@/components/layout/Wrapper'
+import TwoColumns from '@/ui/TwoColumns'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/WhyBother.module.sass'
 import Tag from '@/ui/Tag'
 import whyBotherPoints from 'constants/whyBother'

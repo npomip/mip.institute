@@ -1,6 +1,6 @@
 import FaqAnswer from '@/ui/FaqAnswer'
 import PopupTrigger from '@/ui/PopupTrigger'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/Faq.module.sass'
 import listOnMain from 'constants/faq'

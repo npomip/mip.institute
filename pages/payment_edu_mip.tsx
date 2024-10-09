@@ -1,6 +1,6 @@
 import PopupTrigger from '@/ui/PopupTrigger'
-import PageTitle from '@/components/layout/PageTitle'
-import Wrapper from '@/components/layout/Wrapper'
+import PageTitle from '@/ui/PageTitle'
+import Wrapper from '@/ui/Wrapper'
 import { PaymentDebitCard, PaymentInfo } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'

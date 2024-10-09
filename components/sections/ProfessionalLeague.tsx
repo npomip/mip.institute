@@ -8,7 +8,7 @@ import { useState } from 'react'
 import ExpandableItemCross from '@/ui/ExpandableItemCross'
 import Tag from '@/ui/Tag'
 import ImgPPLLogo from '../imgs/general/ImgPPLLogo'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const ProfessionalLeague = () => {

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/PaymentDebitCard.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ImgOnlinePayment } from '@/components/imgs'
 import { IconCircleCheck } from '../icons'
 

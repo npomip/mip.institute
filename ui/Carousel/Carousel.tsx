@@ -1,5 +1,5 @@
 import { ImgTeacher } from '@/components/imgs'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { getImageHeight } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from './Carousel.module.sass'

@@ -8,7 +8,7 @@ import { EffectFade, Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import CubicBlockThreeSide from './CubicBlockThreeSide'
 import IconPracticalStepNext from '@/components/icons/IconPracticalStepNext'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import StepBlocks from './StepBlocks'
 
 const PracticalSteps = () => {

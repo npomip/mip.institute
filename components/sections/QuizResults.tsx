@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/QuizResults.module.sass'
 import Image from 'next/image'

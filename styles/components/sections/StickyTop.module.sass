@@ -4,13 +4,11 @@
 
 .container
   position: fixed
-  // top: 0
-  // transform: translateY(-100px)
   transition: transform 0.6s ease-in
   left: 0
   z-index: 100
   width: 100%
-  @include m.dye(bg, #FBF4FF)
+  @include m.dye(bg, c.$pink-50)
   @include m.flex($ai: center)
   @include m.media(phone, tablet)
     height: f.px(257)
@@ -21,7 +19,6 @@
     @include m.media(phone, tablet)
       transform: translateY(f.px(-514))
   &.promo
-    // transition: transform 1.5s ease
     transform: translateY(f.px(-112))
     @include m.media(phone, tablet)
       transform: translateY(f.px(-257))
@@ -43,7 +40,7 @@
   @include m.media(phone, tablet)
     width: f.px(40)
   & path
-    @include m.dye(fill, #6F01C6)
+    @include m.dye(fill, c.$purple-800)
 
 .text
   @include m.gap($ml: f.px(20))
@@ -74,7 +71,6 @@
     display: none
 
 .close
-  // @include m.gap( $pr: f.px(14))
   transform: translateX(f.px(-14))
   @include m.media(phone, tablet)
     position: absolute

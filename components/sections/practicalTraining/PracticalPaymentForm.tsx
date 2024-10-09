@@ -15,7 +15,7 @@ import Popup from 'reactjs-popup'
 import Button from '@/components/btns/Button'
 import genezis from '@/helpers/funcs/genezis'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { PopupLoading } from '@/components/popups'
 
 type Props = {

@@ -1,5 +1,5 @@
 import styles from '@/styles/components/sections/liveCourses/LiveCoursesPoints.module.sass'
-import FullWrapper from '@/components/layout/FullWrapper'
+import FullWrapper from '@/ui/FullWrapper'
 
 interface LiveCorsesPointsProps {
   props: {

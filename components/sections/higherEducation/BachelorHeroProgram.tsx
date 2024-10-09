@@ -1,5 +1,5 @@
 import PopupTrigger from '@/ui/PopupTrigger'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/higherEducation/BachelorHeroProgram.module.sass'
 import classNames from 'classnames'

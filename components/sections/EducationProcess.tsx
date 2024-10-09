@@ -1,5 +1,5 @@
-import TwoColumns from '@/components/layout/TwoColumns'
-import Wrapper from '@/components/layout/Wrapper'
+import TwoColumns from '@/ui/TwoColumns'
+import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 import stls from '@/styles/components/sections/EducationProcess.module.sass'

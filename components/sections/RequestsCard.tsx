@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/RequestsYouWillFace.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import RequestsYouWillFace from './RequestsYouWillFace'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'

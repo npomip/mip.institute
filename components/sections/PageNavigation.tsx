@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import stls from '@/styles/components/sections/PageNavigation.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 
 const PageNavigation = ({ sections }) => {
   const [activeSection, setActiveSection] = useState('')

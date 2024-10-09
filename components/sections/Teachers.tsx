@@ -1,6 +1,6 @@
 import CardTeacher from '@/components/cards/CardTeacher'
 import { ImgTeacher } from '@/components/imgs'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'

@@ -5,7 +5,7 @@ import bubblesList from 'constants/practicalBubbles'
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import renderedList from 'constants/practicalWhoIsProgramFor'
 
 const PracticalWhoIsProgramFor = () => {

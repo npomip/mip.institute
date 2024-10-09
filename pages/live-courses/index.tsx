@@ -1,5 +1,5 @@
 import { findMinMaxForSlider } from '@/helpers/funcs/findMinMaxForSlider'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import SlugTagsLiveCourses from '@/components/sections/SlugTagsLiveCourses'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import FiltersWithContext from '@/components/filters/FiltersWithContext'

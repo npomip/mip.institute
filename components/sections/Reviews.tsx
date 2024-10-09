@@ -1,6 +1,6 @@
 import CardReview from '@/components/cards/CardReview'
 import { ImgReview } from '@/components/imgs'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import { getImageHeight } from '@/helpers/index'
 import stls from '@/styles/components/sections/Reviews.module.sass'

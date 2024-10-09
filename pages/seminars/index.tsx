@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { GetStaticProps } from 'next'

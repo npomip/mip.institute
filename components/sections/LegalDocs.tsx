@@ -1,5 +1,5 @@
 import { IconDoc } from '@/components/icons'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/LegalDocs.module.sass'
 import { TypeDataDocs } from '@/types/index'
 import ExpandableListItem from '@/ui/ExpandableListItem'

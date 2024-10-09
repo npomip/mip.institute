@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Contacts.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { company } from '@/config/index'
 import CardContact from '@/components/cards/CardContact'
 

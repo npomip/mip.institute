@@ -2,7 +2,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/practicalTraining/ThreadBlock.module.sass'
 import { TermPoint } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import Tag from '@/ui/Tag'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import ThreadBlockDesc from './ThreadBlockDesc'
 import ThreadBlockMobile from './ThreadBlockMobile'
 

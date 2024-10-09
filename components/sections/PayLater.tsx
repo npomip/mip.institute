@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/PayLater.module.sass'
 import Tag from '@/ui/Tag'
 import IconBrain from '../icons/IconBrain'

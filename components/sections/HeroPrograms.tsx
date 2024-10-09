@@ -1,5 +1,5 @@
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import {
   useFilter,
   useFilterDispatch

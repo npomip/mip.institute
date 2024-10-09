@@ -3,10 +3,10 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/Companies.module.sass'
 import Image from 'next/image'
 import SwiperCore from 'swiper'
-import { Autoplay, Pagination, Scrollbar } from 'swiper/modules';
+import { Autoplay, Pagination, Scrollbar } from 'swiper/modules'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import 'swiper/css/scrollbar'
 import companies from 'constants/companies'
 SwiperCore.use([Pagination, Scrollbar, Autoplay])

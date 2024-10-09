@@ -4,7 +4,7 @@ import stls from '@/styles/components/sections/liveCourses/LiveCoursesHero.modul
 import Image from 'next/image'
 import PopupTrigger from '@/ui/PopupTrigger'
 import { IconBirds } from '@/components/icons'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { BtnAlpha } from '@/components/btns'
 

@@ -1,5 +1,5 @@
 import IconSpiral from '@/components/icons/IconSpiral'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import styles from '@/styles/components/sections/ReviewList.module.sass'
 import Review from './Review'
 

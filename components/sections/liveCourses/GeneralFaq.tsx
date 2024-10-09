@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Faq.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import FaqAnswer from '@/ui/FaqAnswer'
 import PopupTrigger from '@/ui/PopupTrigger'
 

@@ -1,4 +1,4 @@
-import PageTitle from '@/components/layout/PageTitle'
+import PageTitle from '@/ui/PageTitle'
 import {
   PaymentBtns,
   PaymentDebitCard,

@@ -7,17 +7,12 @@
   margin: 10px
 
 .container
-  // opacity: 0.5
-  // position: relative
-  // z-index: 0
-  // transform: translateY(f.px(26))
   @include m.dye(bg, c.$purple-800)
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(4, em), $pb: f.px(1, em))
 
   &.promo
     @include m.gap($mt: f.px(112))
-    // transform: translateY(f.px(112))
     @include m.media(phone, tablet)
       @include m.gap($mt: f.px(257))
 
@@ -25,7 +20,6 @@
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    // @include m.flex($jc: space-between)
     @include m.gap($pt: f.px(16))
 
 .topleft
@@ -35,7 +29,6 @@
 
 .linkInfo
   @include m.media(laptop, desktop)
-    // max-width: 27ch
     @include m.gap($mr: f.px(10, em))
     font-size: f.px(10)
     font-weight: 400
@@ -77,8 +70,6 @@
     @include m.flex($jc: center, $ai: center)
 
 .row
-  // position: relative
-  // z-index: 4
   @include m.flex($jc: space-between, $ai: center)
   @include m.gap($ptb: f.px(6))
 
@@ -110,10 +101,6 @@
   justify-content: center
   width: 200px
 
-// .linkReviewLong
-//   @media screen and ( max-width: 860px )
-//     display: none
-
 .popupWrapper
   position: relative
   width: f.px(225)
@@ -127,9 +114,8 @@
   height: fit-content
   background: white
   display: none
-  border: 1px solid #CDCDCD
+  border: 1px solid c.$gray-200
   border-radius: 10px
-  // margin: 10px
 
   &.open
     display: block
@@ -139,8 +125,8 @@
   height: 39px
   @include m.media(desktop)
     @include m.gap($mtb: f.px(10))
-  z-index: 3
-  justify-content: space-around
+    z-index: 3
+    justify-content: space-around
   @media screen and ( max-width: 1200px )
     @include m.flex($ai: center)
     @include m.gap($mtb: f.px(10))
@@ -217,7 +203,6 @@
 //for popup
 
 .desriptionPopup
-  // order: 1
   @include m.media(desktop)
     margin-left: f.px(40)
   margin-left: 20px
@@ -278,33 +263,30 @@
   width: 370px
   height: 350px
   border-radius: f.px(10)
-  border: 1px solid #CDCDCD
+  border: 1px solid c.$gray-200
   z-index: 2
   top: 95%
   left: 15%
   @media screen and ( max-width: 1200px )
     top: 95%
     left: 20%
-  background: white
-  cursor: default
+    background: white
+    cursor: default
   @include m.gap($ptb: f.px(20))
 
 .oneDirection
   height: 100%
   color: black
-  display: flex
-  flex-direction: column
-  justify-content: space-around
-  align-items: center
+  @include m.flex($fd: column, $ai: center, $jc: space-around)
 
 .popupLink
   cursor: pointer
   width: 292px
   height: 50px
-  background: #FFCA9E
+  @include m.dye(bg, c.$orange-200)
   display: flex
   justify-content: space-between
-  border: 1px solid #FFCA9E
+  border: 1px solid c.$orange-200
   font-size: 14px
   font-weight: 350
   border-radius: 10px
@@ -316,10 +298,9 @@
     height: 100%
     display: flex
     align-items: center
-    // margin: 0 auto
   &:hover
     transition: background 0.5s ease
-    background: #FFFFFF
+    @include m.dye(bg, c.$white-900)
 
 .arrowIcon
   & svg
@@ -337,21 +318,21 @@
   height: 45px
   visibility: hidden
   transition: all 1s ease
-  border: 1px solid #FFFFFF
+  border: 1px solid c.$white-900
   @include m.dye(bg, c.$purple-800)
 
 .input
   opacity: 1
   @include m.dye(c, c.$white-900)
   height: 45px
-  border: 1px solid #FFFFFF
+  border: 1px solid c.$white-900
   @include m.dye(bg, c.$purple-800)
   visibility: visible
   width: 250px
   @media screen and ( max-width: 1200px )
     width: 150px
-  transition: all 1s ease
-  padding: 20px
+    transition: all 1s ease
+    padding: 20px
   &::placeholder
     @include m.dye(c, c.$white-900)
 
@@ -418,7 +399,7 @@
   z-index: 3
   padding: 20px
   transition: all 1s ease
-  border: 1px solid #CDCDCD
+  border: 1px solid c.$gray-200
   border-radius: 10px
 
 .hiddenProgramsPopUp
@@ -438,9 +419,9 @@
   grid-gap: 35px
   & > *
     &:nth-child(2)
-      border-bottom: 1px solid #DEDEDE
+      border-bottom: 1px solid c.$gray-200
     &:nth-child(1)
-      border-bottom: 1px solid #DEDEDE
+      border-bottom: 1px solid c.$gray-200
 
 .sorryText
   color: black

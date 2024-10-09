@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import ProgramModules from '@/components/program/ProgramModules'
 import ProgramModulesQty from '@/components/program/ProgramModulesQty'
 import stls from '@/styles/components/sections/BriefProgramContents.module.sass'

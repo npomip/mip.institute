@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/higherEducation/ForWhomHE.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import CardForWhom from '@/components/cards/CardForWhom'
 import forWhomList from 'constants/forWhomHE'
 import NoteBlock from '@/ui/NoteBlock'

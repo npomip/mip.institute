@@ -1,5 +1,5 @@
 import PopupTrigger from '@/ui/PopupTrigger'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import SeminarTickets from '@/components/sections/SeminarTickets'
 import { routes } from '@/config/index'
 import { useHandleContextStaticProps } from '@/hooks/index'

@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/PsyTest.module.sass'
 import { useState } from 'react'
 import SwiperCore from 'swiper'
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import quiz from '../../constants/quizQuestions'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import QuizResults from './QuizResults'
 import PsyTestMain from './PsyTestMain'
 SwiperCore.use([Navigation, Pagination])

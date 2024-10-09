@@ -1,8 +1,8 @@
 import stls from '@/styles/components/sections/JoinInSocialChannels.module.sass'
 import channels from 'constants/joinInSocialChannels'
 import IconSevenPetalOtanment from '../icons/IconSevenPetalOtanment'
-import TwoColumns from '../layout/TwoColumns'
-import Wrapper from '../layout/Wrapper'
+import TwoColumns from '@/ui/TwoColumns'
+import Wrapper from '@/ui/Wrapper'
 import SocialChannels from './SocialChannel'
 import Tag from '@/ui/Tag'
 

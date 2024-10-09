@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/PaymentInfo.module.sass'
 import { company } from '@/config/index'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 
 const PaymentInfo = () => {
   const list = [

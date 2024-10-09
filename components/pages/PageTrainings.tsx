@@ -2,8 +2,8 @@ import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/pages/PageTrainings.module.sass'
 import PracticalSlugCard from '../cards/PracticalSlugCard'
 import Breadcrumbs from '@/ui/Breadcrumbs'
-import ProgramsFilters from '../layout/ProgramsFilters'
-import Wrapper from '../layout/Wrapper'
+import ProgramsFilters from '@/components/program/ProgramsFilters'
+import Wrapper from '@/ui/Wrapper'
 import { SeoPageBachelors } from '../seo'
 
 const PageTrainings = ({

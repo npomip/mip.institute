@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import person from '@/public/assets/imgs/practicalCarousel/person.png'
 import stls from '@/styles/components/sections/practicalTraining/PracticalReviews.module.sass'

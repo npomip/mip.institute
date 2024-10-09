@@ -1,5 +1,5 @@
 import PopupTrigger from '@/ui/PopupTrigger'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import ProgramInfo from '@/components/program/ProgramInfo'
 import ProgramLabel from '@/components/program/ProgramLabel'

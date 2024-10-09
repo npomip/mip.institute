@@ -1,7 +1,7 @@
 import stls from '@/styles/pages/about/Title.module.sass'
 import MipInfo from '@/components/sections/AboutMip/MipInfo'
 import MipFoto from './MipFoto'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 export default function AboutMip() {
   return (
     <div className={stls.fon}>

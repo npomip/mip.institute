@@ -13,7 +13,6 @@
   @include m.gap($pt: f.px(40))
   @include m.media(laptop, desktop)
     @include m.flex($display: false)
-    // @include m.gap($pr: f.px(113))
 
 .top
   @include m.media(laptop, desktop)
@@ -56,7 +55,6 @@
 .number
   font-size: f.px(22)
   font-weight: 300
-  // margin-bottom: 20px
   @include m.gap($mb: f.px(15))
   @include m.dye(c, c.$gray-50)
 
@@ -74,7 +72,6 @@
 
 .sm
   @include m.flex
-  // justify-content: center
   max-width: f.px(200)
   min-width: f.px(200)
   flex-wrap: wrap
@@ -132,7 +129,6 @@
 .newRight
   @include m.media(phone, tablet)
     display: none
-  // background: red
   width: f.px(291)
   flex-direction: column
   align-items: flex-end
@@ -160,12 +156,11 @@
   display: flex
   align-items: center
   justify-content: center
-  // margin: 0 auto
   @include m.gap($mtb: f.px(25))
   @include m.dye(c, c.$white-900)
   width: f.px(268)
   height: f.px(56)
-  border: 1px solid #F87E1B
+  border: 1px solid c.$orange-700
   font-size: f.px(18)
   font-weight: 500
   border-radius: 4px
@@ -187,7 +182,7 @@
   font-style: normal
   font-weight: 700
   line-height: 120%
-  color: #808080
+  @include m.dye(c, c.$gray-700)
   span
     display: block
     text-decoration-line: underline
@@ -195,13 +190,11 @@
 
 .logo
   list-style-type: none
-// .eddu
-//   height: 200px
 
 .linkToLicense
-  color: #808080
+  @include m.dye(c, c.$gray-700)
   font-size: f.px(13)
   font-weight: 700
   line-height: 120%
   &:hover
-    color: #b0aeae
+    @include m.dye(c, c.$gray-500)

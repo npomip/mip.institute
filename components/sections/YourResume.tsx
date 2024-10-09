@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/YourResume.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import cn from 'classnames'
 import { ImgResume1 } from '@/components/imgs'
 import { ContextStaticProps } from '@/context/index'

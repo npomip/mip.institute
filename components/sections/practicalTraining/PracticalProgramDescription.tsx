@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/practicalTraining/PracticalProgramDescription.module.sass'
 import {
   DescriptionCardItem,

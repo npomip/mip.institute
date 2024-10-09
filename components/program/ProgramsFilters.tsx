@@ -6,7 +6,7 @@ import { findFilteredProgramsLength } from '@/helpers/general/findFilteredProgra
 import { findProgramsLength } from '@/helpers/general/findProgramsLength'
 import { findProgrmasLengthByCustomProperty } from '@/helpers/general/findProgrmasLengthByCustomProperty'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import stls from '@/styles/components/layout/ProgramsFilters.module.sass'
+import stls from '@/styles/components/program/ProgramsFilters.module.sass'
 import { useRouter } from 'next/router'
 import FilterTag from '../filters/FilterTag'
 import ProgramSelect from '../program/ProgramSelect'

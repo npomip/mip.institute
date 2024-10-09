@@ -1,5 +1,5 @@
 import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/LinkedPrograms.module.sass'
 import classNames from 'classnames'

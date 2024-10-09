@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import stls from '@/styles/components/layout/Header.module.sass'
+import stls from '@/styles/components/sections/Header.module.sass'
 import IconContact from '../icons/IconContact'
 import IconDropDownClock from '../icons/IconDropDownClock'
 import IconEnterToPortal from '../icons/IconEnterToPortal'

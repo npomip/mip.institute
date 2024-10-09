@@ -3,7 +3,7 @@ import { PracticalDiploma } from '@/types/page/practicalTraining/TypePagePractic
 import classNames from 'classnames'
 import Image from 'next/image'
 import PopupTrigger from '@/ui/PopupTrigger'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
 import ticket from '@/public/assets/imgs/practicalCarousel/ticket.png'
 import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'

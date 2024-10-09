@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/PaymentBtns.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { BtnAlpha } from '@/components/btns'
 import PopupTrigger from '@/ui/PopupTrigger'
 

@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/YouTubeVideo.module.sass'
 import { IconClock } from '../icons'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import classNames from 'classnames'
 
 type Props = {

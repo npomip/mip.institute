@@ -1,6 +1,6 @@
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
-import ProgramsFilters from '@/components/layout/ProgramsFilters'
-import Wrapper from '@/components/layout/Wrapper'
+import ProgramsFilters from '@/components/program/ProgramsFilters'
+import Wrapper from '@/ui/Wrapper'
 import { ContactForm, HeroPrograms } from '@/components/sections'
 import {
   useFilterDispatch,

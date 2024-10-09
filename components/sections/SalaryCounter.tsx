@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/SalaryCounter.module.sass'
 import Tag from '@/ui/Tag'
 import { useState } from 'react'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 
 type SalaryCounterType = {
   title: string

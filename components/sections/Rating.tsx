@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Rating.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import ratingList from 'constants/ratingList'
 import RatingCard from '@/components/cards/RatingCard'
 

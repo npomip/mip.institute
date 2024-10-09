@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/ProgramOverview.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import CloudHead from '../imgs/programs/courses/CloudHead'
 import IconBackOfOverview from '../icons/IconBackOfOverview'
 import { IconCircleCheck } from '../icons'

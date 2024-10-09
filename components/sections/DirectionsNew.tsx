@@ -1,4 +1,4 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/DirectionsNew.module.sass'
 import navigationList from 'constants/navigationStudyFields'
 import Link from 'next/link'

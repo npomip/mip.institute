@@ -1,5 +1,5 @@
 import { IconCircleCheck } from '@/components/icons'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import ProgramCost from '@/components/program/ProgramCost'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ContextStaticProps } from '@/context/index'

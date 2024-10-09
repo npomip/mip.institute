@@ -1,4 +1,4 @@
-import stls from '@/styles/components/layout/TwoColumns.module.sass'
+import stls from './TwoColumns.module.sass'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
 

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/WebinarsAlt.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import Popup from 'reactjs-popup'
 import PopupTrigger from '@/ui/PopupTrigger'
 import { PopupCta } from '@/components/popups'

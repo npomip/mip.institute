@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Diplomas.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import DiplomaExpandableItem from '@/ui/DiplomaExpandableItem'
 import diplomas from 'constants/diplomas'
 

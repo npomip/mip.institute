@@ -1,4 +1,4 @@
-import stls from '@/styles/components/layout/Wrapper.module.sass'
+import stls from './Wrapper.module.sass'
 import { ReactNode } from 'react'
 
 type Props = {

@@ -1,7 +1,7 @@
 import src from '@/public/assets/imgs/liveCourses/liveCourseGetAcess.jpg'
 import stls from '@/styles/components/sections/liveCourses/LiveCoursesGetAcess.module.sass'
 import Image from 'next/image'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 
 type Props = {
   marginBottom: number

@@ -1,4 +1,4 @@
-import PageTitle from '@/components/layout/PageTitle'
+import PageTitle from '@/ui/PageTitle'
 import { Contacts } from '@/components/sections'
 import JoinInSocialChannels from '@/components/sections/JoinInSocialChannels'
 import { SeoOrganizationJsonLd } from '@/components/seo'

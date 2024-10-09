@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/liveCourses/LiveCoursesForm.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import ImgEntryForm from '@/components/imgs/general/ImgEntryForm'
 import LivePaymentForm from '@/components/forms/LivePaymentForm'
 

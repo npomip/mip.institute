@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/practicalTraining/PracticalWhatInProgram.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { SharedText } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import IconVioletCircle from '@/components/icons/IconVioletCircle'
 

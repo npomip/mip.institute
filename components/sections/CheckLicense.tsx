@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/CheckLicense.module.sass'
 import { routes } from '@/config/index'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { BtnAlpha } from '@/components/btns'
 import { ImgFullProgram1 } from '@/components/imgs'
 import IconSpiral from '../icons/IconSpiral'

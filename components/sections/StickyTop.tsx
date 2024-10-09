@@ -1,5 +1,5 @@
-import Wrapper from '@/components/layout/Wrapper'
-import stls from '@/styles/components/layout/StickyTop.module.sass'
+import Wrapper from '@/ui/Wrapper'
+import stls from '@/styles/components/sections/StickyTop.module.sass'
 import classNames from 'classnames'
 import PopupTrigger from '@/ui/PopupTrigger'
 import { IconCloseCircle } from '../icons'

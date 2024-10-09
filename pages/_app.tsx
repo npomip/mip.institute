@@ -30,6 +30,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
+import Image from 'next/image'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -245,12 +246,12 @@ const MyApp = ({ Component, pageProps, router }) => {
       {!dev && (
         <>
           <Script
-            strategy='beforeInteractive'
+            strategy='afterInteractive'
             src='/assets/js/vendors/roistatAB.js'
           />
           <Script
             id='roistatMain'
-            strategy='beforeInteractive'
+            strategy='afterInteractive'
             dangerouslySetInnerHTML={{
               __html: `
               (function(w, d, s, h, id) {
@@ -290,9 +291,12 @@ const MyApp = ({ Component, pageProps, router }) => {
           }}
       /> */}
 
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-822792302"/>
-      <Script 
-      id='google-tag'
+      <Script
+        async
+        src='https://www.googletagmanager.com/gtag/js?id=AW-822792302'
+      />
+      <Script
+        id='google-tag'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -300,8 +304,8 @@ const MyApp = ({ Component, pageProps, router }) => {
             gtag('js', new Date());
 
             gtag('config', 'AW-822792302');
-          `,
-        }} 
+          `
+        }}
       />
 
       <DefaultSeo {...SEO} />
@@ -443,12 +447,13 @@ const MyApp = ({ Component, pageProps, router }) => {
         })(document, window, "tmr-code");`
         }}
       />
-      <Script 
-        id='vk' 
-        dangerouslySetInnerHTML={{ 
+      <Script
+        id='vk'
+        dangerouslySetInnerHTML={{
           __html: `!function(){var t=document.createElement("script");
           t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?173',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1904296-h2y40"),VK.Retargeting.Hit()},document.head.appendChild(t)}()
-          `}}
+          `
+        }}
       />
       <Script
         id='WA AMO script'
@@ -487,7 +492,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
       <noscript>
         <div>
-          <img
+          <Image
             src='https://top-fwz1.mail.ru/counter?id=3477294;js=na'
             style={{ position: 'absolute', left: '-9999px' }}
             alt='Top.Mail.Ru'
@@ -495,9 +500,9 @@ const MyApp = ({ Component, pageProps, router }) => {
         </div>
       </noscript>
       <noscript>
-        <img 
+        <Image
           src='https://vk.com/rtrg?p=VK-RTRG-1904296-h2y40'
-          style={{position:'fixed', left: '-999px' }}
+          style={{ position: 'fixed', left: '-999px' }}
           alt='vk.com'
         />
       </noscript>

@@ -18,6 +18,8 @@ const StudyCost = ({ costRef }) => {
   const studyForm = program?.studyForm || ''
   const studyFormLabel = program?.studyFormlabel || ''
   const studyMounthsDuration = program?.studyMounthsDuration || 0
+  const isPsyKonsultirovanie =
+    program?.slug === 'psihologicheskoe-konsultirovanie'
 
   const info = [
     { key: 'Зачисление:', val: getNextWednesday(new Date()) },
@@ -52,9 +54,11 @@ const StudyCost = ({ costRef }) => {
         </div>
         <div className={stls.upperContainer}>
           <p className={stls.subtitle}>{title}</p>
-          <div className={stls.discount}>
-            <ProgramDiscount small violet />
-          </div>
+          {!isPsyKonsultirovanie && (
+            <div className={stls.discount}>
+              <ProgramDiscount small violet />
+            </div>
+          )}
         </div>
 
         <div className={stls.content}>

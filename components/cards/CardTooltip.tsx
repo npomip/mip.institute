@@ -4,6 +4,10 @@ import styles from '@/styles/components/cards/CardTooltip.module.sass'
 import ForPopup from '../imgs/general/ForPopup'
 
 export default function CardTooltip({ profession, clickHandler }) {
+  const tagText =
+    profession.type === 'Course'
+      ? 'Повышение квалификации'
+      : 'Профессиональная переподготовка'
   return (
     <div className={styles.container}>
       {profession.type === 'Profession' ? (
@@ -18,11 +22,14 @@ export default function CardTooltip({ profession, clickHandler }) {
                 <ForPopup
                   src={profession?.heroPicture?.url}
                   alt={profession?.title}
-                  height={80}
-                  width={110}
+                  height={104}
+                  width={152}
                 />
               </div>
-              <div className={styles.title}>{profession.title}</div>
+              <div className={styles.text}>
+                <div className={styles.tag}>{tagText}</div>
+                <div className={styles.title}>{profession.title}</div>
+              </div>
             </div>
           </a>
         </Link>
@@ -38,11 +45,14 @@ export default function CardTooltip({ profession, clickHandler }) {
                 <ForPopup
                   src={profession?.heroPicture?.url}
                   alt={profession?.title}
-                  height={80}
-                  width={110}
+                  height={104}
+                  width={152}
                 />
               </div>
-              <div className={styles.title}>{profession.title}</div>
+              <div className={styles.text}>
+                <div className={styles.tag}>{tagText}</div>
+                <div className={styles.title}>{profession.title}</div>
+              </div>
             </div>
           </a>
         </Link>

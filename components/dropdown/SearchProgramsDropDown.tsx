@@ -34,7 +34,7 @@ export default function SearchProgramsDropDown() {
       {
         href: routes.front.reviews,
         val: 'Отзывы'
-      },
+      }
       // {
       //   href: routes.front.payment,
       //   val: 'Оплата обучения'
@@ -227,13 +227,13 @@ export default function SearchProgramsDropDown() {
           </div>
         </div>
       </div>
-        <div className={stls.nums}>
-          <a
+      <div className={stls.nums}>
+        <a
           href={'tel:+7-499-110-88-19'}
           className={isInputVisible ? stls.hiddenText : stls.showText}>
           +7 (499) 110-88-19
         </a>
-        </div>
+      </div>
     </div>
   )
 }

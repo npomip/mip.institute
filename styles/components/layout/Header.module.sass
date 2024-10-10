@@ -409,17 +409,16 @@
     transition-delay: 0s
 
 .programsPopUp
-  transform: translate(-50%, 10%)
+  @include m.gap($plr: f.px(26), $ptb: f.px(55))
+  transform: translate(-34.1%, 11%)
   position: absolute
-  width: 700px
-  height: 250px
   background: white
   opacity: 1
   z-index: 3
-  padding: 20px
   transition: all 1s ease
   border: 1px solid #CDCDCD
-  border-radius: 10px
+  border-radius: f.px(10)
+  width: f.px(900)
 
 .hiddenProgramsPopUp
   transform: translate(-200%, 10%)
@@ -435,12 +434,18 @@
 .card
   display: grid
   grid-template-columns: 1fr 1fr
-  grid-gap: 35px
-  & > *
-    &:nth-child(2)
-      border-bottom: 1px solid #DEDEDE
-    &:nth-child(1)
-      border-bottom: 1px solid #DEDEDE
+  grid-gap: f.px(60)
+  &::after
+    content: ''
+    position: absolute
+    left: f.px(30)
+    right: f.px(30)
+    top: f.px(183)
+    width: auto
+    height: f.px(1)
+    background-color: #D8D8D8
+    z-index: -1
+
 
 .sorryText
   color: black

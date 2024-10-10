@@ -20,6 +20,8 @@ const ProgramInfo = () => {
   const studyFormLabel = program?.studyFormLabel || ''
   const studyMounthsDuration = program?.studyMounthsDuration || 0
   const type = program?.type || ''
+  const isPsyKonsultirovanie =
+    program?.slug === 'psihologicheskoe-konsultirovanie'
 
   const vals = [
     {
@@ -34,7 +36,9 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      val:  getNextWednesday(new Date()),
+      val: isPsyKonsultirovanie
+        ? 'Скоро открытие набора'
+        : getNextWednesday(new Date()),
       icon: <IconMap />
     },
     {

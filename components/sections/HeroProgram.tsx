@@ -46,9 +46,11 @@ const HeroProgram = ({ breadcrumbs }) => {
           backgroundImage: `url(${program?.heroPicture?.url})`
         }}>
         <span className={stls.filter}></span>
-        <div className={stls.discount}>
-          <ProgramDiscount isWhite />
-        </div>
+        {program?.slug !== 'psihologicheskoe-konsultirovanie' && (
+          <div className={stls.discount}>
+            <ProgramDiscount isWhite />
+          </div>
+        )}
         <div className={stls.content}>
           <div className={stls.label}>
             <ProgramLabel />
@@ -78,9 +80,11 @@ const HeroProgram = ({ breadcrumbs }) => {
               backgroundImage: `url(${program?.heroPicture?.url})`
             }}>
             <span className={stls.filter}></span>
-            <div className={stls.discount}>
-              <ProgramDiscount isWhite />
-            </div>
+            {program?.slug !== 'psihologicheskoe-konsultirovanie' && (
+              <div className={stls.discount}>
+                <ProgramDiscount isWhite />
+              </div>
+            )}
             <div className={stls.heading}>
               <Breadcrumbs breadcrumbs={breadcrumbs} />
               <div className={stls.containerHero}>

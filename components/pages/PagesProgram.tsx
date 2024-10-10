@@ -56,6 +56,7 @@ const PagesProgram = ({
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
   const [isWithPrice, setIsWithPrice] = useState('price')
+  const isPsyKonsultirovanie = slug === 'psihologicheskoe-konsultirovanie'
 
   useEffect(() => {
     // Данный код будет выполнен только на клиенте
@@ -143,13 +144,21 @@ const PagesProgram = ({
       {ofType !== 'Course' && ofType !== 'Practice' && (
         <YourResume resumeRef={resumeRef} />
       )}
-      <SalaryCounter title='Психология'  />
+      <SalaryCounter title='Психология' />
 
       <Cta
-        title={'Начните обучаться со скидкой'}
-        desc={`Забронируйте программу по спеццене — со скидкой ${discount.substring(
-          1
-        )}`}
+        title={
+          isPsyKonsultirovanie
+            ? '«Забронируйте лучшие условия до старта обучения»'
+            : 'Начните обучаться со скидкой'
+        }
+        desc={
+          isPsyKonsultirovanie
+            ? '«Оставьте заявку сейчас и забронируйте лучшее условия при зачислении»'
+            : `Забронируйте программу по спеццене — со скидкой ${discount.substring(
+                1
+              )}`
+        }
         cta='reserve'
       />
 

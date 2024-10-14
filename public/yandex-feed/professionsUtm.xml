@@ -64,6 +64,7 @@
         
         <price>80000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/detskaya-psihologiya/ava-terapevt"></param>
         <param name="Цена по скидке">56160</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -118,6 +119,7 @@
         
         <price>165000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/psihoterapiya/geshtalt-terapevt"></param>
         <param name="Цена по скидке">115260</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -173,6 +175,7 @@
         
         <price>128000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/konsultirovanie/art-terapevt"></param>
         <param name="Цена по скидке">89460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -225,6 +228,7 @@
         
         <price>148000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/detskaya-psihologiya/detskij-psiholog"></param>
         <param name="Цена по скидке">103320</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -282,6 +286,7 @@
         
         <price>208000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskij-psiholog"></param>
         <param name="Цена по скидке">145740</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -349,6 +354,7 @@
         
         <price>160000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt"></param>
         <param name="Цена по скидке">112320</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -409,6 +415,7 @@
         
         <price>193000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/klinicheskaya-psihologiya/nejropsiholog"></param>
         <param name="Цена по скидке">135180</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -466,6 +473,7 @@
         
         <price>128000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch"></param>
         <param name="Цена по скидке">89460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -529,6 +537,7 @@
         
         <price>222000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/konsultirovanie/psiholog-konsultant"></param>
         <param name="Цена по скидке">155520</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -593,6 +602,7 @@
         
         <price>148000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/obshaya-psihologiya/semejnyj-psiholog"></param>
         <param name="Цена по скидке">103320</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -721,6 +731,7 @@
         
         <price>160000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii"></param>
         <param name="Цена по скидке">112320</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -782,6 +793,7 @@
         
         <price>128000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/klinicheskaya-psihologiya/detskij-nejropsiholog"></param>
         <param name="Цена по скидке">89460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -835,6 +847,7 @@
         
         <price>128000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/organizacionnaya-psihologiya/korporativnyj-psiholog"></param>
         <param name="Цена по скидке">89460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -895,6 +908,7 @@
         
         <price>81000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/detskaya-psihologiya/pedagog-psiholog"></param>
         <param name="Цена по скидке">56460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -952,6 +966,7 @@
         
         <price>160000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog"></param>
         <param name="Цена по скидке">112320</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1010,6 +1025,7 @@
         
         <price>93000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/organizacionnaya-psihologiya/mediator"></param>
         <param name="Цена по скидке">65340</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1065,6 +1081,7 @@
         
         <price>121000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/obshaya-psihologiya/sportivnyj-psiholog"></param>
         <param name="Цена по скидке">84720</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1124,6 +1141,7 @@
         
         <price>80000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/konsultirovanie/krizisnyj-psiholog"></param>
         <param name="Цена по скидке">56160</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1183,6 +1201,7 @@
         
         <price>250000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/psihoterapiya/psihoanaliz-i-psihologicheskaya-psihoterapiya"></param>
         <param name="Цена по скидке">175320</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1255,6 +1274,7 @@
         
         <price>121000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/detskaya-psihologiya/perinatalnyj-psiholog"></param>
         <param name="Цена по скидке">84720</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1315,6 +1335,7 @@
         
         <price>136000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya"></param>
         <param name="Цена по скидке">95460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1373,6 +1394,7 @@
         
         <price>136000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/psihoterapiya/telesno-orientirovannaya-terapiya"></param>
         <param name="Цена по скидке">95460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1435,6 +1457,7 @@
         
         <price>94000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/konsultirovanie/suggestivnaya-psihologiya.-gipnoz-v-psihologicheskom-konsultirovanii"></param>
         <param name="Цена по скидке">65460</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1561,6 +1584,7 @@
         
         <price>93000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog"></param>
         <param name="Цена по скидке">65340</param>
         <param name="Дата окончания скидки">2024-10-16</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
@@ -1617,6 +1641,7 @@
         <set-ids>s1</set-ids>
         <price>130000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/bachelor/psihologo-pedagogicheskoye-obrazovanie"></param>
         <param name="Цена по скидке за семестр">65000</param>
         <param name="Цена по скидке за год">120000</param>
         <param name="Дата окончания скидки">2024-10-16</param>
@@ -1689,6 +1714,7 @@
         <set-ids>s1</set-ids>
         <price>130000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/bachelor/psikhologiya"></param>
         <param name="Цена по скидке за семестр">65000</param>
         <param name="Цена по скидке за год">120000</param>
         <param name="Дата окончания скидки">2024-10-16</param>
@@ -1755,6 +1781,7 @@
         <set-ids>s1</set-ids>
         <price>130000</price>
         <currencyId>RUR</currencyId>
+        <param name="https://mip.institute/bachelor/pedagogicheskoe-obrazovanie"></param>
         <param name="Цена по скидке за семестр">65000</param>
         <param name="Цена по скидке за год">120000</param>
         <param name="Дата окончания скидки">2024-10-16</param>

@@ -390,14 +390,12 @@
     transition-delay: 0s
 
 .programsPopUp
-  transform: translate(-50%, 10%)
+  @include m.gap($plr: f.px(26), $ptb: f.px(55))
+  transform: translate(-34.1%, 11%)
   position: absolute
-  width: 700px
-  height: 250px
   background: white
   opacity: 1
   z-index: 3
-  padding: 20px
   transition: all 1s ease
   border: 1px solid c.$gray-200
   border-radius: 10px

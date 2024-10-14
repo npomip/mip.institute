@@ -13,6 +13,37 @@ const StudyCost = ({ costRef }) => {
   const { program } = useContext(ContextStaticProps)
 
   const title = program?.title || ''
+  const studyHours = program?.studyHours || 0
+  const studyForm = program?.studyForm || ''
+  const studyFormLabel = program?.studyFormlabel || ''
+  const studyMounthsDuration = program?.studyMounthsDuration || 0
+  const isPsyKonsultirovanie =
+    program?.slug === 'psihologicheskoe-konsultirovanie'
+
+  const info = [
+    { key: 'Зачисление:', val: getNextWednesday(new Date()) },
+    {
+      key: 'Форма обучения:',
+      val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel
+    },
+    {
+      key: 'Срок обучения:',
+      val: <ProgramStudyDuration studyMounthsDuration={studyMounthsDuration} />
+    },
+    {
+      key: 'Рассрочка:',
+      val: 'От “Тинькофф банка”'
+    }
+  ]
+
+  const points = [
+    'Онлайн вебинары с возможностью просмотра записей в течение всего курса обучения',
+    'Тестирование и работа над ошибками после каждой дисциплины',
+    'Лекционные и полезные дополнительные материалы к дисциплинам',
+    'Индивидуальные и групповые домашние задания с обратной связью от преподавателей',
+    'Онлайн-встречи с разбором вопросов от слушателей',
+    'Практические упражнения с решением ситуационных задач'
+  ]
 
   return (
     <section ref={costRef} className={stls.container}>
@@ -22,9 +53,11 @@ const StudyCost = ({ costRef }) => {
         </div>
         <div className={stls.upperContainer}>
           <p className={stls.subtitle}>{title}</p>
-          <div className={stls.discount}>
-            <ProgramDiscount small violet />
-          </div>
+          {!isPsyKonsultirovanie && (
+            <div className={stls.discount}>
+              <ProgramDiscount small violet />
+            </div>
+          )}
         </div>
 
         <div className={stls.content}>

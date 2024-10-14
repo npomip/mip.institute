@@ -1,21 +1,18 @@
 .container
-  height: 90px
-  width: 310px
   display: flex
   justify-content: flex-start
 
 .card
   height: 100%
-  width: 310px
+  width: 100%
   display: flex
   justify-content: flex-start
 
-.title
+.text
   width: 65%
   display: flex
-  // justify-content: flex-start
-  align-items: center
-  color: black
+  flex-direction: column
+  gap: 10px
 
 .img
   // flex: %
@@ -29,3 +26,23 @@
   & > *
     & > *
       border-radius: 12px
+
+
+.tag
+  padding: 7px 15px
+  border-radius: 50px
+  border: 0.5px solid #ED5623
+  color: #1A1A1A
+  text-align: center
+  font-size: 10px
+  font-weight: 350
+  line-height: 120%
+  width: max-content
+
+
+.title
+  width: 85%
+  font-size: 14px
+  font-weight: 350
+  line-height: 120%
+  color: #1A1A1A

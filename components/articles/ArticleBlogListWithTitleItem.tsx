@@ -24,7 +24,7 @@ const ArticleBlogListWithTitle = ({ props }: ArticleBlogListWithTitleType) => {
   }
   marked.setOptions({ renderer })
 
-  const icon = marked(props?.icon)
+  const icon = props?.icon ? marked(props.icon) : ''
 
   return (
     <div className={stls.innerBox}>

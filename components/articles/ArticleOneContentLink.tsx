@@ -11,7 +11,7 @@ const ArticleOneContentLink = ({ props }: ArticleSubtitleType) => {
 
   return (
     <li>
-      <Link href={`#${props.subtitleSlug}`}>
+      <Link href={`#${props.subtitleSlug}`} passHref>
         <ReactMarkdown components={customRenderers}>
           {props?.subtitle}
         </ReactMarkdown>

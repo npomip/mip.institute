@@ -3,17 +3,18 @@ import Wrapper from '@/ui/Wrapper'
 import ProgramCost from '@/components/program/ProgramCost'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ContextStaticProps } from '@/context/index'
+import getNextWednesday from '@/helpers/getNextThursday'
 import stls from '@/styles/components/sections/StudyCost.module.sass'
 import { useContext } from 'react'
 import { FormAlpha } from '../forms'
 import MoneySaving from '../program/MoneySaving'
+import ProgramStudyDuration from '../program/ProgramStudyDuration'
 import points from 'constants/studyCost'
 
 const StudyCost = ({ costRef }) => {
   const { program } = useContext(ContextStaticProps)
 
   const title = program?.title || ''
-  const studyHours = program?.studyHours || 0
   const studyForm = program?.studyForm || ''
   const studyFormLabel = program?.studyFormlabel || ''
   const studyMounthsDuration = program?.studyMounthsDuration || 0
@@ -34,15 +35,6 @@ const StudyCost = ({ costRef }) => {
       key: 'Рассрочка:',
       val: 'От “Тинькофф банка”'
     }
-  ]
-
-  const points = [
-    'Онлайн вебинары с возможностью просмотра записей в течение всего курса обучения',
-    'Тестирование и работа над ошибками после каждой дисциплины',
-    'Лекционные и полезные дополнительные материалы к дисциплинам',
-    'Индивидуальные и групповые домашние задания с обратной связью от преподавателей',
-    'Онлайн-встречи с разбором вопросов от слушателей',
-    'Практические упражнения с решением ситуационных задач'
   ]
 
   return (

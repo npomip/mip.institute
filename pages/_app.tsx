@@ -492,7 +492,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
       <noscript>
         <div>
-          <Image
+          <img
             src='https://top-fwz1.mail.ru/counter?id=3477294;js=na'
             style={{ position: 'absolute', left: '-9999px' }}
             alt='Top.Mail.Ru'
@@ -500,7 +500,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         </div>
       </noscript>
       <noscript>
-        <Image
+        <img
           src='https://vk.com/rtrg?p=VK-RTRG-1904296-h2y40'
           style={{ position: 'fixed', left: '-999px' }}
           alt='vk.com'

@@ -1,48 +1,42 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
 .container
-  display: flex
-  justify-content: flex-start
+  @include m.flex($jc:flex-start)
 
 .card
   height: 100%
   width: 100%
-  display: flex
-  justify-content: flex-start
+  @include m.flex($jc:flex-start)
 
 .text
   width: 65%
-  display: flex
-  flex-direction: column
-  gap: 10px
+  @include m.flex($fd:column)
+  gap: f.px(10)
 
 .img
-  // flex: %
-  // height: 100%
   display: flex
-  // flex-basis: 75%
-  padding-right: 15px
+  padding-right: f.px(15)
   height: fit-content
   width: fit-content
-  
   & > *
-    & > *
-      border-radius: 12px
-
+    border-radius: f.px(12)
 
 .tag
-  padding: 7px 15px
-  border-radius: 50px
-  border: 0.5px solid #ED5623
-  color: #1A1A1A
+  @include m.gap($ptb: f.px(7), $plr: f.px(15))
+  border-radius: f.px(50)
+  border: f.px(0.5) solid c.$orange-900
+  @include m.dye(c, c.$black-900)
   text-align: center
-  font-size: 10px
+  font-size: f.px(10)
   font-weight: 350
   line-height: 120%
   width: max-content
 
-
 .title
   width: 85%
-  font-size: 14px
+  font-size: f.px(14)
   font-weight: 350
   line-height: 120%
-  color: #1A1A1A
+  @include m.dye(c, c.$black-900)

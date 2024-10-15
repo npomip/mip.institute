@@ -66,7 +66,9 @@ const PageTraining = ({ practicalTraining }: Props) => {
         isTeacherRoundBtn={false}
       />
       <PracticalConditions />
-      <PracticalReviews review={practicalTraining.review} />
+      {practicalTraining?.review?.length > 0 && (
+        <PracticalReviews review={practicalTraining.review} />
+      )}
       <RequirementsInProfession />
 
       <PracticalPaymentForm price={practicalTraining.price} />

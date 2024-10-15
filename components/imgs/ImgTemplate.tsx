@@ -36,7 +36,6 @@ const ImgTemplate = ({
           placeholder='blur'
           blurDataURL={base64pixel}
           unoptimized={unoptimized}
-          sizes='100vw'
           style={{
             width: '100%',
             height: 'auto'

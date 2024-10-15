@@ -5,16 +5,20 @@
 .programs
   transform: translate(-8%, -5%)
   border-radius: f.px(15)
-  position: absolute
-  background: white
-  width: f.px(330)
-  height: f.px(370)
+  position: relative
+  @include m.dye(bg, c.$white-900)
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  width: f.px(400)
   @include m.gap($p: f.px(10))
   p
     @include m.gap($pt: f.px(10))
     color: black
     font-size: f.px(16)
     text-align: center
+  @include m.media(laptop, tablet)
+    width: f.px(410)
+    transform: translate(-35%, -5%)
 
 .searchInput
   width: f.px(269)

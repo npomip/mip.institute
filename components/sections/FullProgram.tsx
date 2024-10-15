@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/FullProgram.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ImgFullProgram1 } from '@/components/imgs'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 
 const FullProgram = () => {
   return (
@@ -12,13 +12,14 @@ const FullProgram = () => {
             <ImgFullProgram1 />
           </div>
           <div className={stls.text}>
-            <h2 className={stls.title}>Остались вопросы? Поможем определиться с программой</h2>
+            <h2 className={stls.title}>
+              Остались вопросы? Поможем определиться с программой
+            </h2>
             <p className={stls.p}>
-              Вы можете оставить заявку на обратную связь. 
-              Менеджеры приёмной комиссии свяжутся с вами 
-              и помогут подобрать программу под ваш запрос 
-              и уровень знаний, а также предоставят информацию 
-              об обучении и поступлении
+              Вы можете оставить заявку на обратную связь. Менеджеры приёмной
+              комиссии свяжутся с вами и помогут подобрать программу под ваш
+              запрос и уровень знаний, а также предоставят информацию об
+              обучении и поступлении
             </p>
           </div>
           <div className={stls.btn}>

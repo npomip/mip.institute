@@ -1,20 +1,19 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { TypePageProgramProps, TypePageProgramsPropsQuery } from '@/types/index'
-import { revalidate, routes } from '@/config/index'
-import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { PageBachelor, PagesProgram } from '@/components/pages'
+import { PagesProgram } from '@/components/pages'
 import { SeoPagesProgram } from '@/components/seo'
-import { useRouter } from 'next/router'
-import { gql } from '@apollo/client'
+import { revalidate } from '@/config/index'
+import { useHandleContextStaticProps } from '@/hooks/index'
 import apolloClient from '@/lib/apolloClient'
+import { TypePageProgramProps, TypePageProgramsPropsQuery } from '@/types/index'
+import { gql } from '@apollo/client'
 import { validOfTypeValues } from 'constants/staticPropsValidation'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { useRouter } from 'next/router'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
   program,
   reviews,
-  studyFieldSlug,
+  studyFieldSlug
 }) => {
   useHandleContextStaticProps({
     programs,

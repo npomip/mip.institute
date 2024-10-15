@@ -2,10 +2,8 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  @include m.flex($jc:space-around)
-
-.container > span
+.container > img
   width: 100%
+  height: 100%
   @include m.media(laptop, desktop)
     display: none !important

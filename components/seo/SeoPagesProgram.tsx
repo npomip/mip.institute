@@ -1,10 +1,10 @@
-import { TypeLibProgram } from '@/types/index'
-import { FC } from 'react'
-import { NextSeo, CourseJsonLd } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company, themeColor, dev } from '@/config/index'
-import { AdditionalRobotsProps } from 'next-seo/lib/types'
+import { company, routes, themeColor } from '@/config/index'
 import preview from '@/config/preview'
+import truncate from '@/helpers/general/truncate'
+import { TypeLibProgram } from '@/types/index'
+import { CourseJsonLd, NextSeo } from 'next-seo'
+import { AdditionalRobotsProps } from 'next-seo/lib/types'
+import { FC } from 'react'
 
 type TSeoPagesProgram = {
   ofType: string
@@ -17,8 +17,6 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
   program,
   curProgramsStudyFieldSlug
 }) => {
-  // TODO: pull the rest of SEO params from API
-
   const seo = program?.seo
 
   const additionalMetaRobotsKeys = [
@@ -45,15 +43,6 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
       return null
     })
   )?.filter(item => item) || null) as AdditionalRobotsProps
-
-  // nosnippet?: boolean;
-  // maxSnippet?: number;
-  // maxImagePreview?: ImagePrevSize;
-  // maxVideoPreview?: number;
-  // noarchive?: boolean;
-  // unavailableAfter?: string;
-  // noimageindex?: boolean;
-  // notranslate?: boolean;
 
   const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')
 

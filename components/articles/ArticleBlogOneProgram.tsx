@@ -1,21 +1,19 @@
 import { discount } from '@/data/price'
 import stls from '@/styles/components/articles/ArticleBlogRelatedPrograms.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
+import ReactMarkdown from 'react-markdown'
 import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
 import { ArticleBlogRelatedProgramsType } from './ArticleBlogRelatedPrograms'
 import RelatedProgramsList from './RelatedProgramsList'
 
 const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
-  const renderer = new marked.Renderer()
-  renderer.em = text => {
-    return `<span  style="color: ${props?.borderColor}">${text}</span>`
+  const markdownComponents = {
+    em: ({ children }: { children: React.ReactNode }) => (
+      <span style={{ color: props?.borderColor }}>{children}</span>
+    ),
+    p: ({ children }: { children: React.ReactNode }) => (
+      <p id={stls.title}>{children}</p>
+    )
   }
-  renderer.paragraph = text => {
-    return `<p id=${stls.title}>${text}</p>`
-  }
-  marked.setOptions({ renderer })
-
   const programs = props?.programs
 
   return (
@@ -36,7 +34,11 @@ const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
         </div>
         <div>
           {props.textItem.map(item => (
-            <div key={item.id}>{parse(marked(item.text))}</div>
+            <div key={item.id}>
+              <ReactMarkdown components={markdownComponents}>
+                {item.text}
+              </ReactMarkdown>
+            </div>
           ))}
         </div>
         <div className={stls.programs}>

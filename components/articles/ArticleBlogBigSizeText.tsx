@@ -1,6 +1,6 @@
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
 import stls from '@/styles/components/articles/ArticleBlogBigSizeText.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
 
 type ArticleBlogBigSizeTextType = {
   props: {
@@ -10,16 +10,19 @@ type ArticleBlogBigSizeTextType = {
 }
 
 const ArticleBlogBigSizeText = ({ props }: ArticleBlogBigSizeTextType) => {
-  const renderer = new marked.Renderer()
-  renderer.em = text => {
-    return `<span style="color: ${props?.textColor}">${text}</span>`
+  const { text, textColor } = props
+
+  const customRenderers = {
+    em: ({ children }: { children: React.ReactNode }) => (
+      <span style={{ color: textColor }}>{children}</span>
+    )
   }
 
-  marked.setOptions({ renderer })
-
-  const text = marked(props?.text)
-
-  return <div className={stls.text}>{parse(text)}</div>
+  return (
+    <div className={stls.text}>
+      <ReactMarkdown components={customRenderers}>{text || ''}</ReactMarkdown>
+    </div>
+  )
 }
 
 export default ArticleBlogBigSizeText

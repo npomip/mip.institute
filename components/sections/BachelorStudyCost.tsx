@@ -1,5 +1,5 @@
 import { IconCircleCheck } from '@/components/icons'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/BachelorStudyCost.module.sass'
 import points from 'constants/bachelorStudyCost'

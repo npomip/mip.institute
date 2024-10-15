@@ -6,7 +6,6 @@ export { default as sortUniqueReviewsCreatedAtASC } from '@/helpers/general/sort
 
 // ./
 export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'
-export { default as convertMdToHtml } from '@/helpers/convertMdToHtml'
 export { default as filterProgramsByStudyField } from '@/helpers/filterProgramsByStudyField'
 export { default as filterProgramsByType } from '@/helpers/filterProgramsByType'
 export { default as getCasedRuMonthString } from '@/helpers/getCasedRuMonthString'
@@ -14,8 +13,6 @@ export { default as getCasedRuYearString } from '@/helpers/getCasedRuYearString'
 export { default as getCasesRuCourseString } from '@/helpers/getCasesRuCourseString'
 export { default as getCasesRuProfessionString } from '@/helpers/getCasesRuProfessionString'
 export { default as getImageHeight } from '@/helpers/getImageHeight'
-export { default as getListItemsInnerHtml } from '@/helpers/getListItemsInnerHtml'
-export { default as getParagraphInnerHtml } from '@/helpers/getParagraphInnerHtml'
 export { default as getRuDaysOfWeek } from '@/helpers/getRuDaysOfWeek'
 export { default as getRuMonths } from '@/helpers/getRuMonths'
 export { default as getStudyFields } from '@/helpers/getStudyFields'

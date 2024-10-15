@@ -1,18 +1,9 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { TypePageProgramsProps } from '@/types/index'
+import Wrapper from '@/ui/Wrapper'
 import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { PagesPrograms } from '@/components/pages'
-import { SeoPagesPrograms } from '@/components/seo'
-import Wrapper from '@/components/layout/Wrapper'
-import StudyFieldSlugFilter from '@/components/general/StudyFieldSlugFilter'
-import Seminars from '@/components/sections/SlugTags'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import SeminarCard from '@/components/sections/SlugTags'
-import SlugTags from '@/components/sections/SlugTags'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 
 const SeminarsStudyFieldPage = ({ events }) => {
   const router = useRouter()
@@ -27,8 +18,6 @@ const SeminarsStudyFieldPage = ({ events }) => {
       <Wrapper>
         <NextSeo />
         <h1>Семинары слаг</h1>
-        {/* <StudyFieldSlugFilter props={events} slug='seminars'/>
-      <SlugTags props={filteredSeminars} slug='seminars' withDate/> */}
       </Wrapper>
     </>
   )

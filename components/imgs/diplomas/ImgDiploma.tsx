@@ -11,6 +11,11 @@ const ImgDiploma = ({ width = null, height = null }) => {
         className={stls.img}
         width={width}
         height={height}
+        sizes='100vw'
+        style={{
+          width: '100%',
+          height: 'auto'
+        }}
         placeholder='blur'
       />
     </span>

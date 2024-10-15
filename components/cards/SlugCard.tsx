@@ -22,7 +22,6 @@ type CardType = {
     title: string
   }
   slug: string
-  withDate?: boolean
   firstCard?: boolean
   isLifeCourses?: boolean
 }
@@ -30,11 +29,9 @@ type CardType = {
 const SlugCard = ({
   item,
   slug,
-  withDate,
   firstCard = false,
   isLifeCourses = false
 }: CardType) => {
-  const newDate = new Date(item?.date)
   const dateOfCourse = new Date(item?.date).toLocaleString('ru-RU', {
     day: 'numeric',
     month: 'long'
@@ -42,48 +39,48 @@ const SlugCard = ({
 
   return (
     <>
-      <Link passHref href={`/${slug}/${item?.slug}`}>
-        <a
-          className={classNames({
-            [stls.seminarCard]: !firstCard,
-            [stls.firstCard]: firstCard,
-            [stls.isLifeCourses]: isLifeCourses
-          })}>
-          <div className={stls.seminarImg}>
-            <Image
-              src={item?.picture?.url}
-              alt={'alt'}
-              className={stls.img}
-              width={760}
-              height={430}
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
-          </div>
+      <Link
+        passHref
+        href={`/${slug}/${item?.slug}`}
+        className={classNames({
+          [stls.seminarCard]: !firstCard,
+          [stls.firstCard]: firstCard,
+          [stls.isLifeCourses]: isLifeCourses
+        })}>
+        <div className={stls.seminarImg}>
+          <Image
+            src={item?.picture?.url}
+            alt={'alt'}
+            className={stls.img}
+            width={760}
+            height={430}
+            placeholder='blur'
+            blurDataURL={base64pixel}
+          />
+        </div>
 
-          <div className={stls.seminarText}>
-            <div className={stls.tags}>
-              <p className={stls.seminarCardTag}>{item?.studyField}</p>
-              {item?.courseOpened && (
-                <p className={stls.seminarCardTag}>идет набор</p>
-              )}
-            </div>
-
-            <p className={stls.articleTitle}>{item?.title}</p>
-            {firstCard && (
-              <p className={stls.articleSubtitle}>{item?.subtitle}</p>
+        <div className={stls.seminarText}>
+          <div className={stls.tags}>
+            <p className={stls.seminarCardTag}>{item?.studyField}</p>
+            {item?.courseOpened && (
+              <p className={stls.seminarCardTag}>идет набор</p>
             )}
-            {/* проверка на то, опубликовано ли сегодня? */}
-            <p className={stls.date}>
-              {new Date().toLocaleString('ru-RU', {
-                day: 'numeric',
-                month: 'long'
-              }) === dateOfCourse
-                ? 'Добавлено сегодня'
-                : dateOfCourse}
-            </p>
           </div>
-        </a>
+
+          <p className={stls.articleTitle}>{item?.title}</p>
+          {firstCard && (
+            <p className={stls.articleSubtitle}>{item?.subtitle}</p>
+          )}
+          {/* проверка на то, опубликовано ли сегодня? */}
+          <p className={stls.date}>
+            {new Date().toLocaleString('ru-RU', {
+              day: 'numeric',
+              month: 'long'
+            }) === dateOfCourse
+              ? 'Добавлено сегодня'
+              : dateOfCourse}
+          </p>
+        </div>
       </Link>
     </>
   )

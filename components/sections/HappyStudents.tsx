@@ -1,19 +1,20 @@
 import stls from '@/styles/components/sections/HappyStudents.module.sass'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Grid } from 'swiper'
+import SwiperCore from 'swiper'
+import { Navigation, Pagination } from 'swiper/modules'
 import IconCurveLineReview from '../icons/IconCurveLineReview'
 import Otzovic from '../imgs/footerReviews/Otzovic'
 import Tutortop from '../imgs/footerReviews/Tutortop'
 import TwoGis from '../imgs/footerReviews/TwoGis'
 import Ucheba from '../imgs/footerReviews/Ucheba'
 import Ya from '../imgs/footerReviews/Ya'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import FooterReviews from '../popups/FooterReviews'
 import routes from '@/config/routes'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import CardReviewsPlatform from '../cards/CardReviewsPlatform'
-import CustomPrevButton from '../general/CustomPrevButton'
-import CustomNextButton from '../general/CustomNextButton'
+import CustomPrevButton from '@/ui/CustomPrevButton'
+import CustomNextButton from '@/ui/CustomNextButton'
 import React from 'react'
 SwiperCore.use([Navigation, Pagination])
 
@@ -73,14 +74,14 @@ const HappyStudents = () => {
   ]
 
   const onBeforeInit = (Swiper: SwiperCore): void => {
-    if (typeof Swiper.params.navigation !== "boolean") {
-      const navigation = Swiper.params.navigation;
+    if (typeof Swiper.params.navigation !== 'boolean') {
+      const navigation = Swiper.params.navigation
       if (navigation !== undefined) {
-        navigation.prevEl = navigationPrevRef.current;
-        navigation.nextEl = navigationNextRef.current;
+        navigation.prevEl = navigationPrevRef.current
+        navigation.nextEl = navigationNextRef.current
       }
     }
-  };
+  }
 
   return (
     <section className={stls.section}>
@@ -110,10 +111,6 @@ const HappyStudents = () => {
             </p>
             <Swiper
               onBeforeInit={onBeforeInit}
-              // navigation={{
-              //   prevEl: navigationPrevRef.current,
-              //   nextEl: navigationNextRef.current,
-              // }}
               slidesPerView={isMobileAndTabletLayout ? 1 : 1.6}
               spaceBetween={30}
               modules={[Pagination]}
@@ -124,7 +121,7 @@ const HappyStudents = () => {
                 </SwiperSlide>
               ))}
               <div ref={navigationPrevRef} className={stls.prevBtn}>
-              <CustomPrevButton showOnMobile happyStudents/>
+                <CustomPrevButton showOnMobile happyStudents />
               </div>
               <div ref={navigationNextRef} className={stls.prevBtn}>
                 <CustomNextButton showOnMobile happyStudents />

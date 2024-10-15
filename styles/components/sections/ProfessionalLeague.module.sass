@@ -8,7 +8,7 @@
     @include m.gap($pb: f.px(50),$pt: f.px(0))
 
 .wave
-  background-position: center
+  background-position: 50%
   background-size: cover
   background-repeat: no-repeat
   position: absolute
@@ -16,7 +16,8 @@
   right: 0
   bottom: 0
   left: 0
-  & > span
+  & > img
+    width: 100%
     border-radius: f.px(10)
   @include m.media(phone, tablet)
     display: none
@@ -30,10 +31,10 @@
   right: 0
   bottom: 0
   left: 0
-  & > span
+  & > img
+    border-radius: f.px(10)
     @include m.media(tablet)
       max-height: f.px(450)
-      border-radius: f.px(10)
     @include m.media(phone)
       max-height: f.px(550)
   @include m.media(laptop, desktop)
@@ -80,7 +81,7 @@
       position: relative
       top: f.px(-5)
       font-size: f.px(12)
-      background: #F87E1B
+      @include m.dye(bg, c.$orange-700)
       @include m.dye(c, c.$white-900)
       @include m.gap($ptb: f.px(4), $plr: f.px(23), $ml: f.px(10))
       border-radius: f.px(50)
@@ -88,14 +89,6 @@
 
 .header
   @include m.flex($jc: space-between)
-
-.logo
-  @include m.media(phone, tablet)
-    top: f.px(10)
-    left: f.px(10)
-    position: absolute
-    width: f.px(40)
-    height: f.px(60)
 
 .description
   font-size: f.px(20)
@@ -129,8 +122,8 @@
   right: 0
   bottom: 0
   left: 0
-  background: white
-  opacity: 0.3
+  background-color: white
+  opacity: .3
   min-height: f.px(634)
 
 .hiddenBlock
@@ -162,6 +155,8 @@
 
 .image
   border-radius: f.px(20)
+  z-index: 20
+  position: relative
 
 .list
   position: relative

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/btns/BtnText.module.sass'
-import CtaText from '@/components/general/CtaText'
+import CtaText from '@/ui/CtaText'
 import classNames from 'classnames'
 
 const BtnText = ({

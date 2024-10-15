@@ -13,6 +13,10 @@ const ImgTopCourse = ({ src, alt, width = 0, height = 0 }) => {
         height={height !== 0 && height}
         placeholder='blur'
         blurDataURL={base64pixel}
+        style={{
+          width: '100%',
+          height: 'auto'
+        }}
       />
     </div>
   )

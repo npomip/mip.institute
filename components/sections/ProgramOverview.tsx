@@ -1,57 +1,65 @@
 import stls from '@/styles/components/sections/ProgramOverview.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
-import { getListItemsInnerHtml } from '@/helpers/index'
-import marked from 'marked'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import CloudHead from '../imgs/programs/courses/CloudHead'
 import IconBackOfOverview from '../icons/IconBackOfOverview'
-import parse from 'html-react-parser'
 import { IconCircleCheck } from '../icons'
 import classNames from 'classnames'
+import ReactMarkdown from 'react-markdown'
+import parseProgramContent from '@/helpers/parseProgramContent'
 
-const ProgramOverview = ({toggleOverview,showDescription}) => {
+const ProgramOverview = ({ toggleOverview, showDescription }) => {
   const { program } = useContext(ContextStaticProps)
 
   const programOverview = program?.programOverview
   const title = program?.programOverviewTitle
-  const list =
-    program?.programOverview?.length > 0 &&
-    getListItemsInnerHtml(marked(programOverview))
-    const parseTitle = program?.programOverviewTitle?.length > 0 &&
-    title
+  const { titles, topics } = programOverview
+    ? parseProgramContent(programOverview)
+    : { titles: [], topics: [] }
+
+  const customRenderers = {
+    p: ({ children }: { children: React.ReactNode }) => (
+      <p className={stls.p}>{children}</p>
+    )
+  }
 
   return (
-    <section className={classNames({
-      [stls.container]: true,
-      [stls.showDescription]: showDescription
-    })}>
+    <section
+      className={classNames({
+        [stls.container]: true,
+        [stls.showDescription]: showDescription
+      })}>
       <Wrapper>
         <h2>Описание программы</h2>
         <div className={stls.flexContainer}>
-
-        
-        <div className={stls.left}>
-          <p>{parseTitle}</p>
-        <div className={stls.img}>
-          <CloudHead />
-        </div>
-        <div className={stls.icon}>
-          <IconBackOfOverview />
-        </div>
-        </div>
-        <div className={stls.right}>
-          {list &&
-            list[0].map((item, idx) => (
-              <div key={item + idx} className={stls.item}>
-                <div className={stls.itemIcon}>
-                <IconCircleCheck violetItems />
+          <div className={stls.left}>
+            <p>{title}</p>
+            <div className={stls.img}>
+              <CloudHead />
+            </div>
+            <div className={stls.icon}>
+              <IconBackOfOverview />
+            </div>
+          </div>
+          <div className={stls.right}>
+            {topics.length > 0 &&
+              topics.map((topicGroup, idx) => (
+                <div key={`${topicGroup}-${idx}`} className={stls.topicGroup}>
+                  <h3>{titles[idx]}</h3>
+                  {topicGroup.map((topic, topicIdx) => (
+                    <div key={topic + topicIdx} className={stls.item}>
+                      <div className={stls.itemIcon}>
+                        <IconCircleCheck violetItems />
+                      </div>
+                      <ReactMarkdown components={customRenderers}>
+                        {topic}
+                      </ReactMarkdown>
+                    </div>
+                  ))}
                 </div>
-                
-                <p className={stls.p}>{parse(item)}</p>
-              </div>
-            ))}
-        </div>
+              ))}
+          </div>
         </div>
         <div className={stls.switchSection} onClick={toggleOverview}>
           <p>Зачем осваивать профессию психолога?</p>

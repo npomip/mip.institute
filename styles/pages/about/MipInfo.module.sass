@@ -4,8 +4,6 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
-  // width: 500px
-  // margin: 0 auto
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(38))
     @include m.gap($pb: f.px(18))
@@ -13,8 +11,6 @@
   @include m.media(laptop, desktop)
     @include m.gap($mt: f.px(76))
     @include m.gap($pb: f.px(56))
-    // padding-left: 9em
-    // padding-right: 4em
   @include m.dye(c, c.$white-900)
   font-family: Stem, sans-serif
   h1
@@ -24,7 +20,7 @@
     font-weight: 350
     font-size: 20px
   .last
-    background: #B250FF
+    @include m.dye(bg, c.$purple-400)
     font-weight: 500
     font-size: 22px
     padding: 30px
@@ -41,7 +37,6 @@
     font-weight: 350
     font-size: 20px
     display: flex
-    // align-items: flex-start
     &::before
       content: '●'
       color: #F87E1B

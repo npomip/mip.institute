@@ -19,6 +19,11 @@ const ImgLicence = ({ width = 0, height = 0, isOchuVoMip }: Props) => {
         width={width !== 0 && width}
         height={height !== 0 && height}
         placeholder='blur'
+        sizes='100vw'
+        style={{
+          width: '100%',
+          height: 'auto'
+        }}
       />
     </span>
   )

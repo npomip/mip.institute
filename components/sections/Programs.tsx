@@ -1,6 +1,6 @@
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
-import ProgramsFilters from '@/components/layout/ProgramsFilters'
-import Wrapper from '@/components/layout/Wrapper'
+import ProgramsFilters from '@/components/program/ProgramsFilters'
+import Wrapper from '@/ui/Wrapper'
 import { useFilteredItems } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/sections/Programs.module.sass'
 import CardProfession from '../cards/CardProfession'

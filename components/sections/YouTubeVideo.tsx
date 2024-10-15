@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/YouTubeVideo.module.sass'
 import { IconClock } from '../icons'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import classNames from 'classnames'
 
 type Props = {
@@ -31,8 +31,9 @@ const YouTubeVideo = ({ isOnMain, videoId, title, props }: Props) => {
         )}
         <div className={stls.playerWrapper}>
           <iframe
-            src={`https://kinescope.io/embed/${props?.videoLink ? props?.videoLink : videoId}`}
-            frameBorder='0'
+            src={`https://kinescope.io/embed/${
+              props?.videoLink ? props?.videoLink : videoId
+            }`}
             allow='autoplay; fullscreen; picture-in-picture; encrypted-media;'></iframe>
         </div>
       </Wrapper>

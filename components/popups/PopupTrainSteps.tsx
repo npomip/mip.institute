@@ -1,7 +1,5 @@
 import stls from '@/styles/components/popups/PopupTrainSteps.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
-import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 import Popup from 'reactjs-popup'
 import IconPracticalStepInfo from '../icons/IconPracticalStepInfo'
 import IconClosePopupSteps from '../icons/IconClosePopupSteps'
@@ -11,16 +9,13 @@ type PopupTrainStepsType = {
   text: string
 }
 
-const PopupTrainSteps = ({
-title,
-text
-}: PopupTrainStepsType) => {
+const PopupTrainSteps = ({ title, text }: PopupTrainStepsType) => {
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={stls.strongText}>{children}</span>
+    )
+  }
 
-
-
-  const renderer = new marked.Renderer()
-  renderer.strong = text => `<span className=${stls.strongText}>${text}</span>`
-  marked.setOptions({ renderer })
   return (
     <Popup
       trigger={
@@ -30,16 +25,21 @@ text
       }
       modal
       nested>
-      {close => (
-        <div className={stls.container}>
-          <h2 className={stls.title}>{title}</h2>
-          <div className={stls.text}>{text}</div>
-          <button className={stls.closeBtn} onClick={close}>
-            <span className={stls.btnText}>Закрыть окно</span>
-            <IconClosePopupSteps />
-          </button>
-        </div>
-      )}
+      {
+        // @ts-ignore
+        close => (
+          <div className={stls.container}>
+            <h2 className={stls.title}>{title}</h2>
+            <div className={stls.text}>
+              <ReactMarkdown components={customRenderers}>{text}</ReactMarkdown>
+            </div>
+            <button className={stls.closeBtn} onClick={close}>
+              <span className={stls.btnText}>Закрыть окно</span>
+              <IconClosePopupSteps />
+            </button>
+          </div>
+        )
+      }
     </Popup>
   )
 }

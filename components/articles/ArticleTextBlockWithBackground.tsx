@@ -1,7 +1,7 @@
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
 import stls from '@/styles/components/articles/ArticleTextBlockWithBackground.module.sass'
 import styles from '@/styles/pages/JournalSlug.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
 
 type ArticleTextBlockWithBackgroundType = {
   props: {
@@ -15,16 +15,16 @@ type ArticleTextBlockWithBackgroundType = {
 const ArticleTextBlockWithBackground = ({
   props
 }: ArticleTextBlockWithBackgroundType) => {
-  const renderer = new marked.Renderer()
-  renderer.paragraph = text => {
-    return `<p classname=${stls.paragraph} style="color: ${props?.textColor}">${text}</p>`
+  const customRenderers = {
+    p: ({ children }: { children: React.ReactNode }) => (
+      <p className={stls.paragraph} style={{ color: props?.textColor }}>
+        {children}
+      </p>
+    ),
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <span className={styles.strongText}>{children}</span>
+    )
   }
-  renderer.strong = text => {
-    return `<span className=${styles.strongText}>${text}</span>`
-  }
-  marked.setOptions({ renderer })
-
-  const text = marked(props.text)
 
   return (
     <div
@@ -33,7 +33,9 @@ const ArticleTextBlockWithBackground = ({
         background: props?.backgroundColor,
         border: `1px solid ${props?.borderColor}`
       }}>
-      {parse(text)}
+      <ReactMarkdown components={customRenderers}>
+        {props.text || ''}
+      </ReactMarkdown>
     </div>
   )
 }

@@ -8,9 +8,8 @@
   border-radius: f.px(10)
   @include m.media(phone, tablet)
     &:hover
-      // outline: 1px solid violet
       .content
-        color: #B250FF
+        @include m.dye(c, c.$purple-400)
 
     @include m.gap($mt: f.px(10),$mb: f.px(10))
     justify-content: flex-start
@@ -26,9 +25,7 @@
   @include m.gap($ml: f.px(13))
   @include m.media(phone, tablet)
   &:hover
-    color: #B250FF
-    // align-items: center
-    // margin: 0 auto
+    @include m.dye(c, c.$purple-400)
 
 .title
   font-size: f.px(16)
@@ -48,16 +45,6 @@
   line-height: 110%
   @include m.gap($mb: f.px(11))
 
-// .title, .subtitle, .hours
-//   &:hover
-//     @include m.dye(c, c.$white-900)
-
-// .hours
-//   color: #505050
-//   font-size: f.px(12)
-//   font-weight: 350
-//   line-height: 110%
-
 #preloader
   position: fixed
   top: 0
@@ -76,7 +63,7 @@
   margin: -75px 0 0 -75px
   border-radius: 50%
   border: 3px solid transparent
-  border-top-color: #6f01c6
+  border-top-color: c.$purple-800
   -webkit-animation: spin 2s linear infinite
   animation: spin 2s linear infinite
 
@@ -102,7 +89,7 @@
   bottom: 15px
   border-radius: 50%
   border: 3px solid transparent
-  border-top-color: #DCA8FF
+  border-top-color: c.$pink-400
   -webkit-animation: spin 1.5s linear infinite
   animation: spin 1.5s linear infinite
 

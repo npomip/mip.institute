@@ -13,10 +13,17 @@ module.exports = /* withPWA( */ {
   i18n: {
     locales: ['ru'],
     defaultLocale: 'ru',
-    localeDetection: false
+    localeDetection: false,
   },
   images: {
-    domains: ['res.cloudinary.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   async headers() {
     return [

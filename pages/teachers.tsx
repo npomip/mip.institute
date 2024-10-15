@@ -1,13 +1,13 @@
 import { GetStaticProps, NextPage } from 'next'
 import { TypeLibTeachers, TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { routes, company, preview } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { MeetYourTeachers } from '@/components/sections'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import truncate from '@/helpers/general/truncate'
 
 const TeachersPage: NextPage<TypePageTeachersProps> = ({
   programs,

@@ -10,13 +10,12 @@
     @include m.gap($pb: f.px(50), $pt: f.px(50))
 
 .cards
-  display: flex
-  @include m.gap($mtb: f.px(50))
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
   gap: f.px(30)
-  @include m.media(laptop)
-    gap: f.px(15)
-  @include m.media(tablet, phone)
-    @include m.flex($fd:column)
+  @include m.gap($mtb: f.px(50))
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
 
 .title
   font-size: f.px(40)

@@ -5,7 +5,7 @@
 .bg
   text-align: center
   background: url('/assets/imgs/general/stars404.png')
-  background-color: #23003F
+  @include m.dye(bg, c.$purple-950)
   @include m.media(desktop, laptop)
     @include m.gap($pt: f.px(140))
   @include m.media(tablet)

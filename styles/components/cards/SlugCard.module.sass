@@ -6,14 +6,12 @@
   cursor: pointer
   display: flex
   flex-direction: column
-  // align-items: space-between
   border-radius: f.px(10)
   position: relative
   min-height: 430px
   color: black
   @include m.media(phone, tablet)
     min-height: auto
-  // align-items: center
   &:hover
     .img
       transform: scale(1.1)
@@ -25,9 +23,6 @@
   cursor: pointer
   @include m.media(phone, tablet)
     flex-direction: column
-
-  // .seminarCardTag
-  //   @include m.gap($mb: f.px(0))
 
   .articleTitle
     @include m.gap($mb: f.px(20))
@@ -49,11 +44,11 @@
     .seminarImg
       border-radius: f.px(10)
       .img
-        scale: 1.1
+        transform: scale(1.1)
   .seminarText
-    flex: 1
+    flex-basis: 35%
     margin-top: 0
-    border: f.px(2) solid #6F01C6
+    border: f.px(2) solid c.$purple-800
     margin-left: f.px(26)
     @include m.media(phone, tablet)
       margin-left: f.px(0)
@@ -71,9 +66,9 @@
   width: fit-content
   @include m.dye(c, c.$purple-800)
   @include m.gap($ptb: f.px(9), $plr: f.px(17),$mb: f.px(20))
-  border: f.px(1) solid #6F01C6
+  border: f.px(1) solid c.$purple-800
   border-radius: f.px(24)
-  background: #FFF
+  @include m.dye(bg, c.$white-800)
   letter-spacing: 1.3px !important
   text-transform: uppercase
   font-weight: 500 !important
@@ -85,26 +80,20 @@
 .seminarImg
   display: flex
   position: relative
-  // height: fit-content
-  &>*
-    border-radius: f.px(10)
-    height: 100px
-    width: 100%
-    &>*
-      height: 100px
-      width: 100%
+  overflow: hidden
+  min-height: f.px(213)
   @include m.media(phone, tablet)
     object-fit: fill
 
 .img
   display: flex
-  height: 100px
-  width: 100px
   border-radius: f.px(10)
   object-fit: cover
+  width: 100%
+  height: auto
 
 .seminarText
-  border: f.px(1) solid #6F01C6
+  border: f.px(1) solid c.$purple-800
   border-radius: f.px(10)
   @include m.dye(bg, c.$gray-50)
   height: 100%
@@ -114,8 +103,6 @@
   @include m.gap($mt: f.px(-30), $pt: f.px(52), $pl: f.px(35),$pr: f.px(25), $mlr: f.px(1))
   @include m.media(laptop)
     @include m.gap( $plr: f.px(15))
-
-  // position: absolute
 
 .date
   display: flex
@@ -127,15 +114,15 @@
 .isLifeCourses
   .seminarText
     background: #FFF3ED
-    border: f.px(1) solid #3C251D
+    border: f.px(1) solid c.$brown-800
     @include m.gap($pr: f.px(23))
     .tags
       display: flex
       gap: f.px(15)
       .seminarCardTag
         font-size: f.px(8) !important
-        color: #3C251D
+        @include m.dye(c, c.$brown-800)
         @include m.gap($ptb: f.px(9), $plr: f.px(17),$mb: f.px(20))
-        border: f.px(1) solid #3C251D
+        border: f.px(1) solid c.$brown-800
     .date
       justify-content: flex-end

@@ -3,8 +3,7 @@ import {
   useFilterDispatch
 } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
-import { useState } from 'react'
-import RangeSlide from '../general/RangeSlide'
+import RangeSlide from '@/ui/RangeSlide'
 import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 
@@ -53,7 +52,6 @@ const FiltersWithContext = ({ cost, duration }) => {
           max={cost.max}
           step={100}
           measure={'руб.'}
-          // classNameStyle='eeeeee'
         />
       </FilterContainer>
     </div>

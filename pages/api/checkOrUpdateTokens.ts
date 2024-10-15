@@ -2,7 +2,7 @@ import CHECK_TOKENS from "@/lib/graphQL/CHECK_TOKENS";
 import routes from "@/config/routes";
 import client from "@/lib/apolloClient";
 import axios from "axios";
-import moment from "moment";
+import dayjs from "dayjs";
 import { UPDATE_TOKEN } from "@/lib/index";
 
 const checkOrUpdateTokens = async () => {
@@ -18,7 +18,7 @@ const checkOrUpdateTokens = async () => {
     const expireTime = checkTokenData?.amos[0]?.expired_in;
     const oldAccess_token = checkTokenData?.amos[0]?.access
     const oldRefresh_token = checkTokenData?.amos[0]?.refresh
-    const nowUNIXtime = moment().unix()
+    const nowUNIXtime = dayjs().unix()
     const differenceInTime = expireTime - nowUNIXtime
     if (differenceInTime < 1800) {
 

@@ -211,7 +211,6 @@ const createLead = async (req, res) => {
 
     if (response.status === 200) {
       const leadData = response.data
-      console.log(response.status)
       res.status(200).json({ status: 200, msg: 'Lead created' })
     } 
   } catch (error) {

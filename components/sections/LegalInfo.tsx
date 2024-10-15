@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/LegalInfo.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { company, ochuVoMip } from '@/config/index'
 
 type Props = {

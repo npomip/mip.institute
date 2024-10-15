@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/ActiveLicenses.module.sass'
 import Popup from 'reactjs-popup'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { CheckLicense } from '@/components/sections'
 import { IconDoc } from '@/components/icons'
 import { PopupImage } from '@/components/popups'
@@ -47,12 +47,15 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
               }
               modal
               nested>
-              {close => (
-                <PopupImage
-                  image={<ImgLicence isOchuVoMip={isOchuVoMip} />}
-                  close={close}
-                />
-              )}
+              {
+                // @ts-ignore
+                close => (
+                  <PopupImage
+                    image={<ImgLicence isOchuVoMip={isOchuVoMip} />}
+                    close={close}
+                  />
+                )
+              }
             </Popup>
             <span className={stls.label}>
               <span className={stls.labelIcon}>

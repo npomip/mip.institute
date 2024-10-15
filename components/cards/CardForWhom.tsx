@@ -23,6 +23,10 @@ const CardForWhom = ({ imageSrc, title, description }: Props) => {
           alt='фото'
           height={isMobileLayout ? 220 : 250}
           width={170}
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
         />
       </div>
     </div>

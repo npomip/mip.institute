@@ -1,10 +1,10 @@
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/QuizResults.module.sass'
 import Image from 'next/image'
 import { useContext } from 'react'
 import CardQuizResult from '../cards/CardQuizResult'
-import testResultsMarker from '../funcs/testResultsMarker'
+import testResultsMarker from '@/helpers/funcs/testResultsMarker'
 
 interface Props {
   result: string
@@ -37,6 +37,10 @@ const QuizResults = ({ result }: Props) => {
           alt={course?.title}
           height={200}
           width={200}
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
           className={stls.img}
         />
       )

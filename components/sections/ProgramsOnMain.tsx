@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react'
 import stls from 'styles/components/sections/ProgramsOnMain.module.sass'
 import CardProfession from '../cards/CardProfession'
 import FilterTag from '../filters/FilterTag'
-import CustomSelect, { SelectOption } from '../general/CustomSelect'
+import CustomSelect from '@/ui/CustomSelect'
+import { SelectOption } from '@/ui/CustomSelect/CustomSelect'
 
 type Props = {
   allPrograms: any[]
@@ -54,6 +55,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   useEffect(() => {
     const newPrograms = filterPrograms()
     setPrograms(newPrograms)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentType, selectedLabel, activeFilters, allPrograms])
 
   const handleSetCurrentType = (selectedOption: SelectOption) => {
@@ -124,7 +126,11 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
       </div>
       <div className={stls.cards}>
         {programs.slice(0, number).map(el => (
-          <CardProfession key={`${el.id} - ${el.title}`} profession={el} onMain />
+          <CardProfession
+            key={`${el.id} - ${el.title}`}
+            profession={el}
+            onMain
+          />
         ))}
       </div>
       {programs.length > number && programs.length > 3 && (

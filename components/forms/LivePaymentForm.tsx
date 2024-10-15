@@ -8,7 +8,7 @@ import { Controller, useForm } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
-import payment from '../funcs/payment'
+import payment from '@/helpers/funcs/payment'
 
 type FormValues = {
   name: string
@@ -114,6 +114,7 @@ const LivePaymentForm = ({
                   value={value}
                   onChange={onChange}
                   country='ru'
+                  localization={ru}
                   placeholder='Ваш телефон'
                   containerClass={stls.containerInput}
                   inputClass={stls.phoneInput}

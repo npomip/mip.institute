@@ -1,16 +1,16 @@
-import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company } from '@/config/index'
-import { SeoOrganizationJsonLd } from '@/components/seo'
 import Gratefull from '@/components/sections/Gratefull'
+import { SeoOrganizationJsonLd } from '@/components/seo'
+import { company, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
+import { TypePageDefaultProps } from '@/types/index'
+import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 
 const GratefullPage: NextPage<TypePageDefaultProps> = () => {
   const router = useRouter()
-  const {name, email} = router.query
+  const { name, email } = router.query
 
   const seoParams = {
     title: `Спасибо за заявку | ${company.name}`,
@@ -29,7 +29,6 @@ const GratefullPage: NextPage<TypePageDefaultProps> = () => {
         nofollow={true}
         noindex={true}
         openGraph={{
-          
           url: seoParams.canonical,
           title: seoParams.title,
           description: seoParams.desc,
@@ -42,22 +41,24 @@ const GratefullPage: NextPage<TypePageDefaultProps> = () => {
               type: 'image/png'
             }
           ],
-          site_name: company.name,
-          
-          
+          site_name: company.name
         }}
       />
       <SeoOrganizationJsonLd />
       <Script
-      id='registration'
-      dangerouslySetInnerHTML={{
+        id='registration'
+        dangerouslySetInnerHTML={{
           __html: `
             gtag('event', 'conversion', {'send_to': 'AW-822792302/ktI6CJG-0toZEO6gq4gD'});
-          `,
+          `
         }}
       />
       <Gratefull />
-      <div className="i-flocktory" data-fl-action="exchange" data-fl-user-name={name} data-fl-user-email={email}></div>
+      <div
+        className='i-flocktory'
+        data-fl-action='exchange'
+        data-fl-user-name={name}
+        data-fl-user-email={email}></div>
     </>
   )
 }

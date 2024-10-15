@@ -1,35 +1,36 @@
-import Router from 'next/router'
-import { useEffect, useState } from 'react'
-import Script from 'next/script'
-import MenuState from '@/context/menu/MenuState'
+import Footer from '@/components/sections/Footer'
+import Header from '@/components/sections/Header'
+import StickyBottom from '@/components/sections/StickyBottom'
+import StickyTop from '@/components/sections/StickyTop'
+import { dev, gtmId, prod, routes } from '@/config/index'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 import { ContextStaticProps } from '@/context/index'
-import TagManager from 'react-gtm-module'
-import { DefaultSeo, LogoJsonLd } from 'next-seo'
-import SEO from '../seo.config'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
+import MenuState from '@/context/menu/MenuState'
 import {
   filterProgramsByType,
   getStudyFields,
   sortBasedOnNumericOrder
 } from '@/helpers/index'
-import { prod, gtmId, routes, dev } from '@/config/index'
+import promocodes from '@/helpers/promocodes'
+import client from '@/lib/apolloClient'
+import '@/styles/app.sass'
+import { ApolloProvider } from '@apollo/client'
+import { Analytics } from '@vercel/analytics/react'
+import { getCookie, setCookie } from 'cookies-next'
+import { DefaultSeo, LogoJsonLd } from 'next-seo'
+import Link from 'next/link'
+import Router from 'next/router'
+import Script from 'next/script'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import { useEffect, useState } from 'react'
+import TagManager from 'react-gtm-module'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import '@/styles/app.sass'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import StickyBottom from '@/components/layout/StickyBottom'
-import client from '@/lib/apolloClient'
-import { getCookie, setCookie, getCookies } from 'cookies-next'
-import { ApolloProvider } from '@apollo/client'
-import StickyTop from '@/components/layout/StickyTop'
-import promocodes from '@/helpers/promocodes'
-import Link from 'next/link'
-import { Analytics } from '@vercel/analytics/react'
-import RoistatScript from '@/components/scripts/RoistatScript'
+import 'swiper/css/scrollbar'
+import SEO from '../seo.config'
+import Image from 'next/image'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -245,12 +246,12 @@ const MyApp = ({ Component, pageProps, router }) => {
       {!dev && (
         <>
           <Script
-            strategy='beforeInteractive'
+            strategy='afterInteractive'
             src='/assets/js/vendors/roistatAB.js'
           />
           <Script
             id='roistatMain'
-            strategy='beforeInteractive'
+            strategy='afterInteractive'
             dangerouslySetInnerHTML={{
               __html: `
               (function(w, d, s, h, id) {
@@ -290,9 +291,12 @@ const MyApp = ({ Component, pageProps, router }) => {
           }}
       /> */}
 
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-822792302"/>
-      <Script 
-      id='google-tag'
+      <Script
+        async
+        src='https://www.googletagmanager.com/gtag/js?id=AW-822792302'
+      />
+      <Script
+        id='google-tag'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -300,8 +304,8 @@ const MyApp = ({ Component, pageProps, router }) => {
             gtag('js', new Date());
 
             gtag('config', 'AW-822792302');
-          `,
-        }} 
+          `
+        }}
       />
 
       <DefaultSeo {...SEO} />
@@ -443,12 +447,13 @@ const MyApp = ({ Component, pageProps, router }) => {
         })(document, window, "tmr-code");`
         }}
       />
-      <Script 
-        id='vk' 
-        dangerouslySetInnerHTML={{ 
+      <Script
+        id='vk'
+        dangerouslySetInnerHTML={{
           __html: `!function(){var t=document.createElement("script");
           t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?173',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1904296-h2y40"),VK.Retargeting.Hit()},document.head.appendChild(t)}()
-          `}}
+          `
+        }}
       />
       <Script
         id='WA AMO script'
@@ -495,9 +500,9 @@ const MyApp = ({ Component, pageProps, router }) => {
         </div>
       </noscript>
       <noscript>
-        <img 
+        <img
           src='https://vk.com/rtrg?p=VK-RTRG-1904296-h2y40'
-          style={{position:'fixed', left: '-999px' }}
+          style={{ position: 'fixed', left: '-999px' }}
           alt='vk.com'
         />
       </noscript>

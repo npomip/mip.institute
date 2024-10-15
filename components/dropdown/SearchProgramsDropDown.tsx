@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import stls from '@/styles/components/layout/Header.module.sass'
+import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
 import { IconArrowRight, IconSearchAlt } from '../icons'
 import getProgramsData from '@/lib/data/getProgramsData'
@@ -9,7 +9,7 @@ import routes from '@/config/routes'
 import { BtnField } from '../btns'
 import { useRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
-import getUtmSourceFromCookie from '../funcs/getUtmSourceFromCookie'
+import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
 
 export default function SearchProgramsDropDown() {
   const list = useMemo(
@@ -26,7 +26,6 @@ export default function SearchProgramsDropDown() {
         href: routes.front.webinars,
         val: 'Вебинары'
       },
-      // TODO: когда добавят Журнал
       {
         href: routes.front.journals,
         val: 'Журнал'
@@ -217,7 +216,7 @@ export default function SearchProgramsDropDown() {
             {list.map(item => (
               <div key={item.href + item.val} className={stls.popupLink}>
                 <Link href={item.href} passHref>
-                  <a>{item.val}</a>
+                  {item.val}
                 </Link>
                 <div className={stls.arrowIcon}>
                   <IconArrowRight />

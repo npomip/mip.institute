@@ -1,12 +1,11 @@
 import stls from '@/styles/components/articles/ArticleBlogListWithBackgroundAndTitle.module.sass'
 import classNames from 'classnames'
-import parse from 'html-react-parser'
-import marked from 'marked'
+import ReactMarkdown from 'react-markdown'
 import ArticleBlogListWithBackgroundAndTitleItem from './ArticleBlogListWithBackgroundAndTitleItem'
 
 type ArticleBlogListWithBackgroundAndTitleType = {
   props: {
-    title
+    title: string
     icon: string
     backgroundColor: string
     lineColor: string
@@ -21,18 +20,17 @@ type ArticleBlogListWithBackgroundAndTitleType = {
 const ArticleBlogListWithBackgroundAndTitle = ({
   props
 }: ArticleBlogListWithBackgroundAndTitleType) => {
-  const title = marked(props.title)
   const list = props.item || []
 
   return (
     <div
       style={{ background: props.backgroundColor }}
       className={stls.blogList}>
-      {parse(title)}
+      <ReactMarkdown>{props.title || ''}</ReactMarkdown>
       <div
         className={classNames({
-          [stls.innerContent]: list?.length > 6 ? false : true,
-          [stls.twoColumns]: list?.length > 6 ? true : false
+          [stls.innerContent]: list.length <= 6,
+          [stls.twoColumns]: list.length > 6
         })}>
         {list &&
           list.map(el => (

@@ -1,19 +1,18 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import stls from '@/styles/pages/JournalSlug.module.sass'
-import { routes } from '@/config/index'
-import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import Wrapper from '@/components/layout/Wrapper'
+import ArticleAuthors from '@/components/articles/ArticleAuthors'
+import ArticleContentLinks from '@/components/articles/ArticleContentLinks'
+import ArticleRelatedBlogs from '@/components/articles/ArticleRelatedBlogs'
 import ArticlesDynamicZones from '@/components/articles/ArticlesDynamicZones'
 import ArticleTitle from '@/components/articles/ArticleTitle'
-import ArticleRelatedBlogs from '@/components/articles/ArticleRelatedBlogs'
-import ArticleAuthors from '@/components/articles/ArticleAuthors'
-import SeoPagesJournal from '@/components/seo/SeoPageJournal'
-import ArticleContentLinks from '@/components/articles/ArticleContentLinks'
-import { Accordion } from '@/components/general/Accordion'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import { useRouter } from 'next/router'
-import ReadingProgressbar from '@/components/general/ReadingProgressbar'
+import Accordion from '@/ui/Accordion'
+import Breadcrumbs from '@/ui/Breadcrumbs'
+import ReadingProgressbar from '@/ui/ReadingProgressbar'
+import Wrapper from '@/ui/Wrapper'
 import ButtonToTop from '@/components/sections/ButtonToTop'
+import SeoPagesJournal from '@/components/seo/SeoPageJournal'
+import { routes } from '@/config/index'
+import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
+import stls from '@/styles/pages/JournalSlug.module.sass'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 const JournalSlugPage = ({ blog }) => {
   const articleHeading = {
@@ -34,9 +33,7 @@ const JournalSlugPage = ({ blog }) => {
 
   const slug = ['', blog?.studyFieldSlug]
 
-  const router = useRouter()
   const segments = ['journal', 'journal']
-  // const segments = router.asPath.split('/').filter(segment => segment !== '')
 
   const labels = ['Журнал', blog?.studyField]
   const breadcrumbs = segments.map((segment, index) => {

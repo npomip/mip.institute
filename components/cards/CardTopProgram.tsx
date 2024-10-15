@@ -11,21 +11,19 @@ type Props = {
 
 const CardTopProgram = ({ portrait, title, studyHours, href }: Props) => {
   return (
-    <Link href={href} passHref>
-      <a className={stls.container}>
-        {portrait && (
-          <div className={stls.portrait}>
-            <span className={stls.filter}></span>
-            {portrait}
-          </div>
-        )}
+    <Link href={href} passHref className={stls.container}>
+      {portrait && (
+        <div className={stls.portrait}>
+          <span className={stls.filter}></span>
+          {portrait}
+        </div>
+      )}
 
-        <p className={stls.title}>{title}</p>
-        <p className={stls.subtitle}>
-          Ближайшее зачисление: <br /> {getNextWednesday(new Date())}
-        </p>
-        <p className={stls.subtitle}>Кол-во часов: {studyHours}</p>
-      </a>
+      <p className={stls.title}>{title}</p>
+      <p className={stls.subtitle}>
+        Ближайшее зачисление: <br /> {getNextWednesday(new Date())}
+      </p>
+      <p className={stls.subtitle}>Кол-во часов: {studyHours}</p>
     </Link>
   )
 }

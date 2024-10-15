@@ -1,28 +1,26 @@
-import Wrapper from '@/components/layout/Wrapper'
-import { ContextStaticProps } from '@/context/index'
-import { getListItemsInnerHtml } from '@/helpers/index'
-import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
-import marked from 'marked'
-import { useContext } from 'react'
-import TagOrange from '@/components/general/TagOrange'
-import IconPortalViolet from '@/components/icons/IconPortalViolet'
-import classNames from 'classnames'
-import IconSun from '@/components/icons/IconSun'
-import IconStarLong from '@/components/icons/IconStarLong'
-import IconFlower from '@/components/icons/IconFlower'
 import IconClever from '@/components/icons/IconClever'
+import IconFlower from '@/components/icons/IconFlower'
+import IconPortalViolet from '@/components/icons/IconPortalViolet'
 import IconStar from '@/components/icons/IconStar'
-import content from 'constants/whatYouWillLearn'
+import IconStarLong from '@/components/icons/IconStarLong'
+import IconSun from '@/components/icons/IconSun'
+import Wrapper from '@/ui/Wrapper'
+import { ContextStaticProps } from '@/context/index'
 import highlightFirstWord from '@/helpers/highlightFirstWord'
+import stls from '@/styles/components/sections/WhatYouWillLearn.module.sass'
+import Tag from '@/ui/Tag'
+import classNames from 'classnames'
+import content from 'constants/whatYouWillLearn'
+import { useContext } from 'react'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 const WhatYouWillLearn = ({ onMain = false, title }) => {
   const { program } = useContext(ContextStaticProps)
-  let list =
-    program?.WhatYouWillLearn?.length > 0 &&
-    getListItemsInnerHtml(marked(program.WhatYouWillLearn))
+  const markdownContent = program?.WhatYouWillLearn || ''
 
-  const renderIcon = (x: number) => {
-    switch (x) {
+  const renderIcon = index => {
+    switch (index) {
       case 0:
         return <IconSun />
       case 1:
@@ -37,6 +35,28 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
         return <IconStar isOrangeEmpty />
     }
   }
+  const customRenderers = {
+    ul: ({ children }) => <ul className={stls.list}>{children}</ul>,
+    li: ({ children }) => (
+      <li className={stls.item}>
+        <IconPortalViolet />
+        <div
+          className={classNames({
+            [stls.description]: true,
+            [stls.main]: onMain
+          })}>
+          <span
+            className={stls.firstWord}
+            style={{
+              display: onMain ? 'inline' : 'block'
+            }}>
+            {`${children.split(' ')[0]} `}
+          </span>
+          <span className={stls.p}>{highlightFirstWord(children)}</span>
+        </div>
+      </li>
+    )
+  }
 
   return (
     <section className={stls.container}>
@@ -45,7 +65,9 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
           <h2 className={stls.title}>{title}</h2>
           {onMain && (
             <div className={stls.tag}>
-              <TagOrange isWhiteText>Знания</TagOrange>
+              <Tag type='orange' isWhiteText>
+                Знания
+              </Tag>
             </div>
           )}
           {onMain ? (
@@ -63,28 +85,11 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
               </ul>
             </div>
           ) : (
-            <ul className={stls.list}>
-              {list &&
-                list[0].map((item, idx) => (
-                  <li key={`${item}-${idx}`} className={stls.item}>
-                    <IconPortalViolet />
-                    <div
-                      className={classNames({
-                        [stls.description]: true,
-                        [stls.main]: onMain
-                      })}>
-                      <span
-                        className={stls.firstWord}
-                        style={{
-                          display: onMain ? 'inline' : 'block'
-                        }}>
-                        {`${item.split(' ')[0]} `}
-                      </span>
-                      <span className={stls.p}>{highlightFirstWord(item)}</span>
-                    </div>
-                  </li>
-                ))}
-            </ul>
+            <ReactMarkdown
+              components={customRenderers}
+              rehypePlugins={[rehypeRaw]}>
+              {markdownContent}
+            </ReactMarkdown>
           )}
         </div>
       </Wrapper>

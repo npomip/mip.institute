@@ -8,12 +8,15 @@ const ImgReview = ({ src, alt, width = 0, height = 0 }) => {
       <Image
         src={src}
         alt={alt}
-        // layout='fill'
         className={stls.img}
         width={width !== 0 && width}
         height={height !== 0 && height}
         placeholder='blur'
         blurDataURL={base64pixel}
+        style={{
+          width: '100%',
+          height: 'auto'
+        }}
       />
     </div>
   )

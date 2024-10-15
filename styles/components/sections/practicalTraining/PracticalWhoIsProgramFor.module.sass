@@ -1,0 +1,184 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(70))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(35), $pt: f.px(0))
+
+.bigContainer
+  position: relative
+  width: 100%
+  height: 100%
+  overflow: hidden
+  @include m.flex($fd: column)
+
+.textContainer
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(50), $plr: f.px(32))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(30), $plr: f.px(26))
+  @include m.flex($fd: column, $ai: center)
+
+.title
+  @include m.dye(c, black)
+  text-align: center
+  @include m.gap($mb: f.px(30))
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15))
+    font-size: f.px(30)
+    white-space: nowrap
+
+.subTitle
+  @include m.dye(c, c.$white-900)
+  @include m.dye(bg, c.$purple-200)
+  text-align: center
+  font-weight: 500
+  line-height: 130%
+  border-radius: f.px(4)
+  @include m.media(desktop, laptop)
+    font-size: f.px(20)
+    @include m.gap($plr: f.px(22), $ptb: f.px(8), $mb: f.px(35))
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    @include m.gap($plr: f.px(20), $ptb: f.px(4), $mb: f.px(20))
+
+.card
+  gap: f.px(20)
+  @include m.media(desktop, laptop)
+    @include m.flex($fd: column, $ai: center)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: center)
+    @include m.gap($plr: f.px(20))
+    gap: f.px(10)
+
+.colouredTitle
+  @include m.dye(c, c.$orange-700)
+
+.smallContainer
+  position: relative
+  width: 100%
+  height: 100%
+  background-image: url('/assets/imgs/practicalCarousel/statue.svg')
+  border-top-right-radius: f.px(10)
+  border-bottom-right-radius: f.px(10)
+  background-position: calc(100% + f.px(270))
+  background-repeat: no-repeat
+  @include m.media(phone, tablet)
+    border-top-right-radius: f.px(5)
+    border-bottom-right-radius: f.px(5)
+
+.imageContainer
+  @include m.flex($fd: column, $ai: center)
+
+.image
+  @include m.gap($mt: f.px(50))
+  & > img
+    border: f.px(1) solid c.$purple-350 !important
+    border-radius: 50%
+    transform: scale(.75)
+    @include m.media(phone, tablet)
+      transform: scale(.7)
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(0))
+
+.subTitleImage
+  text-align: center
+  font-weight: 500
+  line-height: 130%
+  border-radius: f.px(4)
+  border: f.px(0.5) solid c.$purple-350
+  @include m.media(desktop, laptop)
+    font-size: f.px(20)
+    @include m.gap($plr: f.px(22), $ptb: f.px(8), $mb: f.px(35))
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    @include m.gap($plr: f.px(20), $ptb: f.px(10), $mb: f.px(41))
+  @include m.dye(c, c.$purple-350)
+  @include m.dye(bg, c.$white-900)
+
+.text
+  @include m.dye(c, black)
+  font-weight: 300
+  line-height: 130%
+  text-align: center
+  @include m.media(desktop, laptop)
+    font-size: f.px(14)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.number
+  border-radius: 50%
+  @include m.flex($jc: center, $ai: center)
+  @include m.dye(bg, c.$purple-200)
+  @include m.dye(c, c.$white-900)
+  width: f.px(40)
+  height: f.px(40)
+  font-size: f.px(14)
+  font-weight: 500
+  line-height: 130%
+
+.cardsBlock
+  @include m.media(desktop, laptop)
+    @include m.flex()
+    gap: f.px(32)
+
+.strongText
+  font-weight: 500
+
+.bubbleContainer
+  @include m.flex()
+  @include m.media(phone, tablet)
+    display: none
+
+.bubbleContainerMob
+  @include m.flex()
+
+.bubbleImage
+  & > img
+    border: f.px(1) solid c.$purple-200 !important
+    border-radius: 50%
+
+.bubbleImage0
+  transform: translateX(f.px(-20)) translateY(f.px(50))
+  @include m.media(phone, tablet)
+    transform: translateX(f.px(-25)) translateY(f.px(26))
+
+.bubbleImage1
+  transform: translateX(f.px(-15)) translateY(f.px(99))
+  @include m.media(phone, tablet)
+    transform: translateX(f.px(-10)) translateY(f.px(0))
+
+.bubbleImage2
+  transform: translateX(f.px(5)) translateY(f.px(64))
+  @include m.media(phone, tablet)
+    transform: translateX(f.px(10)) translateY(f.px(45))
+
+.bubbleImage3
+  transform: translateX(f.px(15)) translateY(f.px(135))
+  @include m.media(phone, tablet)
+    transform: translateX(f.px(15)) translateY(f.px(10))
+
+.bubbleImage4
+  transform: translateX(f.px(20)) translateY(f.px(65))
+  @include m.media(phone, tablet)
+    transform: translateX(f.px(35)) translateY(f.px(30))
+
+.bubbleImage5
+  transform: translateX(f.px(25)) translateY(f.px(105))
+
+.bubbleImage6
+  transform: translateX(f.px(36)) translateY(f.px(76))
+
+.bubbleImage7
+  transform: translateX(f.px(40)) translateY(f.px(123))
+
+.bubbleImage8
+  transform: translateX(f.px(50)) translateY(f.px(55))
+
+.bubbleImage9
+  transform: translateX(f.px(65)) translateY(f.px(102))

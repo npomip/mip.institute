@@ -12,6 +12,10 @@ const ImgResume1 = ({ width = 0, height = 0 }) => {
         width={width !== 0 && width}
         height={height !== 0 && height}
         placeholder='blur'
+        style={{
+          width: '100%',
+          height: 'auto'
+        }}
       />
     </div>
   )

@@ -6,7 +6,7 @@ import {
   ImgDiplomaDynamic,
   ImgSupplement
 } from '@/components/imgs'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { PopupImage } from '@/components/popups'
 import { ContextStaticProps } from '@/context/index'
 import { getImageHeight } from '@/helpers/index'
@@ -14,23 +14,25 @@ import stls from '@/styles/components/sections/YourDiploma.module.sass'
 import cn from 'classnames'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
-import TagOrange from '../general/TagOrange'
 import ImgBachelorDiplomaAlt from '../imgs/diplomas/ImgBachelorDiplomaAlt'
 import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
+import Tag from '@/ui/Tag'
 
 type YourDiplomaType = {
   ofType?: string
   diplomaRef?: React.RefObject<HTMLElement | null>
   onMain?: boolean
   isBachelor?: boolean
+  close?: () => void
 }
 
 const YourDiploma = ({
   ofType = null,
   diplomaRef = null,
   onMain = false,
-  isBachelor = false
+  isBachelor = false,
+  close
 }: YourDiplomaType) => {
   const slides = []
 
@@ -184,7 +186,7 @@ const YourDiploma = ({
       <Wrapper>
         {onMain && (
           <div className={stls.tag}>
-            <TagOrange>Образование</TagOrange>
+            <Tag type='orange'>Образование</Tag>
           </div>
         )}
         <h2 className={stls.title}>Ваши будущие дипломы</h2>
@@ -225,9 +227,7 @@ const YourDiploma = ({
                 trigger={<div className={stls.trigger}>{slide}</div>}
                 modal
                 nested>
-                {close => (
-                  <PopupImage image={slide.props.children} close={close} />
-                )}
+                <PopupImage image={slide.props.children} close={close} />
               </Popup>
             ))}
           </div>

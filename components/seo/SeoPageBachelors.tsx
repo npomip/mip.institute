@@ -1,31 +1,8 @@
-import { TypeLibProgram } from '@/types/index'
-import { FC } from 'react'
-import { NextSeo, CourseJsonLd } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company, themeColor, dev } from '@/config/index'
-import { AdditionalRobotsProps } from 'next-seo/lib/types'
+import { company, routes, themeColor } from '@/config/index'
 import preview from '@/config/preview'
+import { CourseJsonLd, NextSeo } from 'next-seo'
 
-type TSeoPagesProgram = {
-  // program: {
-  //   seo: {
-  //     canonicalURL: string
-  //     isSEOFriendly: boolean
-  //     metaDescription: string
-  //     metaTitle: string
-      
-  //   }
-  //   title: string
-  // }
-  
-}
-
-const SeoPagesBachelors: FC<TSeoPagesProgram> = ({
-  // program
-}) => {
-
-  // const seo = program.seo
-
+const SeoPagesBachelors = () => {
   const additionalMetaRobotsKeys = [
     'nosnippet',
     'maxSnippet',
@@ -36,34 +13,14 @@ const SeoPagesBachelors: FC<TSeoPagesProgram> = ({
     'noimageindex',
     'notranslate'
   ]
-  // const parsedMetaRobots = ((
-  //   seo?.metaRobots &&
-  //   seo?.metaRobots.split(',').map(item => {
-  //     const trimmedItem = item?.trim()
-
-  //     if (additionalMetaRobotsKeys.some(key => trimmedItem?.includes(key))) {
-  //       const [key, value] = trimmedItem?.split(':')
-
-  //       return { [key]: value || true }
-  //     }
-
-  //     return null
-  //   })
-  // )?.filter(item => item) || null) as AdditionalRobotsProps
-
-
-  // const isNoindex = !seo?.isSEOFriendly 
-
-  // const isNofollow = !seo?.isSEOFriendly 
 
   const seoParams = {
-    title: 'Психология: высшее образование | Программы бакалавриата' ,
+    title: 'Психология: высшее образование | Программы бакалавриата',
     programTitle: 'Высшее образование',
-    desc: 'Программы высшего образования (бакалавритат) по психологии от Московского Института Психологии (МИП) с получением диплома государственного образца | Форма обучения: дистанционно и очно.  Станьте востребованным психологом в современном ВУЗе!' ,
-    canonical: 'https://mip.institute/bachelor' 
+    desc: 'Программы высшего образования (бакалавритат) по психологии от Московского Института Психологии (МИП) с получением диплома государственного образца | Форма обучения: дистанционно и очно.  Станьте востребованным психологом в современном ВУЗе!',
+    canonical: 'https://mip.institute/bachelor'
   }
 
-  // console.log(seoParams);
   return (
     <>
       <NextSeo
@@ -71,8 +28,8 @@ const SeoPagesBachelors: FC<TSeoPagesProgram> = ({
         description={seoParams.desc}
         canonical={seoParams.canonical}
         themeColor={themeColor}
-        nofollow={preview ? true : false}
-        noindex={preview ? true : false}
+        nofollow={preview}
+        noindex={preview}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,
@@ -102,4 +59,3 @@ const SeoPagesBachelors: FC<TSeoPagesProgram> = ({
 }
 
 export default SeoPagesBachelors
-

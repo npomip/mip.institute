@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/JoinInSocialChannels.module.sass'
 import channels from 'constants/joinInSocialChannels'
-import TagWhite from '../general/TagWhite'
 import IconSevenPetalOtanment from '../icons/IconSevenPetalOtanment'
-import TwoColumns from '../layout/TwoColumns'
-import Wrapper from '../layout/Wrapper'
+import TwoColumns from '@/ui/TwoColumns'
+import Wrapper from '@/ui/Wrapper'
 import SocialChannels from './SocialChannel'
+import Tag from '@/ui/Tag'
 
 const JoinInSocialChannels = () => {
   return (
@@ -13,7 +13,7 @@ const JoinInSocialChannels = () => {
         <TwoColumns>
           <div className={stls.left}>
             <div className={stls.tag}>
-              <TagWhite>Социальные сети</TagWhite>
+              <Tag type='white'>Социальные сети</Tag>
             </div>
             <h2>
               Присоединяйтесь к нам{' '}

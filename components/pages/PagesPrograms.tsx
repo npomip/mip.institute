@@ -1,25 +1,22 @@
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
-import ProgramsFilters from '@/components/layout/ProgramsFilters'
-import Wrapper from '@/components/layout/Wrapper'
+import ProgramsFilters from '@/components/program/ProgramsFilters'
+import Wrapper from '@/ui/Wrapper'
 import { ContactForm, HeroPrograms } from '@/components/sections'
 import {
-  useFilter,
   useFilterDispatch,
   useFilteredItems
 } from '@/context/FilterContext/FilterContext'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import stls from '@/styles/components/sections/Programs.module.sass'
+import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { TypeLibPrograms } from '@/types/index'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import CardProfession from '../cards/CardProfession'
 import ResetFilter from '../filters/ResetFilter'
-import { findMinMaxForSlider } from '../funcs/findMinMaxForSlider'
-import { getUniqueCategories } from '../funcs/getUniqueCategories'
-import Breadcrumbs from '../general/Breadcrumbs'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
-import TypeLibBachelors from '@/types/lib/bachelors/TypeLibBachelors'
-import TypeLibPracticalTrainings from '@/types/lib/practicalTrainings/TypeLibPracticalTrainings'
+import { findMinMaxForSlider } from '@/helpers/funcs/findMinMaxForSlider'
+import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
+import Breadcrumbs from '@/ui/Breadcrumbs'
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms

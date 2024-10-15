@@ -1,5 +1,5 @@
-import parse from 'html-react-parser'
-import marked from 'marked'
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 export type ArticleSubtitleType = {
   props: {
@@ -10,19 +10,20 @@ export type ArticleSubtitleType = {
 }
 
 const ArticleSubtitle = ({ props }: ArticleSubtitleType) => {
-  const renderer = new marked.Renderer()
-  renderer.paragraph = text => {
-    return `<h2 id=${props.subtitleSlug}>${text}</h2>`
+  const { subtitle, subtitleSlug, color } = props
+
+  const customRenderers = {
+    p: ({ children }: { children: React.ReactNode }) => (
+      <h2 id={subtitleSlug}>{children}</h2>
+    ),
+    em: ({ children }: { children: React.ReactNode }) => (
+      <span style={{ color }}>{children}</span>
+    )
   }
 
-  renderer.em = text => {
-    return `<span style="color: ${props?.color}">${text}</span>`
-  }
-  marked.setOptions({ renderer })
-
-  const h2text = marked(props?.subtitle)
-
-  return <>{parse(h2text)}</>
+  return (
+    <ReactMarkdown components={customRenderers}>{subtitle || ''}</ReactMarkdown>
+  )
 }
 
 export default ArticleSubtitle

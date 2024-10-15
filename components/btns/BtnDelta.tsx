@@ -5,8 +5,8 @@ const BtnDelta = ({ text = '', href = null }) => {
   if (!href) return <button className={stls.container}>{text}</button>
   if (href)
     return (
-      <Link href={href}>
-        <a className={stls.container}>{text}</a>
+      <Link href={href} className={stls.container}>
+        {text}
       </Link>
     )
 }

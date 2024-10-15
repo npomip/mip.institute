@@ -1,32 +1,18 @@
 import { useFilterDispatch } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
 import { useRouter } from 'next/router'
-import RangeSlide from '../general/RangeSlide'
+import RangeSlide from '@/ui/RangeSlide'
 import FilterContainer from './FilterContainer'
 import FilterWithToggle from './FilterWithToggle'
 
 const Filters = ({ cost, duration }) => {
   const dispatch = useFilterDispatch()
 
-  // const handleRecruitment = () => {
-  //   if (!filters.courseOpened) {
-  //     dispatch({
-  //       type: 'setBooleanFilter',
-  //       filterName: 'courseOpened'
-  //     })
-  //   } else {
-  //     dispatch({
-  //       type: 'clearBooleanFilter',
-  //       filterName: 'courseOpened'
-  //     })
-  //   }
-  // }
-
   const router = useRouter()
 
-  const { asPath, query } = router
+  const { query } = router
 
-  const { ofType, studyFieldSlug, filter, opened } = query
+  const { opened } = query
 
   const handleSetPopularCourses = () => {
     if (!opened) {
@@ -70,7 +56,7 @@ const Filters = ({ cost, duration }) => {
           measure={'месяцев'}
         />
       </FilterContainer>
-    
+
       <FilterContainer>
         <RangeSlide
           dispatchFilterType={'setPriceFilter'}

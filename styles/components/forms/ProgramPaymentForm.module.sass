@@ -6,7 +6,6 @@
   border-radius: f.px(20)
   @include m.dye(bg, white)
   min-width: f.px(600)
-  // min-height: f.px(700)
   height: fit-content
   @include m.gap($plr: f.px(30), $pt: f.px(10), $pb: f.px(30))
   @include m.media(phone, tablet)
@@ -171,7 +170,7 @@
       height: 0.65em
       transform: scale(0)
       transition: 120ms transform ease-in-out
-      box-shadow: inset 1em 1em #6f01c6
+      box-shadow: inset 1em 1em c.$purple-800
     &:checked::before
       transform: scale(1)
   @include m.media(phone, tablet)

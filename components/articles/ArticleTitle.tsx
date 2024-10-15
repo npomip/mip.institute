@@ -84,6 +84,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             height={props?.teacher ? 430 : 530}
             placeholder='blur'
             blurDataURL={base64pixel}
+            style={{ width: '100%', height: 'auto' }}
           />
         </div>
         {props?.teacher && (

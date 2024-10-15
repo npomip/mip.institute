@@ -4,8 +4,8 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .content
-  background: #D3C7FF
-  border-radius: 25px
+  @include m.dye(bg, c.$purple-200)
+  border-radius: f.px(25)
   @include m.gap($pt: f.px(35), $pb: f.px(35), $plr: f.px(27))
 
 .title
@@ -74,11 +74,7 @@
   font-weight: 300
 
 .violetBtn,.orangeBtn
-  display: flex
-  justify-content: center
-  // height:90px
-  flex-direction: column
-  align-items: center
+  @include m.flex($ai: center, $jc: center, $fd: column)
   width: 100%
   & > *
     width: 100%
@@ -95,4 +91,4 @@
 
 .orangeBtn
   button
-    color: #F87E1B
+    @include m.dye(c, c.$orange-700)

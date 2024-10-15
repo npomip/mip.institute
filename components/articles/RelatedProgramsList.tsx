@@ -56,10 +56,9 @@ const RelatedProgramsList = ({
           [stls.linkOnly]: linkOnly
         })}>
         <Link
-          href={`${routes.front.root}/${ofType}/${program.studyFieldSlug}/${program.slug}`}>
-          <a className={stls.link}>
-            {linkOnly ? 'Узнать подробнее' : 'Узнать больше'}
-          </a>
+          href={`${routes.front.root}/${ofType}/${program.studyFieldSlug}/${program.slug}`}
+          className={stls.link}>
+          {linkOnly ? 'Узнать подробнее' : 'Узнать больше'}
         </Link>
       </div>
     </div>

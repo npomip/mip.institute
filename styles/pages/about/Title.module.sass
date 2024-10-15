@@ -4,23 +4,21 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .bg
-  display: flex
-  justify-content: space-between
+  width: 100%
+  @include m.dye(bg, c.$purple-800)
+  @include m.flex($jc: space-between)
+  @include m.media(laptop, desktop)
+    height: 100%
   @include m.media(phone, tablet)
     height: 100%
     flex-direction: column
-  @include m.media(laptop, desktop)
-    height: 100%
-  width: 100%
-  @include m.dye(bg, c.$purple-800)
 
 .infoContainer
   flex: 50%
 
 .photoContainer
   flex: 40%
-  display: flex
-  align-items: flex-start
+  @include m.flex($ai: flex-start)
   @include m.media(laptop, desktop)
     padding-top: 2em
   @include m.media(phone, tablet)

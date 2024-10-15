@@ -4,8 +4,7 @@
 
 .wrapper
   position: relative
-  padding-top: 20px
-  padding-left: 35px
+  @include m.gap($pt: f.px(20), $pl: f.px(35))
 
 .popUpForm
   top: 0
@@ -13,79 +12,64 @@
   left: 0
   right: 0
   position: fixed
-  // height: 100px
-  // width: 100px
-  display: flex
-  justify-content: center
-  align-items: center
+  @include m.flex($jc: center, $ai: center)
   z-index: 12
   background-color: rgba(0, 0, 0, 0.5)
-  // background: black
-  // opacity: 0.5
 
 .popUpContainer
-  background: white
+  @include m.dye(bg, c.$white-900)
+
 .formWrapper
-  // height: 100%
-  // position: fixed
-  
   width: fit-content
   height: fit-content
-  background: white
-  // opacity: 1.5
+  @include m.dye(bg, c.$white-900)
 
 .title
-  font-size: 14px
+  font-size: f.px(14)
   font-weight: 500
   &:nth-of-type(3)
-    margin-top: 22px
+    margin-top: f.px(22)
 
 .icon
   display: inline
 
 .iconWrapper
-  display: flex
-  align-items: center
+  @include m.flex($ai: center)
   margin-bottom: f.px(12)
   &:nth-of-type(2)
     margin-bottom: f.px(15)
   &:nth-last-child(2)
     margin-bottom: f.px(15)
-    
-
 
 .phoneNumber
-  color: black
+  @include m.dye(c, c.$black-900)
   position: relative
   margin-left: f.px(7)
   &:hover
     font-weight: 500
 
 .whatsUpNumber
-  color: black
+  @include m.dye(c, c.$black-900)
   text-decoration: underline
   text-decoration-skip-ink: auto
   text-underline-offset: 4px
-  font-size: 14px
+  font-size: f.px(14)
   font-weight: 350
   &:hover
     font-weight: 500
-    color: #F87E1B
+    @include m.dye(c, c.$orange-700)
 
 .callBack
-  & > *
+  & > div
     text-align: left
-    & > *
-      padding-left: 0
-      margin-top: 0
-      padding-top: 4px
-      font-size: 14px
+    & > button
+      @include m.gap($pl: 0, $mt: 0, $pt: f.px(4))
+      font-size: f.px(14)
       font-weight: 500
       text-decoration: underline
-      // text-underline-offset: 4px
       line-height: 120%
-      background-color: white
-      color: black
+      @include m.dye(bg, c.$white-900)
+      @include m.dye(c, c.$black-900)
       text-transform: lowercase
       &::first-letter
         text-transform: uppercase

@@ -1,15 +1,10 @@
-import stls from '@/styles/pages/GratefullPage.module.sass'
-import { GetStaticProps, NextPage } from 'next'
-import { TypePageDefaultProps } from '@/types/index'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company } from '@/config/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { SeoOrganizationJsonLd } from '@/components/seo'
-import Gratefull from '@/components/sections/Gratefull'
 import CallMeBackForm from '@/components/forms/CallMeBackForm'
-
+import { company, routes } from '@/config/index'
+import truncate from '@/helpers/general/truncate'
+import { useHandleContextStaticProps } from '@/hooks/index'
+import { TypePageDefaultProps } from '@/types/index'
+import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
@@ -43,17 +38,12 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
               type: 'image/png'
             }
           ],
-          site_name: company.name,
-          
-          
+          site_name: company.name
         }}
       />
       <CallMeBackForm />
     </>
   )
 }
-
-// export const getStaticProps: GetStaticProps = async () =>
-//   await handleGetStaticProps({ page: routes.front.gratefull })
 
 export default PaymentPage

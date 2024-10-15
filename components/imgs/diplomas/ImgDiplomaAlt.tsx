@@ -12,6 +12,11 @@ const ImgDiplomaAlt = ({ width = null, height = null }) => {
         width={width}
         height={height}
         placeholder='blur'
+        sizes='100vw'
+        style={{
+          width: '100%',
+          height: 'auto'
+        }}
       />
     </span>
   )

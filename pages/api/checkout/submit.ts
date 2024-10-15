@@ -7,12 +7,9 @@ import routes from '@/config/routes'
 import dev from '@/config/dev'
 
 export default async function handler(req, res) {
-  // res.setHeader('Access-Control-Allow-Origin', '*')
   const staticKey = '3ykOQzkL2X647dWw8dDx7h5c'
 
   try {
-    console.log('start', req.body)
-
     const payment_id = req.body.object.id
 
     const shopId = dev
@@ -23,8 +20,6 @@ const secretKey = dev
 	: process.env.YOOKASSA_SECRET_KEY_PROD
 
     if (req.body.object.status === 'waiting_for_capture') {
-      console.log('CAPTURE')
-
       const idempotenceKey = req.body.object.metadata.ik
 
       const url = `https://api.yookassa.ru/v3/payments/${payment_id}/capture`
@@ -39,13 +34,11 @@ const secretKey = dev
 
       const response = await axios.post(url, {}, { headers })
     } else if (req.body.object.status === 'succeeded') {
-      console.log('succeeded')
 
       const genezisSuccessPayment = await axios.post(
         `${routes.front.root}/api/checkout/genezisSuccessPayment`,
         req.body.object.metadata
       )
-      console.log(genezisSuccessPayment.data)
       // if (res.data.status === 200) {
         const transporter = nodemailer.createTransport({
           host: process.env.SMTP_HOST,
@@ -81,11 +74,7 @@ const secretKey = dev
         И пароль: ${password}
         ` // plain text body
         })
-      // }
-      console.log('emailRes',emailRes);
-      
     } else {
-      console.log('denieeed')
       const res = await axios.post(
         `${routes.front.root}/api/checkout/genezisDeniedPayment`,
         req.body.object.metadata

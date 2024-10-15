@@ -1,13 +1,8 @@
 import stls from '@/styles/components/icons/ThreeNumber.module.sass'
-import classNames from 'classnames'
 
 const ThreeNumber = () => {
   return (
-    <span
-      className={classNames({
-        [stls.container]: true
-        // [stls.red]: inContacts,
-      })}>
+    <span className={stls.container}>
       <svg
         width='105'
         height='136'

@@ -4,9 +4,9 @@ import { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import { closeFieldsTooltipOnOuterClick } from '@/helpers/index'
-import Wrapper from '../layout/Wrapper'
-import MainStudyFields from '../general/MainStudyFields'
-import StudyFieldsOnMain from '../general/StudyFieldsOnMain'
+import Wrapper from '@/ui/Wrapper'
+import MainStudyFields from '../sections/MainStudyFields'
+import StudyFieldsOnMain from '../sections/StudyFieldsOnMain'
 
 const BtnFields = () => {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
@@ -32,8 +32,15 @@ const BtnFields = () => {
             [stls.tooltip]: true,
             [stls.isShown]: fieldsTooltipIsOpen
           })}>
-          <MainStudyFields currentType={currentType} setCurrentType={setCurrentType} />
-          <StudyFieldsOnMain currentType={currentType} ofType={currentType} orang />
+          <MainStudyFields
+            currentType={currentType}
+            setCurrentType={setCurrentType}
+          />
+          <StudyFieldsOnMain
+            currentType={currentType}
+            ofType={currentType}
+            orang
+          />
         </div>
       </div>
     </Wrapper>

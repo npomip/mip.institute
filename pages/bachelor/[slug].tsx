@@ -1,25 +1,10 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { TypePageProgramProps } from '@/types/index'
-import { revalidate, routes } from '@/config/index'
+import { PageBachelor } from '@/components/pages'
+import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { PageBachelor, PagesProgram } from '@/components/pages'
-import { SeoPagesProgram } from '@/components/seo'
-import { useRouter } from 'next/router'
-import { gql } from '@apollo/client'
-import apolloClient from '@/lib/apolloClient'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-const BachelorPage = ({
-bachelor
-}) => {
-
-  // http://localhost:3000/bachelor/psihologo-pedagogicheskoye-obrazovanie
-
-  return (
-    <>
-        <PageBachelor bachelor={bachelor} />
-    </>
-  )
+const BachelorPage = ({ bachelor }) => {
+  return <PageBachelor bachelor={bachelor} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>

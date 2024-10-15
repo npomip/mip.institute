@@ -1,33 +1,30 @@
-import { TypeLibPrograms } from '@/types/index'
-import { FC } from 'react'
-import { NextSeo } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company, preview } from '@/config/index'
-import { getStudyFields } from '@/helpers/index'
 import { SeoOrganizationJsonLd } from '@/components/seo'
+import { company, preview, routes } from '@/config/index'
+import { TypeLibPrograms } from '@/types/index'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import getSeoTitle from '../funcs/getSeoTitle'
-import getSeoDescription from '../funcs/getSeoDescription'
+import { FC } from 'react'
+import getSeoDescription from '@/helpers/funcs/getSeoDescription'
+import getSeoTitle from '@/helpers/funcs/getSeoTitle'
 
 type TSeoPagesProgram = {
   curProgramsStudyFieldSlug?: string
   programs: TypeLibPrograms | null
 }
 
-const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
-  programs
-}) => {
+const SeoPagesPrograms: FC<TSeoPagesProgram> = ({ programs }) => {
   const { asPath, query } = useRouter()
 
-  const { ofType, studyFieldSlug, filter, opened} = query
+  const { ofType, studyFieldSlug, filter, opened } = query
 
   const seoParams = {
     title: getSeoTitle(ofType, studyFieldSlug),
     desc: getSeoDescription(ofType, studyFieldSlug),
 
-    canonical: asPath.includes('dietologiya') ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya` : `${routes.front.root}${asPath}`,
-    
-    }
+    canonical: asPath.includes('dietologiya')
+      ? `${routes.front.root}/professions/dietologiya-i-nutriciologiya`
+      : `${routes.front.root}${asPath}`
+  }
   return (
     <>
       <NextSeo
@@ -49,8 +46,7 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
               type: 'image/png'
             }
           ],
-          site_name: company.name,
-          
+          site_name: company.name
         }}
       />
       <SeoOrganizationJsonLd />

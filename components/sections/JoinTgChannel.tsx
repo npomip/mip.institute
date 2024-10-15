@@ -8,9 +8,7 @@ import IconWaves from '../icons/IconWaves'
 const JoinTgChannel = () => {
   return (
     <section className={stls.container}>
-      
       <div className={stls.insidecontainer}>
-
         <div className={stls.upperPortalSmall}>
           <IconGratefullPortal xsmall />
         </div>
@@ -41,15 +39,13 @@ const JoinTgChannel = () => {
             window.location.href = 'https://t.me/institut_mip_bot?start=start3'
           }}>
           <Link href='https://t.me/institut_mip_bot?start=start3'>
-            <a>Перейти в канал</a>
+            Перейти в канал
           </Link>
         </div>
 
         <div className={stls.img}>
           <HandsForGratefull />
         </div>
-
-
       </div>
 
       <div className={stls.icontg}>

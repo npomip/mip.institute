@@ -2,7 +2,7 @@ import React from 'react'
 import stls from '@/styles/components/dropdownMenu/ConnectInfo.module.sass'
 import classNames from 'classnames'
 import IconOrangeDot from '../icons/IconOrangeDot'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 
 interface Icon1Props {
   className?: string

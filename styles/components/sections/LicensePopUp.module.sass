@@ -27,21 +27,16 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
   font-weight: 500
-  // max-width: 2em
   margin-left: 25px
   display: flex
-  // justify-content: flex-start
 
-    // color: gray
 .edu
   font-weight: 500
   font-size: f.px(20)
   display: flex
   @include m.media(phone, tablet)
     font-size: f.px(15)
-
   margin-left: 29px
-  // margin-right: 20px
   position: relative
   color: #F87E1B
   z-index: 10
@@ -68,7 +63,6 @@
     height: 100%
     top: -280%
     left: -65%
-    // transform: scale(1)
   mix-blend-mode: soft-light
 
 .license, .cuttedLicense
@@ -85,15 +79,12 @@
   transition: transform 0.2s ease
 
 .cuttedLicense
-  // transform: rotateX(90deg)
   height: f.px(120)
 
 .leftLicense
   position: relative
   flex-basis: 60%
-  // text-align: center
 .rightLicense
-  // padding-left: 10px
   margin-right: 10px
   @include m.media(phone, tablet)
     margin-right: 0
@@ -101,21 +92,13 @@
 
 .card
   position: relative
-
   @include m.media(phone, tablet)
     scale: 0.75
-  // margin-left: 50px
 
 .loupe
   position: absolute
-  // top: 69%
   @include m.media(laptop, desktop)
     transform: translate(f.px(-15), f.px(-145))
   @include m.media(phone, tablet)
     scale: 0.6
-    // top: 68%
-    // transform: translateY(f.px(5))
     transform: translate(f.px(-15), f.px(-245))
-    // left: 45%
-  //   fill: red
-  //   background: red

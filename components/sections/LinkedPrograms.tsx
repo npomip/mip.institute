@@ -1,15 +1,15 @@
 import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/LinkedPrograms.module.sass'
 import classNames from 'classnames'
 import { useState } from 'react'
 import Popup from 'reactjs-popup'
-import { Navigation, Scrollbar } from 'swiper'
+import { Navigation, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import CardLinkedProgram from '../cards/CardLinkedProgram'
-import CustomNextButton from '../general/CustomNextButton'
-import CustomPrevButton from '../general/CustomPrevButton'
+import CustomNextButton from '@/ui/CustomNextButton'
+import CustomPrevButton from '@/ui/CustomPrevButton'
 import PopupSpecialization from '../popups/PopupSpecialization'
 
 type Picture = {
@@ -29,13 +29,14 @@ type Specialization = {
 type Props = {
   specializations: Specialization[]
   title: string | JSX.Element
+  close?: () => void
 }
 
 type Slide = {
   image: JSX.Element
 } & Specialization
 
-const LinkedPrograms = ({ specializations, title }: Props) => {
+const LinkedPrograms = ({ specializations, title, close }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState<null | Slide>(null)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -67,13 +68,9 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
     <section
       className={classNames({
         [stls.container]: true
-        // [stls.onProfessions]: !onMain
       })}>
       <Wrapper>
         {title}
-        {/* <div className={stls.tag}>
-          <TagOrange>ТОП</TagOrange>
-        </div> */}
         <div className={stls.teachers}>
           <Swiper
             navigation={{
@@ -82,16 +79,6 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
             }}
             slidesPerView={isMobileAndTabletLayout ? 1 : 3}
             spaceBetween={30}
-            // autoplay={{
-            //   delay: 5000,
-            //   disableOnInteraction: false,
-            //   pauseOnMouseEnter: true
-            // }}
-            // speed={2000}
-            // autoHeight={true}
-            // pagination={{
-            //   clickable: true
-            // }}
             scrollbar={true}
             modules={[Navigation, Scrollbar]}
             className={stls.mySwiper}>
@@ -101,11 +88,9 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
                 className={stls.slide}
                 onClick={() => handleSlideClick(course)}>
                 <CardLinkedProgram
-                  // href={`${routes.front.professions}/${course.studyFieldSlug}/${course.slug}`}
                   key={course.title + idx}
                   portrait={course?.image}
                   title={course.title}
-                  // studyHours={course.studyHours}
                 />
               </SwiperSlide>
             ))}
@@ -139,14 +124,12 @@ const LinkedPrograms = ({ specializations, title }: Props) => {
           open={isOpen}
           onClose={() => setIsOpen(false)}
           position={'center center'}>
-          {close => (
-            <PopupSpecialization
-              image={currentSlide?.image}
-              title={currentSlide?.title}
-              descriptionList={currentSlide?.record}
-              onClose={close}
-            />
-          )}
+          <PopupSpecialization
+            image={currentSlide?.image}
+            title={currentSlide?.title}
+            descriptionList={currentSlide?.record}
+            onClose={close}
+          />
         </Popup>
       </Wrapper>
     </section>

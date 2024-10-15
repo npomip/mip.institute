@@ -1,15 +1,13 @@
 import CardTopProgram from '@/components/cards/CardTopProgram'
-import SwiperContainer from '@/components/general/SwiperContainer'
 import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
-import { getImageHeight } from '@/helpers/index'
 import stls from '@/styles/components/sections/TopCourses.module.sass'
-import classNames from 'classnames'
+import SwiperContainer from '@/ui/SwiperContainer'
+import Tag from '@/ui/Tag'
 import targetTitles from 'constants/topCourses'
 import { useContext } from 'react'
-import TagOrange from '../general/TagOrange'
 
 const TopCourses = () => {
   const { programs } = useContext(ContextStaticProps)
@@ -30,12 +28,8 @@ const TopCourses = () => {
         <ImgTopCourse
           src={course?.heroPicture?.url}
           alt={course?.title}
-          width={390}
-          height={getImageHeight({
-            width: 530,
-            widthInitial: course?.heroPicture?.width,
-            heightInitial: course?.heroPicture?.height
-          })}
+          width={course?.heroPicture?.width}
+          height={course?.heroPicture?.height}
         />
       )
     }))
@@ -72,15 +66,11 @@ const TopCourses = () => {
   }
 
   return (
-    <section
-      className={classNames({
-        [stls.container]: true
-        // [stls.onProfessions]: !onMain
-      })}>
+    <section className={stls.container}>
       <Wrapper>
         <div className={stls.heading}>
           <div className={stls.tag}>
-            <TagOrange>ТОП</TagOrange>
+            <Tag type='orange'>ТОП</Tag>
           </div>
           <h2 className={stls.title}>Популярные курсы</h2>
         </div>

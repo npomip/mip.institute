@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/WebinarsAlt.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import Popup from 'reactjs-popup'
-import PopupTrigger from '@/components/general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import { PopupCta } from '@/components/popups'
 import CardWebinarAlt from '@/components/cards/CardWebinarAlt'
 import { ImgWebinar } from '@/components/imgs'
@@ -51,20 +51,23 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                     }
                     modal
                     nested>
-                    {close => (
-                      <PopupCta
-                        blockForAmo='Узнать про вебинары'
-                        title={'Смотреть все вебинары'}
-                        desc={
-                          <>
-                            Оставьте заявку, мы свяжемся с Вами в рабочие часы и
-                            предоставим полный список вебинаров
-                          </>
-                        }
-                        cta={'Оставить заявку'}
-                        close={close}
-                      />
-                    )}
+                    {
+                      // @ts-ignore
+                      close => (
+                        <PopupCta
+                          blockForAmo='Узнать про вебинары'
+                          title={'Смотреть все вебинары'}
+                          desc={
+                            <>
+                              Оставьте заявку, мы свяжемся с Вами в рабочие часы
+                              и предоставим полный список вебинаров
+                            </>
+                          }
+                          cta={'Оставить заявку'}
+                          close={close}
+                        />
+                      )
+                    }
                   </Popup>
                 </li>
               ))}

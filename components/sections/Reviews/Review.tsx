@@ -20,7 +20,6 @@ export default function Review({ review }) {
         </div>
         <div className={styles.name}>
           <p>{review.title}</p>
-
           <p>{review.name}</p>
           <p>{review.profession}</p>
         </div>

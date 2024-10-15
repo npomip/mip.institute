@@ -1,11 +1,11 @@
-import { findMinMaxForSlider } from '@/components/funcs/findMinMaxForSlider'
-import Wrapper from '@/components/layout/Wrapper'
+import { findMinMaxForSlider } from '@/helpers/funcs/findMinMaxForSlider'
+import Wrapper from '@/ui/Wrapper'
 import SlugTagsLiveCourses from '@/components/sections/SlugTagsLiveCourses'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import FiltersWithContext from '@/components/filters/FiltersWithContext'
 import FiltersWithTag from '@/components/filters/FiltersWithTags'
 import ResetWrapper from '@/components/filters/ResetWrapper'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
+import Breadcrumbs from '@/ui/Breadcrumbs'
 import { routes } from '@/config/index'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import { handleGetStaticProps } from '@/lib/index'
@@ -23,7 +23,6 @@ const JournalPage = ({ lifeCourses }) => {
   const minmaxPrice = findMinMaxForSlider(prices)
 
   const segments = ['live-courses']
-  // const segments = router.asPath.split('/').filter(segment => segment !== '')
 
   const labels = ['LIFE курсы']
   const slug = ['live-courses']
@@ -42,17 +41,6 @@ const JournalPage = ({ lifeCourses }) => {
     <Wrapper>
       <NextSeo nofollow={true} noindex={true} />
       <FilterProvider items={lifeCourses}>
-        {/* {liveCourses.map(el => (
-        <p>{el.title}</p>
-      ))} */}
-        {/* <SeoPagesJournals />
-      <h1 className={stls.title}>Блог МИП</h1>
-      <StudyFieldSlugFilter
-        selectedField={selectedField}
-        setSelectedField={setSelectedField}
-        props={blogs}
-        slug='journal'
-      /> */}
         <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
         <h1 className={stls.title}>LIFE курсы</h1>
         <FiltersWithTag

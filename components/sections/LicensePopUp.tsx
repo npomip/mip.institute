@@ -1,13 +1,11 @@
 import stls from '@/styles/components/sections/LicensePopUp.module.sass'
-
 import Popup from 'reactjs-popup'
-import IconRusLicense from '../icons/IconRusLicense'
 import { IconAtom } from '../icons'
 import IconLoupe from '../icons/IconLoupe'
-import { PopupImage } from '../popups'
+import IconRusLicense from '../icons/IconRusLicense'
 import ImgLicence from '../imgs/legal/ImgLicence'
-import ImgLicenceBachelor from '../imgs/legal/ImgLicence'
 import License from '../imgs/legal/License'
+import { PopupImage } from '../popups'
 
 type Props = {
   showFullText?: boolean
@@ -51,12 +49,15 @@ const LicensePopUp = ({ showFullText = false, onBachelor = false }: Props) => {
         lockScroll
         nested
         closeOnDocumentClick>
-        {close => (
-          <PopupImage
-            image={onBachelor ? <ImgLicence isOchuVoMip /> : <ImgLicence />}
-            close={close}
-          />
-        )}
+        {
+          // @ts-ignore
+          close => (
+            <PopupImage
+              image={onBachelor ? <ImgLicence isOchuVoMip /> : <ImgLicence />}
+              close={close}
+            />
+          )
+        }
       </Popup>
     </div>
   )

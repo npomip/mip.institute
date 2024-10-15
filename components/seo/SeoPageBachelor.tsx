@@ -1,10 +1,7 @@
-import { TypeLibProgram } from '@/types/index'
-import { FC } from 'react'
-import { NextSeo, CourseJsonLd } from 'next-seo'
-import truncate from 'truncate'
-import { routes, company, themeColor, dev } from '@/config/index'
-import { AdditionalRobotsProps } from 'next-seo/lib/types'
+import { company, routes, themeColor } from '@/config/index'
 import preview from '@/config/preview'
+import { CourseJsonLd, NextSeo } from 'next-seo'
+import { FC } from 'react'
 
 type TSeoPagesProgram = {
   program: {
@@ -19,9 +16,7 @@ type TSeoPagesProgram = {
 }
 
 const SeoPagesBachelor: FC<TSeoPagesProgram> = ({ program }) => {
-  // TODO: pull the rest of SEO params from API
-
-  const seo = program.seo
+  const seo = program?.seo
 
   const additionalMetaRobotsKeys = [
     'nosnippet',
@@ -33,20 +28,6 @@ const SeoPagesBachelor: FC<TSeoPagesProgram> = ({ program }) => {
     'noimageindex',
     'notranslate'
   ]
-  // const parsedMetaRobots = ((
-  //   seo?.metaRobots &&
-  //   seo?.metaRobots.split(',').map(item => {
-  //     const trimmedItem = item?.trim()
-
-  //     if (additionalMetaRobotsKeys.some(key => trimmedItem?.includes(key))) {
-  //       const [key, value] = trimmedItem?.split(':')
-
-  //       return { [key]: value || true }
-  //     }
-
-  //     return null
-  //   })
-  // )?.filter(item => item) || null) as AdditionalRobotsProps
 
   const isNoindex = !seo?.isSEOFriendly
 

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/PaymentDebitCard.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { ImgOnlinePayment } from '@/components/imgs'
 import { IconCircleCheck } from '../icons'
 
@@ -14,11 +14,8 @@ const PaymentDebitCard = () => {
           <p className={stls.p}>
             Для проведения оплаты обучения, с помощью банковской карты, ниже на
             этой странице необходимо нажать кнопку Оплата банковской картой.
-            Оплата происходит 
-            {/* через{' '} */}
-            {/* <strong className={stls.strong}>ПАО СБЕРБАНК</strong>  */}
-            {' '}с
-            использованием банковских карт следующих платёжных систем:
+            Оплата происходит с использованием банковских карт следующих
+            платёжных систем:
           </p>
           <ul className={stls.list}>
             {list.map(item => (

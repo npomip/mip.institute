@@ -6,36 +6,13 @@ import { gql, useMutation, useQuery } from '@apollo/client'
 import axios from 'axios'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
-import moment from 'moment'
+import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Popup from 'reactjs-popup'
-
-const CHECK_TOKENS = gql`
-  query amoTokens($title: String!) {
-    amos(where: { title: $title }) {
-      id
-      title
-      refresh
-      access
-      expired_in
-    }
-  }
-`
-
-const UPDATE_TOKEN = gql`
-  mutation UpdateTokens($input: updateAmoInput!) {
-    updateAmo(input: $input) {
-      amo {
-        id
-        access
-        refresh
-        expired_in
-      }
-    }
-  }
-`
+import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
+import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
 
 type FormValues = {
   name: string
@@ -87,9 +64,8 @@ const CallMeBackForm = ({
   const expireTime = data?.amos[0]?.expired_in
   const access_token = data?.amos[0]?.access
   const refresh_token = data?.amos[0]?.refresh
-  const nowUNIXtime = moment().unix()
+  const nowUNIXtime = dayjs().unix()
   const differenceInTime = expireTime - nowUNIXtime
-  console.log(data, error)
 
   const [updateTokens] = useMutation(UPDATE_TOKEN)
 
@@ -97,7 +73,6 @@ const CallMeBackForm = ({
 
   const onSubmit = async formData => {
     setServerErrorMeassage('')
-    console.log(differenceInTime)
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     formData.utms = utms
     sessionStorage.removeItem('utms')

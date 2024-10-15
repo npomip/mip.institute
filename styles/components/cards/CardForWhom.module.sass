@@ -5,8 +5,7 @@
 .card
   position: relative
   border-radius: f.px(12)
-  border: f.px(1) solid
-  @include m.dye(border, c.$purple-800)
+  border: f.px(1) solid c.$purple-800
   background-color: rgba(247, 248, 252, .6)
   @include m.gap($p: f.px(40))
   display: grid
@@ -21,7 +20,6 @@
   @include m.media(tablet)
     grid-auto-columns: 1fr 1fr
     justify-items: center
-    // max-width: f.px(450)
     @include m.gap($p: f.px(30))
   @include m.media(phone)
     grid-auto-columns: 1fr 1fr
@@ -34,7 +32,6 @@
 
 .title
   display: block
-  font-family: Stem
   font-size: f.px(25)
   font-style: normal
   font-weight: 500
@@ -48,7 +45,6 @@
 
 .description
   display: inline-block
-  font-family: Stem
   font-size: f.px(20)
   font-style: normal
   font-weight: 300
@@ -67,5 +63,5 @@
     max-width: f.px(160)
 
 .image
-  & > span
+  & > img
     border-radius: f.px(15)

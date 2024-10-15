@@ -1,5 +1,5 @@
 import stls from '@/styles/components/cards/CardQuizResult.module.sass'
-import PopupTrigger from '../general/PopupTrigger'
+import PopupTrigger from '@/ui/PopupTrigger'
 import getNextWednesday from '@/helpers/getNextThursday'
 
 interface Props {

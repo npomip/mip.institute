@@ -1,20 +1,12 @@
-import { NextPage } from 'next'
+import Rating from '@/components/sections/Rating'
 import { SeoOrganizationJsonLd } from '@/components/seo'
-import { lazy } from 'react'
-import Rating from '@/components/rating/Rating'
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-const RatingPage: NextPage = ({
-
-}) => {
-  
+const RatingPage: NextPage = () => {
   return (
     <>
-    <NextSeo
-        nofollow={true}
-        noindex={true}
-
-      />
+      <NextSeo nofollow={true} noindex={true} />
       <SeoOrganizationJsonLd />
       <Rating />
     </>

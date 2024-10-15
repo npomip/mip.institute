@@ -1,8 +1,8 @@
+import { IconMinus, IconPlus } from '@/components/icons'
 import stls from '@/styles/components/program/ProgramModule.module.sass'
-import { useState } from 'react'
 import classNames from 'classnames'
-import { IconCircleCheck, IconMinus, IconPlus } from '@/components/icons'
-import parse from 'html-react-parser'
+import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 type Props = {
   title: string
@@ -18,6 +18,13 @@ const ProgramModule = ({ title, topics }: Props) => {
   const canBeOpened = !hasNoDescriptionTopic && topics?.length > 0
   const description = topics?.[0]
   topics = topics?.slice(1)
+
+  const customRenderers = {
+    p: ({ children }: { children: React.ReactNode }) => (
+      <p className={stls.p}>{children}</p>
+    )
+  }
+
   return (
     <li
       className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
@@ -36,7 +43,9 @@ const ProgramModule = ({ title, topics }: Props) => {
               {topics &&
                 topics.map((topic, idx) => (
                   <li key={topic + idx} className={stls.item}>
-                    <p className={stls.p}>{parse(topic)}</p>
+                    <ReactMarkdown components={customRenderers}>
+                      {topic}
+                    </ReactMarkdown>
                   </li>
                 ))}
             </ul>

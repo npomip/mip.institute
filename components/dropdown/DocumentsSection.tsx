@@ -24,10 +24,8 @@ const DocumentsSection: React.FC<Icon1Props> = ({
         <p>Сведения об образовательной</p>
         <p>организации</p>
 
-        <Link href={routes.front.legal}>
-          <a className={stls.btn} href={routes.front.legal}>
-            Ознакомиться
-          </a>
+        <Link href={routes.front.legal} className={stls.btn}>
+          Ознакомиться
         </Link>
       </div>
     </div>

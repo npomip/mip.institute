@@ -1,8 +1,7 @@
 import base64pixel from '@/config/base64pixel'
 import stls from '@/styles/components/articles/ArticleBlogTextImageBlock.module.sass'
-import parse from 'html-react-parser'
-import marked from 'marked'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 
 type ArticleBlogTextImageBlockType = {
   props: {
@@ -18,8 +17,6 @@ type ArticleBlogTextImageBlockType = {
 const ArticleBlogTextImageBlock = ({
   props
 }: ArticleBlogTextImageBlockType) => {
-  const text = marked(props?.text)
-
   return (
     <div className={stls.container}>
       <div className={stls.imgContainer}>
@@ -33,7 +30,9 @@ const ArticleBlogTextImageBlock = ({
           blurDataURL={base64pixel}
         />
       </div>
-      <div className={stls.text}>{parse(text)}</div>
+      <div className={stls.text}>
+        <ReactMarkdown>{props?.text}</ReactMarkdown>
+      </div>
     </div>
   )
 }

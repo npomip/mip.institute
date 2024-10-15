@@ -17,7 +17,7 @@
     &::before
       content: ''
       position: absolute
-      border-bottom: f.px(10) solid #F87E1B
+      border-bottom: f.px(10) solid c.$orange-700
       width: f.px(630)
       left: 0
       top: f.px(37)
@@ -29,9 +29,7 @@
 
 .slide
   @include m.dye(bg, c.$pink-100)
-  display: flex
-  align-items: center
-  justify-content: center
+  @include m.flex($ai: center, $jc: center)
   border-radius: 5px
   height: f.px(250) !important
   @include m.media(phone, tablet)
@@ -40,7 +38,3 @@
 
 .companies
   position: relative
-
-// .mySwiper
-//   @include m.media(phone, tablet)
-//     height: 205px

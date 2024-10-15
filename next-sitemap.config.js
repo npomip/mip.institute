@@ -6,12 +6,6 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ['/payment','/gratefull', '/promo*', '*?', '/seminars'],
-  // alternateRefs: [
-  //   {
-  //     href: 'https://moscow.mba/en-US',
-  //     hreflang: 'en'
-  //   }
-  // ],
   transform: async (config, path) => {
     return {
       loc: path, // => this will be exported as http(s)://<config.siteUrl>/<path>

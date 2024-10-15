@@ -5,10 +5,10 @@ import stls from '@/styles/components/sections/ProfessionalLeague.module.sass'
 import leagueList from 'constants/professionalLeague'
 import Image from 'next/image'
 import { useState } from 'react'
-import ExpandableItemCross from '../general/ExpandableItemCross'
-import TagOrange from '../general/TagOrange'
+import ExpandableItemCross from '@/ui/ExpandableItemCross'
+import Tag from '@/ui/Tag'
 import ImgPPLLogo from '../imgs/general/ImgPPLLogo'
-import Wrapper from '../layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const ProfessionalLeague = () => {
@@ -23,15 +23,15 @@ const ProfessionalLeague = () => {
             <Image src={img} alt='Волна' />
           </div>
           <div className={stls.waveMobile}>
-            <Image src={imgMob} alt='Волна' />
+            <Image src={imgMob} alt='Волна' fill />
           </div>
           <span className={stls.filter}></span>
           <div className={stls.tag}>
-            <TagOrange>ОППЛ</TagOrange>
+            <Tag type='orange'>ОППЛ</Tag>
           </div>
           <div className={stls.header}>
             <span className={stls.title}>
-              Московский институт психологии – партнер ОППЛ {' '}
+              Московский институт психологии – партнер ОППЛ{' '}
               {isMobileLayout && <br />}
               (Общероссийской профессиональной психотерапевтической лиги)
             </span>
@@ -64,6 +64,11 @@ const ProfessionalLeague = () => {
                     width={460}
                     src={pic}
                     alt='Краткосрочная психотерапия'
+                    sizes='100vw'
+                    style={{
+                      width: '100%',
+                      height: 'auto'
+                    }}
                     className={stls.image}
                   />
                 </div>

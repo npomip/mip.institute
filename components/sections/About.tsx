@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/About.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import classNames from 'classnames'
 import CommonAboutSlider from './AboutSlider/CommonAboutSlider'
 import AboutList from './AboutList'

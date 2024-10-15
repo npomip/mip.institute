@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Gratefull.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
-import TwoColumns from '../layout/TwoColumns'
+import Wrapper from '@/ui/Wrapper'
+import TwoColumns from '@/ui/TwoColumns'
 import ThanksForApplication from './ThanksForApplication'
 import JoinTgChannel from './JoinTgChannel'
 

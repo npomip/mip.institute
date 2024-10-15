@@ -1,5 +1,5 @@
 import stls from '@/styles/components/cards/CardWebinar.module.sass'
-import truncate from 'truncate'
+import truncate from '@/helpers/general/truncate'
 import classNames from 'classnames'
 import { BtnText } from '@/components/btns'
 

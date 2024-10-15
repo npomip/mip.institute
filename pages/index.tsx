@@ -1,4 +1,3 @@
-import BachelorCarousel from '@/components/carousel/BachelorCarousel'
 import { PopupCta } from '@/components/popups'
 import {
   About,
@@ -27,6 +26,7 @@ import YouTubeVideo from '@/components/sections/YouTubeVideo'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
 import preview from '@/config/preview'
+import truncate from '@/helpers/general/truncate'
 import {
   sortBasedOnNumericOrder,
   sortReviewsCreatedAtASC
@@ -41,7 +41,6 @@ import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
-import truncate from 'truncate'
 
 const HomePage: NextPage<TypePageHomeProps> = ({
   programs,
@@ -92,8 +91,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={preview ? true : false}
-        noindex={preview ? true : false}
+        nofollow={preview}
+        noindex={preview}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,
@@ -113,18 +112,21 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <SeoOrganizationJsonLd />
 
       <Popup open={open} modal nested>
-        {close => (
-          <PopupCta
-            title='Задать вопрос'
-            desc={desc}
-            cta='Задать вопрос'
-            question
-            close={close}
-            blockForAmo='Переход по ссылке'
-          />
-        )}
+        {
+          // @ts-ignore
+          close => (
+            <PopupCta
+              title='Задать вопрос'
+              desc={desc}
+              cta='Задать вопрос'
+              question
+              close={close}
+              blockForAmo='Переход по ссылке'
+            />
+          )
+        }
       </Popup>
-      
+
       <Hero />
       {/* <Directions /> */}
       <DirectionsNew
@@ -134,18 +136,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <PsyTest />
       <TopCourses />
-      {/* <BachelorCarousel
-        title={'Высшее образование'}
-        subtitle={'Программы бакалавриата от МИП'}
-        cards={bachelors}
-      /> */}
-      {/* <PracticalCarousel
-        title={'Практическая подготовка'}
-        subtitle={
-          'Практико–ориентированные программы для начинающих и действующих психологов'
-        }
-        cards={practicalTrainings}
-      /> */}
       <ButtonToTop />
       <WhyBother />
       <YouTubeVideo

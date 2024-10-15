@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ContactForm.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { FormAlpha } from '@/components/forms'
 import { IconAtom } from '@/components/icons'
 

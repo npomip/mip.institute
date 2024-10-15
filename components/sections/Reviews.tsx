@@ -1,13 +1,13 @@
-import stls from '@/styles/components/sections/Reviews.module.sass'
-import classNames from 'classnames'
-import { getImageHeight } from '@/helpers/index'
-import Wrapper from '@/components/layout/Wrapper'
-import SwiperContainer from '@/components/general/SwiperContainer'
 import CardReview from '@/components/cards/CardReview'
 import { ImgReview } from '@/components/imgs'
-import { useContext } from 'react'
+import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
-import TagOrange from '../general/TagOrange'
+import { getImageHeight } from '@/helpers/index'
+import stls from '@/styles/components/sections/Reviews.module.sass'
+import SwiperContainer from '@/ui/SwiperContainer'
+import Tag from '@/ui/Tag'
+import classNames from 'classnames'
+import { useContext } from 'react'
 
 type ReviewsType = {
   standalone?: boolean
@@ -80,7 +80,7 @@ const Reviews = ({
       <Wrapper>
         {onMain && (
           <div className={stls.tag}>
-            <TagOrange>Cлушатели</TagOrange>
+            <Tag type='orange'>Cлушатели</Tag>
           </div>
         )}
         {/* <p className={stls.reviewCount}>{reviews.length} отзывов</p> */}

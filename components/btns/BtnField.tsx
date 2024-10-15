@@ -29,24 +29,23 @@ const BtnField = ({
   const { curProgramsStudyFieldSlug } = useContext(ContextStaticProps)
 
   return (
-    <Link href={href}>
-      <a
-        className={classNames({
-          [stls.mainFields]: mainFields,
-          [stls.container]: true,
-          [stls.tooltip]: !aside && !smallText,
-          [stls.aside]: aside,
-          [stls.active]:
-            aside &&
-            (slug === curProgramsStudyFieldSlug ||
-              (!slug && !curProgramsStudyFieldSlug)),
-          [stls.smallText]: smallText,
-          [stls.orang]: orang,
-          [stls.violet]: isViolet
-        })}
-        onClick={!aside && closeFieldsTooltip}>
-        {children}
-      </a>
+    <Link
+      href={href}
+      className={classNames({
+        [stls.mainFields]: mainFields,
+        [stls.container]: true,
+        [stls.tooltip]: !aside && !smallText,
+        [stls.aside]: aside,
+        [stls.active]:
+          aside &&
+          (slug === curProgramsStudyFieldSlug ||
+            (!slug && !curProgramsStudyFieldSlug)),
+        [stls.smallText]: smallText,
+        [stls.orang]: orang,
+        [stls.violet]: isViolet
+      })}
+      onClick={!aside && closeFieldsTooltip}>
+      {children}
     </Link>
   )
 }

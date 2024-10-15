@@ -1,7 +1,7 @@
 import { getThreeLettersRuMonths, getRuDaysOfWeek } from '@/helpers/index'
 import stls from '@/styles/components/cards/CardWebinarAlt.module.sass'
 import { IconBell } from '@/components/icons'
-import CtaText from '@/components/general/CtaText'
+import CtaText from '@/ui/CtaText'
 
 type CardWebinarAltType = {
   date: Date

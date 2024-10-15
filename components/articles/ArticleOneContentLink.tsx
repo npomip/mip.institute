@@ -1,27 +1,21 @@
-import parse from 'html-react-parser'
-import marked from 'marked'
+import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import { ArticleSubtitleType } from './ArticleSubtitle'
 
 const ArticleOneContentLink = ({ props }: ArticleSubtitleType) => {
-  const renderer = new marked.Renderer()
-
-  renderer.paragraph = text => {
-    return `<p>${text}</p>`
+  const customRenderers = {
+    strong: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+    em: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+    p: ({ children }: { children: React.ReactNode }) => <p>{children}</p>
   }
-  renderer.strong = text => {
-    return `${text}`
-  }
-  renderer.em = text => {
-    return `${text}`
-  }
-  marked.setOptions({ renderer })
-
-  const h2text = marked(props?.subtitle)
 
   return (
     <li>
-      <Link href={`#${props.subtitleSlug}`}>{parse(h2text)}</Link>
+      <Link href={`#${props.subtitleSlug}`} passHref>
+        <ReactMarkdown components={customRenderers}>
+          {props?.subtitle}
+        </ReactMarkdown>
+      </Link>
     </li>
   )
 }

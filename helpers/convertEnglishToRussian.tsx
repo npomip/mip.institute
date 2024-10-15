@@ -1,4 +1,4 @@
-const convertEnglishToRussian = (text) => {
+const convertEnglishToRussian = text => {
   const keyboardLayout = {
     q: 'й',
     w: 'ц',
@@ -66,26 +66,12 @@ const convertEnglishToRussian = (text) => {
     '<': 'Б',
     '>': 'Ю',
     '?': ','
-  };
-
-  let convertedText = '';
-  let currentSequence = '';
-
-  for (let i = 0; i < text.length; i++) {
-    const currentChar = text[i];
-    const convertedChar = keyboardLayout[currentChar] || currentChar;
-
-    if (convertedChar === currentChar) {
-      // If the character is not converted, add the current sequence to the result
-      convertedText += currentSequence + convertedChar;
-      currentSequence = '';
-    } else {
-      // If the character is converted, add it to the current sequence
-      currentSequence += convertedChar;
-    }
   }
 
-  return convertedText + currentSequence;
-};
+  return text
+    .split('')
+    .map(char => keyboardLayout[char] || char)
+    .join('')
+}
 
 export default convertEnglishToRussian

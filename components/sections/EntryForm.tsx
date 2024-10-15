@@ -1,10 +1,10 @@
 import { FormAlpha } from '@/components/forms'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/EntryForm.module.sass'
 import IconGratefullPortal from '@/components/icons/IconGratefullPortal'
 import Horn from '@/components/imgs/general/Horn'
 import ImgEntryForm from '@/components/imgs/general/ImgEntryForm'
-import TwoColumns from '@/components/layout/TwoColumns'
+import TwoColumns from '@/ui/TwoColumns'
 import classNames from 'classnames'
 import picHorn from '@/public/assets/imgs/general/horn.png'
 import picHorn_liveCourses from '@/public/assets/imgs/general/horn_liveCourse.png'
@@ -22,11 +22,13 @@ const EntryForm = ({
   isLiveCourse = false,
   withPromo = true,
   onBachelor = false,
-  pt=0,
-  pb=90
+  pt = 0,
+  pb = 90
 }: Props) => {
   return (
-    <section style={{paddingTop: pt, paddingBottom: pb}} className={stls.container}>
+    <section
+      style={{ paddingTop: pt, paddingBottom: pb }}
+      className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
           {onBachelor ? 'Как поступить' : 'Заявка на поступление'}
@@ -86,10 +88,11 @@ const EntryForm = ({
                 <ImgEntryForm isLiveCourse={isLiveCourse} />
               </div>
             </div>
-            <div className={classNames({
-            [stls.form]: true,
-            [stls.bachelorForm]: onBachelor,
-          })}>
+            <div
+              className={classNames({
+                [stls.form]: true,
+                [stls.bachelorForm]: onBachelor
+              })}>
               <p>
                 {onBachelor && (
                   <>

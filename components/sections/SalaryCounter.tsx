@@ -1,8 +1,7 @@
 import stls from '@/styles/components/sections/SalaryCounter.module.sass'
+import Tag from '@/ui/Tag'
 import { useState } from 'react'
-import Wrapper from '../layout/Wrapper'
-import classNames from 'classnames'
-import TagOrange from '../general/TagOrange'
+import Wrapper from '@/ui/Wrapper'
 
 type SalaryCounterType = {
   title: string
@@ -14,7 +13,7 @@ const titles = {
   'Педагогическое образование': 'педагог-психолог'
 }
 
-const SalaryCounter = ({ title='психолог' }: SalaryCounterType) => {
+const SalaryCounter = ({ title = 'психолог' }: SalaryCounterType) => {
   const [consultation, setConsultation] = useState(5)
   const [consultationsRange, setConsultationsRange] = useState({
     min: 1,
@@ -45,7 +44,7 @@ const SalaryCounter = ({ title='психолог' }: SalaryCounterType) => {
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.tag}>
-          <TagOrange>Доход</TagOrange>
+          <Tag type='orange'>Доход</Tag>
         </div>
 
         <h2 className={stls.title}>

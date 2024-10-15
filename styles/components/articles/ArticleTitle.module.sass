@@ -49,6 +49,9 @@
 .imgTitle
   border-radius: f.px(10)
   object-fit: fill
+  @include m.media(phone, tablet)
+    width: 100%
+    height: auto
 
 .imgTeacherWithAchievements
   flex: 0.33
@@ -86,9 +89,6 @@
   width: f.px(320)
   @include m.media(laptop)
     font-size: f.px(16)
-
-.imgTeacher
-  @include m.gap($mb: f.px(10))
 
 .imgForBlog
   object-fit: cover

@@ -6,7 +6,7 @@
   transform: translateY(0%)
   transition: transform 0.3s ease-in-out
   opacity: 1
-  background: #fbf4ff
+  @include m.dye(bg, c.$pink-50)
   @include m.gap($pb: f.px(60))
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(30))
@@ -19,14 +19,11 @@
       font-size: f.px(26)
 
 .showDescription
-  // z-index: 10000
   opacity: 0
   transform: translateY(100%)
-  // top: 0
   width: 100%
   position: absolute
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out
-
 
 .flexContainer
   display: flex
@@ -39,7 +36,6 @@
   padding-bottom: 0
   flex-basis: 51%
   & p
-    // max-width: 850px
     font-size: f.px(18)
     font-weight: 350
     line-height: 130%
@@ -49,18 +45,17 @@
 .right
   flex-basis: 43%
   align-self: flex-end
-  // @include m.gap($mt: f.px(35))
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(12))
-  
-.img  
+
+.img
   display: inline-block
   position: relative
   z-index: 2
   @include m.media(phone, tablet)
     display: none
 
-.icon 
+.icon
   position: absolute
   bottom: f.px(0)
   left: f.px(-50)
@@ -73,13 +68,8 @@
   align-self: center
   @include m.media( tablet)
     @include m.gap($mb: f.px(35))
-    // align-items: center
-    // justify-content: space-between
-  // justify-content: center
 
 .itemIcon
-  // height: max-content
-  // scale: 2
   @include m.media(phone, tablet)
     // scale: 1.5
   align-self: baseline
@@ -93,18 +83,17 @@
   font-style: normal
   font-weight: 350
   @include m.media(phone, tablet)
-      font-size: f.px(15)
+    font-size: f.px(15)
 
 .switchSection
+  text-decoration: underline
+  text-underline-offset: f.px(4)
+  font-weight: 500
   @include m.media(laptop, desktop)
     font-size: f.px(20)
   cursor: pointer
   &:hover
-    color: #7104C4
-  // @include m.gap($pt: f.px(12))
-  text-decoration: underline
-  text-underline-offset: f.px(4)
-  font-weight: 500
+    @include m.dye(c, c.$purple-700)
   p
     margin: 0
     @include m.gap($pt: f.px(12))

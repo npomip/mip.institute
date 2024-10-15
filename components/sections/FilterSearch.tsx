@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/FilterSearch.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import Wrapper from '@/ui/Wrapper'
 import { BtnSearch, BtnFilter } from '@/components/btns'
 
 const FilterSearch = () => {

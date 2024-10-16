@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import SwiperCore from 'swiper'
 import { Autoplay, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { v4 as uuidv4 } from 'uuid'
 SwiperCore.use([Scrollbar])
 const KinescopePlayer = dynamic(import('@kinescope/react-kinescope-player'), {
   ssr: false
@@ -45,6 +46,7 @@ const VideoReviews = () => {
                     className={stls.kinescope}
                     videoId={videoId}
                     controls='false'
+                    uid={uuidv4()}
                   />
                 </div>
               </SwiperSlide>

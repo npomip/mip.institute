@@ -10,13 +10,12 @@ import FooterBottom from '@/components/sections/FooterBottom'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/ui/Wrapper'
 import { company } from '@/config/index'
-import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/Footer.module.sass'
 import classNames from 'classnames'
-import staticLinks from 'constants/footer'
+import { staticLinks, programsLinks } from 'constants/footer'
 import { getCookie } from 'cookies-next'
 import Link from 'next/link'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import BtnDzen from '../btns/BtnDzen'
 import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
 import Logo from '@/ui/Logo'
@@ -24,14 +23,6 @@ import SearchProgram from '@/ui/SearchProgram'
 import PopupFooterReviews from '../popups/PopupFooterReviews'
 
 const Footer = () => {
-  const { studyFields } = useContext(ContextStaticProps)
-
-  const fieldsLinks = []
-
-  studyFields.forEach(field => {
-    fieldsLinks.push({ val: field.label, href: `/programs/${field.slug}` })
-  })
-
   const [isEdpartners, setIsEdpartners] = useState(false)
 
   const partCookie = getCookie('utm')
@@ -76,7 +67,7 @@ const Footer = () => {
                 [stls.links]: true,
                 [stls.fieldsLinks]: true
               })}>
-              {fieldsLinks.map(link => (
+              {programsLinks.map(link => (
                 <li
                   key={link.val + link.href}
                   className={classNames({

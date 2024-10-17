@@ -34,7 +34,7 @@ const VideoReviews = () => {
         </h2>
         <div className={stls.slides}>
           <Swiper
-            scrollbar={isMobileAndTabletLayout ? false : true}
+            scrollbar
             slidesPerView={isMobileAndTabletLayout ? 1.3 : 3}
             spaceBetween={isMobileAndTabletLayout ? 0 : 20}
             modules={[Scrollbar]}

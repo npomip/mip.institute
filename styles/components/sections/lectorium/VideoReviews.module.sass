@@ -2,12 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-
-// .container
-//   @include m.gap($pb: f.px(50), $pt: f.px(0))
-//   @include m.media(phone, tablet)
-//     @include m.gap($pb: f.px(35))
-
 .title
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
@@ -26,9 +20,6 @@
 
 .mySwiper
   @include m.gap($plr: f.px(10))
-
-
-
 
 .playerWrapper
   position: relative
@@ -54,9 +45,6 @@
     display: block
     width: 100%
     height: 100%
-
-
-
 
 .finger
   z-index: 2

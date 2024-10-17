@@ -2,10 +2,9 @@ import { IconFinger } from '@/components/icons'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/lectorium/VideoReviews.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import SwiperCore from 'swiper'
-import { Autoplay, Scrollbar } from 'swiper/modules'
+import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { v4 as uuidv4 } from 'uuid'
 SwiperCore.use([Scrollbar])
@@ -40,7 +39,7 @@ const VideoReviews = () => {
             modules={[Scrollbar]}
             className={stls.mySwiper}>
             {list.map((videoId, idx) => (
-              <SwiperSlide key={videoId + idx} className={stls.slide}>
+              <SwiperSlide key={videoId + idx}>
                 <div className={stls.playerWrapper}>
                   <KinescopePlayer
                     className={stls.kinescope}

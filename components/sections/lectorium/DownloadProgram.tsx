@@ -1,12 +1,12 @@
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import speaker from '@/public/assets/imgs/lectorium/speaker.png'
+import speakerMobile from '@/public/assets/imgs/lectorium/speakerMobile.png'
 import stls from '@/styles/components/sections/lectorium/DownloadProgram.module.sass'
+import IconTextButton from '@/ui/IconTextButton'
 import Tag from '@/ui/Tag'
 import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
 import Image from 'next/image'
-import speaker from '@/public/assets/imgs/lectorium/speaker.png'
-import speakerMobile from '@/public/assets/imgs/lectorium/speakerMobile.png'
-import { IconPlus } from '@/components/icons'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const DownloadProgram = () => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -43,10 +43,9 @@ const DownloadProgram = () => {
               полную версию программы мероприятия «Тест Роршаха: Исследование
               бессознательного через проективную диагностику»
             </p>
-            <button className={stls.btn}>
-              Скачать PDF
-              <IconPlus />
-            </button>
+            <div className={stls.btn}>
+              <IconTextButton onClick={() => {}} />
+            </div>
           </div>
         </TwoColumns>
       </div>

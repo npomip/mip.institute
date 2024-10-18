@@ -96,22 +96,17 @@
     object-fit: cover
 
 .btn
-  @include m.dye(c, c.$white-900)
-  font-size: f.px(20)
-  font-weight: 500
-  @include m.flex($jc: space-between, $ai: center)
-  border-radius: f.px(50)
-  gap: f.px(40)
-  @include m.dye(bg, c.$orange-700)
-  @include m.gap($pl: f.px(30), $pr: f.px(3), $ptb: f.px(3), $mt: f.px(40))
-  & > span > svg
-    & > circle
-      @include m.dye(fill, c.$white-900)
-    & > line
-      @include m.dye(stroke, c.$orange-700)
-  &:hover
-    opacity: .8
+  width: 45%
+  & > button
+    @include m.flex($jc: space-between, $ai: center)
+    gap: f.px(40)
+    @include m.gap($pl: f.px(30), $pr: f.px(3), $ptb: f.px(3), $mt: f.px(40))
+    @include m.media(phone, tablet)
+      font-size: f.px(16)
+      @include m.gap($mt: f.px(15), $pl: f.px(30), $pr: f.px(3), $ptb: f.px(3))
+      & > span
+        width: f.px(45)
+        & > svg > line
+          stroke-width: 1
   @include m.media(phone, tablet)
-    font-size: f.px(16)
     width: 100%
-    @include m.gap($mt: f.px(20))

@@ -13,7 +13,7 @@ const ExpandableItemCross = ({ title, content, isOpened }: Props) => {
 
   useEffect(() => {
     isOpened && setIsOpen(true)
-  }, [])
+  }, [isOpened])
 
   return (
     <li className={stls.container}>

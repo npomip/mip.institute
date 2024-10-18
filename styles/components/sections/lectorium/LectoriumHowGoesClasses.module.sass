@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pt: f.px(30), $pb: f.px(0))
+  @include m.gap($pt: f.px(30), $pb: f.px(30))
 
 
 .layout
@@ -12,7 +12,7 @@
   overflow: hidden
   @include m.gap($pl: f.px(47), $pt: f.px(40))
 
-.left
+.right
   @include m.dye(bg, white)
   width: 100%
   height: 100%
@@ -22,11 +22,11 @@
     @include m.flex($fd: column)
     width: 100%
 
-.images
-  @include m.flex()
-  z-index: 1
+.imgRight
+  @include m.media(phone, tablet)
+    display: none
 
-.title
+.titleRight
   display: inline-block
   font-size: f.px(44)
   font-style: normal
@@ -36,16 +36,69 @@
   @include m.media(phone, tablet)
     font-size: f.px(26)
 
-.description
+.descriptionRight
+  font-size: f.px(22)
+  font-weight: 500
+  line-height: 130%
+  max-width: f.px(460)
+  @include m.gap($mb: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(16)
+
+.separator
+  display: block
+  height: f.px(1)
+  opacity: 0.5
+  @include m.dye(bg, c.$purple-350)
+  @include m.gap($mb: f.px(20))
+
+.text
+  @include m.media(phone, tablet)
+    @include m.gap($pr: f.px(21))
+
+
+.list
+  @include m.flex($fd: column)
+  gap: f.px(17)
+  max-width: f.px(350)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+
+
+.listName
   font-size: f.px(20)
   font-weight: 350
   line-height: 130%
-  max-width: f.px(284)
+  max-width: f.px(460)
+  @include m.gap($mb: f.px(20))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(90))
-    font-size: f.px(15)
+    font-size: f.px(16)
 
-.descriptionRight
+.listItem
+  @include m.flex($ai: center)
+  gap: f.px(22)
+
+.listText
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 130%
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.slides
+  @include m.media(phone, tablet)
+    position: relative
+
+
+.slide
+  @include m.media(phone, tablet)
+    &:nth-child(3) 
+      & > img
+        max-width: 50%
+
+.description
   font-size: f.px(16)
   font-weight: 300
   text-align: center
@@ -61,15 +114,15 @@
 .white
   @include m.dye(c, white)
 
-.right
+.left
   @include m.flex($fd: column, $ai: center)
   width: 100%
   height: 100%
-  @include m.gap($plr: f.px(37), $ptb: f.px(40))
+  @include m.gap($plr: f.px(37), $pt: f.px(62), $pb: f.px(37))
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(25), $ptb: f.px(40))
 
-.titleRight
+.title
   text-align: center
   font-size: f.px(28)
   font-weight: 500
@@ -79,35 +132,24 @@
     font-size: f.px(26)
 
 .imgClass1
-  transform: translateY(f.px(-30)) translateX(f.px(266))
-  width: f.px(416)
-  height: f.px(295)
-  @include m.media(phone, tablet)
-    transform: translateY(f.px(24)) translateX(f.px(0))
-    width: f.px(330)
-    height: f.px(249)
+  position: absolute
+  transform: translateY(f.px(-300)) translateX(f.px(418))
+  width: f.px(340)
+  height: f.px(220)
 
 .imgClass2
   position: absolute
-  transform: translateY(f.px(-40)) translateX(f.px(290))
-  width: f.px(416)
-  height: f.px(295)
-  @include m.media(phone, tablet)
-    transform: translateY(f.px(17)) translateX(f.px(14))
-    width: f.px(330)
-    height: f.px(249)
+  transform: translateY(f.px(-89)) translateX(f.px(310)) rotate(12deg)
+  width: f.px(340)
+  height: f.px(220)
 
 .imgClass3
   position: absolute
-  transform: translateY(f.px(-50)) translateX(f.px(316))
-  width: f.px(416)
-  height: f.px(295)
-  @include m.media(phone, tablet)
-    transform: translateY(f.px(10)) translateX(f.px(28))
-    width: f.px(330)
-    height: f.px(249)
+  transform: translateY(f.px(-127)) translateX(f.px(547)) rotate(-12deg)
+  width: f.px(177)
+  height: f.px(236)
 
-.imgRight
+.img
   transform: rotate(17deg)
   width: f.px(253)
   height: f.px(253)
@@ -120,10 +162,16 @@
   @include m.dye(c, c.$purple-350)
   border: f.px(1) solid
   border-radius: f.px(4)
+
 .btn
   width: 100%
+
 .colouredTitle
   @include m.dye(c, c.$orange-700)
+
+.strongText
+  font-weight: 500
+
 
 .background
   position: absolute
@@ -136,4 +184,18 @@
     left: f.px(-112)
     width: f.px(801)
     height: f.px(600)
+
+
+.playerWrapper
+  position: relative
+  width: 100%
+  height: 100%
+  @include m.media(phone, tablet)
+    min-height: f.px(300)
+
+.kinescope
+  @include m.media(phone, tablet)
+    & > iframe
+      width: 100%
+      height: f.px(300)
 

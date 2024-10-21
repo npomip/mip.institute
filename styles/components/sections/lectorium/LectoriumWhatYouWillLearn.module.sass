@@ -39,6 +39,8 @@
   @include m.gap($pl: f.px(60), $ptb: f.px(30), $pr: f.px(40))
   @include m.flex($fd: column, $jc: space-between)
   gap: f.px(27)
+  &:nth-child(2)
+    @include m.dye(bg, c.$purple-200)
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(21), $ptb: f.px(25))
 

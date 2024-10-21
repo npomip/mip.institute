@@ -55,14 +55,7 @@ const PagesProgram = ({
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef(null)
-  const [isWithPrice, setIsWithPrice] = useState('price')
   const isPsyKonsultirovanie = slug === 'psihologicheskoe-konsultirovanie'
-
-  useEffect(() => {
-    // Данный код будет выполнен только на клиенте
-    const storedValue = localStorage.getItem('AB')
-    setIsWithPrice(storedValue)
-  }, [])
 
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
@@ -83,7 +76,7 @@ const PagesProgram = ({
       id: 'cost',
       label: 'Стоимость',
       ref: costRef,
-      condition: isWithPrice !== 'noprice'
+      condition: true
     },
     { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
     { id: 'faq', label: 'FAQ', ref: faqRef, condition: true }
@@ -162,7 +155,7 @@ const PagesProgram = ({
         cta='reserve'
       />
 
-      {isWithPrice !== 'noprice' && <StudyCost costRef={costRef} />}
+      <StudyCost costRef={costRef} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <EntryForm pb={isMobileAndTabletLayout ? 60 : 90} pt={0} />
       <Faq faqRef={faqRef} />

@@ -243,7 +243,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
-      {!dev && (
+      {/* {!dev && ( */}
         <>
           <Script
             strategy='afterInteractive'
@@ -266,7 +266,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           {/* <RoistatScript /> */}
           <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
-      )}
+      {/* )} */}
 
       {roistatVisit && (
         <div

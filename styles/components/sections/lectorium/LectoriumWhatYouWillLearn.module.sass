@@ -23,12 +23,13 @@
   width: 100%
   height: 100%
   object-fit: cover
+  border-radius: f.px(10)
+  display: block
 
 .blocks
   flex-basis: 60%
   @include m.flex($fd: column)
   gap: f.px(5)
-
 
 //blocksItem
 .item
@@ -44,7 +45,6 @@
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(21), $ptb: f.px(25))
 
-
 .text
   & > p
     font-size: f.px(22)
@@ -54,7 +54,6 @@
     @include m.media(phone, tablet)
       font-size: f.px(15)
       @include m.gap($mb: f.px(0))
-
 
 //кружочки
 .circles
@@ -72,14 +71,8 @@
     width: f.px(8)
     height: f.px(8)
 
-
 .filled
   @include m.dye(bg, c.$purple-350)
-
-
-
-
-
 
 .title
   font-size: f.px(44)
@@ -95,5 +88,3 @@
 
 .strongText
   font-weight: 500
-
-

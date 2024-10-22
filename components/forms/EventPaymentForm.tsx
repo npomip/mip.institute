@@ -28,8 +28,8 @@ type Props = {
 
 const socialLinks = [
   { id: 'vk', icon: <IconVk />, link: routes.external.vk },
-  { id: 'telegram', icon: <IconTelegram />, link: routes.external.telegram },
   { id: 'whatsapp', icon: <IconWhatsapp />, link: routes.external.whatsapp },
+  { id: 'telegram', icon: <IconTelegram />, link: routes.external.telegram },
   { id: 'copylink', icon: <IconCopyLink />, link: '#' }
 ]
 

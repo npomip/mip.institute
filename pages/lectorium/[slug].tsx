@@ -9,8 +9,17 @@ import LectoriumHowGoesClasses from '@/components/sections/lectorium/LectoriumHo
 import EventRegistration from '@/components/sections/lectorium/EventRegistration'
 import LectoriumWhatYouWillLearn from '@/components/sections/lectorium/LectoriumWhatYouWillLearn'
 import props from 'constants/lectorium'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
+import routes from '@/config/routes'
+import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 
-const LectoriumPage = () => {
+type Props = {
+  lectorium: Lectorium
+}
+
+const LectoriumPage = ({ lectorium }: Props) => {
+
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -26,5 +35,11 @@ const LectoriumPage = () => {
     </>
   )
 }
+
+export const getStaticPaths: GetStaticPaths = async () =>
+  await handleGetStaticPaths({ page: routes.front.lectorium })
+
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ context, page: routes.front.lectorium })
 
 export default LectoriumPage

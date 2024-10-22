@@ -31,6 +31,8 @@ const routes = {
     bachelor: '/bachelor/slug',
     practicalTrainings: '/practical-training',
     practicalTraining: '/practical-training/slug',
+    lectoriums: '/lectorium',
+    lectorium: '/lectorium/slug',
     courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',

@@ -18,6 +18,7 @@ import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPath
 import getStaticPathsPageLiveCourse from '../getStaticPaths/getStaticPathsPageLiveCourse'
 import getStaticPathsPageBachelor from '../getStaticPaths/getStaticPathsPageBachelor'
 import getStaticPathsPagePracticalTraining from '../getStaticPaths/getStaticPathsPagePracticalTraining'
+import getStaticPathsPageLectorium from '../getStaticPaths/getStaticPathsPageLectorium'
 
 type TypeHandleGetStaticPathsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
@@ -62,6 +63,9 @@ const handleGetStaticPaths = async ({
 
     case routes.front.practicalTraining:
       return await getStaticPathsPagePracticalTraining()
+
+    case routes.front.lectorium:
+      return await getStaticPathsPageLectorium()
 
     default:
       return {

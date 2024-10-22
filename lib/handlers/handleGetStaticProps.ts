@@ -38,6 +38,8 @@ import TypePageBachelorProps from '@/types/page/bachelor/props/TypePageBachelorP
 import TypePagePracticalTrainingProps from '@/types/page/practicalTraining/props/TypePagePracticalTrainingProps'
 import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps'
 import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps'
+import getStaticPropsPageLectorium from '../getStaticProps/getStaticPropsLectorium'
+import getStaticPropsPageLectoriums from '../getStaticProps/getStaticPropsPageLectoriums'
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
   type?: string | null
@@ -131,6 +133,12 @@ const handleGetStaticProps = async ({
 
       case routes.front.practicalTraining:
         return await getStaticPropsPracticalTraining({ context })
+
+      case routes.front.lectoriums:
+        return await getStaticPropsPageLectoriums({ context })
+
+      case routes.front.lectorium:
+        return await getStaticPropsPageLectorium({ context })
 
       default:
         return {

@@ -1,15 +1,15 @@
-import { IconFinger } from '@/components/icons'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/lectorium/VideoReviews.module.sass'
 import CustomNextButton from '@/ui/CustomNextButton'
 import CustomPrevButton from '@/ui/CustomPrevButton'
 import Wrapper from '@/ui/Wrapper'
 import dynamic from 'next/dynamic'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import SwiperCore from 'swiper'
 import { Navigation, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-const KinescopePlayer = dynamic(import('@kinescope/react-kinescope-player'), {
+import type { KinescopePlayer } from '@/ui/Player/Player'
+const Player = dynamic(() => import('@/ui/Player/Player'), {
   ssr: false
 })
 SwiperCore.use([Navigation, Scrollbar])
@@ -26,13 +26,13 @@ const VideoReviews = () => {
     '9dHuZCQa3zFwyTNBZkwB9N'
   ]
   const swiperRef = useRef(null)
-  const iframesRef = useRef([])
+  const playersRef = useRef<(KinescopePlayer | null)[]>([])
 
   const handleSlideChange = swiper => {
-    iframesRef.current.forEach(player => {
-      console.log(player.current)
-
-      // await player.pause()
+    playersRef.current.forEach((player, index) => {
+      if (player && index !== swiper.activeIndex) {
+        player.stop()
+      }
     })
   }
 
@@ -59,11 +59,11 @@ const VideoReviews = () => {
             {list.map((videoId, idx) => (
               <SwiperSlide key={videoId + idx}>
                 <div className={stls.playerWrapper}>
-                  <KinescopePlayer
-                    ref={el => (iframesRef.current[idx] = el)}
+                  <Player
+                    forwardRef={el => (playersRef.current[idx] = el)}
                     className={stls.kinescope}
+                    controls={false}
                     videoId={videoId}
-                    controls='false'
                   />
                 </div>
               </SwiperSlide>

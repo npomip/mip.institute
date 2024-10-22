@@ -64,7 +64,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
                   <span className={stls.bold}>&#8381;/мес</span>
                 </span>
                 <p className={stls.loan}>
-                  *Беспроцентная рассрочка на 12 месяцев от TINKOFF
+                  *Беспроцентная рассрочка на 12 месяцев от банков-партнеров
                 </p>
               </div>
               <div className={stls.spanLine}>

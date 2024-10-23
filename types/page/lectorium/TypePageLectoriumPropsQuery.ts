@@ -11,6 +11,7 @@ export type Lectorium = {
   time: string
   price: string
   places: string
+  picture: Picture
   // speaker: Speaker;
   // whatYouWillLearn: WhatYouWillLearn;
   faq: Faq[]
@@ -19,4 +20,10 @@ export type Lectorium = {
 export type Faq = {
   question: string
   answer: string
+}
+
+type Picture = {
+  url: string
+  height: number
+  width: number
 }

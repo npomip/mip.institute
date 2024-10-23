@@ -46,9 +46,7 @@ const getStaticPropsPageLiveCourse = async ({
                   repeatBlock {
                     txt
                     size
-                    color {
-                      code
-                    }
+                    
                     photo {
                       url
                       width

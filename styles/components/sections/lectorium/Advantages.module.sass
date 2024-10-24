@@ -1,0 +1,85 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  display: inline-block
+  font-size: f.px(44)
+  font-style: normal
+  text-transform: uppercase
+  font-weight: 500
+  @include m.media(laptop)
+  max-width: f.px(570)
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+    @include m.gap($mb: f.px(15))
+
+.colouredTitle
+  display: block
+  @include m.dye(c, c.$orange-700)
+
+.number
+  @include m.dye(c, c.$purple-350)
+  font-size: f.px(40)
+  font-weight: 350
+  line-height: 110%
+
+.bold
+  font-weight: 500
+
+.boldBr
+  font-weight: 500
+  display: block
+
+.text
+  font-weight: 350
+
+.text1
+  font-weight: 350
+  white-space: break-spaces
+  
+.advantages
+  @include m.gap($mb: f.px(30))
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  grid-template-rows: auto auto
+  gap: f.px(30)
+
+  & > div:nth-child(1)
+    grid-column: 1 / 4
+    @include m.media(phone, tablet)
+      grid-column: span 2
+
+  & > div:nth-child(2)
+    grid-column: 4 / 10
+    @include m.media(phone, tablet)
+      grid-column: span 2
+
+  & > div:nth-child(3)
+    grid-column: 10 / 13
+    @include m.media(phone, tablet)
+      grid-column: span 2
+
+  & > div:nth-child(4)
+    grid-column: 1 / 4
+    @include m.media(phone, tablet)
+      grid-column: span 2
+
+  & > div:nth-child(5)
+    grid-column: 4 / 7
+    @include m.media(phone, tablet)
+      grid-column: span 2
+
+  & > div:nth-child(6)
+    grid-column: 7 / 13
+    @include m.media(phone, tablet)
+      grid-column: span 2
+
+  @include m.media(phone, tablet)
+    grid-template-columns: repeat(2, 1fr)
+    gap: f.px(15)
+    @include m.gap($mb: f.px(15))
+
+    & > div:nth-child(4)
+      grid-row: 5

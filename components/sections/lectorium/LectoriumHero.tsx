@@ -2,7 +2,7 @@ import { IconCalendarAlt, IconLocation } from '@/components/icons'
 import IconInfo from '@/components/icons/IconInfo'
 import stls from '@/styles/components/sections/lectorium/LectoriumHero.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
-import InfoPlate from '@/ui/PointPlate'
+import InfoPlate from '@/ui/InfoPlate'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/ui/Wrapper'
 import Image from 'next/image'
@@ -46,6 +46,7 @@ const LectoriumHero = ({ lectorium }: Props) => {
       content: <>{lectorium.places}</>
     }
   ]
+  console.log(lectorium)
 
   return (
     <section className={stls.container}>

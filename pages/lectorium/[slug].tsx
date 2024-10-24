@@ -8,7 +8,6 @@ import Maps from '@/components/sections/lectorium/Maps'
 import LectoriumHowGoesClasses from '@/components/sections/lectorium/LectoriumHowGoesClasses'
 import EventRegistration from '@/components/sections/lectorium/EventRegistration'
 import LectoriumWhatYouWillLearn from '@/components/sections/lectorium/LectoriumWhatYouWillLearn'
-import props from 'constants/lectorium'
 import LectoriumFAQ from '@/components/sections/lectorium/LectoriumFAQ'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
@@ -21,11 +20,15 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectorium }: Props) => {
+  console.log(lectorium, 'lectorium')
+
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
       <LectoriumHero lectorium={lectorium} />
-      <LectoriumWhatYouWillLearn whatYouWillLearn={props.whatYouWillLearn} />
+      <LectoriumWhatYouWillLearn
+        whatYouWillLearn={lectorium.whatYouWillLearn}
+      />
       <DownloadProgram />
       <LectoriumCertificate />
       <LectoriumHowGoesClasses />

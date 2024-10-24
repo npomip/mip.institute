@@ -2,12 +2,10 @@ import stls from '@/styles/components/sections/lectorium/LectoriumWhatYouWillLea
 import Image, { StaticImageData } from 'next/image'
 import Wrapper from '@/ui/Wrapper'
 import ReactMarkdown from 'react-markdown'
+import { WhatYouWillLearn } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 
 type Props = {
-  whatYouWillLearn: {
-    image: StaticImageData
-    blocks: string[]
-  }
+  whatYouWillLearn: WhatYouWillLearn
 }
 
 const LectoriumWhatYouWillLearn = ({ whatYouWillLearn }: Props) => {
@@ -26,14 +24,16 @@ const LectoriumWhatYouWillLearn = ({ whatYouWillLearn }: Props) => {
         <div className={stls.layout}>
           <div className={stls.imageBlock}>
             <Image
-              src={whatYouWillLearn.image}
+              src={whatYouWillLearn.picture.url}
+              width={whatYouWillLearn.picture.width}
+              height={whatYouWillLearn.picture.height}
               alt='Занятие'
               className={stls.image}
             />
           </div>
           <div className={stls.blocks}>
-            {whatYouWillLearn.blocks.map((el, idx) => (
-              <div className={stls.item} key={el + idx}>
+            {whatYouWillLearn.text.map((el, idx) => (
+              <div className={stls.item} key={`${el}` + idx}>
                 <div className={stls.circles}>
                   {Array.from({ length: idx + 1 }, (_, circleIdx) => (
                     <span
@@ -48,7 +48,7 @@ const LectoriumWhatYouWillLearn = ({ whatYouWillLearn }: Props) => {
                 <ReactMarkdown
                   className={stls.text}
                   components={customRenderers}>
-                  {el}
+                  {el.text}
                 </ReactMarkdown>
               </div>
             ))}

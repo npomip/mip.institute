@@ -13,7 +13,7 @@ export type Lectorium = {
   places: string
   picture: Picture
   // speaker: Speaker;
-  // whatYouWillLearn: WhatYouWillLearn;
+  whatYouWillLearn: WhatYouWillLearn
   faq: Faq[]
 }
 
@@ -26,4 +26,13 @@ type Picture = {
   url: string
   height: number
   width: number
+}
+
+export type WhatYouWillLearn = {
+  picture: Picture
+  text: Text[]
+}
+
+type Text = {
+  text: string
 }

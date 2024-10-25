@@ -43,7 +43,10 @@
     font-size: f.px(10)
 
 .containerNumber
-  @include m.dye(bg, transparent)
+  @include m.dye(bg, c.$white-900)
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
   gap: f.px(25)
   min-height: f.px(250)
   @include m.media(phone, tablet)
@@ -66,16 +69,16 @@
     max-width: f.px(260)
 
 .looper_1
-  background: url('/assets/imgs/lectorium/advantages/looper1.svg')
+  background-image: url('/assets/imgs/lectorium/advantages/looper1.svg')
 
 .looper_2
-  background: url('/assets/imgs/lectorium/advantages/looper2.svg')
+  background-image: url('/assets/imgs/lectorium/advantages/looper2.svg')
 
 .looper_3
-  background: url('/assets/imgs/lectorium/advantages/looper3.svg')
+  background-image: url('/assets/imgs/lectorium/advantages/looper3.svg')
 
 .looper_4
-  background: url('/assets/imgs/lectorium/advantages/looper4.svg')
+  background-image: url('/assets/imgs/lectorium/advantages/looper4.svg')
 
 .containerImage
   border-radius: f.px(14)

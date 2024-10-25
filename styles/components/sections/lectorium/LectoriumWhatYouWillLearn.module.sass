@@ -3,7 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($pt: f.px(30), $pb: f.px(70))
 
 .layout
   @include m.media(desktop, laptop)
@@ -16,8 +15,7 @@
 .imageBlock
   flex-basis: 40%
   border-radius: f.px(10)
-  border: f.px(1) solid
-  @include m.dye(border, c.$purple-350)
+  border: f.px(1) solid c.$purple-350
 
 .image
   width: 100%
@@ -25,6 +23,8 @@
   object-fit: cover
   border-radius: f.px(10)
   display: block
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
 
 .blocks
   flex-basis: 60%
@@ -34,9 +34,9 @@
 //blocksItem
 .item
   border-radius: f.px(10)
-  border: f.px(1) solid
+  border: f.px(1) solid c.$purple-350
   height: 100%
-  @include m.dye(border, c.$purple-350)
+  @include m.dye(bg, c.$white-900)
   @include m.gap($pl: f.px(60), $ptb: f.px(30), $pr: f.px(40))
   @include m.flex($fd: column, $jc: space-between)
   gap: f.px(27)
@@ -44,6 +44,7 @@
     @include m.dye(bg, c.$purple-200)
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(21), $ptb: f.px(25))
+    border-radius: f.px(5)
 
 .text
   & > p

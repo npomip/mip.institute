@@ -14,6 +14,8 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import routes from '@/config/routes'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import LectoriumHero from '@/components/sections/lectorium/LectoriumHero'
+import LectoriumWhoIsEventFor from '@/components/sections/lectorium/LectoriumWhoIsEventFor'
+import Speaker from '@/components/sections/lectorium/Speaker'
 
 type Props = {
   lectorium: Lectorium
@@ -26,6 +28,8 @@ const LectoriumPage = ({ lectorium }: Props) => {
     <>
       <NextSeo nofollow={true} noindex={true} />
       <LectoriumHero lectorium={lectorium} />
+      <Speaker speaker={lectorium.speaker} />
+      <LectoriumWhoIsEventFor />
       <LectoriumWhatYouWillLearn
         whatYouWillLearn={lectorium.whatYouWillLearn}
       />

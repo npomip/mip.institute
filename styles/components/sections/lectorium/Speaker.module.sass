@@ -1,0 +1,123 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: f.px(0), $pb: f.px(70))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(35), $pb: f.px(0))
+
+.title
+  font-weight: 500
+  text-align: center
+  text-transform: uppercase
+  @include m.dye(c, c.$black-800)
+  @include m.gap($mb: f.px(31))
+  font-size: f.px(44)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(26)
+    text-align: left
+
+.block
+  position: relative
+  border-radius: f.px(14)
+  border: f.px(1) solid c.$purple-350
+  @include m.dye(bg, c.$purple-200)
+  @include m.gap($plr: f.px(40), $ptb: f.px(31))
+  @include m.flex($ai: center)
+  gap: f.px(90)
+  overflow: hidden
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: flex-start)
+    gap: f.px(18)
+    @include m.gap($plr: f.px(21), $ptb: f.px(20))
+
+
+.imageBlock
+  border-radius: f.px(10)
+  border: f.px(1) solid c.$purple-350
+  @include m.dye(bg, c.$purple-150)
+  width: f.px(370)
+  height: f.px(366)
+  @include m.flex($ai: flex-end)
+  z-index: 1
+  @include m.media(phone, tablet)
+    width: 100%
+    height: auto
+
+.image
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+
+.infoBlock
+  @include m.flex($fd: column, $ai: flex-start)
+  gap: f.px(41)
+  z-index: 1
+  @include m.media(phone, tablet)
+    gap: f.px(12)
+
+.name
+  @include m.dye(bg, c.$white-900)
+  border-radius: f.px(100)
+  border: f.px(1) solid c.$purple-350
+  @include m.gap($ptb: f.px(11), $plr: f.px(26))
+  p
+    font-size: f.px(26)
+    font-weight: 500
+    line-height: 110%
+    @include m.gap($mb: f.px(0))
+    @include m.media(phone, tablet)
+      font-size: f.px(22)
+  @include m.media(phone, tablet)
+    border: none
+    background: none
+    @include m.gap($p: f.px(0))
+
+
+.lines
+  @include m.flex($fd: column)
+  gap: f.px(9)
+
+
+.line
+  @include m.flex($ai: center)
+  gap: f.px(18)
+  @include m.media(phone, tablet)
+    gap: f.px(5)
+
+.icon
+  @include m.media(phone, tablet)
+    & > span
+      width: f.px(14)
+
+.text
+  @include m.gap($mb: f.px(0))
+  font-size: f.px(22)
+  font-weight: 350
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+
+.background
+  position: absolute
+  left: f.px(-290)
+  bottom: f.px(-80)
+  z-index: 0
+  @include m.media(phone, tablet)
+    transform: rotate(-15deg)
+    left: f.px(-247)
+    bottom: f.px(-20)
+
+
+.tag > div
+  position: relative
+  @include m.gap($ptb: f.px(6), $plr: f.px(22))
+  font-size: f.px(10)
+  font-weight: 500
+  width: fit-content
+  @include m.dye(bg, c.$white-900)
+  z-index: 1

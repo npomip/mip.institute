@@ -39,6 +39,7 @@ const getStaticPropsPageLectorium = async ({
               text {
                 text
               }
+              title
             }
             whatYouWillLearn {
               picture {

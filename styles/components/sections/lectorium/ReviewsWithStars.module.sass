@@ -2,12 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(90), $pb: f.px(30))
-  @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(35), $pb: f.px(0))
-
 .header
   @include m.flex($jc: space-between)
   @include m.media(phone, tablet)

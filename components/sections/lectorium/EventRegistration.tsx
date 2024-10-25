@@ -2,20 +2,23 @@ import stls from '@/styles/components/sections/lectorium/EventRegistration.modul
 import TwoBlocks from '@/ui/TwoBlocks'
 import Countdown from './Countdown'
 import EventPaymentForm from '@/components/forms/EventPaymentForm'
+import Wrapper from '@/ui/Wrapper'
 
 const EventRegistration = ({}) => {
   return (
     <section className={stls.section}>
-      <TwoBlocks>
-        <div className={stls.form}>
-          <h2 className={stls.title}>
-            <span className={stls.colouredTitle}>Оставьте</span> заявку на
-            мероприятие
-          </h2>
-          <EventPaymentForm />
-        </div>
-        <Countdown />
-      </TwoBlocks>
+      <Wrapper>
+        <TwoBlocks>
+          <div className={stls.form}>
+            <h2 className={stls.title}>
+              <span className={stls.colouredTitle}>Оставьте</span> заявку на
+              мероприятие
+            </h2>
+            <EventPaymentForm />
+          </div>
+          <Countdown />
+        </TwoBlocks>
+      </Wrapper>
     </section>
   )
 }

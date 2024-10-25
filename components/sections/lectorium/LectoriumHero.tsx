@@ -53,8 +53,8 @@ const LectoriumHero = ({ lectorium }: Props) => {
       <Wrapper>
         {/* <Breadcrumbs breadcrumbs={breadcrumbs} /> */}
         <p className={stls.event}>Очный мастер-класс</p>
-        <h1 className={stls.title}>{lectorium.title}</h1>
-        <h2 className={stls.subTitle}>{lectorium.subtitle}</h2>
+        <h2 className={stls.title}>{lectorium.title}</h2>
+        <h1 className={stls.subTitle}>{lectorium.subtitle}</h1>
         <Image
           src={lectorium.picture.url}
           alt='Лекториум'

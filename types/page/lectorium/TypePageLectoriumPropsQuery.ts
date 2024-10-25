@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image'
+
 export type TypePageLectoriumPropsQuery = {
   readonly lectorium: Lectorium
 }
@@ -12,8 +14,8 @@ export type Lectorium = {
   price: string
   places: string
   picture: Picture
-  // speaker: Speaker;
-  // whatYouWillLearn: WhatYouWillLearn;
+  speaker: SpeakerType
+  whatYouWillLearn: WhatYouWillLearn
   faq: Faq[]
 }
 
@@ -26,4 +28,24 @@ type Picture = {
   url: string
   height: number
   width: number
+}
+
+export type WhatYouWillLearn = {
+  picture: Picture
+  text: Text[]
+}
+
+export type WhoIsEventFor = {
+  picture: StaticImageData
+  text: string
+}
+
+export type SpeakerType = {
+  picture: Picture
+  text: Text[]
+  title: string
+}
+
+type Text = {
+  text: string
 }

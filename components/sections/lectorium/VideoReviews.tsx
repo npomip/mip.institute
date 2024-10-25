@@ -26,7 +26,7 @@ const VideoReviews = () => {
     '9dHuZCQa3zFwyTNBZkwB9N'
   ]
   const swiperRef = useRef(null)
-  const playersRef = useRef<(KinescopePlayer | null)[]>([])
+  const playersRef = useRef<KinescopePlayer[]>([])
 
   const handleSlideChange = swiper => {
     playersRef.current.forEach((player, index) => {
@@ -60,7 +60,11 @@ const VideoReviews = () => {
               <SwiperSlide key={videoId + idx}>
                 <div className={stls.playerWrapper}>
                   <Player
-                    forwardRef={el => (playersRef.current[idx] = el)}
+                    ref={el => {
+                      if (el) {
+                        playersRef.current[idx] = el
+                      }
+                    }}
                     className={stls.kinescope}
                     controls={false}
                     videoId={videoId}

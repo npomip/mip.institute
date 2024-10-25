@@ -12,7 +12,8 @@ import ReviewsWithStars from '@/components/sections/lectorium/ReviewsWithStars'
 import VideoReviews from '@/components/sections/lectorium/VideoReviews'
 import stls from '@/styles/pages/PageLectorium.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
-import props from 'constants/lectorium'
+import Speaker from '../sections/lectorium/Speaker'
+import LectoriumWhoIsEventFor from '../sections/lectorium/LectoriumWhoIsEventFor'
 
 type Props = {
   lectorium: Lectorium
@@ -22,8 +23,12 @@ const PageLectorium = ({ lectorium }: Props) => {
   return (
     <div className={stls.container}>
       <LectoriumHero lectorium={lectorium} />
+      <Speaker speaker={lectorium.speaker} />
       <Advantages />
-      <LectoriumWhatYouWillLearn whatYouWillLearn={props.whatYouWillLearn} />
+      <LectoriumWhoIsEventFor />
+      <LectoriumWhatYouWillLearn
+        whatYouWillLearn={lectorium.whatYouWillLearn}
+      />
       <DownloadProgram />
       <LectoriumCertificate />
       <LectoriumHowGoesClasses />

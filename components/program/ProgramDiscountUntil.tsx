@@ -5,10 +5,8 @@ const ProgramDiscountUntil = () => {
     <>
       {/* до {getNextFriday(new Date())} */}
       до{' '}
-      {new Date() < new Date(2024, 8, 29)
-        ? '28 сентября'
-        : new Date() < new Date(2024, 9, 1)
-        ? '30 сентября'
+      { new Date() < new Date(2024, 10, 1)
+        ? '31 октября'
         : getNextFriday(new Date())}
     </>
   )

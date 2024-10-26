@@ -34,13 +34,11 @@ const Speaker = ({ speaker }: Props) => {
             </div>
           )}
           <div className={stls.infoBlock}>
-            <div className={stls.name}>
-              <p>
-                {isMobileAndTabletLayout
-                  ? speaker.title.replace(/.*?–\s*/, '')
-                  : speaker.title}
-              </p>
-            </div>
+            <p className={stls.name}>
+              {isMobileAndTabletLayout
+                ? speaker.title.replace(/.*?–\s*/, '')
+                : speaker.title}
+            </p>
             <div className={stls.lines}>
               {speaker.text.map((el, idx) => (
                 <div className={stls.line} key={el.text + idx}>

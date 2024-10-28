@@ -4,7 +4,11 @@ import Countdown from './Countdown'
 import EventPaymentForm from '@/components/forms/EventPaymentForm'
 import Wrapper from '@/ui/Wrapper'
 
-const EventRegistration = ({}) => {
+type Props = {
+  targetDate: string
+}
+
+const EventRegistration = ({ targetDate }: Props) => {
   return (
     <section className={stls.section}>
       <Wrapper>
@@ -16,7 +20,7 @@ const EventRegistration = ({}) => {
             </h2>
             <EventPaymentForm />
           </div>
-          <Countdown />
+          <Countdown targetDate={targetDate} />
         </TwoBlocks>
       </Wrapper>
     </section>

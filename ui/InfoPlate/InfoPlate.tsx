@@ -41,7 +41,6 @@ const InfoPlate = (props: Props) => {
       number,
       isNumbered = false
     } = props as PropsWithoutImage
-    console.log(number)
 
     return isNumbered ? (
       <div

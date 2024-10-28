@@ -16,7 +16,7 @@ type Props = {
   targetDate?: string
 }
 
-const Countdown = ({ targetDate = '2024-05-31T23:59:59+03:00' }: Props) => {
+const Countdown = ({ targetDate = '2024-12-31T20:59:59.000Z' }: Props) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {

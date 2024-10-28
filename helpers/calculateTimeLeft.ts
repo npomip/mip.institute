@@ -1,13 +1,17 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 
 dayjs.extend(duration)
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 export const calculateTimeLeft = (targetDate: string) => {
-  const endDate = dayjs(targetDate)
-  const now = dayjs()
+  const moscowTargetDate = dayjs(targetDate).tz('Europe/Moscow')
+  const now = dayjs().tz('Europe/Moscow')
 
-  if (endDate.isBefore(now)) {
+  if (moscowTargetDate.isBefore(now)) {
     return {
       totalDaysLeft: 0,
       hoursLeft: 0,
@@ -16,7 +20,7 @@ export const calculateTimeLeft = (targetDate: string) => {
     }
   }
 
-  const diff = dayjs.duration(endDate.diff(now))
+  const diff = dayjs.duration(moscowTargetDate.diff(now))
   const totalDaysLeft = Math.floor(diff.asDays())
   const hoursLeft = diff.hours()
   const minutesLeft = diff.minutes()

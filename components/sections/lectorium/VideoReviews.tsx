@@ -76,7 +76,7 @@ const VideoReviews = () => {
                 top={0}
                 mobileTop={-15}
                 mobileLeft={100}
-                isTeacherRoundBtn
+                isTeacherRoundBtn={isMobileAndTabletLayout}
                 showOnMobile
               />
             </div>
@@ -86,14 +86,11 @@ const VideoReviews = () => {
                 top={0}
                 mobileTop={-15}
                 mobileLeft={-115}
-                isTeacherRoundBtn
+                isTeacherRoundBtn={isMobileAndTabletLayout}
                 showOnMobile
               />
             </div>
           </Swiper>
-          {/* <div className={stls.finger}>
-            <IconFinger />
-          </div> */}
         </div>
       </Wrapper>
     </section>

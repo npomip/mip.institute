@@ -46,7 +46,6 @@ const LectoriumHero = ({ lectorium }: Props) => {
       content: <>{lectorium.places}</>
     }
   ]
-  console.log(lectorium)
 
   return (
     <section className={stls.container}>

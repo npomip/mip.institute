@@ -36,7 +36,7 @@ const PageLectorium = ({ lectorium }: Props) => {
       <VideoReviews />
       <ReviewsWithStars />
       <Maps />
-      <EventRegistration />
+      <EventRegistration targetDate={lectorium?.targetDate} />
       <LectoriumFAQ faq={lectorium?.faq} />
     </div>
   )

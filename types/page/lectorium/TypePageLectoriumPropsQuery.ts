@@ -16,6 +16,7 @@ export type Lectorium = {
   picture: Picture
   speaker: SpeakerType
   targetDate: string
+  endTime: string
   whatYouWillLearn: WhatYouWillLearn
   faq: Faq[]
 }

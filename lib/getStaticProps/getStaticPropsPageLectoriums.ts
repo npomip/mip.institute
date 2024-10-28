@@ -17,40 +17,28 @@ const getStaticPropsPageLectoriums = async ({
   const res = await apolloClient.query<TypePagePracticalTrainingsPropsQuery>({
     query: gql`
       query getStaticPropsPagePracticalTrainings {
-        programs {
+        lectoriums {
           id
           title
+          subtitle
           slug
-          studyField
-          studyFieldSlug
-          type
-          typeLabel
-          studyMounthsDuration
-          studyHours
+          date
           price
-          isPopular
-          courseOpened
-          heroPicture {
-            url
-            width
-            height
-          }
-          index_number {
-            idx
-          }
+          targetDate
+          endTime
+          speaker {
+              picture {
+                url
+                width
+                height
+              }
+              text {
+                text
+              }
+              title
+            }
         }
 
-        practicalTrainings {
-          title
-          subtitle
-          duration
-          slug
-          heroPicture {
-            url
-            width
-            height
-          }
-        }
       }
     `
   })

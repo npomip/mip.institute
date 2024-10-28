@@ -29,6 +29,8 @@ const getStaticPropsPageLectorium = async ({
             description
             date
             time
+            targetDate
+            endTime
             places
             speaker {
               picture {

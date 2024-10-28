@@ -1,0 +1,11 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.oneCard
+  display: flex
+  border: 1px solid c.$purple-350
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($pt: f.px(40), $pb: f.px(33), $plr: f.px(24))
+  color: black
+  border-radius: f.px(5)

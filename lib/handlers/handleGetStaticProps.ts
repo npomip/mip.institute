@@ -38,7 +38,7 @@ import TypePageBachelorProps from '@/types/page/bachelor/props/TypePageBachelorP
 import TypePagePracticalTrainingProps from '@/types/page/practicalTraining/props/TypePagePracticalTrainingProps'
 import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps'
 import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps'
-import getStaticPropsPageLectorium from '../getStaticProps/getStaticPropsLectorium'
+import getStaticPropsPageLectorium from '../getStaticProps/getStaticPropsPageLectorium'
 import getStaticPropsPageLectoriums from '../getStaticProps/getStaticPropsPageLectoriums'
 type TypeHandleGetStaticPropsProps = {
   page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]

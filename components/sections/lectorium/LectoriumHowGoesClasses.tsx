@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-const KinescopePlayer = dynamic(import('@kinescope/react-kinescope-player'), {
+const Player = dynamic(() => import('@/ui/Player/Player'), {
   ssr: false
 })
 const LectoriumHowGoesClasses = () => {
@@ -35,9 +35,8 @@ const LectoriumHowGoesClasses = () => {
               [stls.layout]: true,
               [stls.left]: true
             })}>
-            <p className={stls.title}>Видео–ролик</p>
             <div className={stls.playerWrapper}>
-              <KinescopePlayer
+              <Player
                 className={stls.kinescope}
                 videoId='2WALhR1ZcszBWNRXQ2kNSB'
               />

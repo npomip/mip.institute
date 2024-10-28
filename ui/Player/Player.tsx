@@ -1,21 +1,18 @@
-import React, { forwardRef } from 'react'
+import React, { RefObject } from 'react'
 import KinescopePlayer, {
   PlayerPropsTypes
 } from '@kinescope/react-kinescope-player'
-
 export { KinescopePlayer }
 
-type Props = PlayerPropsTypes
+type Props = PlayerPropsTypes & {
+  forwardRef?: RefObject<KinescopePlayer>
+}
 
-const isServer = () => typeof window === 'undefined'
+const isServer = () => typeof window === `undefined`
 
-const Player = forwardRef<KinescopePlayer, Props>((props, ref) => {
+export default function Player({ forwardRef, ...props }: Props) {
   if (isServer()) {
     return null
   }
-  return <KinescopePlayer {...props} ref={ref} />
-})
-
-Player.displayName = 'Player'
-
-export default Player
+  return <KinescopePlayer {...props} ref={forwardRef} />
+}

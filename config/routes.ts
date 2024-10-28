@@ -57,7 +57,8 @@ const routes = {
     policiesOferta: '/policies/oferta-mip.pdf',
     policiesOfertaEvent: '/policies/oferta-event.pdf',
     regulation: '/policies/regulation.pdf',
-    yandexAnalytics: '/policies/yandexAnalytics.pdf'
+    yandexAnalytics: '/policies/yandexAnalytics.pdf',
+    lectoriumRoutes: '/docs/general/lectoriumRoutes'
   },
   back: {
     // root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
@@ -74,7 +75,8 @@ const routes = {
     users: '/users'
   },
   external: {
-    ochuVoMipLicense: 'https://islod.obrnadzor.gov.ru/rlic/details/0B110B0A-0D0D-100D-0E0E-0F0D131211111110120D/',
+    ochuVoMipLicense:
+      'https://islod.obrnadzor.gov.ru/rlic/details/0B110B0A-0D0D-100D-0E0E-0F0D131211111110120D/',
     license:
       'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
     vk: 'https://m.vk.com/mip_institute',
@@ -92,7 +94,7 @@ const routes = {
     dzen: 'https://dzen.ru/institute_mip',
     eddu: 'https://eddu.pro/reviews/mip-review',
     advCake: 'https://advcake.ru/lp/mipinstitute/',
-    referralProgram: 'https://mip-institute-referral.ru/',
+    referralProgram: 'https://mip-institute-referral.ru/'
   },
   anchors: {
     //

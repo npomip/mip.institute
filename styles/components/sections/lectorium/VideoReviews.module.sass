@@ -5,20 +5,23 @@
 .container
 
 .title
+  font-weight: 500
+  line-height: 110%
+  font-size: f.px(44)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(25))
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(25))
-    font-size: f.px(44)
-    font-weight: 500
-    line-height: 110%
 
 .colored
   @include m.dye(c, c.$orange-700)
 
 .slides
-  position: relative
+  // position: relative
+
+.slide
+  @include m.flex($jc: center)
 
 .mySwiper
   @include m.gap($plr: f.px(10))
@@ -40,64 +43,14 @@
   @include m.media(tablet)
     height: 350px !important
   @include m.media(phone)
-    height: 210px !important
-    width: 210px !important
+    // height: 210px !important
+    // width: 210px !important
+    width: 250px !important
+    height: 250px !important
   iframe
     position: relative
     display: block
     width: 100%
     height: 100%
 
-.finger
-  z-index: 2
-  position: absolute
-  @include m.flex($ai: center, $jc: center)
-  @include m.dye(stroke, c.$orange-700)
-  @include m.dye(bg, c.$white-900)
-  border: f.px(1) solid c.$orange-700
-  width: f.px(90)
-  height: f.px(90)
-  border-radius: 50%
-  animation: 3s infinite normal slideDesktop
-  @include m.media(laptop)
-    animation: 3s infinite normal slideLaptop
-  @include m.media(tablet)
-    animation: 3s infinite normal slideTablet
-    width: f.px(60)
-    height: f.px(60)
-  @include m.media(phone)
-    animation: 3s infinite normal slidePhone
-    width: f.px(60)
-    height: f.px(60)
 
-@keyframes slidePhone
-  0%
-    transform: translate(f.px(250), f.px(-120))
-  50%
-    transform: translate(f.px(200), f.px(-120))
-  100%
-    transform: translate(f.px(250), f.px(-120))
-
-@keyframes slideTablet
-  0%
-    transform: translate(f.px(300), f.px(-120))
-  50%
-    transform: translate(f.px(250), f.px(-120))
-  100%
-    transform: translate(f.px(300), f.px(-120))
-
-@keyframes slideLaptop
-  0%
-    transform: translate(f.px(540), f.px(-120))
-  50%
-    transform: translate(f.px(500), f.px(-120))
-  100%
-    transform: translate(f.px(540), f.px(-120))
-
-@keyframes slideDesktop
-  0%
-    transform: translate(f.px(675), f.px(-120))
-  50%
-    transform: translate(f.px(640), f.px(-120))
-  100%
-    transform: translate(f.px(675), f.px(-120))

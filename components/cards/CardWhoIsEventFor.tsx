@@ -14,8 +14,10 @@ const CardWhoIsEventFor = ({ card }: Props) => {
     <div
       className={stls.container}
       style={{ backgroundImage: `url(${card.picture.src})` }}>
-      <div className={stls.icon}>
-        <IconOctopus />
+      <div className={stls.corners}>
+        <div className={stls.icon}>
+          <IconOctopus />
+        </div>
       </div>
       <div className={stls.textBlock}>
         <p className={stls.text}>{card.text}</p>

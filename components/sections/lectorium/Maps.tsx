@@ -6,8 +6,13 @@ import Tag from '@/ui/Tag'
 import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
 import { stationData, stationImages } from 'constants/maps'
-
+import dataLectoriumRoutes from '@/data/docs/nano-mip/general/lectoriumRoutes/dataLectoriumRoutes'
 const Maps = () => {
+  const handleOpenInNewTab = index => {
+    if (index >= 0 && index < dataLectoriumRoutes.length) {
+      window.open(dataLectoriumRoutes[index].href, '_blank')
+    }
+  }
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -38,7 +43,7 @@ const Maps = () => {
               {stationImages.suharevskaya}
             </div>
             <div className={stls.rightBlock}>
-              <IconTextButton onClick={() => {}} />
+              <IconTextButton onClick={() => handleOpenInNewTab(0)} />
               {stationImages.komsomolskaya}
             </div>
           </TwoColumns>
@@ -65,7 +70,7 @@ const Maps = () => {
                 }
               />
               <div className={stls.mobBtn}>
-                <IconTextButton onClick={() => {}} />
+                <IconTextButton onClick={() => handleOpenInNewTab(index + 1)} />
               </div>
             </Accordion>
           ))}

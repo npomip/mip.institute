@@ -4,11 +4,10 @@ import CustomNextButton from '@/ui/CustomNextButton'
 import CustomPrevButton from '@/ui/CustomPrevButton'
 import Wrapper from '@/ui/Wrapper'
 import dynamic from 'next/dynamic'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import SwiperCore from 'swiper'
 import { Navigation, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import type { KinescopePlayer } from '@/ui/Player/Player'
 const Player = dynamic(() => import('@/ui/Player/Player'), {
   ssr: false
 })
@@ -25,8 +24,7 @@ const VideoReviews = () => {
     'pYVT3iXAkxWaQDtJTKEZfP',
     '9dHuZCQa3zFwyTNBZkwB9N'
   ]
-  const swiperRef = useRef(null)
-  const playersRef = useRef<KinescopePlayer[]>([])
+  const playersRef = useRef([])
 
   const handleSlideChange = swiper => {
     playersRef.current.forEach((player, index) => {
@@ -35,6 +33,9 @@ const VideoReviews = () => {
       }
     })
   }
+  useEffect(() => {
+    playersRef.current = playersRef.current.slice(0, list.length)
+  }, [list.length])
 
   return (
     <section className={stls.container}>
@@ -44,27 +45,24 @@ const VideoReviews = () => {
         </h2>
         <div className={stls.slides}>
           <Swiper
-            ref={swiperRef}
-            scrollbar
+            scrollbar={isMobileAndTabletLayout ? false : true}
             navigation={{
               prevEl: '.custom-prev-button',
               nextEl: '.custom-next-button'
             }}
             onSlideChange={handleSlideChange}
-            slidesPerView={isMobileAndTabletLayout ? 1.3 : 3}
-            spaceBetween={isMobileAndTabletLayout ? 0 : 20}
-            allowTouchMove={isMobileAndTabletLayout ? true : false}
+            slidesPerView={isMobileAndTabletLayout ? 1 : 3}
+            spaceBetween={20}
+            allowTouchMove={false}
+            speed={2000}
             modules={[Navigation, Scrollbar]}
             className={stls.mySwiper}>
             {list.map((videoId, idx) => (
-              <SwiperSlide key={videoId + idx}>
+              <SwiperSlide key={videoId + idx} className={stls.slide}>
                 <div className={stls.playerWrapper}>
                   <Player
-                    ref={el => {
-                      if (el) {
-                        playersRef.current[idx] = el
-                      }
-                    }}
+                    // @ts-ignore
+                    forwardRef={el => (playersRef.current[idx] = el)}
                     className={stls.kinescope}
                     controls={false}
                     videoId={videoId}
@@ -76,16 +74,20 @@ const VideoReviews = () => {
               <CustomPrevButton
                 left={5}
                 top={0}
-                mobileTop={-30}
+                mobileTop={-15}
                 mobileLeft={100}
+                isTeacherRoundBtn
+                showOnMobile
               />
             </div>
             <div className='custom-next-button-container'>
               <CustomNextButton
                 left={0}
                 top={0}
-                mobileTop={-30}
+                mobileTop={-15}
                 mobileLeft={-115}
+                isTeacherRoundBtn
+                showOnMobile
               />
             </div>
           </Swiper>

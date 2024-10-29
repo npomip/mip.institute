@@ -34,6 +34,7 @@ const socialLinks = [
 ]
 
 const EventPaymentForm = ({}: Props) => {
+  const urlId = '3079794'
   const router = useRouter()
   const {
     register,
@@ -68,6 +69,8 @@ const EventPaymentForm = ({}: Props) => {
     } else {
       console.error('No URL found in response')
     }
+
+    window.open(`https://mipinstitute.timepad.ru/event/${urlId}/`, '_blank')
   }
 
   const isDisabled =

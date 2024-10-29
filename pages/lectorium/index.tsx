@@ -6,18 +6,39 @@ import { GetStaticProps } from 'next'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import { NextSeo } from 'next-seo'
 import stls from '@/styles/pages/LectoriumSlug.module.sass'
+import FilterTag from '@/components/filters/FilterTag'
+import { useRouter } from 'next/router'
 
 const LectoriumPage = ({ lectoriums }) => {
+  const router = useRouter()
   return (
-    <Wrapper>
-      <NextSeo nofollow={true} noindex={true} />
-      <h1>Семинары по психологии</h1>
-      <div className={stls.lectoriumWrapper}>
-        {lectoriums.map(lectorium => (
-          <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
-        ))}
-      </div>
-    </Wrapper>
+    <div className={stls.container}>
+      <Wrapper>
+        <NextSeo nofollow={true} noindex={true} />
+        <h1>Семинары по психологии</h1>
+        <h2>Это раздел с образовательными мероприятия, такие как очные мастер классы, супервизии, воркшопы и т.п</h2>
+        <div className={stls.tags}>
+          <FilterTag
+            onClick={() => router.push('/webinars')}
+            isActive={false}
+            isCategories>
+            Вебинары
+          </FilterTag>
+          <FilterTag
+            onClick={() => router.push('/lectorium')}
+            isActive={true}
+            isCategories>
+            Внутренние мероприятия
+          </FilterTag>
+        </div>
+
+        <div className={stls.lectoriumWrapper}>
+          {lectoriums.map(lectorium => (
+            <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
+          ))}
+        </div>
+      </Wrapper>
+    </div>
   )
 }
 

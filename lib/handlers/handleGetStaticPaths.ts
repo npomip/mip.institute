@@ -1,27 +1,21 @@
+import { routes } from '@/config/index'
 import {
-  TypeGeneralRoutesFront,
-  TypePageProgramsPaths,
-  TypePageProgramPaths
-} from '@/types/index'
-import { gql } from '@apollo/client'
-import apolloClient from '@/lib/apolloClient'
-import { routes, revalidate } from '@/config/index'
-import {
-  getStaticPathsPagePrograms,
-  getStaticPathsPageProgram,
-  getStaticPathsPageSeminar,
-  getStaticPathsPageSeminars,
   getStaticPathsPageJournal,
-  getStaticPathsPageJournals
+  getStaticPathsPageJournals,
+  getStaticPathsPageProgram,
+  getStaticPathsPagePrograms,
+  getStaticPathsPageSeminar,
+  getStaticPathsPageSeminars
 } from '@/lib/index'
+import { TypePageProgramPaths, TypePageProgramsPaths } from '@/types/index'
 import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPaths'
-import getStaticPathsPageLiveCourse from '../getStaticPaths/getStaticPathsPageLiveCourse'
 import getStaticPathsPageBachelor from '../getStaticPaths/getStaticPathsPageBachelor'
-import getStaticPathsPagePracticalTraining from '../getStaticPaths/getStaticPathsPagePracticalTraining'
 import getStaticPathsPageLectorium from '../getStaticPaths/getStaticPathsPageLectorium'
+import getStaticPathsPageLiveCourse from '../getStaticPaths/getStaticPathsPageLiveCourse'
+import getStaticPathsPagePracticalTraining from '../getStaticPaths/getStaticPathsPagePracticalTraining'
 
 type TypeHandleGetStaticPathsProps = {
-  page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
+  page: string
   type?: 'Course' | 'Profession'
 }
 

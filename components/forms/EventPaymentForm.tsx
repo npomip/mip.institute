@@ -11,6 +11,8 @@ import 'react-phone-input-2/lib/style.css'
 import { IconTelegram, IconWhatsapp } from '../icons'
 import IconCopyLink from '../icons/IconCopyLink'
 import IconVk from '../icons/IconVk'
+import { useEffect, useState } from 'react'
+import IconCheck from '../icons/IconCheck'
 
 type FormValues = {
   name: string
@@ -25,13 +27,6 @@ type Props = {
   //   lmsId
   // }
 }
-
-const socialLinks = [
-  { id: 'vk', icon: <IconVk />, link: routes.external.vk },
-  { id: 'whatsapp', icon: <IconWhatsapp />, link: routes.external.whatsapp },
-  { id: 'telegram', icon: <IconTelegram />, link: routes.external.telegram },
-  { id: 'copylink', icon: <IconCopyLink />, link: '#' }
-]
 
 const EventPaymentForm = ({}: Props) => {
   const urlId = '3079794'
@@ -50,6 +45,47 @@ const EventPaymentForm = ({}: Props) => {
     }
   })
   // const [isLoading, setIsLoading] = useState(false)
+  const [currentUrl, setCurrentUrl] = useState('')
+  const [isCopied, setIsCopied] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentUrl(`${window.location.origin}${router.asPath}`)
+    }
+  }, [router.asPath])
+
+  const shareText = 'Рекомендую ознакомиться с этим мероприятием!'
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(currentUrl)
+    setIsCopied(true)
+    setTimeout(() => setIsCopied(false), 2000)
+  }
+  const socialLinks = [
+    {
+      id: 'vk',
+      icon: <IconVk />,
+      link: routes.share.vk(currentUrl, shareText)
+    },
+    {
+      id: 'whatsapp',
+      icon: <IconWhatsapp />,
+      link: routes.share.whatsapp(currentUrl, shareText)
+    },
+    {
+      id: 'telegram',
+      icon: <IconTelegram />,
+      link: routes.share.telegram(currentUrl, shareText)
+    },
+    {
+      id: 'copyLink',
+      icon: <IconCopyLink />,
+      link: '#',
+      onClick: e => {
+        e.preventDefault()
+        handleCopyLink()
+      }
+    }
+  ]
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
@@ -78,6 +114,16 @@ const EventPaymentForm = ({}: Props) => {
     !dirtyFields.name ||
     !dirtyFields.phone ||
     !dirtyFields.surname
+
+  const handleClick = (e, onClick) => {
+    e.preventDefault()
+    onClick(e)
+  }
+
+  const getClassName = (isCopied, id) =>
+    classNames(stls.link, {
+      [stls.green]: id === 'copyLink' && isCopied
+    })
 
   return (
     <div className={stls.container}>
@@ -189,12 +235,21 @@ const EventPaymentForm = ({}: Props) => {
             {socialLinks.map(social => (
               <a
                 key={social.id}
-                className={stls.link}
+                className={getClassName(isCopied, social.id)}
                 href={social.link}
                 target='_blank'
                 rel='noopener noreferrer'
-                aria-label={social.id}>
-                {social.icon}
+                aria-label={social.id}
+                onClick={
+                  social.onClick
+                    ? e => handleClick(e, social.onClick)
+                    : undefined
+                }>
+                {social.id === 'copyLink' && isCopied ? (
+                  <IconCheck />
+                ) : (
+                  social.icon
+                )}
               </a>
             ))}
           </div>

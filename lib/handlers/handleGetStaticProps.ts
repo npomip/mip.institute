@@ -1,5 +1,4 @@
 import {
-  TypeGeneralRoutesFront,
   TypeGeneralGetStaticPropsContext,
   TypePageDefaultProps,
   TypePageHomeProps,
@@ -41,7 +40,7 @@ import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/pro
 import getStaticPropsPageLectorium from '../getStaticProps/getStaticPropsPageLectorium'
 import getStaticPropsPageLectoriums from '../getStaticProps/getStaticPropsPageLectoriums'
 type TypeHandleGetStaticPropsProps = {
-  page: TypeGeneralRoutesFront[keyof TypeGeneralRoutesFront]
+  page: string
   type?: string | null
 } & TypeGeneralGetStaticPropsContext
 const handleGetStaticProps = async ({

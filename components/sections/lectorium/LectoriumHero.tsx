@@ -1,5 +1,6 @@
 import { IconCalendarAlt, IconLocation } from '@/components/icons'
 import IconInfo from '@/components/icons/IconInfo'
+import { calculateEventTimeAndDate } from '@/helpers/calculateEventTimeAndDate'
 import stls from '@/styles/components/sections/lectorium/LectoriumHero.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import InfoPlate from '@/ui/InfoPlate'
@@ -12,15 +13,20 @@ type Props = {
 }
 
 const LectoriumHero = ({ lectorium }: Props) => {
+  const { formattedDate, startTime } = calculateEventTimeAndDate(
+    lectorium.targetDate
+  )
+  const endTime = lectorium.endTime.slice(0, 5)
+
   const plates = [
     {
       icon: <IconCalendarAlt isWhite />,
       header: 'дата:',
       content: (
         <>
-          {lectorium.date},
+          {formattedDate},
           <br />
-          {lectorium.time}
+          {startTime}-{endTime}
         </>
       )
     },

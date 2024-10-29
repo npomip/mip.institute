@@ -10,20 +10,6 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectorium }: Props) => {
-
-  const date = new Date(lectorium.targetDate);
-  const weekday = new Intl.DateTimeFormat("ru-RU", { weekday: "short" }).format(date);
-  const dateWithTime = new Intl.DateTimeFormat("ru-RU", {
-      day: "numeric", month: "short", hour: "2-digit", minute: "2-digit"
-  }).format(date);
-  
-  const formattedDate = `${weekday.toUpperCase()},\n${dateWithTime}`;
-  console.log(formattedDate);
-
-  const time = lectorium.endTime.slice(0, 5);
-  console.log(time);
-  
-  
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />

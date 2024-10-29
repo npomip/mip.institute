@@ -7,12 +7,17 @@ import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
 import { stationData, stationImages } from 'constants/maps'
 import dataLectoriumRoutes from '@/data/docs/nano-mip/general/lectoriumRoutes/dataLectoriumRoutes'
+import routes from '@/config/routes'
+
 const Maps = () => {
   const handleOpenInNewTab = index => {
     if (index >= 0 && index < dataLectoriumRoutes.length) {
       window.open(dataLectoriumRoutes[index].href, '_blank')
     }
   }
+
+  const makeRoute = () => window.open(routes.external.yandex, '_blank')
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -32,7 +37,7 @@ const Maps = () => {
               <IconTextButton
                 backgroundColor='#8F60FF'
                 text='Построить маршрут'
-                onClick={() => {}}
+                onClick={() => makeRoute()}
                 icon={
                   <span className={stls.location}>
                     <IconLocationArrow />
@@ -62,7 +67,7 @@ const Maps = () => {
               <IconTextButton
                 backgroundColor='#8F60FF'
                 text='Построить маршрут'
-                onClick={() => {}}
+                onClick={() => makeRoute()}
                 icon={
                   <span className={stls.location}>
                     <IconLocationArrow />

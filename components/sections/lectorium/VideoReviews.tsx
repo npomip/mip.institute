@@ -55,7 +55,8 @@ const VideoReviews = () => {
             spaceBetween={20}
             allowTouchMove={false}
             speed={2000}
-            modules={[Navigation, Scrollbar]}
+            slidesPerGroupAuto={false}
+            modules={[Scrollbar]}
             className={stls.mySwiper}>
             {list.map((videoId, idx) => (
               <SwiperSlide key={videoId + idx} className={stls.slide}>

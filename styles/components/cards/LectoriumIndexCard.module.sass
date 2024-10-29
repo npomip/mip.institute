@@ -9,3 +9,66 @@
   @include m.gap($pt: f.px(40), $pb: f.px(33), $plr: f.px(24))
   color: black
   border-radius: f.px(5)
+
+
+
+.title
+  @include m.gap($mb: f.px(7))
+  font-size: f.px(16)
+  font-weight: 500
+  color: c.$gray-550
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+
+.subtitle
+  font-weight: 500
+  font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.subtitleBig
+  font-weight: 500
+  font-size: f.px(25)
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.header
+  position: relative
+
+.bell
+  position: absolute
+  top: f.px(0)
+  right: f.px(25)
+  max-width: max-content
+  @include m.gap($ptb: f.px(15), $plr: f.px(16))
+  border-radius: 50%
+  @include m.dye(bg, c.$purple-800)
+  opacity: .8
+  transition: opacity .2s ease-in-out
+  &:hover
+    opacity: 1
+  @include m.media(phone, tablet)
+    top: f.px(-20)
+    right: f.px(-10)
+    @include m.gap($ptb: f.px(10), $plr: f.px(11))
+
+.image
+  object-fit: contain
+  @include m.gap($mb: f.px(20))
+  border-radius: f.px(50)
+  border: 0.578px solid #FFF
+  @include m.dye(bg, c.$gray-500)
+  @include m.media(phone, tablet)
+    border-radius: f.px(20)
+
+
+.footer
+  display: flex
+  justify-content: space-between
+  @include m.media(phone, tablet)
+    flex-direction: column
+
+.btn
+  &:hover
+    background: red

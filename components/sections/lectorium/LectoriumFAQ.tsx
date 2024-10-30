@@ -30,7 +30,7 @@ const LectoriumFAQ = ({ faq }: Props) => {
               key={qna.question}
               title={
                 <p className={stls.question}>
-                  <span className={stls.questionNumber}>(00{idx + 1})</span>
+                  <span className={stls.questionNumber}>{idx + 1}</span>
                   <span className={stls.questionText}>{qna.question}</span>
                 </p>
               }

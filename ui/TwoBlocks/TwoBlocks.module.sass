@@ -16,6 +16,8 @@
   border: f.px(1) solid c.$purple-350
   @include m.dye(bg, c.$white-900)
   flex-basis: 50%
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
 
 .violet
   @include m.dye(bg, c.$purple-200)

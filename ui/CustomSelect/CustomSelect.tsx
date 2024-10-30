@@ -15,6 +15,8 @@ type Props = {
   noOptionsMessage?: (obj: { inputValue: string }) => ReactNode
   value?: SelectOption
   isDisabled?: boolean
+  radius?: string
+  height?: string
 }
 
 const CustomSelect = ({
@@ -25,7 +27,9 @@ const CustomSelect = ({
   placeholder = 'Выберите направление',
   noOptionsMessage = () => 'Ничего не найдено',
   value,
-  isDisabled
+  isDisabled,
+  radius,
+  height
 }: Props) => {
   const customStyles = {
     control: base => {
@@ -35,10 +39,10 @@ const CustomSelect = ({
         display: 'flex',
         flexWrap: 'nowrap',
         borderColor: `${isDisabled ? '#E9E9E9' : mainColor}`,
-        borderRadius: `10px`,
+        borderRadius: `${radius ? radius : 10}px`,
         width: '100%',
         maxWidth: `380px`,
-        height: `50px`,
+        height: `${height ? height : 50}px`,
         fontFamily: 'Stem',
         fontSize: '14px',
         boxShadow: 'none',

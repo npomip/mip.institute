@@ -60,3 +60,9 @@
   min-width: f.px(400)
   @include m.media(phone, tablet)
     font-size: f.px(10)
+
+.disabled
+  border: f.px(1) solid c.$gray-500
+  @include m.dye(c, c.$gray-500)
+  background: none
+  pointer-events: none

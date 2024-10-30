@@ -8,6 +8,8 @@ import { NextSeo } from 'next-seo'
 import stls from '@/styles/pages/LectoriumSlug.module.sass'
 import FilterTag from '@/components/filters/FilterTag'
 import { useRouter } from 'next/router'
+import CustomSelect from '@/ui/CustomSelect'
+import { lectoriumOptoins } from 'constants/customSelect'
 
 const LectoriumPage = ({ lectoriums }) => {
   const router = useRouter()
@@ -16,7 +18,10 @@ const LectoriumPage = ({ lectoriums }) => {
       <Wrapper>
         <NextSeo nofollow={true} noindex={true} />
         <h1>Семинары по психологии</h1>
-        <h2>Это раздел с образовательными мероприятия, такие как очные мастер классы, супервизии, воркшопы и т.п</h2>
+        <h2>
+          Это раздел с образовательными мероприятия, такие как очные мастер
+          классы, супервизии, воркшопы и т.п
+        </h2>
         <div className={stls.tags}>
           <FilterTag
             onClick={() => router.push('/webinars')}
@@ -29,6 +34,26 @@ const LectoriumPage = ({ lectoriums }) => {
             isActive={true}
             isCategories>
             Внутренние мероприятия
+          </FilterTag>
+          <FilterTag
+            onClick={() => router.push('/lectorium')}
+            isActive={false}
+            isCategories>
+            Внешние мероприятия
+          </FilterTag>
+          <CustomSelect
+            onChange={() => {}}
+            options={lectoriumOptoins}
+            radius='50'
+            height='30'
+            mainColor='#6F6F6F'
+            placeholder='Тип мероприятия'
+          />
+          <FilterTag
+            onClick={() => router.push('/lectorium')}
+            isActive={false}
+            disabled>
+            Прошедшие мероприятия
           </FilterTag>
         </div>
 

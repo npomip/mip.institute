@@ -13,6 +13,7 @@ interface FilterTagProps {
   quantity?: string
   withPopup?: boolean
   popupText?: string
+  disabled?: boolean
 }
 const FilterTag = ({
   children,
@@ -22,7 +23,8 @@ const FilterTag = ({
   isProgram = false,
   quantity,
   withPopup = false,
-  popupText = ''
+  popupText = '',
+  disabled = false
 }: FilterTagProps) => {
   const isTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const contentStyle = {
@@ -42,7 +44,8 @@ const FilterTag = ({
         [stls.container]: true,
         [stls.active]: isActive,
         [stls.category]: isCategories,
-        [stls.program]: isProgram
+        [stls.program]: isProgram,
+        [stls.disabled]: disabled
       })}>
       {children}
       {<span className={stls.quantity}>{quantity}</span>}

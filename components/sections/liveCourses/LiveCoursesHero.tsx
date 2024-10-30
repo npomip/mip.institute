@@ -14,7 +14,9 @@ const LiveCoursesHero = ({ title, openModal }) => {
   return (
     <Wrapper>
       <div className={stls.container}>
-        <h1 className={stls.titleMobile}>{title}</h1>
+        {isMobileAndTabletLayout && (
+          <h1 className={stls.titleMobile}>{title}</h1>
+        )}
 
         <p className={stls.textMobile}>
           «Нет ничего хуже, когда человек глядит на жизнь через свою обиду.
@@ -26,7 +28,7 @@ const LiveCoursesHero = ({ title, openModal }) => {
           русский писатель
         </p>
 
-        <h1 className={stls.title}>{title}</h1>
+        {!isMobileAndTabletLayout && <h1 className={stls.title}>{title}</h1>}
         <div className={stls.folder}>
           <div className={stls.leftColumn}>
             <div className={stls.content}>

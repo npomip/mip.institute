@@ -38,7 +38,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
             <p className={stls.subtitle}>
               {formattedDate}-{endTime}
             </p>
-          <div onClick={(e) => e.preventDefault()} className={stls.bell}>
+          <div className={stls.bell}>
             <IconBell />
           </div>
         </div>
@@ -64,9 +64,9 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
             <p className={stls.title}>Стоимость:</p>
             <p className={stls.subtitle}>{card.price} руб.</p>
           </div>
-          <div onClick={(e) => e.preventDefault()} className={stls.btn}>
-          <PopupTrigger  btn='gamma' cta='participate' />
-          </div>
+          <button className={stls.btn}>
+            Принять участие
+          </button>
         </div>
       </div>
     </Link>

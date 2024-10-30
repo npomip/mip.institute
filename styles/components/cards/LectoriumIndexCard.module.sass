@@ -10,8 +10,6 @@
   color: black
   border-radius: f.px(5)
 
-
-
 .title
   @include m.gap($mb: f.px(7))
   font-size: f.px(16)
@@ -43,12 +41,10 @@
   max-width: max-content
   @include m.gap($ptb: f.px(15), $plr: f.px(16))
   border-radius: 50%
-  @include m.dye(bg, c.$purple-800)
-  opacity: .8
+  @include m.dye(bg, c.$purple-200)
   transition: opacity .2s ease-in-out
-  &:hover
-    opacity: 1
   @include m.media(phone, tablet)
+    @include m.dye(bg, c.$purple-300)
     top: f.px(-20)
     right: f.px(-10)
     @include m.gap($ptb: f.px(10), $plr: f.px(11))
@@ -62,7 +58,6 @@
   @include m.media(phone, tablet)
     border-radius: f.px(20)
 
-
 .footer
   display: flex
   justify-content: space-between
@@ -70,5 +65,22 @@
     flex-direction: column
 
 .btn
-  &:hover
-    background: red
+  border-radius: f.px(50)
+  background: f.px(1) solid 
+  background-color: c.$purple-200
+  @include m.gap($ptb: f.px(16), $plr: f.px(53))
+  font-size: f.px(20)
+  color: c.$white-900
+  @include m.media(phone, tablet)
+    border-radius: f.px(30)
+    background-color: c.$purple-300
+    @include m.gap($ptb: f.px(16), $plr: f.px(0))
+    font-size: f.px(15)
+
+.price
+  .title
+    @include m.gap($mt: f.px(4))
+  .subtitle
+    @include m.gap($mb: f.px(0))
+    @include m.media(phone, tablet)
+      @include m.gap($mb: f.px(12))

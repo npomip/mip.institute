@@ -2,9 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  @include m.gap($pt: f.px(0), $pb: f.px(70))
-
 .layout
   @include m.media(desktop, laptop)
     @include m.flex()
@@ -17,6 +14,8 @@
   flex-basis: 40%
   border-radius: f.px(10)
   border: f.px(1) solid c.$purple-350
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
 
 .image
   width: 100%

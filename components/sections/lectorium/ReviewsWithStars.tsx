@@ -9,7 +9,7 @@ import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 SwiperCore.use([Scrollbar])
 
-const ReviewsWithStars = () => {
+const ReviewsWithStars = ({reviews}) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
@@ -30,10 +30,10 @@ const ReviewsWithStars = () => {
             slidesPerView={isMobileAndTabletLayout ? 1.5 : 4}
             spaceBetween={isMobileAndTabletLayout ? 10 : 30}
             modules={[Scrollbar]}>
-            {[1, 2, 3, 4, 5].map((videoId, idx) => (
-              <SwiperSlide key={videoId + idx}>
+            {reviews.map((review, idx) => (
+              <SwiperSlide key={review + idx}>
                 <div className={stls.cards}>
-                  <CardReviewWithStars key={idx} number={idx} />
+                  <CardReviewWithStars review={review} key={idx} number={idx} />
                 </div>
               </SwiperSlide>
             ))}

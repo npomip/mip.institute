@@ -4,24 +4,42 @@ import IconStarRatingCard from '../icons/IconStarRatingCard'
 
 type Props = {
   number: number
+  review: {
+    name: string
+    date: string
+    text: string
+    picture: {
+      url: string
+      width: string
+      height: string
+    }
+  }
 }
 
-const CardReviewWithStars = ({ number }: Props) => {
+const CardReviewWithStars = ({ number, review }: Props) => {
+  const date = new Date(review.date)
+  const formattedDate = new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(date)
+  console.log(formattedDate);
+  
   return (
     <div
       className={classNames(stls.container, { [stls.violetBg]: number === 2 })}>
-      <p className={stls.date}>2 октября 2024</p>
+      <p className={stls.date}>{formattedDate}</p>
       <div className={stls.stars}>
         {Array.from({ length: 5 }, (_, i) => (
           <IconStarRatingCard key={i} />
         ))}
       </div>
       <p className={stls.text}>
-        Текстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыватекстотзыва
+        {review.text}
       </p>
       <div className={stls.author}>
         <div className={stls.image}></div>
-        <p className={stls.name}>Имя Фамилия</p>
+        <p className={stls.name}>{review.name}</p>
       </div>
     </div>
   )

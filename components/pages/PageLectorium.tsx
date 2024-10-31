@@ -20,6 +20,9 @@ type Props = {
 }
 
 const PageLectorium = ({ lectorium }: Props) => {
+
+  console.log(lectorium);
+  
   return (
     <div className={stls.container}>
       <LectoriumHero lectorium={lectorium} />
@@ -29,12 +32,12 @@ const PageLectorium = ({ lectorium }: Props) => {
       <LectoriumWhatYouWillLearn
         whatYouWillLearn={lectorium.whatYouWillLearn}
       />
-      <DownloadProgram />
+      <DownloadProgram pdf={lectorium.pdf} />
       <LectoriumCertificate />
       <LectoriumHowGoesClasses />
       <HaveQuestions />
       <VideoReviews />
-      <ReviewsWithStars />
+      <ReviewsWithStars reviews={lectorium.reviewWithDate} />
       <Maps />
       <EventRegistration targetDate={lectorium?.targetDate} />
       <LectoriumFAQ faq={lectorium?.faq} />

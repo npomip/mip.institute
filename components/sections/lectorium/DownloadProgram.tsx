@@ -8,7 +8,7 @@ import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
 import Image from 'next/image'
 
-const DownloadProgram = () => {
+const DownloadProgram = ({pdf}) => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (

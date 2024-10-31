@@ -19,6 +19,15 @@ export type Lectorium = {
   endTime: string
   whatYouWillLearn: WhatYouWillLearn
   faq: Faq[]
+  pdf: {
+    url: string
+  }
+  reviewWithDate: {
+    name: string
+    text: string
+    date: string
+    picture: Picture
+  }
 }
 
 export type Faq = {

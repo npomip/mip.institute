@@ -9,7 +9,7 @@ import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 SwiperCore.use([Scrollbar])
 
-const ReviewsWithStars = ({reviews}) => {
+const ReviewsWithStars = ({ reviews }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (

@@ -107,7 +107,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
 
   const [selectedValue, setSelectedValue] = useState(formList[0].value)
   const [finalPrice, setFinalPrice] = useState(price)
-  const [oldPrice, setOldPrice] = useState(price)
+  const [oldPrice, setOldPrice] = useState<null | number>(null)
   const [animatePrice, setAnimatePrice] = useState(false)
 
   const prices = {

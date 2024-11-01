@@ -69,12 +69,15 @@
     @include m.gap($ptb: f.px(5), $plr: f.px(15), $mb: f.px(20))
 
 .image
+  overflow: hidden
+  border-radius: 50%
+  @include m.dye(bg, c.$gray-200)
   max-width: f.px(150)
   max-height: f.px(150)
   @include m.media(phone, tablet)
-    max-width: f.px(160)
-    max-height: f.px(160)
-    margin: f.px(50) auto
+    max-width: f.px(180)
+    max-height: f.px(180)
+    margin: f.px(40) auto
 
 .name
   display: block
@@ -90,12 +93,15 @@
     font-size: f.px(16)
 
 .speaker
+  object-fit: cover
+  border-radius: 50%
+  transform: scale(1.4) translateY(f.px(15))
   @include m.media(phone, tablet)
     border-radius: 50%
-    transform: scale(1.3)
-    object-fit: cover
+    transform: scale(1) translateY(0)
 
 .btn
+  display: block
   width: 45%
   & > button
     @include m.flex($jc: space-between, $ai: center)

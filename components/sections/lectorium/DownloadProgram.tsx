@@ -2,13 +2,19 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import speaker from '@/public/assets/imgs/lectorium/speaker.png'
 import speakerMobile from '@/public/assets/imgs/lectorium/speakerMobile.png'
 import stls from '@/styles/components/sections/lectorium/DownloadProgram.module.sass'
+import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import IconTextButton from '@/ui/IconTextButton'
 import Tag from '@/ui/Tag'
 import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
 import Image from 'next/image'
+import Link from 'next/link'
 
-const DownloadProgram = () => {
+type Props = {
+  lectorium: Lectorium
+}
+
+const DownloadProgram = ({ lectorium }: Props) => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
@@ -22,14 +28,18 @@ const DownloadProgram = () => {
             <div className={stls.leftBlock}>
               <div className={stls.image}>
                 <Image
-                  src={isMobileLayout ? speakerMobile : speaker}
+                  src={lectorium.speaker.picture.url}
+                  width={lectorium.speaker.picture.width}
+                  height={lectorium.speaker.picture.height}
                   alt='Спикер мастер–класса'
                   className={stls.speaker}
                   style={{ width: '100%', height: 'auto' }}
                 />
               </div>
               <p className={stls.text}>
-                <span className={stls.name}>Лодзь Анна Николаевна</span>
+                <span className={stls.name}>
+                  {lectorium.speaker.title.replace(/.*?–\s*/, '')}
+                </span>
                 <span className={stls.rank}>Спикер мастер–класса</span>
               </p>
             </div>
@@ -41,12 +51,16 @@ const DownloadProgram = () => {
               </h2>
               <p className={stls.description}>
                 <span className={stls.bold}>Нажмите на кнопку</span> и скачайте
-                полную версию программы мероприятия «Тест Роршаха: Исследование
-                бессознательного через проективную диагностику»
+                полную версию программы мероприятия «{lectorium.title}{' '}
+                {lectorium.subtitle}»
               </p>
-              <div className={stls.btn}>
+              <Link
+                className={stls.btn}
+                href={lectorium.pdf.url}
+                target='_blank'
+                download>
                 <IconTextButton onClick={() => {}} />
-              </div>
+              </Link>
             </div>
           </TwoColumns>
         </div>

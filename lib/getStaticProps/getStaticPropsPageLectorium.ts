@@ -57,6 +57,19 @@ const getStaticPropsPageLectorium = async ({
               question
               answer
             }
+            reviewWithDate {
+              picture {
+                url
+                width
+                height
+              }
+              name
+              text 
+              date
+            }
+            pdf {
+              url
+            }
             seo {
               metaTitle
               metaDescription

@@ -10,9 +10,15 @@ import FilterTag from '@/components/filters/FilterTag'
 import { useRouter } from 'next/router'
 import CustomSelect from '@/ui/CustomSelect'
 import { lectoriumOptoins } from 'constants/customSelect'
+import Calendar from '@/ui/Calendar'
+import { Fragment } from 'react'
 
 const LectoriumPage = ({ lectoriums }) => {
   const router = useRouter()
+  const dates = lectoriums
+    .map(lectorium => lectorium.targetDate)
+    .concat('2024-10-30T15:00:00.000Z')
+
   return (
     <div className={stls.container}>
       <Wrapper>
@@ -58,9 +64,14 @@ const LectoriumPage = ({ lectoriums }) => {
         </div>
 
         <div className={stls.lectoriumWrapper}>
-          {lectoriums.map(lectorium => (
-            <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
+          {lectoriums.map((lectorium, index) => (
+            <Fragment key={lectorium.slug}>
+              <LectoriumIndexCard card={lectorium} />
+              {index === 1 && <Calendar dates={dates} />}
+            </Fragment>
           ))}
+
+          {lectoriums.length === 1 && <Calendar dates={dates} />}
         </div>
       </Wrapper>
     </div>

@@ -64,11 +64,17 @@ const getStaticPropsPageLectorium = async ({
                 height
               }
               name
-              text 
+              text
               date
             }
             pdf {
               url
+            }
+            timepadHref
+            diploma {
+              url
+              width
+              height
             }
             seo {
               metaTitle

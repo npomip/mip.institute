@@ -22,13 +22,10 @@ type FormValues = {
 }
 
 type Props = {
-  // program: {
-  //   price
-  //   lmsId
-  // }
+  timepadHref: string
 }
 
-const EventPaymentForm = ({}: Props) => {
+const EventPaymentForm = ({timepadHref}: Props) => {
   const urlId = '3079794'
   const router = useRouter()
   const {
@@ -106,7 +103,7 @@ const EventPaymentForm = ({}: Props) => {
       console.error('No URL found in response')
     }
 
-    window.open(`https://mipinstitute.timepad.ru/event/${urlId}/`, '_blank')
+    window.open(timepadHref, '_blank')
   }
 
   const isDisabled =

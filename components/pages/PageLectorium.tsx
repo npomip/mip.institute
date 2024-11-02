@@ -32,13 +32,13 @@ const PageLectorium = ({ lectorium }: Props) => {
         whatYouWillLearn={lectorium.whatYouWillLearn}
       />
       <DownloadProgram lectorium={lectorium} />
-      <LectoriumCertificate />
+      <LectoriumCertificate diploma={lectorium?.diploma} />
       <LectoriumHowGoesClasses />
       <HaveQuestions />
       <VideoReviews />
       <ReviewsWithStars reviews={lectorium.reviewWithDate} />
       <Maps />
-      <EventRegistration targetDate={lectorium?.targetDate} />
+      <EventRegistration timepadHref={lectorium?.timepadHref} targetDate={lectorium?.targetDate} />
       <LectoriumFAQ faq={lectorium?.faq} />
     </div>
   )

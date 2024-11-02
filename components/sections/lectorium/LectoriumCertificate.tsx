@@ -9,7 +9,7 @@ import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'
 import certificate from '@/public/assets/imgs/practicalCarousel/certificate.png'
 import Looper from '@/components/icons/Looper'
 
-const LectoriumCertificate = () => {
+const LectoriumCertificate = ({diploma}) => {
   const classNameImages = [stls.imgClass1, stls.imgClass2, stls.imgClass3]
   return (
     <section className={stls.container}>
@@ -35,10 +35,11 @@ const LectoriumCertificate = () => {
               {Array.from({ length: 3 }).map((_, index) => (
                 <div className={classNameImages[index]} key={index}>
                   <Image
-                    src={certificate}
+                    src={diploma.url}
                     width={certificate.width}
                     height={certificate.height}
                     alt='Сертификат'
+                    className={stls.diploma}
                     style={{
                       width: '100%',
                       height: 'auto'

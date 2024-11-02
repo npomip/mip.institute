@@ -8,7 +8,7 @@ type Props = {
   targetDate: string
 }
 
-const EventRegistration = ({ targetDate }: Props) => {
+const EventRegistration = ({ targetDate, timepadHref }: Props) => {
   return (
     <section className={stls.section}>
       <Wrapper>
@@ -18,7 +18,7 @@ const EventRegistration = ({ targetDate }: Props) => {
               <span className={stls.colouredTitle}>Оставьте</span> заявку на
               мероприятие
             </h2>
-            <EventPaymentForm />
+            <EventPaymentForm timepadHref={timepadHref} />
           </div>
           <Countdown targetDate={targetDate} />
         </TwoBlocks>

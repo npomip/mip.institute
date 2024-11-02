@@ -22,6 +22,8 @@ export type Lectorium = {
   pdf: {
     url: string
   }
+  timepadHref: string
+  diploma: Picture
   reviewWithDate: {
     name: string
     text: string

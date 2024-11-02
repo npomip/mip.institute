@@ -13,6 +13,7 @@ import IconCopyLink from '../icons/IconCopyLink'
 import IconVk from '../icons/IconVk'
 import { useEffect, useState } from 'react'
 import IconCheck from '../icons/IconCheck'
+import genezis from '@/helpers/funcs/genezis'
 
 type FormValues = {
   name: string
@@ -25,7 +26,7 @@ type Props = {
   timepadHref: string
 }
 
-const EventPaymentForm = ({timepadHref}: Props) => {
+const EventPaymentForm = ({ timepadHref }: Props) => {
   const urlId = '3079794'
   const router = useRouter()
   const {
@@ -96,14 +97,12 @@ const EventPaymentForm = ({timepadHref}: Props) => {
     } else {
       data.utm = null
     }
-    const resp = await payment(data)
-    if (resp && resp.url) {
-      window.open(resp.url, '_blank')
+    const req = await genezis(data)
+    if (req === 200) {
+      window.open(timepadHref, '_blank')
     } else {
       console.error('No URL found in response')
     }
-
-    window.open(timepadHref, '_blank')
   }
 
   const isDisabled =

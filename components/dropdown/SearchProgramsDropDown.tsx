@@ -19,6 +19,10 @@ export default function SearchProgramsDropDown() {
         val: 'Об институте'
       },
       {
+        href: routes.front.lectoriums,
+        val: 'Семинары по психологии'
+      },
+      {
         href: routes.front.teachers,
         val: 'Преподаватели'
       },

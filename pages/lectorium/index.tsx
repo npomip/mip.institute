@@ -11,13 +11,54 @@ import { useRouter } from 'next/router'
 import CustomSelect from '@/ui/CustomSelect'
 import { lectoriumOptoins } from 'constants/customSelect'
 import Calendar from '@/ui/Calendar'
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
+
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+import 'dayjs/locale/ru'
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.locale('ru')
+dayjs.extend(isSameOrAfter)
+dayjs.extend(isSameOrBefore)
 
 const LectoriumPage = ({ lectoriums }) => {
   const router = useRouter()
   const dates = lectoriums
-    .map(lectorium => lectorium.targetDate)
-    .concat('2024-10-30T15:00:00.000Z')
+    ?.map(lectorium => lectorium.targetDate)
+    ?.concat('2024-10-30T15:00:00.000Z')
+
+    const [filteredDates, setFilteredDates] = useState([null, null]);
+    const [filteredLectoriums, setFilteredLectoriums] = useState(lectoriums)
+  
+
+  // Функция для получения отфильтрованных дат из компонента Calendar
+  const handleFilteredDates = (dates) => {
+    setFilteredDates(dates);
+  };
+
+  useEffect(() => {
+    if (filteredDates[0] && filteredDates[1]) {
+      const startDate = dayjs(filteredDates[0])
+      const endDate = dayjs(filteredDates[1])
+
+      const filtered = lectoriums.filter(lectorium => {
+        const targetDate = dayjs(lectorium.targetDate)
+        return targetDate.isSameOrAfter(startDate, 'day') && targetDate.isSameOrBefore(endDate, 'day')
+      })
+
+      setFilteredLectoriums(filtered)
+    } else {
+      setFilteredLectoriums(lectoriums) // Показываем все, если нет диапазона
+    }
+  }, [filteredDates, lectoriums])
+
+  console.log(lectoriums);
+  
 
   return (
     <div className={stls.container}>
@@ -64,14 +105,14 @@ const LectoriumPage = ({ lectoriums }) => {
         </div>
 
         <div className={stls.lectoriumWrapper}>
-          {lectoriums.map((lectorium, index) => (
+          {filteredLectoriums?.map((lectorium, index) => (
             <Fragment key={lectorium.slug}>
               <LectoriumIndexCard card={lectorium} />
-              {index === 1 && <Calendar dates={dates} />}
+              {index === 1 && <Calendar onDatesFiltered={handleFilteredDates}  dates={dates} />}
             </Fragment>
           ))}
 
-          {lectoriums.length === 1 && <Calendar dates={dates} />}
+          {lectoriums.length === 1 && <Calendar onDatesFiltered={handleFilteredDates} dates={dates}  />}
         </div>
       </Wrapper>
     </div>

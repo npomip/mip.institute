@@ -6,6 +6,7 @@ import Wrapper from '@/ui/Wrapper'
 
 type Props = {
   targetDate: string
+  timepadHref: string
 }
 
 const EventRegistration = ({ targetDate, timepadHref }: Props) => {

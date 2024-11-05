@@ -26,7 +26,7 @@
   gap: f.px(25)
   @include m.gap($mt: f.px(40))
   @include m.media(phone, tablet)
-    grid-template-columns: 1fr
+    @include m.flex($fd: column-reverse)
 
 .tags
   @include m.flex($ai: center)

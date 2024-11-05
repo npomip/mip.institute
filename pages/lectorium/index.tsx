@@ -19,6 +19,7 @@ import timezone from 'dayjs/plugin/timezone'
 import 'dayjs/locale/ru'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -32,14 +33,19 @@ const LectoriumPage = ({ lectoriums }) => {
     ?.map(lectorium => lectorium.targetDate)
     ?.concat('2024-10-30T15:00:00.000Z')
 
-    const [filteredDates, setFilteredDates] = useState([null, null]);
-    const [filteredLectoriums, setFilteredLectoriums] = useState(lectoriums)
-  
+  const [filteredDates, setFilteredDates] = useState([null, null])
+  const [filteredLectoriums, setFilteredLectoriums] = useState(lectoriums)
+  const [isCalendarVisible, setIsCalendarVisible] = useState(true)
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
+  const handleToggleCalendar = visible => {
+    setIsCalendarVisible(visible)
+  }
 
   // Функция для получения отфильтрованных дат из компонента Calendar
-  const handleFilteredDates = (dates) => {
-    setFilteredDates(dates);
-  };
+  const handleFilteredDates = dates => {
+    setFilteredDates(dates)
+  }
 
   useEffect(() => {
     if (filteredDates[0] && filteredDates[1]) {
@@ -48,7 +54,10 @@ const LectoriumPage = ({ lectoriums }) => {
 
       const filtered = lectoriums.filter(lectorium => {
         const targetDate = dayjs(lectorium.targetDate)
-        return targetDate.isSameOrAfter(startDate, 'day') && targetDate.isSameOrBefore(endDate, 'day')
+        return (
+          targetDate.isSameOrAfter(startDate, 'day') &&
+          targetDate.isSameOrBefore(endDate, 'day')
+        )
       })
 
       setFilteredLectoriums(filtered)
@@ -56,9 +65,6 @@ const LectoriumPage = ({ lectoriums }) => {
       setFilteredLectoriums(lectoriums) // Показываем все, если нет диапазона
     }
   }, [filteredDates, lectoriums])
-
-  console.log(lectoriums);
-  
 
   return (
     <div className={stls.container}>
@@ -96,6 +102,18 @@ const LectoriumPage = ({ lectoriums }) => {
             mainColor='#6F6F6F'
             placeholder='Тип мероприятия'
           />
+          {isMobileAndTabletLayout && (
+            <CustomSelect
+              onChange={() => {}}
+              onToggleCalendar={handleToggleCalendar}
+              options={[]}
+              noOptionsMessage={() => null}
+              radius='50'
+              height='30'
+              mainColor='#8F60FF'
+              placeholder='Календарь'
+            />
+          )}
           <FilterTag
             onClick={() => router.push('/lectorium')}
             isActive={false}
@@ -108,11 +126,15 @@ const LectoriumPage = ({ lectoriums }) => {
           {filteredLectoriums?.map((lectorium, index) => (
             <Fragment key={lectorium.slug}>
               <LectoriumIndexCard card={lectorium} />
-              {index === 1 && <Calendar onDatesFiltered={handleFilteredDates}  dates={dates} />}
+              {index === 1 && isCalendarVisible && (
+                <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
+              )}
             </Fragment>
           ))}
 
-          {lectoriums.length === 1 && <Calendar onDatesFiltered={handleFilteredDates} dates={dates}  />}
+          {lectoriums.length === 1 && isCalendarVisible && (
+            <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
+          )}
         </div>
       </Wrapper>
     </div>

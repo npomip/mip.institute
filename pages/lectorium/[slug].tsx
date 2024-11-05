@@ -1,4 +1,5 @@
 import PageLectorium from '@/components/pages/PageLectorium'
+import SeoCommon from '@/components/seo/SeoCommon'
 import routes from '@/config/routes'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
@@ -10,9 +11,10 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectorium }: Props) => {
+
   return (
     <>
-      <NextSeo nofollow={true} noindex={true} />
+      <SeoCommon seo={lectorium.seo} programTitle={`${lectorium.title} ${lectorium.description}`} />
       <PageLectorium lectorium={lectorium} />
     </>
   )

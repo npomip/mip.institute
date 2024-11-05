@@ -6,6 +6,7 @@ import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/pro
 import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps';
 import { NextSeo } from 'next-seo';
 import preview from '@/config/preview'
+import SeoPractical from '@/components/seo/SeoPractical';
 
 // Определите интерфейс для пропсов
 interface ProgramsPageProps {
@@ -17,7 +18,7 @@ interface ProgramsPageProps {
 const ProgramsPage: React.FC<ProgramsPageProps> = ({ practicalTrainings, programs, bachelors }) => {
   return (
     <>
-      <NextSeo nofollow={preview} noindex={preview} />
+      <SeoPractical />
       <PageTrainings programs={programs} practicalTrainings={practicalTrainings} bachelors={bachelors} />
     </>
   );

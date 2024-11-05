@@ -24,6 +24,12 @@ export type Lectorium = {
   }
   timepadHref: string
   diploma: Picture
+  seo : {
+    metaTitle: string
+    metaDescription: string
+    isSEOFriendly: boolean
+    canonicalURL: string
+  }
   reviewWithDate: {
     name: string
     text: string

@@ -10,13 +10,14 @@ import FilterTag from '@/components/filters/FilterTag'
 import { useRouter } from 'next/router'
 import CustomSelect from '@/ui/CustomSelect'
 import { lectoriumOptoins } from 'constants/customSelect'
+import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 
 const LectoriumPage = ({ lectoriums }) => {
   const router = useRouter()
   return (
     <div className={stls.container}>
       <Wrapper>
-        <NextSeo nofollow={true} noindex={true} />
+        <SeoPagesLectoriums />
         <h1>Семинары по психологии</h1>
         <h2>
           Это раздел с образовательными мероприятия, такие как очные мастер

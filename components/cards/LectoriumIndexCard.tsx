@@ -1,11 +1,11 @@
 import routes from '@/config/routes'
+import { calculateEventTimeAndDate } from '@/helpers/calculateEventTimeAndDate'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/cards/LectoriumIndexCard.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
-import PopupTrigger from '@/ui/PopupTrigger'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import { IconBell } from '../icons'
 
 interface Step {
@@ -13,16 +13,9 @@ interface Step {
 }
 
 const LectoriumIndexCard: FC<Step> = ({ card }) => {
-  console.log(card)
-  const date = new Date(card.targetDate)
-  const formattedDate = new Intl.DateTimeFormat('ru-RU', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit'
-  }).format(date)
-  console.log(formattedDate)
+  const { formattedDateForCard, startTime } = calculateEventTimeAndDate(
+    card.targetDate
+  )
   const endTime = card.endTime.slice(0, 5)
 
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -34,10 +27,10 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
       href={`${routes.front.lectoriums}/${card.slug}`}>
       <div className={stls.cardText}>
         <div className={stls.header}>
-            <p className={stls.title}>Дата</p>
-            <p className={stls.subtitle}>
-              {formattedDate}-{endTime}
-            </p>
+          <p className={stls.title}>Дата:</p>
+          <p className={stls.subtitle}>
+            {formattedDateForCard}, {startTime}-{endTime}
+          </p>
           <div className={stls.bell}>
             <IconBell />
           </div>
@@ -55,7 +48,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
         <Image
           className={stls.image}
           src={card.speaker.picture.url}
-          width={ isMobileAndTabletLayout ? 120 : 58}
+          width={isMobileAndTabletLayout ? 120 : 58}
           height={isMobileAndTabletLayout ? 120 : 58}
           alt='Программа'
         />
@@ -64,9 +57,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
             <p className={stls.title}>Стоимость:</p>
             <p className={stls.subtitle}>{card.price} руб.</p>
           </div>
-          <button className={stls.btn}>
-            Принять участие
-          </button>
+          <button className={stls.btn}>Принять участие</button>
         </div>
       </div>
     </Link>

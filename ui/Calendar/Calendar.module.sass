@@ -1,0 +1,132 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.calendar
+  @include m.dye(bg, white)
+  width: 100% !important
+  // max-height: f.px(760)
+  @include m.gap($pt: f.px(40), $pb: f.px(50))
+  border: f.px(1) solid c.$purple-350
+  border-radius: f.px(5)
+  @include m.media(phone, tablet)
+    box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06)
+    border-color: c.$gray-500
+    border-radius: f.px(10)
+    @include m.gap($pt: f.px(20), $pb: f.px(20))
+  // react-calendar__navigation
+  & > div:nth-child(1)
+    @include m.flex($ai: center, $jc: space-between)
+    // react-calendar__navigation__label
+    & > button:nth-child(3)
+      // @include m.gap($mlr: f.px(150))
+      font-family: Stem
+      font-size: f.px(25)
+      font-weight: 500
+      line-height: 130%
+      text-transform: uppercase
+      @include m.dye(c, c.$black-900)
+      @include m.media(phone, tablet)
+        font-size: f.px(16)
+    // react-calendar__navigation__arrow react-calendar__navigation__next-button
+    & > button:nth-child(2n)
+      @include m.dye(c, c.$white-800)
+  // react-calendar__viewContainer
+  & > div:nth-child(2)
+    @include m.gap($plr: f.px(15))
+    // react-calendar__month-view__weekdays__weekday
+    & > div > div > div > div:nth-child(1) > div
+      @include m.flex($ai: center, $jc: center)
+      // react-calendar__month-view__weekdays__weekday
+      & > abbr
+        @include m.dye(c, c.$gray-700)
+        font-family: Stem
+        font-size: f.px(12)
+        font-style: normal
+        font-weight: 500
+        line-height: 120%
+        text-transform: uppercase
+        text-decoration: none
+        @include m.gap($mt: f.px(40), $mb: f.px(20))
+        @include m.media(phone, tablet)
+          @include m.gap($mt: f.px(20), $mb: f.px(10))
+          font-size: f.px(10)
+    // react-calendar__tile react-calendar__month-view__days__day 
+    & > div > div > div > div:nth-child(2) 
+      // @include m.flex($ai: center, $jc: center)
+      display: grid !important
+      grid-template-columns: repeat(7, f.px(70)) // 7 колонок с фиксированной шириной
+      gap: f.px(12)
+      @include m.media(tablet)
+        grid-template-columns: repeat(7, 1fr) 
+        gap: f.px(10)
+        display: grid
+      justify-items: center
+
+      @include m.media(phone)
+        // grid-template-columns: repeat(7, f.px(40))
+        grid-template-columns: repeat(7, 1fr) 
+        justify-items: center
+        gap: f.px(5)
+        display: grid
+      & > button
+        width: f.px(60)
+        height: f.px(60)
+        @include m.flex(c, c.$black-900)
+        display: flex
+        align-items: center
+        justify-content: center
+        @include m.gap($ptb: f.px(25), $mb: f.px(5), $mlr: f.px(5))
+        &:hover
+          @include m.media(desktop, laptop)
+            border-radius: 50%
+            @include m.dye(bg, c.$gray-200)
+        &:active
+          @include m.dye(bg, c.$orange-700)
+        @include m.media(phone, tablet)
+          @include m.gap($ptb: f.px(20), $mb: 0, $mlr: 0)
+          width: f.px(40)
+          height: f.px(40)
+          border-radius: f.px(4)
+      & > abbr
+        font-family: Stem
+        font-size: f.px(12)
+        font-style: normal
+        font-weight: 500
+        line-height: 120%
+        text-transform: uppercase
+        @include m.media(phone, tablet)
+          font-size: f.px(14)
+          font-weight: 500
+
+.bgArrow
+  @include m.flex($ai: center, $jc: center)
+  @include m.dye(bg, transparent)
+  width: f.px(40)
+  height: f.px(40)
+  border-radius: 50%
+  @include m.gap($mlr: f.px(15))
+  @include m.media(phone, tablet)
+    transform: scale(0.7)
+
+.arrow
+  width: 0
+  height: 0
+  border-top: f.px(7) solid transparent
+  border-bottom: f.px(7) solid transparent
+  border-left: f.px(12) solid c.$purple-800
+
+.prev
+  transform: rotate(180deg)
+
+.eventDate
+  @include m.dye(bg, c.$orange-700)
+  @include m.dye(c, c.$white-900)
+  font-weight: 500
+  border-radius: 50%
+  @include m.media(phone, tablet)
+    border-radius: f.px(4)
+
+// @global
+  .react-calendar__tile--active
+    background-color: c.$orange-700  !global

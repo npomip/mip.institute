@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import Select from 'react-select'
 
 export type SelectOption = {
@@ -17,6 +17,7 @@ type Props = {
   isDisabled?: boolean
   radius?: string
   height?: string
+  onToggleCalendar?
 }
 
 const CustomSelect = ({
@@ -29,8 +30,10 @@ const CustomSelect = ({
   value,
   isDisabled,
   radius,
-  height
+  height,
+  onToggleCalendar
 }: Props) => {
+  const [isOpen, setIsOpen] = useState(false)
   const customStyles = {
     control: base => {
       return {
@@ -87,6 +90,7 @@ const CustomSelect = ({
     dropdownIndicator: base => ({
       ...base,
       color: 'black',
+      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
       width: '30px',
       '&:hover': {
         color: 'white'
@@ -149,6 +153,18 @@ const CustomSelect = ({
       classNamePrefix='react-select'
       value={value}
       isDisabled={isDisabled}
+      onMenuOpen={() => {
+        setIsOpen(true)
+        if (onToggleCalendar) {
+          onToggleCalendar(false)
+        }
+      }}
+      onMenuClose={() => {
+        setIsOpen(false)
+        if (onToggleCalendar) {
+          onToggleCalendar(true)
+        }
+      }}
     />
   )
 }

@@ -9,6 +9,8 @@
   @include m.gap($pt: f.px(40), $pb: f.px(33), $plr: f.px(24))
   color: black
   border-radius: f.px(5)
+  @include m.media(phone, tablet)
+    @include m.gap($p: f.px(20))
 
 .title
   @include m.gap($mb: f.px(7))
@@ -37,7 +39,7 @@
 .bell
   position: absolute
   top: f.px(0)
-  right: f.px(25)
+  right: f.px(5)
   max-width: max-content
   @include m.gap($ptb: f.px(15), $plr: f.px(16))
   border-radius: 50%
@@ -45,7 +47,6 @@
   transition: opacity .2s ease-in-out
   @include m.media(phone, tablet)
     @include m.dye(bg, c.$purple-300)
-    top: f.px(-20)
     right: f.px(-10)
     @include m.gap($ptb: f.px(10), $plr: f.px(11))
 

@@ -29,9 +29,7 @@ dayjs.extend(isSameOrBefore)
 
 const LectoriumPage = ({ lectoriums }) => {
   const router = useRouter()
-  const dates = lectoriums
-    ?.map(lectorium => lectorium.targetDate)
-    ?.concat('2024-10-30T15:00:00.000Z')
+  const dates = lectoriums?.map(lectorium => lectorium.targetDate)
 
   const [filteredDates, setFilteredDates] = useState([null, null])
   const [filteredLectoriums, setFilteredLectoriums] = useState(lectoriums)

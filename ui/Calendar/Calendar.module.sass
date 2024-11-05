@@ -78,13 +78,16 @@
         justify-content: center
         @include m.gap($ptb: f.px(25), $mb: f.px(5), $mlr: f.px(5))
         &:hover
-          background-color: red
+          @include m.media(desktop, laptop)
+            border-radius: 50%
+            @include m.dye(bg, c.$gray-200)
         &:active
-          background-color: blue
+          @include m.dye(bg, c.$orange-700)
         @include m.media(phone, tablet)
           @include m.gap($ptb: f.px(20), $mb: 0, $mlr: 0)
           width: f.px(40)
           height: f.px(40)
+          border-radius: f.px(4)
       & > abbr
         font-family: Stem
         font-size: f.px(12)

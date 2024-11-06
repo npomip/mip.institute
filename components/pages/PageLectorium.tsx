@@ -36,7 +36,7 @@ const PageLectorium = ({ lectorium }: Props) => {
       <LectoriumWhatYouWillLearn
         whatYouWillLearn={lectorium.whatYouWillLearn}
       />
-      <DownloadProgram lectorium={lectorium} />
+      {lectorium.pdf && <DownloadProgram lectorium={lectorium} />}
       <LectoriumCertificate diploma={lectorium?.diploma} />
       <LectoriumHowGoesClasses />
       <HaveQuestions />

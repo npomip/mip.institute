@@ -1,4 +1,5 @@
 import Gratefull from '@/components/sections/Gratefull'
+import GratefullNew from '@/components/sections/GratefullNew'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
 import truncate from '@/helpers/general/truncate'
@@ -53,7 +54,7 @@ const GratefullPage: NextPage<TypePageDefaultProps> = () => {
           `
         }}
       />
-      <Gratefull />
+      <GratefullNew />
       <div
         className='i-flocktory'
         data-fl-action='exchange'

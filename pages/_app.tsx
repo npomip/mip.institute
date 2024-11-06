@@ -244,16 +244,16 @@ const MyApp = ({ Component, pageProps, router }) => {
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       {/* {!dev && ( */}
-        <>
-          <Script
-            strategy='afterInteractive'
-            src='/assets/js/vendors/roistatAB.js'
-          />
-          <Script
-            id='roistatMain'
-            strategy='afterInteractive'
-            dangerouslySetInnerHTML={{
-              __html: `
+      <>
+        <Script
+          strategy='afterInteractive'
+          src='/assets/js/vendors/roistatAB.js'
+        />
+        <Script
+          id='roistatMain'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: `
               (function(w, d, s, h, id) {
                 w.roistatProjectId = id; w.roistatHost = h;
                 var p = d.location.protocol == "https:" ? "https://" : "http://";
@@ -261,11 +261,11 @@ const MyApp = ({ Component, pageProps, router }) => {
                 var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
               })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
               `
-            }}
-          />
-          {/* <RoistatScript /> */}
-          <Script async src='/assets/js/vendors/roistatWA.js' />
-        </>
+          }}
+        />
+        {/* <RoistatScript /> */}
+        <Script async src='/assets/js/vendors/roistatWA.js' />
+      </>
       {/* )} */}
 
       {roistatVisit && (
@@ -467,6 +467,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           })`
         }}
       />
+
+      <Script async src='/assets/js/vendors/pixel.js' />
 
       {router.asPath === '/' ? (
         <Script

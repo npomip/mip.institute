@@ -14,7 +14,7 @@ const LectoriumPage = ({ lectorium }: Props) => {
 
   return (
     <>
-      <SeoCommon seo={lectorium.seo} programTitle={`${lectorium.title} ${lectorium.description}`} />
+      <SeoCommon seo={lectorium.seo} programTitle={`${lectorium.title} ${lectorium.description}: очный семинар в Москве`} />
       <PageLectorium lectorium={lectorium} />
     </>
   )

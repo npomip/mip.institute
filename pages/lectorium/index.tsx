@@ -131,18 +131,15 @@ const LectoriumPage = ({ lectoriums }) => {
         </div>
 
         <div className={stls.lectoriumWrapper}>
-          {filteredLectoriums?.map((lectorium, index) => (
-            <Fragment key={lectorium.slug}>
-              <LectoriumIndexCard card={lectorium} />
-              {index === 1 && isCalendarVisible && (
-                <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
-              )}
-            </Fragment>
-          ))}
-
-          {lectoriums.length === 1 && isCalendarVisible && (
+          {isCalendarVisible && (
             <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
           )}
+
+          {filteredLectoriums.map(lectorium => (
+            <div key={lectorium.slug}>
+              <LectoriumIndexCard card={lectorium} />
+            </div>
+          ))}
         </div>
       </Wrapper>
     </section>

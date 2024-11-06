@@ -12,18 +12,24 @@ import ReviewsWithStars from '@/components/sections/lectorium/ReviewsWithStars'
 import VideoReviews from '@/components/sections/lectorium/VideoReviews'
 import stls from '@/styles/pages/PageLectorium.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
-import Speaker from '../sections/lectorium/Speaker'
 import LectoriumWhoIsEventFor from '../sections/lectorium/LectoriumWhoIsEventFor'
+import Speaker from '../sections/lectorium/Speaker'
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 type Props = {
   lectorium: Lectorium
 }
 
 const PageLectorium = ({ lectorium }: Props) => {
+  const segments = ['lectorium']
+  const labels = ['Семинары по психологии']
+  const slugs = ['lectorium']
+
+  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
 
   return (
     <div className={stls.container}>
-      <LectoriumHero lectorium={lectorium} />
+      <LectoriumHero lectorium={lectorium} breadcrumbs={breadcrumbs} />
       <Speaker speaker={lectorium.speaker} />
       <Advantages />
       <LectoriumWhoIsEventFor />
@@ -37,7 +43,10 @@ const PageLectorium = ({ lectorium }: Props) => {
       <VideoReviews />
       <ReviewsWithStars reviews={lectorium.reviewWithDate} />
       <Maps />
-      <EventRegistration timepadHref={lectorium?.timepadHref} targetDate={lectorium?.targetDate} />
+      <EventRegistration
+        timepadHref={lectorium?.timepadHref}
+        targetDate={lectorium?.targetDate}
+      />
       <LectoriumFAQ faq={lectorium?.faq} />
     </div>
   )

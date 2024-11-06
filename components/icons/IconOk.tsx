@@ -1,12 +1,13 @@
 import stls from '@/styles/components/icons/IconOk.module.sass'
 import classNames from 'classnames'
 
-const IconVk = ({inContacts=false}) => {
+const IconVk = ({ inContacts = false }) => {
   return (
-    <span className={classNames({
-      [stls.container]: true,
-      [stls.red]: inContacts,
-    })}>
+    <span
+      className={classNames({
+        [stls.container]: true,
+        [stls.red]: inContacts
+      })}>
       <svg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <g clipPath='url(#clip0_152_98)'>
           <path
@@ -17,7 +18,7 @@ const IconVk = ({inContacts=false}) => {
           />
         </g>
         <defs>
-          <clipPath id='clip0_152_98'>
+          <clipPath id='clip0_152_981'>
             <rect width='16' height='16' fill='' />
           </clipPath>
         </defs>

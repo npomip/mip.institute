@@ -24,7 +24,6 @@ const CardReviewWithStars = ({ number, review }: Props) => {
     month: 'long',
     year: 'numeric'
   }).format(date)
-  console.log(formattedDate)
 
   return (
     <div

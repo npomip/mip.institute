@@ -4,21 +4,21 @@
 
 .container
   @include m.dye(bg, c.$pink-50)
-  @include m.gap($ptb: f.px(80))
-  @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(30))
+
   h1
     font-size: f.px(44)
-    @include m.gap($mb: f.px(20))
+    font-weight: 500
+    @include m.gap($mtb: f.px(20))
     @include m.media(phone, tablet)
       font-size: f.px(28)
-  h2
-    @include m.gap($mb: f.px(50))
-    font-weight: 350
-    font-size: f.px(22)
-    @include m.media(phone, tablet)
-      @include m.gap($mb: f.px(35))
-      font-size: f.px(15)
+
+.subtitle
+  @include m.gap($mb: f.px(50))
+  font-weight: 350
+  font-size: f.px(22)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(35))
+    font-size: f.px(15)
 
 .lectoriumWrapper
   display: grid
@@ -33,3 +33,4 @@
   gap: f.px(15)
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $ai: flex-start)
+

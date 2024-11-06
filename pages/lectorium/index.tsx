@@ -20,13 +20,15 @@ import 'dayjs/locale/ru'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
+import Breadcrumbs from '@/ui/Breadcrumbs'
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.locale('ru')
 dayjs.extend(isSameOrAfter)
 dayjs.extend(isSameOrBefore)
-import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 
 const LectoriumPage = ({ lectoriums }) => {
   const router = useRouter()
@@ -65,15 +67,22 @@ const LectoriumPage = ({ lectoriums }) => {
     }
   }, [filteredDates, lectoriums])
 
+  const segments = ['lectorium']
+  const labels = ['Семинары по психологии']
+  const slugs = ['lectorium']
+
+  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
+
   return (
-    <div className={stls.container}>
+    <section className={stls.container}>
       <Wrapper>
         <SeoPagesLectoriums />
+        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
         <h1>Семинары по психологии</h1>
-        <h2>
+        <p className={stls.subtitle}>
           Это раздел с образовательными мероприятия, такие как очные мастер
           классы, супервизии, воркшопы и т.п
-        </h2>
+        </p>
         <div className={stls.tags}>
           <FilterTag
             onClick={() => router.push('/webinars')}
@@ -136,7 +145,7 @@ const LectoriumPage = ({ lectoriums }) => {
           )}
         </div>
       </Wrapper>
-    </div>
+    </section>
   )
 }
 

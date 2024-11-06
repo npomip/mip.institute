@@ -129,16 +129,20 @@ const LectoriumPage = ({ lectoriums }) => {
             Прошедшие мероприятия
           </FilterTag>
         </div>
-
-        <div className={stls.lectoriumWrapper}>
-          {isCalendarVisible && (
-            <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
-          )}
-
-          {filteredLectoriums.map(lectorium => (
-            <div key={lectorium.slug}>
-              <LectoriumIndexCard card={lectorium} />
+        <div className={stls.firstRow}>
+          {filteredLectoriums.length > 0 && (
+            <div className={stls.cardWrapper}>
+              <LectoriumIndexCard card={filteredLectoriums[0]} />
             </div>
+          )}
+          <div className={stls.calendarWrapper}>
+            {isCalendarVisible && <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />}
+          </div>
+        </div>
+
+        <div className={stls.lectoriumGrid}>
+          {filteredLectoriums.map(lectorium => (
+            <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
           ))}
         </div>
       </Wrapper>

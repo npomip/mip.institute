@@ -4,8 +4,7 @@
 
 .calendar
   @include m.dye(bg, white)
-  width: 100% !important
-  // max-height: f.px(760)
+  max-width: 100% !important
   @include m.gap($pt: f.px(30), $pb: f.px(30))
   border: f.px(1) solid c.$purple-350
   border-radius: f.px(5)
@@ -55,8 +54,12 @@
     & > div > div > div > div:nth-child(2) 
       // @include m.flex($ai: center, $jc: center)
       display: grid !important
-      grid-template-columns: repeat(7, f.px(70)) // 7 колонок с фиксированной шириной
-      gap: f.px(12)
+      grid-template-columns: repeat(7, 1fr) // 7 колонок с фиксированной шириной
+      @include m.media(desktop)
+        gap: f.px(12)
+
+      @include m.media(laptop)
+        row-gap: f.px(10)
       @include m.media(tablet)
         grid-template-columns: repeat(7, 1fr) 
         gap: f.px(10)

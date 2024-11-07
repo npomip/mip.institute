@@ -1,39 +1,23 @@
+import ProgramsFilters from '@/components/program/ProgramsFilters'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/pages/PageBachelors.module.sass'
-import BachelorSlugCard from '../cards/BachelorSlugCard'
-import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
 import Breadcrumbs from '@/ui/Breadcrumbs'
-import ProgramsFilters from '@/components/program/ProgramsFilters'
 import Wrapper from '@/ui/Wrapper'
+import BachelorSlugCard from '../cards/BachelorSlugCard'
 import { SeoPageBachelors } from '../seo'
-
-type PagesProgramsType = {
-  ofType?: 'course' | 'profession'
-}
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 const PageBachelors = ({
   programs = [],
   bachelors = [],
   practicalTrainings = []
 }) => {
-  const categories = getUniqueCategories(programs)
-
   const label = 'Высшее образование'
-
-  const segments = [`/bachelor`]
-
+  const segments = [`bachelor`]
   const labels = [label]
   const slug = ['bachelor']
 
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
-
+  const breadcrumbs = useBreadcrumbs(segments, labels, slug)
   return (
     <Wrapper>
       <SeoPageBachelors />

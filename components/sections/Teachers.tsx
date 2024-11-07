@@ -112,10 +112,9 @@ const Teachers = ({
             }}
             speed={2000}
             scrollbar={isMobileAndTabletLayout ? false : true}
-            modules={[Scrollbar]}
-            className={stls.mySwiper}>
+            modules={[Scrollbar]}>
             {list?.map((teacher, idx) => (
-              <SwiperSlide key={teacher.name + idx} className={stls.slide}>
+              <SwiperSlide key={teacher.name + idx}>
                 <CardTeacher
                   portrait={teacher.image}
                   name={teacher.name}

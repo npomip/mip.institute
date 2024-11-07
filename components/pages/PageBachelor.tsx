@@ -21,6 +21,7 @@ import FourSteps from '../sections/FourSteps'
 import LinkedPrograms from '../sections/LinkedPrograms'
 import SalaryCounter from '../sections/SalaryCounter'
 import { SeoPageBachelor } from '../seo'
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 const PageBachelor = ({ bachelor }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -51,16 +52,9 @@ const PageBachelor = ({ bachelor }) => {
   ]
   const segments = ['bachelor']
   const labels = ['Высшее образование']
-  const slug = ['bachelor']
+  const slugs = ['bachelor']
 
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
+  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
 
   return (
     <>

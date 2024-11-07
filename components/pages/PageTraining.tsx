@@ -15,6 +15,7 @@ import PracticalWhoIsProgramFor from '@/components/sections/practicalTraining/Pr
 import RequirementsInProfession from '@/components/sections/practicalTraining/RequirementsInProfession'
 import { Teachers } from '../sections'
 import { SeoPageBachelor } from '../seo'
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 type Props = {
   practicalTraining: PracticalTraining
@@ -23,16 +24,9 @@ type Props = {
 const PageTraining = ({ practicalTraining }: Props) => {
   const segments = ['practical-training']
   const labels = ['Краткосрочная ступенчатая программа']
-  const slug = ['practical-training']
+  const slugs = ['practical-training']
 
-  const breadcrumbs = segments.map((_, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
+  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
 
   return (
     <div className={stls.pageWrapper}>

@@ -1,6 +1,6 @@
 const promocodesWithGift = {
   
-  pubum: 'СТРЕЛЕЦ'
+  pogrebjiskaya: 'Погребижская',
 };
 
 export default promocodesWithGift

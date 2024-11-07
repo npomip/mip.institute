@@ -3,11 +3,10 @@
 @use '@/styles/themes/default/colors' as c
 
 .oneCard
-  display: flex
+  @include m.flex($fd: column)
   border: 1px solid c.$purple-350
   @include m.dye(bg, c.$white-900)
-  @include m.gap($pt: f.px(40), $pb: f.px(33), $plr: f.px(24))
-  color: black
+  @include m.gap($ptb: f.px(30), $plr: f.px(24))
   border-radius: f.px(5)
   @include m.media(phone, tablet)
     @include m.gap($p: f.px(20))
@@ -22,13 +21,14 @@
 
 .subtitle
   font-weight: 500
-  font-size: f.px(20)
+  font-size: f.px(18)
   @include m.media(phone, tablet)
     font-size: f.px(16)
 
 .subtitleBig
+  max-width: f.px(470)
   font-weight: 500
-  font-size: f.px(25)
+  font-size: f.px(20)
   @include m.gap($mb: f.px(20))
   @include m.media(phone, tablet)
     font-size: f.px(16)
@@ -65,18 +65,22 @@
   @include m.media(phone, tablet)
     flex-direction: column
 
-.btn
+.btns > div > button
   border-radius: f.px(50)
   background: f.px(1) solid 
   background-color: c.$purple-200
+  border-color: c.$purple-200
   @include m.gap($ptb: f.px(16), $plr: f.px(53))
   font-size: f.px(20)
   color: c.$white-900
+  &::after
+    display: none
   @include m.media(phone, tablet)
     border-radius: f.px(30)
     background-color: c.$purple-300
     @include m.gap($ptb: f.px(16), $plr: f.px(0))
     font-size: f.px(15)
+
 
 .price
   .title
@@ -85,3 +89,30 @@
     @include m.gap($mb: f.px(0))
     @include m.media(phone, tablet)
       @include m.gap($mb: f.px(12))
+
+.completed
+  font-size: f.px(20)
+  font-weight: 500
+  @include m.dye(c, c.$purple-200)
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+.cardText
+  color: black !important 
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus
+    color: black !important
+
+.priceMobile
+  @include m.media(desktop, laptop)
+    display: none
+  @include m.media(phone, tablet)
+    display: block
+
+.priceDesktop
+  @include m.media(desktop, laptop)
+    display: block
+  @include m.media(phone, tablet)
+    display: none

@@ -8,11 +8,9 @@
   cursor: pointer
   &:hover
     & path
-
       stroke: #F87E1B
   & stroke
     @include m.dye(stroke, c.$white-900)
-
   & path
     stroke: #808080
 
@@ -38,3 +36,7 @@
 
     stroke: #F87E1B
     stroke-width: f.px(2)
+
+.white
+  & path
+    @include m.dye(stroke, c.$white-900)

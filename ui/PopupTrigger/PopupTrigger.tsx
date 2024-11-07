@@ -51,6 +51,7 @@ type PopupTriggerType = {
     | 'use'
     | 'knowRequirement'
     | 'sortOutGrievances'
+    | 'takePart'
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
@@ -106,7 +107,8 @@ const PopupTrigger = ({
       familiarize: 'Ознакомиться с программой',
       use: 'Применить',
       knowRequirement: 'Узнать',
-      sortOutGrievances: 'Разобраться с обидами'
+      sortOutGrievances: 'Разобраться с обидами',
+      takePart: 'Принять участие'
     },
     title: {
       askQuestion: 'Задать вопрос',
@@ -132,7 +134,8 @@ const PopupTrigger = ({
       participate: 'Участвовать',
       familiarize: 'Ознакомиться с программой',
       use: 'Применить',
-      knowRequirement: 'Узнать проходной балл'
+      knowRequirement: 'Узнать проходной балл',
+      takePart: 'Принять участие'
     },
     desc: {
       askQuestion: (
@@ -203,6 +206,12 @@ const PopupTrigger = ({
         <>
           Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы
           рассказать все о программе
+        </>
+      ),
+      takePart: (
+        <>
+          У Вас есть вопросы? Оставьте заявку! И сотрудник приемной комиссии
+          свяжется с вами, чтобы рассказать все подробности
         </>
       )
     },

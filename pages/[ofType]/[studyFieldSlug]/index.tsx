@@ -2,6 +2,7 @@ import { PagesPrograms } from '@/components/pages'
 import { SeoPagesPrograms } from '@/components/seo'
 import { revalidate } from '@/config/index'
 import { FilterProvider } from '@/context/FilterContext/FilterContext'
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import apolloClient from '@/lib/apolloClient'
 import {
@@ -30,22 +31,14 @@ const ProgramsPage: NextPage<
     ofType === 'professions'
       ? 'Профессиональная переподготовка'
       : ofType === 'courses'
-      ? 'Повышение квалификации'
-      : 'Все курсы'
+        ? 'Повышение квалификации'
+        : 'Все курсы'
 
-  const segments = [`/${query.ofType}`, asPath]
-
+  const segments = [`${query.ofType}`, asPath]
   const labels = [label, currentFieldSlug.studyField]
-  const slug = ['live-courses']
+  const slugs = ['live-courses']
 
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
+  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
 
   return (
     <>

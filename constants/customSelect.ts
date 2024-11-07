@@ -6,7 +6,7 @@ const levelOptions = [
 ]
 
 const formOptions = [
-  { value: 'online', label: 'Онлайн' },
+  { value: 'online', label: 'Онлайн' }
   // { value: 'offline', label: 'Очно-заочно' }
 ]
 
@@ -20,4 +20,12 @@ const programsOptions = [
   { value: 'offline', label: 'Диетология и нутрициология' }
 ]
 
-export { levelOptions, formOptions, programsOptions }
+const lectoriumOptoins = [
+  { value: 'offline', label: 'Очное' },
+  { value: 'online', label: 'Онлайн' },
+  { value: 'paid', label: 'Платное' },
+  { value: 'free', label: 'Бесплатное' },
+  { value: 'presentation', label: 'Презентация программы' }
+]
+
+export { levelOptions, formOptions, programsOptions, lectoriumOptoins }

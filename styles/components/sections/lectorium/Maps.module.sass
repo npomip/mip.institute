@@ -1,0 +1,85 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  display: inline-block
+  font-size: f.px(44)
+  font-style: normal
+  text-transform: uppercase
+  font-weight: 500
+  @include m.media(laptop)
+  @include m.gap($mb: f.px(25), $mr: f.px(100))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+    @include m.gap($mb: f.px(5), $mr: f.px(0))
+
+.coloured
+  @include m.dye(c, c.$orange-700)
+
+.header
+  @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: flex-start)
+    gap: f.px(15)
+
+.tag > div
+  @include m.gap($ptb: f.px(10), $plr: f.px(50))
+  font-size: f.px(12)
+  font-weight: 500
+  width: fit-content
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
+    @include m.gap($ptb: f.px(5), $plr: f.px(30))
+
+.contentDesktop
+  @include m.dye(bg, c.$white-900)
+  border: f.px(1) solid c.$purple-350
+  border-radius: f.px(14)
+  @include m.gap($ptb: f.px(40), $plr: f.px(20))
+  @include m.media(phone, tablet)
+    display: none
+
+.leftBlock, .rightBlock
+  gap: f.px(32)
+  @include m.flex($fd: column)
+  flex-basis: 49%
+
+.contentMobile
+  @include m.media(desktop, laptop)
+    display: none
+
+.contentMobile > div
+  border: f.px(1) solid c.$purple-350
+  border-radius: f.px(5)
+  @include m.gap($mtb: f.px(15), $ptb: f.px(10))
+
+.violetDivider
+  @include m.dye(bg, c.$purple-350)
+  height: f.px(0.5)
+  width: 100%
+  @include m.gap($mb: f.px(15))
+
+.mobBtn
+  @include m.gap($mb: f.px(20))
+
+.station
+  font-size: f.px(18)
+  font-weight: 350
+  line-height: 120%
+  &::before
+    content: 'м.'
+    font-size: f.px(14)
+    font-weight: 500
+    @include m.dye(c, c.$orange-700)
+
+.location > span > svg
+  @include m.dye(bg, c.$white-900)
+  border-radius: 50%
+  @include m.gap($p: f.px(10))
+  @include m.media(desktop, laptop)
+    @include m.sizeIcon($w: 42, $h: 42)
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 30, $h: 30)
+    @include m.gap($p: f.px(7))
+    stroke-width: 2

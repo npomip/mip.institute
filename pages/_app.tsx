@@ -31,6 +31,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import Image from 'next/image'
+import promocodesWithGift from '@/helpers/promoWithGIfts'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -208,6 +209,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
+  const [ isWithGift, setIsWithGift] = useState(false)
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
@@ -224,6 +226,17 @@ const MyApp = ({ Component, pageProps, router }) => {
       if (!foundPromo) {
         setIsPromo(false)
         setPromoText('')
+      }
+
+      let foundPromoWithGift = false
+      Object.keys(promocodesWithGift).forEach(code => {
+        if (stringedUtm?.includes(code)) {
+          setIsWithGift(true)
+          foundPromoWithGift = true
+        }
+      })
+      if (!foundPromoWithGift) {
+        setIsWithGift(false)
       }
     }, 2000)
   }, [utmCookie])
@@ -358,6 +371,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {
               <StickyTop
+              isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}

@@ -13,7 +13,8 @@ const promocodes = {
   dashtolc: 'dashatolc',
   sobchak: 'СОБЧАК',
   sulim: 'СУЛИМ',
-  strelezc: 'СТРЕЛЕЦ'
+  strelezc: 'СТРЕЛЕЦ',
+  pubum: 'СТРЕЛЕЦ'
 };
 
 export default promocodes

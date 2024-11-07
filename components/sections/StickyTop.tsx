@@ -9,9 +9,10 @@ type Props = {
   onClick: () => void
   isPromo?: boolean
   promoText?: string
+  isWithGift?: boolean
 }
 
-const StickyTop = ({ onClick, isPromo = false, promoText = '' }: Props) => {
+const StickyTop = ({ onClick, isPromo = false, promoText = '', isWithGift }: Props) => {
   return (
     <div
       className={classNames({
@@ -28,7 +29,7 @@ const StickyTop = ({ onClick, isPromo = false, promoText = '' }: Props) => {
             <div className={stls.text}>
               Активируйте промокод
               <span className={stls.bold}> “{promoText}”</span> и получите
-              дополнительную <span className={stls.bold}>скидку 10%</span>
+              дополнительную <span className={stls.bold}>скидку 10%{isWithGift &&' и мини-курс в подарок!'}</span>
             </div>
           </div>
           <div className={stls.btn}>

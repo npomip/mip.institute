@@ -1,8 +1,5 @@
 import stls from '@/styles/components/sections/GratefullNew.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import TwoColumns from '@/ui/TwoColumns'
-import ThanksForApplication from './ThanksForApplication'
-import JoinTgChannel from './JoinTgChannel'
 import classNames from 'classnames'
 import Link from 'next/link'
 import IconArrowNew from '../icons/IconArrowNew'
@@ -10,8 +7,30 @@ import IconArrowLeft from '../icons/IconArrowLeft'
 import gifts from '@/public/assets/imgs/gratefull/gifts.png'
 import planes from '@/public/assets/imgs/gratefull/planes.png'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { getCookie } from 'cookies-next'
+import promocodesWithGift from '@/helpers/promoWithGIfts'
 
 const GratefullNew = () => {
+  const [isPromo, setIsPromo] = useState(false)
+
+  const utmCookie = getCookie('utm')
+  const stringedUtm = utmCookie?.toString()
+  useEffect(() => {
+    setTimeout(() => {
+      let foundPromo = false
+      Object.keys(promocodesWithGift).forEach(code => {
+        if (stringedUtm?.includes(code)) {
+          setIsPromo(true)
+          foundPromo = true
+        }
+      })
+      if (!foundPromo) {
+        setIsPromo(false)
+      }
+    }, 2000)
+  }, [utmCookie])
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -53,31 +72,35 @@ const GratefullNew = () => {
                 решение стать человеком, который будет помогать другим людям.
               </p>
             </div>
-            <div className={stls.bottom}>
-              <p>
-                А пока, вы можете воспользоваться <br />
-                подарком от блогера
-              </p>
-              <Link
-                href={'https://mipinstitute.getcourse.ru/podp_mini_two'}
-                target='_blank'
-                className={stls.link}>
-                <button
-                  className={classNames({
-                    [stls.button]: true,
-                    [stls.purple]: true
-                  })}>
-                  забрать подарок
-                </button>
-                <div
-                  className={classNames({
-                    [stls.iconLink]: true,
-                    [stls.purple]: true
-                  })}>
-                  <IconArrowNew />
-                </div>
-              </Link>
-            </div>
+            {isPromo && (
+                <div className={stls.bottom}>
+                <p>
+                  А пока, вы можете воспользоваться <br />
+                  подарком от блогера
+                </p>
+                
+                <Link
+                  href={'https://mipinstitute.getcourse.ru/podp_mini_two'}
+                  target='_blank'
+                  className={stls.link}>
+                  <button
+                    className={classNames({
+                      [stls.button]: true,
+                      [stls.purple]: true
+                    })}>
+                    забрать подарок
+                  </button>
+                  <div
+                    className={classNames({
+                      [stls.iconLink]: true,
+                      [stls.purple]: true
+                    })}>
+                    <IconArrowNew />
+                  </div>
+                </Link>
+              </div>
+              )}
+            
           </div>
           <div
             className={classNames({

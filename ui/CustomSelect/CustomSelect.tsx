@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import Select from 'react-select'
 
 export type SelectOption = {
@@ -15,6 +15,9 @@ type Props = {
   noOptionsMessage?: (obj: { inputValue: string }) => ReactNode
   value?: SelectOption
   isDisabled?: boolean
+  radius?: string
+  height?: string
+  onToggleCalendar?
 }
 
 const CustomSelect = ({
@@ -25,8 +28,12 @@ const CustomSelect = ({
   placeholder = 'Выберите направление',
   noOptionsMessage = () => 'Ничего не найдено',
   value,
-  isDisabled
+  isDisabled,
+  radius,
+  height,
+  onToggleCalendar
 }: Props) => {
+  const [isOpen, setIsOpen] = useState(false)
   const customStyles = {
     control: base => {
       return {
@@ -35,10 +42,10 @@ const CustomSelect = ({
         display: 'flex',
         flexWrap: 'nowrap',
         borderColor: `${isDisabled ? '#E9E9E9' : mainColor}`,
-        borderRadius: `10px`,
+        borderRadius: `${radius ? radius : 10}px`,
         width: '100%',
         maxWidth: `380px`,
-        height: `50px`,
+        height: `${height ? height : 50}px`,
         fontFamily: 'Stem',
         fontSize: '14px',
         boxShadow: 'none',
@@ -83,6 +90,7 @@ const CustomSelect = ({
     dropdownIndicator: base => ({
       ...base,
       color: 'black',
+      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
       width: '30px',
       '&:hover': {
         color: 'white'
@@ -145,6 +153,18 @@ const CustomSelect = ({
       classNamePrefix='react-select'
       value={value}
       isDisabled={isDisabled}
+      onMenuOpen={() => {
+        setIsOpen(true)
+        if (onToggleCalendar) {
+          onToggleCalendar(false)
+        }
+      }}
+      onMenuClose={() => {
+        setIsOpen(false)
+        if (onToggleCalendar) {
+          onToggleCalendar(true)
+        }
+      }}
     />
   )
 }

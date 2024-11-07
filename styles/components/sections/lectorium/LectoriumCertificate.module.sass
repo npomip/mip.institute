@@ -1,0 +1,139 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.layout
+  border-radius: f.px(10)
+  position: relative
+  overflow: hidden
+  @include m.gap($pl: f.px(47), $pt: f.px(40))
+
+.left
+  @include m.dye(bg, white)
+  width: 100%
+  height: 100%
+  @include m.flex($fd: column)
+  @include m.media(phone, tablet)
+    @include m.gap($pl: f.px(21), $ptb: f.px(40))
+    @include m.flex($fd: column)
+    width: 100%
+
+.images
+  @include m.flex()
+  z-index: 1
+
+.title
+  display: inline-block
+  font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
+  @include m.media(laptop)
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+
+.description
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 130%
+  max-width: f.px(284)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(90))
+    font-size: f.px(15)
+
+.descriptionRight
+  font-size: f.px(16)
+  font-weight: 300
+  text-align: center
+  line-height: 110%
+  max-width: f.px(284)
+  position: relative
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    max-width: f.px(200)
+    z-index: 1
+
+.white
+  @include m.dye(c, white)
+
+.right
+  @include m.flex($fd: column, $ai: center)
+  width: 100%
+  height: 100%
+  @include m.gap($plr: f.px(37), $ptb: f.px(40))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(25), $ptb: f.px(40))
+
+.titleRight
+  text-align: center
+  font-size: f.px(28)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+
+.imgClass1
+  transform: translateY(f.px(-30)) translateX(f.px(266))
+  width: f.px(416)
+  height: f.px(295)
+  @include m.media(phone, tablet)
+    transform: translateY(f.px(24)) translateX(f.px(0))
+    width: f.px(330)
+    height: f.px(249)
+
+.imgClass2
+  position: absolute
+  transform: translateY(f.px(-40)) translateX(f.px(290))
+  width: f.px(416)
+  height: f.px(295)
+  @include m.media(phone, tablet)
+    transform: translateY(f.px(17)) translateX(f.px(14))
+    width: f.px(330)
+    height: f.px(249)
+
+.imgClass3
+  position: absolute
+  transform: translateY(f.px(-50)) translateX(f.px(316))
+  width: f.px(416)
+  height: f.px(295)
+  @include m.media(phone, tablet)
+    transform: translateY(f.px(10)) translateX(f.px(28))
+    width: f.px(330)
+    height: f.px(249)
+
+.imgRight
+  transform: rotate(17deg)
+  width: f.px(253)
+  height: f.px(253)
+  @include m.gap($mb: f.px(40))
+
+.btn > div > button
+  width: 100%
+  @include m.gap($plr: f.px(20))
+  @include m.dye(border, c.$purple-350)
+  @include m.dye(c, c.$purple-350)
+  border: f.px(1) solid
+  border-radius: f.px(4)
+.btn
+  width: 100%
+.colouredTitle
+  @include m.dye(c, c.$orange-700)
+
+.background
+  position: absolute
+  bottom: f.px(-5)
+  left: 0
+  z-index: 0
+  @include m.media(phone, tablet)
+    position: absolute
+    bottom: f.px(-70)
+    left: f.px(-112)
+    width: f.px(801)
+    height: f.px(600)
+
+.diploma
+  border: f.px(1) solid
+  border-radius: f.px(12)
+  border-color: c.$purple-800 

@@ -35,13 +35,14 @@
   font-size: f.px(14)
   font-weight: 350
   line-height: 130%
+  @include m.gap($mt: f.px(5))
   @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(5), $ml: f.px(55))
+    @include m.gap($ml: f.px(55))
   @include m.media(tablet)
     font-size: f.px(12)
-    @include m.gap($mt: f.px(10), $ml: f.px(45), $pl: f.px(5))
+    @include m.gap($ml: f.px(45), $pl: f.px(5))
   @include m.media(phone)
-    @include m.gap($mt: f.px(10), $ml: f.px(45))
+    @include m.gap($ml: f.px(45))
     font-size: f.px(12)
 
 .content > div

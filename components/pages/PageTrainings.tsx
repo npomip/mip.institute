@@ -5,28 +5,18 @@ import Breadcrumbs from '@/ui/Breadcrumbs'
 import ProgramsFilters from '@/components/program/ProgramsFilters'
 import Wrapper from '@/ui/Wrapper'
 import { SeoPageBachelors } from '../seo'
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 const PageTrainings = ({
   programs = [],
   practicalTrainings = [],
   bachelors = []
 }) => {
-  const label = 'Практическая подготовка'
+  const segments = ['practical-training']
+  const labels = ['Краткосрочная ступенчатая программа']
+  const slugs = ['practical-training']
 
-  const segments = [`/practical-training`]
-
-  const labels = [label]
-  const slug = ['practical-training']
-
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
-
+  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
   return (
     <Wrapper>
       <SeoPageBachelors />

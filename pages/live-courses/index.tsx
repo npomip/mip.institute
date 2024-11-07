@@ -13,6 +13,7 @@ import stls from '@/styles/pages/LiveCoursesSlug.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import 'reactjs-popup/dist/index.css'
+import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 const JournalPage = ({ lifeCourses }) => {
   const durations = lifeCourses.map(el => el.duration)
@@ -21,21 +22,10 @@ const JournalPage = ({ lifeCourses }) => {
   const minmaxDuration = findMinMaxForSlider(durations)
 
   const minmaxPrice = findMinMaxForSlider(prices)
-
   const segments = ['live-courses']
-
   const labels = ['LIFE курсы']
-  const slug = ['live-courses']
-
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      // path: '/' + segments.slice(0, index + 1).join('/'),
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
+  const slugs = ['live-courses']
+  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
 
   return (
     <Wrapper>

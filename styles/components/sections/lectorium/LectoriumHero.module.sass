@@ -1,0 +1,113 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.event
+  @include m.dye(c, c.$purple-350)
+  font-size: f.px(44)
+  font-weight: 500
+  text-transform: uppercase
+  @include m.gap($mtb: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15), $pt: f.px(20), $mt: 0)
+    font-size: f.px(26)
+
+.title
+  display: block
+  @include m.dye(c, c.$orange-700)
+  font-size: f.px(32)
+  font-weight: 500
+  line-height: 120%
+  text-transform: uppercase
+  margin-bottom: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.subTitle
+  font-size: f.px(58)
+  font-weight: 500
+  line-height: 100%
+  margin-bottom: 0
+  text-transform: uppercase
+  @include m.media(phone, tablet)
+    line-height: 110%
+    font-size: f.px(29)
+
+.image
+  object-fit: cover
+  max-height: f.px(400)
+  border-radius: f.px(14)
+  @include m.gap($mtb: f.px(20))
+  @include m.media(phone, tablet)
+    object-fit: cover
+    min-height: f.px(200)
+    border-radius: f.px(10)
+    @include m.gap($mt: f.px(10), $mb: f.px(20))
+
+.description
+  @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+
+.descriptionTitle
+  @include m.dye(c, c.$orange-700)
+  font-size: f.px(44)
+  font-weight: 500
+  text-transform: uppercase
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    font-size: f.px(26)
+
+.descriptionText
+  text-align: justify
+  font-size: f.px(22)
+  font-weight: 500
+  max-width: f.px(670)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.information
+  @include m.gap($mb: f.px(30))
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: f.px(30)
+  & > div:nth-child(1)
+    grid-column: span 3
+    @include m.media(phone, tablet)
+      grid-column: span 1
+
+  & > div:nth-child(2)
+    grid-column: span 5
+    @include m.media(phone, tablet)
+      grid-column: span 1
+
+  & > div:nth-child(3)
+    grid-column: span 2
+    @include m.media(phone, tablet)
+      grid-column: span 1
+
+  & > div:nth-child(4)
+    grid-column: span 2
+    @include m.media(phone, tablet)
+      grid-column: span 1
+  @include m.media(phone, tablet)
+    grid-template-columns: repeat(2, 1fr)
+    gap: f.px(8)
+    @include m.gap($mb: f.px(15))
+
+.btn > div > button
+  @include m.gap($ptb: f.px(20))
+  width: 100%
+  font-size: f.px(22)
+  border-radius: f.px(14)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(15))
+    border-radius: f.px(4)
+    font-size: f.px(16)
+
+.currency
+  @include m.dye(c, c.$white-900)
+  font-size: f.px(20)
+  font-weight: 350
+  @include m.media(phone, tablet)
+    font-size: f.px(10)

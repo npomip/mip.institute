@@ -225,7 +225,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       })
       if (!foundPromo) {
         setIsPromo(false)
-        setPromoText('')
+        setPromoText('') 
       }
 
       let foundPromoWithGift = false

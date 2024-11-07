@@ -20,7 +20,7 @@ export default function SearchProgramsDropDown() {
       },
       {
         href: routes.front.lectoriums,
-        val: 'Семинары по психологии'
+        val: 'Семинары'
       },
       {
         href: routes.front.teachers,

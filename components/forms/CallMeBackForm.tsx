@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form'
 import Popup from 'reactjs-popup'
 import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
 import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
+import PopupThankyouNew from '../popups/PopupThankyouNew'
 
 type FormValues = {
   name: string
@@ -179,7 +180,7 @@ const CallMeBackForm = ({
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyou close={() => setThanksIsOpen(false)} />
+        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
       </Popup>
       <form
         method='post'

@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Popup from 'reactjs-popup'
 import ipCheckFunc from '@/helpers/funcs/ipCheckFunc'
+import PopupThankyouNew from '../popups/PopupThankyouNew'
 
 type FormValues = {
   name: string
@@ -103,7 +104,7 @@ const NewForm = ({
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyou close={() => setThanksIsOpen(false)} />
+        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
       </Popup>
 
       <Popup open={loading} onClose={() => setLoading(false)}>

@@ -14,6 +14,7 @@ import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
 import genezis from '@/helpers/funcs/genezis'
 import getTicket from '@/helpers/funcs/getTicket'
+import PopupThankyouNew from '../popups/PopupThankyouNew'
 
 type FormValues = {
   name: string
@@ -152,7 +153,7 @@ const FormAlpha = ({
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyou close={() => setThanksIsOpen(false)} />
+        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
       </Popup>
 
       <Popup open={loading} onClose={() => setLoading(false)}>

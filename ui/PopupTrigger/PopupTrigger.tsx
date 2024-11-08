@@ -52,6 +52,7 @@ type PopupTriggerType = {
     | 'knowRequirement'
     | 'sortOutGrievances'
     | 'takePart'
+    | 'takeAction'
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
@@ -104,6 +105,7 @@ const PopupTrigger = ({
       '2for1': 'Получить 2 по цене 1',
       buyTicket: 'Купить билет',
       participate: 'Участвовать',
+      takeAction: 'Участвовать в акции',
       familiarize: 'Ознакомиться с программой',
       use: 'Применить',
       knowRequirement: 'Узнать',
@@ -135,7 +137,8 @@ const PopupTrigger = ({
       familiarize: 'Ознакомиться с программой',
       use: 'Применить',
       knowRequirement: 'Узнать проходной балл',
-      takePart: 'Принять участие'
+      takePart: 'Принять участие',
+      takeAction: 'Участвовать в акции'
     },
     desc: {
       askQuestion: (

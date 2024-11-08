@@ -11,7 +11,7 @@ import classNames from 'classnames'
 import validTitles from 'constants/bachelorHeroProgram'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const HeroProgram = ({ breadcrumbs }) => {
+const HeroProgram = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const { curProgramsType, program } = useContext(ContextStaticProps)
   const [cut, setCut] = useState(120)
@@ -35,8 +35,8 @@ const HeroProgram = ({ breadcrumbs }) => {
     curProgramsType === 'course'
       ? 'signUpForCourse'
       : curProgramsType === 'profession'
-      ? 'signUpForProfession'
-      : 'signUp'
+        ? 'signUpForProfession'
+        : 'signUp'
 
   const analysis = validTitles.includes(program?.title)
 
@@ -98,7 +98,7 @@ const HeroProgram = ({ breadcrumbs }) => {
                 </div>
               )}
               <div className={stls.heading}>
-                <Breadcrumbs breadcrumbs={breadcrumbs} />
+                <Breadcrumbs lastLabel={program?.title} />
                 <div className={stls.containerHero}>
                   <div className={stls.label}>
                     <ProgramLabel />

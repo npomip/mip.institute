@@ -6,20 +6,20 @@
 .container
   @include m.media(phone, tablet)
   @include m.gap($pt: f.px(1))
-  ul
-    li
-      a
-        @include m.dye(c, c.$white-900)
-        font-size: f.px(12)
-        font-weight: 350
-        &:hover
-          @include m.dye(c, c.$orange-700)
+
+.link
+  @include m.dye(c, c.$white-900)
+  font-size: f.px(12)
+  font-weight: 350
+  @include m.media(laptop)
+    font-size: f.px(11)
+
+  &:hover
+    color: #F87E1B !important
 
 .isJournal
   a
     color: #000 !important
-    &:hover
-      color: #F87E1B !important
 
 .linkList
   @include m.gap($pl: f.px(0))
@@ -42,3 +42,14 @@
     @include m.gap($mt: f.px(18))
   .triangle
     border-color: transparent transparent transparent #000
+
+.disabled
+  font-weight: 500
+  cursor: default
+  color: c.$white-900
+  &:hover
+    color: #FFF !important
+  &.isJournal
+    color: c.$black-900
+    &:hover
+      color: #000 !important

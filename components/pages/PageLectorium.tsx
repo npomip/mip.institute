@@ -14,22 +14,15 @@ import stls from '@/styles/pages/PageLectorium.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import LectoriumWhoIsEventFor from '../sections/lectorium/LectoriumWhoIsEventFor'
 import Speaker from '../sections/lectorium/Speaker'
-import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 type Props = {
   lectorium: Lectorium
 }
 
 const PageLectorium = ({ lectorium }: Props) => {
-  const segments = ['lectorium']
-  const labels = ['Семинары по психологии']
-  const slugs = ['lectorium']
-
-  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
-
   return (
     <div className={stls.container}>
-      <LectoriumHero lectorium={lectorium} breadcrumbs={breadcrumbs} />
+      <LectoriumHero lectorium={lectorium} />
       <Speaker speaker={lectorium.speaker} />
       <Advantages />
       <LectoriumWhoIsEventFor />

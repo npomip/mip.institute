@@ -4,7 +4,7 @@
 
 .container
   z-index: 2
-  @include m.gap($pt: f.px(67), $pb: f.px(0))
+  @include m.gap($pt: f.px(27), $pb: f.px(0))
   & > *
     position: relative
   @include m.media(laptop, desktop)
@@ -14,6 +14,9 @@
     position: relative
     z-index: 3
     display: none
+
+.breadcrumbs
+  @include m.gap($mb: f.px(30))
 
 .tag
   z-index: 3
@@ -58,7 +61,7 @@
   position: relative
   height: f.px(660)
   z-index: 1
-  @include m.gap($plr: f.px(63), $pt: f.px(60))
+  @include m.gap($plr: f.px(63))
 
 .label
   position: relative
@@ -180,3 +183,4 @@
 .info
   @include m.media(laptop, desktop)
     display: none
+

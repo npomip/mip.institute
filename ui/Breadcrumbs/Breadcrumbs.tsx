@@ -1,7 +1,7 @@
 import stls from './Breadcrumbs.module.sass'
 import Link from 'next/link'
 import classNames from 'classnames'
-import { useCallback, useMemo } from 'react'
+import { Fragment, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { breadcrumbsConfig, programsConfig } from '@/ui/Breadcrumbs/constants'
 
@@ -39,42 +39,41 @@ const Breadcrumbs = ({ lastLabel, isJournal = false, journalSlug }: Props) => {
   }, [journalSlug])
 
   return (
-    <nav aria-label='Breadcrumbs' className={stls.container}>
-      <ul
-        className={classNames(stls.linkList, {
-          [stls.isJournal]: isJournal
-        })}>
-        <li>
-          <Link href='/' className={stls.link}>
-            Главная
-          </Link>
-        </li>
-        {breadcrumbs.map((breadcrumb, index) => (
-          <li key={breadcrumb.path}>
-            <span className={stls.triangle}></span>
-            {index === breadcrumbs.length - 1 ? (
-              <span
-                className={classNames(stls.link, stls.disabled, {
-                  [stls.isJournal]: isJournal
-                })}
-                aria-current='page'>
-                {breadcrumb.label}
-              </span>
-            ) : (
-              <Link
-                className={stls.link}
-                href={breadcrumb.path}
-                onClick={() => {
-                  if (isJournal) {
-                    handleClick()
-                  }
-                }}>
-                {breadcrumb.label}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
+    <nav
+      aria-label='Breadcrumbs'
+      className={classNames(stls.linkList, {
+        [stls.isJournal]: isJournal
+      })}>
+      <Link href='/' className={stls.homeLink}>
+        Главная
+      </Link>
+
+      {breadcrumbs.map((breadcrumb, index) => (
+        <Fragment key={breadcrumb.path}>
+          {index === breadcrumbs.length - 1 ? (
+            <span
+              className={classNames(stls.link, stls.disabled, {
+                [stls.isJournal]: isJournal
+              })}
+              aria-current='page'>
+              {breadcrumb.label}
+            </span>
+          ) : (
+            <Link
+              className={classNames(stls.link, {
+                [stls.isJournal]: isJournal
+              })}
+              href={breadcrumb.path}
+              onClick={() => {
+                if (isJournal) {
+                  handleClick()
+                }
+              }}>
+              {breadcrumb.label}
+            </Link>
+          )}
+        </Fragment>
+      ))}
     </nav>
   )
 }

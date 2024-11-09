@@ -1,5 +1,4 @@
-const breadcrumbsConfig: Record<string, string> = {
-  '/': 'Главная',
+const breadcrumbsConfig = {
   '/journal': 'Журнал',
   '/lectorium': 'Семинары по психологии',
   '/practical-training': 'Краткосрочная ступенчатая программа',
@@ -11,7 +10,7 @@ const breadcrumbsConfig: Record<string, string> = {
   '/webinars': 'Вебинары'
 }
 
-const programsConfig: Record<string, string> = {
+const programsConfig = {
   '/detskaya-psihologiya': 'Детская психология',
   '/psihoterapiya': 'Психотерапия',
   '/obshaya-psihologiya': 'Общая психология',

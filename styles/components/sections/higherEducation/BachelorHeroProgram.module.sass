@@ -42,13 +42,14 @@
 .mobileFlex
   height: 100%
   @include m.media(phone, tablet)
-    @include m.flex($fd: column)
+    @include m.flex($fd: column, $jc: space-around)
 
 .heading
   position: relative
-  height: f.px(660)
+  min-height: f.px(660)
+  @include m.flex($fd: column, $jc: space-around)
   z-index: 1
-  @include m.gap($plr: f.px(63), $pt: f.px(10))
+  @include m.gap($plr: f.px(63), $pt: f.px(5), $pb: f.px(25))
 
 .label
   position: relative
@@ -159,7 +160,6 @@
   @include m.gap($mb: f.px(0))
 
 .content
-  min-height: f.px(473)
   @include m.flex($fd: column, $jc: space-between)
   @include m.gap($pt: f.px(20), $pb: f.px(30), $plr: f.px(15))
 

@@ -46,7 +46,7 @@ const CustomPrevButton = ({
         [stls.liveCourses]: isLiveCourse,
         [stls.squareBtn]: isSquareBtn
       })}>
-      <button className='custom-prev-button'>
+      <button className='custom-prev-button' aria-label='Предыдущий слайд'>
         <IconPrevButton isSquareBtn={isSquareBtn} />
       </button>
     </div>

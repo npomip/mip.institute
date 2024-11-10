@@ -8,12 +8,12 @@ import { routes } from '@/config/index'
 import { discount } from '@/data/price'
 import stls from '@/styles/components/sections/StickyBottom.module.sass'
 import cn from 'classnames'
+import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import IconPortalViolet from '../icons/IconPortalViolet'
-import classNames from 'classnames'
 
 const StickyBottom = () => {
   const router = useRouter()
@@ -77,7 +77,7 @@ const StickyBottom = () => {
             </span>
             <Popup
               trigger={
-                <button className={stls.info}>
+                <button className={stls.info} aria-label='Информация о скидках'>
                   <IconInfoOrange />
                 </button>
               }

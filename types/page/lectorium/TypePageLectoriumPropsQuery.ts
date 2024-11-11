@@ -8,6 +8,8 @@ export type Lectorium = {
   slug: string
   title: string
   subtitle: string
+  type: LectoriumTypes
+  label: string
   description: string
   date: string
   time: string
@@ -67,4 +69,11 @@ export type SpeakerType = {
 
 type Text = {
   text: string
+}
+
+export enum LectoriumTypes {
+  online = 'online',
+  offline = 'offline',
+  paid= 'paid',
+  free = 'free'
 }

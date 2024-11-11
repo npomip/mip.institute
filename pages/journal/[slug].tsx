@@ -31,27 +31,16 @@ const JournalSlugPage = ({ blog }) => {
     el => el.__typename === 'ComponentBlogSubtitle'
   )
 
-  const slug = ['', blog?.studyFieldSlug]
-
-  const segments = ['journal', 'journal']
-
-  const labels = ['Журнал', blog?.studyField]
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      // path: '/' + segments.slice(0, index + 1).join('/'),
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
-
   return (
     <Wrapper>
       <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
         <ReadingProgressbar />
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <Breadcrumbs
+          isJournal
+          lastLabel={blog?.studyField}
+          journalSlug={blog?.studyFieldSlug}
+        />
         {articleHeading && <ArticleTitle props={articleHeading} />}
         <Accordion>
           <ArticleContentLinks props={headingLinks} />

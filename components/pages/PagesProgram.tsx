@@ -21,8 +21,7 @@ import {
 } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { TypeLibReviews } from '@/types/index'
-import { getCookie } from 'cookies-next'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
@@ -31,13 +30,11 @@ import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
 
 type PagesProgramType = {
   ofType: string
   reviews: TypeLibReviews
   programOverview: string
-  breadcrumbs: TBreadcrumb[]
   slug: string
 }
 
@@ -45,7 +42,6 @@ const PagesProgram = ({
   ofType = null,
   reviews,
   programOverview,
-  breadcrumbs,
   slug
 }: PagesProgramType) => {
   const diplomaRef = useRef(null)
@@ -99,7 +95,7 @@ const PagesProgram = ({
   return (
     <>
       <ButtonToTop />
-      <HeroProgram breadcrumbs={breadcrumbs} />
+      <HeroProgram />
       <PageNavigation sections={sections} />
       <WhyBother />
       {programOverview && (

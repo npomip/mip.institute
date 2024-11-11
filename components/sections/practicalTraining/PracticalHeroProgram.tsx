@@ -1,19 +1,18 @@
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/practicalTraining/PracticalHeroProgram.module.sass'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Tag from '@/ui/Tag'
 import Wrapper from '@/ui/Wrapper'
 import { useRouter } from 'next/router'
 import PracticalProgramInfo from './PracticalProgramInfo'
+import Breadcrumbs from '@/ui/Breadcrumbs'
 
 type Props = {
-  breadcrumbs: TBreadcrumb[]
   practicalTraining: PracticalTraining
 }
 
-const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
+const PracticalHeroProgram = ({ practicalTraining }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const cta = 'signUp'
   const title = (
@@ -36,10 +35,10 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
         {step === 'first-step'
           ? '1 ступень'
           : step === 'second-step'
-          ? '2 ступень'
-          : step === 'third-step'
-          ? '3 ступень'
-          : 'Неизвестная ступень'}
+            ? '2 ступень'
+            : step === 'third-step'
+              ? '3 ступень'
+              : 'Неизвестная ступень'}
       </Tag>
     </div>
   )
@@ -86,7 +85,9 @@ const PracticalHeroProgram = ({ breadcrumbs, practicalTraining }: Props) => {
               }}>
               <span className={stls.filter}></span>
               <div className={stls.heading}>
-                {/* <Breadcrumbs breadcrumbs={breadcrumbs} /> */}
+                <div className={stls.breadcrumbs}>
+                  <Breadcrumbs lastLabel='Практическая подготовка' />
+                </div>
                 {tag}
                 <h1 className={stls.title}>{title}</h1>
                 <div className={stls.descriptionDesktop}>

@@ -38,7 +38,7 @@ const LectoriumHowGoesClasses = () => {
             <div className={stls.playerWrapper}>
               <Player
                 className={stls.kinescope}
-                videoId='2WALhR1ZcszBWNRXQ2kNSB'
+                videoId='sPJLpY5fpEK8rg2fJeBia1'
               />
             </div>
           </div>

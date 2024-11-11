@@ -2,7 +2,6 @@ import { IconCalendarAlt, IconLocation } from '@/components/icons'
 import IconInfo from '@/components/icons/IconInfo'
 import { calculateEventTimeAndDate } from '@/helpers/calculateEventTimeAndDate'
 import stls from '@/styles/components/sections/lectorium/LectoriumHero.module.sass'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import InfoPlate from '@/ui/InfoPlate'
@@ -12,10 +11,9 @@ import Image from 'next/image'
 
 type Props = {
   lectorium: Lectorium
-  breadcrumbs: TBreadcrumb[]
 }
 
-const LectoriumHero = ({ lectorium, breadcrumbs }: Props) => {
+const LectoriumHero = ({ lectorium }: Props) => {
   const { formattedDate, startTime } = calculateEventTimeAndDate(
     lectorium.targetDate
   )
@@ -59,8 +57,8 @@ const LectoriumHero = ({ lectorium, breadcrumbs }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
-        <p className={stls.event}>Очный мастер-класс</p>
+        <Breadcrumbs isJournal lastLabel='Внутренние мероприятия' />
+        <p className={stls.event}>{lectorium.label}</p>
         <h1 className={stls.subTitle}>
           <span className={stls.title}>{lectorium.title}</span>
           {lectorium.subtitle}

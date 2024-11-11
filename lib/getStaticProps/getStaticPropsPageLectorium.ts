@@ -20,6 +20,8 @@ const getStaticPropsPageLectorium = async ({
             slug
             title
             subtitle
+            type
+            label
             picture {
               url
               width

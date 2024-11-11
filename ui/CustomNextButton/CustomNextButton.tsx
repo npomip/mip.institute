@@ -46,7 +46,7 @@ const CustomNextButton = ({
         [stls.liveCourses]: isLiveCourse,
         [stls.squareBtn]: isSquareBtn
       })}>
-      <button className='custom-next-button'>
+      <button className='custom-next-button' aria-label='Следующий слайд'>
         <IconNextButton isSquareBtn={isSquareBtn} />
       </button>
     </div>

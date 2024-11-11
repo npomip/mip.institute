@@ -4,14 +4,13 @@ import { handleGetStaticProps } from '@/lib/index'
 import Wrapper from '@/ui/Wrapper'
 import { GetStaticProps } from 'next'
 // import SeoPagesJournals from '@/components/seo/SeoPageJournals'
-import { NextSeo } from 'next-seo'
 import stls from '@/styles/pages/LectoriumSlug.module.sass'
 import FilterTag from '@/components/filters/FilterTag'
 import { useRouter } from 'next/router'
 import CustomSelect from '@/ui/CustomSelect'
 import { lectoriumOptoins } from 'constants/customSelect'
 import Calendar from '@/ui/Calendar'
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -22,7 +21,6 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 import Breadcrumbs from '@/ui/Breadcrumbs'
-import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -67,17 +65,11 @@ const LectoriumPage = ({ lectoriums }) => {
     }
   }, [filteredDates, lectoriums])
 
-  const segments = ['lectorium']
-  const labels = ['Семинары по психологии']
-  const slugs = ['lectorium']
-
-  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
-
   return (
     <section className={stls.container}>
       <Wrapper>
         <SeoPagesLectoriums />
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <Breadcrumbs isJournal />
         <h1>Семинары по психологии</h1>
         <p className={stls.subtitle}>
           Это раздел с образовательными мероприятия, такие как очные мастер

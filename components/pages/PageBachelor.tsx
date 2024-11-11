@@ -21,7 +21,6 @@ import FourSteps from '../sections/FourSteps'
 import LinkedPrograms from '../sections/LinkedPrograms'
 import SalaryCounter from '../sections/SalaryCounter'
 import { SeoPageBachelor } from '../seo'
-import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 const PageBachelor = ({ bachelor }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -50,16 +49,11 @@ const PageBachelor = ({ bachelor }) => {
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'cost', label: 'Стоимость', ref: costRef, condition: true }
   ]
-  const segments = ['bachelor']
-  const labels = ['Высшее образование']
-  const slugs = ['bachelor']
-
-  const breadcrumbs = useBreadcrumbs(segments, labels, slugs)
 
   return (
     <>
       <SeoPageBachelor program={bachelor} />
-      <BachelorHeroProgram breadcrumbs={breadcrumbs} />
+      <BachelorHeroProgram />
       <PageNavigation sections={sections} />
       <ForWhomHE />
       <FourSteps stepsForEnterRef={stepsForEnterRef} />

@@ -1,45 +1,80 @@
 import stls from './Breadcrumbs.module.sass'
 import Link from 'next/link'
 import classNames from 'classnames'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
+import { Fragment, useCallback, useMemo } from 'react'
+import { useRouter } from 'next/router'
+import { breadcrumbsConfig, programsConfig } from '@/ui/Breadcrumbs/constants'
 
 type Props = {
-  breadcrumbs?: TBreadcrumb[]
+  lastLabel?: string
   isJournal?: boolean
+  journalSlug?: string
 }
 
-const Breadcrumbs = ({ breadcrumbs, isJournal = false }: Props) => {
-  const handleClick = bcrumbs => {
-    localStorage.setItem('selectedFieldSlug', bcrumbs.slug)
-  }
+const Breadcrumbs = ({ lastLabel, isJournal = false, journalSlug }: Props) => {
+  const { asPath } = useRouter()
+
+  const breadcrumbs = useMemo(() => {
+    const segments = asPath.split('?')[0].split('/').filter(Boolean)
+    const paths = segments.map(
+      (_, index) => `/${segments.slice(0, index + 1).join('/')}`
+    )
+
+    return paths.map(path => {
+      const segment = path.split('/').pop()
+      const label =
+        breadcrumbsConfig[path] || programsConfig[`/${segment}`] || lastLabel
+
+      return {
+        path,
+        label
+      }
+    })
+  }, [lastLabel, asPath])
+
+  const handleClick = useCallback(() => {
+    if (typeof window !== 'undefined' && journalSlug) {
+      localStorage.setItem('selectedFieldSlug', journalSlug)
+    }
+  }, [journalSlug])
+
   return (
-    <div className={stls.container}>
-      <ul
-        className={classNames({
-          [stls.linkList]: true,
-          [stls.isJournal]: isJournal
-        })}>
-        <li>
-          <Link href='/'>Главная</Link>
-        </li>
-        {breadcrumbs &&
-          breadcrumbs.map(el => (
-            <li key={el.label}>
-              <span className={stls.triangle}></span>
-              <Link
-                className={stls.links}
-                href={el.path}
-                onClick={() => {
-                  if (isJournal) {
-                    handleClick(el)
-                  }
-                }}>
-                {el.label}
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </div>
+    <nav
+      aria-label='Breadcrumbs'
+      className={classNames(stls.linkList, {
+        [stls.isJournal]: isJournal
+      })}>
+      <Link href='/' className={stls.homeLink}>
+        Главная
+      </Link>
+
+      {breadcrumbs.map((breadcrumb, index) => (
+        <Fragment key={breadcrumb.path}>
+          {index === breadcrumbs.length - 1 ? (
+            <span
+              className={classNames(stls.link, stls.disabled, {
+                [stls.isJournal]: isJournal
+              })}
+              aria-current='page'>
+              {breadcrumb.label}
+            </span>
+          ) : (
+            <Link
+              className={classNames(stls.link, {
+                [stls.isJournal]: isJournal
+              })}
+              href={breadcrumb.path}
+              onClick={() => {
+                if (isJournal) {
+                  handleClick()
+                }
+              }}>
+              {breadcrumb.label}
+            </Link>
+          )}
+        </Fragment>
+      ))}
+    </nav>
   )
 }
 

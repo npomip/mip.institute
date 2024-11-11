@@ -5,24 +5,17 @@ import Breadcrumbs from '@/ui/Breadcrumbs'
 import Wrapper from '@/ui/Wrapper'
 import BachelorSlugCard from '../cards/BachelorSlugCard'
 import { SeoPageBachelors } from '../seo'
-import useBreadcrumbs from '@/hooks/general/useBreadcrumbs'
 
 const PageBachelors = ({
   programs = [],
   bachelors = [],
   practicalTrainings = []
 }) => {
-  const label = 'Высшее образование'
-  const segments = [`bachelor`]
-  const labels = [label]
-  const slug = ['bachelor']
-
-  const breadcrumbs = useBreadcrumbs(segments, labels, slug)
   return (
     <Wrapper>
       <SeoPageBachelors />
       <FilterProvider items={programs}>
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <Breadcrumbs isJournal />
         <h1 className={stls.title}>Высшее образование</h1>
         <ProgramsFilters
           bachelors={bachelors}

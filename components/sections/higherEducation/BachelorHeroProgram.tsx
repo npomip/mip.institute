@@ -9,14 +9,9 @@ import Popup from 'reactjs-popup'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import BachelorFullProgramPopup from '@/components/popups/BachelorFullProgramPopup'
 import BachelorProgramInfo from './BachelorProgramInfo'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-type Props = {
-  breadcrumbs: TBreadcrumb[]
-}
-
-const BachelorHeroProgram = ({ breadcrumbs }: Props) => {
+const BachelorHeroProgram = () => {
   const { bachelor } = useContext(ContextStaticProps)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
@@ -95,7 +90,7 @@ const BachelorHeroProgram = ({ breadcrumbs }: Props) => {
               }}>
               <span className={stls.filter}></span>
               <div className={stls.heading}>
-                <Breadcrumbs breadcrumbs={breadcrumbs} />
+                <Breadcrumbs lastLabel={bachelor.title} />
                 <h1
                   className={classNames({
                     [stls.title]: true,

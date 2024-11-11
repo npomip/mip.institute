@@ -1,0 +1,99 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/layout/cards/cardProgram'
+
+.containerLink
+  position: relative
+  cursor: pointer
+  border-radius: f.px(10)
+  min-height: auto
+  border: f.px(1) solid
+  @include m.dye(border, c.$purple-350)
+  @include m.dye(bg, c.$gray-50)
+  @include m.dye(c, c.$black-900)
+  transition: background-color .2s ease-in-out
+  @include m.media(laptop, desktop)
+    max-width: f.px(370)
+    overflow: hidden
+    @include m.flex($fd: column, $fb: 50%)
+    @include m.gap($mr: 1%)
+    &:nth-child(2n)
+      @include m.gap($mr: 0)
+  &:hover
+    .title
+      color: #6f01c6 !important
+  &:focus
+    @include m.dye(bg, c.$white-900)
+
+.type
+  max-width: max-content
+  @include m.gap($ptb: f.px(6), $plr: f.px(11))
+  font-weight: 700
+  font-size: f.px(8)
+  border-radius: f.px(15)
+  font-style: normal
+  font-weight: 700
+  letter-spacing: f.px(0.8)
+  text-transform: uppercase
+  border: f.px(1) solid
+  @include m.dye(border, c.$purple-350)
+  @include m.dye(c, c.$purple-350)
+  @include m.media(laptop)
+    font-size: f.px(6)
+  @include m.media(phone, tablet)
+    font-size: f.px(8)
+
+.title
+  font-weight: 500
+  overflow-wrap: break-word
+  transition: color .2s ease-in-out
+  @include m.gap($mb: 0)
+  @include m.media(laptop, desktop)
+    font-size: f.px(25)
+    font-weight: 500
+    @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.content
+  @include m.gap($pl: f.px(20), $ptb: f.px(20))
+  border-bottom-left-radius: f.px(10)
+  border-bottom-right-radius: f.px(10)
+  height: 100%
+  min-height: f.px(160)
+  @include m.flex($fd:column, $jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(15))
+  .tags
+    @include m.flex()
+    gap: f.px(10)
+    @include m.media(phone, tablet)
+      gap: f.px(5)
+      font-size: f.px(10)
+      @include m.gap($mb: f.px(9))
+      @include m.flex($fd:column)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(18))
+    height: auto
+    min-height: f.px(160)
+
+.duration
+  font-size: f.px(12)
+  font-weight: 350
+  @include m.gap($mt: f.px(28))
+  @include m.media(phone, tablet)
+    font-size: f.px(8)
+
+.imgCard
+  display: flex
+  position: relative
+  height: f.px(200)
+
+.img
+  width: 100%
+  height: auto
+  border-top-right-radius: f.px(10)
+  border-top-left-radius: f.px(10)
+  object-fit: cover
+

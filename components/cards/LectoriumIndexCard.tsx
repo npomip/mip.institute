@@ -54,7 +54,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
           {card.subtitle}
         </p>
         <p className={stls.title}>Формат:</p>
-        <p className={stls.subtitle}>Очный: Москва, Докучаев переулок, 8</p>
+        <p className={stls.subtitle}>{card.type === 'online' ? 'Онлайн' : 'Очный: Москва, Докучаев переулок, 8'}</p>
         <p className={classNames(stls.title, stls.priceMobile)}>Стоимость:</p>
         <p className={classNames(stls.subtitle, stls.priceMobile)}>
           {card.price} руб.

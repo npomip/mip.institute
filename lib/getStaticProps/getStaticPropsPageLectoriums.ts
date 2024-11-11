@@ -21,6 +21,7 @@ const getStaticPropsPageLectoriums = async ({
           id
           title
           subtitle
+          type
           slug
           date
           price

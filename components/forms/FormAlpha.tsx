@@ -133,15 +133,16 @@ const FormAlpha = ({
 
       if (req === 200) {
         setLoading(false)
-        window.open(
-          `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
-          '_blank'
-        )
+        // window.open(
+        //   `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
+        //   '_blank'
+        // )
         setIsIpCheckFailed(false)
         setIsDisabled(true)
         setThanksIsOpen(true)
       } else {
         setLoading(false)
+        setThanksIsOpen(true)
         setIsIpCheckFailed(true)
       }
     }

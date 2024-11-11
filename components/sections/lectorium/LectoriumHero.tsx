@@ -58,7 +58,7 @@ const LectoriumHero = ({ lectorium }: Props) => {
     <section className={stls.container}>
       <Wrapper>
         <Breadcrumbs isJournal lastLabel='Внутренние мероприятия' />
-        <p className={stls.event}>Очный мастер-класс</p>
+        <p className={stls.event}>{lectorium.label}</p>
         <h1 className={stls.subTitle}>
           <span className={stls.title}>{lectorium.title}</span>
           {lectorium.subtitle}

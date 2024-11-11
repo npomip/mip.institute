@@ -20,6 +20,8 @@ type Props = {
 }
 
 const PageLectorium = ({ lectorium }: Props) => {
+  console.log(lectorium);
+  
   return (
     <div className={stls.container}>
       <LectoriumHero lectorium={lectorium} />

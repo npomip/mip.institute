@@ -35,11 +35,11 @@ const LectoriumHero = ({ lectorium }: Props) => {
       icon: <IconLocation isEmpty />,
       header: 'формат:',
       content: (
-        <>
+        (lectorium.type === 'online' && 'Онлайн') || (<>
           Очный
           <br />
           г. Москва, Докучаев переулок, 8
-        </>
+        </>)
       )
     },
     {

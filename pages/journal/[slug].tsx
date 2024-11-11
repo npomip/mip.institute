@@ -13,6 +13,8 @@ import { routes } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useEffect } from 'react'
+import { getJournalDatav5axios } from '@/lib/data/testJournal'
 
 const JournalSlugPage = ({ blog }) => {
   const articleHeading = {
@@ -45,6 +47,20 @@ const JournalSlugPage = ({ blog }) => {
     }
     return breadcrumb
   })
+
+  useEffect(() => {
+    const fetchPrograms = async () => {
+      const allPrograms = await getJournalDatav5axios()
+
+      console.log(allPrograms);
+      
+      // setProgramz(allPrograms)
+    }
+    fetchPrograms()
+  }, [])
+
+  console.log(blog);
+  
 
   return (
     <Wrapper>

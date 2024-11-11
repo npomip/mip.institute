@@ -78,6 +78,19 @@ const getStaticPropsPageLectorium = async ({
               width
               height
             }
+            lectoriums {
+              title
+              subtitle
+              slug
+              date
+              time
+              type
+              label
+              picture {
+                url
+                alternativeText
+              }
+            }
             seo {
               metaTitle
               metaDescription

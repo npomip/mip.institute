@@ -1,4 +1,5 @@
 import revalidate from "@/config/revalidate"
+import routes from "@/config/routes"
 import axios from "axios"
 import qs from "qs"
 
@@ -15,7 +16,7 @@ const queryString = qs.stringify(
 )
 export const getStaticPathsBlogs = async () => {
 try {
-  const response = await axios.get(`http://localhost:1338/api/blogs?${queryString}`, {
+  const response = await axios.get(`${routes.back.rootv2}/api/blogs?${queryString}`, {
     headers: {
       'Authorization': `Bearer ${process.env.STRAPI_BEARER}`, // Замените на ваш токен
     },

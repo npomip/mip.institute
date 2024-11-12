@@ -21,9 +21,6 @@ try {
     },
   })
 
-  console.log(response, 'response');
-  
-  
   return {
     paths: Array.from(
       new Set(
@@ -38,6 +35,6 @@ try {
     fallback: 'blocking'
   }
 }catch(e){
-  console.log(e)}
+  console.log(e.request.data)}
 
 }

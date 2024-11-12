@@ -52,26 +52,7 @@ const JournalSlugPage = ({ blog }) => {
     return breadcrumb
   })
 
-  const queryString = qs.stringify(
-    {
-      fields: [ 'slug', 'studyField',]
-    },
-    {
-      encodeValuesOnly: true,
-      skipNulls: true
-    }
-  )
-   const getStaticPathsBlogs = async () => {
-    const response = await axios.get(`http://localhost:1338/api/blogs?${queryString}`, {
-      headers: {
-        'Authorization': `Bearer ${process.env.STRAPI_BEARER}`, // Замените на ваш токен
-      },
-    })
-  }
-
-  const pr = getStaticPathsBlogs()
-
-  console.log(pr);
+  console.log(blog);
   
 
   return (
@@ -79,7 +60,7 @@ const JournalSlugPage = ({ blog }) => {
       {/* <SeoPagesJournal blog={blog} /> */}
       <div className={stls.in}>
         <ReadingProgressbar />
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} />
         {articleHeading && <ArticleTitle props={articleHeading} />}
         <Accordion>
           <ArticleContentLinks props={headingLinks} />

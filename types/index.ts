@@ -4,7 +4,6 @@ export type { default as TGeneralImg } from '@/types/general/TGeneralImg'
 export type { default as TypeDataDoc } from '@/types/general/TypeDataDoc'
 export type { default as TypeDataDocs } from '@/types/general/TypeDataDocs'
 export type { default as TypeGeneralGetStaticPropsContext } from '@/types/general/TypeGeneralGetStaticPropsContext'
-export type { default as TypeGeneralRoutesFront } from '@/types/general/TypeGeneralRoutesFront'
 
 // lib/general
 export type { default as TypeLibGeneralPicture } from '@/types/lib/general/TypeLibGeneralPicture'

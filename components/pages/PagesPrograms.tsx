@@ -8,7 +8,6 @@ import {
 } from '@/context/FilterContext/FilterContext'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import stls from '@/styles/components/sections/Programs.module.sass'
-import TBreadcrumb from '@/types/general/TBreadcrumb'
 import { TypeLibPrograms } from '@/types/index'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -24,14 +23,12 @@ type PagesProgramsType = {
   practicalTrainings?: any[]
   studyFields?: string[]
   allPrograms: any[]
-  breadcrumbs: TBreadcrumb[]
 }
 
 const PagesPrograms = ({
   programs,
   studyFields,
   allPrograms,
-  breadcrumbs,
   bachelors,
   practicalTrainings
 }: PagesProgramsType) => {
@@ -100,7 +97,7 @@ const PagesPrograms = ({
   return (
     <>
       <Wrapper>
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <Breadcrumbs isJournal />
       </Wrapper>
 
       <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
@@ -114,8 +111,8 @@ const PagesPrograms = ({
               query.studyFieldSlug && filter === 'popular'
                 ? favcategories
                 : query.studyFieldSlug
-                ? studyFields
-                : categories
+                  ? studyFields
+                  : categories
             }
           />
         </div>

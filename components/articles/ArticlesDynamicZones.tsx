@@ -22,13 +22,13 @@ export default function ArticlesDynamicZones({ props }) {
       return <ArticleSubtitle props={props} />
     case "blog.full-colored-text-block":
       return <ArticleFullColoredTextBlock props={props} />
-    case 'ComponentBlogTextBlockWithBackground':
+    case "blog.text-block-with-bg":
       return <ArticleTextBlockWithBackground props={props} />
     case "shared.list-with-icon":
       return <ArticleBlogList props={props} />
     case 'ComponentBlogTeacherComment':
       return <ArticleBlogTeacherComment props={props} />
-    case 'ComponentBlogSingleImageBlock':
+    case "blog.single-image-block":
       return <ArticleBlogSingleImageBlock props={props} />
     case "blog.comment-block":
       return <ArticleBlogCommentBlock props={props} />

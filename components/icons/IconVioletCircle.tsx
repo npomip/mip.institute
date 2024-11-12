@@ -1,8 +1,15 @@
 import stls from '@/styles/components/icons/IconVioletCircle.module.sass'
 
-const IconVioletCircle = () => {
+type Props = {
+  width?: string
+  height?: string
+}
+
+const IconVioletCircle = ({ width, height }: Props) => {
   return (
-    <span className={stls.container}>
+    <span
+      className={stls.container}
+      style={{ width: `${width}`, height: `${height}` }}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='21'

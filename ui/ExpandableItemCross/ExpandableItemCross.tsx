@@ -1,27 +1,51 @@
 import stls from './ExpandableItemCross.module.sass'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import IconCrossBlue from '@/components/icons/IconCrossBlue'
+import classNames from 'classnames'
 
 type Props = {
-  title: string
-  content: string
+  title: string | JSX.Element
+  content: string | JSX.Element
   isOpened?: boolean
+  icon?: ReactNode
+  classNameContainer?: string
+  classNameHeader?: string
+  classNameIcon?: string
 }
 
-const ExpandableItemCross = ({ title, content, isOpened }: Props) => {
+const ExpandableItemCross = ({
+  title,
+  content,
+  isOpened = false,
+  icon,
+  classNameContainer,
+  classNameHeader,
+  classNameIcon
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     isOpened && setIsOpen(true)
-  }, [])
+  }, [isOpened])
 
   return (
-    <li className={stls.container}>
-      <button className={stls.title} onClick={() => setIsOpen(!isOpen)}>
-        <span className={stls.icon}>
-          <IconCrossBlue isRotated={isOpen} />
-        </span>
-        <span className={stls.pTitle}>{title}</span>
+    <li className={classNames(stls.container, classNameContainer)}>
+      <button
+        className={classNames(stls.title, classNameHeader)}
+        onClick={() => setIsOpen(!isOpen)}>
+        {icon ? (
+          icon
+        ) : (
+          <span className={classNames(stls.icon, classNameIcon)}>
+            <IconCrossBlue isRotated={isOpen} />
+          </span>
+        )}
+
+        {typeof title === 'string' ? (
+          <span className={stls.pTitle}>{title}</span>
+        ) : (
+          title
+        )}
       </button>
 
       <div className={`${stls.content} ${isOpen ? stls.visible : ''}`}>

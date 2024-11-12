@@ -1,20 +1,26 @@
 import { dev } from '@/config/index'
-import { TypeGeneralRoutesFront } from '@/types/index'
 
 type TRoutes = {
-  front: TypeGeneralRoutesFront
+  front: {
+    [key: string]: string
+  }
   back: {
     [key: string]: string
   }
   external: {
-    [key: string]: `https://${string}`
+    [key: string]: `https://${string}` | `http://${string}`
   }
   anchors: {
     [key: string]: `#${string}`
   }
+  share: {
+    vk: (url: string, text: string) => string
+    whatsapp: (url: string, text: string) => string
+    telegram: (url: string, text: string) => string
+  }
 }
 
-const routes = {
+const routes: TRoutes = {
   front: {
     root: dev ? 'http://localhost:3000' : 'https://mip.institute',
     home: '/',
@@ -31,6 +37,8 @@ const routes = {
     bachelor: '/bachelor/slug',
     practicalTrainings: '/practical-training',
     practicalTraining: '/practical-training/slug',
+    lectoriums: '/lectorium',
+    lectorium: '/lectorium/slug',
     courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',
@@ -55,24 +63,25 @@ const routes = {
     policiesOferta: '/policies/oferta-mip.pdf',
     policiesOfertaEvent: '/policies/oferta-event.pdf',
     regulation: '/policies/regulation.pdf',
-    yandexAnalytics: '/policies/yandexAnalytics.pdf'
+    yandexAnalytics: '/policies/yandexAnalytics.pdf',
+    lectoriumRoutes: '/docs/general/lectoriumRoutes'
   },
   back: {
-    // root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
     root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
     home: '/',
     graphql: '/graphql',
-    programs: '/programs', // /programs || /programs/:id
+    programs: '/programs',
     teachers: '/teachers',
     reviews: '/reviews',
     webinars: '/webinars',
-    getStaticProps: '/get-static-props', // /get-static-props/:page
-    getStaticPathsStudyFields: '/get-static-paths/study-fields', // /get-static-paths/study-fields || /get-static-paths/study-fields/:type
-    getStaticPathsPrograms: '/get-static-paths/programs', // /get-static-paths/programs || /get-static-paths/programs/:type
+    getStaticProps: '/get-static-props',
+    getStaticPathsStudyFields: '/get-static-paths/study-fields',
+    getStaticPathsPrograms: '/get-static-paths/programs',
     users: '/users'
   },
   external: {
-    ochuVoMipLicense: 'https://islod.obrnadzor.gov.ru/rlic/details/0B110B0A-0D0D-100D-0E0E-0F0D131211111110120D/',
+    ochuVoMipLicense:
+      'https://islod.obrnadzor.gov.ru/rlic/details/0B110B0A-0D0D-100D-0E0E-0F0D131211111110120D/',
     license:
       'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
     vk: 'https://m.vk.com/mip_institute',
@@ -90,11 +99,25 @@ const routes = {
     dzen: 'https://dzen.ru/institute_mip',
     eddu: 'https://eddu.pro/reviews/mip-review',
     advCake: 'https://advcake.ru/lp/mipinstitute/',
-    referralProgram: 'https://mip-institute-referral.ru/',
+    referralProgram: 'https://mip-institute-referral.ru/'
   },
   anchors: {
-    //
+    // Define anchors here if needed
+  },
+  share: {
+    vk: (url: string, text: string) =>
+      `https://vk.com/share.php?url=${encodeURIComponent(
+        url
+      )}&title=${encodeURIComponent(text)}`,
+    whatsapp: (url: string, text: string) =>
+      `https://wa.me/?text=${encodeURIComponent(text)}%20${encodeURIComponent(
+        url
+      )}`,
+    telegram: (url: string, text: string) =>
+      `https://t.me/share/url?url=${encodeURIComponent(
+        url
+      )}&text=${encodeURIComponent(text)}`
   }
-} as const
+}
 
 export default routes

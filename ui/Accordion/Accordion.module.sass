@@ -7,6 +7,7 @@
   @include m.dye(border, c.$purple-800)
   border-radius: f.px(10)
   @include m.gap($mtb: f.px(25))
+  @include m.dye(bg, c.$white-900)
 
 .header
   cursor: pointer
@@ -26,6 +27,17 @@
   & > *
     stroke
     @include m.dye(stroke, c.$purple-800)
+
+.iconWithBg
+  @include m.dye(bg, c.$purple-350)
+  @include m.flex($ai: center, $jc: center)
+  border-radius: 50%
+  font-size: f.px(12)
+  width: f.px(24)
+  height: f.px(24)
+  & > *
+    stroke
+    @include m.dye(stroke, c.$white-900)
 
 .isOpen
   transform: rotate(-90deg)

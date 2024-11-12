@@ -11,37 +11,11 @@ import {
 import { gql } from '@apollo/client'
 import { validOfTypeValues } from 'constants/staticPropsValidation'
 import { GetStaticPaths, NextPage } from 'next'
-import { useRouter } from 'next/router'
 
 const ProgramsPage: NextPage<
   TypePageProgramsProps & { studyFields: string[] } & { allPrograms: any[] }
 > = ({ programs, studyFields, allPrograms, bachelors, practicalTrainings }) => {
   useHandleContextStaticProps({ programs })
-  const router = useRouter()
-
-  const { query, asPath } = router
-  const { ofType } = query
-  const label =
-    ofType === 'professions'
-      ? 'Профессиональная переподготовка'
-      : ofType === 'courses'
-      ? 'Повышение квалификации'
-      : 'Все курсы'
-
-  const segments = [`/${query.ofType}`]
-
-  const labels = [label]
-  const slug = ['live-courses']
-
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
-
   return (
     <>
       <SeoPagesPrograms programs={programs} />
@@ -52,7 +26,6 @@ const ProgramsPage: NextPage<
           programs={programs}
           studyFields={studyFields}
           allPrograms={allPrograms}
-          breadcrumbs={breadcrumbs}
         />
       </FilterProvider>
     </>

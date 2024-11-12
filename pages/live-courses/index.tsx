@@ -22,26 +22,11 @@ const JournalPage = ({ lifeCourses }) => {
 
   const minmaxPrice = findMinMaxForSlider(prices)
 
-  const segments = ['live-courses']
-
-  const labels = ['LIFE курсы']
-  const slug = ['live-courses']
-
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      // path: '/' + segments.slice(0, index + 1).join('/'),
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
-
   return (
     <Wrapper>
       <NextSeo nofollow={true} noindex={true} />
       <FilterProvider items={lifeCourses}>
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <Breadcrumbs isJournal />
         <h1 className={stls.title}>LIFE курсы</h1>
         <FiltersWithTag
           minmaxPrice={minmaxPrice}

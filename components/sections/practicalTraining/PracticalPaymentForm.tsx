@@ -17,6 +17,7 @@ import genezis from '@/helpers/funcs/genezis'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
 import Wrapper from '@/ui/Wrapper'
 import { PopupLoading } from '@/components/popups'
+import getNextFriday from '@/helpers/getNextFriday'
 
 type Props = {
   price: number
@@ -107,7 +108,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
 
   const [selectedValue, setSelectedValue] = useState(formList[0].value)
   const [finalPrice, setFinalPrice] = useState(price)
-  const [oldPrice, setOldPrice] = useState(price)
+  const [oldPrice, setOldPrice] = useState<null | number>(null)
   const [animatePrice, setAnimatePrice] = useState(false)
 
   const prices = {
@@ -194,7 +195,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   <Image src={gift} width={170} height={170} alt='Подарок' />
                 </div>
                 <p className={stls.giftText}>
-                  При оплате до 14 сентября курс
+                  При оплате до {getNextFriday(new Date())} курс
                   <br />
                   “Жизнь, свободная от обид”
                   <br />

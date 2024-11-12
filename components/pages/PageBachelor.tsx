@@ -49,23 +49,11 @@ const PageBachelor = ({ bachelor }) => {
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'cost', label: 'Стоимость', ref: costRef, condition: true }
   ]
-  const segments = ['bachelor']
-  const labels = ['Высшее образование']
-  const slug = ['bachelor']
-
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
 
   return (
     <>
       <SeoPageBachelor program={bachelor} />
-      <BachelorHeroProgram breadcrumbs={breadcrumbs} />
+      <BachelorHeroProgram />
       <PageNavigation sections={sections} />
       <ForWhomHE />
       <FourSteps stepsForEnterRef={stepsForEnterRef} />

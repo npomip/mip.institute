@@ -11,27 +11,11 @@ const PageTrainings = ({
   practicalTrainings = [],
   bachelors = []
 }) => {
-  const label = 'Практическая подготовка'
-
-  const segments = [`/practical-training`]
-
-  const labels = [label]
-  const slug = ['practical-training']
-
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
-
   return (
     <Wrapper>
       <SeoPageBachelors />
       <FilterProvider items={programs}>
-        <Breadcrumbs isJournal breadcrumbs={breadcrumbs} />
+        <Breadcrumbs isJournal />
         <h1 className={stls.title}>Практическая подготовка</h1>
         <ProgramsFilters
           bachelors={bachelors}

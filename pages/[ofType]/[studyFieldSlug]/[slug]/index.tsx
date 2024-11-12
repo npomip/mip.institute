@@ -7,7 +7,6 @@ import { TypePageProgramProps, TypePageProgramsPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import { validOfTypeValues } from 'constants/staticPropsValidation'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { useRouter } from 'next/router'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
@@ -23,28 +22,6 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
   })
 
   const programOverview = program?.programOverview
-  const router = useRouter()
-  const segments = router.asPath
-    .split('/')
-    .filter(segment => segment !== '')
-    .slice(0, 2)
-  const label =
-    program?.type === 'Profession'
-      ? 'Профессиональная переподготовка'
-      : program?.type === 'Course'
-      ? 'Повышение квалификации'
-      : program?.type === 'Practice'
-      ? 'Практическая подготовка'
-      : 'Все курсы'
-  const labels = [label, program?.studyField]
-
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments.slice(0, index + 1).join('/')
-    }
-    return breadcrumb
-  })
 
   const slug = program?.slug
 
@@ -57,7 +34,6 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
       />
       <PagesProgram
         slug={slug}
-        breadcrumbs={breadcrumbs}
         programOverview={programOverview}
         reviews={reviews}
         ofType={program?.type}

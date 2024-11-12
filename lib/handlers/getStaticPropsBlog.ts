@@ -4,8 +4,6 @@ import qs from "qs"
 
 export const getStaticPropsBlog = async ({context}) => {
 
-  console.log('context',context);
-  
   const queryString = qs.stringify(
     {
       filters: {

@@ -16,9 +16,6 @@ type ArticleBlogListWithTitleType = {
 const ArticleBlogListWithTitle = ({ props }: ArticleBlogListWithTitleType) => {
   const list = props.item || []
 
-  console.log(props);
-  
-
   return (
     <div className={stls.contentBox}>
       {list &&

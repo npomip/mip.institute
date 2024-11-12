@@ -31,6 +31,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import Image from 'next/image'
+import promocodesWithGift from '@/helpers/promoWithGIfts'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -208,6 +209,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
+  const [ isWithGift, setIsWithGift] = useState(false)
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
@@ -223,7 +225,18 @@ const MyApp = ({ Component, pageProps, router }) => {
       })
       if (!foundPromo) {
         setIsPromo(false)
-        setPromoText('')
+        setPromoText('') 
+      }
+
+      let foundPromoWithGift = false
+      Object.keys(promocodesWithGift).forEach(code => {
+        if (stringedUtm?.includes(code)) {
+          setIsWithGift(true)
+          foundPromoWithGift = true
+        }
+      })
+      if (!foundPromoWithGift) {
+        setIsWithGift(false)
       }
     }, 2000)
   }, [utmCookie])
@@ -244,16 +257,16 @@ const MyApp = ({ Component, pageProps, router }) => {
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       {/* {!dev && ( */}
-        <>
-          <Script
-            strategy='afterInteractive'
-            src='/assets/js/vendors/roistatAB.js'
-          />
-          <Script
-            id='roistatMain'
-            strategy='afterInteractive'
-            dangerouslySetInnerHTML={{
-              __html: `
+      <>
+        <Script
+          strategy='afterInteractive'
+          src='/assets/js/vendors/roistatAB.js'
+        />
+        <Script
+          id='roistatMain'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: `
               (function(w, d, s, h, id) {
                 w.roistatProjectId = id; w.roistatHost = h;
                 var p = d.location.protocol == "https:" ? "https://" : "http://";
@@ -261,11 +274,11 @@ const MyApp = ({ Component, pageProps, router }) => {
                 var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
               })(window, document, 'script', 'cloud.roistat.com', '5504efcdd803f95c53cf52800d65f41b');
               `
-            }}
-          />
-          {/* <RoistatScript /> */}
-          <Script async src='/assets/js/vendors/roistatWA.js' />
-        </>
+          }}
+        />
+        {/* <RoistatScript /> */}
+        <Script async src='/assets/js/vendors/roistatWA.js' />
+      </>
       {/* )} */}
 
       {roistatVisit && (
@@ -358,6 +371,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {
               <StickyTop
+              isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}
@@ -467,6 +481,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           })`
         }}
       />
+
+      <Script async src='/assets/js/vendors/pixel.js' />
 
       {router.asPath === '/' ? (
         <Script

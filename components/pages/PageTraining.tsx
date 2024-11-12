@@ -21,26 +21,10 @@ type Props = {
 }
 
 const PageTraining = ({ practicalTraining }: Props) => {
-  const segments = ['practical-training']
-  const labels = ['Краткосрочная ступенчатая программа']
-  const slug = ['practical-training']
-
-  const breadcrumbs = segments.map((_, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
-
   return (
     <div className={stls.pageWrapper}>
       <SeoPageBachelor program={practicalTraining} />
-      <PracticalHeroProgram
-        breadcrumbs={breadcrumbs}
-        practicalTraining={practicalTraining}
-      />
+      <PracticalHeroProgram practicalTraining={practicalTraining} />
       <PracticalList list={practicalTraining?.practicalList.item} />
       <PracticalSteps />
       <PracticalWhoIsProgramFor />

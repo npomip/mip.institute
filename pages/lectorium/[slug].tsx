@@ -11,11 +11,13 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectorium }: Props) => {
+  console.log(lectorium, 'slug')
+
   return (
     <>
       <SeoCommon
         seo={lectorium.seo}
-        programTitle={`${lectorium.title} ${lectorium.description}: очный семинар в Москве`}
+        programTitle={`${lectorium.title} ${lectorium.subtitle}: очный семинар в Москве`}
       />
       <PageLectorium lectorium={lectorium} />
     </>

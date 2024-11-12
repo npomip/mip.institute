@@ -32,8 +32,6 @@ import {
   sortReviewsCreatedAtASC
 } from '@/helpers/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
-import getProgramsDatav5 from '@/lib/data/datav5'
-import getProgramsDatav5axios from '@/lib/data/testaxios'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import { TypePageHomeProps } from '@/types/index'
@@ -86,21 +84,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       setOpen(true)
     }
   }, [router.query])
-
-  const [programz, setProgramz] = useState([])
-
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      const allPrograms = await getProgramsDatav5axios()
-
-      console.log(allPrograms);
-      
-      // setProgramz(allPrograms)
-    }
-    fetchPrograms()
-  }, [])
-  console.log(programz);
-
 
   return (
     <>

@@ -37,6 +37,9 @@ const SlugCard = ({
     month: 'long'
   })
 
+  console.log(slug);
+  
+
   return (
     <>
       <Link

@@ -16,11 +16,14 @@ type ArticleBlogListWithTitleType = {
 const ArticleBlogListWithTitle = ({ props }: ArticleBlogListWithTitleType) => {
   const list = props.item || []
 
+  console.log(props);
+  
+
   return (
     <div className={stls.contentBox}>
       {list &&
         list.map((el, i) => (
-          <ArticleBlogListWithTitleItem key={el.id} props={el} />
+          <ArticleBlogListWithTitleItem key={el.id} props={el} icon={props.icon}/>
         ))}
     </div>
   )

@@ -11,14 +11,20 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectorium }: Props) => {
-  console.log(lectorium, 'slug')
+  const title =
+    lectorium.type === 'offline'
+      ? `${lectorium.title} ${lectorium.subtitle}: очный семинар в Москве`
+      : `${lectorium.title} ${lectorium.subtitle}: онлайн семинар`
+
+  const desc = lectorium.seo?.metaDescription
+    ? lectorium.seo.metaDescription
+    : lectorium.type === 'offline'
+      ? `Очный семинар на тему ${title} от Московского Института Психологии (МИП) | Актуальная информация от ведущих экспертов-психологов | Оставьте онлайн-заявку на мероприятие!`
+      : `Онлайн семинар на тему ${title} от Московского Института Психологии (МИП) | Актуальная информация от ведущих экспертов-психологов | Оставьте заявку на тренинг на нашем сайте!`
 
   return (
     <>
-      <SeoCommon
-        seo={lectorium.seo}
-        programTitle={`${lectorium.title} ${lectorium.subtitle}: очный семинар в Москве`}
-      />
+      <SeoCommon seo={lectorium.seo} programTitle={title} desc={desc} />
       <PageLectorium lectorium={lectorium} />
     </>
   )

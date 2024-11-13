@@ -4,25 +4,25 @@ import { CourseJsonLd, NextSeo } from 'next-seo'
 import { FC } from 'react'
 
 type TSeoPagesProgram = {
-    seo: {
-      canonicalURL: string
-      isSEOFriendly: boolean
-      metaDescription: string
-      metaTitle: string
-    }
-    programTitle: string
+  seo: {
+    canonicalURL: string
+    isSEOFriendly: boolean
+    metaDescription: string
+    metaTitle: string
+  }
+  programTitle: string
+  desc: string
 }
 
-const SeoCommon: FC<TSeoPagesProgram> = ({ seo , programTitle}) => {
-
+const SeoCommon: FC<TSeoPagesProgram> = ({ seo, programTitle, desc }) => {
   const isNoindex = !seo?.isSEOFriendly
 
   const isNofollow = !seo?.isSEOFriendly
 
   const seoParams = {
     title: seo?.metaTitle,
-    programTitle: programTitle ,
-    desc: seo?.metaDescription,
+    programTitle: programTitle,
+    desc: desc,
     canonical: seo?.canonicalURL
   }
 

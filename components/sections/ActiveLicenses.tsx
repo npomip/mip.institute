@@ -7,7 +7,10 @@ import { PopupImage } from '@/components/popups'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
 import { BtnAlpha } from '@/components/btns'
 import routes from '@/config/routes'
-import { dataOchuVoMipDocsConstituentRight } from '@/data/index'
+import {
+  dataDocsConstituentRight,
+  dataOchuVoMipDocsConstituentRight
+} from '@/data/index'
 
 type Props = {
   isOchuVoMip?: boolean
@@ -61,12 +64,21 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
               <span className={stls.labelIcon}>
                 <IconDoc />
               </span>
-              <a
-                href={dataOchuVoMipDocsConstituentRight[1].href}
-                target='_blank'
-                rel='noopener noreferrer'>
-                <span className={stls.diplomaTitle}>Лицензия</span>
-              </a>
+              {isOchuVoMip ? (
+                <a
+                  href={dataOchuVoMipDocsConstituentRight[1].href}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <span className={stls.diplomaTitle}>Лицензия</span>
+                </a>
+              ) : (
+                <a
+                  href={dataDocsConstituentRight[1].href}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <span className={stls.diplomaTitle}>Лицензия</span>
+                </a>
+              )}
             </span>
           </div>
           <div className={stls.right}>

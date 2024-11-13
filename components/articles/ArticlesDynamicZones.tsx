@@ -26,7 +26,7 @@ export default function ArticlesDynamicZones({ props }) {
       return <ArticleTextBlockWithBackground props={props} />
     case "shared.list-with-icon":
       return <ArticleBlogList props={props} />
-    case 'ComponentBlogTeacherComment':
+    case "blog.teacher-comment":
       return <ArticleBlogTeacherComment props={props} />
     case "blog.single-image-block":
       return <ArticleBlogSingleImageBlock props={props} />
@@ -34,7 +34,7 @@ export default function ArticlesDynamicZones({ props }) {
       return <ArticleBlogCommentBlock props={props} />
     case "blog.list-with-title":
       return <ArticleBlogListWithTitle props={props} />
-    case 'ComponentBlogRelatedPrograms':
+    case 'blog.related-programs':
       return <ArticleBlogRelatedPrograms props={props} />
     case "blog.list-with-bg-and-title":
       return <ArticleBlogListWithBackgroundAndTitle props={props} />

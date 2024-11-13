@@ -10,9 +10,7 @@ type RelatedProgramsListType = {
   program: {
     id: string
     title: string
-    type: string
-    slug: string
-    studyFieldSlug: string
+    url: string
     heroPicture: {
       height: string
       url: string
@@ -25,9 +23,7 @@ const RelatedProgramsList = ({
   program,
   linkOnly = false
 }: RelatedProgramsListType) => {
-  const href = program => (program === 'Profession' ? 'professions' : 'courses')
 
-  const ofType = href(program.type)
 
   return (
     <div className={stls.relatedProgramsProgram}>
@@ -56,7 +52,7 @@ const RelatedProgramsList = ({
           [stls.linkOnly]: linkOnly
         })}>
         <Link
-          href={`${routes.front.root}/${ofType}/${program.studyFieldSlug}/${program.slug}`}
+          href={program.url}
           className={stls.link}>
           {linkOnly ? 'Узнать подробнее' : 'Узнать больше'}
         </Link>

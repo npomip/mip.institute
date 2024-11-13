@@ -4,16 +4,9 @@ import ArticleBlogMoreThenOneProgram from './ArticleBlogMoreThenOneProgram'
 export type ArticleBlogRelatedProgramsType = {
   props: {
     title: string
-    borderColor?: string
-    textItem: {
-      id
-      text: string
-    }[]
     programs: {
       id: string
-      type: string
-      slug: string
-      studyFieldSlug: string
+      url: string
       title: string
 
       heroPicture: {

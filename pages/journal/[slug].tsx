@@ -52,15 +52,12 @@ const JournalSlugPage = ({ blog }) => {
     return breadcrumb
   })
 
-  console.log(blog);
-  
-
   return (
     <Wrapper>
-      {/* <SeoPagesJournal blog={blog} /> */}
+      <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
         <ReadingProgressbar />
-        <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} />
+        <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField}/>
         {articleHeading && <ArticleTitle props={articleHeading} />}
         <Accordion>
           <ArticleContentLinks props={headingLinks} />

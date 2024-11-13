@@ -6,22 +6,7 @@ import {
   type FlagOverridesType
 } from '@vercel/flags'
 import { FlagValues } from '@vercel/flags/react'
-
-/**
- * A function which respects overrides set by the Toolbar, and returns feature flags.
- */
-async function getFlags(request: GetServerSidePropsContext['req']) {
-  const overridesCookieValue = request.cookies['vercel-flag-overrides']
-  const overrides = overridesCookieValue
-    ? await decrypt<FlagOverridesType>(overridesCookieValue)
-    : null
-
-  const flags = {
-    banner: overrides?.banner ?? false
-  }
-
-  return flags
-}
+import getFlags from './api/vercel/getFlags'
 
 export const getServerSideProps: GetServerSideProps = async context => {
   const flags = await getFlags(context.req)
@@ -46,7 +31,9 @@ export default function Page({
         est. Non?
       </div>
       <FlagValues values={encryptedFlagValues} />
-      {flags.banner ? <button>ФИЧА</button> : null}
+      {flags.btn ? (
+        <div>ФИЧАФИЧАФИЧАФИЧАФИЧАФИЧАФИЧАФИЧАФИЧАФИЧАФИЧА</div>
+      ) : null}
     </>
   )
 }

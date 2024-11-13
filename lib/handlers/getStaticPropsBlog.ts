@@ -15,10 +15,22 @@ export const getStaticPropsBlog = async ({context}) => {
           fields: ['url', 'width', 'height']
         },
         article: {
-          populate: '*'
+          populate: '*',
+          on: {
+            'blog.table': {
+              populate: {
+                'row': {
+                  populate: ['record']
+                }
+              }
+            }
+          }
         }
       }
     },
+    {
+      encodeValuesOnly: true, // Кодирует только значения
+    }
   )
 
 try {

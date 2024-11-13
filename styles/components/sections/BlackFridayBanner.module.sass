@@ -56,9 +56,16 @@
   font-style: normal
   font-weight: 300
   line-height: 100%
-  @include m.gap($mb: f.px(0))
+  @include m.gap($mb: f.px(5))
   @include m.media(phone, tablet)
     font-size: f.px(11)
+
+.subTitle
+  font-size: f.px(10)
+  font-weight: 300
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(7)
 
 .leftCrystal
   width: f.px(202)

@@ -71,6 +71,10 @@ const BlackFridayBanner = () => {
                 )}
                 <span className={stls.colored}>2 программы в подарок!</span>
               </p>
+              <p className={stls.subTitle}>
+                *список программ участвующих в акции уточняйте у приёмной
+                комисии
+              </p>
             </div>
           </div>
           <div className={stls.percent}>

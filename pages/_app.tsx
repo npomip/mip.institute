@@ -255,7 +255,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   }, [roistat_visit])
 
   const [showBanner, setShowBanner] = useState(false)
-  const targetDate = useMemo(() => new Date('2024-11-18T00:00:00'), [])
+  const targetDate = useMemo(() => new Date('2024-11-15T00:00:00'), [])
 
   const checkDate = useCallback(() => {
     const currentDate = new Date()

@@ -32,6 +32,7 @@ import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import Image from 'next/image'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
+import { VercelToolbar } from '@vercel/toolbar/next'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -209,7 +210,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
-  const [ isWithGift, setIsWithGift] = useState(false)
+  const [isWithGift, setIsWithGift] = useState(false)
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
@@ -225,7 +226,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       })
       if (!foundPromo) {
         setIsPromo(false)
-        setPromoText('') 
+        setPromoText('')
       }
 
       let foundPromoWithGift = false
@@ -371,7 +372,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {
               <StickyTop
-              isWithGift={isWithGift}
+                isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}
@@ -385,6 +386,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             </main>
             <StickyBottom />
             <Footer />
+            {dev && <VercelToolbar />}
             {/* </div> */}
           </FieldsTooltipState>
         </MenuState>

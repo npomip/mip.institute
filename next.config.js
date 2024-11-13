@@ -1,8 +1,8 @@
 const withPWA = require('next-pwa')
 const { createSecureHeaders } = require('next-secure-headers')
 const dev = process.env.NODE_ENV === 'development'
-
-module.exports = /* withPWA( */ {
+const withVercelToolbar = require('@vercel/toolbar/plugins/next')()
+const nextConfig = /* withPWA( */ {
   // pwa: {
   //   dest: 'public',
   //   disable: dev,
@@ -13,7 +13,7 @@ module.exports = /* withPWA( */ {
   i18n: {
     locales: ['ru'],
     defaultLocale: 'ru',
-    localeDetection: false,
+    localeDetection: false
   },
   images: {
     remotePatterns: [
@@ -21,9 +21,17 @@ module.exports = /* withPWA( */ {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/**',
-      },
-    ],
+        pathname: '/**'
+      }
+    ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/pages/api/vercel/flags',
+        destination: '/api/vercel/flags'
+      }
+    ]
   },
   async headers() {
     return [
@@ -635,3 +643,5 @@ module.exports = /* withPWA( */ {
     ]
   }
 }
+
+module.exports = withVercelToolbar(nextConfig)

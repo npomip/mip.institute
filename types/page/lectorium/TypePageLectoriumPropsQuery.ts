@@ -17,6 +17,7 @@ export type Lectorium = {
   places: string
   picture: Picture
   speaker: SpeakerType
+  lectoriums: Lectorium[]
   targetDate: string
   endTime: string
   whatYouWillLearn: WhatYouWillLearn
@@ -26,7 +27,7 @@ export type Lectorium = {
   }
   timepadHref: string
   diploma: Picture
-  seo : {
+  seo: {
     metaTitle: string
     metaDescription: string
     isSEOFriendly: boolean
@@ -74,6 +75,6 @@ type Text = {
 export enum LectoriumTypes {
   online = 'online',
   offline = 'offline',
-  paid= 'paid',
+  paid = 'paid',
   free = 'free'
 }

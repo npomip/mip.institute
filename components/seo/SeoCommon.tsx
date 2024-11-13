@@ -20,7 +20,7 @@ const SeoCommon: FC<TSeoPagesProgram> = ({ seo, programTitle, desc }) => {
   const isNofollow = !seo?.isSEOFriendly
 
   const seoParams = {
-    title: programTitle,
+    title: seo?.metaTitle,
     programTitle: programTitle,
     desc: desc,
     canonical: seo?.canonicalURL

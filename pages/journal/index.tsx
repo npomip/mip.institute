@@ -45,9 +45,9 @@ const JournalPage = ({ blogs }) => {
         selectedField={selectedField}
         setSelectedField={setSelectedField}
         props={blogs}
-        slug='blog'
+        slug='journal'
       />
-      <SlugTags props={blogsFilter} slug='blog' />
+      <SlugTags props={blogsFilter} slug='journal' />
     </Wrapper>
   )
 }

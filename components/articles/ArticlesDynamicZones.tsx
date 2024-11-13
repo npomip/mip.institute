@@ -40,7 +40,7 @@ export default function ArticlesDynamicZones({ props }) {
       return <ArticleBlogListWithBackgroundAndTitle props={props} />
     case 'ComponentBlogBigSizeText':
       return <ArticleBlogBigSizeText props={props} />
-    case 'ComponentBlogTable':
+    case "blog.table":
       return <ArticleBlogTable props={props} />
     default:
       break

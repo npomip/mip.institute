@@ -90,7 +90,7 @@ const BachelorHeroProgram = () => {
               }}>
               <span className={stls.filter}></span>
               <div className={stls.heading}>
-                <Breadcrumbs lastLabel={bachelor.title} />
+                <Breadcrumbs lastLabel={bachelor?.title} />
                 <h1
                   className={classNames({
                     [stls.title]: true,

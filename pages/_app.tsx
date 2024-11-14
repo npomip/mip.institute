@@ -209,7 +209,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
-  const [ isWithGift, setIsWithGift] = useState(false)
+  const [isWithGift, setIsWithGift] = useState(false)
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
@@ -225,7 +225,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       })
       if (!foundPromo) {
         setIsPromo(false)
-        setPromoText('') 
+        setPromoText('')
       }
 
       let foundPromoWithGift = false
@@ -290,19 +290,21 @@ const MyApp = ({ Component, pageProps, router }) => {
         </div>
       )}
 
-      {/* <Script 
-          id='sendsay-popup' 
-          src="https://image.sendsay.ru/app/js/forms/forms.min.js"
-          onLoad={() => {
-              // @ts-ignore
-              if (window.SENDSAY) {
-              // @ts-ignore
-                  SENDSAY.activatePopup("https://sendsay.ru/form/x_16799332371017125/5/");
-              } else {
-                  console.error("SENDSAY is not defined");
-              }
-          }}
-      /> */}
+      <Script
+        id='sendsay-popup'
+        src='https://image.sendsay.ru/app/js/forms/forms.min.js'
+        onLoad={() => {
+          // @ts-ignore
+          if (window.SENDSAY) {
+            // @ts-ignore
+            SENDSAY.activatePopup(
+              'https://sendsay.ru/form/x_16799332371017125/5/'
+            )
+          } else {
+            console.error('SENDSAY is not defined')
+          }
+        }}
+      />
 
       <Script
         async
@@ -371,7 +373,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {
               <StickyTop
-              isWithGift={isWithGift}
+                isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}

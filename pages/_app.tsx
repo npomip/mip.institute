@@ -23,7 +23,7 @@ import Router from 'next/router'
 import Script from 'next/script'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -32,6 +32,7 @@ import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import Image from 'next/image'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
+import BlackFridayBanner from '@/components/sections/BlackFridayBanner'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -253,6 +254,28 @@ const MyApp = ({ Component, pageProps, router }) => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
 
+  const [showBanner, setShowBanner] = useState(false)
+  const targetDate = useMemo(() => new Date('2024-11-15T00:00:00'), [])
+
+  const checkDate = useCallback(() => {
+    const currentDate = new Date()
+    setShowBanner(currentDate >= targetDate)
+  }, [targetDate])
+
+  useEffect(() => {
+    checkDate()
+
+    const handleFocus = () => {
+      checkDate()
+    }
+
+    window.addEventListener('focus', handleFocus)
+
+    return () => {
+      window.removeEventListener('focus', handleFocus)
+    }
+  }, [checkDate])
+
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
@@ -385,7 +408,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <StickyBottom />
+            <div>{showBanner ? <BlackFridayBanner /> : <StickyBottom />}</div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>

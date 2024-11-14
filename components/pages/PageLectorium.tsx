@@ -44,7 +44,7 @@ const PageLectorium = ({ lectorium }: Props) => {
         targetDate={lectorium?.targetDate}
       />
       <LectoriumFAQ faq={lectorium?.faq} />
-      <NextEvents lectorium={lectorium} />
+      {lectorium.lectoriums.length > 0 && <NextEvents lectorium={lectorium} />}
     </div>
   )
 }

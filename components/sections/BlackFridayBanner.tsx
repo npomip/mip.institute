@@ -73,7 +73,7 @@ const BlackFridayBanner = () => {
               </p>
               <p className={stls.subTitle}>
                 *список программ участвующих в акции уточняйте у приёмной
-                комисии
+                комиссии
               </p>
             </div>
           </div>

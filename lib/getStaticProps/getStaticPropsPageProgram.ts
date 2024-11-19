@@ -16,7 +16,6 @@ const getStaticPropsPageProgram = async ({
   props: TypePageProgramProps
   revalidate: number | boolean
 }> => {
-
   const studyFieldSlug = context?.params?.studyFieldSlug?.toString() || null
   const slug = context?.params?.slug?.toString() || null
 
@@ -27,7 +26,6 @@ const getStaticPropsPageProgram = async ({
         $studyFieldSlug: String!
         $type: String!
       ) {
-      
         reviews {
           id
           name
@@ -39,9 +37,9 @@ const getStaticPropsPageProgram = async ({
             url
             width
             height
-            } 
           }
-          
+        }
+
         programs {
           id
           studyField
@@ -67,7 +65,7 @@ const getStaticPropsPageProgram = async ({
             width
             height
           }
-          
+
           slug
           studyForm
           type
@@ -98,18 +96,18 @@ const getStaticPropsPageProgram = async ({
             question
             answer
           }
-          unique_reviews{
+          unique_reviews {
             id
-          name
-          profession
-          title
-          story
-          createdAt
-          picture {
-            url
-            width
-            height
-            } 
+            name
+            profession
+            title
+            story
+            createdAt
+            picture {
+              url
+              width
+              height
+            }
           }
           requests {
             title
@@ -181,6 +179,5 @@ const getStaticPropsPageProgram = async ({
     revalidate: revalidate.default
   }
 }
-
 
 export default getStaticPropsPageProgram

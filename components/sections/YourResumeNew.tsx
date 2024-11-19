@@ -14,25 +14,25 @@ import Image from 'next/image'
 import resume from '@/public/assets/imgs/resume/resumeNew.png'
 import Popup from 'reactjs-popup'
 import { PopupImage } from '../popups'
-import formatSalary from '@/helpers/formatSalary'
 
 const YourResumeNew = ({ resumeRef = null, close }) => {
   const { program } = useContext(ContextStaticProps)
+  console.log(program, '<------------------------------')
+
   const [showFullText, setShowFullText] = useState(false)
   const [visibleSkillsCount, setVisibleSkillsCount] = useState(1)
-  console.log(program)
 
   const cutHandler = () => {
     setShowFullText(!showFullText)
     if (!showFullText) {
-      setVisibleSkillsCount(program?.resumeSkills.split('\n').length)
+      setVisibleSkillsCount(program?.portfolio?.resumeSkills.split('\n').length)
     } else {
       setVisibleSkillsCount(1)
     }
   }
 
   const resumeSkills =
-    program?.resumeSkills
+    program?.portfolio?.resumeSkills
       .split('\n')
       .map(skill => skill.replace(/^- /, '').trim())
       .filter(skill => skill.length > 0) || []
@@ -62,11 +62,19 @@ const YourResumeNew = ({ resumeRef = null, close }) => {
               [stls.left]: true
             })}>
             <div className={stls.img}>
-              <Image src={resume} alt='Портфолио' className={stls.resumeImg} />
+              <Image
+                src={program?.portfolio?.picture.url || resume}
+                width={program?.portfolio?.picture.width || null}
+                height={program?.portfolio?.picture.height || null}
+                alt='Портфолио'
+                className={stls.resumeImg}
+              />
             </div>
             <div className={stls.infoLeft}>
               <div className={stls.line}>
-                <p className={stls.infoText}>Дарья, 30 лет</p>
+                <p className={stls.infoText}>
+                  {program?.portfolio?.name || 'Дарья, 30 лет'}
+                </p>
               </div>
               <div className={stls.line}>
                 <p className={stls.subTitle}>Профессия:</p>
@@ -75,17 +83,19 @@ const YourResumeNew = ({ resumeRef = null, close }) => {
                     [stls.infoText]: true,
                     [stls.colored]: true
                   })}>
-                  Психолог
+                  {program?.portfolio?.profession}
                 </p>
               </div>
               <div className={stls.line}>
                 <p className={stls.subTitle}>Специальность:</p>
-                <p className={stls.infoText}>{program?.resumeTitle}</p>
+                <p className={stls.infoText}>
+                  {program?.portfolio?.specialization}
+                </p>
               </div>
               <div className={stls.line}>
                 <p className={stls.subTitle}>Заработок:</p>
                 <p className={stls.infoText}>
-                  от&nbsp;{formatSalary(program?.entrySalary)}
+                  от&nbsp;{toNumberWithSpaces(program?.portfolio?.salary)}
                   &nbsp;руб.
                 </p>
               </div>
@@ -101,10 +111,7 @@ const YourResumeNew = ({ resumeRef = null, close }) => {
                 <div className={stls.icon}>1</div>
                 <p className={stls.subTitleRight}>Квалификация:</p>
               </div>
-              <p className={stls.text}>
-                Профессиональная переподготовка по перинатальной психологии,
-                диплом Московского Института Психологии
-              </p>
+              <p className={stls.text}>{program?.portfolio?.qualification}</p>
             </div>
             <span className={stls.separator}></span>
             <div className={stls.infoRight}>

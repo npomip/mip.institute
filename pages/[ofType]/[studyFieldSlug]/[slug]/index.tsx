@@ -146,6 +146,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
               width
               height
             }
+            portfolio {
+              name
+              profession
+              specialization
+              salary
+              qualification
+              resumeSkills
+              picture {
+                url
+                width
+                height
+              }
+            }
+            admissionDate
             isPopular
             courseOpened
             slug

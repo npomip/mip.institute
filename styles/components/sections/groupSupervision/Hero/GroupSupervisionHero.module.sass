@@ -32,10 +32,16 @@
       margin-top: f.px(-10)
 
 .btn > div > button
+  @include m.gap($ptb: f.px(20))
   width: 100%
   font-size: f.px(22)
+  border-radius: f.px(7)
   text-transform: uppercase
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(15))
     border-radius: f.px(4)
     font-size: f.px(16)
+  &::after
+    display: none
+  &:hover
+    transform: scale(.99)

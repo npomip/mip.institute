@@ -30,6 +30,7 @@ import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
+import YourResumeNew from '../sections/YourResumeNew'
 
 type PagesProgramType = {
   ofType: string

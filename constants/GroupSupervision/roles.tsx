@@ -1,7 +1,7 @@
-import protagonist from '@/public/assets/imgs/groupSupervision/RolesImages/protagonist.png'
-import client from '@/public/assets/imgs/groupSupervision/RolesImages/client.png'
-import observer from '@/public/assets/imgs/groupSupervision/RolesImages/observer.png'
-import supervisor from '@/public/assets/imgs/groupSupervision/RolesImages/supervisors.png'
+import protagonist from '@/public/assets/imgs/groupSupervision/Roles/protagonist.png'
+import client from '@/public/assets/imgs/groupSupervision/Roles/client.png'
+import observer from '@/public/assets/imgs/groupSupervision/Roles/observer.png'
+import supervisor from '@/public/assets/imgs/groupSupervision/Roles/supervisors.png'
 
 const rolesDescription = [
   {

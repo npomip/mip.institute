@@ -12,12 +12,22 @@
   @include m.dye(bg, c.$purple-100)
   border-radius: f.px(30)
   @include m.gap($ptb: f.px(20), $pl: f.px(30), $pr: f.px(20), $mt: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: space-between)
+    width: auto
+    gap: 0
+    border-radius: f.px(10)
+    min-width: f.px(250)
+    height: f.px(760)
+    @include m.gap($plr: f.px(15), $mt: f.px(10))
 
 .title
   font-size: f.px(30)
   font-weight: 500
   text-transform: uppercase
   @include m.gap($mtb: f.px(10))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
 
 .subtitle
   font-size: f.px(15)
@@ -29,6 +39,9 @@
   counter-reset: list-counter
   padding-left: f.px(20)
   @include m.gap($ptb: f.px(20), $plr: f.px(10), $mb: 0)
+  @include m.media(phone, tablet)
+    border-radius: f.px(7)
+    @include m.gap($plr: f.px(5), $pb: 0)
 
 .item
   @include m.flex()
@@ -38,7 +51,10 @@
   list-style: none
   counter-increment: list-counter
   @include m.gap($mb: f.px(15))
-
+  @include m.media(phone, tablet)
+    gap: f.px(15)
+    &:last-child
+      @include m.gap($mb: 0)
   &::before
     content: "(" counter(list-counter) ") "
     font-size: f.px(14)
@@ -49,6 +65,9 @@
   width: f.px(260)
   min-height: f.px(330)
   overflow: hidden
+  @include m.media(phone, tablet)
+    margin: 0 auto
+    width: f.px(250)
 
 .image
   border-radius: f.px(15)

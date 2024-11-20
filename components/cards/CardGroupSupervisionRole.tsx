@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/Roles/RolesDescription.module.sass'
+import stls from '@/styles/components/cards/CardGroupSupervisionRole.module.sass'
 import Image, { StaticImageData } from 'next/image'
 
 type Props = {
@@ -9,8 +9,7 @@ type Props = {
     text: string[]
   }
 }
-
-const RolesDescription = ({ role }: Props) => {
+const CardGroupSupervisionRole = ({ role }: Props) => {
   return (
     <div className={stls.container}>
       <div>
@@ -37,4 +36,4 @@ const RolesDescription = ({ role }: Props) => {
   )
 }
 
-export default RolesDescription
+export default CardGroupSupervisionRole

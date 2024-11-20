@@ -7,6 +7,8 @@
   grid-template-columns: 30% 1fr
   column-gap: f.px(50)
   align-items: start
+  @include m.media(phone, tablet)
+    display: block
 
 .title
   display: inline-block
@@ -18,8 +20,9 @@
   max-width: f.px(320)
   @include m.gap($mb: f.px(25))
   @include m.media(phone, tablet)
-    font-size: f.px(26)
-    @include m.gap($mb: f.px(15))
+    max-width: f.px(270)
+    font-size: f.px(32)
+    @include m.gap($mb: f.px(10))
 
 .coloredTitle
   @include m.dye(c, c.$orange-700)
@@ -44,12 +47,17 @@
     @include m.dye(c, c.$purple-800)
     border-top: f.px(1) solid c.$purple-800
 
-
 .text
   font-size: f.px(20)
   font-weight: 350
   line-height: 120%
   @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
 
 .bold
   font-weight: 500
+
+.cards
+  position: relative
+  margin-bottom: f.px(40)

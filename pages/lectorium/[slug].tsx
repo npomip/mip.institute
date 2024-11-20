@@ -5,6 +5,7 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 
 type Props = {
   lectorium: Lectorium
@@ -12,9 +13,15 @@ type Props = {
 
 const LectoriumPage = ({ lectorium }: Props) => {
 
+  console.log(lectorium.seo);
+  const router = useRouter()
+  console.log(router);
+  
+  
+
   return (
     <>
-      <SeoCommon seo={lectorium.seo} programTitle={`${lectorium.title} ${lectorium.description}: очный семинар в Москве`} />
+      <SeoCommon canonical={`${routes.front.root}${router.asPath}`} seo={lectorium.seo} programTitle={`${lectorium.title} ${lectorium.description}: очный семинар в Москве`} />
       <PageLectorium lectorium={lectorium} />
     </>
   )

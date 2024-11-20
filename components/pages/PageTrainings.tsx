@@ -4,7 +4,6 @@ import PracticalSlugCard from '../cards/PracticalSlugCard'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import ProgramsFilters from '@/components/program/ProgramsFilters'
 import Wrapper from '@/ui/Wrapper'
-import { SeoPageBachelors } from '../seo'
 
 const PageTrainings = ({
   programs = [],
@@ -13,7 +12,6 @@ const PageTrainings = ({
 }) => {
   return (
     <Wrapper>
-      <SeoPageBachelors />
       <FilterProvider items={programs}>
         <Breadcrumbs isJournal />
         <h1 className={stls.title}>Практическая подготовка</h1>

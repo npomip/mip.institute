@@ -132,7 +132,7 @@ const PagesProgram = ({
 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
       {ofType !== 'Course' && ofType !== 'Practice' && (
-        <YourResume resumeRef={resumeRef} />
+        <YourResumeNew resumeRef={resumeRef} />
       )}
       <SalaryCounter title='Психология' />
 

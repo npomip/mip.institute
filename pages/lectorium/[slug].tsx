@@ -5,26 +5,19 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 
 type Props = {
   lectorium: Lectorium
 }
 
 const LectoriumPage = ({ lectorium }: Props) => {
-  const title =
-    lectorium.type === 'offline'
-      ? `${lectorium.title} ${lectorium.subtitle}: очный семинар в Москве`
-      : `${lectorium.title} ${lectorium.subtitle}: онлайн семинар`
 
-  const desc = lectorium.seo?.metaDescription
-    ? lectorium.seo.metaDescription
-    : lectorium.type === 'offline'
-      ? `Очный семинар на тему ${title} от Московского Института Психологии (МИП) | Актуальная информация от ведущих экспертов-психологов | Оставьте онлайн-заявку на мероприятие!`
-      : `Онлайн семинар на тему ${title} от Московского Института Психологии (МИП) | Актуальная информация от ведущих экспертов-психологов | Оставьте заявку на тренинг на нашем сайте!`
+  const router = useRouter()
 
   return (
     <>
-      <SeoCommon seo={lectorium.seo} programTitle={title} desc={desc} />
+      <SeoCommon canonical={`${routes.front.root}${router.asPath}`} seo={lectorium.seo} programTitle={`${lectorium.title} ${lectorium.description}: очный семинар в Москве`} />
       <PageLectorium lectorium={lectorium} />
     </>
   )

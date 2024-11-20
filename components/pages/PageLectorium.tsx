@@ -14,14 +14,15 @@ import stls from '@/styles/pages/PageLectorium.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import LectoriumWhoIsEventFor from '../sections/lectorium/LectoriumWhoIsEventFor'
 import Speaker from '../sections/lectorium/Speaker'
+import NextEvents from '../sections/lectorium/NextEvents'
 
 type Props = {
   lectorium: Lectorium
 }
 
 const PageLectorium = ({ lectorium }: Props) => {
-  console.log(lectorium);
-  
+  console.log(lectorium)
+
   return (
     <div className={stls.container}>
       <LectoriumHero lectorium={lectorium} />
@@ -43,6 +44,7 @@ const PageLectorium = ({ lectorium }: Props) => {
         targetDate={lectorium?.targetDate}
       />
       <LectoriumFAQ faq={lectorium?.faq} />
+      {lectorium.lectoriums.length > 0 && <NextEvents lectorium={lectorium} />}
     </div>
   )
 }

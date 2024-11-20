@@ -29,8 +29,6 @@ const getStaticPropsPageLectorium = async ({
             }
             price
             description
-            date
-            time
             targetDate
             endTime
             places
@@ -85,6 +83,7 @@ const getStaticPropsPageLectorium = async ({
               date
               time
               type
+              targetDate
               label
               picture {
                 url

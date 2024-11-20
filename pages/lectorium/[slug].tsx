@@ -13,11 +13,7 @@ type Props = {
 
 const LectoriumPage = ({ lectorium }: Props) => {
 
-  console.log(lectorium.seo);
   const router = useRouter()
-  console.log(router);
-  
-  
 
   return (
     <>

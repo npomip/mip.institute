@@ -37,6 +37,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
         programOverview={programOverview}
         reviews={reviews}
         ofType={program?.type}
+        program={program}
       />
     </>
   )

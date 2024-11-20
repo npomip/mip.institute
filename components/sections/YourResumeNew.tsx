@@ -1,15 +1,13 @@
 import stls from '@/styles/components/sections/YourResumeNew.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { ContextStaticProps } from '@/context/index'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { toNumberWithSpaces } from '@/helpers/index'
 import classNames from 'classnames'
 import Image from 'next/image'
 import resume from '@/public/assets/imgs/resume/resumeNew.png'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const YourResumeNew = ({ resumeRef = null }) => {
-  const { program } = useContext(ContextStaticProps)
+const YourResumeNew = ({ resumeRef = null, program }) => {
   const [showFullText, setShowFullText] = useState(false)
   const [visibleSkillsCount, setVisibleSkillsCount] = useState(1)
 

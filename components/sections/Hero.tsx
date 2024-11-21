@@ -7,19 +7,8 @@ import PopupTrigger from '@/ui/PopupTrigger'
 import IconGratefullPortal from '../icons/IconGratefullPortal'
 import IconHero from '../icons/IconHero'
 import IconHeroWave from '../icons/IconHeroWave'
-import { useEffect, useState } from 'react'
 
 const Hero = () => {
-  const [isTwoButtons, setIsTwoButtons] = useState('2buttons')
-
-
-  useEffect(() => {
-    const storedValue = localStorage.getItem('AB')
-    setIsTwoButtons(storedValue)
-  }, [])
-
-  console.log(isTwoButtons);
-  
   return (
     <section className={stls.container}>
       <div className={stls.bg}></div>
@@ -40,8 +29,7 @@ const Hero = () => {
                   <PopupTrigger btn='alpha' cta='signUpForProgramm' />
                 </div>
                 <div className={stls.btn}>
-                  {isTwoButtons === '2buttons' && <PopupTrigger btn='beta' cta='askQuestion' />}
-                  
+                  <PopupTrigger btn='beta' cta={'askQuestion'} />
                 </div>
               </div>
             </div>
@@ -87,8 +75,7 @@ const Hero = () => {
                   <PopupTrigger btn='alpha' cta='signUpForCourse' />
                 </div>
                 <div className={stls.mobileBtn}>
-                {isTwoButtons === '2buttons' && <PopupTrigger btn='beta' cta='askQuestion' />}
-                  
+                  <PopupTrigger btn='beta' cta={'askQuestion'} />
                 </div>
               </div>
             </div>

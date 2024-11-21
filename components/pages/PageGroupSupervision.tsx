@@ -4,6 +4,7 @@ import GroupSupervisionHero from '@/components/sections/groupSupervision/Hero/Gr
 import Roles from '@/components/sections/groupSupervision/Roles'
 import GroupSupervisionDesc from '../sections/groupSupervision/GroupSupervisionDesc'
 import Supervisors from '@/components/sections/groupSupervision/Supervisors'
+import GroupSupervisionFor from '../sections/groupSupervision/GroupSupervisionFor'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -12,6 +13,7 @@ const PageGroupSupervision = ({}) => {
         <GroupSupervisionHero />
         <GroupSupervisionDesc />
         <Roles />
+        <GroupSupervisionFor />
         <Supervisors />
       </Wrapper>
     </div>

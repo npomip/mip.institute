@@ -17,7 +17,7 @@ const GroupSupervisionHero = () => {
             src={hero}
             alt='Групповая супервизия'
             className={stls.image}
-            layout='responsive'
+            style={{ width: '100%', height: 'auto' }}
           />
         </picture>
         <GroupSupervisionHeroInfo />

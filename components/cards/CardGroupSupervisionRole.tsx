@@ -25,12 +25,7 @@ const CardGroupSupervisionRole = ({ role }: Props) => {
       </div>
 
       <div className={stls.imageWrapper}>
-        <Image
-          src={role.image}
-          alt={role.title}
-          layout='fill'
-          className={stls.image}
-        />
+        <Image src={role.image} alt={role.title} fill className={stls.image} />
       </div>
     </div>
   )

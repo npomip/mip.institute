@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<yml_catalog date="2024-11-21T13:20:00+03:00">
+  <shop>
+    <name>Московский институт психологии</name>
+    <url>https://mip.institute?utm_source=seo&amp;utm_medium=feed&amp;utm_campaign=main</url>
+    <description>Освойте востребованную профессию психолога или повысьте квалификацию онлайн вместе с Московским Институтом Психологии</description>
+    <currencies>
+      <currency id="RUR" rate="1" />
+    </currencies>
+    <offers>
+      <offer id="2_ava_terapist" available="true">
+        <name>ABA-терапевт</name>
+        <description>          
+          В результате обучения вы научитесь: 
+          — Оценивать уровень психоречевого развития ребенка, сенсомоторные характеристики, а также способности ребенка к обучению
+          -Применять поведенческие методики в работе с детьми с РАС и другими нарушениями в развитии
+          -Разрабатывать поведенческие программы
+          -Курировать обучающий процесс и консультировать родителей
+          -Заниматься научной деятельностью
+        </description>
+        <param name="Уровень курса">С Нуля</param> 
+        <param name="Формат курса">ONLINE</param>  
+        <param name="Регион проведения">Москва</param>  
+        <param name="Длительность курса">6 месяцев</param>
+        <oldprice>80000</oldprice>
+        <price>56160</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">4700</param>
+        <currencyId>RUB</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/detskaya-psihologiya/ava-terapevt?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="3_geshtalt_terapist" available="true">
+        <name>Гештальт-терапевт</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Владеть техникой гештальт-подхода;
+            — Способность осуществлять коррекцию психосоматических нарушений, тревог и пограничных состояний.
+        </description>
+        <param name="Уровень курса">Для новичков</param>
+        <param name="Формат курса">Самостоятельно с наставником</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">8 месяцев</param>
+        <oldprice>165000</oldprice>
+        <price>115260</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">9600</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/geshtalt-terapevt?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="4_art_therapist" available="true">
+        <name>Арт-терапевт</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Понимать виды, методы и подходы арт-терапии;
+            — Проводить психодиагностику с помощью метода арт-терапии;
+            — Структура арт-терапевтического тренинга, диагностика и взаимодействие в группе.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">6 месяцев</param>
+        <oldprice>128000</oldprice>
+        <price>89460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">7500</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/art-terapevt?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="5_child_psychologist" available="true">
+        <name>Детский психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Учитывать общие, специфические закономерности и индивидуальные особенности психического и психофизиологического развития;
+            — Осуществлять обучение, воспитание, развитие с учетом социальных, возрастных, психофизиологических индивидуальных особенностей;
+            — Использовать знание различных теорий обучения, воспитания и развития.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">10 месяцев</param>
+        <oldprice>148000</oldprice>
+        <price>103320</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">8600</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/detskaya-psihologiya/detskij-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+      <offer id="6_clinical_psychologist" available="true">
+        <name>Клинический психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Понимать цели и задачи клинической психологии;
+            — Проводить клинико-психологическую диагностику;
+            — Самостоятельно разрабатывать тактику и стратегию психологического обследования с последующей разработкой способов психологической коррекции и реабилитации.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">18 месяцев</param>
+        <oldprice>208000</oldprice>
+        <price>145740</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">12100</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/klinicheskaya-psihologiya/klinicheskij-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="8_Cognitive_Behavioral_Psychotherapist" available="true">
+        <name>Когнитивно-поведенческий психотерапевт</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Понимать типологию основных подходов когнитивно-поведенческой психотерапии;
+            — Эффективно использовать технологии психологического консультирования.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">6 месяцев</param>
+        <oldprice>160000</oldprice>
+        <price>112320</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">9400</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="9_neuropsychologist" available="true">
+        <name>Нейропсихолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Использовать комплекс нейропсихологических диагностических методик для выявления отклонений в развитии;
+            — Разрабатывать индивидуальную коррекционную программу в зависимости от нарушений высших психических функций;
+            — Применять нейропсихологический подход к реабилитации и восстановлению высших психических функций.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">11 месяцев</param>
+        <oldprice>193000</oldprice>
+        <price>135180</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">11300</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/klinicheskaya-psihologiya/nejropsiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="10_business_coach" available="true">
+        <name>Психолог бизнес-консультант. Коуч</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Эффективно осуществлять планирование в организации, формировать мотивационную среду для сотрудников, повышать лояльность сотрудников и выявлять уникальность продукта.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">9 месяцев</param>
+        <oldprice>128000</oldprice>
+        <price>89460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">7500</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="11_psychologist-consultant" available="true">
+        <name>Психолог-консультант</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Анализировать психологическое состояние клиента;
+            — Оказывать психологическую помощь личности по разрешению внутриличностных проблем;
+            — Владеть принципами индивидуального и группового консультирования;
+            — Понимать особенности диагностики психического развития людей разного возраста.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">12 месяцев</param>
+        <oldprice>222000</oldprice>
+        <price>155520</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">13000</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/psiholog-konsultant?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="12_family_psychologist" available="true">
+        <name>Семейный психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Применять в профессиональной деятельности методы и техники семейной психотерапии;
+            — Понимать эволюцию и сущность брачно-семейных отношений;
+            — Оказывать помощь в решении кризисных ситуаций в семье.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">10 месяцев</param>
+        <oldprice>148000</oldprice>
+        <price>103320</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">8600</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/obshaya-psihologiya/semejnyj-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+      <offer id="14_sexology" available="true">
+        <name>Сексология в психологическом консультировании</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Помогать справляться с расстройствами влечения и возбуждения;
+            — Помогать людям принять и полюбить себя и собственное тело;
+            — Владеть актуальными знаниями в современной сексологии для результативного применения их в работе психолога.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">10 месяцев</param>
+        <oldprice>160000</oldprice>
+        <price>112320</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">9400</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="15_pediatric_neuropsychologist" available="true">
+        <name>Детский нейропсихолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Проводить нейропсихологическую диагностику и коррекцию нарушений развития у детей;
+            — Овладеть методами реабилитации высших психических функций;
+            — Понимать особенности психического развития в детском и подростковом возрасте.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">8 месяцев</param>
+        <oldprice>128000</oldprice>
+        <price>89460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">7500</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/klinicheskaya-psihologiya/detskij-nejropsiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+      <offer id="16_corporate_psychologist" available="true">
+        <name>Корпоративный психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Знать и понимать основные термины современной психологии, организационной психологии и психологии труда;
+            — Выявлять и различать психологические механизмы, стоящие за поведением сотрудников на работе;
+            — Владеть навыком классификации и оценки наиболее часто возникающих ситуаций в управлении персоналом и организационном консультировании.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">9 месяцев</param>
+        <oldprice>128000</oldprice>
+        <price>89460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">7500</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/organizacionnaya-psihologiya/korporativnyj-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="17_educational_psychologist" available="true">
+        <name>Педагог-психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Оценивать и создавать социально-психологические условия для успешного развития детей;
+            — Проводить психологическую диагностику развития личности обучающихся;
+            — Осуществлять психолого-педагогическое сопровождение детей с особенностями развития.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">10 месяцев</param>
+        <oldprice>81000</oldprice>
+        <price>56460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">4700</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/detskaya-psihologiya/pedagog-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+      <offer id="19_nutritionist" available="true">
+        <name>Психолог-диетолог. Нутрициолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Владеть навыками психологического консультирования с «зависимыми» клиентами;
+            — Разрабатывать и проводить групповые программы по снижению веса;
+            — Проводить диагностику и составлять эффективный план работы для клиентов с нарушениями пищевого поведения.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">10 месяцев</param>
+        <oldprice>160000</oldprice>
+        <price>112320</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">9400</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="20_mediator" available="true">
+        <name>Медиатор</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Применять современные технологии медиации, позволяющие четко определить предмет спора;
+            — Обладать основными компетенциями для успешного разрешения конфликтов;
+            — Эффективно управлять переговорным процессом.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">10 месяцев</param>
+        <oldprice>93000</oldprice>
+        <price>65340</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">5400</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/organizacionnaya-psihologiya/mediator?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="22_sports_psychologist" available="true">
+        <name>Спортивный психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Понимать общие психологические закономерности спортивной деятельности;
+            — Знать психологию личности и команды в спорте;
+            — Владеть психодиагностическими методами исследования психических процессов и состояний в соответствии со спецификой занятий физической культурой.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">9 месяцев</param>
+        <oldprice>121000</oldprice>
+        <price>84720</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">7100</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/obshaya-psihologiya/sportivnyj-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="23_crisis_psychologist" available="true">
+        <name>Кризисный психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Владеть методами оказания психологической помощи в экстремальных ситуациях;
+            — Определять психическое состояние человека, находящегося в кризисной ситуации;
+            — Знать основные принципы работы в кризисной психологии.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">8 месяцев</param>
+        <oldprice>80000</oldprice>
+        <price>56160</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">4700</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/krizisnyj-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="24_psychoanalysis" available="true">
+        <name>Психоанализ и психологическая психотерапия</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Анализировать и внедрять классические психоаналитические техники;
+            — Эффективно использовать различные виды психоаналитической помощи;
+            — Применять методы семейного психоаналитического консультирования.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">24 месяца</param>
+        <oldprice>250000</oldprice>
+        <price>175320</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">14600</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/psihoanaliz-i-psihologicheskaya-psihoterapiya?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="25_perinatal_psychologist" available="true">
+        <name>Перинатальный психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Применять основные методики перинатальной психологии в практической работе;
+            — Создавать и адаптировать программы работы с клиентом с учетом знаний в области перинатальной психологии.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">9 месяцев</param>
+        <oldprice>121000</oldprice>
+        <price>84720</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">7100</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/detskaya-psihologiya/perinatalnyj-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="26_psychosomatics" available="true">
+        <name>Психосоматика и телесная психотерапия</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Владеть теоретической базой по психосоматике и телесной психотерапии;
+            — Понимать невербальные сигналы тела;
+            — Диагностировать причины психосоматических заболеваний.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">9 месяцев</param>
+        <oldprice>136000</oldprice>
+        <price>95460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">8000</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="28_body_oriented_therapy" available="true">
+        <name>Телесно-ориентированная терапия</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Владеть основами телесно-ориентированной терапии;
+            — Понимать и применять методы психологического консультирования;
+            — Использовать техники для улучшения коммуникации и взаимодействия.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">9 месяцев</param>
+        <oldprice>136000</oldprice>
+        <price>95460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">8000</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/telesno-orientirovannaya-terapiya?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="29_hypnosis_psychological_counseling" available="true">
+        <name>Суггестивная психология. Гипноз в психологическом консультировании</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Владеть принципами организации и проведения индивидуального и группового психологического консультирования;
+            — Устанавливать контакт и анализировать психологическое состояние клиента;
+            — Понимать структуру гипнотерапевтической сессии и проводить наведение транса.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">6 месяцев</param>
+        <oldprice>94000</oldprice>
+        <price>65460</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">5500</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/suggestivnaya-psihologiya.-gipnoz-v-psihologicheskom-konsultirovanii?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="39_speech_therapist" available="true">
+        <name>Логопед с доп. квалификацией Специальный психолог</name>
+        <description>
+            В результате обучения вы научитесь: 
+            — Создавать условия для получения образования у детей со специальными образовательными потребностями;
+            — Проводить мероприятия по компенсации и коррекции нарушений у детей;
+            — Оказывать консультативную помощь родителям детей с проблемами в развитии.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">10 месяцев</param>
+        <oldprice>93000</oldprice>
+        <price>65340</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">5500</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="30_psihologo_pedagogicheskoye_obrazovanie" available="true">
+        <name>Психолого–педагогическое образование</name>
+        <description>
+            В результате обучения вы получите: 
+            — Комплексные знания в области психологии и педагогики;
+            — Умения работать с детьми и подростками в образовательной среде;
+            — Диплом о высшем образовании.
+        </description>
+        <param name="Уровень курса">Продвинутый</param>
+        <param name="Формат курса">OFFLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">54 месяца</param>
+        <oldprice>130000</oldprice>
+        <price>120000</price>
+        <discount>8</discount>
+        <param name="Ежемесячный платеж">10000</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/bachelor/psihologo-pedagogicheskoye-obrazovanie?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="31_psikhologiya" available="true">
+        <name>Психология</name>
+        <description>
+            В результате обучения вы получите: 
+            — Глубокие знания в области психологии;
+            — Умения применять психологические методы и техники;
+            — Диплом о высшем образовании.
+        </description>
+        <param name="Уровень курса">Продвинутый</param>
+        <param name="Формат курса">OFFLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">54 месяца</param>
+        <oldprice>130000</oldprice>
+        <price>120000</price>
+        <discount>8</discount>
+        <param name="Ежемесячный платеж">10000</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/bachelor/psikhologiya?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+      <offer id="32_pedagogicheskoe-obrazovanie" available="true">
+        <name>Педагогическое образование</name>
+        <description>
+            В результате обучения вы получите: 
+            — Комплексные знания в области педагогики;
+            — Умения работать в образовательной среде;
+            — Диплом о высшем образовании.
+        </description>
+        <param name="Уровень курса">Продвинутый</param>
+        <param name="Формат курса">OFFLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">54 месяца</param>
+        <oldprice>130000</oldprice>
+        <price>120000</price>
+        <discount>8</discount>
+        <param name="Ежемесячный платеж">10000</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/bachelor/pedagogicheskoe-obrazovanie?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
+
+
+    </offers>
+  </shop>
+</yml_catalog>

@@ -314,22 +314,6 @@ const MyApp = ({ Component, pageProps, router }) => {
       )}
 
       <Script
-        id='sendsay-popup'
-        src='https://image.sendsay.ru/app/js/forms/forms.min.js'
-        onLoad={() => {
-          // @ts-ignore
-          if (window.SENDSAY) {
-            // @ts-ignore
-            SENDSAY.activatePopup(
-              'https://sendsay.ru/form/x_16799332371017125/5/'
-            )
-          } else {
-            console.error('SENDSAY is not defined')
-          }
-        }}
-      />
-
-      <Script
         async
         src='https://www.googletagmanager.com/gtag/js?id=AW-822792302'
       />

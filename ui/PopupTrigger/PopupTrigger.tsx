@@ -93,7 +93,7 @@ const PopupTrigger = ({
       chooseProgram: 'Подобрать программу',
       learnAboutUs: 'Узнать об институте',
       submitApplication: 'Оставить заявку',
-      getFullProgram: 'Получить полную программу',
+      getFullProgram: 'Получить программу',
       reserve: 'Забронировать',
       learnAboutTeachers: 'Узнать всех',
       help: 'Помощь',

@@ -1,16 +1,14 @@
-import Rating from '@/components/sections/Rating'
-import { SeoOrganizationJsonLd } from '@/components/seo'
 import SvedenSkeleton from '@/components/sveden/SvedenSkeleton/SvedenSkeleton'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
+import Struct from '@/components/sveden/Struct/Struct'
 
 const CommonPage: NextPage = () => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
       <SvedenSkeleton>
-        {/* <Struct /> */}
-        <p>common</p>
+        <Struct />
       </SvedenSkeleton>
     </>
   )

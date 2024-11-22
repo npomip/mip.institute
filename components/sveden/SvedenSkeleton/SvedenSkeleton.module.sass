@@ -2,18 +2,16 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-
 .container
-    @include m.gap($ptb: f.px(50))
+  @include m.gap($ptb: f.px(50))
 
 .innerContainer
-    display: grid
-    grid-template-columns: 33% 66%
-    column-gap: f.px(30)
-    @include m.media(phone, tablet)
-        @include m.flex($fd: column)
-        
+  display: grid
+  grid-template-columns: 33% 66%
+  column-gap: f.px(30)
+  @include m.media(phone, tablet)
+      @include m.flex($fd: column)
 
 .content
-    @include m.gap($mt: f.px(20))
-    overflow: auto
+  @include m.gap($mt: f.px(20))
+  overflow: auto

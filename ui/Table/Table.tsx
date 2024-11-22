@@ -1,26 +1,29 @@
-import React from "react";
+import React from 'react'
+import styles from './Table.module.sass'
 
 // Тип для ячейки таблицы
 interface TableCell {
-  content: React.ReactNode; // Контент ячейки (текст, элемент JSX)
-  itemProp?: string;        // Необязательный атрибут itemProp
+  content: React.ReactNode // Контент ячейки (текст, элемент JSX)
+  itemProp?: string // Необязательный атрибут itemProp
+  colspan?: number // Количество столбцов, на которые распространяется ячейка
 }
 
 // Тип для строки таблицы
 interface TableRow {
-  cells: TableCell[];       // Массив ячеек в строке
-  itemProp?: string;        // Необязательный атрибут itemProp для всей строки
+  cells: TableCell[] // Массив ячеек в строке
+  itemProp?: string // Необязательный атрибут itemProp для всей строки
+  isFullRow?: boolean // Флаг для строки, занимающей всю ширину таблицы
 }
 
 // Типы для таблицы
 interface TableProps {
-  headers: string[];        // Заголовки таблицы
-  rows: TableRow[];         // Массив строк таблицы
+  headers: string[] // Заголовки таблицы
+  rows: TableRow[] // Массив строк таблицы
 }
 
 const Table: React.FC<TableProps> = ({ headers, rows }) => {
   return (
-    <table cellPadding={5} border={1}>
+    <table className={styles.table}>
       <thead>
         <tr>
           {headers.map((header, index) => (
@@ -29,21 +32,40 @@ const Table: React.FC<TableProps> = ({ headers, rows }) => {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row, rowIndex) => (
-          <tr key={rowIndex} {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
-            {row.cells.map((cell, cellIndex) => {
-              const { content, itemProp } = cell;
-              return (
-                <td key={cellIndex} {...(itemProp ? { itemProp } : {})}>
-                  {content}
-                </td>
-              );
-            })}
-          </tr>
-        ))}
+        {rows.map((row, rowIndex) => {
+          if (row.isFullRow) {
+            // Полная строка
+            return (
+              <tr
+                key={rowIndex}
+                {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
+                <td colSpan={headers.length}>{row.cells[0]?.content}</td>
+              </tr>
+            )
+          }
+
+          // Обычная строка
+          return (
+            <tr
+              key={rowIndex}
+              {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
+              {row.cells.map((cell, cellIndex) => {
+                const { content, itemProp, colspan } = cell
+                return (
+                  <td
+                    key={cellIndex}
+                    {...(itemProp ? { itemProp } : {})}
+                    {...(colspan ? { colSpan: colspan } : {})}>
+                    {content}
+                  </td>
+                )
+              })}
+            </tr>
+          )
+        })}
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

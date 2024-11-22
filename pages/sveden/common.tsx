@@ -1,5 +1,3 @@
-import Rating from '@/components/sections/Rating'
-import { SeoOrganizationJsonLd } from '@/components/seo'
 import Common from '@/components/sveden/Common/Common'
 import SvedenSkeleton from '@/components/sveden/SvedenSkeleton/SvedenSkeleton'
 import { NextPage } from 'next'

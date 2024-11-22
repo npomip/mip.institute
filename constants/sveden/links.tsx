@@ -1,58 +1,58 @@
 const links = [
   {
-    href: '/common',
+    href: 'common',
     val: 'Основные сведения'
   },
   {
-    href: '/struct',
+    href: 'struct',
     val: 'Структура и органы управления образовательной организацией'
   },
   {
-    href: '/document',
+    href: 'document',
     val: 'Документы'
   },
   {
-    href: '/education',
+    href: 'education',
     val: 'Образование'
   },
   {
-    href: '/eduStandarts',
+    href: 'eduStandarts',
     val: 'Образовательные стандарты и требования'
   },
   {
-    href: '/managers',
+    href: 'managers',
     val: 'Руководство'
   },
   {
-    href: '/employees',
+    href: 'employees',
     val: 'Педагогический (научно-педагогический) состав'
   },
   {
-    href: '/objects',
+    href: 'objects',
     val: 'Материально-техническое обеспечение и оснащённость образовательного процесса. Доступная среда'
   },
   {
-    href: '/grants',
+    href: 'grants',
     val: 'Стипендии и меры поддержки обучающихся'
   },
   {
-    href: '/paid_edu',
+    href: 'paid_edu',
     val: 'Платные образовательные услуги'
   },
   {
-    href: '/budget',
+    href: 'budget',
     val: 'Финансово-хозяйственная деятельность'
   },
   {
-    href: '/vacant',
+    href: 'vacant',
     val: 'Вакантные места для приема (перевода) обучающихся'
   },
   {
-    href: '/inter',
+    href: 'inter',
     val: 'Международное сотрудничество'
   },
   {
-    href: '/catering',
+    href: 'catering',
     val: 'Организация питания в образовательной организации'
   }
 ]

@@ -26,12 +26,12 @@ const JournalSlugPage = ({ blog }) => {
     picture: blog?.picture,
     title: blog?.title,
     teacher: blog?.teacher,
-    blogAuthor: blog?.blogAuthor,
+    blog_author: blog?.blog_author,
     date: blog?.date,
     readTime: blog?.readTime
   }
 
-  const articleAuthors = [blog?.teacher, blog?.blogAuthor]
+  const articleAuthors = [blog?.teacher, blog?.blog_author]
 
   const headingLinks = blog?.article?.filter(
     el => el.__component === "blog.subtitle"
@@ -54,7 +54,7 @@ const JournalSlugPage = ({ blog }) => {
 
   return (
     <Wrapper>
-      <SeoPagesJournal blog={blog} />
+      {/* <SeoPagesJournal blog={blog} /> */}
       <div className={stls.in}>
         <ReadingProgressbar />
         <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField}/>

@@ -25,6 +25,17 @@ export const getStaticPropsBlog = async ({ context }) => {
             }
           }
         },
+        blog_author: {
+          fields: [
+            // 'avatar',
+            'name',
+          ],
+          // populate: {
+          //   avatar: {
+          //     fields: ['url', 'width', 'height']
+          //   }
+          // }
+        },
         // programs: {
         //   fields: ['title', 'url',],
         //   populate: {

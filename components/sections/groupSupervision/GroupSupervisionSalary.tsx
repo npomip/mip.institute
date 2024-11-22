@@ -23,8 +23,17 @@ const GroupSupervisionSalary = () => {
   return (
     <section className={stls.container}>
       <h2 className={stls.title}>
-        Сколько
-        <span className={stls.coloredTitle}> может заработать </span>
+        Сколько{' '}
+        <span className={stls.coloredTitle}>
+          {isMobileAndTabletLayout ? (
+            <>
+              <br />
+              может заработать
+            </>
+          ) : (
+            'может заработать'
+          )}
+        </span>{' '}
         супервизор
       </h2>
       <div className={stls.blocks}>

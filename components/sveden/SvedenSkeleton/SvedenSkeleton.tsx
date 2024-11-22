@@ -1,18 +1,25 @@
 import stls from './SvedenSkeleton.module.sass'
-import Link from 'next/link'
 import { ReactNode } from 'react'
+import Links from '../Links/Links'
+import Wrapper from '@/ui/Wrapper'
 
 type Props = {
   children: ReactNode
 }
 
 const SvedenSkeleton = ({ children }: Props) => {
-  return <div className={stls.container}>
-    <div className={stls.links}>
-      {/* <Link /> */}
-    </div>
-    {children}
-    </div>
+  return (
+    <section className={stls.container}>
+      <Wrapper>
+        <div className={stls.innerContainer}>
+          <div className={stls.links}>
+            <Links />
+          </div>
+          <div className={stls.content}>{children}</div>
+        </div>
+      </Wrapper>
+    </section>
+  )
 }
 
 export default SvedenSkeleton

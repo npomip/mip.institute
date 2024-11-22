@@ -21,7 +21,12 @@ const dataDocsRegulationsLeft: TypeDataDocs = [
   {
     href: `${routes.front.docsRegulations}/pis-mo-minobrnauki-rossii-ot-7-maia-2014-gh-ak-126106-ob-osobiennostiakh-zakonodatiel-nogho-i-normativnogho-pravovogho-obiespiechieniia-v-sfierie-dpo.pdf`,
     val: 'Письмо Минобрнауки России от 7 мая 2014 г. № ак-1261/06 «Об особенностях законодательного и нормативного правового обеспечения в сфере ДПО»'
+  },
+  {
+    href: `${routes.front.docsRegulations}/pravila-provedeniya-akcii.pdf`,
+    val: 'Правила проведения акции "Черная Пятница 1+1+1"'
   }
 ]
+
 
 export default dataDocsRegulationsLeft

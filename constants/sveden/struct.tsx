@@ -18,14 +18,14 @@ const structOrgUpravRows = [
   },
   // Ректорат
   {
-    itemProp: 'structOrgUprav',
+    itemprop: 'structOrgUprav',
     cells: [
-      { content: 'Ректорат', itemProp: 'name' },
-      { content: 'Багаев Евгений Александрович', itemProp: 'fio' },
-      { content: 'Ректор', itemProp: 'post' },
+      { content: 'Ректорат', itemprop: 'name' },
+      { content: 'Багаев Евгений Александрович', itemprop: 'fio' },
+      { content: 'Ректор', itemprop: 'post' },
       {
         content: '115114, Москва, Дербеневская набережная, дом 11',
-        itemProp: 'addressStr'
+        itemprop: 'addressStr'
       },
       {
         content: (
@@ -36,25 +36,25 @@ const structOrgUpravRows = [
             https://mip.institute/
           </Link>
         ),
-        itemProp: 'site'
+        itemprop: 'site'
       },
       {
         content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
-        itemProp: 'email'
+        itemprop: 'email'
       },
-      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+      { content: 'Отсутствует', itemprop: 'divisionClauseDocLink' }
     ]
   },
   // Ученый совет
   {
-    itemProp: 'structOrgUprav',
+    itemprop: 'structOrgUprav',
     cells: [
-      { content: 'Ученый совет', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
+      { content: 'Ученый совет', itemprop: 'name' },
+      { content: '', itemprop: 'fio' },
+      { content: '', itemprop: 'post' },
       {
         content: '115114, Москва, Дербеневская набережная, дом 11',
-        itemProp: 'addressStr'
+        itemprop: 'addressStr'
       },
       {
         content: (
@@ -65,13 +65,13 @@ const structOrgUpravRows = [
             https://mip.institute/
           </Link>
         ),
-        itemProp: 'site'
+        itemprop: 'site'
       },
       {
         content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
-        itemProp: 'email'
+        itemprop: 'email'
       },
-      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+      { content: 'Отсутствует', itemprop: 'divisionClauseDocLink' }
     ]
   },
   // Полная строка: Административные подразделения
@@ -81,41 +81,41 @@ const structOrgUpravRows = [
   },
   // Учебный отдел
   {
-    itemProp: 'structAdmin',
+    itemprop: 'structAdmin',
     cells: [
-      { content: 'Учебный отдел', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
-      { content: '', itemProp: 'addressStr' },
-      { content: '', itemProp: 'site' },
-      { content: '', itemProp: 'email' },
-      { content: '', itemProp: 'divisionClauseDocLink' }
+      { content: 'Учебный отдел', itemprop: 'name' },
+      { content: '', itemprop: 'fio' },
+      { content: '', itemprop: 'post' },
+      { content: '', itemprop: 'addressStr' },
+      { content: '', itemprop: 'site' },
+      { content: '', itemprop: 'email' },
+      { content: '', itemprop: 'divisionClauseDocLink' }
     ]
   },
   // Кафедра
   {
-    itemProp: 'structAdmin',
+    itemprop: 'structAdmin',
     cells: [
-      { content: 'Кафедра', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
-      { content: '', itemProp: 'addressStr' },
-      { content: '', itemProp: 'site' },
-      { content: '', itemProp: 'email' },
-      { content: '', itemProp: 'divisionClauseDocLink' }
+      { content: 'Кафедра', itemprop: 'name' },
+      { content: '', itemprop: 'fio' },
+      { content: '', itemprop: 'post' },
+      { content: '', itemprop: 'addressStr' },
+      { content: '', itemprop: 'site' },
+      { content: '', itemprop: 'email' },
+      { content: '', itemprop: 'divisionClauseDocLink' }
     ]
   },
   // Приемная комиссия
   {
-    itemProp: 'structAdmin',
+    itemprop: 'structAdmin',
     cells: [
-      { content: 'Приемная комиссия', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
-      { content: '', itemProp: 'addressStr' },
-      { content: '', itemProp: 'site' },
-      { content: '', itemProp: 'email' },
-      { content: '', itemProp: 'divisionClauseDocLink' }
+      { content: 'Приемная комиссия', itemprop: 'name' },
+      { content: '', itemprop: 'fio' },
+      { content: '', itemprop: 'post' },
+      { content: '', itemprop: 'addressStr' },
+      { content: '', itemprop: 'site' },
+      { content: '', itemprop: 'email' },
+      { content: '', itemprop: 'divisionClauseDocLink' }
     ]
   }
 ]
@@ -134,7 +134,7 @@ const filInfoHeaders = [
 const filInfoRows = [
   {
     isFullRow: true,
-    itemProp: 'filInfo',
+    itemprop: 'filInfo',
     cells: [{ content: 'Филиалы отсутствуют' }]
   }
 ]
@@ -153,7 +153,7 @@ const repInfoHeaders = [
 const repInfoRows = [
   {
     isFullRow: true,
-    itemProp: 'repInfo',
+    itemprop: 'repInfo',
     cells: [{ content: 'Представительства отсутствуют' }]
   }
 ]

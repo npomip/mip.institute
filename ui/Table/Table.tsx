@@ -19,12 +19,20 @@ interface TableRow {
 interface TableProps {
   headers: string[] // Заголовки таблицы
   rows: TableRow[] // Массив строк таблицы
+  title?: string // Заголовок таблицы
 }
 
-const Table: React.FC<TableProps> = ({ headers, rows }) => {
+const Table: React.FC<TableProps> = ({ headers, rows, title }) => {
   return (
     <table className={styles.table}>
       <thead>
+        {title && (
+          <tr>
+            <th colSpan={headers.length} className={styles.title}>
+              {title}
+            </th>
+          </tr>
+        )}
         <tr>
           {headers.map((header, index) => (
             <th key={index}>{header}</th>
@@ -39,7 +47,9 @@ const Table: React.FC<TableProps> = ({ headers, rows }) => {
               <tr
                 key={rowIndex}
                 {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
-                <td colSpan={headers.length}>{row.cells[0]?.content}</td>
+                <td className={styles.fullRow} colSpan={headers.length}>
+                  {row.cells[0]?.content}
+                </td>
               </tr>
             )
           }

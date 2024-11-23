@@ -5,15 +5,29 @@
 .table
   width: 100%
   border-collapse: collapse
-  @include m.gap($mtb: f.px(20), $mlr: 0)
+  @include m.gap($mb: f.px(20), $mlr: 0)
   font-size: f.px(14)
   line-height: 1.5
   @include m.dye(c, c.$black-600)
+
+  .title
+    text-align: center
+    font-size: f.px(18)
+    font-weight: 500
+    padding: f.px(15)
 
   th, td
     padding: f.px(12)
     border: f.px(1) solid c.$gray-500
     text-align: left
+    @include m.dye(bg, c.$white-900)
+
+  .fullRow
+    @extend td
+    font-weight: 700
+    text-align: center
+    @include m.dye(с, c.$black-900)
+    background-color: white !important
 
   th
     @include m.dye(bg, c.$gray-100)

@@ -17,12 +17,13 @@ interface TableRow {
 
 // Типы для таблицы
 interface TableProps {
+  itemPropHeader?: string
   headers: string[] // Заголовки таблицы
   rows: TableRow[] // Массив строк таблицы
   title?: string // Заголовок таблицы
 }
 
-const Table: React.FC<TableProps> = ({ headers, rows, title }) => {
+const Table: React.FC<TableProps> = ({ headers, rows, title, itemPropHeader }) => {
   return (
     <table className={styles.table}>
       <thead>
@@ -33,7 +34,7 @@ const Table: React.FC<TableProps> = ({ headers, rows, title }) => {
             </th>
           </tr>
         )}
-        <tr>
+        <tr {...(itemPropHeader ? { itemProp: itemPropHeader } : {})}>
           {headers.map((header, index) => (
             <th key={index}>{header}</th>
           ))}

@@ -5,7 +5,7 @@ const commonMainTableHeader = ['Наименование', 'Данные']
 
 const commonMainTableRows = [
   {
-    itemprop: 'fullName',
+    itemProp: 'fullName',
     cells: [
       {
         content: 'Полное наименование образовательной организации'
@@ -17,7 +17,7 @@ const commonMainTableRows = [
     ]
   },
   {
-    itemprop: 'shortName',
+    itemProp: 'shortName',
     cells: [
       {
         content: 'Сокращенное наименование образовательной организации'
@@ -26,7 +26,7 @@ const commonMainTableRows = [
     ]
   },
   {
-    itemprop: 'regDate',
+    itemProp: 'regDate',
     cells: [
       {
         content: 'Дата создания образовательной организации'
@@ -35,7 +35,7 @@ const commonMainTableRows = [
     ]
   },
   {
-    itemprop: 'address',
+    itemProp: 'address',
     cells: [
       {
         content: 'Адрес места нахождения образовательной организации'
@@ -46,7 +46,7 @@ const commonMainTableRows = [
     ]
   },
   {
-    itemprop: 'workTime',
+    itemProp: 'workTime',
     cells: [
       { content: 'Режим, график работы' },
       {
@@ -56,14 +56,14 @@ const commonMainTableRows = [
     ]
   },
   {
-    itemprop: 'telephone',
+    itemProp: 'telephone',
     cells: [
       { content: 'Контактные телефоны' },
       { content: '+7 (499) 110-88-19' }
     ]
   },
   {
-    itemprop: 'email',
+    itemProp: 'email',
     cells: [
       { content: 'Адреса электронной почты' },
       {
@@ -72,7 +72,7 @@ const commonMainTableRows = [
     ]
   },
   {
-    itemprop: 'licenseDocLink',
+    itemProp: 'licenseDocLink',
     cells: [
       {
         content:
@@ -91,7 +91,7 @@ const commonMainTableRows = [
     ]
   },
   {
-    itemprop: 'accreditationDocLink',
+    itemProp: 'accreditationDocLink',
     cells: [
       {
         content:
@@ -114,28 +114,28 @@ const uchredHeader = [
 
 const uchredRows = [
   {
-    itemprop: 'uchredLaw',
+    itemProp: 'uchredLaw',
     cells: [
       {
-        itemprop: 'nameUchred',
+        itemProp: 'nameUchred',
         content:
           'Научная автономная некоммерческая организация «Московский институт психологии»'
       },
       {
-        itemprop: 'addressUchred',
+        itemProp: 'addressUchred',
         content: 'г. Москва, набережная Дербеневская, дом 11'
       },
       {
-        itemprop: 'telUchred',
+        itemProp: 'telUchred',
         content: '+7 (499) 110-88-19'
       },
 
       {
-        itemprop: 'mailUchred',
+        itemProp: 'mailUchred',
         content: <a href='mailto:info@mip.institute'>info@mip.institute</a>
       },
       {
-        itemprop: 'websiteUchred',
+        itemProp: 'websiteUchred',
         content: (
           <Link
             href='https://mip.institute/'
@@ -155,7 +155,7 @@ const platformHeader = [
 ]
 const platformRows = [
   {
-    itemprop: 'addressPlaceSet',
+    itemProp: 'addressPlaceSet',
     cells: [
       {
         content: 1
@@ -171,7 +171,7 @@ const practiceHeader = [
 ]
 const practiceRows = [
   {
-    itemprop: 'addressPlacePrac',
+    itemProp: 'addressPlacePrac',
     cells: [
       {
         content: 1
@@ -187,7 +187,7 @@ const podgHeader = [
 ]
 const podgRows = [
   {
-    itemprop: 'addressPlacePodg',
+    itemProp: 'addressPlacePodg',
     cells: [
       {
         content: 1
@@ -203,7 +203,7 @@ const giaHeader = [
 ]
 const giaRows = [
   {
-    itemprop: 'addressPlaceGia',
+    itemProp: 'addressPlaceGia',
     cells: [
       {
         content: 1
@@ -222,7 +222,7 @@ const dopHeader = [
 ]
 const dopRows = [
   {
-    itemprop: 'addressPlaceDop',
+    itemProp: 'addressPlaceDop',
     cells: [
       {
         content: 1
@@ -240,7 +240,7 @@ const profHeader = [
 ]
 const profRows = [
   {
-    itemprop: 'addressPlaceOppo',
+    itemProp: 'addressPlaceOppo',
     cells: [
       {
         content: 1

@@ -3,12 +3,14 @@
 @use '@/styles/themes/default/colors' as c
 
 .table
+  display: block
   width: 100%
   border-collapse: collapse
   @include m.gap($mb: f.px(20), $mlr: 0)
   font-size: f.px(14)
   line-height: 1.5
   @include m.dye(c, c.$black-600)
+  overflow: auto
 
   .title
     text-align: center

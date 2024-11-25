@@ -1,34 +1,19 @@
-import links from 'constants/sveden/documents'
+import { links, staticLinks } from 'constants/sveden/documents'
 import Link from 'next/link'
 import stls from './Documents.module.sass'
 
 const Documents = () => {
   return (
     <>
-      <Link itemProp='ustavDocLink' href='' className={stls.link}>
-        Устав образовательной организации
-      </Link>
-
-      <Link itemProp='localActStud' href='' className={stls.link}>
-        Правила внутреннего распорядка обучающихся
-      </Link>
-
-      <Link itemProp='localActOrder' href='' className={stls.link}>
-        Правила внутреннего трудового распорядка
-      </Link>
-
-      <Link itemProp='localActCollec' href='' className={stls.link}>
-        Коллективный договор (при наличии)
-      </Link>
-
-      <Link itemProp='reportEduDocLink' href='' className={stls.link}>
-        Отчеты о результатах самообследования
-      </Link>
-
-      <Link itemProp='prescriptionDocLink' href='' className={stls.link}>
-        Предписания органов, осуществляющих государственный контроль (надзор) в
-        сфере образования, корпии отчетов об исполнении предписаний
-      </Link>
+      {staticLinks.map(({ itemProp, href, label }) => (
+        <Link
+          key={itemProp}
+          itemProp={itemProp}
+          href={href}
+          className={stls.link}>
+          {label}
+        </Link>
+      ))}
 
       <p className={stls.title}>Локальные нормативные акты</p>
       <ul className={stls.list}>

@@ -1,3 +1,37 @@
+const staticLinks = [
+  {
+    itemProp: 'ustavDocLink',
+    href: '',
+    label: 'Устав образовательной организации'
+  },
+  {
+    itemProp: 'localActStud',
+    href: '',
+    label: 'Правила внутреннего распорядка обучающихся'
+  },
+  {
+    itemProp: 'localActOrder',
+    href: '',
+    label: 'Правила внутреннего трудового распорядка'
+  },
+  {
+    itemProp: 'localActCollec',
+    href: '',
+    label: 'Коллективный договор (при наличии)'
+  },
+  {
+    itemProp: 'reportEduDocLink',
+    href: '',
+    label: 'Отчеты о результатах самообследования'
+  },
+  {
+    itemProp: 'prescriptionDocLink',
+    href: '',
+    label:
+      'Предписания органов, осуществляющих государственный контроль (надзор) в сфере образования, копии отчетов об исполнении предписаний'
+  }
+]
+
 const links = [
   {
     href: '',
@@ -26,4 +60,4 @@ const links = [
   }
 ]
 
-export default links
+export { staticLinks, links }

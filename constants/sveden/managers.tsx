@@ -1,5 +1,3 @@
-import { it } from 'node:test'
-
 const managersHeader = [
   'ФИО',
   'Должность',

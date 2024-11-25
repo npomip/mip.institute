@@ -18,28 +18,38 @@ interface TableRow {
 // Типы для таблицы
 interface TableProps {
   itemPropHeader?: string
-  headers: string[] // Заголовки таблицы
+  headers?: string[] // Заголовки таблицы
   rows: TableRow[] // Массив строк таблицы
   title?: string // Заголовок таблицы
 }
 
-const Table: React.FC<TableProps> = ({ headers, rows, title, itemPropHeader }) => {
+const Table: React.FC<TableProps> = ({
+  headers,
+  rows,
+  title,
+  itemPropHeader
+}) => {
   return (
     <table className={styles.table}>
       <thead>
         {title && (
           <tr>
-            <th colSpan={headers.length} className={styles.title}>
+            <th
+              colSpan={headers?.length || rows[0]?.cells?.length}
+              className={styles.title}>
               {title}
             </th>
           </tr>
         )}
-        <tr {...(itemPropHeader ? { itemProp: itemPropHeader } : {})}>
-          {headers.map((header, index) => (
-            <th key={index}>{header}</th>
-          ))}
-        </tr>
+        {headers?.length > 0 && (
+          <tr {...(itemPropHeader ? { itemProp: itemPropHeader } : {})}>
+            {headers.map((header, index) => (
+              <th key={index}>{header}</th>
+            ))}
+          </tr>
+        )}
       </thead>
+
       <tbody>
         {rows.map((row, rowIndex) => {
           if (row.isFullRow) {

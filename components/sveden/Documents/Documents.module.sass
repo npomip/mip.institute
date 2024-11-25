@@ -1,0 +1,29 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+  
+  
+.link
+  @include m.gap($p: f.px(10))
+
+.title
+  @include m.gap($mb: f.px(0), $pl: f.px(10))
+  
+.list
+  @include m.gap($pl: f.px(30),$mt: f.px(10))
+  li
+    list-style-type: none
+
+.line
+  @include m.gap($pb: f.px(10))
+  display: block
+  position: relative
+  &::before
+    content: '─'
+    display: inline-block
+    font-weight: 500
+    @include m.gap($mr: f.px(10))
+    @include m.dye(c, c.$purple-700)
+
+.title
+  font-weight: 500

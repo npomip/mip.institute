@@ -1,17 +1,17 @@
 import SvedenSkeleton from '@/components/sveden/SvedenSkeleton/SvedenSkeleton'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import Employees from '@/components/sveden/Employees/Employees'
+import Inter from '@/components/sveden/Inter/Inter'
 
-const EmployeesPage: NextPage = () => {
+const InterPage: NextPage = () => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
       <SvedenSkeleton>
-        <Employees />
+        <Inter />
       </SvedenSkeleton>
     </>
   )
 }
 
-export default EmployeesPage
+export default InterPage

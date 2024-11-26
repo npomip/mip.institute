@@ -21,13 +21,17 @@ interface TableProps {
   headers?: string[] // Заголовки таблицы
   rows: TableRow[] // Массив строк таблицы
   title?: string // Заголовок таблицы
+  isBudget?: boolean
+  subTitle?: string
 }
 
 const Table: React.FC<TableProps> = ({
   headers,
   rows,
   title,
-  itemPropHeader
+  itemPropHeader,
+  isBudget = false,
+  subTitle
 }) => {
   return (
     <table className={styles.table}>
@@ -39,6 +43,12 @@ const Table: React.FC<TableProps> = ({
               className={styles.title}>
               {title}
             </th>
+          </tr>
+        )}
+        {isBudget && (
+          <tr {...(itemPropHeader ? { itemProp: itemPropHeader } : {})}>
+            <th></th>
+            <th colSpan={rows[0]?.cells?.length - 1 || 1}>{subTitle}</th>
           </tr>
         )}
         {headers?.length > 0 && (

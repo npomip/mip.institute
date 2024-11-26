@@ -7,6 +7,7 @@ import Supervisors from '@/components/sections/groupSupervision/Supervisors'
 import GroupSupervisionFor from '../sections/groupSupervision/GroupSupervisionFor'
 import GroupSupervisionWhy from '../sections/groupSupervision/GroupSupervisionWhy'
 import GroupSupervisionSalary from '../sections/groupSupervision/GroupSupervisionSalary'
+import Tariffs from '@/components/sections/groupSupervision/Tariffs/Tariffs'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -18,6 +19,7 @@ const PageGroupSupervision = ({}) => {
         <GroupSupervisionFor />
         <GroupSupervisionWhy />
         <GroupSupervisionSalary />
+        <Tariffs />
         <Supervisors />
       </Wrapper>
     </div>

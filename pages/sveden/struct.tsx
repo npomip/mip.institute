@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Struct from '@/components/sveden/Struct/Struct'
 
-const CommonPage: NextPage = () => {
+const StructPage: NextPage = () => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -14,4 +14,4 @@ const CommonPage: NextPage = () => {
   )
 }
 
-export default CommonPage
+export default StructPage

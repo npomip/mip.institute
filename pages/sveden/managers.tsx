@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Managers from '@/components/sveden/Managers/Managers'
 
-const EducationPage: NextPage = () => {
+const ManagersPage: NextPage = () => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -14,4 +14,4 @@ const EducationPage: NextPage = () => {
   )
 }
 
-export default EducationPage
+export default ManagersPage

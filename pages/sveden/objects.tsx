@@ -3,7 +3,7 @@ import SvedenSkeleton from '@/components/sveden/SvedenSkeleton/SvedenSkeleton'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-const CommonPage: NextPage = () => {
+const ObjectsPage: NextPage = () => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -14,4 +14,4 @@ const CommonPage: NextPage = () => {
   )
 }
 
-export default CommonPage
+export default ObjectsPage

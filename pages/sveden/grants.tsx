@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Grants from '@/components/sveden/Grants/Grants'
 
-const EducationPage: NextPage = () => {
+const GrantsPage: NextPage = () => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -14,4 +14,4 @@ const EducationPage: NextPage = () => {
   )
 }
 
-export default EducationPage
+export default GrantsPage

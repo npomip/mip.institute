@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import EduStandarts from '@/components/sveden/EduStandarts/EduStandarts'
 
-const EducationPage: NextPage = () => {
+const EduStandartsPage: NextPage = () => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
@@ -14,4 +14,4 @@ const EducationPage: NextPage = () => {
   )
 }
 
-export default EducationPage
+export default EduStandartsPage

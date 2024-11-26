@@ -1,24 +1,13 @@
 import stls from '@/styles/components/sections/YourResumeNew.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import cn from 'classnames'
-import { ImgResume1 } from '@/components/imgs'
-import { ContextStaticProps } from '@/context/index'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { toNumberWithSpaces } from '@/helpers/index'
-import ResumeDiplomas from '@/components/imgs/general/ResumeDiplomas'
-import Clip from '@/components/imgs/general/Clip'
-import IconGratefullPortal from '@/components/icons/IconGratefullPortal'
-import ReactMarkdown from 'react-markdown'
 import classNames from 'classnames'
 import Image from 'next/image'
 import resume from '@/public/assets/imgs/resume/resumeNew.png'
-import Popup from 'reactjs-popup'
-import { PopupImage } from '../popups'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const YourResumeNew = ({ resumeRef = null, close }) => {
-  const { program } = useContext(ContextStaticProps)
-  console.log(program, '<------------------------------')
-
+const YourResumeNew = ({ resumeRef = null, program }) => {
   const [showFullText, setShowFullText] = useState(false)
   const [visibleSkillsCount, setVisibleSkillsCount] = useState(1)
 
@@ -40,16 +29,7 @@ const YourResumeNew = ({ resumeRef = null, close }) => {
     ? resumeSkills
     : resumeSkills.slice(0, visibleSkillsCount)
 
-  const image = (
-    <Image
-      src={program?.diploma2?.url}
-      width={program?.diploma2?.width}
-      height={program?.diploma2?.height}
-      style={{ width: '100%', height: 'auto' }}
-      className={stls.diploma}
-      alt='Диплом'
-    />
-  )
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
     <section ref={resumeRef} className={stls.container}>
@@ -63,9 +43,9 @@ const YourResumeNew = ({ resumeRef = null, close }) => {
             })}>
             <div className={stls.img}>
               <Image
-                src={program?.portfolio?.picture.url || resume}
-                width={program?.portfolio?.picture.width || null}
-                height={program?.portfolio?.picture.height || null}
+                src={program?.portfolio?.picture?.url || resume}
+                width={program?.portfolio?.picture?.width || null}
+                height={program?.portfolio?.picture?.height || null}
                 alt='Портфолио'
                 className={stls.resumeImg}
               />
@@ -119,12 +99,13 @@ const YourResumeNew = ({ resumeRef = null, close }) => {
                 <div className={stls.icon}>2</div>
                 <p className={stls.subTitleRight}>Диплом:</p>
               </div>
-              <Popup
-                trigger={<div className={stls.trigger}>{image}</div>}
-                modal
-                nested>
-                <PopupImage image={image} close={close} />
-              </Popup>
+              <Image
+                src={program?.diploma2?.url}
+                width={isMobileAndTabletLayout ? 311 : 360}
+                height={isMobileAndTabletLayout ? 230 : 270}
+                className={stls.diploma}
+                alt='Диплом'
+              />
             </div>
             <span className={stls.separator}></span>
             <div className={stls.infoRight}>

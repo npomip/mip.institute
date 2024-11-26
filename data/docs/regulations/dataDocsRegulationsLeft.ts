@@ -32,4 +32,5 @@ const dataDocsRegulationsLeft: TypeDataDocs = [
   },
 ]
 
+
 export default dataDocsRegulationsLeft

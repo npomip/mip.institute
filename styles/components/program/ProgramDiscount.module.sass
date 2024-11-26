@@ -38,9 +38,8 @@
       max-width: f.px(122)
       min-height: f.px(122)
       max-height: f.px(122)
-      @include m.gap($pt: f.px(6))
       & .discount
-        font-size: f.px(38)
+        font-size: f.px(30)
       & .until
         font-size: f.px(13)
   &.violet
@@ -81,6 +80,7 @@
   align-items: center
   padding-right: 10px
   transform: scale(2.5)
+
 .discount
   @include m.gap($mb: 0)
   @include m.media(phone, tablet)
@@ -96,3 +96,27 @@
   @include m.media(laptop, desktop)
     font-size: f.px(16)
   font-weight: 500
+
+.tooltip
+  border-radius: f.px(5)
+  border: f.px(1) solid c.$purple-800
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($ptb: f.px(15), $plr: f.px(20))
+  font-size: f.px(12)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(desktop)
+    width: f.px(390)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(10), $plr: f.px(15))
+    min-width: f.px(190)
+    font-size: f.px(10)
+
+.icon
+  @include m.gap($mb: f.px(14))
+  & > span
+    @include m.sizeIcon($w: 20, $h: 20)
+
+.info
+  @include m.gap($mr: f.px(5))
+  @include m.media(phone, tablet)

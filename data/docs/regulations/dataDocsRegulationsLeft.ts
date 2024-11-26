@@ -24,9 +24,12 @@ const dataDocsRegulationsLeft: TypeDataDocs = [
   },
   {
     href: `${routes.front.docsRegulations}/pravila-provedeniya-akcii.pdf`,
-    val: 'Правила проведения акции "Черная Пятница 1+1+1"'
-  }
+    val: 'Правила проведения акции "Черная Пятница 1+1+1" (15.11.2024 - 22.11.2024)'
+  },
+  {
+    href: `${routes.front.docsRegulations}/rulesBlackFriday.pdf`,
+    val: 'Правила проведения акции "Черная Пятница 1+1+1" (26.11.2024 - 30.11.2024)'
+  },
 ]
-
 
 export default dataDocsRegulationsLeft

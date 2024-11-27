@@ -8,7 +8,6 @@
   @include m.media(phone, tablet)
     gap: f.px(2)
 
-
 .title
   display: inline-block
   font-size: f.px(46)
@@ -20,6 +19,9 @@
     font-size: f.px(32)
     @include m.gap($mb: f.px(8))
 
+.coloredTitle
+  @include m.dye(c, c.$orange-700)
+  
 .text
   font-size: f.px(20)
   font-weight: 350
@@ -62,29 +64,6 @@
   @include m.media(phone, tablet)
     font-size: f.px(20)
     @include m.gap($ml: f.px(10),$mb: f.px(5))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.coloredTitle
-  @include m.dye(c, c.$orange-700)
 
 .bold
   font-weight: 500

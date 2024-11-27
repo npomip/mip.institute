@@ -1,6 +1,4 @@
 import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionWhy.module.sass'
-import { useState } from 'react'
-import classNames from 'classnames'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'

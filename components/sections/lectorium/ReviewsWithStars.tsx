@@ -4,6 +4,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/lectorium/ReviewsWithStars.module.sass'
 import Tag from '@/ui/Tag'
 import Wrapper from '@/ui/Wrapper'
+import reviewsDefault from 'constants/lectoriumReviews'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -30,13 +31,19 @@ const ReviewsWithStars = ({ reviews }) => {
             slidesPerView={isMobileAndTabletLayout ? 1.5 : 4}
             spaceBetween={isMobileAndTabletLayout ? 10 : 30}
             modules={[Scrollbar]}>
-            {reviews.map((review, idx) => (
-              <SwiperSlide key={review + idx}>
-                <div className={stls.cards}>
-                  <CardReviewWithStars review={review} key={idx} number={idx} />
-                </div>
-              </SwiperSlide>
-            ))}
+            {(reviews.length > 0 ? reviews : reviewsDefault).map(
+              (review, idx) => (
+                <SwiperSlide key={review + idx}>
+                  <div className={stls.cards}>
+                    <CardReviewWithStars
+                      review={review}
+                      key={idx}
+                      number={idx}
+                    />
+                  </div>
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
         </div>
         <div className={stls.finger}>

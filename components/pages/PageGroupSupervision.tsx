@@ -10,6 +10,8 @@ import GroupSupervisionSalary from '../sections/groupSupervision/GroupSupervisio
 import Tariffs from '@/components/sections/groupSupervision/Tariffs/Tariffs'
 import SuitableFor from '@/components/sections/groupSupervision/SuitableFor/SuitableFor'
 import SupervisorVideo from '@/components/sections/groupSupervision/SupervisorVideo/SupervisorVideo'
+import GroupSupervisionShort from '../sections/groupSupervision/GroupSupervisionShort'
+import GroupSupervisionInclude from '../sections/groupSupervision/GroupSupervisionInclude'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -22,6 +24,8 @@ const PageGroupSupervision = ({}) => {
         <GroupSupervisionWhy />
         <GroupSupervisionSalary />
         <Tariffs />
+        <GroupSupervisionShort />
+        <GroupSupervisionInclude />
         <SuitableFor />
         <Supervisors />
         <SupervisorVideo />

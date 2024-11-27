@@ -1,12 +1,19 @@
 import stls from './SupervisorVideo.module.sass'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
 import dynamic from 'next/dynamic'
+import backgroundVideo from '@/public/assets/imgs/groupSupervision/Video/backgroundVideo.png'
+import backgroundMob from '@/public/assets/imgs/groupSupervision/Video/backgroundMob.png'
+
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const Player = dynamic(() => import('@/ui/Player/Player'), {
   ssr: false
 })
 
 const SupervisorVideo = () => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const position = isMobileAndTabletLayout ? '42% 63%' : '31% 83%'
+
   return (
     <section>
       <h2 className={stls.title}>
@@ -22,7 +29,15 @@ const SupervisorVideo = () => {
             />
           </div>
         </div>
-        <div className={stls.right}>
+        <div
+          className={stls.right}
+          style={{
+            backgroundImage: `url(${isMobileAndTabletLayout ? backgroundMob.src : backgroundVideo.src})`,
+            objectFit: 'cover',
+            backgroundSize: `${isMobileAndTabletLayout ? '550px' : '1500px'}`,
+            backgroundPosition: position,
+            backgroundRepeat: 'no-repeat'
+          }}>
           <p className={stls.text}>
             <span className={stls.rightTitle}>Важно!</span>
             Запись супервизии

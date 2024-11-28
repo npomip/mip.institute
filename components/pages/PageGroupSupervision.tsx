@@ -13,6 +13,7 @@ import SupervisorVideo from '@/components/sections/groupSupervision/SupervisorVi
 import GroupSupervisionShort from '../sections/groupSupervision/GroupSupervisionShort'
 import GroupSupervisionInclude from '../sections/groupSupervision/GroupSupervisionInclude'
 import WhichDocument from '@/components/sections/groupSupervision/WhichDocument/WhichDocument'
+import GroupSupervisionForm from '../sections/groupSupervision/GroupSupervisionForm'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -31,6 +32,7 @@ const PageGroupSupervision = ({}) => {
         <WhichDocument />
         <Supervisors />
         <SupervisorVideo />
+        <GroupSupervisionForm />
       </Wrapper>
     </div>
   )

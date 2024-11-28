@@ -4,12 +4,11 @@ import Image from 'next/image'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/ui/Wrapper'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
-import ticket from '@/public/assets/imgs/practicalCarousel/ticket.png'
 import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'
 import certificate from '@/public/assets/imgs/practicalCarousel/certificate.png'
 import Looper from '@/components/icons/Looper'
 
-const LectoriumCertificate = ({diploma}) => {
+const LectoriumCertificate = ({ diploma }) => {
   const classNameImages = [stls.imgClass1, stls.imgClass2, stls.imgClass3]
   return (
     <section className={stls.container}>

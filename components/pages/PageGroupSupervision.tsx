@@ -12,6 +12,7 @@ import SuitableFor from '@/components/sections/groupSupervision/SuitableFor/Suit
 import SupervisorVideo from '@/components/sections/groupSupervision/SupervisorVideo/SupervisorVideo'
 import GroupSupervisionShort from '../sections/groupSupervision/GroupSupervisionShort'
 import GroupSupervisionInclude from '../sections/groupSupervision/GroupSupervisionInclude'
+import WhichDocument from '@/components/sections/groupSupervision/WhichDocument/WhichDocument'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -27,6 +28,7 @@ const PageGroupSupervision = ({}) => {
         <GroupSupervisionShort />
         <GroupSupervisionInclude />
         <SuitableFor />
+        <WhichDocument />
         <Supervisors />
         <SupervisorVideo />
       </Wrapper>

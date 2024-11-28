@@ -11,6 +11,8 @@ import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
 import PopupThankyouNew from '../popups/PopupThankYouNew'
+import Popup from 'reactjs-popup'
+import { useState } from 'react'
 
 type FormValues = {
   name: string
@@ -34,6 +36,7 @@ const SupervisionPaymentForm = () => {
       phone: ''
     }
   })
+  const [thanksIsOpen, setThanksIsOpen] = useState(false)
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
@@ -47,9 +50,10 @@ const SupervisionPaymentForm = () => {
     }
     const req = await genezis(data)
     if (req === 200) {
-      window.open('/gratefull', '_blank')
+      setThanksIsOpen(true)
     } else {
       console.error('No URL found in response')
+      setThanksIsOpen(false)
     }
   }
 
@@ -57,92 +61,99 @@ const SupervisionPaymentForm = () => {
     !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone
 
   return (
-    <div className={stls.container}>
-      <form
-        method='post'
-        className={stls.form}
-        onSubmit={handleSubmit(data => onSubmit(data))}>
-        <div className={stls.group}>
-          <div className={classNames(stls.inpt, stls.name)}>
-            <p className={stls.placeholder}>Ваше имя</p>
-            <input
-              type='text'
-              aria-label='Ваше имя'
-              placeholder='Имя'
-              {...register('name', {
-                required: `*Введите ваше имя`,
-                minLength: {
-                  value: 2,
-                  message: `*Введите ваше имя`
-                },
-                maxLength: {
-                  value: 32,
-                  message: `*Не больше 32 символов`
-                }
-              })}
-            />
-            <p className={stls.err}>{errors.name && errors.name.message}</p>
-          </div>
-          <div className={classNames(stls.inpt, stls.phone)}>
-            <p className={stls.placeholder}>Ваш номер телефона</p>
-            <Controller
-              name='phone'
-              control={control}
-              rules={{
-                minLength: {
-                  value: 8,
-                  message: `*Минимум 8 цифр`
-                },
-                required: `*Номер телефона обязателен`
-              }}
-              render={({ field: { onChange, value } }) => (
-                <PhoneInput
-                  value={value}
-                  onChange={onChange}
-                  country='ru'
-                  localization={ru}
-                  placeholder='Ваш телефон'
-                  containerClass={stls.containerInput}
-                  inputClass={stls.phoneInput}
-                  buttonClass={stls.flagButton}
-                  dropdownClass={stls.dropdown}
-                  containerStyle={{
-                    marginBottom: `${errors.phone ? '5px' : '20px'}`
-                  }}
-                />
+    <>
+      <Popup
+        open={thanksIsOpen}
+        closeOnDocumentClick
+        onClose={() => setThanksIsOpen(false)}>
+        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
+      </Popup>
+      <div className={stls.container}>
+        <form
+          method='post'
+          className={stls.form}
+          onSubmit={handleSubmit(data => onSubmit(data))}>
+          <div className={stls.group}>
+            <div className={classNames(stls.inpt, stls.name)}>
+              <p className={stls.placeholder}>Ваше имя</p>
+              <input
+                type='text'
+                aria-label='Ваше имя'
+                placeholder='Имя'
+                {...register('name', {
+                  required: `*Введите ваше имя`,
+                  minLength: {
+                    value: 2,
+                    message: `*Введите ваше имя`
+                  },
+                  maxLength: {
+                    value: 32,
+                    message: `*Не больше 32 символов`
+                  }
+                })}
+              />
+              <p className={stls.err}>{errors.name && errors.name.message}</p>
+            </div>
+            <div className={classNames(stls.inpt, stls.phone)}>
+              <p className={stls.placeholder}>Ваш номер телефона</p>
+              <Controller
+                name='phone'
+                control={control}
+                rules={{
+                  minLength: {
+                    value: 8,
+                    message: `*Минимум 8 цифр`
+                  },
+                  required: `*Номер телефона обязателен`
+                }}
+                render={({ field: { onChange, value } }) => (
+                  <PhoneInput
+                    value={value}
+                    onChange={onChange}
+                    country='ru'
+                    localization={ru}
+                    placeholder='Ваш телефон'
+                    containerClass={stls.containerInput}
+                    inputClass={stls.phoneInput}
+                    buttonClass={stls.flagButton}
+                    dropdownClass={stls.dropdown}
+                    containerStyle={{
+                      marginBottom: `${errors.phone ? '5px' : '20px'}`
+                    }}
+                  />
+                )}
+              />
+              {errors.phone && (
+                <p className={stls.err}>
+                  {errors.phone && errors.phone.message}
+                </p>
               )}
-            />
-            {errors.phone && (
-              <p className={stls.err}>{errors.phone && errors.phone.message}</p>
-            )}
-          </div>
+            </div>
 
-          <div className={classNames(stls.inpt, stls.email)}>
-            <p className={stls.placeholder}>Ваша почта</p>
-            <input
-              type='email'
-              aria-label='Ваша почта'
-              placeholder='Почта'
-              {...register('email', {
-                pattern: {
-                  value:
-                    /[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-                  message:
-                    'Пожалуйста, введите корректный адрес электронной почты в формате example@mail.ru'
-                }
-              })}
-            />
-            <p className={stls.err}>{errors.email && errors.email.message}</p>
+            <div className={classNames(stls.inpt, stls.email)}>
+              <p className={stls.placeholder}>Ваша почта</p>
+              <input
+                type='email'
+                aria-label='Ваша почта'
+                placeholder='Почта'
+                {...register('email', {
+                  pattern: {
+                    value:
+                      /[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                    message:
+                      'Пожалуйста, введите корректный адрес электронной почты в формате example@mail.ru'
+                  }
+                })}
+              />
+              <p className={stls.err}>{errors.email && errors.email.message}</p>
+            </div>
           </div>
-        </div>
-        <button className={stls.btn} disabled={isDisabled}>
-          Записаться
-        </button>
-        <div className={stls.btn}>
-          <PopupThankyouNew close />
-        </div>
-      </form>
-    </div>
+          <button className={stls.btn} disabled={isDisabled}>
+            Записаться
+          </button>
+        </form>
+      </div>
+    </>
   )
 }
 

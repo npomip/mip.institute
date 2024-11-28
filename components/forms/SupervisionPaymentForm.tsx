@@ -10,6 +10,7 @@ import { Controller, useForm } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
+import PopupThankyouNew from '../popups/PopupThankYouNew'
 
 type FormValues = {
   name: string
@@ -137,9 +138,9 @@ const SupervisionPaymentForm = () => {
         <button className={stls.btn} disabled={isDisabled}>
           Записаться
         </button>
-        {/* <div className={stls.btn}>
-          <PopupTrigger btn='alpha' cta='takePart' />
-        </div> */}
+        <div className={stls.btn}>
+          <PopupThankyouNew close />
+        </div>
       </form>
     </div>
   )

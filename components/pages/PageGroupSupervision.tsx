@@ -1,19 +1,20 @@
 import stls from '@/styles/pages/PageGroupSupervision.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import GroupSupervisionHero from '@/components/sections/groupSupervision/Hero/GroupSupervisionHero'
-import Roles from '@/components/sections/groupSupervision/Roles'
-import GroupSupervisionDesc from '../sections/groupSupervision/GroupSupervisionDesc'
-import Supervisors from '@/components/sections/groupSupervision/Supervisors'
-import GroupSupervisionFor from '../sections/groupSupervision/GroupSupervisionFor'
-import GroupSupervisionWhy from '../sections/groupSupervision/GroupSupervisionWhy'
-import GroupSupervisionSalary from '../sections/groupSupervision/GroupSupervisionSalary'
+import GroupSupervisionHero from '@/components/sections/groupSupervision/Hero/GroupSupervisionHero/GroupSupervisionHero'
+import Roles from '@/components/sections/groupSupervision/Roles/Roles'
+import GroupSupervisionDesc from '../sections/groupSupervision/GroupSupervisionDesc/GroupSupervisionDesc'
+import Supervisors from '@/components/sections/groupSupervision/Supervisors/Supervisors'
+import GroupSupervisionFor from '../sections/groupSupervision/GroupSupervisionFor/GroupSupervisionFor'
+import GroupSupervisionWhy from '../sections/groupSupervision/GroupSupervisionWhy/GroupSupervisionWhy'
+import GroupSupervisionSalary from '../sections/groupSupervision/GroupSupervisionSalary/GroupSupervisionSalary'
 import Tariffs from '@/components/sections/groupSupervision/Tariffs/Tariffs'
 import SuitableFor from '@/components/sections/groupSupervision/SuitableFor/SuitableFor'
 import SupervisorVideo from '@/components/sections/groupSupervision/SupervisorVideo/SupervisorVideo'
-import GroupSupervisionShort from '../sections/groupSupervision/GroupSupervisionShort'
-import GroupSupervisionInclude from '../sections/groupSupervision/GroupSupervisionInclude'
+import GroupSupervisionShort from '../sections/groupSupervision/GroupSupervisionShort/GroupSupervisionShort'
+import GroupSupervisionInclude from '../sections/groupSupervision/GroupSupervisionInclude/GroupSupervisionInclude'
 import WhichDocument from '@/components/sections/groupSupervision/WhichDocument/WhichDocument'
-import GroupSupervisionForm from '../sections/groupSupervision/GroupSupervisionForm'
+import GroupSupervisionForm from '../sections/groupSupervision/GroupSupervisionForm/GroupSupervisionForm'
+import GroupSupervisionFAQ from '@/components/sections/groupSupervision/GroupSupervisionFAQ/GroupSupervisionFAQ'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -33,6 +34,7 @@ const PageGroupSupervision = ({}) => {
         <Supervisors />
         <SupervisorVideo />
         <GroupSupervisionForm />
+        <GroupSupervisionFAQ />
       </Wrapper>
     </div>
   )

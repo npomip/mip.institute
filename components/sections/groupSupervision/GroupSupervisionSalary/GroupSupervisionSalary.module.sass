@@ -19,7 +19,6 @@
   font-weight: 500
   @include m.dye(c, c.$black-900)
 
-
 .subTitle
   text-transform: uppercase
   font-size: f.px(20)
@@ -44,7 +43,7 @@
 .column
   width: f.px(370)
   height: f.px(200)
-  border-top-right-radius: f.px(120)
+  border-radius: f.px(5) f.px(100) f.px(5) f.px(5)
   @include m.gap($p: f.px(30))
   @include m.flex($fd: column, $jc: space-between)
   &:nth-of-type(2)

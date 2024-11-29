@@ -1,8 +1,7 @@
-import IconArrowRightLong from '@/components/icons/IconArrowRightLong'
 import stls from '@/styles/components/sections/lectorium/LectoriumFAQ.module.sass'
 import { Faq } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
-import ExpandableItemCross from '@/ui/ExpandableItemCross'
 import Wrapper from '@/ui/Wrapper'
+import ExpandableFAQ from '@/ui/ExpandableFAQ'
 
 type Props = {
   faq: Faq[]
@@ -26,23 +25,11 @@ const LectoriumFAQ = ({ faq }: Props) => {
             </p>
           </div>
           {faq?.map((qna, idx) => (
-            <ExpandableItemCross
+            <ExpandableFAQ
               key={qna.question}
-              title={
-                <p className={stls.question}>
-                  <span className={stls.questionNumber}>{idx + 1}</span>
-                  <span className={stls.questionText}>{qna.question}</span>
-                </p>
-              }
-              content={
-                <div className={stls.content}>
-                  <IconArrowRightLong />
-                  <p className={stls.textContent}>{qna.answer}</p>
-                </div>
-              }
-              classNameIcon={stls.iconProps}
-              classNameContainer={stls.itemProps}
-              classNameHeader={stls.reversedHeaderProps}
+              number={idx + 1}
+              question={qna.question}
+              answer={qna.answer}
             />
           ))}
         </div>

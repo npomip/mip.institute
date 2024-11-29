@@ -1,10 +1,6 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
-
-.container
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(30))
   
 .title
   display: inline-block
@@ -31,12 +27,12 @@
   border-top-right-radius: f.px(30)
   @include m.gap($p: f.px(30), $pr: f.px(90))
   @include m.flex()
-  height: f.px(164)
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
-    @include m.gap($ptb: f.px(20), $pl: f.px(10))
+    @include m.gap($ptb: f.px(20), $pl: f.px(10), $pr: f.px(0))
+    border-top-left-radius: f.px(8)
+    border-top-right-radius: f.px(8)
     gap: f.px(10)
-    height: f.px(139)
 
 .top
   @include m.flex()
@@ -65,7 +61,7 @@
 
 .text
   list-style-type: none
-  @include m.gap($ml: f.px(320))
+  @include m.gap($ml: f.px(280))
   font-size: f.px(20)
   font-weight: 350
   li > span
@@ -75,11 +71,11 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($ml: f.px(30))
-    width: f.px(248)
 
   li
     position: relative
     text-indent: f.px(-10)
+    @include m.gap($mb: f.px(10))
 
   li::before
     display: block

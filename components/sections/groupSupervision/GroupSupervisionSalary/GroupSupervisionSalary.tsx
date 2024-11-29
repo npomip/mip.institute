@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionSalary.module.sass'
+import stls from '@/components/sections/groupSupervision/GroupSupervisionSalary/GroupSupervisionSalary.module.sass'
 import classNames from 'classnames'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SwiperCore from 'swiper'

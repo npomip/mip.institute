@@ -1,6 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionInclude.module.sass'
-import classNames from 'classnames'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import stls from '@/components/sections/groupSupervision/GroupSupervisionInclude/GroupSupervisionInclude.module.sass'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'
 import info from 'constants/GroupSupervision/include'
@@ -8,8 +6,6 @@ import info from 'constants/GroupSupervision/include'
 SwiperCore.use([Scrollbar])
 
 const GroupSupervisionInclude = () => {
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-
   return (
     <section className={stls.container}>
       <div className={stls.content}>

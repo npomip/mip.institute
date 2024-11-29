@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/Supervisors.module.sass'
+import stls from '@/components/sections/groupSupervision/Supervisors/Supervisors.module.sass'
 import Image from 'next/image'
 import supervisors from 'constants/GroupSupervision/supervisors'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'

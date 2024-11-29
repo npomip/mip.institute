@@ -20,7 +20,7 @@ const SupervisorVideo = () => {
         <span className={stls.coloredTitle}>Видео-обращение </span>
         от супервизора
       </h2>
-      <TwoColumnsPractical fixHeight>
+      <TwoColumnsPractical fixHeight borderRadius={15}>
         <div className={stls.left}>
           <div className={stls.playerWrapper}>
             <Player

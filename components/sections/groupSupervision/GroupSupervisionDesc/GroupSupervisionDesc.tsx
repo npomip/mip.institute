@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionDesc.module.sass'
+import stls from './GroupSupervisionDesc.module.sass'
 import classNames from 'classnames'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { Scrollbar } from 'swiper/modules'
@@ -11,6 +11,7 @@ import desc4 from '@/public/assets/imgs/groupSupervision/Desc/desc4.png'
 import desc5 from '@/public/assets/imgs/groupSupervision/Desc/desc5.png'
 import background from '@/public/assets/imgs/groupSupervision/Desc/descBackground.png'
 import Image from 'next/image'
+
 SwiperCore.use([Scrollbar])
 
 const GroupSupervisionDesc = () => {
@@ -36,17 +37,17 @@ const GroupSupervisionDesc = () => {
         <p className={stls.text}>
           <span className={stls.bold}>
             Одно из направлений подготовки и повышения квалификации психологов,
-          </span>
+          </span>{' '}
           в рамках которого психолог получает{' '}
           <span className={stls.bold}>
             профессиональное развитие и поддержку
-          </span>
+          </span>{' '}
           через обсуждение и анализ клиентских случаев в кругу единомышленников
           под руководством более опытного коллеги (супервизора).
           <br />
           <br />
           Участники программы в теплой и безопасной атмосфере
-          <span className={stls.bold}>смогут прояснить трудности,</span>
+          <span className={stls.bold}> смогут прояснить трудности, </span>
           возникающие в работе с клиентами, расширить профессиональный кругозор
           за счёт анализа множества различных проблемных ситуаций и подходов к
           их решению и{' '}

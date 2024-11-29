@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionWhy.module.sass'
+import stls from '@/components/sections/groupSupervision/GroupSupervisionWhy/GroupSupervisionWhy.module.sass'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'

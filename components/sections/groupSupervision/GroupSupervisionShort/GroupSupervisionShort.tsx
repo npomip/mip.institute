@@ -1,5 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionShort.module.sass'
-import classNames from 'classnames'
+import stls from '@/components/sections/groupSupervision/GroupSupervisionShort/GroupSupervisionShort.module.sass'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'

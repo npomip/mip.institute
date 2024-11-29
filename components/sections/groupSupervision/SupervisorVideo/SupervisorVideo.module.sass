@@ -12,7 +12,7 @@
   @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
     font-size: f.px(32)
-    @include m.gap($mb: f.px(8))
+    @include m.gap($mb: f.px(20))
 
 .coloredTitle
   @include m.dye(c, c.$orange-700)
@@ -33,13 +33,13 @@
   @include m.dye(bg, c.$purple-800)
   width: 100%
   height: 100%
-  border-radius: f.px(10)
+  border-radius: f.px(15)
   @include m.gap($p: f.px(40))
   @include m.flex($fd: column)
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(21), $ptb: f.px(40))
     @include m.flex($fd: column)
-    border-radius: f.px(4)
+    border-radius: f.px(9)
     width: 100%
 
 .playerWrapper

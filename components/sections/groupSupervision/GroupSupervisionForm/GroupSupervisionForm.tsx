@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionForm.module.sass'
+import stls from '@/components/sections/groupSupervision/GroupSupervisionForm/GroupSupervisionForm.module.sass'
 import classNames from 'classnames'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import Image from 'next/image'

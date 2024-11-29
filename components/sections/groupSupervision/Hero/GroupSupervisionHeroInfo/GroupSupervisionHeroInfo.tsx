@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/Hero/GroupSupervisionHeroInfo.module.sass'
+import stls from '@/components/sections/groupSupervision/Hero/GroupSupervisionHeroInfo/GroupSupervisionHeroInfo.module.sass'
 import heroInfo from 'constants/GroupSupervision/heroInfo'
 
 const GroupSupervisionHeroInfo = () => {

@@ -1,9 +1,9 @@
-import stls from '@/styles/components/sections/groupSupervision/Hero/GroupSupervisionHero.module.sass'
+import stls from '@/components/sections/groupSupervision/Hero/GroupSupervisionHero/GroupSupervisionHero.module.sass'
 import Image from 'next/image'
 import heroMob from '@/public/assets/imgs/groupSupervision/Hero/groupSupervisionMobile.jpeg'
 import hero from '@/public/assets/imgs/groupSupervision/Hero/groupSupervision.png'
 import PopupTrigger from '@/ui/PopupTrigger'
-import GroupSupervisionHeroInfo from '@/components/sections/groupSupervision/Hero/GroupSupervisionHeroInfo'
+import GroupSupervisionHeroInfo from '@/components/sections/groupSupervision/Hero/GroupSupervisionHeroInfo/GroupSupervisionHeroInfo'
 
 const GroupSupervisionHero = () => {
   return (

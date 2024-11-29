@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/groupSupervision/Roles.module.sass'
+import stls from '@/components/sections/groupSupervision/Roles/Roles.module.sass'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { rolesDescription } from 'constants/GroupSupervision/roles'
@@ -51,7 +51,7 @@ const Roles = () => {
         {isMobileAndTabletLayout ? (
           <Swiper
             scrollbar
-            slidesPerView={isMobileLayout ? 1.2 : 1.4}
+            slidesPerView={isMobileLayout ? 1.1 : 1.4}
             spaceBetween={isMobileLayout ? 10 : 25}
             modules={[Scrollbar]}>
             {rolesDescription.map((role, idx) => (

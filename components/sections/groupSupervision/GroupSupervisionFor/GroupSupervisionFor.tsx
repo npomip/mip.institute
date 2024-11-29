@@ -1,24 +1,17 @@
-import stls from '@/styles/components/sections/groupSupervision/GroupSupervisionFor.module.sass'
+import stls from './GroupSupervisionFor.module.sass'
 import classNames from 'classnames'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import desc1 from '@/public/assets/imgs/groupSupervision/Desc/desc1.png'
-import desc2 from '@/public/assets/imgs/groupSupervision/Desc/desc2.png'
-import desc3 from '@/public/assets/imgs/groupSupervision/Desc/desc3.png'
-import desc4 from '@/public/assets/imgs/groupSupervision/Desc/desc4.png'
-import desc5 from '@/public/assets/imgs/groupSupervision/Desc/desc5.png'
+// import desc1 from '@/public/assets/imgs/groupSupervision/Desc/desc1.png'
+// import desc2 from '@/public/assets/imgs/groupSupervision/Desc/desc2.png'
+// import desc3 from '@/public/assets/imgs/groupSupervision/Desc/desc3.png'
+// import desc4 from '@/public/assets/imgs/groupSupervision/Desc/desc4.png'
+// import desc5 from '@/public/assets/imgs/groupSupervision/Desc/desc5.png'
 import background from '@/public/assets/imgs/groupSupervision/For/backgroundFor.png'
 import Image from 'next/image'
-import TwoColumns from '@/ui/TwoColumns'
 import supervisionFor from '@/public/assets/imgs/groupSupervision/For/supervisionFor.png'
 
 const GroupSupervisionFor = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-  const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
-  const isLaptopLayout = useBetterMediaQuery('(max-width: 1200px)')
-
-  const imageContainer1 = [desc1, desc2, desc3]
-  const imageContainer2 = [desc4, desc5]
-  const imageContainerMob = [...imageContainer1, ...imageContainer2]
 
   return (
     <section className={stls.container}>

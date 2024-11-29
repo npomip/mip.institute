@@ -2,21 +2,26 @@ import stls from './WhichDocument.module.sass'
 import Image from 'next/image'
 import certificate from '@/public/assets/imgs/groupSupervision/Certificates/groupSupervisionCertificate.png'
 import vector from '@/public/assets/imgs/groupSupervision/Certificates/Vector.png'
+import vectorMob from '@/public/assets/imgs/groupSupervision/Certificates/VectorMob.png'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const WhichDocument = () => {
   const classNameImages = [stls.imgClass1, stls.imgClass2, stls.imgClass3]
-
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const position = isMobileAndTabletLayout ? '172% 78%' : '-87% 24%'
+  const background = isMobileAndTabletLayout ? vectorMob : vector
   return (
     <section>
-      <div className={stls.container}>
-        <div
-          className={stls.left}
-          style={{
-            backgroundImage: `url(${vector.src})`,
-            objectFit: 'cover',
-            backgroundSize: '350px',
-            backgroundRepeat: 'no-repeat'
-          }}>
+      <div
+        className={stls.container}
+        style={{
+          backgroundImage: `url(${background.src})`,
+          objectFit: 'cover',
+          backgroundSize: `${isMobileAndTabletLayout ? '600px' : '700px'}`,
+          backgroundPosition: position,
+          backgroundRepeat: 'no-repeat'
+        }}>
+        <div className={stls.left}>
           <h2 className={stls.title}>
             Какой&nbsp;
             <span className={stls.coloredTitle}>документ </span>

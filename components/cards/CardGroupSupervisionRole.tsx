@@ -1,5 +1,7 @@
 import stls from '@/styles/components/cards/CardGroupSupervisionRole.module.sass'
 import Image, { StaticImageData } from 'next/image'
+import background from '@/public/assets/imgs/groupSupervision/Roles/background.png'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type Props = {
   role: {
@@ -10,8 +12,18 @@ type Props = {
   }
 }
 const CardGroupSupervisionRole = ({ role }: Props) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const position = isMobileAndTabletLayout ? '43% 209%' : '50% 43%'
   return (
-    <div className={stls.container}>
+    <div
+      className={stls.container}
+      style={{
+        backgroundImage: `url(${background.src})`,
+        objectFit: 'cover',
+        backgroundSize: `${isMobileAndTabletLayout ? '1200px' : '1300px'}`,
+        backgroundPosition: position,
+        backgroundRepeat: 'no-repeat'
+      }}>
       <div>
         <p className={stls.title}>{role.title}</p>
         <span className={stls.subtitle}>{role.subtitle}</span>

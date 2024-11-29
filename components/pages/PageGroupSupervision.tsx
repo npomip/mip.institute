@@ -15,6 +15,7 @@ import GroupSupervisionInclude from '../sections/groupSupervision/GroupSupervisi
 import WhichDocument from '@/components/sections/groupSupervision/WhichDocument/WhichDocument'
 import GroupSupervisionForm from '../sections/groupSupervision/GroupSupervisionForm/GroupSupervisionForm'
 import GroupSupervisionFAQ from '@/components/sections/groupSupervision/GroupSupervisionFAQ/GroupSupervisionFAQ'
+import ReviewsWithStars from '../sections/lectorium/ReviewsWithStars'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -33,6 +34,7 @@ const PageGroupSupervision = ({}) => {
         <WhichDocument />
         <Supervisors />
         <SupervisorVideo />
+        <ReviewsWithStars reviews={''} isSupervision />
         <GroupSupervisionForm />
         <GroupSupervisionFAQ />
       </Wrapper>

@@ -15,7 +15,7 @@ const GroupSupervisionForm = () => {
   const imageContainer = [photo1, photo2, photo3, photo4, photo5]
   const backgroundPosition = isMobileAndTabletLayout
     ? '-33% -68%'
-    : '489% -180%'
+    : '-74% -319%'
 
   return (
     <section className={stls.container}>
@@ -25,7 +25,7 @@ const GroupSupervisionForm = () => {
           style={{
             backgroundImage: `url(${background.src})`,
             objectFit: 'cover',
-            backgroundSize: `${isMobileAndTabletLayout ? '400px' : '550px'}`,
+            backgroundSize: `${isMobileAndTabletLayout ? '400px' : '650px'}`,
             backgroundPosition: backgroundPosition,
             backgroundRepeat: 'no-repeat'
           }}>

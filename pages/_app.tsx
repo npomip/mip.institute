@@ -254,27 +254,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
 
-  const [showBanner, setShowBanner] = useState(false)
-  const targetDate = useMemo(() => new Date('2024-11-15T00:00:00'), [])
-
-  const checkDate = useCallback(() => {
-    const currentDate = new Date()
-    setShowBanner(currentDate >= targetDate)
-  }, [targetDate])
-
-  useEffect(() => {
-    checkDate()
-
-    const handleFocus = () => {
-      checkDate()
-    }
-
-    window.addEventListener('focus', handleFocus)
-
-    return () => {
-      window.removeEventListener('focus', handleFocus)
-    }
-  }, [checkDate])
 
   return (
     <>
@@ -392,7 +371,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <div>{showBanner ? <BlackFridayBanner /> : <StickyBottom />}</div>
+            <div><StickyBottom /></div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>

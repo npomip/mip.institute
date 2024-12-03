@@ -16,6 +16,8 @@
 
 .coloredTitle
   @include m.dye(c, c.$orange-700)
+  @include m.media(phone, tablet)
+    display: block
 
 .left
   border-radius: f.px(10)

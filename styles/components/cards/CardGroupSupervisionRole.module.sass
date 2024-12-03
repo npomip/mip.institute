@@ -18,8 +18,8 @@
     gap: 0
     border-radius: f.px(10)
     min-width: f.px(250)
-    height: f.px(760)
-    @include m.gap($plr: f.px(15), $mt: f.px(10))
+    height: f.px(670)
+    @include m.gap($plr: f.px(15), $mt: f.px(10), $ptb: f.px(15))
 
 .title
   font-size: f.px(30)
@@ -27,6 +27,7 @@
   text-transform: uppercase
   @include m.gap($mtb: f.px(10))
   @include m.media(phone, tablet)
+    @include m.gap($mt: 0)
     font-size: f.px(26)
 
 .subtitle
@@ -41,7 +42,7 @@
   @include m.gap($ptb: f.px(20), $plr: f.px(10), $mb: 0)
   @include m.media(phone, tablet)
     border-radius: f.px(7)
-    @include m.gap($plr: f.px(5), $pb: 0)
+    @include m.gap($plr: 0, $pb: 0, $pt: f.px(10))
 
 .item
   @include m.flex()
@@ -52,7 +53,8 @@
   counter-increment: list-counter
   @include m.gap($mb: f.px(15))
   @include m.media(phone, tablet)
-    gap: f.px(15)
+    gap: f.px(10)
+    @include m.gap($mb: f.px(10))
     &:last-child
       @include m.gap($mb: 0)
   &::before
@@ -63,7 +65,7 @@
 .imageWrapper
   position: relative
   width: f.px(260)
-  min-height: f.px(330)
+  min-height: f.px(320)
   overflow: hidden
   @include m.media(phone, tablet)
     margin: 0 auto

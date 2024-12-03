@@ -30,7 +30,10 @@ const GroupSupervisionForm = () => {
             backgroundRepeat: 'no-repeat'
           }}>
           <div className={stls.header}>
-            <p className={stls.title}>Подберем программу под ваш запрос</p>
+            <p className={stls.title}>
+              Подберем программу {isMobileAndTabletLayout && <br />} под ваш
+              запрос
+            </p>
             <p className={stls.text}>
               <span className={stls.bold}>Оставьте</span> заявку на консультацию
               менеджеру приемной комиссии

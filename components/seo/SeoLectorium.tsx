@@ -4,28 +4,23 @@ import { CourseJsonLd, NextSeo } from 'next-seo'
 import { FC } from 'react'
 
 type TSeoPagesProgram = {
-  seo: {
-    canonicalURL: string
-    isSEOFriendly: boolean
-    metaDescription: string
-    metaTitle: string
-  }
-  programTitle?: string
-  canonical?: string
+    seo: {
+      canonicalURL: string
+      isSEOFriendly: boolean
+      metaDescription: string
+      metaTitle: string
+    }
+    isNoindex: boolean
+    isNoFollow: boolean
+    programTitle: string
+    canonical?: string
 }
 
-const SeoCommon: FC<TSeoPagesProgram> = ({
-  seo,
-  programTitle,
-  canonical = ''
-}) => {
-  const isNoindex = !seo?.isSEOFriendly
-
-  const isNofollow = !seo?.isSEOFriendly
+const SeoLectorium: FC<TSeoPagesProgram> = ({ seo , programTitle, canonical='', isNoindex, isNoFollow }) => {
 
   const seoParams = {
     title: seo.metaTitle ? seo.metaTitle : programTitle,
-    programTitle: programTitle,
+    programTitle: programTitle ,
     desc: seo?.metaDescription,
     canonical: canonical ? canonical : seo?.canonicalURL
   }
@@ -37,7 +32,7 @@ const SeoCommon: FC<TSeoPagesProgram> = ({
         description={seoParams.desc}
         canonical={seoParams.canonical}
         themeColor={themeColor}
-        nofollow={preview ? true : isNofollow}
+        nofollow={preview ? true : isNoFollow}
         noindex={preview ? true : isNoindex}
         openGraph={{
           url: seoParams.canonical,
@@ -67,4 +62,4 @@ const SeoCommon: FC<TSeoPagesProgram> = ({
   )
 }
 
-export default SeoCommon
+export default SeoLectorium

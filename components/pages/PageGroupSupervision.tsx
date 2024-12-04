@@ -16,11 +16,17 @@ import WhichDocument from '@/components/sections/groupSupervision/WhichDocument/
 import GroupSupervisionForm from '../sections/groupSupervision/GroupSupervisionForm/GroupSupervisionForm'
 import GroupSupervisionFAQ from '@/components/sections/groupSupervision/GroupSupervisionFAQ/GroupSupervisionFAQ'
 import ReviewsWithStars from '../sections/lectorium/ReviewsWithStars'
+import SeoCommon from '../seo/SeoCommon'
+import seo from 'constants/GroupSupervision/seo'
 
 const PageGroupSupervision = ({}) => {
   return (
     <div className={stls.container}>
       <Wrapper>
+        <SeoCommon
+          seo={seo}
+          programTitle='Групповая супервизия для психологов онлайн'
+        />
         <GroupSupervisionHero />
         <GroupSupervisionDesc />
         <Roles />

@@ -49,7 +49,7 @@ const LectoriumHero = ({ lectorium }: Props) => {
     },
     {
       icon: <IconInfo isWhite />,
-      header: 'осталось мест:',
+      header: 'всего мест:',
       content: <>{lectorium.places}</>
     }
   ]

@@ -12,7 +12,11 @@ const Tariffs = () => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
 
   const card = (tariff: (typeof tariffs)[number]) => (
-    <li className={styles.card} key={tariff.title}>
+    <li
+      className={classNames(styles.card, {
+        [styles.disabled]: tariff.isDisabled
+      })}
+      key={tariff.title}>
       <Image
         src={tariff.image}
         alt='Тариф'
@@ -31,7 +35,7 @@ const Tariffs = () => {
         <li className={styles.item}>
           <span className={styles.category}>стоимость</span>
           <span className={classNames(styles.value, styles.bold)}>
-            {tariff.price} ₽
+            {tariff.isDisabled ? 'В разработке' : `${tariff.price} ₽`}
           </span>
         </li>
       </ul>

@@ -32,7 +32,6 @@ const SupervisionPaymentForm = () => {
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
-      surname: '',
       email: '',
       phone: ''
     }
@@ -59,10 +58,7 @@ const SupervisionPaymentForm = () => {
   }
 
   const isDisabled =
-    !dirtyFields.email ||
-    !dirtyFields.name ||
-    !dirtyFields.phone ||
-    !dirtyFields.surname
+    !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone
 
   return (
     <>
@@ -97,28 +93,6 @@ const SupervisionPaymentForm = () => {
                 })}
               />
               <p className={stls.err}>{errors.name && errors.name.message}</p>
-            </div>
-            <div className={classNames(stls.inpt, stls.name)}>
-              <p className={stls.placeholder}>Ваше фамилия</p>
-              <input
-                type='text'
-                aria-label='Ваша фамилия'
-                placeholder='Ваша фамилия'
-                {...register('surname', {
-                  required: `*Введите вашу фамилию`,
-                  minLength: {
-                    value: 2,
-                    message: `*Введите вашу фамилию`
-                  },
-                  maxLength: {
-                    value: 32,
-                    message: `*Не больше 32 символов`
-                  }
-                })}
-              />
-              <p className={stls.err}>
-                {errors.surname && errors.surname.message}
-              </p>
             </div>
             <div className={classNames(stls.inpt, stls.phone)}>
               <p className={stls.placeholder}>Ваш номер телефона</p>

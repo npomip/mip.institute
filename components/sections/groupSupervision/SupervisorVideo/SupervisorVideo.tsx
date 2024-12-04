@@ -25,7 +25,7 @@ const SupervisorVideo = () => {
           <div className={stls.playerWrapper}>
             <Player
               className={stls.kinescope}
-              videoId='sPJLpY5fpEK8rg2fJeBia1'
+              videoId='mfWdH9ZyV1fDXvxjgxyTjx'
             />
           </div>
         </div>

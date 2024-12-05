@@ -3,11 +3,12 @@
 @use '@/styles/themes/default/colors' as c
 
 .oneCard
-  @include m.flex($fd: column)
+  @include m.flex($fd: column, $jc: space-evenly)
   border: 1px solid c.$purple-350
   @include m.dye(bg, c.$white-900)
   @include m.gap($ptb: f.px(30), $plr: f.px(24))
   border-radius: f.px(5)
+  min-height: f.px(516)
   @include m.media(phone, tablet)
     @include m.gap($p: f.px(20))
 
@@ -67,9 +68,8 @@
 
 .btns > div > button
   border-radius: f.px(50)
-  background: f.px(1) solid 
+  border: f.px(1) solid c.$purple-200
   background-color: c.$purple-200
-  border-color: c.$purple-200
   @include m.gap($ptb: f.px(16), $plr: f.px(53))
   font-size: f.px(20)
   color: c.$white-900
@@ -80,7 +80,6 @@
     background-color: c.$purple-300
     @include m.gap($ptb: f.px(16), $plr: f.px(0))
     font-size: f.px(15)
-
 
 .price
   .title

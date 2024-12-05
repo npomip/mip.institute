@@ -1,17 +1,15 @@
+import { useEffect, useState } from 'react'
 import LectoriumIndexCard from '@/components/cards/LectoriumIndexCard'
 import routes from '@/config/routes'
 import { handleGetStaticProps } from '@/lib/index'
 import Wrapper from '@/ui/Wrapper'
 import { GetStaticProps } from 'next'
-// import SeoPagesJournals from '@/components/seo/SeoPageJournals'
 import stls from '@/styles/pages/LectoriumSlug.module.sass'
 import FilterTag from '@/components/filters/FilterTag'
 import { useRouter } from 'next/router'
 import CustomSelect from '@/ui/CustomSelect'
-import { lectoriumOptoins } from 'constants/customSelect'
+import { lectoriumOptions } from 'constants/customSelect'
 import Calendar from '@/ui/Calendar'
-import { useEffect, useState } from 'react'
-
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -30,41 +28,40 @@ dayjs.extend(isSameOrBefore)
 
 const LectoriumPage = ({ lectoriums }) => {
   const router = useRouter()
-  const today = new Date()
+  const today = dayjs()
 
   const [showPast, setShowPast] = useState(false)
-
-  const filteredLectoriaFuture = lectoriums.filter(lect => {
-    const targetDate = new Date(lect.targetDate);
-    return targetDate >= today;
-});
-
-const filteredLectoriaPast = lectoriums.filter(lect => {
-  const targetDate = new Date(lect.targetDate);
-  return targetDate <= today;
-});
-
+  const [selectedType, setSelectedType] = useState(null)
   const [filteredDates, setFilteredDates] = useState([null, null])
-  const [filteredLectoriums, setFilteredLectoriums] = useState(filteredLectoriaFuture)
+  const [filteredLectoriums, setFilteredLectoriums] = useState([])
   const [isCalendarVisible, setIsCalendarVisible] = useState(true)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-  const [dates, setDates] = useState(filteredLectoriaFuture?.map(lectorium => lectorium.targetDate))
+  const [dates, setDates] = useState([])
 
   useEffect(() => {
-    if(showPast) {
-      setFilteredLectoriums(filteredLectoriaPast) 
-      setDates(filteredLectoriaPast?.map(lectorium => lectorium.targetDate))
-    } else {
-      setFilteredLectoriums(filteredLectoriaFuture)
-      setDates(filteredLectoriaFuture?.map(lectorium => lectorium.targetDate))
-    }
-  }, [showPast])
+    const baseFilter = lectoriums.filter(lect => {
+      const targetDate = dayjs(lect.targetDate)
+      return showPast
+        ? targetDate.isSameOrBefore(today, 'day')
+        : targetDate.isSameOrAfter(today, 'day')
+    })
+
+    const typeFilter = selectedType
+      ? baseFilter.filter(lect => lect.type === selectedType)
+      : baseFilter
+
+    const sortedByDate = [...typeFilter].sort((a, b) =>
+      dayjs(a.targetDate).diff(dayjs(b.targetDate))
+    )
+
+    setFilteredLectoriums(sortedByDate)
+    setDates(sortedByDate.map(lectorium => lectorium.targetDate))
+  }, [showPast, selectedType, lectoriums])
 
   const handleToggleCalendar = visible => {
     setIsCalendarVisible(visible)
   }
 
-  // Функция для получения отфильтрованных дат из компонента Calendar
   const handleFilteredDates = dates => {
     setFilteredDates(dates)
   }
@@ -74,7 +71,7 @@ const filteredLectoriaPast = lectoriums.filter(lect => {
       const startDate = dayjs(filteredDates[0])
       const endDate = dayjs(filteredDates[1])
 
-      const filtered = filteredLectoriums.filter(lectorium => {
+      const dateFiltered = lectoriums.filter(lectorium => {
         const targetDate = dayjs(lectorium.targetDate)
         return (
           targetDate.isSameOrAfter(startDate, 'day') &&
@@ -82,15 +79,16 @@ const filteredLectoriaPast = lectoriums.filter(lect => {
         )
       })
 
-      setFilteredLectoriums(filtered)
-    } else {
-      setFilteredLectoriums(filteredLectoriums) // Показываем все, если нет диапазона
+      setFilteredLectoriums(dateFiltered)
     }
-  }, [filteredDates, filteredLectoriums])
+  }, [filteredDates, lectoriums])
 
   const handleInnerEvents = () => {
-    // router.push('/lectorium')
     setShowPast(!showPast)
+  }
+
+  const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
+    setSelectedType(selectedOption?.value || null)
   }
 
   return (
@@ -119,16 +117,20 @@ const filteredLectoriaPast = lectoriums.filter(lect => {
           <FilterTag
             onClick={() => router.push('/lectorium')}
             isActive={false}
+            disabled
             isCategories>
             Внешние мероприятия
           </FilterTag>
           <CustomSelect
-            onChange={() => {}}
-            options={lectoriumOptoins}
+            onChange={handleSelectChange}
+            options={lectoriumOptions}
             radius='50'
             height='30'
             mainColor='#6F6F6F'
-            placeholder='Тип мероприятия'
+            placeholder='Все мероприятия'
+            value={lectoriumOptions.find(
+              option => option.value === selectedType
+            )}
           />
           {isMobileAndTabletLayout && (
             <CustomSelect
@@ -144,8 +146,7 @@ const filteredLectoriaPast = lectoriums.filter(lect => {
           )}
           <FilterTag
             isActive={!!showPast}
-            onClick={() => setShowPast(prev => !prev)}
-            >
+            onClick={() => setShowPast(prev => !prev)}>
             Прошедшие мероприятия
           </FilterTag>
         </div>

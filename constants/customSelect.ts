@@ -20,12 +20,13 @@ const programsOptions = [
   { value: 'offline', label: 'Диетология и нутрициология' }
 ]
 
-const lectoriumOptoins = [
-  { value: 'offline', label: 'Очное' },
-  { value: 'online', label: 'Онлайн' },
-  { value: 'paid', label: 'Платное' },
-  { value: 'free', label: 'Бесплатное' },
-  { value: 'presentation', label: 'Презентация программы' }
+const lectoriumOptions = [
+  { value: null, label: 'Все мероприятия', isDisabled: false },
+  { value: 'offline', label: 'Очное', isDisabled: false },
+  { value: 'online', label: 'Онлайн', isDisabled: false },
+  { value: 'paid', label: 'Платное', isDisabled: true },
+  { value: 'free', label: 'Бесплатное', isDisabled: true },
+  { value: 'presentation', label: 'Презентация программы', isDisabled: true }
 ]
 
-export { levelOptions, formOptions, programsOptions, lectoriumOptoins }
+export { levelOptions, formOptions, programsOptions, lectoriumOptions }

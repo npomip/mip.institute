@@ -66,3 +66,15 @@
   @include m.dye(c, c.$gray-500)
   background: none
   pointer-events: none
+
+.isLectorium
+  background: none
+  border: f.px(1) solid
+  @include m.dye(border, c.$orange-700)
+  &:hover
+    @include m.dye(bg, c.$orange-700)
+    @include m.dye(c, c.$white-900)
+    font-weight: 500
+  &.active
+    font-weight: 500
+    @include m.dye(bg, c.$orange-700)

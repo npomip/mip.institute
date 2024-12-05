@@ -26,6 +26,10 @@
   @include m.media(phone, tablet)
     font-size: f.px(16)
 
+.colored
+  @include m.dye(c, c.$purple-800)
+
+
 .subtitleBig
   max-width: f.px(470)
   font-weight: 500
@@ -44,7 +48,7 @@
   max-width: max-content
   @include m.gap($ptb: f.px(15), $plr: f.px(16))
   border-radius: 50%
-  @include m.dye(bg, c.$purple-200)
+  @include m.dye(bg, c.$purple-800)
   transition: opacity .2s ease-in-out
   @include m.media(phone, tablet)
     @include m.dye(bg, c.$purple-300)
@@ -69,7 +73,7 @@
 .btns > div > button
   border-radius: f.px(50)
   border: f.px(1) solid c.$purple-200
-  background-color: c.$purple-200
+  background-color: c.$purple-800
   @include m.gap($ptb: f.px(16), $plr: f.px(53))
   font-size: f.px(20)
   color: c.$white-900

@@ -105,20 +105,20 @@ const LectoriumPage = ({ lectoriums }) => {
           <FilterTag
             onClick={() => router.push('/webinars')}
             isActive={false}
-            isCategories>
+            isLectorium>
             Вебинары
           </FilterTag>
           <FilterTag
             onClick={handleInnerEvents}
             isActive={!showPast}
-            isCategories>
+            isLectorium>
             Внутренние мероприятия
           </FilterTag>
           <FilterTag
             onClick={() => router.push('/lectorium')}
             isActive={false}
             disabled
-            isCategories>
+            isLectorium>
             Внешние мероприятия
           </FilterTag>
           <CustomSelect
@@ -146,7 +146,8 @@ const LectoriumPage = ({ lectoriums }) => {
           )}
           <FilterTag
             isActive={!!showPast}
-            onClick={() => setShowPast(prev => !prev)}>
+            onClick={() => setShowPast(prev => !prev)}
+            isLectorium>
             Прошедшие мероприятия
           </FilterTag>
         </div>

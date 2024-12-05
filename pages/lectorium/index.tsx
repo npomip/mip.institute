@@ -71,7 +71,7 @@ const LectoriumPage = ({ lectoriums }) => {
       const startDate = dayjs(filteredDates[0])
       const endDate = dayjs(filteredDates[1])
 
-      const dateFiltered = filteredLectoriums.filter(lectorium => {
+      const dateFiltered = lectoriums.filter(lectorium => {
         const targetDate = dayjs(lectorium.targetDate)
         return (
           targetDate.isSameOrAfter(startDate, 'day') &&
@@ -81,7 +81,7 @@ const LectoriumPage = ({ lectoriums }) => {
 
       setFilteredLectoriums(dateFiltered)
     }
-  }, [filteredDates, filteredLectoriums])
+  }, [filteredDates, lectoriums])
 
   const handleInnerEvents = () => {
     setShowPast(!showPast)

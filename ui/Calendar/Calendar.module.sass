@@ -82,7 +82,7 @@
             border-radius: 50%
             @include m.dye(bg, c.$gray-200)
         &:active
-          @include m.dye(bg, c.$orange-700)
+          @include m.dye(bg, c.$purple-800)
         @include m.media(phone, tablet)
           @include m.gap($ptb: f.px(20), $mb: 0, $mlr: 0)
           width: f.px(40)
@@ -127,7 +127,3 @@
   border-radius: 50%
   @include m.media(phone, tablet)
     border-radius: f.px(4)
-
-// @global
-  .react-calendar__tile--active
-    background-color: c.$orange-700  !global

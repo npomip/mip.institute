@@ -6,30 +6,17 @@ import timezone from 'dayjs/plugin/timezone'
 import 'dayjs/locale/ru'
 import stls from './Calendar.module.sass'
 import classNames from 'classnames'
-// import 'react-calendar/dist/Calendar.css'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.locale('ru')
 
-const sampleDates = [
-  '2024-11-01',
-  '2024-11-02',
-  '2024-11-03',
-  '2024-11-04',
-  '2024-11-05',
-  '2024-11-06',
-  '2024-11-07',
-  '2024-11-08',
-  '2024-11-20',
-  '2024-11-21',
-  '2024-11-22',
-  '2024-11-23',
-  '2024-11-24'
-]
+type Props = {
+  dates: string[]
+  onDatesFiltered: (dates: string[]) => void
+}
 
-const Calendar = ({ dates = sampleDates, onDatesFiltered }) => {
-
+const Calendar = ({ dates, onDatesFiltered }: Props) => {
   const [isClient, setIsClient] = useState(false)
 
   const eventDatesArray = dates.map(date =>

@@ -2,11 +2,11 @@ import stls from '@/components/sections/groupSupervision/Supervisors/Supervisors
 import Image from 'next/image'
 import supervisors from 'constants/GroupSupervision/supervisors'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import SwiperCore from 'swiper'
-import { Scrollbar } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
+// import SwiperCore from 'swiper'
+// import { Scrollbar } from 'swiper/modules'
+// import { Swiper, SwiperSlide } from 'swiper/react'
 
-SwiperCore.use([Scrollbar])
+// SwiperCore.use([Scrollbar])
 const Supervisors = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
@@ -29,7 +29,7 @@ const Supervisors = () => {
   return (
     <section className={stls.container}>
       <h2 className={stls.title}>Супервизоры</h2>
-      {isMobileAndTabletLayout ? (
+      {/* {isMobileAndTabletLayout ? (
         <Swiper
           scrollbar
           slidesPerView={isMobileLayout ? 1.1 : 1.4}
@@ -41,11 +41,11 @@ const Supervisors = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      ) : (
+      ) : ( */}
         <ul className={stls.list}>
           {supervisors.map(supervisor => card(supervisor))}
         </ul>
-      )}
+      {/* )} */}
     </section>
   )
 }

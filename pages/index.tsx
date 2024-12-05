@@ -85,6 +85,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     }
   }, [router.query])
 
+  
+
   return (
     <>
       <NextSeo

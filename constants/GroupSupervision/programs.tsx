@@ -19,7 +19,7 @@ const programs = [
     text: (
       <>
         <li>
-          <span>Длительность </span>одной встречи – <span>3 часа</span>
+          <span>Длительность </span>одной встречи – <span>2.5 часа</span>
         </li>
         <li>
           Разбор <span>2-3х кейсов</span> за встречу

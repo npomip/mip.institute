@@ -16,10 +16,14 @@
     @include m.gap($mb: f.px(20))
 
 .list
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  gap: f.px(30)
+  // display: grid
+  // grid-template-columns: repeat(3, 1fr)
+  // gap: f.px(30)
   padding-left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  place-items: center
 
 .imageWrapper
   position: relative
@@ -33,6 +37,9 @@
 
 .supervisor
   list-style: none
+  flex-basis: 33%
+  @include m.media(phone, tablet)
+    flex-basis: 100%
 
 .image
   object-fit: cover
@@ -55,6 +62,7 @@
   border-radius: f.px(5)
   min-height: f.px(50)
   @include m.flex($jc: center, $ai: center)
+  flex-direction: column
   text-align: center
   @include m.media(phone, tablet)
     font-size: f.px(14)

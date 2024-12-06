@@ -16,7 +16,7 @@ const Supervisors = () => {
       <div className={stls.imageWrapper}>
         <Image
           className={stls.image}
-          src={supervisor.image}
+          src={'https://res.cloudinary.com/mipinstitute/image/upload/v1733486885/IMG_8055_c9361a0381.jpg'}
           alt={supervisor.name}
           fill
         />

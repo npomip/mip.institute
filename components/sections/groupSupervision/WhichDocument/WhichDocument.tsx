@@ -38,7 +38,7 @@ const WhichDocument = () => {
             <div className={classNameImages[index]} key={index}>
               {index === 0 && (
                 <Image
-                  src={certificate}
+                  src={'https://res.cloudinary.com/mipinstitute/image/upload/v1733487278/sertifikat_krupnyj_razmer_a3c2a205c5.jpg'}
                   width={certificate.width}
                   height={certificate.height}
                   alt='Сертификат'

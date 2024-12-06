@@ -5,17 +5,17 @@ import tariff3 from '@/public/assets/imgs/groupSupervision/Tariffs/tariff3.png'
 const tariffs = [
   {
     image: tariff1,
-    title: 'стартовый/базовый',
+    title: 'стартовый (1 мес)',
     people: 25,
     price: 7900,
     isDisabled: false
   },
   {
     image: tariff2,
-    title: 'оптимальный',
-    people: 12,
-    price: 8000,
-    isDisabled: true
+    title: 'оптимальный (5 мес)',
+    people: 25,
+    price: 35000,
+    isDisabled: false
   },
   {
     image: tariff3,

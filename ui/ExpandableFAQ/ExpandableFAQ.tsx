@@ -18,7 +18,9 @@ const ExpandableFAQ = ({ number, question, answer }: Props) => {
       }
       content={
         <div className={stls.content}>
-          <IconArrowRightLong />
+          <span>
+            <IconArrowRightLong />
+          </span>
           <p className={stls.textContent}>{answer}</p>
         </div>
       }

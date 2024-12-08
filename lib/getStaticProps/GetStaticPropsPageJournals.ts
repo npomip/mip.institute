@@ -9,7 +9,7 @@ const getStaticPropsPageJournals = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
   props: TypePageJournalsProps
-  revalidate: number | boolean
+  revalidate?: number | boolean
 }> => {
   const res = await apolloClient.query<TypePageJournalsPropsQuery>({
     query: gql`
@@ -35,7 +35,7 @@ const getStaticPropsPageJournals = async ({
 
   return {
     props: res.data,
-    revalidate: revalidate.default
+    // revalidate: revalidate.default
   }
 }
 

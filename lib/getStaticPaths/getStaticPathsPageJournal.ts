@@ -29,7 +29,7 @@ const getStaticPathsPageJournal = async (): Promise<{
         }))
       )
     ) || [{ params: { slug: 'program' } }],
-    fallback: 'blocking'
+    fallback: false // 'blocking'
   }
 }
 

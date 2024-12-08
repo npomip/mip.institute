@@ -13,7 +13,7 @@ const getStaticPropsPageJournal = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
   props: TypePageJournalProps
-  revalidate: number | boolean
+  revalidate?: number | boolean
 }> => {
   const studyFieldSlug = context?.params?.studyFieldSlug?.toString() || null
   const slug = context?.params?.slug?.toString() || null
@@ -217,7 +217,7 @@ const getStaticPropsPageJournal = async ({
       props: {
         blog: res?.data?.blog?.[0] || null
       },
-      revalidate: revalidate.default
+      // revalidate: revalidate.default
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)

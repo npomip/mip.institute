@@ -1,11 +1,11 @@
 import styles from './Tariffs.module.sass'
-import Image from 'next/image'
 import classNames from 'classnames'
 import tariffs from 'constants/GroupSupervision/tariffs'
 import stls from '@/components/sections/groupSupervision/Hero/GroupSupervisionHero/GroupSupervisionHero.module.sass'
 import PopupTrigger from '@/ui/PopupTrigger'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { CldImage } from 'next-cloudinary'
 
 const Tariffs = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -17,11 +17,14 @@ const Tariffs = () => {
         [styles.disabled]: tariff.isDisabled
       })}
       key={tariff.title}>
-      <Image
+      <CldImage
         src={tariff.image}
         alt='Тариф'
         className={styles.img}
         style={{ width: '100%', height: 'auto' }}
+        width='350'
+        height='250'
+        crop='fit'
       />
       <ul className={styles.list}>
         <li className={styles.item}>

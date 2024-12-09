@@ -1,24 +1,20 @@
-import tariff1 from '@/public/assets/imgs/groupSupervision/Tariffs/tariff1.png'
-import tariff2 from '@/public/assets/imgs/groupSupervision/Tariffs/tariff2.png'
-import tariff3 from '@/public/assets/imgs/groupSupervision/Tariffs/tariff3.png'
-
 const tariffs = [
   {
-    image: tariff1,
+    image: 'group_supervision_tariff1_f19bae87b9.png',
     title: 'стартовый (1 мес)',
     people: 25,
     price: 7900,
     isDisabled: false
   },
   {
-    image: tariff2,
+    image: 'group_supervision_tariff2_ae8bccc8d1',
     title: 'оптимальный (5 мес)',
     people: 25,
     price: 35000,
     isDisabled: false
   },
   {
-    image: tariff3,
+    image: 'group_supervision_tariff3_6482f2d209',
     title: 'мини-группа',
     people: 6,
     price: 12000,

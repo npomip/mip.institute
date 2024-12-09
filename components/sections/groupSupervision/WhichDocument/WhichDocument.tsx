@@ -4,6 +4,25 @@ import certificate from '@/public/assets/imgs/groupSupervision/Certificates/grou
 import vector from '@/public/assets/imgs/groupSupervision/Certificates/Vector.png'
 import vectorMob from '@/public/assets/imgs/groupSupervision/Certificates/VectorMob.png'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { CldImage } from 'next-cloudinary';
+
+
+// "use client";
+
+// // By default, the CldImage component applies auto-format and auto-quality to all delivery URLs for optimized delivery.
+// export default function Page() {
+//   return (
+//     <CldImage
+//       src="cld-sample-5" // Use this sample image or upload your own via the Media Explorer
+//       width="500" // Transform the image: auto-crop to square aspect_ratio
+//       height="500"
+//       crop={{
+//         type: 'auto',
+//         source: true
+//       }}
+//     />
+//   );
+// }
 
 const WhichDocument = () => {
   const classNameImages = [stls.imgClass1, stls.imgClass2, stls.imgClass3]
@@ -37,17 +56,32 @@ const WhichDocument = () => {
           {Array.from({ length: 3 }).map((_, index) => (
             <div className={classNameImages[index]} key={index}>
               {index === 0 && (
-                <Image
-                  src={'https://res.cloudinary.com/mipinstitute/image/upload/v1733487278/sertifikat_krupnyj_razmer_a3c2a205c5.jpg'}
-                  width={certificate.width}
-                  height={certificate.height}
-                  alt='Сертификат'
-                  className={stls.certificate}
-                  style={{
-                    width: '100%',
-                    height: 'auto'
-                  }}
-                />
+                // <Image
+                //   src={'https://res.cloudinary.com/mipinstitute/image/upload/v1733487278/sertifikat_krupnyj_razmer_a3c2a205c5.jpg'}
+                //   width={certificate.width}
+                //   height={certificate.height}
+                //   alt='Сертификат'
+                //   className={stls.certificate}
+                //   style={{
+                //     width: '100%',
+                //     height: 'auto'
+                //   }}
+                // />
+                <CldImage
+                alt='Сертификат'
+      src="sertifikat_krupnyj_razmer_a3c2a205c5" // Use this sample image or upload your own via the Media Explorer
+      width="500" // Transform the image: auto-crop to square aspect_ratio
+      height="500"
+      className={stls.certificate}
+      style={{
+            width: '100%',
+            height: 'auto'
+          }}
+      crop={{
+        type: 'fit',
+        source: true
+      }}
+    />
               )}
             </div>
           ))}

@@ -22,6 +22,8 @@ const getStaticPropsPageLectorium = async ({
             subtitle
             type
             label
+            isInternal
+            eventAddress
             picture {
               url
               width
@@ -129,7 +131,7 @@ const getStaticPropsPageLectorium = async ({
       props: {
         lectorium: res?.data?.lectorium?.[0] || null
       },
-      // revalidate: revalidate.default
+      revalidate: revalidate.default
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)

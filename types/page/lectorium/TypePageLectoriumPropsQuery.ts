@@ -15,6 +15,8 @@ export type Lectorium = {
   places: string
   picture: Picture
   speaker: SpeakerType
+  eventAddress: string
+  isInternal: boolean
   lectoriums: Lectorium[]
   targetDate: string
   endTime: string

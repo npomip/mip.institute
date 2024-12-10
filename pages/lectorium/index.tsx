@@ -20,6 +20,7 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
+import Popup from 'reactjs-popup'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -166,6 +167,23 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             onClick={() => setShowPast(prev => !prev)}>
             Прошедшие мероприятия
           </FilterTag>
+          <Popup
+          position='bottom left'
+          closeOnDocumentClick
+          on={['hover', 'focus']}
+          offsetX={-350}
+          offsetY={40}
+          arrow={false}
+          trigger={
+            // <FilterTag isActive={!showPast}>asdasd</FilterTag>
+          <button>
+            Даты мероприятий
+          </button>
+          }
+            >
+              <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
+            </Popup>
+          
         </div>
         <div className={stls.firstRow}>
           <div className={stls.cardWrapper}>

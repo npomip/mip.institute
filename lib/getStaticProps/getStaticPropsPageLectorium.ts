@@ -9,7 +9,7 @@ const getStaticPropsPageLectorium = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
   props: TypePageLectoriumProps
-  revalidate: number | boolean
+  revalidate?: number | boolean
 }> => {
   const slug = context?.params?.slug?.toString() || null
   try {
@@ -129,7 +129,7 @@ const getStaticPropsPageLectorium = async ({
       props: {
         lectorium: res?.data?.lectorium?.[0] || null
       },
-      revalidate: revalidate.default
+      // revalidate: revalidate.default
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)

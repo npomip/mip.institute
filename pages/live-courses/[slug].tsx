@@ -12,6 +12,8 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
+import CloudPaymentForm from '@/components/forms/CloudPayments'
+import Wrapper from '@/ui/Wrapper'
 
 const JournalPage = ({ lifeCourse, reviews }) => {
   const [isTestOpen, setIsTestOpen] = useState(false)
@@ -23,7 +25,12 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   return (
     <>
       <NextSeo nofollow={true} noindex={true} />
+      
       <LiveCoursesHero title={lifeCourse?.title} openModal={handleOpen} />
+      <Wrapper>
+      <CloudPaymentForm />
+
+      </Wrapper>
       {close => (
         <Popup
           open={isTestOpen}
@@ -40,6 +47,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
       ))}
       <LiveCoursesGetAcess marginBottom={60} openModal={handleOpen} />
       <About isLiveCourse />
+      
       <Reviews
         subtitle={lifeCourse?.review_subtitle}
         reviews={lifeCourse?.unique_reviews}

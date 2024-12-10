@@ -1,84 +1,102 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const CheckoutButton = () => {
-  const checkoutBtnRef = useRef(null);
+const CloudPaymentForm = () => {
+  const [formData, setFormData] = useState({
+    amount: '',
+    email: '',
+    description: '',
+  });
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://widget.cloudpayments.ru/bundles/cloudpayments';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      // @ts-ignore
-      window.cp = new window.CloudPayments();
-      initCheckoutButton();
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  const pay = () => {
-    // @ts-ignore
-    window.cp.pay(
-      'auth', // или 'charge'
-      {
-        // options
-        publicId: 'test_api_00000000000000000000002', // id из личного кабинета
-        description: 'Оплата товаров в example.com', // назначение
-        amount: 100, // сумма
-        currency: 'RUB', // валюта
-        accountId: 'user@example.com', // идентификатор плательщика (необязательно)
-        invoiceId: '1234567', // номер заказа  (необязательно)
-        email: 'user@example.com', // email плательщика (необязательно)
-        skin: 'mini', // дизайн виджета (необязательно)
-        autoClose: 3, // время в секундах до авто-закрытия виджета (необязательный)
-        data: {
-          myProp: 'myProp value',
-        },
-        configuration: {
-          common: {
-            successRedirectUrl: '/success', // адреса для перенаправления
-            failRedirectUrl: '/fail', // при оплате по T-Pay
-          },
-        },
-        payer: {
-          firstName: 'Тест',
-          lastName: 'Тестов',
-          middleName: 'Тестович',
-          birth: '1955-02-24',
-          address: 'тестовый проезд дом тест',
-          street: 'Lenina',
-          city: 'MO',
-          country: 'RU',
-          phone: '123',
-          postcode: '345',
-        },
-      },
-      {
-        onSuccess: function (options) {
-          // действие при успешной оплате
-        },
-        onFail: function (reason, options) {
-          // действие при неуспешной оплате
-        },
-        onComplete: function (paymentResult, options) {
-          // вызывается как только виджет получает от api.cloudpayments ответ с результатом транзакции.
-          // например вызов вашей аналитики
-        },
-      }
-    );
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const initCheckoutButton = () => {
-    checkoutBtnRef.current.addEventListener('click', pay);
+  const handlePayment = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // Предотвращаем перезагрузку страницы
+    console.log('Начало оплаты');
+    // @ts-ignore
+    if (typeof window !== 'undefined' && window.cp) {
+      // @ts-ignore
+      const widget = new window.cp.CloudPayments();
+      widget.pay(
+        'auth', // или 'charge'
+        {
+          publicId: process.env.NEXT_PUBLIC_CLOUDPAYMENTS_TEST_PUBLIC_ID || '', // id из личного кабинета
+          description: formData.description || 'Оплата товаров', // назначение
+          amount: parseFloat(formData.amount) || 0, // сумма
+          currency: 'RUB', // валюта
+          accountId: formData.email, // идентификатор плательщика
+          email: formData.email, // email плательщика
+          skin: 'mini', // дизайн виджета
+          data: {
+            customField: 'value', // дополнительные данные
+          },
+        },
+        {
+          onSuccess: function (options: any) {
+            console.log('Успешная оплата:', options);
+          },
+          onFail: function (reason: any, options: any) {
+            console.error('Ошибка оплаты:', reason);
+          },
+          onComplete: function (paymentResult: any, options: any) {
+            console.log('Транзакция завершена:', paymentResult);
+          },
+        }
+      );
+    } else {
+      console.error('CloudPayments не загружен');
+    }
   };
 
   return (
-    <button ref={checkoutBtnRef}>Оплатить</button>
+    <form>
+      <div>
+        <label htmlFor="amount">Сумма:</label>
+        
+        <input
+        style={{border: '1px solid black', borderRadius: '5px', padding: '5px', width: '100%'}}
+          type="number"
+          id="amount"
+          name="amount"
+          value={formData.amount}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+        style={{border: '1px solid black', borderRadius: '5px', padding: '5px', width: '100%'}}
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="description">Описание:</label>
+        <input
+        required
+        style={{border: '1px solid black', borderRadius: '5px', padding: '5px', width: '100%'}}
+          type="text"
+          id="description"
+          name="description"
+          value={formData.description}
+          onChange={handleInputChange}
+        />
+      </div>
+      <button
+      style={{border: '1px solid black', borderRadius: '5px', padding: '5px', width: '100%', marginTop: '10px', backgroundColor: 'rgb(148, 122, 255', color: 'white'}}
+      onClick={handlePayment}>Оплатить</button>
+    </form>
   );
 };
 
-export default CheckoutButton;
+export default CloudPaymentForm;

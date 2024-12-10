@@ -254,7 +254,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
 
-
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
@@ -371,7 +370,9 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <div><StickyBottom /></div>
+            <div>
+              <StickyBottom />
+            </div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>
@@ -493,6 +494,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           }}
         />
       )}
+
+      
 
       <noscript>
         <div>

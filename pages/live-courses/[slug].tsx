@@ -17,6 +17,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
   const [isTestOpen, setIsTestOpen] = useState(false)
 
   const handleOpen = () => {
+    
     setIsTestOpen(true)
   }
 

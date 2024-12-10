@@ -1,10 +1,10 @@
-import Image, { StaticImageData } from 'next/image'
 import { ReactNode } from 'react'
 import stls from './InfoPlate.module.sass'
+import { CldImage } from 'next-cloudinary'
 
 type PropsWithImage = {
   isImage: true
-  imageSrc: StaticImageData
+  imageSrc: string
   icon?: never
   content?: never
   number?: never
@@ -25,11 +25,14 @@ const InfoPlate = (props: Props) => {
   if (props.isImage) {
     return (
       <div className={stls.containerImage}>
-        <Image
+        <CldImage
           src={props.imageSrc}
-          alt='Image'
+          alt='Картинка'
           className={stls.image}
-          style={{ width: '100%', height: '100%' }}
+          style={{ width: '100%', height: 'auto' }}
+          width='400'
+          height='400'
+          crop='fit'
         />
       </div>
     )

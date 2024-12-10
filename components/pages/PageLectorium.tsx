@@ -23,26 +23,31 @@ type Props = {
 const PageLectorium = ({ lectorium }: Props) => {
   return (
     <div className={stls.container}>
+      {lectorium &&
+      <>
       <LectoriumHero lectorium={lectorium} />
-      <Speaker speaker={lectorium.speaker} />
+      {lectorium?.speaker && <Speaker speaker={lectorium?.speaker} />}
       <Advantages />
       <LectoriumWhoIsEventFor />
-      <LectoriumWhatYouWillLearn
+      {lectorium?.whatYouWillLearn && <LectoriumWhatYouWillLearn
         whatYouWillLearn={lectorium.whatYouWillLearn}
-      />
-      {lectorium.pdf && <DownloadProgram lectorium={lectorium} />}
-      <LectoriumCertificate diploma={lectorium?.diploma} />
+      />}
+      {lectorium?.pdf && <DownloadProgram lectorium={lectorium} />}
+      {lectorium?.diploma && <LectoriumCertificate diploma={lectorium?.diploma} />}
       <LectoriumHowGoesClasses />
       <HaveQuestions />
       <VideoReviews />
-      <ReviewsWithStars reviews={lectorium.reviewWithDate} />
-      <Maps />
+      <ReviewsWithStars reviews={lectorium?.reviewWithDate} />
+      {lectorium.isInternal && <Maps />}
       <EventRegistration
         timepadHref={lectorium?.timepadHref}
         targetDate={lectorium?.targetDate}
       />
       <LectoriumFAQ faq={lectorium?.faq} />
-      {lectorium.lectoriums.length > 0 && <NextEvents lectorium={lectorium} />}
+      {lectorium?.lectoriums?.length > 0 && <NextEvents lectorium={lectorium} />}
+      </>
+      }
+      
     </div>
   )
 }

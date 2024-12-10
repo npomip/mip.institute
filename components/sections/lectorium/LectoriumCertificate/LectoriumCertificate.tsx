@@ -34,9 +34,9 @@ const LectoriumCertificate = ({ diploma }) => {
               {Array.from({ length: 3 }).map((_, index) => (
                 <div className={classNameImages[index]} key={index}>
                   <Image
-                    src={diploma.url}
-                    width={certificate.width}
-                    height={certificate.height}
+                    src={diploma?.url}
+                    width={certificate?.width}
+                    height={certificate?.height}
                     alt='Сертификат'
                     className={stls.diploma}
                     style={{

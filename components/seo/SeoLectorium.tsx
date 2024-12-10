@@ -19,7 +19,7 @@ type TSeoPagesProgram = {
 const SeoLectorium: FC<TSeoPagesProgram> = ({ seo , programTitle, canonical='', isNoindex, isNoFollow }) => {
 
   const seoParams = {
-    title: seo.metaTitle ? seo.metaTitle : programTitle,
+    title: seo?.metaTitle ? seo.metaTitle : programTitle,
     programTitle: programTitle ,
     desc: seo?.metaDescription,
     canonical: canonical ? canonical : seo?.canonicalURL

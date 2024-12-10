@@ -127,6 +127,9 @@ const getStaticPropsPageLectorium = async ({
       }
     })
 
+    // console.log('lectorium',res.data.lectorium[0]);
+    
+
     return {
       props: {
         lectorium: res?.data?.lectorium?.[0] || null

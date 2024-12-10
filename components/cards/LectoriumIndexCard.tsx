@@ -16,6 +16,9 @@ interface Step {
 }
 
 const LectoriumIndexCard: FC<Step> = ({ card }) => {
+
+  console.log('LectoriumIndexCard',card);
+  
   const { formattedDateForCard, startTime } = calculateEventTimeAndDate(
     card.targetDate
   )
@@ -37,7 +40,8 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
     <div className={stls.oneCard} onClick={handleCardClick}>
       <Link
         href={`${routes.front.lectoriums}/${card.slug}`}
-        className={stls.cardText}>
+        className={stls.cardText}
+        passHref>
         <div className={stls.header}>
           <p className={stls.title}>Дата:</p>
           <p className={stls.subtitle}>
@@ -54,7 +58,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
           {card.subtitle}
         </p>
         <p className={stls.title}>Формат:</p>
-        <p className={stls.subtitle}>{card.type === 'online' ? 'Онлайн' : 'Очный: Москва, Докучаев переулок, 8'}</p>
+        <p className={stls.subtitle}>{card.isInternal ? (card.type === 'online' ? 'Онлайн' : 'Очный: Москва, Докучаев переулок, 8') : (`Очный: ${card.eventAddress}`)}</p>
         <p className={classNames(stls.title, stls.priceMobile)}>Стоимость:</p>
         <p className={classNames(stls.subtitle, stls.priceMobile)}>
           {card.price} руб.
@@ -75,7 +79,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
             Стоимость:
           </p>
           <p className={classNames(stls.subtitle, stls.priceDesktop)}>
-            {card.price} руб.
+            {card.price} {card.price !== 'Бесплатно' ? 'руб.' : ''}
           </p>
         </div>
         {isDateInFuture ? (

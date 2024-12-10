@@ -36,7 +36,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   const today = dayjs()
 
   const [showPast, setShowPast] = useState(false)
-  const [isInternal, setIsInternal] = useState(null)
+  const [isInternal, setIsInternal] = useState(true)
   const [selectedType, setSelectedType] = useState(null)
   const [filteredDates, setFilteredDates] = useState([null, null])
   const [filteredLectoriums, setFilteredLectoriums] = useState([])

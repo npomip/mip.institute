@@ -22,12 +22,12 @@ const getStaticPathsPageLectorium = async (): Promise<{
         new Set(
           res.data?.lectorium?.map(program => ({
             params: {
-              slug: program?.slug || 'program'
+              slug: program?.slug
             }
           }))
         )
-      ) || [{ params: { slug: 'program' } }],
-      fallback: 'blocking'
+      ) ,
+      fallback: false
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)

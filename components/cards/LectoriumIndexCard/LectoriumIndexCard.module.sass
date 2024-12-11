@@ -2,15 +2,18 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.oneCard
+.card
   @include m.flex($fd: column, $jc: space-evenly)
   border: 1px solid c.$purple-350
   @include m.dye(bg, c.$white-900)
-  @include m.gap($ptb: f.px(30), $plr: f.px(24))
+  @include m.gap($ptb: f.px(20), $plr: f.px(24))
   border-radius: f.px(5)
-  min-height: f.px(516)
+  min-height: f.px(430)
   @include m.media(phone, tablet)
     @include m.gap($p: f.px(20))
+
+.header
+  @include m.flex($jc: space-between)
 
 .title
   @include m.gap($mb: f.px(7))
@@ -26,30 +29,33 @@
   @include m.media(phone, tablet)
     font-size: f.px(16)
 
+.format
+  @include m.dye(c, c.$purple-800)
+  @include m.media(phone, tablet)
+    color: black
+
+.row
+  @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    flex-direction: column
+
 .subtitleBig
-  max-width: f.px(470)
+  max-width: f.px(290)
   font-weight: 500
   font-size: f.px(20)
   @include m.gap($mb: f.px(20))
   @include m.media(phone, tablet)
     font-size: f.px(16)
 
-.header
-  position: relative
-
 .bell
-  position: absolute
-  top: f.px(0)
-  right: f.px(5)
-  max-width: max-content
-  @include m.gap($ptb: f.px(15), $plr: f.px(16))
+  @include m.flex($jc: center, $ai: center)
   border-radius: 50%
-  @include m.dye(bg, c.$purple-200)
-  transition: opacity .2s ease-in-out
+  width: f.px(46)
+  height: f.px(46)
+  @include m.dye(bg, c.$purple-800)
   @include m.media(phone, tablet)
-    @include m.dye(bg, c.$purple-300)
-    right: f.px(-10)
-    @include m.gap($ptb: f.px(10), $plr: f.px(11))
+    width: f.px(30)
+    height: f.px(30)
 
 .image
   object-fit: contain
@@ -61,33 +67,34 @@
     border-radius: f.px(20)
 
 .footer
-  display: flex
-  justify-content: space-between
+  @include m.flex($fd: column)
+  gap: f.px(15)
   @include m.media(phone, tablet)
-    flex-direction: column
+    gap: f.px(10)
 
-.btns > div > button
+.button-base
   border-radius: f.px(50)
-  border: f.px(1) solid c.$purple-200
-  background-color: c.$purple-200
+  border: f.px(1) solid
+  background-color: transparent
   @include m.gap($ptb: f.px(16), $plr: f.px(53))
-  font-size: f.px(20)
-  color: c.$white-900
+  font-size: f.px(18)
+  width: 100%
   &::after
     display: none
   @include m.media(phone, tablet)
     border-radius: f.px(30)
-    background-color: c.$purple-300
     @include m.gap($ptb: f.px(16), $plr: f.px(0))
-    font-size: f.px(15)
+    font-size: f.px(16)
 
-.price
-  .title
-    @include m.gap($mt: f.px(4))
-  .subtitle
-    @include m.gap($mb: f.px(0))
-    @include m.media(phone, tablet)
-      @include m.gap($mb: f.px(12))
+.participate > button
+  @extend .button-base
+  color: c.$orange-700
+
+.btn > div > button
+  @extend .button-base
+  border-color: c.$purple-800
+  @include m.dye(bg, c.$purple-800)
+  color: c.$white-900
 
 .completed
   font-size: f.px(20)
@@ -104,14 +111,3 @@
   &:focus
     color: black !important
 
-.priceMobile
-  @include m.media(desktop, laptop)
-    display: none
-  @include m.media(phone, tablet)
-    display: block
-
-.priceDesktop
-  @include m.media(desktop, laptop)
-    display: block
-  @include m.media(phone, tablet)
-    display: none

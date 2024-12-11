@@ -5,12 +5,12 @@
 .container
   @include m.dye(bg, c.$pink-50)
 
-  h1
-    font-size: f.px(44)
-    font-weight: 500
-    @include m.gap($mtb: f.px(20))
-    @include m.media(phone, tablet)
-      font-size: f.px(28)
+.title
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.gap($pt: f.px(20), $mb: f.px(15))
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
 
 .subtitle
   @include m.gap($mb: f.px(50))
@@ -20,35 +20,49 @@
     @include m.gap($mb: f.px(35))
     font-size: f.px(15)
 
-
-.firstRow
-  @include m.gap($mt: f.px(40))
-  display: flex
-  grid-template-columns: repeat(2, 1fr)
-  gap: f.px(15)
-  margin-bottom: 24px
-  @include m.media(phone, tablet)
-    flex-direction: column
-  .cardWrapper
-    flex:1
-    @include m.media(phone, tablet)
-      order: 2
-  .calendarWrapper
-    display: flex
-    flex:1
-    &>*
-      width: 100%
-
-.lectoriumGrid 
+.lectoriumGrid
   display: grid
-  grid-template-columns: repeat(2, 1fr)
-  gap: f.px(15)
+  grid-template-columns: repeat(3, 1fr)
+  gap: f.px(20) f.px(30)
+  margin-top: f.px(35)
+  position: relative
   @include m.media(phone, tablet)
     grid-template-columns: 1fr
+
+.calendarWrapper
+  @include m.gap($mt: f.px(35))
+  position: absolute
+  z-index: 2
 
 .tags
   @include m.flex($ai: center)
   gap: f.px(15)
+
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $ai: flex-start)
+    & > button.calendarButton
+      order: 2
+    & > *:not(.calendarButton)
+      order: 1
 
+.calendarButton
+  border: 1px solid c.$purple-300
+  border-radius: f.px(50)
+  @include m.gap($pl: f.px(20), $ptb: f.px(11), $pr: f.px(10))
+  background: white
+  transition: all 0.3s ease-in
+  cursor: pointer
+  font-weight: 350
+  white-space: nowrap
+  font-size: f.px(14)
+  @include m.media(phone, tablet)
+  display: flex
+
+  &:hover
+    background-color: c.$purple-300
+    color: white
+
+  .caret
+    font-weight: 500
+    margin-right: f.px(5)
+    transition: transform 0.3s ease

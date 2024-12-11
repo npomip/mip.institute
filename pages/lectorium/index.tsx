@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import LectoriumIndexCard from '@/components/cards/LectoriumIndexCard'
+import LectoriumIndexCard from '@/components/cards/LectoriumIndexCard/LectoriumIndexCard'
 import routes from '@/config/routes'
 import { handleGetStaticProps } from '@/lib/index'
 import Wrapper from '@/ui/Wrapper'
@@ -16,7 +16,6 @@ import timezone from 'dayjs/plugin/timezone'
 import 'dayjs/locale/ru'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
@@ -40,12 +39,11 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   const [selectedType, setSelectedType] = useState(null)
   const [filteredDates, setFilteredDates] = useState([null, null])
   const [filteredLectoriums, setFilteredLectoriums] = useState([])
-  const [isCalendarVisible, setIsCalendarVisible] = useState(true)
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false)
   const [dates, setDates] = useState([])
 
-  const handleToggleCalendar = visible => {
-    setIsCalendarVisible(visible)
+  const handleToggleCalendar = () => {
+    setIsCalendarVisible(!isCalendarVisible)
   }
 
   const handleFilteredDates = dates => {
@@ -113,12 +111,26 @@ const LectoriumPage = ({ lectoriums }: Props) => {
       <Wrapper>
         <SeoPagesLectoriums />
         <Breadcrumbs isJournal />
-        <h1>Семинары по психологии</h1>
+        <h1 className={stls.title}>Семинары по психологии</h1>
         <p className={stls.subtitle}>
           Это раздел с образовательными мероприятия, такие как очные мастер
           классы, супервизии, воркшопы и т.п
         </p>
         <div className={stls.tags}>
+          <button
+            className={stls.calendarButton}
+            onClick={handleToggleCalendar}>
+            Даты мероприятий&nbsp;
+            <span
+              className={stls.caret}
+              style={{
+                transform: isCalendarVisible
+                  ? 'rotate(-90deg) scaleX(.7)'
+                  : 'rotate(-270deg) scaleX(.7)'
+              }}>
+              &gt;
+            </span>
+          </button>
           <FilterTag
             onClick={() => router.push('/webinars')}
             isActive={false}
@@ -149,39 +161,21 @@ const LectoriumPage = ({ lectoriums }: Props) => {
               option => option.value === selectedType
             )}
           />
-          {isMobileAndTabletLayout && (
-            <CustomSelect
-              onChange={() => {}}
-              onToggleCalendar={handleToggleCalendar}
-              options={[]}
-              noOptionsMessage={() => null}
-              radius='50'
-              height='30'
-              mainColor='#8F60FF'
-              placeholder='Календарь'
-            />
-          )}
           <FilterTag
             isActive={!!showPast}
             onClick={() => setShowPast(prev => !prev)}>
-            Прошедшие мероприятия
+            Прошедшие
           </FilterTag>
         </div>
-        <div className={stls.firstRow}>
-          <div className={stls.cardWrapper}>
-            {filteredLectoriums.length > 0 && (
-              <LectoriumIndexCard card={filteredLectoriums[0]} />
-            )}
-          </div>
+
+        {isCalendarVisible && (
           <div className={stls.calendarWrapper}>
-            {isCalendarVisible && (
-              <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
-            )}
+            <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
           </div>
-        </div>
+        )}
 
         <div className={stls.lectoriumGrid}>
-          {filteredLectoriums.slice(1).map(lectorium => (
+          {filteredLectoriums.map(lectorium => (
             <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
           ))}
         </div>

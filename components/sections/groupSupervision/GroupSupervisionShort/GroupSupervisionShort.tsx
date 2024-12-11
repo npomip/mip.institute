@@ -13,17 +13,19 @@ const GroupSupervisionShort = () => {
     <section className={stls.container}>
       <h2 className={stls.title}>
         <span className={stls.coloredTitle}>
-          Краткая&nbsp;
+          Цикл&nbsp;
           {isMobileAndTabletLayout ? (
             <>
               <br />
-              программа
+              супервизионных
+              <br />
+        встреч
+
             </>
           ) : (
-            'программа'
+            'супервизионных встреч'
           )}
         </span>
-        &nbsp;курса
       </h2>
       <div className={stls.blocks}>
         {programs.map((el, idx) => (

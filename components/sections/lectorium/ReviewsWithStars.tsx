@@ -12,7 +12,8 @@ SwiperCore.use([Scrollbar])
 
 const ReviewsWithStars = ({ reviews, isSupervision = false }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-
+  console.log(reviews);
+  
   return (
     <section className={stls.container}>
       <Wrapper>

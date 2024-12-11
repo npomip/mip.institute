@@ -18,6 +18,7 @@ import GroupSupervisionFAQ from '@/components/sections/groupSupervision/GroupSup
 import ReviewsWithStars from '../sections/lectorium/ReviewsWithStars'
 import SeoCommon from '../seo/SeoCommon'
 import seo from 'constants/GroupSupervision/seo'
+import reviewsSupervision from 'constants/GroupSupervision/reviews'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -30,9 +31,9 @@ const PageGroupSupervision = ({}) => {
         <GroupSupervisionHero />
         <GroupSupervisionDesc />
         <Roles />
-        <GroupSupervisionFor />
+        {/* <GroupSupervisionFor /> */}
         <GroupSupervisionWhy />
-        <GroupSupervisionSalary />
+        {/* <GroupSupervisionSalary /> */}
         <Tariffs />
         <GroupSupervisionShort />
         <GroupSupervisionInclude />
@@ -40,7 +41,7 @@ const PageGroupSupervision = ({}) => {
         <WhichDocument />
         <Supervisors />
         <SupervisorVideo />
-        <ReviewsWithStars reviews={''} isSupervision />
+        <ReviewsWithStars reviews={reviewsSupervision} isSupervision />
         <GroupSupervisionForm />
         <GroupSupervisionFAQ />
       </Wrapper>

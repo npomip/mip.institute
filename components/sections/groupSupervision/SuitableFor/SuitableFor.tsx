@@ -39,10 +39,10 @@ const SuitableFor = () => {
     <section>
       <div className={styles.header}>
         <h2 className={styles.title}>Кому подойдет</h2>
-        <p className={styles.text}>
+        {/* <p className={styles.text}>
           <span className={styles.bold}>Практикующие специалисты,&nbsp;</span>
           желающие повысить свой профессиональный уровень и личную эффективность
-        </p>
+        </p> */}
       </div>
       <ul className={styles.list}>
         {content.map((el, index) => (

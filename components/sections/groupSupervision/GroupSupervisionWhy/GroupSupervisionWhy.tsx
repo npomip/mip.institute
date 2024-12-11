@@ -12,14 +12,14 @@ const GroupSupervisionWhy = () => {
   return (
     <section className={stls.container}>
       <h2 className={stls.title}>
-        <span className={stls.coloredTitle}>Зачем идти </span>
+        <span className={stls.coloredTitle}>Для чего психологу </span>
         {isMobileAndTabletLayout ? (
           <>
             <br />
-            на супервизию?
+            супервизия?
           </>
         ) : (
-          ' на супервизию?'
+          'супервизия?'
         )}
       </h2>
       {whyInfo.map((el, idx) => (

@@ -13,6 +13,7 @@ type Props = {
       url: string
       width: number
       height: number
+      src?: string
     }
   }
 }
@@ -39,7 +40,12 @@ const CardReviewWithStars = ({ number, review }: Props) => {
       </div>
       <div className={stls.author}>
         <div className={stls.image}>
-          <Image src={review.picture.url} width={32} height={32} alt='Автор' />
+          <Image
+            src={review.picture.url ? review.picture.url : review.picture.src}
+            width={32}
+            height={32}
+            alt='Автор'
+          />
         </div>
         <p className={stls.name}>{review.name}</p>
       </div>

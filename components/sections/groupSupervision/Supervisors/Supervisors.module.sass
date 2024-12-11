@@ -16,14 +16,17 @@
     @include m.gap($mb: f.px(20))
 
 .list
-  // display: grid
-  // grid-template-columns: repeat(3, 1fr)
-  // gap: f.px(30)
   padding-left: 0
-  display: flex
-  justify-content: center
-  align-items: center
-  place-items: center
+  @include m.media(desktop)
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: f.px(30)
+  @include m.media(phone, tablet, laptop)
+    display: flex
+    justify-content: center
+    align-items: center
+    place-items: center
+    gap: f.px(30)
 
 .imageWrapper
   position: relative
@@ -69,3 +72,15 @@
 
 .cards
   margin-bottom: f.px(40)
+
+.empty
+  display: flex
+  height: 100%
+  width: 100%
+
+.emptyli
+  display: flex
+  height: 100%
+  width: 100%
+  @include m.media(phone, tablet, laptop)
+    display: none

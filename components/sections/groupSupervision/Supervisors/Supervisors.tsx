@@ -44,6 +44,24 @@ const Supervisors = () => {
       ) : ( */}
         <ul className={stls.list}>
           {supervisors.map(supervisor => card(supervisor))}
+          <li className={stls.emptyli}>
+            <Image 
+            className={stls.empty}
+            alt='lalal'
+            src={'https://res.cloudinary.com/mipinstitute/image/upload/v1733927227/Group_1321315087_7a7fc95bed.png'}
+            width={370}
+            height={680}
+            />
+          </li>
+          <li className={stls.emptyli}>
+            <Image 
+            className={stls.empty}
+            alt='lalal'
+            src={'https://res.cloudinary.com/mipinstitute/image/upload/v1733927227/Group_1321315087_7a7fc95bed.png'}
+            width={370}
+            height={680}
+            />
+          </li>
         </ul>
       {/* )} */}
     </section>

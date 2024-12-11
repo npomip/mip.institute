@@ -19,6 +19,7 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 import Breadcrumbs from '@/ui/Breadcrumbs'
+import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -26,37 +27,22 @@ dayjs.locale('ru')
 dayjs.extend(isSameOrAfter)
 dayjs.extend(isSameOrBefore)
 
-const LectoriumPage = ({ lectoriums }) => {
+type Props = {
+  lectoriums: Lectorium[]
+}
+
+const LectoriumPage = ({ lectoriums }: Props) => {
   const router = useRouter()
   const today = dayjs()
 
   const [showPast, setShowPast] = useState(false)
+  const [isInternal, setIsInternal] = useState(true)
   const [selectedType, setSelectedType] = useState(null)
   const [filteredDates, setFilteredDates] = useState([null, null])
   const [filteredLectoriums, setFilteredLectoriums] = useState([])
   const [isCalendarVisible, setIsCalendarVisible] = useState(true)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const [dates, setDates] = useState([])
-
-  useEffect(() => {
-    const baseFilter = lectoriums.filter(lect => {
-      const targetDate = dayjs(lect.targetDate)
-      return showPast
-        ? targetDate.isSameOrBefore(today, 'day')
-        : targetDate.isSameOrAfter(today, 'day')
-    })
-
-    const typeFilter = selectedType
-      ? baseFilter.filter(lect => lect.type === selectedType)
-      : baseFilter
-
-    const sortedByDate = [...typeFilter].sort((a, b) =>
-      dayjs(a.targetDate).diff(dayjs(b.targetDate))
-    )
-
-    setFilteredLectoriums(sortedByDate)
-    setDates(sortedByDate.map(lectorium => lectorium.targetDate))
-  }, [showPast, selectedType, lectoriums])
 
   const handleToggleCalendar = visible => {
     setIsCalendarVisible(visible)
@@ -66,25 +52,56 @@ const LectoriumPage = ({ lectoriums }) => {
     setFilteredDates(dates)
   }
 
-  useEffect(() => {
+  const filterLectoriums = () => {
+    let baseFilter = lectoriums
+
+    if (selectedType) {
+      baseFilter = baseFilter.filter(lect => lect.type === selectedType)
+    }
+
+    if (isInternal !== null) {
+      baseFilter = baseFilter.filter(lect => lect.isInternal === isInternal)
+    }
+
+    baseFilter = baseFilter.filter(lect => {
+      const targetDate = dayjs(lect.targetDate)
+      return showPast
+        ? targetDate.isSameOrBefore(today, 'day')
+        : targetDate.isSameOrAfter(today, 'day')
+    })
+
     if (filteredDates[0] && filteredDates[1]) {
       const startDate = dayjs(filteredDates[0])
       const endDate = dayjs(filteredDates[1])
 
-      const dateFiltered = lectoriums.filter(lectorium => {
-        const targetDate = dayjs(lectorium.targetDate)
+      baseFilter = baseFilter.filter(lect => {
+        const targetDate = dayjs(lect.targetDate)
         return (
           targetDate.isSameOrAfter(startDate, 'day') &&
           targetDate.isSameOrBefore(endDate, 'day')
         )
       })
-
-      setFilteredLectoriums(dateFiltered)
     }
-  }, [filteredDates, lectoriums])
 
-  const handleInnerEvents = () => {
-    setShowPast(!showPast)
+    const sortedByDate = baseFilter.sort((a, b) =>
+      dayjs(a.targetDate).diff(dayjs(b.targetDate))
+    )
+
+    setFilteredLectoriums(sortedByDate)
+    setDates(sortedByDate.map(lectorium => lectorium.targetDate))
+  }
+
+  useEffect(() => {
+    filterLectoriums()
+  }, [showPast, selectedType, isInternal, filteredDates, lectoriums])
+
+  const handleFilterInternalEvents = () => {
+    setIsInternal(true)
+  }
+
+  const handleFilterOutsideEvents = () => {
+    setIsInternal(false)
+    setSelectedType(null)
   }
 
   const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
@@ -109,21 +126,21 @@ const LectoriumPage = ({ lectoriums }) => {
             Вебинары
           </FilterTag>
           <FilterTag
-            onClick={handleInnerEvents}
-            isActive={!showPast}
+            onClick={handleFilterInternalEvents}
+            isActive={isInternal === true}
             isCategories>
             Внутренние мероприятия
           </FilterTag>
           <FilterTag
-            onClick={() => router.push('/lectorium')}
-            isActive={false}
-            disabled
+            onClick={handleFilterOutsideEvents}
+            isActive={isInternal === false}
             isCategories>
             Внешние мероприятия
           </FilterTag>
           <CustomSelect
             onChange={handleSelectChange}
             options={lectoriumOptions}
+            isDisabled={!isInternal}
             radius='50'
             height='30'
             mainColor='#6F6F6F'

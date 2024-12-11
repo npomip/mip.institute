@@ -9,7 +9,7 @@ const getStaticPropsPageLectorium = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
   props: TypePageLectoriumProps
-  revalidate: number | boolean
+  revalidate?: number | boolean
 }> => {
   const slug = context?.params?.slug?.toString() || null
   try {
@@ -22,6 +22,8 @@ const getStaticPropsPageLectorium = async ({
             subtitle
             type
             label
+            isInternal
+            eventAddress
             picture {
               url
               width
@@ -124,6 +126,9 @@ const getStaticPropsPageLectorium = async ({
         slug
       }
     })
+
+    // console.log('lectorium',res.data.lectorium[0]);
+    
 
     return {
       props: {

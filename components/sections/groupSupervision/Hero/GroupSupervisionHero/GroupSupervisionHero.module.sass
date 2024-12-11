@@ -18,11 +18,14 @@
 
 .imageBlock
   position: relative
-  & > picture >img
+  & > img
+    max-height: f.px(500)
+    object-fit: cover
     border-radius: f.px(15)
+    object-position: 0 30%
     @include m.media(phone, tablet)
       border-radius: f.px(10)
-      min-height: f.px(200)
+      max-height: f.px(400)
       object-fit: cover
   & > ul
     margin-top: f.px(-40)

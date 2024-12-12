@@ -236,5 +236,6 @@ div.popup-content
 
 .react-calendar__tile--range
   background-color: transparent !important
-  &.eventDate::after
-    background-color: c.$orange-700 !important
+  @include m.media(phone, tablet)
+    background-color: c.$purple-800 !important
+    color: white !important

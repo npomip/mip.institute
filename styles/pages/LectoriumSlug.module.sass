@@ -33,6 +33,9 @@
   @include m.gap($mt: f.px(35))
   position: absolute
   z-index: 2
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(10))
+    position: relative
 
 .tags
   @include m.flex($ai: center)
@@ -55,7 +58,6 @@
   font-weight: 350
   white-space: nowrap
   font-size: f.px(14)
-  @include m.media(phone, tablet)
   display: flex
 
   &:hover

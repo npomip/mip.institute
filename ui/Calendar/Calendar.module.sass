@@ -11,8 +11,8 @@
   border: f.px(1) solid c.$purple-350
   border-radius: f.px(5)
   @include m.media(phone, tablet)
-    max-width: f.px(345)
-    min-width: f.px(345)
+    max-width: 100% !important
+    min-width: auto !important
     box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.06)
     border-radius: f.px(5)
     @include m.gap($ptb: f.px(10))
@@ -25,13 +25,12 @@
       font-weight: 500
       text-transform: uppercase
       @include m.dye(c, c.$black-900)
-      @include m.media(phone, tablet)
-        font-size: f.px(16)
     // react-calendar__navigation__arrow react-calendar__navigation__next-button
     & > button:nth-child(2n)
       @include m.dye(c, c.$white-800)
   // react-calendar__viewContainer
   & > div:nth-child(2)
+    @include m.gap($plr: f.px(10))
     // react-calendar__month-view__weekdays__weekday
     & > div > div > div > div:nth-child(1) > div
       @include m.flex($ai: center, $jc: center)
@@ -65,9 +64,7 @@
         height: f.px(34)
         font-size: f.px(12)
         @include m.dye(c, c.$black-900)
-        display: flex
-        align-items: center
-        justify-content: center
+        @include m.flex($ai: center, $jc: center)
         @include m.gap($ptb: f.px(0))
         &:hover
           @include m.media(desktop, laptop)
@@ -77,18 +74,33 @@
           background-color: transparent
           color: black !important
           border-radius: 50%
+          @include m.media(phone, tablet)
+            border-radius: f.px(5)
+            color: white !important
+            border-color: c.$orange-700
         @include m.media(phone, tablet)
           @include m.gap($ptb: f.px(20), $mb: 0, $mlr: 0)
           width: f.px(40)
           height: f.px(40)
           border-radius: f.px(4)
+          font-size: 18px
+        @include m.media(phone)
+          font-size: 14px
+          @include m.gap($ptb: f.px(20), $mb: 0, $mlr: 0)
+          width: f.px(40)
+          height: f.px(40)
+          border-radius: f.px(4)
+
       & > abbr
         font-size: f.px(10)
         font-style: normal
         font-weight: 500
         line-height: 120%
         text-transform: uppercase
-        @include m.media(phone, tablet)
+        @include m.media(tablet)
+          font-size: f.px(18)
+          font-weight: 500
+        @include m.media(phone)
           font-size: f.px(14)
           font-weight: 500
 
@@ -100,7 +112,7 @@
   border-radius: 50%
   @include m.gap($mlr: f.px(10))
   @include m.media(phone, tablet)
-    transform: scale(0.7)
+    @include m.gap($mlr: 0)
 
 .arrow
   width: 0

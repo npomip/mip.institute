@@ -1,0 +1,38 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.list
+  @include m.gap($p: f.px(0), $mtb: 0)
+  @include m.media(phone, tablet)
+
+.line
+  position: relative
+  list-style-type: none
+
+.link
+  display: block
+  position: relative
+  text-decoration: none
+  border-bottom: f.px(1) solid c.$gray-200
+  @include m.gap($ptb: f.px(10), $pl: f.px(10))
+  @include m.dye(c, c.$purple-700)
+  &:hover
+    @include m.dye(bg, c.$purple-150)
+  &.active
+    @include m.dye(bg, c.$purple-700)
+    @include m.dye(c, c.$white-900)
+    &::before
+      @include m.dye(c, c.$white-900)
+      transform: rotate(90deg)
+
+  &::before
+    content: '>'
+    display: inline-block
+    font-weight: 500
+    @include m.gap($mr: f.px(5))
+    @include m.dye(c, c.$purple-700)
+
+.text
+  font-size: f.px(15)
+  font-weight: 500

@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($ptb: f.px(50))
+
+.innerContainer
+  display: grid
+  grid-template-columns: 33% 66%
+  column-gap: f.px(30)
+  @include m.media(phone, tablet)
+      @include m.flex($fd: column)
+
+.content
+  // overflow: auto

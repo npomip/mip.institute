@@ -20,9 +20,36 @@ const structOrgUpravRows = [
   {
     itemProp: 'structOrgUprav',
     cells: [
-      { content: 'Ректорат', itemProp: 'name' },
+      { content: 'Ректорат', itemProp: 'name', rowspan: 2 },
       { content: 'Багаев Евгений Александрович', itemProp: 'fio' },
       { content: 'Ректор', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link
+            href='https://mip.institute/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  {
+    itemProp: 'structOrgUprav',
+    cells: [
+      { content: 'Стибунов Алексей Васильевич', itemProp: 'fio' },
+      { content: 'Первый проректор', itemProp: 'post' },
       {
         content: '115114, Москва, Дербеневская набережная, дом 11',
         itemProp: 'addressStr'
@@ -84,12 +111,173 @@ const structOrgUpravRows = [
     itemProp: 'structAdmin',
     cells: [
       { content: 'Учебный отдел', itemProp: 'name' },
+      { content: 'Губанова Ольга Викторовна', itemProp: 'fio' },
+      { content: 'Начальник отдела', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link
+            href='https://mip.institute/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел маркетинга
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел маркетинга', itemProp: 'name' },
       { content: '', itemProp: 'fio' },
       { content: '', itemProp: 'post' },
-      { content: '', itemProp: 'addressStr' },
-      { content: '', itemProp: 'site' },
-      { content: '', itemProp: 'email' },
-      { content: '', itemProp: 'divisionClauseDocLink' }
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link
+            href='https://mip.institute/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел мониторинга качества образования
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел мониторинга качества образования', itemProp: 'name' },
+      { content: 'Попова Маргарита Геннадьевна', itemProp: 'fio' },
+      { content: 'Руководитель отдела', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link
+            href='https://mip.institute/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел по внешним коммуникациям
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел по внешним коммуникациям', itemProp: 'name' },
+      { content: 'Графская Анастасия Викторовна', itemProp: 'fio' },
+      { content: 'Руководитель отдела', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link
+            href='https://mip.institute/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел практики и карьеры
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел практики и карьеры', itemProp: 'name' },
+      { content: '', itemProp: 'fio' },
+      { content: '', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link
+            href='https://mip.institute/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел продаж
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел продаж', itemProp: 'name' },
+      { content: '', itemProp: 'fio' },
+      { content: '', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link
+            href='https://mip.institute/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
     ]
   },
   // Кафедра

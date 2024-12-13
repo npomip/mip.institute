@@ -6,6 +6,7 @@ interface TableCell {
   content: React.ReactNode // Контент ячейки (текст, элемент JSX)
   itemProp?: string // Необязательный атрибут itemProp
   colspan?: number // Количество столбцов, на которые распространяется ячейка
+  rowspan?: number // Количество строк, на которые распространяется ячейка
 }
 
 // Тип для строки таблицы
@@ -81,12 +82,13 @@ const Table: React.FC<TableProps> = ({
               key={rowIndex}
               {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
               {row.cells.map((cell, cellIndex) => {
-                const { content, itemProp, colspan } = cell
+                const { content, itemProp, colspan, rowspan } = cell
                 return (
                   <td
                     key={cellIndex}
                     {...(itemProp ? { itemProp } : {})}
-                    {...(colspan ? { colSpan: colspan } : {})}>
+                    {...(colspan ? { colSpan: colspan } : {})}
+                    {...(rowspan ? { rowSpan: rowspan } : {})}>
                     {content}
                   </td>
                 )

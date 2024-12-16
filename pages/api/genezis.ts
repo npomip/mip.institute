@@ -17,7 +17,8 @@ const createLead = async (req, res) => {
     edPartners,
     roistat_visit,
     referer,
-    roistatAB
+    roistatAB,
+    gift
 
   } = req.body
 
@@ -69,6 +70,7 @@ const createLead = async (req, res) => {
         { key: '_ym_uid', value: ymUid || '' },
         { key: 'referer', value: referer || '' },
         { key: 'roistatAB', value: roistatAB || '' },
+        { key: 'gift', value: gift || '' },
       ],
       host: 'mip.institute', // домен вашего сайта (ОБЯЗАТЕЛЬНО)
       token: 'b6ce2e21-c68e-476f-87fe-ae268db2e9c2'

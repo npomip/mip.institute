@@ -5,8 +5,10 @@
 .wheelContainer
   position: relative
   @include m.flex($jc: space-between)
+  @include m.gap($pt: f.px(43))
   @include m.media(phone, tablet)
     flex-direction: column
+    @include m.gap($pt: f.px(22))
   &::after
     content: ''
     position: absolute
@@ -14,13 +16,14 @@
     height: f.px(70)
     top: 45%
     right: 0
-    transform: translateY(-50%) rotate(-90deg)
+    transform: translateY(-20%) rotate(-90deg)
     clip-path: polygon(50% 0, 0 100%, 100% 100%)
     background: black
     z-index: 1
     @include m.media(phone, tablet)
       width: f.px(20)
       height: f.px(30)
+      transform: translateY(70%) rotate(-90deg)
 
 .wheel
   width: 100%
@@ -174,3 +177,15 @@
   @include m.media(phone, tablet)
     top: f.px(50)
     transform: scale(.3)
+
+
+.formAlpha
+  position: relative
+  z-index: 1
+  &>*
+    &>*
+      width: 100%
+
+.savedResult
+  position: relative
+  z-index: 1

@@ -2,6 +2,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import stls from './FortuneWheel.module.sass'
 import classNames from 'classnames'
 import { icons, segmentsObject } from '@/ui/FortuneWheel/constants'
+import Wrapper from '../Wrapper'
+import { PopupCta } from '@/components/popups'
+import PopupTrigger from '../PopupTrigger'
 
 interface Props {
   mustStartSpinning: boolean
@@ -14,28 +17,35 @@ const FortuneWheel = ({
   onClick,
   onStopSpinning
 }: Props) => {
-  const [rotation, setRotation] = useState(-20)
+  const [rotation, setRotation] = useState(0) // Убираем стартовый -20
   const [isSpinning, setIsSpinning] = useState(false)
   const [hasSpun, setHasSpun] = useState(false)
+  const [savedResult, setSavedResult] = useState<string | null>(null)
   const segments = useMemo(() => segmentsObject, [mustStartSpinning])
 
   useEffect(() => {
     const storedResult = localStorage.getItem('fortuneWheelResult')
     if (storedResult) {
+      setSavedResult(storedResult)
       setHasSpun(true)
+
+      const resultIndex = segments.findIndex(segment => segment.text === storedResult)
+      if (resultIndex !== -1) {
+        const segmentAngle = 360 / segments.length
+        const targetSegmentAngle = segmentAngle * resultIndex + segmentAngle / 2
+        const correctedRotation = 360 - targetSegmentAngle
+        setRotation(correctedRotation)
+      }
     }
-  }, [])
+  }, [segments])
 
   const selectPrize = useCallback(() => {
     const weightedSegments = segments
-      .filter(segment => segment.value > 0) // Исключаем сегменты с value = 0
-      .flatMap(segment => Array(segment.value).fill(segment.text)) // Увеличиваем вероятность выпадения
-
-    // Выбираем случайный элемент из массива
+      .filter(segment => segment.value > 0)
+      .flatMap(segment => Array(segment.value).fill(segment.text))
     const randomIndex = Math.floor(Math.random() * weightedSegments.length)
     const selectedPrize = weightedSegments[randomIndex]
 
-    // Возвращаем индекс сегмента
     return segments.findIndex(segment => segment.text === selectedPrize)
   }, [segments])
 
@@ -43,25 +53,21 @@ const FortuneWheel = ({
     if (mustStartSpinning && !isSpinning && !hasSpun) {
       setIsSpinning(true)
 
-      const prizeIndex = selectPrize() // Выбираем индекс приза
-      const fullSpins = 5 * 360 // Минимум 5 полных оборотов
-      const segmentAngle = 360 / segments.length // Угол одного сегмента
-
-      // Рассчитываем центральный угол целевого сегмента
+      const prizeIndex = selectPrize()
+      const fullSpins = 5 * 360
+      const segmentAngle = 360 / segments.length
       const targetSegmentAngle = segmentAngle * prizeIndex + segmentAngle / 2
 
-      // Корректируем итоговый угол с учётом начального угла
-      const targetRotation = fullSpins + targetSegmentAngle - rotation
-
-      setRotation(rotation + targetRotation) // Добавляем результат вращения
+      const correctedRotation = fullSpins + 360 - targetSegmentAngle
+      setRotation(rotation + correctedRotation)
 
       setTimeout(() => {
         setIsSpinning(false)
         setHasSpun(true)
         localStorage.setItem('fortuneWheelResult', segments[prizeIndex].text)
-
+        setSavedResult(segments[prizeIndex].text)
         onStopSpinning()
-      }, 4000) // 4 секунды — длительность анимации
+      }, 4000)
     }
   }, [
     isSpinning,
@@ -74,16 +80,23 @@ const FortuneWheel = ({
   ])
 
   return (
+      <Wrapper>
     <section className={stls.wheelContainer}>
       <div className={stls.textContainer}>
         <h2 className={stls.title}>Новогоднее колесо фортуны в МИП</h2>
         <p className={stls.subtitle}>Крути и забирай подарки!</p>
-        <button
+        {savedResult && <p className={stls.savedResult}>Ваш приз: {savedResult}</p>}
+        {!hasSpun && (<button
           className={classNames(stls.spinButton, stls.onDesktop)}
           onClick={onClick}
           disabled={isSpinning || hasSpun}>
           {hasSpun ? 'Вы уже крутили!' : 'Крутить!'}
-        </button>
+        </button>)}
+        {hasSpun && (
+          <div className={stls.formAlpha}>
+      <PopupTrigger btn='alpha' cta='takeGift'/>
+      </div>
+    )}
         <div>
           {icons.map((icon, index) => (
             <div key={index} className={icon.className}>
@@ -101,7 +114,6 @@ const FortuneWheel = ({
             ? 'transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)'
             : 'none'
         }}>
-        {/* Слой сегментов */}
         {segments.map((segment, index) => {
           const startAngle = (index * 360) / segments.length
           const endAngle = ((index + 1) * 360) / segments.length
@@ -115,14 +127,13 @@ const FortuneWheel = ({
               <path
                 d={`M150,150 L${x1},${y1} A150,150 0 0,1 ${x2},${y2} Z`}
                 fill={segment.color}
+                style={{filter: 'drop-shadow(0px 4.232px 4.232px rgba(0, 0, 0, 0.25))'}}
                 stroke='#D6C5FF'
                 strokeWidth='1'
               />
             </g>
           )
         })}
-
-        {/* Слой текста */}
         {segments.map((segment, index) => {
           const startAngle = (index * 360) / segments.length
           const radius = 90
@@ -152,13 +163,15 @@ const FortuneWheel = ({
           )
         })}
       </svg>
-      <button
+      {/* <button
         className={classNames(stls.spinButton, stls.onMobile)}
         onClick={onClick}
         disabled={isSpinning || hasSpun}>
         {hasSpun ? 'Вы уже крутили!' : 'Крутить!'}
-      </button>
+      </button> */}
+      
     </section>
+      </Wrapper>
   )
 }
 

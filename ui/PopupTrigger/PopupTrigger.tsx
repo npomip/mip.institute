@@ -53,6 +53,7 @@ type PopupTriggerType = {
     | 'sortOutGrievances'
     | 'takePart'
     | 'takeAction'
+    | 'takeGift'
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
@@ -110,7 +111,8 @@ const PopupTrigger = ({
       use: 'Применить',
       knowRequirement: 'Узнать',
       sortOutGrievances: 'Разобраться с обидами',
-      takePart: 'Принять участие'
+      takePart: 'Принять участие',
+      takeGift: 'Забрать подарок'
     },
     title: {
       askQuestion: 'Задать вопрос',
@@ -138,7 +140,8 @@ const PopupTrigger = ({
       use: 'Применить',
       knowRequirement: 'Узнать проходной балл',
       takePart: 'Принять участие',
-      takeAction: 'Участвовать в акции'
+      takeAction: 'Участвовать в акции',
+      takeGift: 'Оставьте заявку и заберите подарок'
     },
     desc: {
       askQuestion: (
@@ -216,7 +219,12 @@ const PopupTrigger = ({
           У Вас есть вопросы? Оставьте заявку! И сотрудник приемной комиссии
           свяжется с вами, чтобы рассказать все подробности
         </>
-      )
+      ),
+      takeGift: (
+        <>
+          Оставьте заявку что бы сотрудник приемной комисии рассказал, как забрать подарок
+        </>
+      ),
     },
     blockForAmo: {
       askQuestion: 'Задать вопрос',

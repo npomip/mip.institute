@@ -20,7 +20,6 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
-import FortuneWheel from '@/ui/FortuneWheel'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -108,15 +107,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
     setSelectedType(selectedOption?.value || null)
   }
-  const [mustSpin, setMustSpin] = useState(false)
 
-  const handleSpin = () => {
-    setMustSpin(true)
-  }
-
-  const handleStopSpinning = () => {
-    setMustSpin(false)
-  }
 
   return (
     <section className={stls.container}>
@@ -177,13 +168,6 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             Прошедшие мероприятия
           </FilterTag>
         </div>
-
-        <FortuneWheel
-          mustStartSpinning={mustSpin}
-          onClick={handleSpin}
-          onStopSpinning={handleStopSpinning}
-        />
-
         <div className={stls.firstRow}>
           <div className={stls.cardWrapper}>
             {filteredLectoriums.length > 0 && (

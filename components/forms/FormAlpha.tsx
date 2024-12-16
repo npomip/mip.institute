@@ -106,6 +106,9 @@ const FormAlpha = ({
     const price = program?.price || bachelor?.offlineFullPrice / 2 || null
     data.price = price
 
+    const gift = localStorage.getItem('fortuneWheelResult')
+    data.gift = gift
+
     data.blockForAmo = blockForAmo
 
     if (typeof clickId === 'string') {

@@ -13,6 +13,14 @@ const managersRows = [
       { content: '+7 (499) 110-88-19', itemProp: 'telephone' },
       { content: 'info@mip.institute', itemProp: 'email' }
     ]
+  },
+  {
+    cells: [
+      { content: 'Стибунов Алексей Васильевич', itemProp: 'fio' },
+      { content: 'Первый проректор', itemProp: 'post' },
+      { content: '+7 (499) 110-88-19', itemProp: 'telephone' },
+      { content: 'info@mip.institute', itemProp: 'email' }
+    ]
   }
 ]
 

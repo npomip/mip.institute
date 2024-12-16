@@ -85,7 +85,7 @@ const FortuneWheel = ({
       <div className={stls.textContainer}>
         <h2 className={stls.title}>Новогоднее колесо фортуны в МИП</h2>
         <p className={stls.subtitle}>Крути и забирай подарки!</p>
-        {savedResult && <p className={stls.savedResult}>Ваш приз: {savedResult}</p>}
+        {/* {savedResult && <p className={stls.savedResult}>Ваш приз: {savedResult}</p>} */}
         {!hasSpun && (<button
           className={classNames(stls.spinButton, stls.onDesktop)}
           onClick={onClick}
@@ -93,7 +93,7 @@ const FortuneWheel = ({
           {hasSpun ? 'Вы уже крутили!' : 'Крутить!'}
         </button>)}
         {hasSpun && (
-          <div className={stls.formAlpha}>
+          <div className={classNames(stls.formAlpha, stls.onDesktop)}>
       <PopupTrigger btn='alpha' cta='takeGift'/>
       </div>
     )}
@@ -112,8 +112,9 @@ const FortuneWheel = ({
           transform: `rotate(${rotation}deg)`,
           transition: isSpinning
             ? 'transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)'
-            : 'none'
+            : 'none',
         }}>
+          
         {segments.map((segment, index) => {
           const startAngle = (index * 360) / segments.length
           const endAngle = ((index + 1) * 360) / segments.length
@@ -129,7 +130,7 @@ const FortuneWheel = ({
                 fill={segment.color}
                 style={{filter: 'drop-shadow(0px 4.232px 4.232px rgba(0, 0, 0, 0.25))'}}
                 stroke='#D6C5FF'
-                strokeWidth='1'
+                strokeWidth='2'
               />
             </g>
           )
@@ -163,12 +164,17 @@ const FortuneWheel = ({
           )
         })}
       </svg>
-      {/* <button
+      {!hasSpun && (<button
         className={classNames(stls.spinButton, stls.onMobile)}
         onClick={onClick}
         disabled={isSpinning || hasSpun}>
         {hasSpun ? 'Вы уже крутили!' : 'Крутить!'}
-      </button> */}
+      </button>)}
+      {hasSpun && (
+          <div className={classNames(stls.formAlpha, stls.onMobile)}>
+      <PopupTrigger btn='alpha' cta='takeGift'/>
+      </div>
+    )}
       
     </section>
       </Wrapper>

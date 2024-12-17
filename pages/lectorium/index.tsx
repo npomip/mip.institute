@@ -108,6 +108,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     setSelectedType(selectedOption?.value || null)
   }
 
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -191,6 +192,9 @@ const LectoriumPage = ({ lectoriums }: Props) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.lectoriums })
+  await handleGetStaticProps({
+    context,
+    page: routes.front.lectoriums
+  })
 
 export default LectoriumPage

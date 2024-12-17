@@ -1,0 +1,199 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.wheelContainer
+  position: relative
+  @include m.flex($jc: space-between)
+  @include m.gap($pt: f.px(43))
+  @include m.media(phone, tablet)
+    flex-direction: column
+    @include m.gap($pt: f.px(22))
+  &::after
+    content: ''
+    position: absolute
+    width: f.px(40)
+    height: f.px(70)
+    top: 45%
+    right: 0
+    transform: translateY(-20%) rotate(-90deg)
+    clip-path: polygon(50% 0, 0 100%, 100% 100%)
+    background: black
+    z-index: 1
+    @include m.media(phone, tablet)
+      width: f.px(15)
+      height: f.px(25)
+      transform: translateY(17%) rotate(-90deg)
+
+.wheel
+  width: 100%
+  height: 100%
+  // border: f.px(20) solid c.$purple-200
+  border-radius: 50%
+  overflow: hidden
+  transform-origin: center
+  // box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
+  @include m.gap($mr: f.px(10))
+  @include m.media(phone, tablet)
+    border-width: f.px(10)
+  
+
+.segmentText
+  text-transform: uppercase
+  font-weight: 500
+  font-size: f.px(9)
+  @include m.dye(fill, c.$white-900)
+
+.title
+  position: relative
+  z-index: 100
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
+    @include m.gap($mb: f.px(15))
+
+.subtitle
+  position: relative
+  z-index: 100
+  @include m.dye(c, c.$orange-700)
+  font-size: f.px(34)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.spinButton
+  position: relative
+  z-index: 100
+  text-align: center
+  @include m.dye(c, c.$white-900)
+  @include m.dye(bg, c.$orange-700)
+  @include m.gap($plr: f.px(100), $ptb: f.px(20))
+  border-radius: f.px(4)
+  font-size: f.px(20)
+  font-weight: 500
+  text-transform: uppercase
+  @include m.media(laptop)
+    @include m.gap($ptb: f.px(20), $plr: f.px(80))
+  &:disabled
+    cursor: not-allowed
+    opacity: 0.7
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($ptb: f.px(15), $mt: f.px(100), $plr: f.px(70))
+
+.onDesktop
+  @include m.media(phone, tablet)
+    display: none
+
+.onMobile
+  @include m.media(desktop, laptop)
+    display: none
+
+.smallGift
+  width: f.px(162)
+  height: f.px(115)
+  transform: rotate(320deg)
+  position: absolute
+  bottom: f.px(300)
+  left: f.px(100)
+  @include m.media(phone, tablet)
+    transform: rotate(310deg) scale(.5)
+    bottom: f.px(80)
+    left: f.px(-20)
+
+.bigGift
+  width: f.px(250)
+  height: f.px(175)
+  position: absolute
+  bottom: f.px(70)
+  left: f.px(200)
+  @include m.media(phone, tablet)
+    bottom: f.px(60)
+    left: f.px(150)
+    transform: rotate(320deg) scale(.4)
+
+.lightColor
+  opacity: 0.7
+
+.biggestStar
+  position: absolute
+  bottom: f.px(100)
+  left: f.px(0)
+  @include m.media(phone, tablet, laptop)
+    display: none
+
+.mediumStarRight
+  position: absolute
+  transform: scale(.6)
+  bottom: f.px(300)
+  left: f.px(300)
+  @include m.media(phone, tablet)
+    transform: scale(.3)
+    bottom: f.px(60)
+    left: f.px(80)
+
+.mediumStarLeft
+  position: absolute
+  transform: scale(.6) rotate(35deg)
+  bottom: f.px(300)
+  left: f.px(-20)
+  @include m.media(phone, tablet)
+    top: f.px(10)
+    left: f.px(-50)
+    transform: scale(.2) rotate(35deg)
+
+.smallStarRight
+  position: absolute
+  transform: scale(.4) rotate(35deg)
+  bottom: f.px(100)
+  right: f.px(600)
+  @include m.media(laptop)
+    display: none
+
+.smallStarLeft
+  position: absolute
+  bottom: f.px(100)
+  left: f.px(120)
+  transform: scale(.4) rotate(35deg)
+  @include m.media(phone, tablet)
+    transform: scale(.2) rotate(35deg)
+    bottom: f.px(70)
+    left: f.px(150)
+
+.tinyStar
+  position: absolute
+  transform: scale(.3)
+  bottom: f.px(420)
+  left: f.px(200)
+  @include m.media(phone, tablet)
+    display: none
+
+.lonelyStarRight
+  position: absolute
+  transform: scale(.5)
+  top: f.px(0)
+  right: f.px(0)
+  @include m.media(phone, tablet)
+    top: f.px(50)
+    transform: scale(.3)
+
+.formAlpha > div > button
+  @include m.gap($ptb: f.px(15))
+  width: 80%
+  font-size: f.px(18)
+  border-radius: f.px(4)
+  z-index: 1
+  text-transform: uppercase
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(100))
+    font-size: f.px(16)
+  &::after
+    display: none
+  &:hover
+    transform: scale(.99)
+
+.savedResult
+  position: relative
+  z-index: 1

@@ -4,13 +4,13 @@ import { PopupCta } from '@/components/popups'
 import {
   BtnAlpha,
   BtnBeta,
-  BtnGamma,
   BtnDelta,
   BtnEpsilon,
-  BtnZeta,
   BtnEta,
+  BtnGamma,
   BtnText,
-  BtnTheta
+  BtnTheta,
+  BtnZeta
 } from '@/components/btns'
 
 type PopupTriggerType = {
@@ -57,6 +57,9 @@ type PopupTriggerType = {
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
+  isModalOpen?: boolean
+  withGift?: boolean
+  gift?: string
 }
 
 const PopupTrigger = ({
@@ -64,7 +67,10 @@ const PopupTrigger = ({
   cta,
   testProgram = null,
   isActivePromocode,
-  isLightYellowBetaBtn
+  isLightYellowBetaBtn,
+  isModalOpen = false,
+  withGift,
+  gift
 }: PopupTriggerType) => {
   const promoCtaList = [
     'signUpForCourse',
@@ -222,9 +228,10 @@ const PopupTrigger = ({
       ),
       takeGift: (
         <>
-          Оставьте заявку что бы сотрудник приемной комисии рассказал, как забрать подарок 
+          Оставьте заявку что бы сотрудник приемной комисии рассказал, как
+          забрать подарок
         </>
-      ),
+      )
     },
     blockForAmo: {
       askQuestion: 'Задать вопрос',
@@ -265,6 +272,7 @@ const PopupTrigger = ({
 
   return (
     <Popup
+      open={isModalOpen}
       trigger={
         <div>
           <ButtonComponent
@@ -289,6 +297,8 @@ const PopupTrigger = ({
             close={close}
             blockForAmo={strings.blockForAmo[cta]}
             isActivePromocode={isActivePromocode}
+            withGift={withGift}
+            gift={gift}
           />
         )
       }

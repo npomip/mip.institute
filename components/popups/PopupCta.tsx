@@ -11,6 +11,8 @@ type Props = {
   blockForAmo?: string
   close: any
   isActivePromocode?: string
+  withGift?: boolean
+  gift?: string
 }
 
 const PopupCta = ({
@@ -21,7 +23,9 @@ const PopupCta = ({
   question = false,
   promo = false,
   blockForAmo = '',
-  isActivePromocode
+  isActivePromocode,
+  withGift,
+  gift
 }: Props) => {
   return (
     <div className={stls.container}>
@@ -38,6 +42,8 @@ const PopupCta = ({
           question={question}
           popup={true}
           blockForAmo={blockForAmo}
+          withGift={withGift}
+          gift={gift}
         />
       </div>
     </div>

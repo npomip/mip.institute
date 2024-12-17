@@ -100,7 +100,7 @@
   left: f.px(100)
   @include m.media(phone, tablet)
     transform: rotate(310deg) scale(.5)
-    bottom: f.px(90)
+    bottom: f.px(80)
     left: f.px(-20)
 
 .bigGift
@@ -110,7 +110,7 @@
   bottom: f.px(70)
   left: f.px(200)
   @include m.media(phone, tablet)
-    bottom: f.px(70)
+    bottom: f.px(60)
     left: f.px(150)
     transform: rotate(320deg) scale(.4)
 
@@ -179,15 +179,20 @@
     top: f.px(50)
     transform: scale(.3)
 
-
-.formAlpha
-  position: relative
+.formAlpha > div > button
+  @include m.gap($ptb: f.px(15))
+  width: 80%
+  font-size: f.px(18)
+  border-radius: f.px(4)
   z-index: 1
+  text-transform: uppercase
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(93))
-  &>*
-    &>*
-      width: 90%
+    @include m.gap($mt: f.px(100))
+    font-size: f.px(16)
+  &::after
+    display: none
+  &:hover
+    transform: scale(.99)
 
 .savedResult
   position: relative

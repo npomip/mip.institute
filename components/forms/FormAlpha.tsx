@@ -20,6 +20,7 @@ type FormValues = {
   phone: string
   email: string
   promocode: string
+  gift: string
   question: string
   leadPage: string
   isActivePromocode?: string
@@ -37,6 +38,8 @@ interface Props {
   isLiveCourse?: boolean
   isActivePromocode?: string
   isViolet?: boolean
+  withGift?: boolean
+  gift?: string
 }
 
 const FormAlpha = ({
@@ -50,7 +53,9 @@ const FormAlpha = ({
   inProfessions = false,
   isLiveCourse = false,
   isActivePromocode = '',
-  isViolet = false
+  isViolet = false,
+  withGift = false,
+  gift = ''
 }: Props) => {
   const {
     register,
@@ -63,7 +68,8 @@ const FormAlpha = ({
       name: '',
       email: '',
       phone: '',
-      promocode: isActivePromocode ?? isActivePromocode
+      promocode: isActivePromocode ?? isActivePromocode,
+      ...(withGift ? { gift } : {})
     }
   })
 
@@ -106,8 +112,7 @@ const FormAlpha = ({
     const price = program?.price || bachelor?.offlineFullPrice / 2 || null
     data.price = price
 
-    const gift = localStorage.getItem('fortuneWheelResult')
-    data.gift = gift
+    data.gift = localStorage.getItem('fortuneWheelResult')
 
     data.blockForAmo = blockForAmo
 
@@ -257,6 +262,23 @@ const FormAlpha = ({
                 })}
               />
               <p className={stls.err}>{errors.email && errors.email.message}</p>
+            </div>
+          )}
+          {withGift && (
+            <div className={classNames(stls.inpt, stls.promocode)}>
+              <input
+                type='text'
+                aria-label='Подарок'
+                placeholder='Подарок'
+                disabled={isDisabled}
+                {...register('gift', {
+                  maxLength: {
+                    value: 32,
+                    message: `*Не больше 32 символов`
+                  }
+                })}
+              />
+              <p className={stls.err}>{errors.gift && errors.gift.message}</p>
             </div>
           )}
           {cta === 'Выбрать билеты' && (

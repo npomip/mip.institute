@@ -59,7 +59,6 @@ type PopupTriggerType = {
   isLightYellowBetaBtn?: boolean
   isModalOpen?: boolean
   withGift?: boolean
-  gift?: string
 }
 
 const PopupTrigger = ({
@@ -69,8 +68,7 @@ const PopupTrigger = ({
   isActivePromocode,
   isLightYellowBetaBtn,
   isModalOpen = false,
-  withGift,
-  gift
+  withGift
 }: PopupTriggerType) => {
   const promoCtaList = [
     'signUpForCourse',
@@ -298,7 +296,6 @@ const PopupTrigger = ({
             blockForAmo={strings.blockForAmo[cta]}
             isActivePromocode={isActivePromocode}
             withGift={withGift}
-            gift={gift}
           />
         )
       }

@@ -16,17 +16,15 @@ const FortuneWheel = ({
   onClick,
   onStopSpinning
 }: Props) => {
-  const [rotation, setRotation] = useState(0) // Убираем стартовый -20
+  const [rotation, setRotation] = useState(0)
   const [isSpinning, setIsSpinning] = useState(false)
   const [hasSpun, setHasSpun] = useState(false)
   const [showPopup, setShowPopup] = useState(false)
-  const [savedResult, setSavedResult] = useState<string | null>(null)
   const segments = useMemo(() => segmentsObject, [mustStartSpinning])
 
   useEffect(() => {
     const storedResult = localStorage.getItem('fortuneWheelResult')
     if (storedResult) {
-      setSavedResult(storedResult)
       setHasSpun(true)
 
       const resultIndex = segments.findIndex(
@@ -67,7 +65,6 @@ const FortuneWheel = ({
         setIsSpinning(false)
         setHasSpun(true)
         localStorage.setItem('fortuneWheelResult', segments[prizeIndex].text)
-        setSavedResult(segments[prizeIndex].giftCode)
 
         setTimeout(() => {
           setShowPopup(true)
@@ -99,7 +96,6 @@ const FortuneWheel = ({
                 cta='takeGift'
                 isModalOpen={showPopup}
                 withGift
-                gift={savedResult}
               />
             </div>
           ) : (
@@ -187,7 +183,6 @@ const FortuneWheel = ({
               cta='takeGift'
               isModalOpen={showPopup}
               withGift
-              gift={savedResult}
             />
           </div>
         ) : (

@@ -99,7 +99,7 @@
         @include m.media(phone, tablet)
           font-size: f.px(14)
           font-weight: 500
-
+       
 .bgArrow
   @include m.flex($ai: center, $jc: center)
   @include m.dye(bg, transparent)
@@ -127,3 +127,133 @@
   border-radius: 50%
   @include m.media(phone, tablet)
     border-radius: f.px(4)
+
+.customCalendar
+  @include m.dye(bg, #E7DFFA)
+  max-width: 100% !important
+  height: 100%
+  @include m.gap($pt: f.px(20), $pb: f.px(10))
+  border: f.px(1) solid c.$purple-350
+  border-radius: f.px(20)
+  @include m.media(phone, tablet)
+    box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06)
+    border-color: c.$gray-500
+    border-radius: f.px(20)
+    @include m.gap($pt: f.px(20), $pb: f.px(20))
+  // react-calendar__navigation
+  & > div:nth-child(1)
+    @include m.flex($ai: center, $jc: space-between)
+    border-bottom: 1px solid c.$purple-200
+    @include m.gap($pb: f.px(30))
+    @include m.gap($pt: f.px(22))
+    // react-calendar__navigation__label
+    & > button:nth-child(3)
+      font-family: Stem
+      font-size: f.px(35)
+      font-weight: 500
+      line-height: 130%
+      text-transform: uppercase
+      @include m.dye(c, c.$black-900)
+      @include m.media(phone, tablet)
+        font-size: f.px(24)
+    // react-calendar__navigation__arrow react-calendar__navigation__next-button
+    & > button:nth-child(2n)
+      @include m.dye(c, c.$white-800)
+  // react-calendar__viewContainer
+  & > div:nth-child(2)
+    @include m.gap($plr: f.px(15))
+    // react-calendar__month-view__weekdays__weekday
+    & > div > div > div > div:nth-child(1) > div
+      @include m.flex($ai: center, $jc: center)
+      color: #E7DFFA
+      @include m.media(phone, tablet)
+        font-size: f.px(40)
+      // react-calendar__month-view__weekdays__weekday
+      & > abbr
+        @include m.dye(c, #6F01C6)
+        font-family: Stem
+        font-size: f.px(30)
+        font-style: normal
+        font-weight: 500
+        line-height: 120%
+        text-transform: uppercase
+        text-decoration: none
+        @include m.gap($mt: f.px(40), $mb: f.px(20))
+        @include m.media(phone, tablet)
+          @include m.gap($mt: f.px(20), $mb: f.px(10))
+          font-size: f.px(18)
+          
+    // react-calendar__tile react-calendar__month-view__days__day 
+    & > div > div > div > div:nth-child(2) 
+      display: grid !important
+      grid-template-columns: repeat(7, 1fr)
+      justify-items: center
+      @include m.media(desktop)
+        gap: f.px(12)
+      @include m.media(laptop)
+        row-gap: f.px(10)
+      @include m.media(tablet)
+        grid-template-columns: repeat(7, 1fr) 
+        gap: f.px(10)
+        display: grid
+
+      @include m.media(phone)
+        grid-template-columns: repeat(7, 1fr) 
+        justify-items: center
+        gap: f.px(5)
+        display: grid
+      & > button
+        width: f.px(50)
+        height: f.px(50)
+        font-size: f.px(30)
+        @include m.flex(c, c.$black-900)
+        display: flex
+        align-items: center
+        justify-content: center
+        @include m.gap($ptb: f.px(15))
+        @include m.media(phone, tablet)
+          font-size: f.px(20)
+
+      & > abbr
+        font-family: Stem
+        font-size: f.px(12)
+        font-style: normal
+        color: black !important
+        font-weight: 500
+        line-height: 120%
+        text-transform: uppercase
+ 
+.bgArrowCustom
+  @include m.flex($ai: center, $jc: center)
+  @include m.dye(bg, c.$purple-800)
+  width: f.px(61)
+  height: f.px(47)
+  border-radius: 10%
+  @include m.gap($mlr: f.px(15))
+  @include m.media(phone, tablet)
+    transform: scale(0.7)
+
+.arrowCustom
+  width: 0
+  height: 0
+  border-top: f.px(7) solid transparent
+  border-bottom: f.px(7) solid transparent
+  border-left: f.px(12) solid c.$white-800
+
+.eventDateOrange
+  @include m.dye(bg, c.$orange-700)
+  @include m.dye(c, c.$white-900)
+  font-weight: 500
+  border-radius: 10%
+
+.eventDateWhite
+  @include m.dye(bg, c.$white-900)
+  @include m.dye(c, c.$black-900)
+  font-weight: 500
+  border-radius: 10%
+
+.eventDatePurple
+  @include m.dye(bg, c.$purple-500)
+  @include m.dye(c, c.$white-900)
+  font-weight: 500
+  border-radius: 10%

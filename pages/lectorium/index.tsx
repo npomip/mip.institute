@@ -158,7 +158,7 @@ const LectoriumPage = ({ lectoriums }) => {
           </div>
           <div className={stls.calendarWrapper}>
             {isCalendarVisible && (
-              <Calendar onDatesFiltered={handleFilteredDates} dates={dates} />
+              <Calendar onDatesFiltered={handleFilteredDates} dates={dates} selectRange={true} customStyle={false}/>
             )}
           </div>
         </div>

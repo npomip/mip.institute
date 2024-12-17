@@ -19,6 +19,7 @@ import ReviewsWithStars from '../sections/lectorium/ReviewsWithStars'
 import SeoCommon from '../seo/SeoCommon'
 import seo from 'constants/GroupSupervision/seo'
 import reviewsSupervision from 'constants/GroupSupervision/reviews'
+import GroupSupervisionSchedule from '../sections/groupSupervision/GroupSupervisionSchedule/GroupSupervisionSchedule'
 
 const PageGroupSupervision = ({}) => {
   return (
@@ -37,6 +38,7 @@ const PageGroupSupervision = ({}) => {
         <Tariffs />
         <GroupSupervisionShort />
         <GroupSupervisionInclude />
+        <GroupSupervisionSchedule/>
         <SuitableFor />
         <WhichDocument />
         <Supervisors />

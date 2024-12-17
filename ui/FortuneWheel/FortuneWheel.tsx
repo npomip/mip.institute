@@ -67,7 +67,7 @@ const FortuneWheel = ({
         setIsSpinning(false)
         setHasSpun(true)
         localStorage.setItem('fortuneWheelResult', segments[prizeIndex].text)
-        setSavedResult(segments[prizeIndex].text)
+        setSavedResult(segments[prizeIndex].giftCode)
 
         setTimeout(() => {
           setShowPopup(true)
@@ -99,7 +99,7 @@ const FortuneWheel = ({
                 cta='takeGift'
                 isModalOpen={showPopup}
                 withGift
-                gift={savedResult || localStorage.getItem('fortuneWheelResult')}
+                gift={savedResult}
               />
             </div>
           ) : (
@@ -187,7 +187,7 @@ const FortuneWheel = ({
               cta='takeGift'
               isModalOpen={showPopup}
               withGift
-              gift={savedResult || localStorage.getItem('fortuneWheelResult')}
+              gift={savedResult}
             />
           </div>
         ) : (

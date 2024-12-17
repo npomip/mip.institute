@@ -14,12 +14,14 @@ import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
 import genezis from '@/helpers/funcs/genezis'
 import getTicket from '@/helpers/funcs/getTicket'
+import { segmentsObject } from '@/ui/FortuneWheel/constants'
 
 type FormValues = {
   name: string
   phone: string
   email: string
   promocode: string
+  gift: string
   question: string
   leadPage: string
   isActivePromocode?: string
@@ -37,6 +39,7 @@ interface Props {
   isLiveCourse?: boolean
   isActivePromocode?: string
   isViolet?: boolean
+  withGift?: boolean
 }
 
 const FormAlpha = ({
@@ -50,14 +53,30 @@ const FormAlpha = ({
   inProfessions = false,
   isLiveCourse = false,
   isActivePromocode = '',
-  isViolet = false
+  isViolet = false,
+  withGift = false
 }: Props) => {
+  const [isDisabled, setIsDisabled] = useState(false)
+  const [thanksIsOpen, setThanksIsOpen] = useState(false)
+  const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const { program, seminar, bachelor } = useContext(ContextStaticProps)
+  const [tickets, setTickets] = useState(1)
+  const { updateTicketsQuantity } = useContext(ContextStaticProps)
+
+  const getGiftCodeByText = (text: string | null) => {
+    const segment = segmentsObject.find(segment => segment.text === text)
+    return segment ? segment.giftCode : ''
+  }
+
   const {
     register,
     handleSubmit,
     setFocus,
     control,
-    formState: { errors, dirtyFields }
+    setValue,
+    unregister,
+    formState: { errors }
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
@@ -67,13 +86,18 @@ const FormAlpha = ({
     }
   })
 
-  const [isDisabled, setIsDisabled] = useState(false)
-  const [thanksIsOpen, setThanksIsOpen] = useState(false)
-  const [isIpCheckFailed, setIsIpCheckFailed] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const { program, seminar, bachelor } = useContext(ContextStaticProps)
-  const [tickets, setTickets] = useState(1)
-  const { updateTicketsQuantity } = useContext(ContextStaticProps)
+  useEffect(() => {
+    if (typeof window !== 'undefined' && withGift) {
+      const storedText = localStorage.getItem('fortuneWheelResult') || null
+      const code = getGiftCodeByText(storedText)
+
+      if (code) {
+        setValue('gift', code)
+      }
+    } else {
+      unregister('gift') // Убираем поле gift, если withGift = false
+    }
+  }, [withGift, setValue, unregister])
 
   useEffect(() => {
     popup && setFocus('name')
@@ -105,6 +129,8 @@ const FormAlpha = ({
     const advcake_track_url = getCookie('advcake_track_url')
     const price = program?.price || bachelor?.offlineFullPrice / 2 || null
     data.price = price
+
+    data.gift = localStorage.getItem('fortuneWheelResult')
 
     data.blockForAmo = blockForAmo
 
@@ -254,6 +280,23 @@ const FormAlpha = ({
                 })}
               />
               <p className={stls.err}>{errors.email && errors.email.message}</p>
+            </div>
+          )}
+          {withGift && (
+            <div className={classNames(stls.inpt, stls.promocode)}>
+              <input
+                type='text'
+                aria-label='Подарок'
+                placeholder='Подарок'
+                disabled={isDisabled}
+                {...register('gift', {
+                  maxLength: {
+                    value: 32,
+                    message: `*Не больше 32 символов`
+                  }
+                })}
+              />
+              <p className={stls.err}>{errors.gift && errors.gift.message}</p>
             </div>
           )}
           {cta === 'Выбрать билеты' && (

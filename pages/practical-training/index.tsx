@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<
       programs,
       practicalTrainings
     },
-    revalidate: 60
+    // revalidate: 60
   }
 }
 

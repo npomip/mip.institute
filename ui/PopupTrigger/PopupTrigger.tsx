@@ -4,13 +4,13 @@ import { PopupCta } from '@/components/popups'
 import {
   BtnAlpha,
   BtnBeta,
-  BtnGamma,
   BtnDelta,
   BtnEpsilon,
-  BtnZeta,
   BtnEta,
+  BtnGamma,
   BtnText,
-  BtnTheta
+  BtnTheta,
+  BtnZeta
 } from '@/components/btns'
 
 type PopupTriggerType = {
@@ -52,9 +52,13 @@ type PopupTriggerType = {
     | 'knowRequirement'
     | 'sortOutGrievances'
     | 'takePart'
+    | 'takeAction'
+    | 'takeGift'
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
+  isModalOpen?: boolean
+  withGift?: boolean
 }
 
 const PopupTrigger = ({
@@ -62,7 +66,9 @@ const PopupTrigger = ({
   cta,
   testProgram = null,
   isActivePromocode,
-  isLightYellowBetaBtn
+  isLightYellowBetaBtn,
+  isModalOpen = false,
+  withGift
 }: PopupTriggerType) => {
   const promoCtaList = [
     'signUpForCourse',
@@ -92,7 +98,7 @@ const PopupTrigger = ({
       chooseProgram: 'Подобрать программу',
       learnAboutUs: 'Узнать об институте',
       submitApplication: 'Оставить заявку',
-      getFullProgram: 'Получить полную программу',
+      getFullProgram: 'Получить программу',
       reserve: 'Забронировать',
       learnAboutTeachers: 'Узнать всех',
       help: 'Помощь',
@@ -104,11 +110,13 @@ const PopupTrigger = ({
       '2for1': 'Получить 2 по цене 1',
       buyTicket: 'Купить билет',
       participate: 'Участвовать',
+      takeAction: 'Участвовать в акции',
       familiarize: 'Ознакомиться с программой',
       use: 'Применить',
       knowRequirement: 'Узнать',
       sortOutGrievances: 'Разобраться с обидами',
-      takePart: 'Принять участие'
+      takePart: 'Принять участие',
+      takeGift: 'Забрать подарок'
     },
     title: {
       askQuestion: 'Задать вопрос',
@@ -135,7 +143,9 @@ const PopupTrigger = ({
       familiarize: 'Ознакомиться с программой',
       use: 'Применить',
       knowRequirement: 'Узнать проходной балл',
-      takePart: 'Принять участие'
+      takePart: 'Принять участие',
+      takeAction: 'Участвовать в акции',
+      takeGift: 'Оставьте заявку и заберите подарок'
     },
     desc: {
       askQuestion: (
@@ -213,6 +223,12 @@ const PopupTrigger = ({
           У Вас есть вопросы? Оставьте заявку! И сотрудник приемной комиссии
           свяжется с вами, чтобы рассказать все подробности
         </>
+      ),
+      takeGift: (
+        <>
+          Оставьте заявку, чтобы сотрудник приемной комиссии рассказал, как
+          забрать подарок
+        </>
       )
     },
     blockForAmo: {
@@ -254,6 +270,7 @@ const PopupTrigger = ({
 
   return (
     <Popup
+      open={isModalOpen}
       trigger={
         <div>
           <ButtonComponent
@@ -278,6 +295,7 @@ const PopupTrigger = ({
             close={close}
             blockForAmo={strings.blockForAmo[cta]}
             isActivePromocode={isActivePromocode}
+            withGift={withGift}
           />
         )
       }

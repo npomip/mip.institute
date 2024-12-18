@@ -11,19 +11,20 @@ type TSeoPagesProgram = {
       metaTitle: string
     }
     programTitle: string
+    canonical?: string
 }
 
-const SeoCommon: FC<TSeoPagesProgram> = ({ seo , programTitle}) => {
+const SeoCommon: FC<TSeoPagesProgram> = ({ seo , programTitle, canonical='' }) => {
 
   const isNoindex = !seo?.isSEOFriendly
 
   const isNofollow = !seo?.isSEOFriendly
 
   const seoParams = {
-    title: seo?.metaTitle,
+    title: seo.metaTitle ? seo.metaTitle : programTitle,
     programTitle: programTitle ,
     desc: seo?.metaDescription,
-    canonical: seo?.canonicalURL
+    canonical: canonical ? canonical : seo?.canonicalURL
   }
 
   return (

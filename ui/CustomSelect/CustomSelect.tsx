@@ -43,6 +43,7 @@ const CustomSelect = ({
         flexWrap: 'nowrap',
         borderColor: `${isDisabled ? '#E9E9E9' : mainColor}`,
         borderRadius: `${radius ? radius : 10}px`,
+        minWidth: '180px',
         width: '100%',
         maxWidth: `380px`,
         height: `${height ? height : 50}px`,
@@ -91,21 +92,22 @@ const CustomSelect = ({
       ...base,
       color: 'black',
       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 0.3s ease',
       width: '30px',
       '&:hover': {
         color: 'white'
       }
     }),
-    option: (base, { isSelected }) => {
+    option: (base, { isSelected, isDisabled }) => {
       return {
         ...base,
         display: 'flex',
         justifyContent: 'space-between',
         fontWeight: isSelected ? 500 : 100,
-        color: 'black',
+        color: isDisabled ? 'gray' : 'black',
         fontSize: '12px',
         backgroundColor: 'none',
-        cursor: 'pointer',
+        cursor: isDisabled ? 'not-allowed' : 'pointer',
         '&:active': {
           background: 'none'
         },
@@ -113,8 +115,8 @@ const CustomSelect = ({
           content: isSelected ? '"✓"' : '""'
         },
         '&:hover': {
-          color: '#565350',
-          fontWeight: 500
+          color: isDisabled ? 'gray' : 'black',
+          fontWeight: isDisabled ? 200 : 500
         }
       }
     },
@@ -143,7 +145,6 @@ const CustomSelect = ({
 
   return (
     <Select
-      key={value?.label}
       options={options}
       placeholder={placeholder}
       noOptionsMessage={noOptionsMessage}

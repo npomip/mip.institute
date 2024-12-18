@@ -5,7 +5,7 @@ import ProgramInfo from '@/components/program/ProgramInfo'
 import ProgramLabel from '@/components/program/ProgramLabel'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/HeroProgram.module.sass'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import classNames from 'classnames'
 import validTitles from 'constants/bachelorHeroProgram'
@@ -40,6 +40,14 @@ const HeroProgram = () => {
 
   const analysis = validTitles.includes(program?.title)
 
+  const [isAskQuestion, setIsAskQuestion] = useState(false)
+
+  useEffect(() => {
+    const storedValue = localStorage.getItem('AB')
+    setIsAskQuestion(storedValue === 'getProgram')
+  }, [])
+
+
   return (
     <>
       {isMobileAndTabletLayout && (
@@ -71,7 +79,14 @@ const HeroProgram = () => {
                 </div>
                 <div className={stls.btnsMobile}>
                   <PopupTrigger btn='alpha' cta={cta} />
-                  <PopupTrigger btn='beta' cta='askQuestion' />
+                  <PopupTrigger
+                    btn='beta'
+                    cta={
+                      isAskQuestion && program?.slug === 'psiholog-konsultant'
+                        ? 'getFullProgram'
+                        : 'askQuestion'
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -118,7 +133,14 @@ const HeroProgram = () => {
                   </div>
                   <div className={stls.btnsDesktop}>
                     <PopupTrigger btn='alpha' cta={cta} />
-                    <PopupTrigger btn='beta' cta='askQuestion' />
+                    <PopupTrigger
+                      btn='beta'
+                      cta={
+                        isAskQuestion && program?.slug === 'psiholog-konsultant'
+                          ? 'getFullProgram'
+                          : 'askQuestion'
+                      }
+                    />
                   </div>
                 </div>
               </div>

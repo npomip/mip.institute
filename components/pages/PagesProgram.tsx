@@ -30,19 +30,23 @@ import ProfessionalLeague from '../sections/ProfessionalLeague'
 import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
+import YourResumeNew from '../sections/YourResumeNew'
+import FortuneWheel from '@/ui/FortuneWheel'
 
 type PagesProgramType = {
   ofType: string
   reviews: TypeLibReviews
   programOverview: string
   slug: string
+  program: any
 }
 
 const PagesProgram = ({
   ofType = null,
   reviews,
   programOverview,
-  slug
+  slug,
+  program
 }: PagesProgramType) => {
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
@@ -66,7 +70,7 @@ const PagesProgram = ({
       id: 'resume',
       label: 'Навыки',
       ref: resumeRef,
-      condition: ofType === 'Profession'
+      condition: !!program.portfolio
     },
     {
       id: 'cost',
@@ -92,10 +96,26 @@ const PagesProgram = ({
 
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
+  const [mustSpin, setMustSpin] = useState(false)
+
+  const handleSpin = () => {
+    setMustSpin(true)
+  }
+
+  const handleStopSpinning = () => {
+    setMustSpin(false)
+  }
+
+
   return (
     <>
       <ButtonToTop />
       <HeroProgram />
+      <FortuneWheel
+          mustStartSpinning={mustSpin}
+          onClick={handleSpin}
+          onStopSpinning={handleStopSpinning}
+        />
       <PageNavigation sections={sections} />
       <WhyBother />
       {programOverview && (
@@ -130,9 +150,7 @@ const PagesProgram = ({
       <RequestsCard />
 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {ofType !== 'Course' && ofType !== 'Practice' && (
-        <YourResume resumeRef={resumeRef} />
-      )}
+      {program.portfolio &&  <YourResumeNew program={program} resumeRef={resumeRef} />}
       <SalaryCounter title='Психология' />
 
       <Cta

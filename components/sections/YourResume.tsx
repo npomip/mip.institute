@@ -12,6 +12,7 @@ import ReactMarkdown from 'react-markdown'
 
 const YourResume = ({ resumeRef = null }) => {
   const { program } = useContext(ContextStaticProps)
+  console.log(program)
 
   const resumeSkills = program?.resumeSkills || ''
   const customRenderers = {

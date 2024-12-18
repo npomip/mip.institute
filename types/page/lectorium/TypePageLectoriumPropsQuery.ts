@@ -1,5 +1,3 @@
-import { StaticImageData } from 'next/image'
-
 export type TypePageLectoriumPropsQuery = {
   readonly lectorium: Lectorium
 }
@@ -17,6 +15,9 @@ export type Lectorium = {
   places: string
   picture: Picture
   speaker: SpeakerType
+  eventAddress: string
+  isInternal: boolean
+  lectoriums: Lectorium[]
   targetDate: string
   endTime: string
   whatYouWillLearn: WhatYouWillLearn
@@ -26,7 +27,7 @@ export type Lectorium = {
   }
   timepadHref: string
   diploma: Picture
-  seo : {
+  seo: {
     metaTitle: string
     metaDescription: string
     isSEOFriendly: boolean
@@ -57,7 +58,7 @@ export type WhatYouWillLearn = {
 }
 
 export type WhoIsEventFor = {
-  picture: StaticImageData
+  picture: string
   text: string
 }
 
@@ -74,6 +75,6 @@ type Text = {
 export enum LectoriumTypes {
   online = 'online',
   offline = 'offline',
-  paid= 'paid',
+  paid = 'paid',
   free = 'free'
 }

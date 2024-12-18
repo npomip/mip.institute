@@ -23,7 +23,7 @@ import Router from 'next/router'
 import Script from 'next/script'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -32,6 +32,7 @@ import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import Image from 'next/image'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
+import BlackFridayBanner from '@/components/sections/BlackFridayBanner'
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -209,7 +210,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
-  const [ isWithGift, setIsWithGift] = useState(false)
+  const [isWithGift, setIsWithGift] = useState(false)
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
@@ -225,7 +226,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       })
       if (!foundPromo) {
         setIsPromo(false)
-        setPromoText('') 
+        setPromoText('')
       }
 
       let foundPromoWithGift = false
@@ -252,6 +253,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   useEffect(() => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
+
 
   return (
     <>
@@ -289,20 +291,6 @@ const MyApp = ({ Component, pageProps, router }) => {
           обращения: {roistatVisit}
         </div>
       )}
-
-      {/* <Script 
-          id='sendsay-popup' 
-          src="https://image.sendsay.ru/app/js/forms/forms.min.js"
-          onLoad={() => {
-              // @ts-ignore
-              if (window.SENDSAY) {
-              // @ts-ignore
-                  SENDSAY.activatePopup("https://sendsay.ru/form/x_16799332371017125/5/");
-              } else {
-                  console.error("SENDSAY is not defined");
-              }
-          }}
-      /> */}
 
       <Script
         async
@@ -371,7 +359,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {
               <StickyTop
-              isWithGift={isWithGift}
+                isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}
@@ -383,7 +371,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <StickyBottom />
+            <div><StickyBottom /></div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>

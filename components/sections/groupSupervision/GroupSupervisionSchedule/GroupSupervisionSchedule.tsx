@@ -6,6 +6,7 @@ import TwoColumns from '@/ui/TwoColumns'
 import GroupList from './GroupList/GroupList'
 import { groupsData } from 'constants/GroupSupervision/helpers'
 import { GroupData } from '@/types/page/group-supervision/GroupSupervisionSchedule'
+import classNames from 'classnames'
 
 const GroupSupervisionSchedule = () => {
   const [data, setData] = useState<GroupData[]>(groupsData)
@@ -25,13 +26,21 @@ const GroupSupervisionSchedule = () => {
               в течение 4-х недель в онлайн формате на платформе Контур.Толк
             </span>
           </p>
-          <GroupList groupsData={data} />
-          <div className={stls.btn}>
+          <div className={classNames(stls.onDesktop)}>
+            <GroupList groupsData={data} />
+          </div>
+          <div className={classNames(stls.btn, stls.onDesktop)}>
             <PopupTrigger btn='alpha' cta='signUp' />
           </div>
         </div>
         <div>
-          <Calendar dates={data} selectRange={false} customStyle={true}/>
+          <Calendar dates={data} selectRange={false} customStyle={true} />
+        </div>
+        <div className={classNames(stls.onMobile)}>
+          <GroupList groupsData={data} />
+        </div>
+        <div className={classNames(stls.btn, stls.onMobile)}>
+          <PopupTrigger btn='alpha' cta='signUp' />
         </div>
       </TwoColumns>
     </section>

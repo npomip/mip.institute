@@ -132,20 +132,23 @@
   @include m.dye(bg, #E7DFFA)
   max-width: 100% !important
   height: 100%
-  @include m.gap($pt: f.px(20), $pb: f.px(10))
+  @include m.gap($pb: f.px(10))
   border: f.px(1) solid c.$purple-350
   border-radius: f.px(20)
   @include m.media(phone, tablet)
     box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06)
     border-color: c.$gray-500
     border-radius: f.px(20)
-    @include m.gap($pt: f.px(20), $pb: f.px(20))
+    @include m.gap($pb: f.px(20))
   // react-calendar__navigation
   & > div:nth-child(1)
     @include m.flex($ai: center, $jc: space-between)
     border-bottom: 1px solid c.$purple-200
-    @include m.gap($pb: f.px(30))
-    @include m.gap($pt: f.px(22))
+    @include m.gap($pb: f.px(38))
+    @include m.gap($pt: f.px(46))
+    @include m.media(phone, tablet)
+      @include m.gap($pb: f.px(22))
+      @include m.gap($pt: f.px(28))
     // react-calendar__navigation__label
     & > button:nth-child(3)
       font-family: Stem
@@ -161,7 +164,9 @@
       @include m.dye(c, c.$white-800)
   // react-calendar__viewContainer
   & > div:nth-child(2)
-    @include m.gap($plr: f.px(15))
+    @include m.gap($plr: f.px(38))
+    @include m.media(phone, tablet)
+        @include m.gap($plr: f.px(18))
     // react-calendar__month-view__weekdays__weekday
     & > div > div > div > div:nth-child(1) > div
       @include m.flex($ai: center, $jc: center)
@@ -178,9 +183,9 @@
         line-height: 120%
         text-transform: uppercase
         text-decoration: none
-        @include m.gap($mt: f.px(40), $mb: f.px(20))
+        @include m.gap($mt: f.px(24), $mb: f.px(24))
         @include m.media(phone, tablet)
-          @include m.gap($mt: f.px(20), $mb: f.px(10))
+          @include m.gap($mt: f.px(14), $mb: f.px(14))
           font-size: f.px(18)
           
     // react-calendar__tile react-calendar__month-view__days__day 

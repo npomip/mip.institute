@@ -5,6 +5,8 @@
 .groupCard
   border-bottom: 1px solid c.$gray-700
   @include m.gap($mb: f.px(24))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(24))
 
 .scheduleItem
   @include m.flex($jc: space-around)

@@ -1,5 +1,5 @@
 import routes from '@/config/routes'
-import stls from '@/styles/components/forms/ProgramPaymentForm.module.sass'
+import stls from './ProgramPaymentForm.module.sass'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
@@ -9,9 +9,9 @@ import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
-import { BtnClose } from '../btns'
-import Button from '../btns/Button'
-import { PopupLoading } from '../popups'
+import { BtnClose } from '../../btns'
+import Button from '../../btns/Button'
+import { PopupLoading } from '../../popups'
 import genezis from '@/helpers/funcs/genezis'
 
 type FormValues = {
@@ -257,9 +257,10 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
             </div>
           </div>
         </form>
-        {/* {program.studyMounthsDuration && (
+        {program.studyMounthsDuration && (
           <div className={stls.info}>
             <span>Срок обучения</span>
+            <div className={stls.line}></div>
             <span>
               {program.studyMounthsDuration} месяцев / {program.studyHours}{' '}
               часов
@@ -268,12 +269,14 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
         )}
         <div className={stls.info}>
           <span>Уровень</span>
+          <div className={stls.line}></div>
           <span>{renderType()}</span>
         </div>
         <div className={stls.info}>
           <span>Формат</span>
+          <div className={stls.line}></div>
           <span>Онлайн</span>
-        </div> */}
+        </div>
         {isIpCheckFailed && (
           <p className={stls.checkError}>
             Невозможно отправить форму.

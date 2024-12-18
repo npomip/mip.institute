@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Popup from 'reactjs-popup'
 import Button from '../btns/Button'
-import ProgramPaymentForm from '../forms/ProgramPaymentForm'
+import ProgramPaymentForm from '../forms/ProgramPaymentForm/ProgramPaymentForm'
 
 type Props = {
   profession: any
@@ -33,8 +33,8 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
           profession.__typename === 'Bachelor'
             ? routes.front.bachelors
             : profession.__typename === 'PracticalTraining'
-            ? routes.front.practicalTrainings
-            : routes.front.professions
+              ? routes.front.practicalTrainings
+              : routes.front.professions
     }
 
     const studyFieldSlug =

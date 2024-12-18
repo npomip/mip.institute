@@ -1,13 +1,13 @@
 import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 import stls from '@/styles/components/sections/EducationProcess.module.sass'
 import Tag from '@/ui/Tag'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { useState } from 'react'
 import { infoBachelor, textIndex } from '../../constants/howProcessGoes'
+import { CldImage } from 'next-cloudinary'
 
 type Props = {
   isBachelorPage?: boolean
@@ -110,11 +110,13 @@ const EducationProcess = ({
                 {showFullText ? 'Скрыть описание' : 'Читать далее'}
               </button>
               <div className={stls.img}>
-                <Image
+                <CldImage
                   className={stls.rightImg}
-                  width={575}
-                  height={260}
-                  src={img}
+                  style={{ width: '100%', height: 'auto' }}
+                  crop='fit'
+                  width='580'
+                  height='260'
+                  src='gif_mip_last_chance_f0d8a9f9a1'
                   alt='Как идет обучение?'
                 />
               </div>

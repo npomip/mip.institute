@@ -16,7 +16,8 @@ type Props = {
   dates: string[] | GroupData[]
   onDatesFiltered?: (dates: string[]) => void
   selectRange?: boolean
-  customStyle?: boolean
+  onSupervisionPagesStyle?: boolean
+  defaultValue?: Date
 }
 
 type TileClassNameProps = {
@@ -24,13 +25,12 @@ type TileClassNameProps = {
   view: string
 }
 
-const Calendar = ({ dates, onDatesFiltered, selectRange, customStyle }: Props) => {
+const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle, defaultValue}: Props) => {
   const [isClient, setIsClient] = useState(false)
 
-  const calendarClass = customStyle ? stls.customCalendar : stls.calendar
-  const containerStyle = customStyle ? stls.bgArrowCustom : stls.bgArrow
-  const labelStyle = customStyle ? stls.arrowCustom : stls.arrow
-  const initialDate = new Date(2025, 0, 1)
+  const calendarStyle = onSupervisionPagesStyle ? stls.customCalendar : stls.calendar
+  const containerStyle = onSupervisionPagesStyle ? stls.bgArrowCustom : stls.bgArrow
+  const labelStyle = onSupervisionPagesStyle ? stls.arrowCustom : stls.arrow
 
   const eventDatesArray = dates.map(date => dayjs(date).tz('Europe/Moscow').format('YYYY-MM-DD'))
 
@@ -68,10 +68,10 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, customStyle }: Props) =
 
   return (
     <ReactCalendar
-      defaultValue={selectRange ? null : initialDate}
+      defaultValue={defaultValue}
       selectRange={selectRange}
       onChange={val => (selectRange ? onChangeHandler(val) : '')}
-      className={calendarClass}
+      className={calendarStyle}
       prevLabel={
         <div className={containerStyle}>
           <div className={classNames(stls.prev, labelStyle)}></div>

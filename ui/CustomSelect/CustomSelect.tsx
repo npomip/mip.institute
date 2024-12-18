@@ -92,6 +92,7 @@ const CustomSelect = ({
       ...base,
       color: 'black',
       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 0.3s ease',
       width: '30px',
       '&:hover': {
         color: 'white'
@@ -144,7 +145,6 @@ const CustomSelect = ({
 
   return (
     <Select
-      key={value?.label}
       options={options}
       placeholder={placeholder}
       noOptionsMessage={noOptionsMessage}

@@ -53,7 +53,7 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, customStyle }: Props) =
         className = stls.eventDate
       }
     } else {
-      ;(dates as GroupData[]).forEach(group => {
+      (dates as GroupData[]).forEach(group => {
         const groupDates = group.dates.map(date => dayjs(date).format('YYYY-MM-DD'))
         if (groupDates.includes(currentDate)) {
           className = stls[group.classEventDate]
@@ -71,7 +71,11 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, customStyle }: Props) =
       defaultValue={selectRange ? null : initialDate}
       selectRange={selectRange}
       onChange={val => (selectRange ? onChangeHandler(val) : '')}
-      className={calendarClass}
+      className={classNames({
+        [stls.customCalendar]: customStyle, 
+        [stls.calendar]: !customStyle, 
+        'test-calendar': customStyle
+      })}
       prevLabel={
         <div className={containerStyle}>
           <div className={classNames(stls.prev, labelStyle)}></div>

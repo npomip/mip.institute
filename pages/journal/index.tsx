@@ -13,9 +13,7 @@ import { getStaticPropsBlogs } from '@/lib/handlers/getStaticPropsBlogs'
 const JournalPage = ({ blogs }) => {
   const router = useRouter()
 
-  if (prod && !preview) {
-    blogs = blogs?.filter(el => el.previewOnly === false)
-  }
+  
   const [selectedField, setSelectedField] = useState({
     studyFieldSlug: router.query.studyFieldSlug || '',
     studyField: router.query.studyField || 'Все cтатьи'

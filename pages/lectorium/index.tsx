@@ -64,7 +64,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     baseFilter = baseFilter.filter(lect => {
       const targetDate = dayjs(lect.targetDate)
       return showPast
-        ? targetDate.isSameOrBefore(today, 'day')
+        ? targetDate.isBefore(today, 'day')
         : targetDate.isSameOrAfter(today, 'day')
     })
 
@@ -82,7 +82,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     }
 
     const sortedByDate = baseFilter.sort((a, b) =>
-      dayjs(a.targetDate).diff(dayjs(b.targetDate))
+      dayjs(b.targetDate).diff(dayjs(a.targetDate))
     )
 
     setFilteredLectoriums(sortedByDate)

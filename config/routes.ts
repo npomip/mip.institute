@@ -68,7 +68,7 @@ const routes: TRoutes = {
   },
   back: {
     root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
-    rootv2: prod ?  'https://api-v2.mip.institute':  preview ? 'https://dev.api-v2.mip.institute' : 'http://localhost:1338',
+    rootv2: 'https://api-v2.mip.institute',
     home: '/',
     graphql: '/graphql',
     programs: '/programs',

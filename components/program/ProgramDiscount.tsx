@@ -1,5 +1,5 @@
 import stls from '@/styles/components/program/ProgramDiscount.module.sass'
-import { discount } from '@/data/price'
+import { discount, discountNum } from '@/data/price'
 import classNames from 'classnames'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
@@ -19,7 +19,8 @@ const ProgramDiscount = ({
   isWhite = false
 }: Props) => {
   const { program } = useContext(ContextStaticProps)
-  const programDiscount = program?.discount || 0
+  // const programDiscount = program?.discount || 0
+  const programDiscount = discountNum
 
   const elDiscount = <>{programDiscount ? `-${programDiscount}%` : discount}</>
 

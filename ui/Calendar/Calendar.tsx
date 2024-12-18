@@ -68,7 +68,7 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, customStyle }: Props) =
 
   return (
     <ReactCalendar
-      defaultValue={selectRange ? null : initialDate}
+      defaultValue={!customStyle ? null : initialDate}
       selectRange={selectRange}
       onChange={val => (selectRange ? onChangeHandler(val) : '')}
       className={classNames({

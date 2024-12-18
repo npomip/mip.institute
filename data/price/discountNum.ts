@@ -1,3 +1,3 @@
 
-const discountNum: number = 30
+const discountNum: number = 40
 export default discountNum

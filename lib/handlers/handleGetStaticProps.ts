@@ -66,7 +66,7 @@ const handleGetStaticProps = async ({
     | TypePagePracticalTrainingProps
     | TypePagePracticalTrainingsProps
     | {}
-  revalidate: number | boolean
+  revalidate?: number | boolean
 }> => {
   try {
     switch (page) {

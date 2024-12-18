@@ -15,11 +15,11 @@ import GroupSupervisionInclude from '../sections/groupSupervision/GroupSupervisi
 import WhichDocument from '@/components/sections/groupSupervision/WhichDocument/WhichDocument'
 import GroupSupervisionForm from '../sections/groupSupervision/GroupSupervisionForm/GroupSupervisionForm'
 import GroupSupervisionFAQ from '@/components/sections/groupSupervision/GroupSupervisionFAQ/GroupSupervisionFAQ'
-import ReviewsWithStars from '../sections/lectorium/ReviewsWithStars'
 import SeoCommon from '../seo/SeoCommon'
 import seo from 'constants/GroupSupervision/seo'
 import reviewsSupervision from 'constants/GroupSupervision/reviews'
 import GroupSupervisionSchedule from '../sections/groupSupervision/GroupSupervisionSchedule/GroupSupervisionSchedule'
+import ReviewsWithStars from '../sections/lectorium/ReviewWithStars/ReviewsWithStars'
 
 const PageGroupSupervision = ({}) => {
   return (

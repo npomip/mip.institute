@@ -9,7 +9,7 @@ const getStaticPropsBachelor = async ({
   context
 }: TypeGeneralGetStaticPropsContext): Promise<{
   props: TypePageBachelorProps
-  revalidate: number | boolean
+  revalidate?: number | boolean
 }> => {
   const slug = context?.params?.slug?.toString() || null
 
@@ -135,7 +135,7 @@ const getStaticPropsBachelor = async ({
         // lifeCourse: res?.data?.lifeCourse?.[0] || null,
         // reviews: reviewsData
       },
-      revalidate: revalidate.default
+      // revalidate: revalidate.default
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)

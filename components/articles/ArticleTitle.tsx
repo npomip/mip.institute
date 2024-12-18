@@ -17,9 +17,9 @@ type ArticleTitleType = {
       width: string
       height: string
     }
-    blogAuthor: {
+    blog_author: {
       name: string
-      portrait: {
+      avatar: {
         url: string
         width: string
         height: string
@@ -56,13 +56,16 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
     }
   }, [props.date])
 
+  console.log(props);
+  
+
   return (
     <>
       <span className={stls.tag}>{props.studyField}</span>
       <div className={stls.authors}>
         <p className={stls.author}>
           <span className={stls.strongText}>Автор:</span>{' '}
-          {props.blogAuthor && props.blogAuthor.name}
+          {props.blog_author && props.blog_author.name}
         </p>
         <div className={stls.dateAndTime}>
           <p className={stls.date}>{formattedDate}</p>

@@ -8,6 +8,7 @@ import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { getStaticPropsBlogs } from '@/lib/handlers/getStaticPropsBlogs'
 
 const JournalPage = ({ blogs }) => {
   const router = useRouter()
@@ -32,6 +33,10 @@ const JournalPage = ({ blogs }) => {
       ? blogs
       : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
 
+
+      console.log(blogs);
+      
+
   return (
     <Wrapper>
       <SeoPagesJournals />
@@ -48,6 +53,6 @@ const JournalPage = ({ blogs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.journals })
+  await getStaticPropsBlogs()
 
 export default JournalPage

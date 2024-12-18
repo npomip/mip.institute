@@ -8,7 +8,7 @@ type TSeoPagesProgram = {
 }
 
 const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
-  const { metaTitle, metaDescription } = blog?.seo
+  // const { metaTitle, metaDescription } = blog?.seo
   const publishDate = new Date(blog?.date)
 
   const additionalMetaRobotsKeys = [
@@ -24,10 +24,10 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
 
   const seoParams = {
     title: `${
-      metaTitle ? metaTitle : 'статья Московского Института Психологии'
+      blog?.seo?.metaTitle ? blog?.seo?.metaTitle : 'статья Московского Института Психологии'
     }`,
-    desc: metaDescription
-      ? 'Интересная статья о психологии по теме' + ' ' + metaDescription
+    desc: blog?.seo?.metaDescription
+      ? 'Интересная статья о психологии по теме' + ' ' + blog?.seo?.metaDescription
       : 'Интересная статья о психологии',
     canonical: `${routes.front.root}${routes.front.journals}/${blog?.slug}`
   }

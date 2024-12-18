@@ -61,7 +61,7 @@ const LectoriumHero = ({ lectorium }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <Breadcrumbs isJournal lastLabel='Внутренние мероприятия' />
+        <Breadcrumbs isJournal lastLabel={lectorium.isInternal ? 'Внутренние мероприятия' : 'Внешние мероприятия'} />
         <p className={stls.event}>{lectorium.label}</p>
         <h1 className={stls.subTitle}>
           <span className={stls.title}>{lectorium.title}</span>

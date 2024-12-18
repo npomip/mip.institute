@@ -1,19 +1,10 @@
 import { discount } from '@/data/price'
 import stls from '@/styles/components/articles/ArticleBlogRelatedPrograms.module.sass'
-import ReactMarkdown from 'react-markdown'
 import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
 import { ArticleBlogRelatedProgramsType } from './ArticleBlogRelatedPrograms'
 import RelatedProgramsList from './RelatedProgramsList'
 
 const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
-  const markdownComponents = {
-    em: ({ children }: { children: React.ReactNode }) => (
-      <span style={{ color: props?.borderColor }}>{children}</span>
-    ),
-    p: ({ children }: { children: React.ReactNode }) => (
-      <p id={stls.title}>{children}</p>
-    )
-  }
   const programs = props?.programs
 
   return (
@@ -31,15 +22,6 @@ const ArticleBlogOneProgram = ({ props }: ArticleBlogRelatedProgramsType) => {
           </div>
 
           <p className={stls.discount}>{props.programs[0].title}</p>
-        </div>
-        <div>
-          {props.textItem.map(item => (
-            <div key={item.id}>
-              <ReactMarkdown components={markdownComponents}>
-                {item.text}
-              </ReactMarkdown>
-            </div>
-          ))}
         </div>
         <div className={stls.programs}>
           {programs.map(program => (

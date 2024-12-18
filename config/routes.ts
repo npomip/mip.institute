@@ -1,4 +1,4 @@
-import { dev, preview } from '@/config/index'
+import { dev, preview, prod } from '@/config/index'
 
 type TRoutes = {
   front: {
@@ -68,7 +68,7 @@ const routes: TRoutes = {
   },
   back: {
     root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
-    rootv2: dev ? 'http://localhost:1338': 'https://dev.api-v2.mip.institute' ,
+    rootv2: prod ?  'https://api-v2.mip.institute':  preview ? 'https://dev.api-v2.mip.institute' : 'http://localhost:1338',
     home: '/',
     graphql: '/graphql',
     programs: '/programs',

@@ -27,6 +27,7 @@ try {
       'Authorization': `Bearer ${process.env.STRAPI_BEARER}`, // Замените на ваш токен
     },
   })
+  console.log(response.data);
   
   return {
     props: {

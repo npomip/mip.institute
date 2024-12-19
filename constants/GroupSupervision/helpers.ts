@@ -42,7 +42,7 @@ export const formatDateRange = (dates: string[]): string => {
     date.isAfter(max) ? date : max
   )
 
-  return `${minDate.format('DD.MM.YYYY')}-${maxDate.format('DD.MM.YYYY')}`
+  return `${minDate.format('DD.MM')}-${maxDate.format('DD.MM.YYYY')}`
 }
 
 export const getNextClassDay = (dates: string[]): string => {

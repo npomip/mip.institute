@@ -18,9 +18,11 @@ const GroupSchedule: React.FC<IGroupProps> = ({ groupName, dates, time }) => {
   return (
     <div className={stls.groupCard}>
       <p className={stls.scheduleItem}>
-        <span className={stls.boldText}>{groupName}</span>
-        <span>{dateRange}</span>
-        <span>{`${nextClassDay}, ${nextClassTime}`}</span>
+          <span className={stls.boldText}>{groupName}</span>
+        <div className={stls.dateContainer}>
+          <span>{dateRange}</span>
+          <span>{`${nextClassDay}, ${nextClassTime}`}</span>
+        </div>
       </p>
     </div>
   )

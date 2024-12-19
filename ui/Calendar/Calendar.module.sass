@@ -7,7 +7,7 @@
   max-width: 100% !important
   @include m.gap($pt: f.px(30), $pb: f.px(10))
   border: f.px(1) solid c.$purple-350
-  border-radius: f.px(5)
+  border-radius: f.px(5)  
   @include m.media(phone, tablet)
     box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06)
     border-color: c.$gray-500
@@ -128,6 +128,11 @@
   @include m.media(phone, tablet)
     border-radius: f.px(4)
 
+.selectedDate 
+  @include m.dye(bg, c.$purple-800)
+  @include m.dye(c, white)
+  border-radius: 50%
+
 .customCalendar
   @include m.dye(bg, c.$purple-100)
   height: 100%
@@ -151,6 +156,7 @@
       font-size: f.px(40)
       font-weight: 500
       line-height: 120%
+      cursor: default
       &::first-letter
         text-transform: uppercase
       @include m.dye(c, c.$black-900)
@@ -174,6 +180,7 @@
         line-height: 120%
         text-transform: uppercase
         text-decoration: none
+        cursor: default
         @include m.gap($mt: f.px(24), $mb: f.px(24))
         @include m.media(phone, tablet)
           @include m.gap($mt: f.px(14), $mb: f.px(14))
@@ -203,6 +210,7 @@
         height: f.px(50)
         font-size: f.px(32)
         font-weight: 350
+        cursor: default
         @include m.flex(c, c.$black-900)
         @include m.flex($ai: center, $jc: center)
         @include m.media(phone, tablet)

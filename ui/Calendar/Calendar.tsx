@@ -27,21 +27,31 @@ type TileClassNameProps = {
 
 const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle, defaultValue}: Props) => {
   const [isClient, setIsClient] = useState(false)
-
-  const calendarStyle = onSupervisionPagesStyle ? stls.customCalendar : stls.calendar
-  const containerStyle = onSupervisionPagesStyle ? stls.bgArrowCustom : stls.bgArrow
-  const labelStyle = onSupervisionPagesStyle ? stls.arrowCustom : stls.arrow
-
+  const [selectedRange, setSelectedRange] = useState<Date[]>([])
   const eventDatesArray = dates.map(date => dayjs(date).tz('Europe/Moscow').format('YYYY-MM-DD'))
 
   useEffect(() => {
     setIsClient(true)
   }, [])
 
-  const onChangeHandler = selectedRange => {
-    const startDate = dayjs(selectedRange[0]).format('YYYY-MM-DD')
-    const endDate = dayjs(selectedRange[1]).format('YYYY-MM-DD')
-    onDatesFiltered([startDate, endDate])
+  const onClickDayHandler = (date: Date) => {
+    if (selectRange) {
+      if (selectedRange.length === 0 || selectedRange.length === 2) {
+        // Сбрасываем диапазон и начинаем с новой даты
+        setSelectedRange([date])
+      } else {
+        // Добавляем вторую дату и упорядочиваем диапазон
+        const newRange = [selectedRange[0], date].sort(
+          (a, b) => a.getTime() - b.getTime()
+        )
+        setSelectedRange(newRange)
+        const startDate = dayjs(newRange[0]).format('YYYY-MM-DD')
+        const endDate = dayjs(newRange[1]).format('YYYY-MM-DD')
+        onDatesFiltered && onDatesFiltered([startDate, endDate])
+      }
+    } else {
+      setSelectedRange([date])
+    }
   }
 
   const getTileClassName = ({ date }: TileClassNameProps): string => {
@@ -61,6 +71,21 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle
       })
     }
 
+    // Подсветка выбранных дат (одна или диапазон)
+    if (selectedRange.length > 0) {
+      const start = dayjs(selectedRange[0])
+      const end = selectedRange[1] ? dayjs(selectedRange[1]) : start
+      const current = dayjs(date)
+
+      if (
+        (selectRange && current.isSame(start, 'day')) || // Подсветка первой выбранной даты
+        (selectedRange.length === 2 && current.isSame(end, 'day')) || // Подсветка второй даты в диапазоне
+        (current.isAfter(start, 'day') && current.isBefore(end, 'day')) // Подсветка промежуточных дат
+      ) {
+        className = `${className} ${stls.selectedDate}`
+      }
+    }
+
     return className
   }
 
@@ -68,18 +93,38 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle
 
   return (
     <ReactCalendar
-      defaultValue={defaultValue}
+      value={defaultValue}
       selectRange={selectRange}
-      onChange={val => (selectRange ? onChangeHandler(val) : '')}
-      className={calendarStyle}
+      onClickDay={onClickDayHandler}
+      className={classNames({
+        [stls.customCalendar]: onSupervisionPagesStyle,
+        [stls.calendar]: !onSupervisionPagesStyle
+      })}
       prevLabel={
-        <div className={containerStyle}>
-          <div className={classNames(stls.prev, labelStyle)}></div>
+        <div
+          className={classNames({
+            [stls.bgArrowCustom]: onSupervisionPagesStyle,
+            [stls.bgArrow]: !onSupervisionPagesStyle
+          })}>
+          <div
+            className={classNames({
+              [stls.arrowCustom]: onSupervisionPagesStyle,
+              [stls.arrow]: !onSupervisionPagesStyle,
+              [stls.prev]: true 
+            })}></div>
         </div>
       }
       nextLabel={
-        <div className={containerStyle}>
-          <div className={classNames(labelStyle)}></div>
+        <div
+          className={classNames({
+            [stls.bgArrowCustom]: onSupervisionPagesStyle,
+            [stls.bgArrow]: !onSupervisionPagesStyle
+          })}>
+          <div
+            className={classNames({
+              [stls.arrowCustom]: onSupervisionPagesStyle,
+              [stls.arrow]: !onSupervisionPagesStyle
+            })}></div>
         </div>
       }
       maxDetail='month'

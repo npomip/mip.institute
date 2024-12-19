@@ -10,6 +10,7 @@ import classNames from 'classnames'
 
 const GroupSupervisionSchedule = () => {
   const [data, setData] = useState<GroupData[]>(groupsData)
+  const defaultValue = new Date(2025, 0, 1)
 
   return (
     <section className={stls.container}>
@@ -34,7 +35,7 @@ const GroupSupervisionSchedule = () => {
           </div>
         </div>
         <div>
-          <Calendar dates={data} selectRange={false} customStyle={true} />
+          <Calendar dates={data} selectRange={false} onSupervisionPagesStyle={true} defaultValue={defaultValue} />
         </div>
         <div className={classNames(stls.onMobile)}>
           <GroupList groupsData={data} />

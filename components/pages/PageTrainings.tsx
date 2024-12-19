@@ -5,6 +5,15 @@ import Breadcrumbs from '@/ui/Breadcrumbs'
 import ProgramsFilters from '@/components/program/ProgramsFilters'
 import Wrapper from '@/ui/Wrapper'
 
+const supervision: any = {
+  "title": "Групповая супервизия",
+  "duration": "1 месяц / 48 академ. часов",
+  "slug": "supervision",
+  "heroPicture": {
+      "url": "https://res.cloudinary.com/mipinstitute/image/upload/v1733736404/group_supervision_hero_3849e0ac52.jpg",
+  }
+}
+
 const PageTrainings = ({
   programs = [],
   practicalTrainings = [],
@@ -28,6 +37,7 @@ const PageTrainings = ({
               card={practicalTraining}
             />
           ))}
+          <PracticalSlugCard card={supervision}/>
         </div>
       </FilterProvider>
     </Wrapper>

@@ -63,7 +63,7 @@ const PayLater = () => {
             <div className={stls.tag}>
               <Tag type='orange'>Оплата</Tag>
             </div>
-            <h2>Обучайтесь сейчас –платите потом</h2>
+            <h2 className={stls.title}>Обучайтесь сейчас –платите потом</h2>
           </div>
           <div className={stls.circle}>
             <IconCircleStar />

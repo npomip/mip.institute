@@ -4,10 +4,6 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
-  @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(0))
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(30))
   & > *
     @include m.media(laptop, desktop)
       // @include m.flex

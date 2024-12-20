@@ -3,9 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($ptb: f.px(90))
-  @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(50), $pt: f.px(0))
 
 .standalone
   @include m.media(phone, tablet)
@@ -17,20 +14,11 @@
 
 .title
   @include m.gap($mb: 0)
-  @include m.media(phone, tablet)
-    font-size: f.px(26)
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(15))
-    font-size: f.px(44)
-    font-weight: 500
+  font-size: f.px(44)
+  font-weight: 500
   @include m.dye(c, c.$black-800)
-
-.content
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(22, em))
-  @include m.media(laptop, desktop)
-  & > *
-    @include m.gap($pb: f.px(30))
+    font-size: f.px(30)
 
 .reviewCount
   font-size: 13px
@@ -49,21 +37,18 @@
     font-size: f.px(11)
 
 .description
-  @include m.gap($mt: f.px(30), $mb: f.px(0))
+  @include m.gap($mt: f.px(30), $mb: 0)
   max-width: f.px(570)
   @include m.dye(c, c.$gray-800)
-  font-family: Stem
   font-size: f.px(20)
   font-style: normal
-  font-weight: 300
+  font-weight: 400
   line-height: 130%
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(15))
+    @include m.gap($mtb: f.px(15))
     @include m.dye(c, c.$black-900)
-    font-family: Stem
     font-size: f.px(15)
     font-style: normal
-    font-weight: 350
     line-height: 130%
 
 .tag

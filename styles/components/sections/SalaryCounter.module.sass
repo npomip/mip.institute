@@ -3,10 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(90))
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50))
 
 .content
   display: flex
@@ -47,8 +43,11 @@
     @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
 .checkSalaryText
-  font-size: f.px(25)
-  font-weight: 350
+  font-size: f.px(20)
+  font-weight: 400
+  @include m.media(phone, tablet)
+    font-weight: 400
+    font-size: f.px(15)
 
 .subtitle
   font-size: f.px(20)

@@ -180,7 +180,7 @@ const ProgramsFilters = ({
           <FilterTag
             onClick={() => handleNavigation('/practical-training')}
             isActive={router.asPath === '/practical-training'}
-            quantity={practicalTrainings.length.toString()}
+            quantity={(practicalTrainings.length + 1).toString()}
             isProgram>
             Практические навыки
           </FilterTag>

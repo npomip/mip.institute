@@ -33,6 +33,8 @@ import SEO from '../seo.config'
 import Image from 'next/image'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
 import BlackFridayBanner from '@/components/sections/BlackFridayBanner'
+import StickyBottomNewYers from '@/components/sections/App/StickyButtonNewYers/StickyButtonNewYers'
+
 
 const MyApp = ({ Component, pageProps, router }) => {
   const getDefaultStateProps = pageProps => {
@@ -371,7 +373,8 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <div><StickyBottom /></div>
+            {/* <div><StickyBottom /></div> */}
+            <div><StickyBottomNewYers/></div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>

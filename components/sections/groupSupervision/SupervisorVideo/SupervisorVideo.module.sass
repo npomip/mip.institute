@@ -1,0 +1,83 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  display: inline-block
+  font-size: f.px(48)
+  font-style: normal
+  text-transform: uppercase
+  font-weight: 350
+  max-width: f.px(550)
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+    @include m.gap($mb: f.px(20))
+
+.coloredTitle
+  @include m.dye(c, c.$orange-700)
+  @include m.media(phone, tablet)
+    display: block
+
+.left
+  border-radius: f.px(10)
+  position: relative
+  overflow: hidden
+  @include m.gap($pl: f.px(47), $pt: f.px(40))
+  @include m.flex($fd: column, $ai: center)
+  width: 100%
+  height: 100%
+  @include m.gap($plr: f.px(37), $ptb: f.px(37))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(25), $ptb: f.px(20))
+
+.right
+  @include m.dye(bg, c.$purple-800)
+  width: 100%
+  height: 100%
+  border-radius: f.px(15)
+  @include m.gap($p: f.px(40))
+  @include m.flex($fd: column)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(21), $ptb: f.px(40))
+    @include m.flex($fd: column)
+    border-radius: f.px(9)
+    width: 100%
+
+.playerWrapper
+  position: relative
+  width: 100%
+  height: 100%
+  @include m.media(phone, tablet)
+    min-height: f.px(470)
+
+.kinescope
+  @include m.media(phone, tablet)
+    & > iframe
+      width: 100%
+      height: f.px(470)
+
+.rightTitle
+  font-weight: 500
+  display: block
+  text-align: center
+  text-transform: uppercase
+  font-size: f.px(40)
+  @include m.gap($mt: f.px(60), $mb: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: 0, $mb: f.px(25))
+    font-size: f.px(26)
+
+.text
+  @include m.dye(c, c.$white-900)
+  font-size: f.px(30)
+  text-align: center
+  font-weight: 350
+  line-height: 120%
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
+    text-align: left
+    font-size: f.px(17)
+
+  .bold
+    font-weight: 500

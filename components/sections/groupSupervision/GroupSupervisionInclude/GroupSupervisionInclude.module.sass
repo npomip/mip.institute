@@ -1,0 +1,79 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(30))
+  
+.title
+  display: inline-block
+  font-size: f.px(46)
+  font-style: normal
+  text-transform: uppercase
+  font-weight: 350
+  max-width: f.px(800)
+  @include m.gap($mb: f.px(40))
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+    @include m.gap($mb: f.px(20))
+
+.coloredTitle
+  @include m.dye(c, c.$orange-700)
+
+.content
+  border: f.px(1) solid c.$orange-700
+  border-radius: f.px(15)
+  @include m.flex()
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    border-radius: f.px(10)
+
+.startBlock
+  flex-basis: 45%
+  border-top-left-radius: f.px(15)
+  border-bottom-left-radius: f.px(15)
+  @include m.gap($p: f.px(35))
+  @include m.dye(bg, c.$orange-700)
+  & > p 
+    font-size: f.px(48)
+    font-weight: 350
+    @include m.dye(c, c.$white-900)
+    text-transform: uppercase
+    @include m.gap($mb: f.px(0))
+    @include m.media(phone, tablet)
+      font-size: f.px(32)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(44), $plr: f.px(21))
+    border-top-right-radius: f.px(10)
+    border-top-left-radius: f.px(10)
+    border-bottom-left-radius: f.px(0)
+
+
+.text
+  @include m.gap($mb: f.px(0))
+  font-size: f.px(16)
+  font-weight: 350
+  & > span
+    font-weight: 500
+
+.icon
+  width: f.px(32)
+  height: f.px(25)
+
+.blocks
+  flex-basis: 55%
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+
+
+.block
+  @include m.gap($p: f.px(20))
+  @include m.flex($fd: column, $jc: space-between)
+  @include m.media(desktop, laptop)
+    border-left: f.px(1) solid c.$orange-700
+  @include m.media(phone, tablet)
+    border-top: f.px(1) solid c.$orange-700
+    gap: f.px(20)

@@ -56,7 +56,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       <RequirementsInProfession />
 
       <PracticalPaymentForm price={practicalTraining.price} />
-      {/* <GeneralFaq qnas={practicalTraining.qnas} isPractical /> */}
+      {/*<GeneralFaq qnas={practicalTraining.qnas} isPractical />*/}
     </div>
   )
 }

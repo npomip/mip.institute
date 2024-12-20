@@ -10,8 +10,14 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { getCookie } from 'cookies-next'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
+import { gratefull } from 'constants/gratefull'
+import LinkComponent from '@/ui/LinkComponent'
 
-const GratefullNew = () => {
+type Props = {
+  backButton?: boolean
+}
+
+const GratefullNew = ({ backButton = true }: Props) => {
   const [isPromo, setIsPromo] = useState(false)
 
   const utmCookie = getCookie('utm')
@@ -32,124 +38,77 @@ const GratefullNew = () => {
   }, [utmCookie])
 
   return (
-    <section className={stls.container}>
-      <Wrapper>
-        <div
-          className={stls.toHome}
-          onClick={() => {
-            window.location.href = '/'
-          }}>
-          <div className={stls.icon}>
-            <IconArrowLeft />
-          </div>
-          <span className={stls.homespanage}>вернуться на главную</span>
+    <LinkComponent
+      title={gratefull.title}
+      tag={gratefull.tag}
+      background1={gratefull.columns[0].backgroundImage}
+      backButton={backButton}>
+      <>
+        <div className={stls.top}>
+          <h3>{gratefull.columns[0].title}</h3>
+          <p>{gratefull.columns[0].text}</p>
         </div>
-        <div className={stls.header}>
-          <div className={stls.tag}>
-            <span>поздравляем</span>
-          </div>
-          <h2 className={stls.title}>
-            <span className={stls.coloredTitle}>спасибо</span> за заявку!
-          </h2>
-        </div>
-        <div className={stls.columns}>
-          <div
-            className={classNames({
-              [stls.layout]: true,
-              [stls.gift]: true
-            })}
-            style={{
-              backgroundImage: `url(${gifts.src})`,
-              backgroundSize: 'cover'
-            }}>
-            <div className={stls.top}>
-              <h3>
-                Ваши данные переданы <br />в приемную комиссию,
-              </h3>
-              <p>
-                специалист по поступлению скоро позвонит вам, а пока... нам
-                есть, что вам сказать перед тем, как вы примете окончательное
-                решение стать человеком, который будет помогать другим людям.
-              </p>
-            </div>
-            {isPromo && (
-                <div className={stls.bottom}>
-                <p>
-                  А пока, вы можете воспользоваться <br />
-                  подарком от блогера
-                </p>
-                
-                <Link
-                  href={'https://mipinstitute.getcourse.ru/podp_mini_two'}
-                  target='_blank'
-                  className={stls.link}>
-                  <button
-                    className={classNames({
-                      [stls.button]: true,
-                      [stls.purple]: true
-                    })}>
-                    забрать подарок
-                  </button>
-                  <div
-                    className={classNames({
-                      [stls.iconLink]: true,
-                      [stls.purple]: true
-                    })}>
-                    <IconArrowNew />
-                  </div>
-                </Link>
+        {isPromo && (
+          <div className={stls.bottom}>
+            <p>{gratefull.columns[0].subtitle}</p>
+            <Link
+              href={gratefull.columns[0].link}
+              target='_blank'
+              className={stls.link}>
+              <button
+                className={classNames({
+                  [stls.button]: true,
+                  [stls.purple]: true
+                })}>
+                {gratefull.columns[0].linkText}
+              </button>
+              <div
+                className={classNames({
+                  [stls.iconLink]: true,
+                  [stls.purple]: true
+                })}>
+                <IconArrowNew />
               </div>
-              )}
-            
+            </Link>
           </div>
-          <div
-            className={classNames({
-              [stls.layout]: true,
-              [stls.telegramm]: true
-            })}>
-            <div className={stls.top}>
-              <h3 className={stls.whiteText}>
-                Присоединяйтесь <br />к телеграм-каналу
-              </h3>
-              <p className={stls.whiteText}>
-                Есть нюансы профессии, о которых мы не пишем на сайте, заходите
-                к нам в телеграм, пообщаемся там, ведь психолог должен обладать
-                определенными качествами...
-              </p>
-            </div>
-            <div className={stls.bottom}>
-              <p></p>
-              <Link
-                href={'https://t.me/institut_mip_bot?start=start3'}
-                target='_blank'
-                className={stls.link}>
-                <button
-                  className={classNames({
-                    [stls.button]: true,
-                    [stls.white]: true
-                  })}>
-                  перейти в канал
-                </button>
-                <div
-                  className={classNames({
-                    [stls.iconLink]: true,
-                    [stls.white]: true
-                  })}>
-                  <IconArrowNew orange />
-                </div>
-              </Link>
-            </div>
-            <div className={stls.backgroundImageRight}>
-              <Image
-                src={planes}
-                alt='Самолеты'
-                style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
-              />
-            </div>
-          </div>
+        )}
+      </>
+      <>
+        <div className={stls.top}>
+          <h3 className={stls.whiteText}>{gratefull.columns[1].title}</h3>
+          <p className={stls.whiteText}>{gratefull.columns[1].text}</p>
         </div>
-      </Wrapper>
-    </section>
+        <div className={stls.bottom}>
+          <p></p>
+          <Link
+            href={gratefull.columns[1].link}
+            target='_blank'
+            className={stls.link}>
+            <button
+              className={classNames({
+                [stls.button]: true,
+                [stls.white]: true
+              })}>
+              {gratefull.columns[1].linkText}
+            </button>
+            <div
+              className={classNames({
+                [stls.iconLink]: true,
+                [stls.white]: true
+              })}>
+              <IconArrowNew orange />
+            </div>
+          </Link>
+        </div>
+        <div className={stls.backgroundImageRight}>
+          <Image
+            src={planes}
+            alt='Самолеты'
+            style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+          />
+        </div>
+      </>
+    </LinkComponent>
   )
 }
 

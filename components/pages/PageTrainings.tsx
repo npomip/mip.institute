@@ -7,7 +7,7 @@ import Wrapper from '@/ui/Wrapper'
 
 const supervision: any = {
   "title": "Групповая супервизия",
-  "duration": "1 месяц / 48 академ. часов",
+  "duration": "1 месяц / 10 часов",
   "slug": "supervision",
   "heroPicture": {
       "url": "https://res.cloudinary.com/mipinstitute/image/upload/v1733736404/group_supervision_hero_3849e0ac52.jpg",

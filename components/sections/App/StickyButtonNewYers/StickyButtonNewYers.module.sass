@@ -39,11 +39,17 @@
   background-size: auto
 
 .shape
-  position: absolute
+  position: relative
   z-index: 1
+  height: 100%
   @include m.media(phone)
-    width: 32%
-    margin-top: -7%
+    // width: 32%
+    // margin-top: -7%
+
+.leftThree
+  @include m.media(phone, tablet)
+  position: absolute
+  top: 0
 
 .content
   @include m.flex
@@ -166,8 +172,10 @@
     margin-top: -58px
     margin-left: 85px
   @include m.media(phone)
-    margin-top: -50px
-    margin-left: 63px
+    // margin-top: -50px
+    // margin-left: 63px
+    // top: 31px
+    // right: 0
 
 .close
   @include m.gap($ml: f.px(14))
@@ -178,12 +186,24 @@
 
 .btnMobile
   @include m.media(phone, tablet)
+    position: relative
+    height: 100%
+    display: flex
     & > *
       min-width: f.px(109)
       & > *
         font-size: f.px(10)
   @include m.media(laptop, desktop)
     display: none
+
+.bowMobile
+  object-fit: contain
+  // display: flex
+  @include m.media(phone, tablet)
+    position: absolute
+    top: 0
+    right: 0
+    transform: translate(50%, -30%)
 
 .icon
   @include m.gap($mb: f.px(14))

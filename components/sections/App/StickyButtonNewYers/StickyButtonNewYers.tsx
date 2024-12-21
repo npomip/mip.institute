@@ -12,6 +12,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Image from 'next/image'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const StickyBottomNewYers = () => {
   const router = useRouter()
@@ -20,6 +21,7 @@ const StickyBottomNewYers = () => {
   const [isLoaded, setIsLoaded] = useState(false)
 
   const roistat_visit = getCookie('roistat_visit')
+  const isTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   useEffect(() => {
     if (router.asPath !== routes.front.payment) {
@@ -40,10 +42,11 @@ const StickyBottomNewYers = () => {
 
         <div className={stls.shape}>
           <Image
-            alt='cytu'
+          className={stls.leftThree}
+            alt='newYearsTree'
             src='https://res.cloudinary.com/mipinstitute/image/upload/v1734687978/Snezhinki_f1dbb83e5c.png'
-            width={250}
-            height={95}
+            width={isTabletLayout? 100: 250}
+            height={isTabletLayout? 39 : 95}
           />
         </div>
         <Wrapper>
@@ -133,14 +136,15 @@ const StickyBottomNewYers = () => {
           </div>
           <div className={stls.btnMobile}>
             <PopupTrigger btn='alpha' cta='submitApplication' />
-            <div className={stls.bow}>
+            {/* <div className={stls.bow}> */}
               <Image
                 alt='cytu'
                 src='https://res.cloudinary.com/mipinstitute/image/upload/v1734689519/Novogodnij_Bant_f0c5361c74.png'
-                width={88}
-                height={77}
+                className={stls.bowMobile}
+                width={40}
+                height={35}
               />
-            </div>
+            {/* </div> */}
           </div>
         </Wrapper>
         <button className={stls.close} onClick={() => setIsClosed(true)}>

@@ -141,8 +141,8 @@ const StickyBottomNewYers = () => {
                 alt='cytu'
                 src='https://res.cloudinary.com/mipinstitute/image/upload/v1734689519/Novogodnij_Bant_f0c5361c74.png'
                 className={stls.bowMobile}
-                width={40}
-                height={35}
+                width={30}
+                height={25}
               />
             {/* </div> */}
           </div>

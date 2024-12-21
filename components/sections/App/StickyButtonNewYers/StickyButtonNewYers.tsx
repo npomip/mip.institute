@@ -57,7 +57,7 @@ const StickyBottomNewYers = () => {
                   <button
                     className={stls.info}
                     aria-label='Информация о скидках'>
-                    <IconInfoOrange />
+                    <IconInfoOrange innerFill='#000000' />
                   </button>
                 }
                 position='top left'
@@ -69,7 +69,7 @@ const StickyBottomNewYers = () => {
                 }}>
                 <div className={stls.tooltip}>
                   <div className={stls.icon}>
-                    <IconInfoOrange />
+                    <IconInfoOrange innerFill='#000000'/>
                   </div>
                   Информацию о скидках и дополнительных бонусах при поступлении
                   уточняйте у менеджеров приемной комиссии
@@ -121,8 +121,8 @@ const StickyBottomNewYers = () => {
               <Image
                 alt='cytu'
                 src='https://res.cloudinary.com/mipinstitute/image/upload/v1734689519/Novogodnij_Bant_f0c5361c74.png'
-                width={88}
-                height={77}
+                width={66}
+                height={66}
               />
             </div>
           </div>

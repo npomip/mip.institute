@@ -631,6 +631,46 @@ module.exports = /* withPWA( */ {
         source: '/courses/psihoterapiya/bazovye-navyki-geshtalt-terapii',
         destination: '/professions/psihoterapiya/geshtalt-terapevt',
         permanent: true
+      },
+      {
+        source: '/journal/kak-obshhatsya-s-podrostkom-rasprostranennye-oshibki-i-sovety-roditelyam',
+        destination: '/journal',
+        permanent: true
+      },
+      {
+        source: '/journal/krizisy-po-vozrastam-u-detej-kogda-nachinayutsya-i-kak-proyavlyayutsya',
+        destination: '/journal',
+        permanent: true
+      },
+      {
+        source: '/journal/muzykoterapiya-kak-mozhet-pomoch-v-lechenii-psihologicheskih-problem',
+        destination: '/journal',
+        permanent: true
+      },
+      {
+        source: '/journal/socziofobiya-eto-stesnitelnost-ili-rasstrojstvo-simptomy-i-prichiny',
+        destination: '/journal',
+        permanent: true
+      },
+      {
+        source: '/journal/art-terapiya-v-psihologii-chto-nuzhno-znat-chtoby-pomogat-lyudyam-1',
+        destination: '/journal',
+        permanent: true
+      },
+      {
+        source: '/journal/vygoranie-na-rabote-kak-raspoznat-i-spravitsya-s-problemoj',
+        destination: '/journal',
+        permanent: true
+      },
+      {
+        source: '/journal/chto-takoe-tajm-menedzhment-vremya-kak-resurs-dlya-uspeha',
+        destination: '/journal',
+        permanent: true
+      },
+      {
+        source: '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
+        destination: '/journal',
+        permanent: true
       }
     ]
   }

@@ -44,6 +44,11 @@ const LectoriumPage = ({ lectoriums }: Props) => {
 
   const handleToggleCalendar = () => {
     setIsCalendarVisible(!isCalendarVisible)
+    if (!showPast) {
+      setFilteredDates(dates)
+    } else {
+      setFilteredDates([null, null])
+    }
   }
 
   const handleFilteredDates = dates => {
@@ -168,16 +173,12 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             Прошедшие
           </FilterTag>
         </div>
-
-        {isCalendarVisible && (
-          <div className={stls.calendarWrapper}>
-            {isCalendarVisible && (
-              <Calendar onDatesFiltered={handleFilteredDates} dates={dates} selectRange={true} onSupervisionPagesStyle={false}/>
-            )}
-          </div>
-        )}
-
         <div className={stls.lectoriumGrid}>
+          {isCalendarVisible && (
+            <div>
+              <Calendar onDatesFiltered={handleFilteredDates} dates={dates} selectRange={true} onSupervisionPagesStyle={false}/>
+            </div>
+          )}
           {filteredLectoriums.map(lectorium => (
             <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
           ))}

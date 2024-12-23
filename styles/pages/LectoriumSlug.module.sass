@@ -29,16 +29,9 @@
   @include m.media(phone, tablet)
     grid-template-columns: 1fr
 
-.calendarWrapper
-  @include m.gap($mt: f.px(35))
-  position: absolute
-  z-index: 2
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(10))
-    position: relative
-
 .tags
   @include m.flex($ai: center)
+  flex-wrap: wrap
   gap: f.px(15)
 
   @include m.media(phone, tablet)

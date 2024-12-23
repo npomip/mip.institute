@@ -22,7 +22,12 @@
   @include m.dye(c, c.$white-900)
   & > *
     position: relative
-    @include m.flex($jc: space-between, $ai: center)
+    @media (max-width: 971px) and (min-width: 768px)
+      @include m.flex($jc: space-between, $ai: center)
+    @include m.media(laptop, desktop)
+      @include m.flex( $ai: center)
+    @include m.media(phone, tablet)
+      @include m.flex($jc: space-between, $ai: center)
   &.isShown
     transform: translateY(0)
   &.isClosed
@@ -47,14 +52,17 @@
     // margin-top: -7%
 
 .leftThree
+  position: absolute
+
   @include m.media(phone, tablet)
-    position: absolute
     top: 0
     opacity: 0.6
 
 .content
   @include m.flex
   @include m.gap($ml: f.px(90))
+  @include m.media(laptop)
+    @include m.gap($ml: f.px(40))
   @include m.media(phone, tablet)
     @include m.gap($ml: f.px(14))
 
@@ -112,8 +120,8 @@
   margin-left: 90%
   margin-top: -5%
   @include m.media(phone, tablet)
-     margin-left: 110%
-     margin-top: -10%
+    margin-left: 110%
+    margin-top: -10%
 
 .containerGift
   height: 103px

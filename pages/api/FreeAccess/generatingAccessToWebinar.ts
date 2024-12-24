@@ -1,18 +1,7 @@
-// import axios from 'axios'
-// import { v4 as uuidv4 } from 'uuid'
-// import crypto from 'crypto'
-// import nodemailer from 'nodemailer'
+import { v4 as uuidv4 } from 'uuid'
+import crypto from 'crypto'
 
-// export default async function handler(data) {
-
-//   try {
-//     const generatePswrd = uuidv4() // генерирует пароль который я верну
-//     const time = Math.floor(Date.now() / 1000); //
-    
-
-
-
-//     // Описание параметров:
+// Описание параметров:
 //     // un=Имя пользователя *
 //     // pw=Пароль *
 //     // ln=Фамилия *
@@ -33,71 +22,6 @@
 
 //     // отмеченный * поля обязательны для заполнения профиля, t и k для авторизации запроса
 
-//     const shopId = '403833'
-//     const secretKey = 'test_9z6Pyfo60K9hu1J5GxKoJ5xQUUo2QWUzk09JlNLq7JE'
-
-//     const idempotenceKey = uuidv4()
-
-//     const url = `https://api.yookassa.ru/v3/payments/${payment_id}/capture`
-
-//     const auth = Buffer.from(`${shopId}:${secretKey}`).toString('base64')
-
-//     const headers = {
-//       'Idempotence-Key': idempotenceKey,
-//       'Content-Type': 'application/json',
-//       Authorization: `Basic ${auth}`
-//     }
-//     const response = await axios.post(url, {}, { headers })
-
-//     console.log('api.yookassa.ru/v3/payments', response.data)
-
-//     const keyString = `${staticKey}${response.data.metadata.email}${time}`;
-//     const k = crypto.createHash('md5').update(keyString).digest('hex'); //
-
-
-
-//     const transporter = nodemailer.createTransport({
-//       host: process.env.SMTP_HOST,
-//       // host: 'smtp.jino.ru',
-//       port: Number(process.env.SMTP_PORT),
-//       secure: false, // true for 465, false for other ports
-//       logger: true,
-//       debug: true,
-//       tls: {
-//         rejectUnAuthorized: true
-//       },
-//       auth: {
-//         user: process.env.SMTP_LOGIN,
-//         pass: process.env.SMTP_PASS
-//       }
-//     })
-//     const emailRes = await transporter.sendMail({
-//       from: process.env.SMTP_FROM,
-//       to: `${response.data.metadata.email}`,
-//       subject: 'Ваша ссылка', // Subject line
-//       text: `
-//       https://lms.mip.institute/local/ilogin/rlogin.php?un=${response.data.metadata.email}&pw=${generatePswrd}&ln=${response.data.metadata.surname}&fn=${response.data.metadata.name}&g=87&e=${response.data.metadata.email}&t=${time}&k=${k}, \n
-//       ${response.data.metadata.name}, \n
-//       ${response.data.metadata.phone},
-//       ${response.data.metadata.email},
-//       Pawd: ${generatePswrd}
-//       Kulkov,
-//       ` // plain text body
-//       // html
-//     })
-
-//     res.status(200).end()
-//   } catch (err) {
-//     console.log('v3/payments errror', err.response.data)
-//     res
-//       .status(500)
-//       .json({ message: 'Ошибка обработки данных', err: err?.response?.data })
-//   }
-// }
-
-import { v4 as uuidv4 } from 'uuid'
-import crypto from 'crypto'
-
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { firstName, lastName, phone, email } = req.body
@@ -107,20 +31,20 @@ export default async function handler(req, res) {
       // Генерация пароля
       const generatePswrd = uuidv4()
 
-      // Генерация временной метки
       const time = Math.floor(Date.now() / 1000)
-
-      // Формируем строку для создания ключа
       const keyString = `${staticKey}${email}${time}`
       const k = crypto.createHash('md5').update(keyString).digest('hex')
 
       // Создание ссылки для логина
-      const loginLink = `https://lms.mip.institute/local/ilogin/rlogin.php?un=${email}&pw=${generatePswrd}&ln=${lastName}&fn=${firstName}&g=87&e=${email}&t=${time}&k=${k}`
+      const Link = `https://lms.mip.institute/local/ilogin/rlogin.php?un=${email}&pw=${generatePswrd}&ln=${lastName}&fn=${firstName}&g=87&e=${email}&t=${time}&k=${k}`
 
-      // Возвращаем сгенерированную ссылку
-      res.status(200).json({ link: loginLink, password: generatePswrd })
+      res
+        .status(200)
+        .json({ link: Link, password: generatePswrd, login: email })
     } catch (error) {
-      res.status(500).json({ message: 'Ошибка генерации ссылки', error: error.message })
+      res
+        .status(500)
+        .json({ message: 'Ошибка генерации ссылки', error: error.message })
     }
   } else {
     res.status(405).json({ message: 'Метод не разрешен' })

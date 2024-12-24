@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextFreeAccess } from './TextFreeAccess/TextFreeAccess'
-import { FormFreeAccess } from './FormFreeAccess/FormFreeAccess'
 import TwoColumns from '@/ui/TwoColumns'
+import FormFreeAccess from './FormFreeAccess/FormFreeAccess'
 
 export const ContentFreeAccess = () => {
   return (

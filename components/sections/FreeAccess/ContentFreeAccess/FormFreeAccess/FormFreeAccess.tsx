@@ -9,7 +9,7 @@ export const FormFreeAccess = () => {
 
   // Функция для отправки данных формы
   const onSubmit = data => {
-    console.log(data, 'datadatadata')
+    alert(JSON.stringify(data, null, 2))
   }
 
   return (
@@ -70,8 +70,9 @@ export const FormFreeAccess = () => {
           )}
         />
       </div>
-      <BtnFreeAccess />
+      <button type='submit'  className={styles.submitBtn}>
+        Получить доступ
+      </button>
     </form>
   )
 }
-

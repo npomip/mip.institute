@@ -1,16 +1,17 @@
 import React from 'react'
 import styles from './TextFreeAccess.module.sass'
 import Image from 'next/image'
+import classNames from 'classnames'
 
 export const TextFreeAccess = () => {
   return (
     <div className={styles.container}>
       <div className={styles.text}>
         <p>
-          Для этого нужно ввести свои данные, и в течение трёх дней вы сможете
+          Для этого <span className={styles.violetTitle}>нужно ввести свои данные,</span><br /> и в течение трёх дней вы сможете
           без ограничений смотреть расписание и вебинары
         </p>
-      </div>
+      </div>  
       <div className={styles.imageContainer}>
         <div className={styles.giftBox}>
           <Image

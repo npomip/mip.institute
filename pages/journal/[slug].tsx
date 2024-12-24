@@ -9,17 +9,13 @@ import ReadingProgressbar from '@/ui/ReadingProgressbar'
 import Wrapper from '@/ui/Wrapper'
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
-import { routes } from '@/config/index'
-import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getStaticPropsBlog } from '@/lib/handlers/getStaticPropsBlog'
 import { getStaticPathsBlogs } from '@/lib/getStaticPaths/getStaticPathsBlog'
-import axios from 'axios'
-import qs from 'qs'
 
 const JournalSlugPage = ({ blog }) => {
-  console.log(blog);
+  console.log(blog.seo);
   
   const articleHeading = {
     studyField: blog?.studyField,
@@ -54,7 +50,7 @@ const JournalSlugPage = ({ blog }) => {
 
   return (
     <Wrapper>
-      {/* <SeoPagesJournal blog={blog} /> */}
+      <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
         <ReadingProgressbar />
         <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField}/>

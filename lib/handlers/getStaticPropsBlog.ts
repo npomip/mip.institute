@@ -25,30 +25,19 @@ export const getStaticPropsBlog = async ({ context }) => {
             }
           }
         },
+        seo: {
+          populate: '*'
+          
+        },
         blog_author: {
           fields: [
-            // 'avatar',
             'name',
           ],
-          // populate: {
-          //   avatar: {
-          //     fields: ['url', 'width', 'height']
-          //   }
-          // }
         },
-        // programs: {
-        //   fields: ['title', 'url',],
-        //   populate: {
-        //     heroPicture: {
-        //       fields: ['url', 'width', 'height']
-        //     }
-        //   }
-        // },
         picture: {
           fields: ['url', 'width', 'height']
         },
         article: {
-          // populate: '*',
           on: {
             'blog.table': {
               populate: {
@@ -96,9 +85,6 @@ export const getStaticPropsBlog = async ({ context }) => {
                 }
               }
             }
-            // 'blog.subtitle': {
-            //   populate: '*'
-            // },
           }
         }
       }

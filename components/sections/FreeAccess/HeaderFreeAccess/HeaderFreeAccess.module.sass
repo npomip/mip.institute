@@ -2,17 +2,13 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  width: 100%
-
-
-
 .bannerContent
-  // position: absolute
+  background-image: url("https://res.cloudinary.com/mipinstitute/image/upload/v1734966269/Banner_Besplatnogo_Dostupa_22431f0eb7.png")
+  background-repeat: no-repeat
+  background-size: cover
+  border-radius: f.px(20)
   color: white
   padding: f.px(167) f.px(35) f.px(63) f.px(60)
-  // width: 100%
-  // max-width: 1159px
   height: auto
   top: 0
   left: 0
@@ -20,37 +16,16 @@
   @include m.media(phone, tablet)
     padding: f.px(56) f.px(12) f.px(17) f.px(18)
 
-.title
-  // position: absolute
-  @include m.dye(c, c.$white-900)
-  font-family: Stem
-  font-size: f.px(55)
-  font-style: normal
-  font-weight: 500
-  line-height: 120%
-  text-transform: uppercase
-  @include m.media(phone, tablet)
-    font-size: f.px(20)
-
-.violetTitle
-  @include m.dye(c, c.$purple-900)
-
-.imageWrapper
-  // position: absolute
-  width: 100%
-  height: auto
-
-// .backgroundImage
-//   object-fit: contain
-//   object-position: center
-//   width: 100%
-//   height: auto
-//   opacity: 0.9
-//   max-width: 1159px
-//   max-height: 559px
-//   @include m.media(phone, tablet)
-//     object-fit: cover
-//     height: auto
-//     max-width: 100%
-//     width: 100%
-
+  p
+    text-transform: uppercase
+    font-style: normal
+    line-height: 120%
+    text-align: start
+    @include m.dye(c, c.$white-900)
+    font-size: f.px(55)
+    font-weight: 500
+    @include m.gap($mb: f.px(0))
+    @include m.media(phone, tablet)
+      font-size: f.px(20)
+    span
+      @include m.dye(c, c.$purple-850)

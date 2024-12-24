@@ -56,9 +56,6 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
     }
   }, [props.date])
 
-  console.log(props);
-  
-
   return (
     <>
       <span className={stls.tag}>{props.studyField}</span>

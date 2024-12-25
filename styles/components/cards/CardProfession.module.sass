@@ -54,11 +54,10 @@
 .type
   max-width: max-content
   @include m.gap($ptb: f.px(4), $plr: f.px(10),$mb: f.px(10))
-  font-weight: 700
+  font-weight: 500
   font-size: f.px(8)
   border-radius: f.px(23)
   font-style: normal
-  font-weight: 700
   letter-spacing: f.px(0.8)
   text-transform: uppercase
   border: f.px(1) solid
@@ -152,3 +151,5 @@
     gap: f.px(10)
     & > button
       width: 100%
+      &:last-child
+        @include m.dye(c, c.$black-900)

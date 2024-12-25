@@ -3,9 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 
 .section
-  @include m.gap($pb: f.px(0))
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50))
 
 .content
   background: #FBF4FF
@@ -19,7 +16,7 @@
   font-style: normal
   font-weight: 500
   max-width: f.px(470)
-  @include m.gap($mt: f.px(90), $mb: f.px(30))
+  @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
     display: none
 .textContainer

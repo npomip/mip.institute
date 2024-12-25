@@ -1,5 +1,5 @@
 import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
-import { createContext, useContext, useEffect, useReducer } from 'react'
+import { createContext, useContext, useReducer } from 'react'
 
 interface IFilter {
   bool: boolean
@@ -10,6 +10,7 @@ interface IFilter {
   isPopular: boolean
   type: ProgramTypes
   // duration: { min: number; max: number }
+  sort: { field: string | null; direction: string }
 }
 
 export enum ProgramTypes {
@@ -26,7 +27,8 @@ const initialFilters: IFilter = {
   courseOpened: false,
   isPopular: false,
   // duration: { min: 0, max: 6 },
-  type: ProgramTypes.All
+  type: ProgramTypes.All,
+  sort: { field: 'default', direction: 'asc' }
 }
 
 export function FilterProvider({ children, items }) {
@@ -278,14 +280,17 @@ function getFilteredItems(items, filters) {
     }
     return true
   })
-
-  if (filters.sort) {
+  if (filters.sort && filters.sort.field) {
     filteredItems = filteredItems.sort((a, b) => {
       const { field, direction } = filters.sort
-      if (filters.sort.field) {
-        return direction === 'asc' ? a[field] - b[field] : b[field] - a[field]
+      const valueA = a[field] || 0
+      const valueB = b[field] || 0
+
+      if (direction === 'asc') {
+        return valueA - valueB
+      } else {
+        return valueB - valueA
       }
-      return 0
     })
   }
 

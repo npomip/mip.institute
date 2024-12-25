@@ -11,15 +11,13 @@ import {
   Teachers,
   WhatYouWillLearn,
   WhyBother,
-  YourDiploma,
-  YourResume
+  YourDiploma
 } from '@/components/sections'
 import { discount } from '@/data/price'
 import {
   sortBasedOnNumericOrder,
   sortReviewsCreatedAtASC
 } from '@/helpers/index'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { TypeLibReviews } from '@/types/index'
 import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
@@ -94,8 +92,6 @@ const PagesProgram = ({
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
 
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-
   const [mustSpin, setMustSpin] = useState(false)
 
   const handleSpin = () => {
@@ -106,16 +102,15 @@ const PagesProgram = ({
     setMustSpin(false)
   }
 
-
   return (
     <>
       <ButtonToTop />
       <HeroProgram />
       <FortuneWheel
-          mustStartSpinning={mustSpin}
-          onClick={handleSpin}
-          onStopSpinning={handleStopSpinning}
-        />
+        mustStartSpinning={mustSpin}
+        onClick={handleSpin}
+        onStopSpinning={handleStopSpinning}
+      />
       <PageNavigation sections={sections} />
       <WhyBother />
       {programOverview && (
@@ -136,13 +131,8 @@ const PagesProgram = ({
           <WhatYouWillLearn title={'Чему вы научитесь'} />
         </>
       )}
-      <EducationProcess
-        paddingTop={30}
-        paddingBottom={0}
-        paddingTopMobile={0}
-        paddingBottomMobile={0}
-      />
-      <DistanceEducation paddingBottomMobile={20} />
+      <EducationProcess />
+      <DistanceEducation paddingBottomMobile={35} paddingBottom={90} />
       <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
       {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
@@ -150,7 +140,9 @@ const PagesProgram = ({
       <RequestsCard />
 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {program.portfolio &&  <YourResumeNew program={program} resumeRef={resumeRef} />}
+      {program.portfolio && (
+        <YourResumeNew program={program} resumeRef={resumeRef} />
+      )}
       <SalaryCounter title='Психология' />
 
       <Cta
@@ -171,7 +163,7 @@ const PagesProgram = ({
 
       <StudyCost costRef={costRef} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
-      <EntryForm pb={isMobileAndTabletLayout ? 60 : 90} pt={0} />
+      <EntryForm />
       <Faq faqRef={faqRef} />
     </>
   )

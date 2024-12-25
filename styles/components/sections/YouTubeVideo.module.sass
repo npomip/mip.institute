@@ -3,13 +3,12 @@
 @use '@/styles/themes/default/colors' as c
 
 .title
+  @include m.gap($mb: f.px(25))
+  font-size: f.px(44)
+  font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
-    font-size: f.px(26)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(25))
-    font-size: f.px(44)
-    font-weight: 500
+    font-size: f.px(30)
 
 .time
   display: flex

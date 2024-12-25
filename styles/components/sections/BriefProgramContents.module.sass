@@ -6,7 +6,7 @@
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(30))
   @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(0), $mt: f.px(90))
+    @include m.gap($pb: f.px(0))
     & > *
       @include m.gap($pt: f.px(80), $plr: f.px(100), $pb: f.px(80))
       border: f.px(0.5) solid c.$purple-800
@@ -35,7 +35,7 @@
   font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
-    font-size: f.px(26)
+    font-size: f.px(30)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
     font-size: f.px(40)

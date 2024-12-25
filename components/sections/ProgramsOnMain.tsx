@@ -27,8 +27,10 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
     course: studyFieldsCourses,
     profession: studyFieldsProfessions,
     bachelor: studyFieldsBachelor,
-    shortTerm: studyFieldsShortTerm
+    shortterm: studyFieldsShortTerm
   }
+
+  console.log(programsMap[currentType?.value.toLowerCase()], programsMap, currentType?.value.toLowerCase() )
 
 
   const filterPrograms = () => {
@@ -90,7 +92,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const showMore = () => setNumber(prev => Math.min(prev + 6, programs.length))
 
   return (
-    <section className={stls.container}>
+    <div className={stls.container}>
       <h2 className={stls.title}>Программы обучения</h2>
       <div className={stls.selects}>
         <CustomSelect
@@ -144,7 +146,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           </button>
         </div>
       )}
-    </section>
+    </div>
   )
 }
 

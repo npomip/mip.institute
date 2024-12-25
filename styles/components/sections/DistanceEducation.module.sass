@@ -6,23 +6,18 @@
   position: relative
   z-index: 1
   overflow: visible
-  // @include m.media(phone, tablet)
-  //   @include m.gap($pt: f.px(0), $pb: f.px(50))
-  // @include m.media(laptop, desktop)
-  //   @include m.gap($pt: f.px(0), $pb: f.px(100))
   @include m.dye(bg, c.$white-900)
 
 .title
   display: block
   max-width: f.px(700)
   @include m.dye(c, c.$black-800)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(35))
-    font-size: f.px(44)
-    font-weight: 500
+  @include m.gap($mb: f.px(35))
+  font-size: f.px(44)
+  font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(20))
-    font-size: f.px(26)
+    font-size: f.px(30)
   @include m.media(phone)
     max-width: f.px(300)
 
@@ -33,6 +28,7 @@
   justify-content: center
   align-items: center
   @include m.dye(bg, c.$orange-700)
+  @include m.dye(c, c.$white-900)
   width: 60px
   height: 60px
   border-radius: 50%

@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       const k = crypto.createHash('md5').update(keyString).digest('hex')
       const endEducation = time + 259200
       const beginEducation = time
-      const g = ЗнакомимсясМИП
+      const g = 'ЗнакомимсясМИП'
 
       // Создание ссылки для логина
       const Link = `https://lms.mip.institute/local/ilogin/rlogin.php?un=${email}&pw=${generatePswrd}&ln=${lastName}&fn=${firstName}&g=87&e=${email}&t=${time}&k=${k}&ee=${endEducation}&be=${beginEducation}&g=${g}`

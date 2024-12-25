@@ -25,11 +25,17 @@
   line-height: 115%
   @include m.media(phone, tablet)
     font-size: f.px(15)
-  &p
-    word-break: break-word
 
-.details a
-  color: c.$white-900
+.details > p
+    word-break: break-word
+    cursor: pointer
+
+.details > p > a
+  color: c.$orange-700
+  text-decoration: underline
+  &:focus-visible
+    outline: none
+
 
 .infoText
   text-align: center

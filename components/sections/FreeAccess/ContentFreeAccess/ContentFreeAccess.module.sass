@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .submitBtn
-  @include m.gap($mt: f.px(20))
+  @include m.gap($mt: f.px(20),$mb: f.px(87))
   @include m.gap($ptb: f.px(29))
   height: 89px
   width: 100%
@@ -26,3 +26,6 @@
 .onDesktop
   @include m.media(phone, tablet)
     display: none
+
+.container
+  @include m.gap($ptb: f.px(35))

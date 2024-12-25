@@ -11,29 +11,49 @@ const PopupAccess = () => {
     const storedLogin = localStorage.getItem('accessLogin')
 
     if (storedLogin && storedPassword && storedLogin) {
-      setDataStorage({ login: storedLogin, password: storedPassword , link: storedLink })
+      setDataStorage({
+        login: storedLogin,
+        password: storedPassword,
+        link: storedLink
+      })
     }
   }, [])
+
+  const handleCopy = async text => {
+    try {
+      await navigator.clipboard.writeText(text)
+    } catch (err) {
+      console.error('Ошибка копирования: ', err)
+    }
+  }
 
   return (
     <>
       {dataStorage && (
-        <Popup open={true} closeOnDocumentClick={false}>
+        <Popup open={true} closeOnDocumentClick={true}>
           <div className={styles.popupContainer}>
             <h3 className={styles.title}>Ваш доступ к личному кабинету</h3>
             <div className={styles.details}>
-              <p>Cсылка: <a href='${dataStorage.link}'>Ссылка на личный кабинет</a></p>
-              <p>Логин: {dataStorage.login}</p>
-              <p>Пароль: {dataStorage.password}</p>
+              <p onClick={() => handleCopy(dataStorage.link)}>
+                Cсылка:{' '}
+                <a href={`${dataStorage.link}`}>Ссылка на личный кабинет</a>
+              </p>
+              <p onClick={() => handleCopy(dataStorage.login)}>
+                Логин: {dataStorage.login}
+              </p>
+              <p onClick={() => handleCopy(dataStorage.password)}>
+                Пароль: {dataStorage.password}
+              </p>
             </div>
             <p className={styles.infoText}>
-              Сохраните данные для входа!  Напоминаем, что бесплатный доступ
+              Сохраните данные для входа! Напоминаем, что бесплатный доступ
               будет только 72 часа, заберите максимум пользы и почувствуйте себя
               студентом Московского Института Психологии.
             </p>
             <p className={styles.footerText}>
               Если у Вас возникли трудности с доступом, напишите обращение по
-              ссылке: <a
+              ссылке:{' '}
+              <a
                 href='https://mipinstitute.getcourse.ru/pl/talks/conversation'
                 target='_blank'>
                 https://mipinstitute.getcourse.ru/pl/talks/conversation

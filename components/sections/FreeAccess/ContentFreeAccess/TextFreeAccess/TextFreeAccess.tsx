@@ -31,7 +31,7 @@ export const TextFreeAccess = () => {
           height={28}
         />
       </div>
-      <div className={classNames( styles.twoStar)}>
+      <div className={classNames(styles.twoStar)}>
         <Image
           src='https://res.cloudinary.com/mipinstitute/image/upload/v1734972236/zvezda_8d91d8d40f.png'
           alt='Star'

@@ -36,6 +36,14 @@ const list = [
       programType: 'practicalTraining',
       hoverSelect: false
     }
+    ,
+    {
+      id: 6,
+      label: 'Курсы',
+      href: routes.front.shortTerm,
+      programType: 'shortTerm',
+      hoverSelect: true
+    }
   ]
 
 export default list

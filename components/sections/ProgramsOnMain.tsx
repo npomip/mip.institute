@@ -2,7 +2,8 @@ import { formOptions, levelOptions } from 'constants/customSelect'
 import {
   studyFieldsBachelor,
   studyFieldsCourses,
-  studyFieldsProfessions
+  studyFieldsProfessions,
+  studyFieldsShortTerm
 } from 'constants/studyFieldsOnMain'
 import { useEffect, useState } from 'react'
 import stls from 'styles/components/sections/ProgramsOnMain.module.sass'
@@ -25,8 +26,10 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const programsMap = {
     course: studyFieldsCourses,
     profession: studyFieldsProfessions,
-    bachelor: studyFieldsBachelor
+    bachelor: studyFieldsBachelor,
+    shortTerm: studyFieldsShortTerm
   }
+
 
   const filterPrograms = () => {
     return allPrograms.filter(program => {

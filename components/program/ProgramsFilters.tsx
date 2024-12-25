@@ -50,6 +50,8 @@ const ProgramsFilters = ({
 
   const handleNavigation = (destination: string) => {
     const { ofType, studyFieldSlug, ...rest } = router.query
+    console.log(ofType, studyFieldSlug, destination);
+    
     router.push({
       pathname: destination,
       query: rest
@@ -186,7 +188,7 @@ const ProgramsFilters = ({
           </FilterTag>
         )}
 
-        {findProgramsLength(allPrograms, 'practice') > 0 && (
+        {/* {findProgramsLength(allPrograms, 'practice') > 0 && (
           <FilterTag
             onClick={() => handleNavigation('/practice')}
             isActive={ofType === 'practice'}
@@ -210,7 +212,26 @@ const ProgramsFilters = ({
             isProgram>
             Практическая подготовка
           </FilterTag>
+        )} */}
+        {findProgramsLength(allPrograms, 'shortTerm') > 0 && (
+          <FilterTag
+          onClick={() => handleNavigation('/shortTerm')}
+          // withPopup
+          // position='right center'
+          // popupText='Программы повышения квалификации подходят тем, кто хочет углубить
+          // знания и получить новые навыки по профилю своей деятельности.
+          // Длительность обучения — от 1 до 6 месяцев. Выпускники получают
+          // удостоверение о повышении квалификации установленного образца
+          // (заносится в реестр ФИС ФРДО).'
+          isActive={ofType === 'shortTerm'}
+          quantity={
+             findProgramsLength(allPrograms, 'shortTerm')
+          }
+          isProgram>
+          Курсы
+        </FilterTag> 
         )}
+         
 
         <FilterTag
           onClick={handleSetPopularCourses}

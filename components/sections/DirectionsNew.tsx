@@ -27,6 +27,8 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
     el => el.type === 'Profession'
   ).length
 
+  const amountOfShortTerm = programs.filter(el => el.type === 'ShortTerm').length
+
   const allPrograms = programs.concat(bachelors, practicalTrainings)
   const renderCounter = (type: string) => {
     switch (type) {
@@ -36,8 +38,8 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
         return `${amountOfCourses} курсов`
       case 'profession':
         return `${amountOfProfessions} программы`
-      case 'lifeCourses':
-        return `1 курс`
+      case 'shortTerm':
+        return `${amountOfShortTerm} курсов`
       case 'programs':
         return `${allPrograms.length} программ`
       default:

@@ -26,7 +26,7 @@ const routes: TRoutes = {
     home: '/',
     programs: '/programs',
     professions: '/professions',
-    practice: '/practice',
+    shortTerm: '/shortTerm',
     journals: '/journal',
     journal: '/journal/slug',
     seminars: '/seminars',

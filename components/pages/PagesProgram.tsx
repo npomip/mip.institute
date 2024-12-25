@@ -143,9 +143,9 @@ const PagesProgram = ({
       {program.portfolio && (
         <YourResumeNew program={program} resumeRef={resumeRef} />
       )}
-      <SalaryCounter title='Психология' />
+      {ofType === 'Profession' && <SalaryCounter title='Психология' />}
 
-      <Cta
+      {ofType === 'Profession' && <Cta
         title={
           isPsyKonsultirovanie
             ? 'Забронируйте лучшие условия до старта обучения'
@@ -159,9 +159,9 @@ const PagesProgram = ({
               )}`
         }
         cta='reserve'
-      />
+      />}
 
-      <StudyCost costRef={costRef} />
+      <StudyCost costRef={costRef} ofType={ofType} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <EntryForm />
       <Faq faqRef={faqRef} />

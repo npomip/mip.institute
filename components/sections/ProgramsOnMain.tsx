@@ -30,9 +30,6 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
     shortterm: studyFieldsShortTerm
   }
 
-  console.log(programsMap[currentType?.value.toLowerCase()], programsMap, currentType?.value.toLowerCase() )
-
-
   const filterPrograms = () => {
     return allPrograms.filter(program => {
       const typeMatch = currentType

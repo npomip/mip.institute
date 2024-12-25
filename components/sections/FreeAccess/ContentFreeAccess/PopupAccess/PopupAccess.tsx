@@ -4,13 +4,14 @@ import styles from './PopupAccess.module.sass'
 
 const PopupAccess = () => {
   const [dataStorage, setDataStorage] = useState(null)
+  const [tooltipText, setTooltipText] = useState('')
 
   useEffect(() => {
     const storedLink = localStorage.getItem('accessLink')
     const storedPassword = localStorage.getItem('accessPassword')
     const storedLogin = localStorage.getItem('accessLogin')
 
-    if (storedLogin && storedPassword && storedLogin) {
+    if (storedLink && storedPassword && storedLogin) {
       setDataStorage({
         login: storedLogin,
         password: storedPassword,
@@ -19,9 +20,21 @@ const PopupAccess = () => {
     }
   }, [])
 
-  const handleCopy = async text => {
+  const handleCopy = async (text, type) => {
     try {
       await navigator.clipboard.writeText(text)
+
+      if (type === 'link') {
+        setTooltipText('Ссылка скопирована!')
+      } else if (type === 'login') {
+        setTooltipText('Логин скопирован!')
+      } else if (type === 'password') {
+        setTooltipText('Пароль скопирован!')
+      }
+
+      setTimeout(() => {
+        setTooltipText('')
+      }, 1200)
     } catch (err) {
       console.error('Ошибка копирования: ', err)
     }
@@ -34,21 +47,32 @@ const PopupAccess = () => {
           <div className={styles.popupContainer}>
             <h3 className={styles.title}>Ваш доступ к личному кабинету</h3>
             <div className={styles.details}>
-              <p onClick={() => handleCopy(dataStorage.link)}>
+              <p onClick={() => handleCopy(dataStorage.link,'link')}>
                 Cсылка:{' '}
-                <a href={`${dataStorage.link}`}>Ссылка на личный кабинет</a>
+                <a target='_blank' href={`${dataStorage.link}`}>
+                  Ссылка на личный кабинет
+                </a>
               </p>
-              <p onClick={() => handleCopy(dataStorage.login)}>
+              <p onClick={() => handleCopy(dataStorage.login, 'login')}>
                 Логин: {dataStorage.login}
               </p>
-              <p onClick={() => handleCopy(dataStorage.password)}>
+              <p onClick={() => handleCopy(dataStorage.password, 'password')}>
                 Пароль: {dataStorage.password}
               </p>
             </div>
+            {tooltipText && (
+              <Popup
+                open={true}
+                closeOnDocumentClick
+                position='top center'
+                onClose={() => setTooltipText('')}>
+                <div className={styles.tooltip}>{tooltipText}</div>
+              </Popup>
+            )}
             <p className={styles.infoText}>
-              Сохраните данные для входа! Напоминаем, что бесплатный доступ
-              будет только 72 часа, заберите максимум пользы и почувствуйте себя
-              студентом Московского Института Психологии.
+              Сохраните данные для входа! <br /> Напоминаем, что бесплатный
+              доступ будет только 72 часа, заберите максимум пользы и
+              почувствуйте себя студентом Московского Института Психологии.
             </p>
             <p className={styles.footerText}>
               Если у Вас возникли трудности с доступом, напишите обращение по

@@ -1,12 +1,14 @@
 import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
-import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/EducationProcess.module.sass'
 import Tag from '@/ui/Tag'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { useState } from 'react'
 import { infoBachelor, textIndex } from '../../constants/howProcessGoes'
+
+import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 
 type Props = {
   isBachelorPage?: boolean
@@ -91,13 +93,13 @@ const EducationProcess = ({ isBachelorPage = false }: Props) => {
                 {showFullText ? 'Скрыть описание' : 'Читать далее'}
               </button>
               <div className={stls.img}>
-                <Image
-                  className={stls.rightImg}
-                  width={575}
-                  height={260}
-                  src={img}
-                  alt='Как идет обучение?'
-                />
+              <Image
+                    className={stls.rightImg}
+                    width={570}
+                    height={260}
+                    src={img}
+                    alt='Как идет обучение?'
+                  />
               </div>
             </TwoColumns>
           )}

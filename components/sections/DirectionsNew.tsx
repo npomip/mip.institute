@@ -41,9 +41,9 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
       case 'shortTerm':
         return `${amountOfShortTerm} курсов`
       case 'programs':
-        return `${allPrograms.length} программ`
+        return `${allPrograms.length + 1} программа`
       default:
-        return `${practicalTrainings.length} ступени`
+        return `${practicalTrainings.length + 1} ступени`
     }
   }
   const handleMouseDown = (event, href) => {

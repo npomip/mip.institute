@@ -6,9 +6,6 @@
 .container
   position: relative
   background: white
-  // @include m.gap($pb: f.px(0), $pt: f.px(90))
-  @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(0))
   & > *
     & > *
       @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
@@ -16,20 +13,17 @@
 
 .title
   display: inline-block
-  @include m.media(phone, tablet)
-    font-size: f.px(26)
-    @include m.gap($mb: 0)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: 0, $mr: f.px(19), $pt: f.px(15))
-    font-size: f.px(44)
-    font-weight: 500
+  @include m.gap($mb: 0, $pt: f.px(15))
+  font-size: f.px(44)
+  font-weight: 500
   @include m.dye(c, c.$black-800)
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
+    @include m.gap($mb: 0)
   @media screen and (min-width: bp.$tablet) and ( max-width: 890px )
     @include m.gap($mb: f.px(37))
 
 .tag
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(15))
   & > *
     @include m.gap($ptb: f.px(8), $plr: f.px(20))
 
@@ -53,7 +47,7 @@
   font-weight: 500
 
 .readMoreBtn
-  color: #F87E1B
+  @include m.dye(c, c.$orange-700)
   font-size: f.px(15) !important
   font-weight: 700
   text-decoration: underline
@@ -63,7 +57,7 @@
     display: flex
 
 .img
-  @include m.gap($mt: f.px(30), $mb: f.px(25))
+  @include m.gap($mt: f.px(30))
 
 .rightImg
   object-fit: cover
@@ -73,7 +67,7 @@
     height: auto
 
 .leftTitle
-  @include m.gap($mt: f.px(30), $mb: f.px(45))
+  @include m.gap($mt: f.px(30), $mb: f.px(0))
   color: #131313
   font-size: f.px(20)
   font-weight: 350
@@ -83,7 +77,7 @@
     @include m.gap($mtb: f.px(10))
 
 .bothImg
-  @include m.gap($mt: f.px(0), $mb: f.px(0))
+  //@include m.gap($mt: f.px(0), $mb: f.px(0))
 
 .content
   @include m.media(laptop, desktop)

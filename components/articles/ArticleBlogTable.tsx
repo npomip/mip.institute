@@ -21,7 +21,7 @@ const ArticleBlogTable = ({ props }: ArticleBlogTableType) => {
         <tbody>
           {row.map((oneColumn, i) => (
             <tr key={oneColumn.id}>
-              {oneColumn.record.map(el =>
+              {oneColumn?.record?.map(el =>
                 i !== 0 ? (
                   <td key={el.id}>{el.text}</td>
                 ) : (

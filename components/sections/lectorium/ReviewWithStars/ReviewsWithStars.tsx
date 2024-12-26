@@ -11,21 +11,24 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 SwiperCore.use([Scrollbar])
 
-const ReviewsWithStars = ({ reviews }) => {
+const ReviewsWithStars = ({ reviews, isSupervision = false }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-
   return (
     <section className={stls.container}>
       <Wrapper>
-        <div className={stls.header}>
-          <div className={stls.tag}>
-            <Tag type='purple'>Что о нас говорят</Tag>
+        {isSupervision ? (
+          <h2 className={stls.titleSuper}>Отзывы</h2>
+        ) : (
+          <div className={stls.header}>
+            <div className={stls.tag}>
+              <Tag type='purple'>Что о нас говорят</Tag>
+            </div>
+            <h2 className={stls.title}>
+              <span className={stls.colouredTitle}>Отзывы </span>с прошедших
+              мероприятий
+            </h2>
           </div>
-          <h2 className={stls.title}>
-            <span className={stls.colouredTitle}>Отзывы </span>с прошедших
-            мероприятий
-          </h2>
-        </div>
+        )}
         <div className={stls.slides}>
           <Swiper
             scrollbar

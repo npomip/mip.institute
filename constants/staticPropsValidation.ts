@@ -1,2 +1,2 @@
 export const validOfTypeValues = 
-['bachelor', 'courses', 'professions', 'practice', 'programs']
+['bachelor', 'courses', 'professions', 'shortTerm', 'programs']

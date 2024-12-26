@@ -3,28 +3,29 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  h2
-    font-size: f.px(44)
-    font-style: normal
-    font-weight: 500
-    max-width: f.px(500)
-    position: relative
-    transform-style: preserve-3d
-    @include m.gap($mb: f.px(30), $pt: f.px(15))
+
+.title
+  font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
+  max-width: f.px(500)
+  position: relative
+  transform-style: preserve-3d
+  @include m.gap($mb: f.px(30), $pt: f.px(15))
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
+    max-width: f.px(400)
+    @include m.gap($mb: f.px(0), $pt: f.px(0))
+  &::after
+    content: ''
+    position: absolute
+    border-bottom: f.px(10) solid #F87E1B
+    width: 63%
+    left: 0
+    bottom: f.px(5)
+    transform: translateZ(-1px)
     @include m.media(phone, tablet)
-      font-size: f.px(33)
-      max-width: f.px(400)
-      @include m.gap($mb: f.px(0), $pt: f.px(0))
-    &::after
-      content: ''
-      position: absolute
-      border-bottom: f.px(10) solid #F87E1B
-      width: 63%
-      left: 0
-      bottom: f.px(5)
-      transform: translateZ(-1px)
-      @include m.media(phone, tablet)
-        width: f.px(240)
+      width: f.px(240)
 
 .tag
   @include m.media(phone, tablet)
@@ -122,6 +123,7 @@
   p
     @include m.media(phone, tablet)
       width: f.px(200)
+      font-size: f.px(15)
 .docIcon
   @include m.media(phone)
     position: absolute

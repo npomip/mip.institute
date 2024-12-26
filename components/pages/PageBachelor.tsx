@@ -57,13 +57,7 @@ const PageBachelor = ({ bachelor }) => {
       <PageNavigation sections={sections} />
       <ForWhomHE />
       <FourSteps stepsForEnterRef={stepsForEnterRef} />
-      <EducationProcess
-        isBachelorPage
-        paddingTop={90}
-        paddingBottom={0}
-        paddingTopMobile={0}
-        paddingBottomMobile={0}
-      />
+      <EducationProcess />
       <BriefProgramContents
         coloredBackground
         planRef={planRef}
@@ -76,16 +70,26 @@ const PageBachelor = ({ bachelor }) => {
           isMobileAndTabletLayout ? (
             <>
               <p
-                style={{ color: '#6F01C6', fontWeight: 500, fontSize: '30px' }}>
+                style={{
+                  color: '#6F01C6',
+                  fontWeight: 500,
+                  fontSize: '30px',
+                  marginBottom: '10px'
+                }}>
                 Ваша дополнительная специализация
               </p>
-              <p>
+              <p
+                style={{
+                  marginBottom: '0',
+                  fontSize: '15px',
+                  lineHeight: '130%'
+                }}>
                 Параллельная программа профессиональной переподготовки с
                 присвоением квалификации
               </p>
             </>
           ) : (
-            <h2 style={{ fontSize: '35px' }}>
+            <h2 style={{ fontSize: '35px', fontWeight: 500 }}>
               <span style={{ color: '#6F01C6' }}>
                 Ваша дополнительная специализация
               </span>{' '}
@@ -97,8 +101,8 @@ const PageBachelor = ({ bachelor }) => {
       />
       <Wrapper>
         <NoteBlock
-          marginTop={isMobileAndTabletLayout ? 30 : 60}
-          marginBottom={isMobileAndTabletLayout ? 30 : 60}
+          marginTop={isMobileAndTabletLayout ? 30 : 0}
+          marginBottom={isMobileAndTabletLayout ? 35 : 90}
           imageSrc={pic}
           title='Вопрос по программе'
           description='Остались вопросы по программе или дополнительной специализации? Напишите нам в форме обратной связи.'

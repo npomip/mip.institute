@@ -21,6 +21,19 @@
     @include m.gap($mb: f.px(20), $mr: 0)
     font-size: f.px(26)
 
+.titleSuper
+  display: inline-block
+  font-weight: 350
+  text-align: left
+  text-transform: uppercase
+  @include m.dye(c, c.$black-800)
+  @include m.gap($mb: f.px(30))
+  font-size: f.px(48)
+  @include m.media(phone, tablet)
+    text-align: left
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(32)
+
 .colouredTitle
   @include m.dye(c, c.$orange-700)
 

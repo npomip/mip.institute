@@ -3,6 +3,7 @@ import stls from '@/styles/components/filters/FilterTag.module.sass'
 import classNames from 'classnames'
 import Popup from 'reactjs-popup'
 import IconInfo from '../icons/IconInfo'
+import { PopupPosition } from 'reactjs-popup/dist/types'
 
 interface FilterTagProps {
   children: any
@@ -14,6 +15,7 @@ interface FilterTagProps {
   withPopup?: boolean
   popupText?: string
   disabled?: boolean
+  position?: string
 }
 const FilterTag = ({
   children,
@@ -24,7 +26,8 @@ const FilterTag = ({
   quantity,
   withPopup = false,
   popupText = '',
-  disabled = false
+  disabled = false,
+  position = 'left center'
 }: FilterTagProps) => {
   const isTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const contentStyle = {
@@ -57,7 +60,7 @@ const FilterTag = ({
             </span>
           )}
           on={isTabletLayout ? 'click' : 'hover'}
-          position={'left center'}
+          position={position as PopupPosition}
           {...{ contentStyle }}
           offsetX={5}>
           <span className={stls.popupText}>{popupText}</span>

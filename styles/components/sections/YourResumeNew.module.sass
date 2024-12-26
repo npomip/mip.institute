@@ -3,16 +3,12 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(90), $pb: f.px(0))
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50))
 
 .title
   font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
-    font-size: f.px(26)
+    font-size: f.px(30)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30))
     font-size: f.px(44)
@@ -132,7 +128,7 @@
   font-weight: 350
   @include m.dye(c, c.$brown-800)
   @include m.media(phone, tablet)
-    font-size: f.px(14)
+    font-size: f.px(15)
 
 .moreText
   text-align: left
@@ -173,7 +169,7 @@
 .itemText
   font-weight: 350
   @include m.media(phone, tablet)
-    font-size: f.px(14)
+    font-size: f.px(15)
     @include m.gap($pl: f.px(15))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(10), $pt: f.px(7))

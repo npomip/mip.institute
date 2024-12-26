@@ -4,25 +4,24 @@ import styles from '@/styles/pages/JournalSlug.module.sass'
 import ProgramDiscountUntil from '../program/ProgramDiscountUntil'
 import { ArticleBlogRelatedProgramsType } from './ArticleBlogRelatedPrograms'
 import RelatedProgramsList from './RelatedProgramsList'
-import ReactMarkdown from 'react-markdown'
 
 const ArticleBlogMoreThenOneProgram = ({
   props
 }: ArticleBlogRelatedProgramsType) => {
-  const { borderColor } = props
+  // const { borderColor } = props
   const { programs } = props
 
-  const customRenderers = {
-    em: ({ children }: { children: React.ReactNode }) => (
-      <span style={{ color: borderColor }}>{children}</span>
-    ),
-    p: ({ children }: { children: React.ReactNode }) => (
-      <p id={stls.title}>{children}</p>
-    ),
-    strong: ({ children }: { children: React.ReactNode }) => (
-      <span className={styles.strongText}>{children}</span>
-    )
-  }
+  // const customRenderers = {
+  //   em: ({ children }: { children: React.ReactNode }) => (
+  //     <span style={{ color: borderColor }}>{children}</span>
+  //   ),
+  //   p: ({ children }: { children: React.ReactNode }) => (
+  //     <p id={stls.title}>{children}</p>
+  //   ),
+  //   strong: ({ children }: { children: React.ReactNode }) => (
+  //     <span className={styles.strongText}>{children}</span>
+  //   )
+  // }
 
   return (
     <div className={stls.relatedPrograms}>
@@ -41,13 +40,13 @@ const ArticleBlogMoreThenOneProgram = ({
           </p>
         </div>
 
-        <div>
+        {/* <div>
           {props.textItem.map(item => (
             <ReactMarkdown key={item.id} components={customRenderers}>
               {item.text}
             </ReactMarkdown>
           ))}
-        </div>
+        </div> */}
         <p id={stls.courses}>Курсы:</p>
         <div className={stls.programs}>
           {programs.map(program => (

@@ -39,16 +39,18 @@ const PageTraining = ({ practicalTraining }: Props) => {
       />
       <PracticalCertificate image={practicalTraining?.diploma1} />
       <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
-      <Teachers
-        title={'Преподаватели'}
-        teachersList={practicalTraining?.teachers}
-        isExperienceHidden
-        halfScreenTitle
-        isWhiteBackground
-        showOnMobile={false}
-        isSquareBtn
-        isTeacherRoundBtn={false}
-      />
+      {practicalTraining?.teachers.length > 0 && (
+        <Teachers
+          title={'Преподаватели'}
+          teachersList={practicalTraining?.teachers}
+          isExperienceHidden
+          halfScreenTitle
+          isWhiteBackground
+          showOnMobile={false}
+          isSquareBtn
+          isTeacherRoundBtn={false}
+        />
+      )}
       <PracticalConditions />
       {practicalTraining?.review?.length > 0 && (
         <PracticalReviews review={practicalTraining.review} />
@@ -56,7 +58,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
       <RequirementsInProfession />
 
       <PracticalPaymentForm price={practicalTraining.price} />
-      {/* <GeneralFaq qnas={practicalTraining.qnas} isPractical /> */}
+      {/*<GeneralFaq qnas={practicalTraining.qnas} isPractical />*/}
     </div>
   )
 }

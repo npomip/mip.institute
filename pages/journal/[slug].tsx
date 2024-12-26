@@ -9,38 +9,51 @@ import ReadingProgressbar from '@/ui/ReadingProgressbar'
 import Wrapper from '@/ui/Wrapper'
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
-import { routes } from '@/config/index'
-import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { getStaticPropsBlog } from '@/lib/handlers/getStaticPropsBlog'
+import { getStaticPathsBlogs } from '@/lib/getStaticPaths/getStaticPathsBlog'
 
 const JournalSlugPage = ({ blog }) => {
+  console.log(blog.seo);
+  
   const articleHeading = {
     studyField: blog?.studyField,
     picture: blog?.picture,
     title: blog?.title,
     teacher: blog?.teacher,
-    blogAuthor: blog?.blogAuthor,
+    blog_author: blog?.blog_author,
     date: blog?.date,
     readTime: blog?.readTime
   }
 
-  const articleAuthors = [blog?.teacher, blog?.blogAuthor]
+  const articleAuthors = [blog?.teacher, blog?.blog_author]
 
   const headingLinks = blog?.article?.filter(
-    el => el.__typename === 'ComponentBlogSubtitle'
+    el => el.__component === "blog.subtitle"
   )
+
+  const slug = ['', blog?.studyFieldSlug]
+
+  const segments = ['journal', 'journal']
+
+  const labels = ['Журнал', blog?.studyField]
+  const breadcrumbs = segments.map((segment, index) => {
+    const breadcrumb = {
+      label: labels[index],
+      path: '/' + segments[index],
+      // path: '/' + segments.slice(0, index + 1).join('/'),
+      slug: slug[index]
+    }
+    return breadcrumb
+  })
 
   return (
     <Wrapper>
       <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
         <ReadingProgressbar />
-        <Breadcrumbs
-          isJournal
-          lastLabel={blog?.studyField}
-          journalSlug={blog?.studyFieldSlug}
-        />
+        <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField}/>
         {articleHeading && <ArticleTitle props={articleHeading} />}
         <Accordion>
           <ArticleContentLinks props={headingLinks} />
@@ -50,7 +63,7 @@ const JournalSlugPage = ({ blog }) => {
             <ArticlesDynamicZones key={idx} props={module} />
           ))}
           {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
-          {blog?.blogs.length > 0 && (
+          {blog?.blogs?.length > 0 && (
             <ArticleRelatedBlogs blogs={blog?.blogs} />
           )}
           <ButtonToTop />
@@ -60,10 +73,10 @@ const JournalSlugPage = ({ blog }) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () =>
-  await handleGetStaticPaths({ page: routes.front.journal })
+export const getStaticPaths = async () =>
+  await getStaticPathsBlogs()
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context, page: routes.front.journal })
+  await getStaticPropsBlog({context})
 
 export default JournalSlugPage

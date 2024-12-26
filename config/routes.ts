@@ -1,4 +1,4 @@
-import { dev } from '@/config/index'
+import { dev, preview, prod } from '@/config/index'
 
 type TRoutes = {
   front: {
@@ -26,7 +26,7 @@ const routes: TRoutes = {
     home: '/',
     programs: '/programs',
     professions: '/professions',
-    practice: '/practice',
+    shortTerm: '/shortTerm',
     journals: '/journal',
     journal: '/journal/slug',
     seminars: '/seminars',
@@ -36,6 +36,7 @@ const routes: TRoutes = {
     bachelors: '/bachelor',
     bachelor: '/bachelor/slug',
     practicalTrainings: '/practical-training',
+    supervision: '/practical-training/supervision',
     practicalTraining: '/practical-training/slug',
     lectoriums: '/lectorium',
     lectorium: '/lectorium/slug',
@@ -68,6 +69,7 @@ const routes: TRoutes = {
   },
   back: {
     root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
+    rootv2: prod ?  'https://api-v2.mip.institute':  preview ? 'https://dev.api-v2.mip.institute' : 'http://localhost:1338',
     home: '/',
     graphql: '/graphql',
     programs: '/programs',

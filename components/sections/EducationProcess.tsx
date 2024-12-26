@@ -11,22 +11,10 @@ import { CldImage } from 'next-cloudinary'
 
 type Props = {
   isBachelorPage?: boolean
-  paddingTop: number
-  paddingBottom: number
-  paddingTopMobile: number
-  paddingBottomMobile: number
 }
 
-const EducationProcess = ({
-  isBachelorPage = false,
-  paddingTop = 0,
-  paddingBottom = 0,
-  paddingTopMobile = 0,
-  paddingBottomMobile = 0
-}: Props) => {
+const EducationProcess = ({ isBachelorPage = false }: Props) => {
   const [showFullText, setShowFullText] = useState(false)
-
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const subtitleMobile = (
     <>
@@ -59,13 +47,7 @@ const EducationProcess = ({
       className={classNames({
         [stls.container]: true,
         [stls.bachelorContainer]: isBachelorPage
-      })}
-      style={{
-        paddingTop: isMobileAndTabletLayout ? paddingTopMobile : paddingTop,
-        paddingBottom: isMobileAndTabletLayout
-          ? paddingBottomMobile
-          : paddingBottom
-      }}>
+      })}>
       <Wrapper>
         <div className={stls.heading}>
           <div className={stls.tag}>

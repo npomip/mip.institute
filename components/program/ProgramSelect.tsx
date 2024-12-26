@@ -1,16 +1,20 @@
-import sortOptions from 'constants/programSelect'
-import { useRouter } from 'next/router'
+import React from 'react'
 import Select from 'react-select'
+import { useRouter } from 'next/router'
+import sortOptions from 'constants/programSelect'
 
-type Option = {
+export type SortOption = {
   label: string
-  value: any
+  value: {
+    field: string
+    direction: string
+  }
 }
 
 type Props = {
-  options?: Array<Option>
+  options?: Array<SortOption>
   mainColor?: string
-  onChange: (value: Option) => void
+  onChange: (value: SortOption) => void
   marginTop?: string
   width?: string
 }
@@ -113,7 +117,30 @@ const ProgramSelect = ({
 
   const router = useRouter()
   const { query } = router
-  const { studyFieldSlug } = query
+
+  const handleSelectChange = (selectedOption: SortOption | null) => {
+    if (!selectedOption) return
+
+    try {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: {
+            ...query,
+            filter: selectedOption.value.field
+          }
+        },
+        undefined,
+        { scroll: false }
+      )
+
+      if (onChange) {
+        onChange(selectedOption)
+      }
+    } catch (error) {
+      console.error('Ошибка при обработке изменения селекта:', error)
+    }
+  }
 
   return (
     <Select
@@ -121,14 +148,13 @@ const ProgramSelect = ({
       placeholder='Выберите направление'
       noOptionsMessage={() => 'Не нашлось подходящих направлений'}
       defaultValue={
-        options[0]?.value === 'default'
-          ? options[0]
-          : options.filter(el => el.value === studyFieldSlug)
+        options.find(opt => opt.value.field === query.filter) || options[0]
       }
       styles={customStyles}
       isSearchable={false}
-      onChange={onChange}
+      onChange={handleSelectChange}
       classNamePrefix='react-select'
+      aria-label='Выбор сортировки'
     />
   )
 }

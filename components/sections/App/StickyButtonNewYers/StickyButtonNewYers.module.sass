@@ -1,0 +1,220 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: fixed
+  bottom: 0
+  left: 0
+  z-index: 100
+  transform: translateY(100%)
+  transition: transform 0.2s ease-in-out
+  @include m.flex($ai: center)
+  width: 100%
+  @include m.media(phone, tablet)
+    height: f.px(70)
+  @include m.media(laptop, desktop)
+    height: f.px(95)
+  overflow: hidden
+  background: linear-gradient(90deg, rgb(171, 146, 255) -11.84%, rgb(35, 0, 115) 20.48%, #230073 56.75%, rgb(35, 0, 115) 74.02%, rgb(248, 126, 27) 125.35%)
+  background-size: cover
+  background-position: center
+  @include m.dye(c, c.$white-900)
+  & > *
+    position: relative
+    @media (max-width: 971px) and (min-width: 768px)
+      @include m.flex($jc: space-between, $ai: center)
+    @include m.media(laptop, desktop)
+      @include m.flex( $ai: center)
+    @include m.media(phone, tablet)
+      @include m.flex($jc: space-between, $ai: center)
+  &.isShown
+    transform: translateY(0)
+  &.isClosed
+    transform: translateY(100%)
+
+.fullBackground
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 0
+  pointer-events: none
+  background-image: url('https://res.cloudinary.com/mipinstitute/image/upload/v1734701988/Mlechnyj_Put_c0c1d0a1e1.png') // Укажите путь к вашему изображению
+  background-repeat: repeat
+  background-size: auto
+
+.shape
+  position: relative
+  z-index: 1
+  height: 100%
+  @include m.media(phone)
+    // width: 32%
+    // margin-top: -7%
+
+.leftThree
+  position: absolute
+
+  @include m.media(phone, tablet)
+    top: 0
+    opacity: 0.6
+
+.content
+  @include m.flex
+  @include m.gap($ml: f.px(90))
+  @include m.media(laptop)
+    @include m.gap($ml: f.px(40))
+  @include m.media(phone, tablet)
+    @include m.gap($ml: f.px(14))
+
+.title
+  display: block
+  font-size: f.px(33)
+  font-weight: 700
+  line-height: 110%
+  text-transform: uppercase
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.orangeTitle
+  color: c.$orange-700
+
+.text
+  position: relative
+  @include m.gap($mr: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(10))
+    line-height: 50%
+
+.description
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 400
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
+
+.discount
+  font-style: normal
+  font-weight: 400
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
+    display: block
+
+.tooltip
+  border-radius: f.px(5)
+  border: f.px(1) solid c.$purple-800
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($ptb: f.px(15), $plr: f.px(20))
+  font-size: f.px(12)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(desktop)
+    width: f.px(390)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(10), $plr: f.px(15))
+    min-width: f.px(190)
+    font-size: f.px(10)
+
+.info
+  position: absolute
+  margin-left: 90%
+  margin-top: -5%
+  @include m.media(phone, tablet)
+    margin-left: 110%
+    margin-top: -10%
+
+.containerGift
+  height: 103px
+  display: flex
+  align-items: flex-end
+  position: relative
+  @include m.media(laptop)
+    height: 93px
+  @include m.media(tablet)
+    height: 95px
+  @include m.media(phone)
+    width: 60px
+    height: 80px
+
+.gift
+  position: absolute
+  left: 60%
+  @include m.media(phone)
+    img
+      width: 40px
+      height: 30px
+
+
+.ballTree
+  position: absolute
+  left: 150%
+  transform: translateX(-50%)
+  @include m.media(phone)
+    left: 120%
+    img
+      width: 17px
+      height: 17px
+  
+.btns
+  @include m.media(phone, tablet)
+    display: none
+  @include m.flex
+  transform: translateX(15%)
+  & > *:nth-child(1)
+    @media screen and (min-width: 971px)
+      @include m.gap($mr: f.px(25))
+      & > button
+        padding: f.px(15) f.px(40)
+
+.btn2
+  & > div > button
+    padding: f.px(15) f.px(50)
+  @media screen and (max-width: 970px)
+    display: none
+
+.bow
+  position: absolute
+  z-index: 1
+  margin-top: -20px
+  margin-left: -30px
+  @include m.media(tablet)
+    margin-top: -58px
+    margin-left: 85px
+  @include m.media(phone)
+    // margin-top: -50px
+    // margin-left: 63px
+    // top: 31px
+    // right: 0
+
+.close
+  @include m.gap($ml: f.px(14))
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: f.px(14))
+
+.btnMobile
+  @include m.media(phone, tablet)
+    position: relative
+    height: 100%
+    display: flex
+    & > *
+      min-width: f.px(109)
+      & > *
+        font-size: f.px(10)
+  @include m.media(laptop, desktop)
+    display: none
+
+.bowMobile
+  object-fit: contain
+  // display: flex
+  @include m.media(phone, tablet)
+    position: absolute
+    top: 0
+    right: 0
+    transform: translate(50%, -30%) scale(-1,1)
+
+.icon
+  @include m.gap($mb: f.px(14))
+  & > span
+    @include m.sizeIcon($w: 20, $h: 20)

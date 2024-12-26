@@ -7,7 +7,8 @@ const breadcrumbsConfig = {
   '/courses': 'Повышение квалификации',
   '/professions': 'Профессиональная переподготовка',
   '/programs': 'Все курсы',
-  '/webinars': 'Вебинары'
+  '/webinars': 'Вебинары',
+  '/shortTerm': 'Курсы'
 }
 
 const programsConfig = {

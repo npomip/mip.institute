@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/practicalTraining/TwoColumnsPractical.module.sass'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type Props = {
   children: ReactNode
@@ -9,6 +10,7 @@ type Props = {
   rightViolet?: boolean
   fixHeight?: boolean
   isMobileReversed?: boolean
+  borderRadius?: number
 }
 
 const TwoColumnsPractical = ({
@@ -17,8 +19,14 @@ const TwoColumnsPractical = ({
   leftViolet = false,
   rightViolet = false,
   fixHeight = false,
-  isMobileReversed = false
+  isMobileReversed = false,
+  borderRadius = 10
 }: Props) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const radius = isMobileAndTabletLayout
+    ? `${borderRadius - 5}px`
+    : `${borderRadius}px`
+  
   return (
     <div
       className={classNames({
@@ -31,7 +39,10 @@ const TwoColumnsPractical = ({
           [stls.leftColumn]: true,
           [stls.isViolet]: leftViolet
         })}
-        style={{ flexBasis: bigLeft ? '65%' : '35%' }}>
+        style={{
+          flexBasis: bigLeft ? '65%' : '35%',
+          borderRadius: radius
+        }}>
         {children[0]}
       </div>
       <div
@@ -39,7 +50,10 @@ const TwoColumnsPractical = ({
           [stls.rightColumn]: true,
           [stls.isViolet]: rightViolet
         })}
-        style={{ flexBasis: bigLeft ? '35%' : '65%' }}>
+        style={{
+          flexBasis: bigLeft ? '35%' : '65%',
+          borderRadius: radius
+        }}>
         {children[1]}
       </div>
     </div>

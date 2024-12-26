@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import { DocumentContent } from './ArticleContentLinks'
 
 export type ArticleSubtitleType = {
   props: {
-    subtitle?: string
+    subtitle?: DocumentContent
     subtitleSlug?: string
     color: string
   }
@@ -12,17 +12,12 @@ export type ArticleSubtitleType = {
 const ArticleSubtitle = ({ props }: ArticleSubtitleType) => {
   const { subtitle, subtitleSlug, color } = props
 
-  const customRenderers = {
-    p: ({ children }: { children: React.ReactNode }) => (
-      <h2 id={subtitleSlug}>{children}</h2>
-    ),
-    em: ({ children }: { children: React.ReactNode }) => (
-      <span style={{ color }}>{children}</span>
-    )
-  }
-
   return (
-    <ReactMarkdown components={customRenderers}>{subtitle || ''}</ReactMarkdown>
+    <h2 id={subtitleSlug}>
+      {subtitle[0].children.map(el => (
+          <span key={el.text} style={{ color: el.italic && color }}>{el.text}</span>
+      ))}
+    </h2>
   )
 }
 

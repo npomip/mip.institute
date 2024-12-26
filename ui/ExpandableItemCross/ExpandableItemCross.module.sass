@@ -5,6 +5,8 @@
 .container
   display: grid
   @include m.gap($mb: f.px(20))
+  width: 100%
+  justify-self: flex-start
   &:nth-last-child(1)
     @include m.gap($mb: 0)
 
@@ -20,6 +22,7 @@
   font-style: normal
   font-weight: 500
   line-height: 130%
+  @include m.dye(c, c.$black-900)
   @include m.gap($mb: 0)
   text-align: start
   @include m.media(laptop, desktop)

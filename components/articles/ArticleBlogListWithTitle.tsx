@@ -20,7 +20,7 @@ const ArticleBlogListWithTitle = ({ props }: ArticleBlogListWithTitleType) => {
     <div className={stls.contentBox}>
       {list &&
         list.map((el, i) => (
-          <ArticleBlogListWithTitleItem key={el.id} props={el} />
+          <ArticleBlogListWithTitleItem key={el.id} props={el} icon={props.icon}/>
         ))}
     </div>
   )

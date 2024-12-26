@@ -1,20 +1,15 @@
-import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import { ArticleSubtitleType } from './ArticleSubtitle'
 
 const ArticleOneContentLink = ({ props }: ArticleSubtitleType) => {
-  const customRenderers = {
-    strong: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-    em: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-    p: ({ children }: { children: React.ReactNode }) => <p>{children}</p>
-  }
 
   return (
     <li>
       <Link href={`#${props.subtitleSlug}`} passHref>
-        <ReactMarkdown components={customRenderers}>
-          {props?.subtitle}
-        </ReactMarkdown>
+        <p>{props?.subtitle[0].children.map(el => (
+          <span key={el.text}>{el.text}</span>
+
+        ))}</p>
       </Link>
     </li>
   )

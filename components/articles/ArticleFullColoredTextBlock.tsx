@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import styles from '@/styles/pages/JournalSlug.module.sass'
+import { DocumentContent } from './ArticleContentLinks'
 
 type ArticleFullColoredTextBlockType = {
   props: {
-    text?: string
+    text?: DocumentContent
     textColor?: string
   }
 }
@@ -12,20 +13,18 @@ type ArticleFullColoredTextBlockType = {
 const ArticleFullColoredTextBlock = ({
   props
 }: ArticleFullColoredTextBlockType) => {
-  const customRenderers = {
-    em: ({ children }: { children: React.ReactNode }) => (
-      <span style={{ color: props?.textColor }}>{children}</span>
-    ),
-    strong: ({ children }: { children: React.ReactNode }) => (
-      <span className={styles.strongText}>{children}</span>
-    ),
-    p: ({ children }: { children: React.ReactNode }) => <p>{children}</p>
-  }
+  
 
   return (
-    <ReactMarkdown components={customRenderers}>
-      {props.text || ''}
-    </ReactMarkdown>
+    <>
+    {props.text.map((el, i) => (
+      <p key={i}>
+      {el.children.map(el => (
+        <span key={el.text} style={{ fontWeight: el.bold && 500, color: el.italic && props.textColor }}>{el.text}</span>
+    ))}
+    </p>
+    ))}
+      </>
   )
 }
 

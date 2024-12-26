@@ -25,8 +25,8 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
       case 'Course':
         baseRoute = routes.front.courses
         break
-      case 'Practice':
-        baseRoute = routes.front.practice
+      case 'ShortTerm':
+        baseRoute = routes.front.shortTerm
         break
       default:
         baseRoute =
@@ -50,7 +50,9 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
 
   const renderTypeTag = () => {
     const type =
-      profession.type === 'Profession' || profession.type === 'Course'
+      profession.type === 'Profession' ||
+      profession.type === 'Course' ||
+      profession.type === 'ShortTerm'
         ? profession.type
         : profession.__typename
 
@@ -61,6 +63,8 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
         return 'Повышение квалификации'
       case 'PracticalTraining':
         return 'Практическая подготовка'
+      case 'ShortTerm':
+        return 'Курсы'
       default:
         return 'Высшее образование'
     }
@@ -68,7 +72,8 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
 
   const renderDocTag = () => {
     const type =
-      profession.type === 'Profession' || profession.type === 'Course'
+      profession.type === 'Profession' || profession.type === 'Course'||
+      profession.type === 'ShortTerm'
         ? profession.type
         : profession.__typename
 
@@ -76,6 +81,8 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
       case 'Course':
         return 'Удостоверение'
       case 'PracticalTraining':
+        return 'Сертификат'
+      case 'ShortTerm':
         return 'Сертификат'
       default:
         return 'Диплом'

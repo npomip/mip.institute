@@ -52,6 +52,20 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 }) => {
   useHandleContextStaticProps({ programs })
 
+  const [layout, setLayout] = useState<'old' | 'new'>('old')
+  const [open, setOpen] = useState(false)
+  const [mustSpin, setMustSpin] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    const abTestKey = localStorage.getItem('AB') || 'old'
+    setLayout(abTestKey as 'old' | 'new')
+
+    if (router.query.utm_source === 'direct_link') {
+      setOpen(true)
+    }
+  }, [router.query])
+
   const teachersFromMain = teachers?.filter(teacher =>
     allowedNames.includes(teacher.name)
   )
@@ -77,25 +91,137 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     </>
   )
 
-  const [open, setOpen] = useState(false)
-  const router = useRouter()
+  const handleSpin = () => setMustSpin(true)
+  const handleStopSpinning = () => setMustSpin(false)
 
-  useEffect(() => {
-    if (router.query.utm_source === 'direct_link') {
-      setOpen(true)
-    }
-  }, [router.query])
+  // Массив компонентов для "old"
+  const oldLayoutComponents = [
+    <>
+      <Hero key='hero' />
+      <FortuneWheel
+        key='fortuneWheel'
+        mustStartSpinning={mustSpin}
+        onClick={handleSpin}
+        onStopSpinning={handleStopSpinning}
+      />
+      <DirectionsNew
+        key='directionsNew'
+        programs={programs}
+        bachelors={bachelors}
+        practicalTrainings={practicalTrainings}
+      />
+      <PsyTest key='psyTest' />
+      <TopCourses key='topCourses' />
+      <ButtonToTop key='buttonToTop' />
+      <WhyBother key='whyBother' />
+      <YouTubeVideo
+        key='youtubeVideo'
+        videoId='2WALhR1ZcszBWNRXQ2kNSB'
+        title='Знакомство с институтом'
+        isOnMain
+      />
+      <About key='about' />
+      <EducationProcess key='educationProcess' />
+      <DistanceEducation
+        key='distanceEducation'
+        paddingTop={0}
+        paddingBottom={100}
+        paddingTopMobile={0}
+        paddingBottomMobile={50}
+      />
+      <Cta
+        key='cta'
+        title='Подберите программу'
+        desc='Оставьте заявку на консультацию менеджера приёмной комиссии'
+        cta='chooseProgram'
+      />
+      <WhatYouWillLearn
+        key='whatYouWillLearn'
+        title='Чему вы научитесь в МИП'
+        onMain
+      />
+      <SalaryCounter key='salaryCounter' title='Психология' />
+      <Teachers
+        key='teachers'
+        onMain
+        title='Ведущие преподаватели'
+        teachersFromMain={teachersFromMain}
+      />
+      <YourDiploma key='yourDiploma' onMain ofType='Profession' />
+      <ProfessionalLeague key='professionalLeague' />
+      <HappyStudents key='happyStudents' />
+      <Reviews key='reviews' onMain reviews={reviewsSorted} />
+      <PayLater key='payLater' />
+      <Companies key='companies' />
+      <EntryForm key='entryForm' />
+      <Faq key='faq' />
+    </>
+  ]
 
-  const [mustSpin, setMustSpin] = useState(false)
-
-  const handleSpin = () => {
-    setMustSpin(true)
-  }
-
-  const handleStopSpinning = () => {
-    setMustSpin(false)
-  }
-
+  // Массив компонентов для "new"
+  const newLayoutComponents = [
+    <>
+      <Hero key='hero' />
+      <div className={stls.aboutPadding}>
+        <About key='about' />
+      </div>
+      <WhyBother key='whyBother' />
+      <YouTubeVideo
+        key='youtubeVideo'
+        videoId='2WALhR1ZcszBWNRXQ2kNSB'
+        title='Знакомство с институтом'
+        isOnMain
+      />
+      <EducationProcess key='educationProcess' />
+      <DistanceEducation
+        key='distanceEducation'
+        paddingTop={0}
+        paddingBottom={100}
+        paddingTopMobile={0}
+        paddingBottomMobile={50}
+      />
+      <DirectionsNew
+        key='directionsNew'
+        programs={programs}
+        bachelors={bachelors}
+        practicalTrainings={practicalTrainings}
+      />
+      <PsyTest key='psyTest' />
+      <TopCourses key='topCourses' />
+      <ButtonToTop key='buttonToTop' />
+      <div className={stls.youLearnPadding}>
+        <WhatYouWillLearn
+          key='whatYouWillLearn'
+          title='Чему вы научитесь в МИП'
+          onMain
+        />
+      </div>
+      <SalaryCounter key='salaryCounter' title='Психология' />
+      <Teachers
+        key='teachers'
+        onMain
+        title='Ведущие преподаватели'
+        teachersFromMain={teachersFromMain}
+      />
+      <YourDiploma key='yourDiploma' onMain ofType='Profession' />
+      <div className={stls.ctaPadding}>
+        <Cta
+          key='cta'
+          title='Подберите программу'
+          desc='Оставьте заявку на консультацию менеджера приёмной комиссии'
+          cta='chooseProgram'
+        />
+      </div>
+      <ProfessionalLeague key='professionalLeague' />
+      <HappyStudents key='happyStudents' />
+      <Reviews key='reviews' onMain reviews={reviewsSorted} />
+      <PayLater key='payLater' />
+      <Companies key='companies' />
+      <EntryForm key='entryForm' />
+      <Faq key='faq' />
+    </>
+  ]
+  // TODO: удалить временные стили после отката основной страницы к обычному состоянию
   return (
     <>
       <NextSeo
@@ -138,56 +264,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         }
       </Popup>
 
-      <Hero />
-      {/* <Directions /> */}
-      <FortuneWheel
-        mustStartSpinning={mustSpin}
-        onClick={handleSpin}
-        onStopSpinning={handleStopSpinning}
-      />
-      <DirectionsNew
-        programs={programs}
-        bachelors={bachelors}
-        practicalTrainings={practicalTrainings}
-      />
-      <PsyTest />
-      <TopCourses />
-      <ButtonToTop />
-      <WhyBother />
-      <YouTubeVideo
-        videoId='2WALhR1ZcszBWNRXQ2kNSB'
-        title='Знакомство с институтом'
-        isOnMain
-      />
-
-      <About />
-      <EducationProcess />
-      <DistanceEducation
-        paddingTop={0}
-        paddingBottom={100}
-        paddingTopMobile={0}
-        paddingBottomMobile={50}
-      />
-      <Cta
-        title={'Подберите программу'}
-        desc={'Оставьте заявку на консультацию менеджера приёмной комиссии'}
-        cta='chooseProgram'
-      />
-      <WhatYouWillLearn title={'Чему вы научитесь в МИП'} onMain />
-      <SalaryCounter title='Психология' />
-      <Teachers
-        onMain
-        title={'Ведущие преподаватели'}
-        teachersFromMain={teachersFromMain}
-      />
-      <YourDiploma onMain ofType='Profession' />
-      <ProfessionalLeague />
-      <HappyStudents />
-      <Reviews onMain reviews={reviewsSorted} />
-      <PayLater />
-      <Companies />
-      <EntryForm />
-      <Faq />
+      {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(
+        component => component
+      )}
     </>
   )
 }

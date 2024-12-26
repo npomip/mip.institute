@@ -10,6 +10,7 @@ const links = [
   { text: 'Вебинары', href: routes.front.webinars, withIcon: false },
   { text: 'Журнал', href: routes.front.journals, withIcon: false },
   { text: 'Семинары', href: routes.front.lectoriums, withIcon: false },
+  { text: 'Супервизии', href: routes.front.supervision, withIcon: false },
   { text: 'Отзывы', href: routes.front.reviews, withIcon: false },
   { text: 'Об институте', href: routes.front.about, withIcon: false },
   {

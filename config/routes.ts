@@ -36,6 +36,7 @@ const routes: TRoutes = {
     bachelors: '/bachelor',
     bachelor: '/bachelor/slug',
     practicalTrainings: '/practical-training',
+    supervision: '/practical-training/supervision',
     practicalTraining: '/practical-training/slug',
     lectoriums: '/lectorium',
     lectorium: '/lectorium/slug',

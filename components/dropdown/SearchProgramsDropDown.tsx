@@ -23,6 +23,10 @@ export default function SearchProgramsDropDown() {
         val: 'Семинары'
       },
       {
+        href: routes.front.supervision,
+        val: 'Супервизия'
+      },
+      {
         href: routes.front.teachers,
         val: 'Преподаватели'
       },

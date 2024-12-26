@@ -7,7 +7,8 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import { useState } from 'react'
 import { infoBachelor, textIndex } from '../../constants/howProcessGoes'
-import { CldImage } from 'next-cloudinary'
+
+import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 
 type Props = {
   isBachelorPage?: boolean
@@ -92,15 +93,13 @@ const EducationProcess = ({ isBachelorPage = false }: Props) => {
                 {showFullText ? 'Скрыть описание' : 'Читать далее'}
               </button>
               <div className={stls.img}>
-                <CldImage
-                  className={stls.rightImg}
-                  style={{ width: '100%', height: 'auto' }}
-                  crop='fit'
-                  width='580'
-                  height='260'
-                  src='gif_mip_last_chance_f0d8a9f9a1'
-                  alt='Как идет обучение?'
-                />
+              <Image
+                    className={stls.rightImg}
+                    width={570}
+                    height={260}
+                    src={img}
+                    alt='Как идет обучение?'
+                  />
               </div>
             </TwoColumns>
           )}

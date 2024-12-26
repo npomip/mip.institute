@@ -5,13 +5,14 @@ import cn from 'classnames'
 import {
   studyFields,
   studyFieldsCourses,
-  studyFieldsProfessions
+  studyFieldsProfessions,
+  studyFieldsShortTerm
 } from 'constants/studyFieldsOnMain'
 import { Fragment } from 'react'
 
 type StudyFieldsType = {
   aside?: boolean
-  ofType?: 'course' | 'profession' | null | 'bachelor' | 'practicalTraining'
+  ofType?: 'course' | 'profession' | null | 'bachelor' | 'practicalTraining' | 'shortTerm'
   close?: any
   flexend?: boolean
   smallText?: boolean
@@ -35,6 +36,8 @@ const StudyFieldsOnMain = ({
       ? studyFieldsCourses
       : ofType === 'profession'
       ? studyFieldsProfessions
+      : ofType === 'shortTerm'
+      ? studyFieldsShortTerm
       : ofType === 'bachelor' || ofType === 'practicalTraining'
       ? null
       : studyFields
@@ -58,6 +61,8 @@ const StudyFieldsOnMain = ({
                   ? routes.front.courses
                   : currentType === 'profession'
                   ? routes.front.professions
+                  : currentType === 'shortTerm'
+                  ? routes.front.shortTerm
                   : routes.front.programs
               }/${value}`}
               aside={aside}

@@ -5,16 +5,14 @@
 .container
   @include m.dye(bg, c.$gray-50)
   position: relative
-  @include m.gap($pb: f.px(0))
-  @include m.media(tablet, phone)
-    @include m.gap($pb: f.px(0))
+
 .heading
   @include m.media(desktop, laptop)
     @include m.gap($mb: f.px(15))
 
 .title
   display: inline-block
-  @include m.gap($pt: f.px(15), $pb: f.px(15), $mb: f.px(0), $mt: f.px(50))
+  @include m.gap($pt: f.px(15), $pb: f.px(15), $mb: f.px(0), $mt: f.px(35))
   font-size: f.px(44)
   font-style: normal
   font-weight: 500

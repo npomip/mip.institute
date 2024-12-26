@@ -2,7 +2,8 @@ import { formOptions, levelOptions } from 'constants/customSelect'
 import {
   studyFieldsBachelor,
   studyFieldsCourses,
-  studyFieldsProfessions
+  studyFieldsProfessions,
+  studyFieldsShortTerm
 } from 'constants/studyFieldsOnMain'
 import { useEffect, useState } from 'react'
 import stls from 'styles/components/sections/ProgramsOnMain.module.sass'
@@ -25,7 +26,8 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const programsMap = {
     course: studyFieldsCourses,
     profession: studyFieldsProfessions,
-    bachelor: studyFieldsBachelor
+    bachelor: studyFieldsBachelor,
+    shortterm: studyFieldsShortTerm
   }
 
   const filterPrograms = () => {
@@ -87,7 +89,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const showMore = () => setNumber(prev => Math.min(prev + 6, programs.length))
 
   return (
-    <section className={stls.container}>
+    <div className={stls.container}>
       <h2 className={stls.title}>Программы обучения</h2>
       <div className={stls.selects}>
         <CustomSelect
@@ -141,7 +143,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           </button>
         </div>
       )}
-    </section>
+    </div>
   )
 }
 

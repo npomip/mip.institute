@@ -16,7 +16,7 @@ const ProfessionalLeague = () => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
-    <div className={stls.section}>
+    <section className={stls.section}>
       <Wrapper>
         <div className={stls.block}>
           <div className={stls.wave}>
@@ -87,7 +87,7 @@ const ProfessionalLeague = () => {
           )}
         </div>
       </Wrapper>
-    </div>
+    </section>
   )
 }
 

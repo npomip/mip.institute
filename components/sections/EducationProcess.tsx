@@ -1,6 +1,5 @@
 import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import img from '@/public/assets/imgs/general/howProcessGoes.jpeg'
 import stls from '@/styles/components/sections/EducationProcess.module.sass'
 import Tag from '@/ui/Tag'
@@ -11,22 +10,10 @@ import { infoBachelor, textIndex } from '../../constants/howProcessGoes'
 
 type Props = {
   isBachelorPage?: boolean
-  paddingTop: number
-  paddingBottom: number
-  paddingTopMobile: number
-  paddingBottomMobile: number
 }
 
-const EducationProcess = ({
-  isBachelorPage = false,
-  paddingTop = 0,
-  paddingBottom = 0,
-  paddingTopMobile = 0,
-  paddingBottomMobile = 0
-}: Props) => {
+const EducationProcess = ({ isBachelorPage = false }: Props) => {
   const [showFullText, setShowFullText] = useState(false)
-
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const subtitleMobile = (
     <>
@@ -59,13 +46,7 @@ const EducationProcess = ({
       className={classNames({
         [stls.container]: true,
         [stls.bachelorContainer]: isBachelorPage
-      })}
-      style={{
-        paddingTop: isMobileAndTabletLayout ? paddingTopMobile : paddingTop,
-        paddingBottom: isMobileAndTabletLayout
-          ? paddingBottomMobile
-          : paddingBottom
-      }}>
+      })}>
       <Wrapper>
         <div className={stls.heading}>
           <div className={stls.tag}>

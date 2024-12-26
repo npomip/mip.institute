@@ -4,13 +4,6 @@
 
 .container
   position: relative
-  & > *
-    @include m.media(phone, tablet)
-      @include m.gap($plr: f.px(0))
-  @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(90), $pt: f.px(90))
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50))
 
 .filterImg
   position: relative
@@ -32,15 +25,14 @@
     border-radius: f.px(20) f.px(35) f.px(35) f.px(20)
 
 .title
+  @include m.gap($mt: f.px(0),$mb: f.px(30))
+  @include m.dye(c, c.$black-800)
+  font-size: f.px(44)
+  font-weight: 500
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(22), $pl: f.px(15))
+    @include m.gap($mb: f.px(22))
     line-height: 110%
     font-size: f.px(30)
-  @include m.media(laptop, desktop)
-    @include m.gap($mt: f.px(0),$mb: f.px(30))
-    font-size: f.px(44)
-    font-weight: 500
-  @include m.dye(c, c.$black-800)
 
 .points
   position: relative
@@ -68,7 +60,7 @@
     height: auto
     min-height: f.px(103)
     max-height: fit-content
-    @include m.gap($mb: f.px(10),$mlr: f.px(15), $pl: f.px(41))
+    @include m.gap($mb: f.px(10),$mlr: f.px(15), $pl: f.px(15))
   &:nth-of-type(2)
     @include m.gap($mt: f.px(0))
   &:nth-of-type(4)

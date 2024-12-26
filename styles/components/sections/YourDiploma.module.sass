@@ -3,21 +3,16 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(30), $pb: f.px(50))
-  @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(0), $pt: f.px(90))
 
 .title
   display: inline-block
+  @include m.gap($mb: f.px(30))
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.dye(c, c.$black-800)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
-    font-size: f.px(26)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30), $pt: f.px(15))
-    font-size: f.px(44)
-    font-weight: 500
-  @include m.dye(c, c.$black-800)
+    font-size: f.px(30)
 
 .tag
   @include m.media(phone, tablet)
@@ -36,6 +31,7 @@
   width: 100%
 
 .subtitle, .mainSubtitle
+  line-height: 130%
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($mb: f.px(10))
@@ -46,7 +42,6 @@
     @include m.gap($mb: f.px(39))
     @include m.dye(c, c.$black-800)
     font-weight: 300
-    line-height: 130%
   @include m.dye(c, c.$black-800)
 
 .mainSubtitle
@@ -56,18 +51,14 @@
 .moreText
   cursor: pointer
   position: relative
-  z-index: 2
+  @include m.dye(c, c.$orange-700)
+  font-size: f.px(15)
+  font-weight: 700
+  text-decoration: underline
+  text-underline-offset: f.px(3)
   @include m.gap($mb: f.px(31), $mt:f.px(4))
-  @include m.media(laptop)
-    @include m.gap($mb: f.px(18))
-
-    font-size: f.px(20)
-    font-weight: 700
-    @include m.dye(c, c.$orange-700)
-    text-decoration-line: underline
-    text-underline-offset: f.px(5)
   @include m.media(phone, tablet)
-    font-size: f.px(15)
+    display: flex
     @include m.gap($mb: f.px(15))
 
 .content

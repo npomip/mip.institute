@@ -3,10 +3,6 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  position: relative
-  @include m.gap($pb: f.px(0))
-  @include m.media(tablet, phone)
-    @include m.gap($pb: f.px(0))
 
 .title
   display: inline-block
@@ -16,7 +12,8 @@
     font-size: f.px(44)
   @include m.media(tablet, phone)
     @include m.gap($pt: f.px(0), $pb: f.px(0))
-    font-size: f.px(33)
+    font-size: f.px(30)
+
 .tag
   @include m.media(phone, tablet)
     @include m.gap($pb: f.px(15))

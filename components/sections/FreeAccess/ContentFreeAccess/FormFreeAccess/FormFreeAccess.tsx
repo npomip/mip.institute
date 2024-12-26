@@ -4,9 +4,12 @@ import styles from './FormFreeAccess.module.sass'
 import axios from 'axios'
 import PopupAccess from '../PopupAccess/PopupAccess'
 import classNames from 'classnames'
+import routes from '@/config/routes'
+import { getCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
 
 type FormValues = {
-  firstName: string
+  name: string
   phone: string
   email: string
   lastName: string
@@ -20,13 +23,14 @@ const FormFreeAccess = ({ setDisabled }) => {
     formState: { errors }
   } = useForm<FormValues>({
     defaultValues: {
-      firstName: '',
+      name: '',
       lastName: '',
       phone: '',
       email: ''
     }
   })
 
+  const router = useRouter()
   useEffect(() => {
     const savedFormData = localStorage.getItem('formData')
     const storedLink = localStorage.getItem('accessLink')
@@ -55,6 +59,38 @@ const FormFreeAccess = ({ setDisabled }) => {
 
       setShowPopup(true)
       setDisabled(true)
+      // собираем данные для отправки в СРМ
+      data.leadPage = router.asPath
+      const utms = JSON.parse(sessionStorage.getItem('utms'))
+      data.utms = utms
+      sessionStorage.removeItem('utms')
+      const referer = JSON.parse(sessionStorage.getItem('referer'))
+      data.referer = referer
+      sessionStorage.removeItem('referer')
+      const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+      data.ymUid = ymUid
+      const clickId = getCookie('utm')
+
+      const roistat_visit = getCookie('roistat_visit')
+      const advcake_track_id = getCookie('advcake_track_id')
+      const advcake_track_url = getCookie('advcake_track_url')
+
+      if (typeof clickId === 'string') {
+        data.utm = JSON.parse(clickId)
+      } else {
+        data.utm = null
+      }
+
+      data.advcake_track_id = advcake_track_id
+      data.advcake_track_url = advcake_track_url
+      data.roistat_visit = roistat_visit
+
+      data.link = link
+      data.password = password
+      data.login = login
+
+      // отправляем данные
+      const res = await axios.post(`${routes.front.root}/api/genezis`, data)
     } catch (error) {
       console.error('Error generating link:', error)
     }
@@ -66,7 +102,7 @@ const FormFreeAccess = ({ setDisabled }) => {
       <form id='formAccess' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.formGroup}>
           <Controller
-            name='firstName'
+            name='name'
             control={control}
             rules={{
               required: '*Имя обязательно',
@@ -84,7 +120,7 @@ const FormFreeAccess = ({ setDisabled }) => {
               />
             )}
           />
-          {errors.firstName && <span className={styles.error}>{errors.firstName.message}</span>}
+          {errors.name && <span className={styles.error}>{errors.name.message}</span>}
         </div>
 
         <div className={styles.formGroup}>

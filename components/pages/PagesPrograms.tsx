@@ -3,6 +3,7 @@ import ProgramsFilters from '@/components/program/ProgramsFilters'
 import Wrapper from '@/ui/Wrapper'
 import { ContactForm, HeroPrograms } from '@/components/sections'
 import {
+  useFilter,
   useFilterDispatch,
   useFilteredItems
 } from '@/context/FilterContext/FilterContext'
@@ -10,7 +11,7 @@ import { sortBasedOnNumericOrder } from '@/helpers/index'
 import stls from '@/styles/components/sections/Programs.module.sass'
 import { TypeLibPrograms } from '@/types/index'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import CardProfession from '../cards/CardProfession'
 import ResetFilter from '../filters/ResetFilter'
 import { findMinMaxForSlider } from '@/helpers/funcs/findMinMaxForSlider'
@@ -32,6 +33,7 @@ const PagesPrograms = ({
   bachelors,
   practicalTrainings
 }: PagesProgramsType) => {
+  const { filters } = useFilter()
   let filteredItems = useFilteredItems()
 
   const dispatch = useFilterDispatch()
@@ -92,7 +94,13 @@ const PagesPrograms = ({
     })
   }
 
-  const sortedPrograms = sortBasedOnNumericOrder({ programs: filteredItems })
+  const sortedPrograms = useMemo(() => {
+    return sortBasedOnNumericOrder({
+      programs: filteredItems,
+      sortField: filters.sort?.field,
+      sortDirection: filters.sort?.direction
+    })
+  }, [filteredItems, filters.sort])
 
   return (
     <>
@@ -132,7 +140,7 @@ const PagesPrograms = ({
               {sortedPrograms?.length > 0 ? (
                 sortedPrograms?.map((profession, idx) => (
                   <CardProfession
-                    key={profession.title + idx}
+                    key={`${profession.price}+${idx}`}
                     profession={profession}
                   />
                 ))

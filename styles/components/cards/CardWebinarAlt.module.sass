@@ -21,6 +21,8 @@
       @include m.dye(c, c.$purple-800)
     & .link
       text-decoration: underline
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(10), $ptb: f.px(20))
 
 .bell
   position: absolute
@@ -30,7 +32,6 @@
   @include m.gap($p: f.px(15))
   border-radius: 50%
   @include m.dye(bg, c.$purple-800)
-  opacity: .2
   transition: opacity .2s ease-in-out
 
 .when

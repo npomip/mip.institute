@@ -3,18 +3,14 @@
 @use '@/styles/themes/default/colors' as c
 
 .section
-  @include m.gap($pt: f.px(50))
-  @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(30))
 
 .title
   @include m.dye(c, c.$black-800)
   font-weight: 500
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(60))
+    @include m.gap($mb: f.px(30))
     font-size: f.px(44)
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(30))
     font-size: f.px(30)
   &::after
     content: 'Образование'

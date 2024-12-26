@@ -141,10 +141,10 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Hero />
       {/* <Directions /> */}
       <FortuneWheel
-          mustStartSpinning={mustSpin}
-          onClick={handleSpin}
-          onStopSpinning={handleStopSpinning}
-        />
+        mustStartSpinning={mustSpin}
+        onClick={handleSpin}
+        onStopSpinning={handleStopSpinning}
+      />
       <DirectionsNew
         programs={programs}
         bachelors={bachelors}
@@ -161,12 +161,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
 
       <About />
-      <EducationProcess
-        paddingTop={90}
-        paddingBottom={0}
-        paddingTopMobile={0}
-        paddingBottomMobile={0}
-      />
+      <EducationProcess />
       <DistanceEducation
         paddingTop={0}
         paddingBottom={100}

@@ -2,9 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 .container
-  @include m.gap($pb: f.px(0), $pt: f.px(0))
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(35))
 
 .onProfessions
   @include m.gap($pt: f.px(90))
@@ -21,7 +18,7 @@
   font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
-    font-size: f.px(26)
+    font-size: f.px(30)
     max-width: f.px(200)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(30), $pt: f.px(15))
@@ -37,9 +34,7 @@
 .desc
   @include m.media(phone, tablet)
     font-size: f.px(15)
-    @include m.gap($mb: f.px(20))
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30))
     font-size: f.px(20)
   @include m.dye(c, c.$black-800)
 

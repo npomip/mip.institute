@@ -6,7 +6,7 @@
   display: inline-block
   font-weight: 500
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(30), $pt: f.px(15))
+    @include m.gap($mb: f.px(30))
     font-size: f.px(44)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
@@ -47,8 +47,8 @@
   font-size: f.px(16)
   font-weight: 350
   cursor: pointer
-  border: f.px(0.5) solid
-  @include m.dye(border, c.$purple-800)
+  border: f.px(1) solid c.$purple-800
+  @include m.dye(c, c.$black-900)
   border-radius: f.px(10)
   @include m.flex($ai: center, $jc: center)
   @include m.gap($ptb: f.px(14), $plr: f.px(59))

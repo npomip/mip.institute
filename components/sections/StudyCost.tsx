@@ -11,7 +11,7 @@ import MoneySaving from '../program/MoneySaving'
 import ProgramStudyDuration from '../program/ProgramStudyDuration'
 import points from 'constants/studyCost'
 
-const StudyCost = ({ costRef }) => {
+const StudyCost = ({ costRef, ofType }) => {
   const { program } = useContext(ContextStaticProps)
 
   const title = program?.title || ''
@@ -38,7 +38,7 @@ const StudyCost = ({ costRef }) => {
   ]
 
   return (
-    <section ref={costRef} className={stls.container}>
+    <section ref={costRef} className={stls.container} style={{marginTop: ofType !== 'Profession' ? '-33px': null}}>
       <Wrapper>
         <div className={stls.title}>
           <span className={stls.laptopdesktop}>Запишитесь на программу</span>

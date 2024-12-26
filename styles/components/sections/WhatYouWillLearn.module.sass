@@ -6,27 +6,26 @@
   position: relative
 
 .container
-  @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(43))
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(60))
+    @include m.gap($ptb: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(35))
   @include m.dye(bg, c.$white-900)
 
 .title
   display: inline-block
+  @include m.gap($mb: f.px(35))
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.dye(c, c.$black-800)
   @include m.media(tablet)
     white-space: nowrap
     @include m.gap($mb: f.px(20))
     font-size: f.px(30)
   @include m.media(phone)
     @include m.gap($mb: f.px(20))
-    font-size: f.px(34)
+    font-size: f.px(30)
     max-width: f.px(350)
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(35), $pt: f.px(15))
-    font-size: f.px(44)
-    font-weight: 500
-  @include m.dye(c, c.$black-800)
 
 .list
   margin: 0
@@ -93,7 +92,7 @@
     @include m.media(phone)
       @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
       top: f.px(-3)
-      left: f.px(-200)
+      left: f.px(-220)
 
 .orangeBlock
   position: relative

@@ -21,14 +21,10 @@ interface Props {
 const EntryForm = ({
   isLiveCourse = false,
   withPromo = true,
-  onBachelor = false,
-  pt = 0,
-  pb = 90
+  onBachelor = false
 }: Props) => {
   return (
-    <section
-      style={{ paddingTop: pt, paddingBottom: pb }}
-      className={stls.container}>
+    <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
           {onBachelor ? 'Как поступить' : 'Заявка на поступление'}

@@ -16,7 +16,7 @@ const ProgramsPage: NextPage<
   TypePageProgramsProps & { studyFields: any } & { allPrograms: any[] }
 > = ({ programs, studyFields, allPrograms, bachelors, practicalTrainings }) => {
   useHandleContextStaticProps({ programs })
-
+  
   return (
     <>
       <SeoPagesPrograms programs={programs} />
@@ -87,8 +87,9 @@ export const getStaticProps = async ({ params }) => {
     filteredPrograms = filteredPrograms.filter(
       program => program.type === 'Course'
     )
-  } else if (ofType === 'practice') {
-    filteredPrograms = programs.filter(program => program.type === 'Practice')
+  } else if (ofType === 'shortTerm') {
+    filteredPrograms = filteredPrograms.filter(program => program.type === 'ShortTerm')
+    
   }
 
   const studyFieldMap = {}
@@ -103,11 +104,12 @@ export const getStaticProps = async ({ params }) => {
           }
         }
       })
-  } else if (ofType === 'practice') {
+  } else if (ofType === 'shortTerm') {
     programs
-      .filter(program => program.type === 'Practice')
+      .filter(program => program.type === 'ShortTerm')
       .forEach(program => {
         if (!studyFieldMap[program.studyFieldSlug]) {
+          
           studyFieldMap[program.studyFieldSlug] = {
             studyField: program.studyField,
             studyFieldSlug: program.studyFieldSlug

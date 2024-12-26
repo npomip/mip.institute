@@ -2,7 +2,8 @@ const levelOptions = [
   { value: 'Bachelor', label: 'Бакалавриат' },
   { value: 'Profession', label: 'Профессиональная переподготовка' },
   { value: 'Course', label: 'Повышение квалификации' },
-  { value: 'PracticalTraining', label: 'Практическая подготовка' }
+  { value: 'PracticalTraining', label: 'Практическая подготовка' },
+  { value: 'ShortTerm', label: 'Курсы' }
 ]
 
 const formOptions = [

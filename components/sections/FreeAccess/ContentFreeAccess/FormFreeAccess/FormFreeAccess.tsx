@@ -15,12 +15,20 @@ const FormFreeAccess = ({ setDisabled }) => {
   const [showPopup, setShowPopup] = useState(false)
   const {
     control,
-    reset,
     handleSubmit,
+    reset,
     formState: { errors }
-  } = useForm<FormValues>()
+  } = useForm<FormValues>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: ''
+    }
+  })
 
   useEffect(() => {
+    const savedFormData = localStorage.getItem('formData')
     const storedLink = localStorage.getItem('accessLink')
     const storedPassword = localStorage.getItem('accessPassword')
     const storedLogin = localStorage.getItem('accessLogin')
@@ -29,25 +37,24 @@ const FormFreeAccess = ({ setDisabled }) => {
       setShowPopup(true)
       setDisabled(true)
     }
-  }, [])
+    if (savedFormData) {
+      const parsedData = JSON.parse(savedFormData)
+      reset(parsedData)
+    }
+  }, [setShowPopup, setDisabled, reset])
 
   const onSubmit = async data => {
     try {
-      const response = await axios.post(
-        '/api/FreeAccess/generatingAccessToWebinar',
-        data
-      )
-
+      const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', data)
       const { link, password, login } = response.data
 
+      localStorage.setItem('formData', JSON.stringify(data))
       localStorage.setItem('accessLink', link)
       localStorage.setItem('accessPassword', password)
       localStorage.setItem('accessLogin', login)
+
       setShowPopup(true)
       setDisabled(true)
-      reset()
-
-
     } catch (error) {
       console.error('Error generating link:', error)
     }
@@ -55,11 +62,8 @@ const FormFreeAccess = ({ setDisabled }) => {
 
   return (
     <>
-      {showPopup && <PopupAccess/>}
-      <form
-        id='formAccess'
-        onSubmit={handleSubmit(onSubmit)}
-        className={styles.form}>
+      {showPopup && <PopupAccess />}
+      <form id='formAccess' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.formGroup}>
           <Controller
             name='firstName'
@@ -80,9 +84,7 @@ const FormFreeAccess = ({ setDisabled }) => {
               />
             )}
           />
-          {errors.firstName && (
-            <span className={styles.error}>{errors.firstName.message}</span>
-          )}
+          {errors.firstName && <span className={styles.error}>{errors.firstName.message}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -105,9 +107,7 @@ const FormFreeAccess = ({ setDisabled }) => {
               />
             )}
           />
-          {errors.lastName && (
-            <span className={styles.error}>{errors.lastName.message}</span>
-          )}
+          {errors.lastName && <span className={styles.error}>{errors.lastName.message}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -126,9 +126,7 @@ const FormFreeAccess = ({ setDisabled }) => {
               />
             )}
           />
-          {errors.phone && (
-            <span className={styles.error}>{errors.phone.message}</span>
-          )}
+          {errors.phone && <span className={styles.error}>{errors.phone.message}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -152,9 +150,7 @@ const FormFreeAccess = ({ setDisabled }) => {
               />
             )}
           />
-          {errors.email && (
-            <span className={styles.error}>{errors.email.message}</span>
-          )}
+          {errors.email && <span className={styles.error}>{errors.email.message}</span>}
         </div>
 
         <button

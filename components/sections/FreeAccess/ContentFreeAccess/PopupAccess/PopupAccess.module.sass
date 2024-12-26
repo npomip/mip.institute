@@ -22,6 +22,7 @@
 
 .details
   font-size: f.px(18)
+  position: relative
   line-height: 115%
   @include m.media(phone, tablet)
     font-size: f.px(15)
@@ -59,8 +60,11 @@
     outline: none
 
 .tooltip 
+  position: absolute
+  @include m.gap($ptb: f.px(5), $plr: f.px(12))
+  top: -30px
+  border-radius: 12px 
+  text-align: center
+  font-size: f.px(15)
   background-color: c.$orange-700
   color: c.$white-900
-  padding: 15px
-  border-radius: 5px
-  font-size: 14px

@@ -20,9 +20,9 @@ const IconArrowNew = ({ orange }: Props) => {
         <path
           d='M1.9307 15.2843L16.0728 1.14217M16.0728 1.14217V11.7488M16.0728 1.14217H5.46623'
           stroke='white'
-          stroke-width='2'
-          stroke-linecap='round'
-          stroke-linejoin='round'
+          strokeWidth='2'
+          strokeLinecap='round'
+          strokeLinejoin='round'
         />
       </svg>
     </span>

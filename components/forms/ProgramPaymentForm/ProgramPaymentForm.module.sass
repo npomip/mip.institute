@@ -38,10 +38,10 @@
 
 .title
   text-align: center
-  font-size: f.px(26)
+  font-size: f.px(30)
   font-style: normal
   font-weight: 500
-  @include m.gap($mtb: f.px(20))
+  @include m.gap($mt: f.px(20), $mb: f.px(30))
   @include m.media(phone, tablet)
     font-size: f.px(20)
     @include m.gap($mtb: f.px(20))
@@ -148,7 +148,7 @@
 
 .checkboxBlock > label
   @include m.flex($ai: center)
-  font-size: f.px(16)
+  font-size: f.px(14)
   font-weight: 350
   gap: f.px(5)
   @include m.gap($mb: f.px(18))
@@ -178,26 +178,25 @@
     font-size: f.px(12)
 
 .info
+  display: flex
+  align-items: center
   height: f.px(55)
-  padding: f.px(20)
-  @include m.flex($ai: center, $jc: space-between)
-  @include m.gap($mb: f.px(20))
-  border-radius: f.px(4)
-  border: f.px(1) solid
-  @include m.dye(border, c.$purple-800)
-  @include m.media(phone, tablet)
-    padding: f.px(10)
+  & > span:last-child
+    @include m.dye(c, c.$purple-800)
+
   & > span
-    font-family: Stem
-    font-size: f.px(14)
-    font-style: normal
-    font-weight: 300
-    line-height: 120%
-    @include m.media(phone, tablet)
-      font-size: f.px(12)
+    white-space: nowrap
+    font-size: f.px(14) // Настройте размеры текста по вашему вкусу
+
+  & > .line
+    flex-grow: 1
+    height: f.px(1)
+    border-top: f.px(1) dashed c.$purple-800
+    margin: 0 f.px(10) // Отступ между линией и текстом
 
 .buttons
   @include m.flex($ai: center, $jc: space-between)
+  @include m.gap($mt: f.px(20))
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
   & > button

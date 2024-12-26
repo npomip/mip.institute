@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Popup from 'reactjs-popup'
 import Button from '../btns/Button'
-import ProgramPaymentForm from '../forms/ProgramPaymentForm'
+import ProgramPaymentForm from '../forms/ProgramPaymentForm/ProgramPaymentForm'
 
 type Props = {
   profession: any

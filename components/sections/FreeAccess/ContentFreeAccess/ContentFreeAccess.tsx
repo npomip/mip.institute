@@ -3,19 +3,30 @@ import { TextFreeAccess } from './TextFreeAccess/TextFreeAccess'
 import TwoColumns from '@/ui/TwoColumns'
 import FormFreeAccess from './FormFreeAccess/FormFreeAccess'
 import styles from './ContentFreeAccess.module.sass'
-import classNames from 'classnames'
 
 export const ContentFreeAccess = () => {
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState<boolean>(false)
+  const [showPopup, setShowPopup] = useState<boolean>(false)
   return (
     <div className={styles.container}>
       <TwoColumns>
         <TextFreeAccess />
-        <FormFreeAccess setDisabled={setDisabled}/>
+        <FormFreeAccess
+          setDisabled={setDisabled}
+          disabled={disabled}
+          showPopup={showPopup}
+          setShowPopup={setShowPopup}
+        />
       </TwoColumns>
-      <button form="formAccess" type="submit" disabled={disabled} className={classNames(styles.submitBtn, styles.onDesktop)}>
+      {disabled ? (
+        <button form="formAccess" type='button' className={styles.submitBtn} onClick={() => setShowPopup(true)}>
+          Посмотреть доступ
+        </button>
+      ) : (
+        <button form="formAccess" type='submit' disabled={showPopup} className={styles.submitBtn}>
           Получить доступ
-      </button>
+        </button>
+      )}
     </div>
   )
 }

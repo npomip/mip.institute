@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
 import styles from './PopupAccess.module.sass'
 
-const PopupAccess = () => {
-  const [dataStorage, setDataStorage] = useState(null)
-  const [tooltipType, setTooltipType] = useState(null)
+type DataStorage = {
+  link: string
+  login: string
+  password: string
+}
 
-  useEffect(() => {
-    const storedLink = localStorage.getItem('accessLink')
-    const storedPassword = localStorage.getItem('accessPassword')
-    const storedLogin = localStorage.getItem('accessLogin')
+interface PopupAccessProps {
+  showPopup: boolean
+  dataStorage: DataStorage | null
+  onClose: () => void
+}
 
-    if (storedLink && storedPassword && storedLogin) {
-      setDataStorage({
-        login: storedLogin,
-        password: storedPassword,
-        link: storedLink
-      })
-    }
-  }, [])
+type TooltipType = 'link' | 'login' | 'password' | null
 
-  const handleCopy = async (text, type) => {
+const PopupAccess: React.FC<PopupAccessProps> = ({ showPopup, dataStorage, onClose }) => {
+  const [tooltipType, setTooltipType] = useState<TooltipType>(null)
+
+  const handleCopy = async (text: string, type: TooltipType) => {
     try {
       await navigator.clipboard.writeText(text)
 
@@ -36,14 +35,14 @@ const PopupAccess = () => {
   return (
     <>
       {dataStorage && (
-        <Popup open={true} closeOnDocumentClick={true}>
+        <Popup open={showPopup} closeOnDocumentClick={true} onClose={onClose}>
           <div className={styles.popupContainer}>
             <h3 className={styles.title}>Ваш доступ к личному кабинету</h3>
             <div className={styles.details}>
-              {tooltipType === 'link' && <div className={styles.tooltip}>Cсылка скопирован</div>}
+              {tooltipType === 'link' && <div className={styles.tooltip}>Ссылка скопирована</div>}
               <p onClick={() => handleCopy(dataStorage.link, 'link')}>
-                Cсылка:{' '}
-                <a target='_blank' href={`${dataStorage.link}`}>
+                Ссылка:{' '}
+                <a target='_blank' href={dataStorage.link} rel='noreferrer'>
                   Ссылка на личный кабинет
                 </a>
               </p>
@@ -69,7 +68,10 @@ const PopupAccess = () => {
             </p>
             <p className={styles.footerText}>
               Если у Вас возникли трудности с доступом, напишите обращение по ссылке:{' '}
-              <a href='https://mipinstitute.getcourse.ru/pl/talks/conversation' target='_blank'>
+              <a
+                href='https://mipinstitute.getcourse.ru/pl/talks/conversation'
+                target='_blank'
+                rel='noreferrer'>
                 https://mipinstitute.getcourse.ru/pl/talks/conversation
               </a>
             </p>

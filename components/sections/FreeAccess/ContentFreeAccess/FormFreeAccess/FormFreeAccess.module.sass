@@ -23,31 +23,8 @@
 
 .input:focus
   border-color: c.$purple-600
-  
-.submitBtn
-  height: 60px
-  background-color: c.$purple-350
-  border: none
-  border-radius: 4px
-  font-size: f.px(16)
-  cursor: pointer
-  transition: background-color 0.3s ease
-  color: c.$white-900
-  font-family: Stem
-  font-style: normal
-  font-weight: 500
-  line-height: 130%
-  text-transform: uppercase
-
-.submitBtn:hover
-  background-color: c.$purple-800
 
 .error 
   color: red
   font-size: f.px(14)
   @include m.gap($mt: f.px(5))
-
-.onMobile
-  @include m.media(desktop, laptop)
-    display: none
-

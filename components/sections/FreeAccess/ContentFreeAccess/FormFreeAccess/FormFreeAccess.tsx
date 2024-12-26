@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form'
 import styles from './FormFreeAccess.module.sass'
 import axios from 'axios'
 import PopupAccess from '../PopupAccess/PopupAccess'
-import classNames from 'classnames'
+import { prepareCrmData } from '../helpers/prepareCrmData'
 import routes from '@/config/routes'
 import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
@@ -14,8 +14,21 @@ type FormValues = {
   email: string
   lastName: string
 }
-const FormFreeAccess = ({ setDisabled }) => {
-  const [showPopup, setShowPopup] = useState(false)
+
+type DataStorage = {
+  login: string
+  password: string
+  link: string
+} | null
+
+interface FormFreeAccessProps {
+  setDisabled: React.Dispatch<React.SetStateAction<boolean>>
+  disabled: boolean
+  showPopup: boolean
+  setShowPopup: React.Dispatch<React.SetStateAction<boolean>>
+}
+const FormFreeAccess: React.FC<FormFreeAccessProps> = ({ setDisabled, disabled, showPopup, setShowPopup }) => {
+  const [dataStorage, setDataStorage] = useState<DataStorage>(null)
   const {
     control,
     handleSubmit,
@@ -40,6 +53,11 @@ const FormFreeAccess = ({ setDisabled }) => {
     if (storedLink && storedPassword && storedLogin) {
       setShowPopup(true)
       setDisabled(true)
+      setDataStorage({
+        login: storedLogin,
+        password: storedPassword,
+        link: storedLink
+      })
     }
     if (savedFormData) {
       const parsedData = JSON.parse(savedFormData)
@@ -47,58 +65,44 @@ const FormFreeAccess = ({ setDisabled }) => {
     }
   }, [setShowPopup, setDisabled, reset])
 
-  const onSubmit = async data => {
-    try {
-      const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', data)
-      const { link, password, login } = response.data
+ const onSubmit = async (formData: FormValues) => {
+  try {
+    const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', formData)
+    const { link, password, login } = response.data
 
-      localStorage.setItem('formData', JSON.stringify(data))
-      localStorage.setItem('accessLink', link)
-      localStorage.setItem('accessPassword', password)
-      localStorage.setItem('accessLogin', login)
+    localStorage.setItem('formData', JSON.stringify(formData))
+    localStorage.setItem('accessLink', link)
+    localStorage.setItem('accessPassword', password)
+    localStorage.setItem('accessLogin', login)
 
-      setShowPopup(true)
-      setDisabled(true)
-      // собираем данные для отправки в СРМ
-      data.leadPage = router.asPath
-      const utms = JSON.parse(sessionStorage.getItem('utms'))
-      data.utms = utms
-      sessionStorage.removeItem('utms')
-      const referer = JSON.parse(sessionStorage.getItem('referer'))
-      data.referer = referer
-      sessionStorage.removeItem('referer')
-      const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
-      data.ymUid = ymUid
-      const clickId = getCookie('utm')
+    setDataStorage({ login, password, link })
+    setShowPopup(true)
+    setDisabled(true)
 
-      const roistat_visit = getCookie('roistat_visit')
-      const advcake_track_id = getCookie('advcake_track_id')
-      const advcake_track_url = getCookie('advcake_track_url')
+    // Собираем данные для CRM
+    const crmData = prepareCrmData(
+      formData, 
+      { link, password, login }, 
+      router.asPath
+    )
 
-      if (typeof clickId === 'string') {
-        data.utm = JSON.parse(clickId)
-      } else {
-        data.utm = null
-      }
+    // Отправляем данные в CRM
+    const res = await axios.post(`${routes.front.root}/api/genezis`, crmData)
 
-      data.advcake_track_id = advcake_track_id
-      data.advcake_track_url = advcake_track_url
-      data.roistat_visit = roistat_visit
-
-      data.link = link
-      data.password = password
-      data.login = login
-
-      // отправляем данные
-      const res = await axios.post(`${routes.front.root}/api/genezis`, data)
-    } catch (error) {
-      console.error('Error generating link:', error)
-    }
+  } catch (error) {
+    console.error('Error generating link:', error)
   }
+}
 
   return (
     <>
-      {showPopup && <PopupAccess />}
+      {showPopup && (
+        <PopupAccess
+          showPopup={showPopup}
+          dataStorage={dataStorage}
+          onClose={() => setShowPopup(false)}
+        />
+      )}
       <form id='formAccess' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.formGroup}>
           <Controller
@@ -113,7 +117,7 @@ const FormFreeAccess = ({ setDisabled }) => {
             }}
             render={({ field }) => (
               <input
-                disabled={showPopup}
+                disabled={disabled}
                 {...field}
                 placeholder='Введите имя'
                 className={styles.input}
@@ -136,7 +140,7 @@ const FormFreeAccess = ({ setDisabled }) => {
             }}
             render={({ field }) => (
               <input
-                disabled={showPopup}
+                disabled={disabled}
                 {...field}
                 placeholder='Введите фамилию'
                 className={styles.input}
@@ -156,7 +160,7 @@ const FormFreeAccess = ({ setDisabled }) => {
             render={({ field }) => (
               <input
                 {...field}
-                disabled={showPopup}
+                disabled={disabled}
                 placeholder='Номер телефона'
                 className={styles.input}
               />
@@ -179,7 +183,7 @@ const FormFreeAccess = ({ setDisabled }) => {
             render={({ field }) => (
               <input
                 {...field}
-                disabled={showPopup}
+                disabled={disabled}
                 placeholder='Email'
                 type='email'
                 className={styles.input}
@@ -188,13 +192,6 @@ const FormFreeAccess = ({ setDisabled }) => {
           />
           {errors.email && <span className={styles.error}>{errors.email.message}</span>}
         </div>
-
-        <button
-          type='submit'
-          disabled={showPopup}
-          className={classNames(styles.submitBtn, styles.onMobile)}>
-          Получить доступ
-        </button>
       </form>
     </>
   )

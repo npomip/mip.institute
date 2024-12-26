@@ -19,6 +19,11 @@
   font-weight: 500
   line-height: 130%
   text-transform: uppercase
+  @include m.flex($jc: center, $ai: center)
+  @include m.media(phone, tablet)
+    height: 60px
+    border-radius: 4px
+    font-size: f.px(16)
 
 .submitBtn:hover
   background-color:  c.$purple-800

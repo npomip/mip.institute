@@ -33,6 +33,29 @@ export default function CardTooltip({ profession, clickHandler }) {
             </div>
           </div>
         </Link>
+      ) : profession.type === 'ShortTerm' ?  (
+        <Link
+          passHref
+          key={profession.id + profession.type + 1}
+          href={`${routes.front.shortTerm}/${
+            profession.studyFieldSlug || 'studyfield'
+          }/${profession.slug}`}
+          onClick={clickHandler}>
+          <div className={styles.card}>
+            <div className={styles.img}>
+              <ForPopup
+                src={profession?.heroPicture?.url}
+                alt={profession?.title}
+                height={104}
+                width={152}
+              />
+            </div>
+            <div className={styles.text}>
+              <div className={styles.tag}>{tagText}</div>
+              <div className={styles.title}>{profession.title}</div>
+            </div>
+          </div>
+        </Link>
       ) : (
         <Link
           passHref

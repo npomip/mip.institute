@@ -10,7 +10,7 @@ import {
   IconFile
 } from '@/components/icons'
 import IconInfo from '../icons/IconInfo'
-import getNextWednesday from '@/helpers/getNextThursday'
+import ProgramAdmissionUntil from './ProgramAdmissionUntil'
 
 const ProgramInfo = () => {
   const { program } = useContext(ContextStaticProps)
@@ -33,7 +33,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      val:  program?.admissionDate || getNextWednesday(new Date()),
+      val:  program?.admissionDate || ProgramAdmissionUntil(),
       icon: <IconMap />
     },
     {

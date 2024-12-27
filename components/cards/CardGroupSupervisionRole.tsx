@@ -1,13 +1,13 @@
 import stls from '@/styles/components/cards/CardGroupSupervisionRole.module.sass'
-import Image, { StaticImageData } from 'next/image'
 import background from '@/public/assets/imgs/groupSupervision/Roles/background.png'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { CldImage } from 'next-cloudinary'
 
 type Props = {
   role: {
     title: string
     subtitle: string
-    image: StaticImageData
+    image: string
     text: string[]
   }
 }
@@ -37,7 +37,13 @@ const CardGroupSupervisionRole = ({ role }: Props) => {
       </div>
 
       <div className={stls.imageWrapper}>
-        <Image src={role.image} alt={role.title} fill className={stls.image} />
+        <CldImage
+          src={role.image}
+          alt={role.title}
+          width={260}
+          height={320}
+          className={stls.image}
+        />
       </div>
     </div>
   )

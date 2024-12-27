@@ -7,13 +7,13 @@
   border: f.px(1) solid c.$purple-350
   @include m.dye(bg, c.$white-900)
   @include m.flex($fd: column, $jc: space-between)
-  height: f.px(600)
+  min-height: f.px(600)
   @include m.media(laptop)
-    height: f.px(700)
+    min-height: f.px(700)
   @include m.gap($ptb: f.px(25), $plr: f.px(20))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(20), $plr: f.px(15))
-    height: f.px(430)
+    min-height: f.px(450)
 
 .violetBg
   @include m.dye(bg, c.$purple-200)

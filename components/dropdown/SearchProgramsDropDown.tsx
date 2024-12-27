@@ -124,6 +124,9 @@ export default function SearchProgramsDropDown() {
     setFilteredPrograms(filtered)
   }, [programs, searchQuery])
 
+  console.log(filteredPrograms);
+  
+
   const handleIconSearchClick = () => {
     setInputVisible(prev => !prev)
     if (!isInputVisible) {

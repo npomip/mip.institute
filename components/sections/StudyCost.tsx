@@ -3,13 +3,13 @@ import Wrapper from '@/ui/Wrapper'
 import ProgramCost from '@/components/program/ProgramCost'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ContextStaticProps } from '@/context/index'
-import getNextWednesday from '@/helpers/getNextThursday'
 import stls from '@/styles/components/sections/StudyCost.module.sass'
 import { useContext } from 'react'
 import { FormAlpha } from '../forms'
 import MoneySaving from '../program/MoneySaving'
 import ProgramStudyDuration from '../program/ProgramStudyDuration'
 import points from 'constants/studyCost'
+import ProgramAdmissionUntil from '../program/ProgramAdmissionUntil'
 
 const StudyCost = ({ costRef, ofType }) => {
   const { program } = useContext(ContextStaticProps)
@@ -22,7 +22,7 @@ const StudyCost = ({ costRef, ofType }) => {
     program?.slug === 'psihologicheskoe-konsultirovanie'
 
   const info = [
-    { key: 'Зачисление:', val: getNextWednesday(new Date()) },
+    { key: 'Зачисление:', val: ProgramAdmissionUntil() },
     {
       key: 'Форма обучения:',
       val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel
@@ -44,7 +44,16 @@ const StudyCost = ({ costRef, ofType }) => {
           <span className={stls.laptopdesktop}>Запишитесь на программу</span>
         </div>
         <div className={stls.upperContainer}>
-          <p className={stls.subtitle}>{title}</p>
+          {/* <div className={stls.left}>
+        <p className={stls.nyText}>Приемная комиссия работает <br /> в праздники для вас</p> */}
+
+          <p className={stls.subtitle}>
+        <span className={stls.nyText}>Приемная комиссия работает <br /> в праздники для вас</span>
+            
+            {title}
+            </p>
+
+          {/* </div> */}
           {!isPsyKonsultirovanie && (
             <div className={stls.discount}>
               <ProgramDiscount small violet />

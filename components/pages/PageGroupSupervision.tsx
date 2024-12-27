@@ -4,9 +4,7 @@ import GroupSupervisionHero from '@/components/sections/groupSupervision/Hero/Gr
 import Roles from '@/components/sections/groupSupervision/Roles/Roles'
 import GroupSupervisionDesc from '../sections/groupSupervision/GroupSupervisionDesc/GroupSupervisionDesc'
 import Supervisors from '@/components/sections/groupSupervision/Supervisors/Supervisors'
-import GroupSupervisionFor from '../sections/groupSupervision/GroupSupervisionFor/GroupSupervisionFor'
 import GroupSupervisionWhy from '../sections/groupSupervision/GroupSupervisionWhy/GroupSupervisionWhy'
-import GroupSupervisionSalary from '../sections/groupSupervision/GroupSupervisionSalary/GroupSupervisionSalary'
 import Tariffs from '@/components/sections/groupSupervision/Tariffs/Tariffs'
 import SuitableFor from '@/components/sections/groupSupervision/SuitableFor/SuitableFor'
 import SupervisorVideo from '@/components/sections/groupSupervision/SupervisorVideo/SupervisorVideo'
@@ -32,13 +30,11 @@ const PageGroupSupervision = ({}) => {
         <GroupSupervisionHero />
         <GroupSupervisionDesc />
         <Roles />
-        {/* <GroupSupervisionFor /> */}
         <GroupSupervisionWhy />
-        {/* <GroupSupervisionSalary /> */}
         <Tariffs />
         <GroupSupervisionShort />
         <GroupSupervisionInclude />
-        <GroupSupervisionSchedule/>
+        <GroupSupervisionSchedule />
         <SuitableFor />
         <WhichDocument />
         <Supervisors />

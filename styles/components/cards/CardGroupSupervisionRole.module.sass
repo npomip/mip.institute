@@ -18,7 +18,7 @@
     gap: 0
     border-radius: f.px(10)
     min-width: f.px(250)
-    height: f.px(670)
+    min-height: f.px(750)
     @include m.gap($plr: f.px(15), $mt: f.px(10), $ptb: f.px(15))
 
 .title
@@ -64,12 +64,9 @@
 
 .imageWrapper
   position: relative
-  width: f.px(260)
-  min-height: f.px(320)
   overflow: hidden
   @include m.media(phone, tablet)
     margin: 0 auto
-    width: f.px(250)
 
 .image
   border-radius: f.px(15)

@@ -4,13 +4,8 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore from 'swiper'
-import desc1 from '@/public/assets/imgs/groupSupervision/Desc/desc1.png'
-import desc2 from '@/public/assets/imgs/groupSupervision/Desc/desc2.png'
-import desc3 from '@/public/assets/imgs/groupSupervision/Desc/desc3.png'
-import desc4 from '@/public/assets/imgs/groupSupervision/Desc/desc4.png'
-import desc5 from '@/public/assets/imgs/groupSupervision/Desc/desc5.png'
 import background from '@/public/assets/imgs/groupSupervision/Desc/descBackground.png'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 
 SwiperCore.use([Scrollbar])
 
@@ -19,8 +14,15 @@ const GroupSupervisionDesc = () => {
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
   const isLaptopLayout = useBetterMediaQuery('(max-width: 1200px)')
 
-  const imageContainer1 = [desc1, desc2, desc3]
-  const imageContainer2 = [desc4, desc5]
+  const imageContainer1 = [
+    'supervision_desc1_e50211e024',
+    'supervision_desc2_b9be39a2dc',
+    'supervision_desc3_90873f332e'
+  ]
+  const imageContainer2 = [
+    'supervision_desc4_0acef24b26',
+    'supervision_desc5_fbaa3bd1d2'
+  ]
   const imageContainerMob = [...imageContainer1, ...imageContainer2]
 
   return (
@@ -59,9 +61,9 @@ const GroupSupervisionDesc = () => {
       <div className={stls.imagesBlock}>
         <div className={classNames(stls.column, stls.column1)}>
           {imageContainer1.map((image, idx) => (
-            <div className={stls.imageContainer} key={image.src + idx}>
-              <Image
-                src={image.src}
+            <div className={stls.imageContainer} key={image + idx}>
+              <CldImage
+                src={image}
                 alt='Мероприятия'
                 width={isLaptopLayout ? 235 : 271}
                 height={350}
@@ -71,10 +73,10 @@ const GroupSupervisionDesc = () => {
           ))}
         </div>
         <div className={classNames(stls.column, stls.column2)}>
-          {imageContainer2.map((image, idx) => (
-            <div className={stls.imageContainer} key={image.src + idx}>
-              <Image
-                src={image.src}
+          {imageContainer2.map(image => (
+            <div className={stls.imageContainer} key={image}>
+              <CldImage
+                src={image}
                 alt='Мероприятия'
                 width={isLaptopLayout ? 235 : 271}
                 height={350}
@@ -87,10 +89,10 @@ const GroupSupervisionDesc = () => {
       {isMobileAndTabletLayout && (
         <Swiper slidesPerView={isMobileLayout ? 1.3 : 2} spaceBetween={0}>
           {imageContainerMob.map((image, idx) => (
-            <SwiperSlide key={image.src + idx} className={stls.slide}>
-              <div className={stls.imageContainer} key={image.src + idx}>
-                <Image
-                  src={image.src}
+            <SwiperSlide key={image + idx} className={stls.slide}>
+              <div className={stls.imageContainer} key={image + idx}>
+                <CldImage
+                  src={image}
                   alt='Мероприятия'
                   width={227}
                   height={270}

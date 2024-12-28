@@ -7,17 +7,16 @@ import {
 } from '@/components/sections'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { useHandleContextStaticProps } from '@/hooks/index'
-import pic from '@/public/assets/imgs/forWhom/hasDoubtsImage.png'
 import { useRef } from 'react'
 import NoteBlock from '@/ui/NoteBlock'
-import BachelorHeroProgram from '@/components/sections/higherEducation/BachelorHeroProgram'
-import ForWhomHE from '@/components/sections/higherEducation/ForWhomHE'
+import BachelorHeroProgram from '@/components/sections/higherEducation/BachelorHeroProgram/BachelorHeroProgram'
+import ForWhomHE from '@/components/sections/higherEducation/ForWhomHE/ForWhomHE'
 import Wrapper from '@/ui/Wrapper'
-import BachelorStudyCost from '../sections/BachelorStudyCost'
+import BachelorStudyCost from '../sections/higherEducation/BachelorStudyCost/BachelorStudyCost'
 import DistanceEducation from '../sections/DistanceEducation'
 import EducationProcess from '../sections/EducationProcess'
 import EntryForm from '../sections/EntryForm'
-import FourSteps from '../sections/FourSteps'
+import FourSteps from '../sections/higherEducation/FourSteps/FourSteps'
 import LinkedPrograms from '../sections/LinkedPrograms'
 import SalaryCounter from '../sections/SalaryCounter'
 import { SeoPageBachelor } from '../seo'
@@ -103,7 +102,6 @@ const PageBachelor = ({ bachelor }) => {
         <NoteBlock
           marginTop={isMobileAndTabletLayout ? 30 : 0}
           marginBottom={isMobileAndTabletLayout ? 35 : 90}
-          imageSrc={pic}
           title='Вопрос по программе'
           description='Остались вопросы по программе или дополнительной специализации? Напишите нам в форме обратной связи.'
         />

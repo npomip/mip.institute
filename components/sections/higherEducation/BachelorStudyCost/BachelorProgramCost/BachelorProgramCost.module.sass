@@ -1,0 +1,93 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.content
+  @include m.dye(bg, c.$purple-200)
+  border-radius: f.px(25)
+  @include m.gap($pt: f.px(35), $pb: f.px(35), $plr: f.px(27))
+
+.title
+  font-size: f.px(22)
+  font-weight: 500
+  @include m.gap($mb: f.px(10))
+
+.tag
+  font-size: f.px(9)
+  font-weight: 350
+  @include m.gap($ptb: f.px(9), $plr: f.px(19))
+  border-radius: f.px(20)
+  text-align: center
+  @include m.media(phone, tablet)
+    font-size: f.px(8)
+
+.fullSemesterText
+  font-size: f.px(14)
+  text-align: center
+  @include m.gap($mb: f.px(10))
+
+.fullPriceSemester
+  display: flex
+  justify-content: center
+  gap: f.px(5)
+  @include m.gap($mt: f.px(10), $mb: f.px(20))
+  span
+    font-size: f.px(25)
+    font-weight: 500
+
+.yearDiscountText
+  font-size: f.px(12)
+  text-align: center
+
+.flexMonth
+  display: flex
+  justify-content: space-between
+  align-items: baseline
+  @include m.gap($mb: f.px(2))
+  @include m.media(laptop, desktop)
+    height: 56px
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(25))
+    // padding-top: 20px
+    align-items: center
+    white-space: nowrap
+
+.regular
+  position: relative
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(21)
+    line-height: f.px(32)
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+    line-height: f.px(39)
+  .line
+    position: absolute
+    bottom: 45%
+    left: f.px(-2)
+    height: 2px
+    width: 105%
+    transform: rotate(-8deg)
+
+.light
+  font-weight: 300
+
+.violetBtn,.orangeBtn
+  @include m.flex($ai: center, $jc: center, $fd: column)
+  width: 100%
+  & > *
+    width: 100%
+
+.violetBtn,.orangeBtn
+  button
+    background: white
+    border: 0.816px solid #FFF
+    width: 100%
+
+.violetBtn
+  button
+    @include m.dye(c, c.$purple-800)
+
+.orangeBtn
+  button
+    @include m.dye(c, c.$orange-700)

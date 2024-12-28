@@ -1,5 +1,5 @@
 import stls from './SupervisorVideo.module.sass'
-import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
+import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical/TwoColumnsPractical'
 import dynamic from 'next/dynamic'
 import backgroundVideo from '@/public/assets/imgs/groupSupervision/Video/backgroundVideo.png'
 import backgroundMob from '@/public/assets/imgs/groupSupervision/Video/backgroundMob.png'

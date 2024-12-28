@@ -14,6 +14,7 @@ import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import Popup from 'reactjs-popup'
 import IconClosePopupPractical from '../icons/IconClosePopupPractical'
+import person from '@/public/assets/imgs/practicalTraining/person.png'
 
 type PopupReviewNewType = {
   btn:
@@ -105,7 +106,7 @@ const PopupReviewNew = ({
             <div className={stls.leftBlock}>
               <div className={stls.personImage}>
                 <Image
-                  src={image.url ?? ''}
+                  src={image.url ?? person}
                   alt='Выпускник'
                   width={112}
                   height={112}

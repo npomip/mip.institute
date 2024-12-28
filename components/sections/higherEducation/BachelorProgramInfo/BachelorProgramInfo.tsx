@@ -1,7 +1,7 @@
 import { ContextStaticProps } from '@/context/index'
-import stls from '@/styles/components/sections/higherEducation/BachelorProgramInfo.module.sass'
+import stls from './BachelorProgramInfo.module.sass'
 import { useContext } from 'react'
-import OneInfo from './OneInfo'
+import OneInfo from '@/components/sections/higherEducation/BachelorProgramInfo/OneInfo/OneInfo'
 
 export type Point =
   | {

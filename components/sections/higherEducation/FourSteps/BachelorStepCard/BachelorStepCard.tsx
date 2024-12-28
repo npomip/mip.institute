@@ -1,4 +1,4 @@
-import stls from '@/styles/components/cards/BachelorStepCard.module.sass'
+import stls from './BachelorStepCard.module.sass'
 import { FC, ReactNode } from 'react'
 
 interface Step {

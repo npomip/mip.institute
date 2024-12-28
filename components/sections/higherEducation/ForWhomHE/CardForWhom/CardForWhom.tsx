@@ -1,9 +1,9 @@
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import stls from '@/styles/components/cards/CardForWhom.module.sass'
-import Image, { StaticImageData } from 'next/image'
+import stls from './CardForWhom.module.sass'
+import { CldImage } from 'next-cloudinary'
 
 type Props = {
-  imageSrc: string | StaticImageData
+  imageSrc: string
   title: string
   description: string
 }
@@ -18,7 +18,7 @@ const CardForWhom = ({ imageSrc, title, description }: Props) => {
         <span className={stls.description}>{description}</span>
       </div>
       <div className={stls.image}>
-        <Image
+        <CldImage
           src={imageSrc}
           alt='фото'
           height={isMobileLayout ? 220 : 250}

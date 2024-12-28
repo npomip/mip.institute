@@ -1,14 +1,14 @@
 import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
-import stls from '@/styles/components/sections/higherEducation/BachelorHeroProgram.module.sass'
+import stls from './BachelorHeroProgram.module.sass'
 import classNames from 'classnames'
-import validTitles from 'constants/bachelorHeroProgram'
+import validTitles from 'constants/higherEducation/bachelorHeroProgram'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import BachelorFullProgramPopup from '@/components/popups/BachelorFullProgramPopup'
-import BachelorProgramInfo from './BachelorProgramInfo'
+import BachelorProgramInfo from '../BachelorProgramInfo/BachelorProgramInfo'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const BachelorHeroProgram = () => {

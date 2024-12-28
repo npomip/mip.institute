@@ -1,8 +1,8 @@
 import Wrapper from '@/ui/Wrapper'
-import stls from '@/styles/components/sections/FourSteps.module.sass'
-import BachelorStepCard from '../cards/BachelorStepCard'
-import { IconCircleCheck } from '../icons'
-import fourSteps from 'constants/fourSteps'
+import stls from './FourSteps.module.sass'
+import BachelorStepCard from './BachelorStepCard/BachelorStepCard'
+import { IconCircleCheck } from '@/components/icons'
+import fourSteps from 'constants/higherEducation/fourSteps'
 
 const FourSteps = ({ stepsForEnterRef }) => {
   return (

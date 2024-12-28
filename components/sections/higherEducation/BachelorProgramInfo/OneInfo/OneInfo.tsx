@@ -1,6 +1,6 @@
-import stls from '@/styles/components/sections/higherEducation/OneInfo.module.sass'
+import stls from './OneInfo.module.sass'
 import { IconCircleCheck } from '@/components/icons'
-import { Point } from './BachelorProgramInfo'
+import { Point } from '../BachelorProgramInfo'
 
 type Props = {
   point: Point

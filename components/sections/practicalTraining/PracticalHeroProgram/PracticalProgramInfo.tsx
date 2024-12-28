@@ -1,5 +1,5 @@
-import stls from '@/styles/components/sections/higherEducation/BachelorProgramInfo.module.sass'
-import OneInfo from '../../higherEducation/OneInfo'
+import stls from '@/components/sections/higherEducation/BachelorProgramInfo/BachelorProgramInfo.module.sass'
+import OneInfo from '@/components/sections/higherEducation/BachelorProgramInfo/OneInfo/OneInfo'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 
 export type Point =

@@ -1,11 +1,11 @@
 import { IconCircleCheck } from '@/components/icons'
 import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
-import stls from '@/styles/components/sections/BachelorStudyCost.module.sass'
-import points from 'constants/bachelorStudyCost'
+import stls from './BachelorStudyCost.module.sass'
+import points from 'constants/higherEducation/bachelorStudyCost'
 import { MutableRefObject, useContext } from 'react'
-import BachelorProgramCost from '../program/BachelorProgramCost'
-import MoneySaving from '../program/MoneySaving'
+import BachelorProgramCost from './BachelorProgramCost/BachelorProgramCost'
+import MoneySaving from '@/components/program/MoneySaving'
 
 type Props = {
   costRef: MutableRefObject<any>

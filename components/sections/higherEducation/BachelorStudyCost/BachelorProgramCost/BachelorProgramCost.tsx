@@ -1,5 +1,5 @@
 import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
-import stls from '@/styles/components/program/BachelorProgramCost.module.sass'
+import stls from './BachelorProgramCost.module.sass'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
 import PopupTrigger from '@/ui/PopupTrigger'

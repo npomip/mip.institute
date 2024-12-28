@@ -1,9 +1,8 @@
-import stls from '@/styles/components/sections/higherEducation/ForWhomHE.module.sass'
+import stls from '@/components/sections/higherEducation/ForWhomHE/ForWhomHE.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import CardForWhom from '@/components/cards/CardForWhom'
-import forWhomList from 'constants/forWhomHE'
+import CardForWhom from '@/components/sections/higherEducation/ForWhomHE/CardForWhom/CardForWhom'
+import forWhomList from 'constants/higherEducation/forWhomHE'
 import NoteBlock from '@/ui/NoteBlock'
-import pic from '@/public/assets/imgs/forWhom/hasDoubtsImage.png'
 
 export const ForWhomHE = () => {
   return (
@@ -24,7 +23,6 @@ export const ForWhomHE = () => {
         </div>
         <div className={stls.note}>
           <NoteBlock
-            imageSrc={pic}
             title={
               <>
                 Сомневаешься <br className={stls.mobileOnly} /> в своих баллах?

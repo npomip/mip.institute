@@ -10,11 +10,8 @@ import IconScrewedArrow from '../icons/IconScrewedArrow'
 const ProgramCost = ({ withPerMonth = false }) => {
   const { program } = useContext(ContextStaticProps)
   const isProfession = program?.type === 'Profession'
-  const price = (program && Math.ceil(0.87 * program.price)) || 0
-  // const price = (program &&  program.price) || 0
-  
-  // const discount = (program && program.discount) || discountNum 
-  const discount =  discountNum
+  const price = (program &&  program.price) || 0
+  const discount = (program && program.discount) || discountNum 
 
   const rprice =
     Math.round(Math.ceil((price / (100 - discount)) * 100) / 1000) * 1000

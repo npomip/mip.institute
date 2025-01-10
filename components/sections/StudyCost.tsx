@@ -44,12 +44,8 @@ const StudyCost = ({ costRef, ofType }) => {
           <span className={stls.laptopdesktop}>Запишитесь на программу</span>
         </div>
         <div className={stls.upperContainer}>
-          {/* <div className={stls.left}>
-        <p className={stls.nyText}>Приемная комиссия работает <br /> в праздники для вас</p> */}
 
           <p className={stls.subtitle}>
-        <span className={stls.nyText}>Приемная комиссия работает <br /> в праздники для вас</span>
-            
             {title}
             </p>
 

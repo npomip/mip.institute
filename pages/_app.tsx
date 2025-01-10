@@ -373,8 +373,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            {/* <div><StickyBottom /></div> */}
-            <div><StickyBottomNewYers/></div>
+            <div><StickyBottom /></div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>

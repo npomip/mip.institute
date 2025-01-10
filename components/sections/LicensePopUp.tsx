@@ -3,6 +3,8 @@ import Popup from 'reactjs-popup'
 import ImgLicence from '../imgs/legal/ImgLicence'
 import PopupImage from '../popups/PopupImage'
 import loadIcon from '@/helpers/general/loadIcon'
+import License from '../imgs/legal/License'
+import IconLoupe from '../icons/IconLoupe'
 
 type Props = {
   showFullText?: boolean
@@ -28,8 +30,12 @@ const LicensePopUp = ({ showFullText = false, onBachelor = false }: Props) => {
                 <div className={stls.iconAtom}>{loadIcon('IconAtom')}</div>
               </div>
               <div className={stls.rightLicense}>
-                <div className={stls.card}>{loadIcon('License')}</div>
-                <div className={stls.loupe}>{loadIcon('IconLoupe')}</div>
+                <div className={stls.card}>
+                  <License />
+                </div>
+                <div className={stls.loupe}>
+                  <IconLoupe />
+                </div>
               </div>
             </div>
           </div>

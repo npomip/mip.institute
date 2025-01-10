@@ -1,4 +1,4 @@
-import { BtnAlpha } from '@/components/btns'
+import BtnAlpha from '@/components/btns/BtnAlpha'
 import Wrapper from '@/ui/Wrapper'
 import pic from '@/public/assets/imgs/general/404page.png'
 import stls from '@/styles/pages/404.module.sass'

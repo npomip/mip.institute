@@ -1,11 +1,8 @@
 import stls from '@/styles/components/sections/LicensePopUp.module.sass'
 import Popup from 'reactjs-popup'
-import { IconAtom } from '../icons'
-import IconLoupe from '../icons/IconLoupe'
-import IconRusLicense from '../icons/IconRusLicense'
 import ImgLicence from '../imgs/legal/ImgLicence'
-import License from '../imgs/legal/License'
-import { PopupImage } from '../popups'
+import PopupImage from '../popups/PopupImage'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   showFullText?: boolean
@@ -27,20 +24,12 @@ const LicensePopUp = ({ showFullText = false, onBachelor = false }: Props) => {
                 <span className={stls.edu}>
                   {onBachelor ? ' №041221' : ' №041363'}
                 </span>
-                <div className={stls.iconRus}>
-                  <IconRusLicense />
-                </div>
-                <div className={stls.iconAtom}>
-                  <IconAtom />
-                </div>
+                <div className={stls.iconRus}>{loadIcon('IconRusLicense')}</div>
+                <div className={stls.iconAtom}>{loadIcon('IconAtom')}</div>
               </div>
               <div className={stls.rightLicense}>
-                <div className={stls.card}>
-                  <License />
-                </div>
-                <div className={stls.loupe}>
-                  <IconLoupe />
-                </div>
+                <div className={stls.card}>{loadIcon('License')}</div>
+                <div className={stls.loupe}>{loadIcon('IconLoupe')}</div>
               </div>
             </div>
           </div>

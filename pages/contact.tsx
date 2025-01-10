@@ -1,5 +1,5 @@
 import PageTitle from '@/ui/PageTitle'
-import { Contacts } from '@/components/sections'
+import Contacts from '@/components/sections/Contacts'
 import JoinInSocialChannels from '@/components/sections/JoinInSocialChannels'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, preview, routes } from '@/config/index'

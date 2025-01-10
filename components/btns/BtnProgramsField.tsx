@@ -1,10 +1,9 @@
 import stls from '@/styles/components/btns/BtnProgramsField.module.sass'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import classNames from 'classnames'
-import { useContext } from 'react'
 import { ContextStaticProps } from '@/context/index'
-import { IconMoreThan } from '@/components/icons'
 import PopupFields from '@/components/popups/PopupFields'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const BtnProgramsField = ({ ofType = null }) => {
   const { studyFields, curProgramsStudyFieldSlug } =
@@ -28,7 +27,7 @@ const BtnProgramsField = ({ ofType = null }) => {
                   : ''
               )}
         </span>
-        <IconMoreThan cnu />
+        {loadIcon('IconMoreThan', { cnu: true })}
       </button>
       <div
         className={classNames({

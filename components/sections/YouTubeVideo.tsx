@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/YouTubeVideo.module.sass'
-import { IconClock } from '../icons'
+import loadIcon from '@/helpers/general/loadIcon'
 import Wrapper from '@/ui/Wrapper'
 import classNames from 'classnames'
 
@@ -25,7 +25,7 @@ const YouTubeVideo = ({ isOnMain, videoId, title, props }: Props) => {
         </h2>
         {isOnMain && (
           <div className={stls.time}>
-            <IconClock colorCode='#DADADA' />
+            {loadIcon('IconClock', { colorCode: '#dadada' })}
             <p>Длительность 2 минуты</p>
           </div>
         )}

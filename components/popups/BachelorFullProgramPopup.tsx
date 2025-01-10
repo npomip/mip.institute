@@ -1,7 +1,4 @@
 import stls from '@/styles/components/popups/BachelorFullProgramPopup.module.sass'
-import { FormAlpha } from '@/components/forms'
-import { BtnClose } from '@/components/btns'
-import Link from 'next/link'
 
 type Props = {
   content: string

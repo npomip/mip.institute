@@ -13,7 +13,7 @@ import PracticalWhatInProgram from '@/components/sections/practicalTraining/Prac
 import PracticalWhatYouWillLearn from '@/components/sections/practicalTraining/PracticalWhatYouWillLearn/PracticalWhatYouWillLearn'
 import PracticalWhoIsProgramFor from '@/components/sections/practicalTraining/PracticalWhoIsProgramFor/PracticalWhoIsProgramFor'
 import RequirementsInProfession from '@/components/sections/practicalTraining/RequirementsInProfession/RequirementsInProfession'
-import { Teachers } from '../sections'
+import Teachers from '../sections/Teachers'
 import { SeoPageBachelor } from '../seo'
 
 type Props = {

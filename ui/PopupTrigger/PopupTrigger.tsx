@@ -1,17 +1,15 @@
 import stls from './PopupTrigger.module.sass'
 import Popup from 'reactjs-popup'
-import { PopupCta } from '@/components/popups'
-import {
-  BtnAlpha,
-  BtnBeta,
-  BtnDelta,
-  BtnEpsilon,
-  BtnEta,
-  BtnGamma,
-  BtnText,
-  BtnTheta,
-  BtnZeta
-} from '@/components/btns'
+import PopupCta from '@/components/popups/PopupCta'
+import BtnAlpha from '@/components/btns/BtnAlpha'
+import BtnBeta from '@/components/btns/BtnBeta'
+import BtnDelta from '@/components/btns/BtnDelta'
+import BtnEpsilon from '@/components/btns/BtnEpsilon'
+import BtnEta from '@/components/btns/BtnEta'
+import BtnGamma from '@/components/btns/BtnGamma'
+import BtnText from '@/components/btns/BtnText'
+import BtnTheta from '@/components/btns/BtnTheta'
+import BtnZeta from '@/components/btns/BtnZeta'
 
 type PopupTriggerType = {
   btn:

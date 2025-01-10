@@ -1,16 +1,9 @@
-import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
-import StickyBottom from '@/components/sections/StickyBottom'
 import StickyTop from '@/components/sections/StickyTop'
-import { dev, gtmId, prod, routes } from '@/config/index'
+import { gtmId, prod, routes } from '@/config/index'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 import { ContextStaticProps } from '@/context/index'
 import MenuState from '@/context/menu/MenuState'
-import {
-  filterProgramsByType,
-  getStudyFields,
-  sortBasedOnNumericOrder
-} from '@/helpers/index'
 import promocodes from '@/helpers/promocodes'
 import client from '@/lib/apolloClient'
 import '@/styles/app.sass'
@@ -23,71 +16,23 @@ import Router from 'next/router'
 import Script from 'next/script'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
-import Image from 'next/image'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
-import BlackFridayBanner from '@/components/sections/BlackFridayBanner'
 import StickyBottomNewYers from '@/components/sections/App/StickyButtonNewYers/StickyButtonNewYers'
+import dynamic from 'next/dynamic'
+import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
 
+const Footer = dynamic(() => import('@/components/sections/Footer'), {
+  ssr: false
+})
 
 const MyApp = ({ Component, pageProps, router }) => {
-  const getDefaultStateProps = pageProps => {
-    const program = pageProps.program || null
-    const bachelor = pageProps.bachelor || null
-    const practicalTrainings = pageProps.practicalTrainings || null
-    const programs =
-      sortBasedOnNumericOrder({ programs: pageProps.programs }) || []
-    const courses =
-      programs?.length > 0
-        ? filterProgramsByType({ programs, type: 'course' })
-        : []
-    const professions =
-      programs?.length > 0
-        ? filterProgramsByType({ programs, type: 'profession' })
-        : []
-    const blogs = pageProps.seminars
-    const seminar = pageProps.seminar || null
-    const studyFields = programs?.length > 0 ? getStudyFields(programs) : []
-
-    const studyFieldsProfessions =
-      programs?.length > 0 ? getStudyFields(professions) : []
-
-    const studyFieldsCourses =
-      programs?.length > 0 ? getStudyFields(courses) : []
-
-    const curProgramsType = pageProps.curProgramsType || null
-    const curProgramsStudyFieldSlug = pageProps.studyFieldSlug || null
-    const reviews = pageProps.reviews
-    const searchTerm = pageProps.searchTerm || null
-
-    const filteredPrograms = pageProps.filteredPrograms || []
-
-    return {
-      program,
-      programs,
-      reviews,
-      courses,
-      professions,
-      studyFields,
-      studyFieldsProfessions,
-      studyFieldsCourses,
-      curProgramsType,
-      curProgramsStudyFieldSlug,
-      searchTerm,
-      filteredPrograms,
-      blogs,
-      seminar,
-      bachelor,
-      practicalTrainings
-    }
-  }
-
   const defaultStateProps = getDefaultStateProps(pageProps)
 
   const [program, setProgram] = useState(defaultStateProps.program)
@@ -127,7 +72,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     }))
   }
 
-  const [loading, setLoading] = useState(false)
   //cookie for edPartners
   useEffect(() => {
     const utmCookie = getCookie('utm')
@@ -190,11 +134,9 @@ const MyApp = ({ Component, pageProps, router }) => {
 
     const start = () => {
       NProgress.start()
-      setLoading(true)
     }
     const end = () => {
       NProgress.done()
-      setLoading(false)
     }
     Router.events.on('routeChangeStart', start)
     Router.events.on('routeChangeComplete', end)
@@ -256,10 +198,12 @@ const MyApp = ({ Component, pageProps, router }) => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
 
-
   return (
     <>
-      <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
+      <Script
+        src='https://api.flocktory.com/v2/loader.js?site_id=5428'
+        strategy='afterInteractive'
+      />
       {/* {!dev && ( */}
       <>
         <Script
@@ -281,7 +225,11 @@ const MyApp = ({ Component, pageProps, router }) => {
           }}
         />
         {/* <RoistatScript /> */}
-        <Script async src='/assets/js/vendors/roistatWA.js' />
+        <Script
+          async
+          src='/assets/js/vendors/roistatWA.js'
+          strategy='afterInteractive'
+        />
       </>
       {/* )} */}
 
@@ -295,11 +243,12 @@ const MyApp = ({ Component, pageProps, router }) => {
       )}
 
       <Script
-        async
         src='https://www.googletagmanager.com/gtag/js?id=AW-822792302'
+        strategy='afterInteractive'
       />
       <Script
         id='google-tag'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -374,7 +323,9 @@ const MyApp = ({ Component, pageProps, router }) => {
               </ApolloProvider>
             </main>
             {/* <div><StickyBottom /></div> */}
-            <div><StickyBottomNewYers/></div>
+            <div>
+              <StickyBottomNewYers />
+            </div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>
@@ -385,25 +336,35 @@ const MyApp = ({ Component, pageProps, router }) => {
         rel='stylesheet'
         href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'
       />
-      <Script src='/assets/js/vendors/swiped-events.min.js' />
+      <Script
+        src='/assets/js/vendors/swiped-events.min.js'
+        strategy='afterInteractive'
+      />
       <Script
         type='text/javascript'
         id='carrot'
+        strategy='afterInteractive'
         src='/assets/js/vendors/carrot.js'
       />
       <Script
         type='text/javascript'
         id='advcakeAsync'
+        strategy='afterInteractive'
         src='/assets/js/vendors/advCake.js'
       />
       {prod && (
         <>
-          <Script async src='/assets/js/vendors/roistatWA.js' />
+          <Script
+            async
+            src='/assets/js/vendors/roistatWA.js'
+            strategy='afterInteractive'
+          />
         </>
       )}
 
       <Script
         id='edpartners_scaletrk'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
         function sclClickPixelFn() {
@@ -440,6 +401,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       <Script
         id='vk script'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `var _tmr = window._tmr || (window._tmr = []);
         _tmr.push({id: "3477294", type: "pageView", start: (new Date()).getTime()});
@@ -454,6 +416,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       <Script
         id='vk'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `!function(){var t=document.createElement("script");
           t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?173',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1904296-h2y40"),VK.Retargeting.Hit()},document.head.appendChild(t)}()
@@ -462,10 +425,12 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       <Script
         id='WA AMO script'
+        strategy='afterInteractive'
         src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
       />
       <Script
         id='WA AMO second script'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `window.addEventListener('DOMContentLoaded', function () {
             new GnzsRoiStatClass().init()
@@ -473,11 +438,16 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}
       />
 
-      <Script async src='/assets/js/vendors/pixel.js' />
+      <Script
+        async
+        src='/assets/js/vendors/pixel.js'
+        strategy='afterInteractive'
+      />
 
       {router.asPath === '/' ? (
         <Script
           id='advcake_main'
+          strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({
@@ -488,6 +458,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       ) : (
         <Script
           id='advcake_typeTwo'
+          strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({

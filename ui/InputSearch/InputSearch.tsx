@@ -1,6 +1,6 @@
 import stls from './InputSearch.module.sass'
-import { IconArrowRight } from '@/components/icons'
 import classNames from 'classnames'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   value: string | number | readonly string[]
@@ -22,7 +22,7 @@ const InputSearch = ({ value, onChange, isProgram = false }: Props) => {
           [stls.icon]: true,
           [stls.program]: isProgram
         })}>
-        <IconArrowRight isProgram={isProgram} />
+        {loadIcon('IconArrowRight', { isProgram: isProgram })}
       </div>
     </div>
   )

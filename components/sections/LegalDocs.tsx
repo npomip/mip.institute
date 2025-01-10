@@ -1,19 +1,19 @@
-import { IconDoc } from '@/components/icons'
 import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/LegalDocs.module.sass'
 import { TypeDataDocs } from '@/types/index'
 import ExpandableListItem from '@/ui/ExpandableListItem'
 import {
+  listAddEducation,
   listAdditional,
   listEntrance,
   listGeneral,
-  listProgram,
-  listProgram2,
   listHigherEducation,
-  listAddEducation,
-  listOrder
+  listOrder,
+  listProgram,
+  listProgram2
 } from 'constants/legalEdu'
 import { listGeneralMIP } from 'constants/legal'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type TypeLegalDocsProps = {
   title: string
@@ -89,9 +89,7 @@ const LegalDocs = ({
                       target='_blank'
                       rel='noopener noreferrer'
                       className={stls.link}>
-                      <div className={stls.icon}>
-                        <IconDoc />
-                      </div>
+                      <div className={stls.icon}>{loadIcon('IconDoc')}</div>
                       <span className={stls.text}>{item.val}</span>
                     </a>
                   </li>
@@ -105,9 +103,7 @@ const LegalDocs = ({
                       target='_blank'
                       rel='noopener noreferrer'
                       className={stls.link}>
-                      <div className={stls.icon}>
-                        <IconDoc />
-                      </div>
+                      <div className={stls.icon}>{loadIcon('IconDoc')}</div>
                       <span className={stls.text}>{item.val}</span>
                     </a>
                   </li>

@@ -3,8 +3,8 @@ import stls from './PracticalListCarousel.module.sass'
 import { PracticalListItem } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
 import { useRef } from 'react'
 import SwiperContainer from '@/ui/SwiperContainer'
-import { IconFinger } from '@/components/icons'
 import PracticalListCarouselCard from './PracticalListCarouselCard/PracticalListCarouselCard'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   list: PracticalListItem[]
@@ -58,9 +58,7 @@ const PracticalList = ({ list }: Props) => {
           desktopOptions={swiperOptions.desktop}
           hideNavigation
         />
-        <div className={stls.finger}>
-          <IconFinger />
-        </div>
+        <div className={stls.finger}>{loadIcon('IconFinger')}</div>
       </Wrapper>
     </section>
   )

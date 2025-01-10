@@ -1,14 +1,12 @@
-import {
-  BtnAlpha,
-  BtnBeta,
-  BtnDelta,
-  BtnEpsilon,
-  BtnEta,
-  BtnGamma,
-  BtnText,
-  BtnTheta,
-  BtnZeta
-} from '@/components/btns'
+import BtnAlpha from '@/components/btns/BtnAlpha'
+import BtnBeta from '@/components/btns/BtnBeta'
+import BtnDelta from '@/components/btns/BtnDelta'
+import BtnEpsilon from '@/components/btns/BtnEpsilon'
+import BtnEta from '@/components/btns/BtnEta'
+import BtnGamma from '@/components/btns/BtnGamma'
+import BtnText from '@/components/btns/BtnText'
+import BtnZeta from '@/components/btns/BtnZeta'
+import BtnTheta from '@/components/btns/BtnTheta'
 import stls from '@/styles/components/popups/PopupReviewNew.module.sass'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'

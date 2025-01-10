@@ -1,8 +1,11 @@
 const withPWA = require('next-pwa')
 const { createSecureHeaders } = require('next-secure-headers')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
 const dev = process.env.NODE_ENV === 'development'
 
-module.exports = /* withPWA( */ {
+module.exports = /* withPWA( */ withBundleAnalyzer({
   // pwa: {
   //   dest: 'public',
   //   disable: dev,
@@ -13,7 +16,7 @@ module.exports = /* withPWA( */ {
   i18n: {
     locales: ['ru'],
     defaultLocale: 'ru',
-    localeDetection: false,
+    localeDetection: false
   },
   images: {
     remotePatterns: [
@@ -21,9 +24,9 @@ module.exports = /* withPWA( */ {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/**',
-      },
-    ],
+        pathname: '/**'
+      }
+    ]
   },
   async headers() {
     return [
@@ -633,45 +636,53 @@ module.exports = /* withPWA( */ {
         permanent: true
       },
       {
-        source: '/journal/kak-obshhatsya-s-podrostkom-rasprostranennye-oshibki-i-sovety-roditelyam',
+        source:
+          '/journal/kak-obshhatsya-s-podrostkom-rasprostranennye-oshibki-i-sovety-roditelyam',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/krizisy-po-vozrastam-u-detej-kogda-nachinayutsya-i-kak-proyavlyayutsya',
+        source:
+          '/journal/krizisy-po-vozrastam-u-detej-kogda-nachinayutsya-i-kak-proyavlyayutsya',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/muzykoterapiya-kak-mozhet-pomoch-v-lechenii-psihologicheskih-problem',
+        source:
+          '/journal/muzykoterapiya-kak-mozhet-pomoch-v-lechenii-psihologicheskih-problem',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/socziofobiya-eto-stesnitelnost-ili-rasstrojstvo-simptomy-i-prichiny',
+        source:
+          '/journal/socziofobiya-eto-stesnitelnost-ili-rasstrojstvo-simptomy-i-prichiny',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/art-terapiya-v-psihologii-chto-nuzhno-znat-chtoby-pomogat-lyudyam-1',
+        source:
+          '/journal/art-terapiya-v-psihologii-chto-nuzhno-znat-chtoby-pomogat-lyudyam-1',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/vygoranie-na-rabote-kak-raspoznat-i-spravitsya-s-problemoj',
+        source:
+          '/journal/vygoranie-na-rabote-kak-raspoznat-i-spravitsya-s-problemoj',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/chto-takoe-tajm-menedzhment-vremya-kak-resurs-dlya-uspeha',
+        source:
+          '/journal/chto-takoe-tajm-menedzhment-vremya-kak-resurs-dlya-uspeha',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
+        source:
+          '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
         destination: '/journal',
         permanent: true
       }
     ]
   }
-}
+})

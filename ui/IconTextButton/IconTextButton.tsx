@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import stls from './IconTextButton.module.sass'
-import { IconPlus } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   onClick: () => void
@@ -11,7 +11,7 @@ type Props = {
 
 const IconTextButton = ({
   backgroundColor = '#F87E1B',
-  icon = <IconPlus />,
+  icon = loadIcon('IconPlus'),
   text = 'Скачать PDF',
   onClick
 }: Props) => {

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/btns/BtnTelegram.module.sass'
 import { routes } from '@/config/index'
 import classNames from 'classnames'
-import { IconTelegram } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const BtnTelegram = ({ dark = false }) => {
   return (
@@ -14,7 +14,7 @@ const BtnTelegram = ({ dark = false }) => {
       target='_blank'
       rel='noopener noreferrer'
       aria-label='Telegram'>
-      <IconTelegram />
+      {loadIcon('IconTelegram')}
     </a>
   )
 }

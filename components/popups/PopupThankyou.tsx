@@ -1,8 +1,8 @@
 import stls from '@/styles/components/popups/PopupThankyou.module.sass'
-import { useEffect, useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { ContextStaticProps } from '@/context/index'
 import TagManager from 'react-gtm-module'
-import { BtnClose } from '@/components/btns'
+import BtnClose from '@/components/btns/BtnClose'
 import { v4 as uuidv4 } from 'uuid'
 
 const PopupThankyou = ({ close }) => {
@@ -42,7 +42,6 @@ const PopupThankyou = ({ close }) => {
         Мы свяжемся с Вами в рабочие часы в ближайшее время
       </p>
       <p className={stls.thanks}>Спасибо! 🎉 🎉</p>
-      
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { ImgReview } from '@/components/imgs'
+import ImgReview from '@/components/imgs/reviews/ImgReview'
 import getImageHeight from '@/helpers/getImageHeight'
 import styles from '@/styles/components/sections/ReviewList.module.sass'
 

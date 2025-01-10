@@ -1,6 +1,10 @@
 import stls from '@/styles/components/popups/PopupCta.module.sass'
-import { FormAlpha } from '@/components/forms'
-import { BtnClose } from '@/components/btns'
+import BtnClose from '@/components/btns/BtnClose'
+import dynamic from 'next/dynamic'
+
+const FormAlpha = dynamic(() => import('@/components/forms/FormAlpha'), {
+  ssr: false
+})
 
 type Props = {
   title: string

@@ -1,15 +1,19 @@
-import { IconCircleCheck } from '@/components/icons'
 import Wrapper from '@/ui/Wrapper'
 import ProgramCost from '@/components/program/ProgramCost'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/StudyCost.module.sass'
 import { useContext } from 'react'
-import { FormAlpha } from '../forms'
 import MoneySaving from '../program/MoneySaving'
 import ProgramStudyDuration from '../program/ProgramStudyDuration'
 import points from 'constants/studyCost'
 import ProgramAdmissionUntil from '../program/ProgramAdmissionUntil'
+import loadIcon from '@/helpers/general/loadIcon'
+import dynamic from 'next/dynamic'
+
+const FormAlpha = dynamic(() => import('@/components/forms/FormAlpha'), {
+  ssr: false
+})
 
 const StudyCost = ({ costRef, ofType }) => {
   const { program } = useContext(ContextStaticProps)
@@ -38,22 +42,23 @@ const StudyCost = ({ costRef, ofType }) => {
   ]
 
   return (
-    <section ref={costRef} className={stls.container} style={{marginTop: ofType !== 'Profession' ? '-33px': null}}>
+    <section
+      ref={costRef}
+      className={stls.container}
+      style={{ marginTop: ofType !== 'Profession' ? '-33px' : null }}>
       <Wrapper>
         <div className={stls.title}>
           <span className={stls.laptopdesktop}>Запишитесь на программу</span>
         </div>
         <div className={stls.upperContainer}>
-          {/* <div className={stls.left}>
-        <p className={stls.nyText}>Приемная комиссия работает <br /> в праздники для вас</p> */}
-
           <p className={stls.subtitle}>
-        <span className={stls.nyText}>Приемная комиссия работает <br /> в праздники для вас</span>
-            
-            {title}
-            </p>
+            <span className={stls.nyText}>
+              Приемная комиссия работает <br /> в праздники для вас
+            </span>
 
-          {/* </div> */}
+            {title}
+          </p>
+
           {!isPsyKonsultirovanie && (
             <div className={stls.discount}>
               <ProgramDiscount small violet />
@@ -84,7 +89,7 @@ const StudyCost = ({ costRef, ofType }) => {
               {points.map((point, idx) => (
                 <li key={point + idx} className={stls.point}>
                   <span className={stls.pointicon}>
-                    <IconCircleCheck violetRound />
+                    {loadIcon('IconCircleCheck', { violetRound: true })}
                   </span>
                   <span>{point}</span>
                 </li>

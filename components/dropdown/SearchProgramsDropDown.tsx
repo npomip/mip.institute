@@ -2,11 +2,12 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
-import { IconArrowRight, IconSearchAlt } from '../icons'
+import IconArrowRight from '@/components/icons/IconArrowRight'
+import IconSearchAlt from '@/components/icons/IconSearchAlt'
 import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import routes from '@/config/routes'
-import { BtnField } from '../btns'
+import BtnField from '../btns/BtnField'
 import { useRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
@@ -109,12 +110,14 @@ export default function SearchProgramsDropDown() {
     }
     fetchPrograms()
   }, [])
+
   const firstShownPrograms = [
     programs[11],
     programs[19],
     programs[8],
     programs[0]
   ]
+
   useEffect(() => {
     const filtered = programs.filter(program => {
       const programTitle = convertEnglishToRussian(program.title.toLowerCase())
@@ -123,9 +126,6 @@ export default function SearchProgramsDropDown() {
     })
     setFilteredPrograms(filtered)
   }, [programs, searchQuery])
-
-  console.log(filteredPrograms);
-  
 
   const handleIconSearchClick = () => {
     setInputVisible(prev => !prev)
@@ -139,11 +139,11 @@ export default function SearchProgramsDropDown() {
       }, 0)
     }
   }
+
   const cardClickHandler = () => {
     setInputVisible(prev => !prev)
     setSearchQuery('')
   }
-  // hidden INput
 
   const [isEdpartners, setIsEdpartners] = useState(false)
   const partCookie = getCookie('utm')
@@ -153,6 +153,7 @@ export default function SearchProgramsDropDown() {
       setIsEdpartners(utmSource === 'edpartners')
     }, 300)
   }, [isEdpartners, partCookie])
+
   return (
     <div className={stls.searchAndPrograms}>
       <div className={stls.inputContainer}>

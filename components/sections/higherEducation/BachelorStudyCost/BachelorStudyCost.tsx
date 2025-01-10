@@ -1,4 +1,3 @@
-import { IconCircleCheck } from '@/components/icons'
 import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import stls from './BachelorStudyCost.module.sass'
@@ -6,6 +5,7 @@ import points from 'constants/higherEducation/bachelorStudyCost'
 import { MutableRefObject, useContext } from 'react'
 import BachelorProgramCost from './BachelorProgramCost/BachelorProgramCost'
 import MoneySaving from '@/components/program/MoneySaving'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   costRef: MutableRefObject<any>
@@ -58,7 +58,7 @@ const BachelorStudyCost = ({ costRef }: Props) => {
               {points.map((point, idx) => (
                 <li key={point + idx} className={stls.point}>
                   <span className={stls.pointicon}>
-                    <IconCircleCheck inverse />
+                    {loadIcon('IconCircleCheck', { inverse: true })}
                   </span>
                   <span>{point}</span>
                 </li>

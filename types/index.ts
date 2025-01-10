@@ -10,9 +10,6 @@ export type { default as TypeLibGeneralPicture } from '@/types/lib/general/TypeL
 export type { default as TypeLibGeneralPictureHeight } from '@/types/lib/general/TypeLibGeneralPictureHeight'
 export type { default as TypeLibGeneralPictureUrl } from '@/types/lib/general/TypeLibGeneralPictureUrl'
 export type { default as TypeLibGeneralPictureWidth } from '@/types/lib/general/TypeLibGeneralPictureWidth'
-export type { default as TypeLibGeneralTitle } from '@/types/lib/general/TypeLibGeneralTitle'
-export type { default as TypeLibGeneralTitleHighlight } from '@/types/lib/general/TypeLibGeneralTitleHighlight'
-export type { default as TypeLibGeneralTitleTitlePart } from '@/types/lib/general/TypeLibGeneralTitleTitlePart'
 
 // lib/program
 export type { default as TypeLibProgram } from '@/types/lib/program/TypeLibProgram'

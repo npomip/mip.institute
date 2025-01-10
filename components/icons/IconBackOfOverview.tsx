@@ -1,8 +1,6 @@
-import stls from '@/styles/components/icons/IconBackOfOverview.module.sass'
-
 const IconBackOfOverview = () => {
   return (
-    <span className={stls.container}>
+    <span>
       <svg
         width='500'
         height='500'

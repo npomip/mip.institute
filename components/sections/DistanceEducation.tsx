@@ -1,11 +1,11 @@
 import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/DistanceEducation.module.sass'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import CardDistanceEducation from '../cards/CardDistanceEducation'
 import SwiperContainer from '@/ui/SwiperContainer'
-import { IconFinger } from '../icons'
 import { distanceEducationList } from 'constants/distanceEducationList'
+import loadIcon from '@/helpers/general/loadIcon'
 
 export const DistanceEducation = ({
   paddingTop = 0,
@@ -68,7 +68,7 @@ export const DistanceEducation = ({
           hideNavigation
         />
         <div style={{ display: 'flex' }} className={stls.orangeBlock}>
-          <IconFinger />
+          {loadIcon('IconFinger')}
         </div>
       </Wrapper>
     </section>

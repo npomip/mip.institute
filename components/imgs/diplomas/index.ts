@@ -1,0 +1,6 @@
+export { default as ImgDiploma } from './ImgDiploma'
+export { default as ImgCertificate } from './ImgCertificate'
+export { default as ImgCertificateAlt } from './ImgCertificateAlt'
+export { default as ImgDiplomaAlt } from './ImgDiplomaAlt'
+export { default as ImgDiplomaDynamic } from './ImgDiplomaDynamic'
+export { default as ImgSupplement } from './ImgSupplement'

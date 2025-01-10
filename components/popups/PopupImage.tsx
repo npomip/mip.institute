@@ -1,5 +1,5 @@
 import stls from '@/styles/components/popups/PopupImage.module.sass'
-import { BtnClose } from '@/components/btns'
+import BtnClose from '@/components/btns/BtnClose'
 
 const PopupImage = ({ image, close }) => {
   return (

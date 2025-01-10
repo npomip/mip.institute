@@ -2,7 +2,7 @@ import stls from './Logo.module.sass'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { routes } from '@/config/index'
-import { IconLogo } from '@/components/icons'
+import IconLogo from '@/components/icons/IconLogo'
 
 type Props = {
   atHeader?: boolean

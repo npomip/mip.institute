@@ -1,0 +1,6 @@
+export { default as ImgHeadHunter } from './ImgHeadHunter'
+export { default as ImgRosNeft } from './ImgRosNeft'
+export { default as ImgRosSeti } from './ImgRosSeti'
+export { default as ImgRZHD } from './ImgRZHD'
+export { default as ImgMinistryOfLabor } from './ImgMinistryOfLabor'
+export { default as ImgSberbankLeasing } from './ImgSberbankLeasing'

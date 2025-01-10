@@ -1,6 +1,6 @@
-import { IconArrowUpRound } from '@/components/icons'
 import stls from '@/styles/components/sections/ButtonToTop.module.sass'
 import { useEffect, useState } from 'react'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const ButtonToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -31,7 +31,7 @@ const ButtonToTop = () => {
     <div
       onClick={scrollToTop}
       className={`${stls.scrollToTop} ${isVisible ? stls.show : ''}`}>
-      <IconArrowUpRound />
+      {loadIcon('IconArrowUpRound')}
     </div>
   )
 }

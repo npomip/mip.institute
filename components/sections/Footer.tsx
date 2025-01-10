@@ -1,10 +1,8 @@
-import {
-  BtnOk,
-  BtnTelegram,
-  BtnVk,
-  BtnWhatsapp,
-  BtnYt
-} from '@/components/btns'
+import BtnOk from '@/components/btns/BtnOk'
+import BtnTelegram from '@/components/btns/BtnTelegram'
+import BtnVk from '@/components/btns/BtnVk'
+import BtnWhatsapp from '@/components/btns/BtnWhatsapp'
+import BtnYt from '@/components/btns/BtnYt'
 import GeneralAddress from '@/components/sections/GeneralAddress'
 import FooterBottom from '@/components/sections/FooterBottom'
 import PopupTrigger from '@/ui/PopupTrigger'
@@ -12,7 +10,7 @@ import Wrapper from '@/ui/Wrapper'
 import { company } from '@/config/index'
 import stls from '@/styles/components/sections/Footer.module.sass'
 import classNames from 'classnames'
-import { staticLinks, programsLinks } from 'constants/footer'
+import { programsLinks, staticLinks } from 'constants/footer'
 import { getCookie } from 'cookies-next'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'

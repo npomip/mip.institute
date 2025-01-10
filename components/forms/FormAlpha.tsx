@@ -15,6 +15,7 @@ import Popup from 'reactjs-popup'
 import genezis from '@/helpers/funcs/genezis'
 import getTicket from '@/helpers/funcs/getTicket'
 import { segmentsObject } from '@/ui/FortuneWheel/constants'
+import dev from '@/config/dev'
 
 type FormValues = {
   name: string
@@ -154,20 +155,25 @@ const FormAlpha = ({
       data.advcake_track_id = advcake_track_id
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
-      const req = await genezis(data)
-
-      if (req === 200) {
-        setLoading(false)
-        window.open(
-          `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
-          '_blank'
-        )
-        setIsIpCheckFailed(false)
-        setIsDisabled(true)
+      if(dev) {
         setThanksIsOpen(true)
       } else {
-        setLoading(false)
-        setIsIpCheckFailed(true)
+        const req = await genezis(data)
+
+        if (req === 200) {
+          setLoading(false)
+          // window.open(
+          //   `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
+          //   '_blank'
+          // )
+          setIsIpCheckFailed(false)
+          setIsDisabled(true)
+          setThanksIsOpen(true)
+        } else {
+          setLoading(false)
+          setThanksIsOpen(true)
+          setIsIpCheckFailed(true)
+        }
       }
     }
   }

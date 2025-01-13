@@ -24,7 +24,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
-import StickyBottomNewYers from '@/components/sections/App/StickyButtonNewYers/StickyButtonNewYers'
+import StickyBottom from '@/components/sections/StickyBottom'
 import dynamic from 'next/dynamic'
 import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
 
@@ -314,10 +314,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            {/* <div><StickyBottom /></div> */}
-            <div>
-              <StickyBottomNewYers />
-            </div>
+            <div><StickyBottom /></div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>

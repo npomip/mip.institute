@@ -9,5 +9,6 @@
   "useTabs": false,
   "jsxSingleQuote": true,
   "useEditorConfig": false,
-  "enableDebugLogs": true
+  "enableDebugLogs": true,
+  "printWidth": 100
 }

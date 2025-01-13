@@ -19,8 +19,7 @@ const ProgramDiscount = ({
   isWhite = false
 }: Props) => {
   const { program } = useContext(ContextStaticProps)
-  // const programDiscount = program?.discount || 0
-  const programDiscount = discountNum
+  const programDiscount = program?.discount || 0
 
   const elDiscount = <>{programDiscount ? `-${programDiscount}%` : discount}</>
 

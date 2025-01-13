@@ -18,7 +18,6 @@ import truncate from '@/helpers/general/truncate'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { TypePageHomeProps } from '@/types/index'
-import FortuneWheel from '@/ui/FortuneWheel'
 import allowedNames from 'constants/indexMain'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
@@ -126,16 +125,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     }
   }, [router.query])
 
-  const [mustSpin, setMustSpin] = useState(false)
-
-  const handleSpin = () => {
-    setMustSpin(true)
-  }
-
-  const handleStopSpinning = () => {
-    setMustSpin(false)
-  }
-
   return (
     <>
       <NextSeo
@@ -179,12 +168,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
 
       <Hero />
-      {/* <Directions /> */}
-      <FortuneWheel
-        mustStartSpinning={mustSpin}
-        onClick={handleSpin}
-        onStopSpinning={handleStopSpinning}
-      />
       <DirectionsNew
         programs={programs}
         bachelors={bachelors}

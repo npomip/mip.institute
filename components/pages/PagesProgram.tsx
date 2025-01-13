@@ -27,7 +27,6 @@ import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
 import YourResumeNew from '../sections/YourResumeNew'
-import FortuneWheel from '@/ui/FortuneWheel'
 
 type PagesProgramType = {
   ofType: string
@@ -90,25 +89,10 @@ const PagesProgram = ({
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
 
-  const [mustSpin, setMustSpin] = useState(false)
-
-  const handleSpin = () => {
-    setMustSpin(true)
-  }
-
-  const handleStopSpinning = () => {
-    setMustSpin(false)
-  }
-
   return (
     <>
       <ButtonToTop />
       <HeroProgram />
-      <FortuneWheel
-        mustStartSpinning={mustSpin}
-        onClick={handleSpin}
-        onStopSpinning={handleStopSpinning}
-      />
       <PageNavigation sections={sections} />
       <WhyBother />
       {programOverview && (

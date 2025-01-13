@@ -33,9 +33,6 @@ const EntryForm = ({
         <h2 className={stls.title}>
           {onBachelor ? 'Как поступить' : 'Заявка на поступление'}
         </h2>
-        <p className={stls.nyText}>
-          Приемная комиссия работает <br /> в праздники для вас
-        </p>
         <div
           className={classNames({
             [stls.content]: true,

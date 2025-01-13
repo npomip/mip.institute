@@ -682,7 +682,114 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
           '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
         destination: '/journal',
         permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/sovremennaya-kognitivno-povedencheskaya-terapiya',
+        destination: '/courses/psihoterapiya/kognitivno-povedencheskaya-terapiya',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/psihologiya-seksualnosti-i-terapiya-seksualnyh-rasstrojstv',
+        destination: '/courses/psihoterapiya/kognitivno-povedencheskaya-terapiya',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/psihologiya-seksualnosti-i-terapiya-seksualnyh-rasstrojstv',
+        destination: '/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/psihoanaliz-snovidenij',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        destination: '/professions/obshaya-psihologiya/semejnyj-psiholog',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/sovremennaya-masterskaya-psihologicheskogo-konsultirovaniya',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/psihologicheskaya-pomosh-v-usloviyah-voennyh-sobytij',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/etika-professionalnoj-deyatelnosti-psihologa',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/detskaya-psihologiya/psihologiya-vospitaniya',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/detskaya-psihologiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        destination: '/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        destination: '/shortTerm/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        destination: '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya/psihologiya-obsheniya',
+        destination: '/shortTerm/obshaya-psihologiya/psihologiya-obsheniya',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        destination: '/shortTerm/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        destination: '/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        permanent: true
       }
+
+      
     ]
   }
 })

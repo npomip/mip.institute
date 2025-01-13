@@ -1,0 +1,78 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  width: 100%
+  position: relative
+
+.text  
+  color: c.$purple-900
+  font-family: Stem
+  font-size: f.px(35)
+  font-style: normal
+  font-weight: 500
+  line-height: 115%
+  padding-right: 50px 
+  @include m.media(laptop)
+    padding-right: 0px
+  @include m.media(phone,tablet)
+    font-size: f.px(18)
+    padding-right: 0px 
+
+.violetTitle
+  color: c.$purple-600
+
+.imageContainer 
+  position: absolute
+
+.giftBox
+  position: absolute
+  @include m.media(tablet)
+    display: none
+  @include m.media(desktop)
+    top: f.px(160)
+    left: f.px(320)
+  @include m.media(laptop)
+    top: f.px(180)
+    left: f.px(350)
+    img
+      width: 90px
+      height: 90px
+  @include m.media(phone)
+    top: f.px(55)
+    left: f.px(180)
+    img
+      width: 60px
+      height: 60px
+
+.star 
+  position: absolute
+  @include m.media(desktop) 
+    top: f.px(150)
+    left: f.px(450)
+  @include m.media(laptop)
+    top: f.px(170)
+    left: f.px(450)
+    img
+      width: 15px
+      height: 15px
+  @include m.media(tablet)
+    display: none
+  @include m.media(phone)
+    top: f.px(60)
+    left: f.px(250)
+    img
+      width: 13px
+      height: 13px
+    
+.twoStar
+  position: absolute
+  @include m.media(desktop, tablet, laptop)
+    display: none
+  @include m.media(phone)
+    top: f.px(80)
+    left: f.px(150)
+    img
+      width: 11px
+      height: 11px

@@ -5,6 +5,7 @@ const createLead = async (req, res) => {
   const {
     id,
     name,
+    lastName,
     phone,
     price,
     email,
@@ -14,11 +15,13 @@ const createLead = async (req, res) => {
     ymUid,
     utm,
     blockForAmo,
-    edPartners,
     roistat_visit,
     referer,
     roistatAB,
-    gift
+    gift,
+    link, 
+    password, 
+    login
 
   } = req.body
 
@@ -42,6 +45,7 @@ const createLead = async (req, res) => {
       form: [
         { key: 'phone', value: phone },
         { key: 'name', value: name },
+        { key: 'lastName', value: lastName },
         { key: 'email', value: email },
         { key: 'promocode', value: promocode || '' },
         { key: 'id', value: id || '' },
@@ -71,6 +75,9 @@ const createLead = async (req, res) => {
         { key: 'referer', value: referer || '' },
         { key: 'roistatAB', value: roistatAB || '' },
         { key: 'gift', value: gift || '' },
+        { key: 'link', value: link || '' },
+        { key: 'password', value: password || '' },
+        { key: 'login', value: login || '' },
       ],
       host: 'mip.institute', // домен вашего сайта (ОБЯЗАТЕЛЬНО)
       token: 'b6ce2e21-c68e-476f-87fe-ae268db2e9c2'

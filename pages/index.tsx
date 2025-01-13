@@ -15,13 +15,8 @@ import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
 import preview from '@/config/preview'
 import truncate from '@/helpers/general/truncate'
-import {
-  sortBasedOnNumericOrder,
-  sortReviewsCreatedAtASC
-} from '@/helpers/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
-import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import { TypePageHomeProps } from '@/types/index'
 import FortuneWheel from '@/ui/FortuneWheel'
 import allowedNames from 'constants/indexMain'
@@ -106,10 +101,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     allowedNames.includes(teacher.name)
   )
 
-  const reviewsSorted = sortBasedOnNumericOrder({
-    reviews: sortReviewsCreatedAtASC({ reviews })
-  })
-
   const seoParams = {
     title: `МИП - Московский Институт Психологии`,
     desc: truncate(
@@ -121,9 +112,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 
   const desc = (
     <>
-      У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} /> И
-      сотрудник приемной комиссии свяжется с вами, чтобы рассказать все
-      подробности
+      У Вас есть вопросы? Оставьте заявку! <br /> И сотрудник приемной комиссии
+      свяжется с вами, чтобы рассказать все подробности
     </>
   )
 
@@ -233,7 +223,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <YourDiploma onMain ofType='Profession' />
       <ProfessionalLeague />
       <HappyStudents />
-      <Reviews onMain reviews={reviewsSorted} />
+      <Reviews onMain reviews={reviews} />
       <PayLater />
       <Companies />
       <EntryForm />

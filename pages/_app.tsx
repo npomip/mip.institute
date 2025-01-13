@@ -200,10 +200,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   return (
     <>
-      <Script
-        src='https://api.flocktory.com/v2/loader.js?site_id=5428'
-        strategy='afterInteractive'
-      />
+      <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       {/* {!dev && ( */}
       <>
         <Script
@@ -225,11 +222,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           }}
         />
         {/* <RoistatScript /> */}
-        <Script
-          async
-          src='/assets/js/vendors/roistatWA.js'
-          strategy='afterInteractive'
-        />
+        <Script async src='/assets/js/vendors/roistatWA.js' />
       </>
       {/* )} */}
 
@@ -243,12 +236,11 @@ const MyApp = ({ Component, pageProps, router }) => {
       )}
 
       <Script
+        async
         src='https://www.googletagmanager.com/gtag/js?id=AW-822792302'
-        strategy='afterInteractive'
       />
       <Script
         id='google-tag'
-        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -336,35 +328,25 @@ const MyApp = ({ Component, pageProps, router }) => {
         rel='stylesheet'
         href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'
       />
-      <Script
-        src='/assets/js/vendors/swiped-events.min.js'
-        strategy='afterInteractive'
-      />
+      <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script
         type='text/javascript'
         id='carrot'
-        strategy='afterInteractive'
         src='/assets/js/vendors/carrot.js'
       />
       <Script
         type='text/javascript'
         id='advcakeAsync'
-        strategy='afterInteractive'
         src='/assets/js/vendors/advCake.js'
       />
       {prod && (
         <>
-          <Script
-            async
-            src='/assets/js/vendors/roistatWA.js'
-            strategy='afterInteractive'
-          />
+          <Script async src='/assets/js/vendors/roistatWA.js' />
         </>
       )}
 
       <Script
         id='edpartners_scaletrk'
-        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
         function sclClickPixelFn() {
@@ -401,7 +383,6 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       <Script
         id='vk script'
-        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `var _tmr = window._tmr || (window._tmr = []);
         _tmr.push({id: "3477294", type: "pageView", start: (new Date()).getTime()});
@@ -416,7 +397,6 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       <Script
         id='vk'
-        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `!function(){var t=document.createElement("script");
           t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?173',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1904296-h2y40"),VK.Retargeting.Hit()},document.head.appendChild(t)}()
@@ -425,12 +405,10 @@ const MyApp = ({ Component, pageProps, router }) => {
       />
       <Script
         id='WA AMO script'
-        strategy='afterInteractive'
         src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
       />
       <Script
         id='WA AMO second script'
-        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `window.addEventListener('DOMContentLoaded', function () {
             new GnzsRoiStatClass().init()
@@ -438,16 +416,11 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}
       />
 
-      <Script
-        async
-        src='/assets/js/vendors/pixel.js'
-        strategy='afterInteractive'
-      />
+      <Script async src='/assets/js/vendors/pixel.js' />
 
       {router.asPath === '/' ? (
         <Script
           id='advcake_main'
-          strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({
@@ -458,7 +431,6 @@ const MyApp = ({ Component, pageProps, router }) => {
       ) : (
         <Script
           id='advcake_typeTwo'
-          strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: `window.advcake_data = window.advcake_data || [];
           window.advcake_data.push({

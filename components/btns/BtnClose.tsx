@@ -1,7 +1,8 @@
 import stls from '@/styles/components/btns/BtnClose.module.sass'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
-import loadIcon from '@/helpers/general/loadIcon'
+import IconClose from '@/components/icons/IconClose'
+import IconCloseCircle from '@/components/icons/IconClose'
 
 type Props = {
   onClick?: () => void
@@ -16,7 +17,7 @@ const BtnClose = ({ onClick = null, iconCloseCircle = false }: Props) => {
       className={stls.container}
       onClick={onClick ? onClick : closeMenu}
       aria-label='Закрыть'>
-      {iconCloseCircle ? loadIcon('IconCloseCircle') : loadIcon('IconClose')}
+      {iconCloseCircle ? <IconCloseCircle /> : <IconClose />}
     </button>
   )
 }

@@ -1,0 +1,70 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.popupContainer
+  background: c.$purple-600
+  color: c.$white-900
+  @include m.gap($p: f.px(40))
+  border-radius: 20px
+  width: 100%
+  max-width: 1170px
+  font-family: Stem
+  font-style: normal
+  font-weight: 500
+  line-height: 115%
+
+.title
+  font-size: f.px(35)
+  text-align: center
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+
+.details
+  font-size: f.px(18)
+  position: relative
+  line-height: 115%
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.details > p
+    word-break: break-word
+    cursor: pointer
+
+.details > p > a
+  color: c.$orange-700
+  text-decoration: underline
+  &:focus-visible
+    outline: none
+
+
+.infoText
+  text-align: center
+  font-size: f.px(35)
+  line-height: 115%
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+
+.footerText
+  font-size: f.px(18)
+  line-height: 115%
+  text-align: center
+  word-break: break-word
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.footerText a
+  color: c.$orange-700
+  text-decoration: underline
+  &:focus-visible
+    outline: none
+
+.tooltip 
+  position: absolute
+  @include m.gap($ptb: f.px(5), $plr: f.px(12))
+  top: -30px
+  border-radius: 12px 
+  text-align: center
+  font-size: f.px(15)
+  background-color: c.$orange-700
+  color: c.$white-900

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/cards/CardWebinar.module.sass'
 import truncate from '@/helpers/general/truncate'
 import classNames from 'classnames'
-import { BtnText } from '@/components/btns'
+import BtnText from '@/components/btns/BtnText'
 
 const CardWebinar = ({ webinarData }) => {
   const {

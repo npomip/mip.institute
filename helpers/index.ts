@@ -6,15 +6,11 @@ export { default as sortUniqueReviewsCreatedAtASC } from '@/helpers/general/sort
 
 // ./
 export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'
-export { default as filterProgramsByStudyField } from '@/helpers/filterProgramsByStudyField'
 export { default as filterProgramsByType } from '@/helpers/filterProgramsByType'
 export { default as getCasedRuMonthString } from '@/helpers/getCasedRuMonthString'
 export { default as getCasedRuYearString } from '@/helpers/getCasedRuYearString'
-export { default as getCasesRuCourseString } from '@/helpers/getCasesRuCourseString'
-export { default as getCasesRuProfessionString } from '@/helpers/getCasesRuProfessionString'
 export { default as getImageHeight } from '@/helpers/getImageHeight'
 export { default as getRuDaysOfWeek } from '@/helpers/getRuDaysOfWeek'
-export { default as getRuMonths } from '@/helpers/getRuMonths'
 export { default as getStudyFields } from '@/helpers/getStudyFields'
 export { default as getStudyFieldsLabels } from '@/helpers/getStudyFieldsLabels'
 export { default as getStudyFieldsSlugs } from '@/helpers/getStudyFieldsSlugs'
@@ -22,4 +18,3 @@ export { default as getThreeLettersRuMonths } from '@/helpers/getThreeLettersRuM
 export { default as handleSwipedEvt } from '@/helpers/handleSwipedEvt'
 export { default as removeDuplicates } from '@/helpers/removeDuplicates'
 export { default as toNumberWithSpaces } from '@/helpers/toNumberWithSpaces'
-export { default as setDateOfEnrollment } from '@/helpers/setDateOfEnrollment'

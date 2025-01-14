@@ -1,4 +1,4 @@
-import { ActiveLicenses } from '@/components/sections'
+import ActiveLicenses from '@/components/sections/ActiveLicenses'
 import AboutMip from '@/components/sections/AboutMip/AboutMip'
 import AboutPageContactForm from '@/components/sections/AboutPageContactForm'
 import ChooseProgram from '@/components/sections/ChooseProgram/ChooseProgram'

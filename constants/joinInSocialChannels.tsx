@@ -1,23 +1,27 @@
-import { IconOk, IconTelegram, IconVk, IconYt } from '@/components/icons'
 import routes from '@/config/routes'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const channels = [
   {
     name: 'Telegram',
     href: routes.external.telegram,
-    icon: <IconTelegram inContacts />
+    icon: loadIcon('IconTelegram', { inContacts: true })
   },
   {
     name: 'YouTube',
     href: routes.external.youtube,
-    icon: <IconYt inContacts />
+    icon: loadIcon('IconYt', { inContacts: true })
   },
   {
     name: 'Одноклассники',
     href: routes.external.ok,
-    icon: <IconOk inContacts />
+    icon: loadIcon('IconOk', { inContacts: true })
   },
-  { name: 'Вконтакте', href: routes.external.vk, icon: <IconVk inContacts /> }
+  {
+    name: 'Вконтакте',
+    href: routes.external.vk,
+    icon: loadIcon('IconVk', { inContacts: true })
+  }
 ]
 
 export default channels

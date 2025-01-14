@@ -1,5 +1,4 @@
 import CardNextEvents from '@/components/cards/CardNextEvents'
-import { IconFinger } from '@/components/icons'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from './NextEvents.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
@@ -8,6 +7,7 @@ import Wrapper from '@/ui/Wrapper'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import loadIcon from '@/helpers/general/loadIcon'
 
 SwiperCore.use([Scrollbar])
 
@@ -43,9 +43,7 @@ const NextEvents = ({ lectorium }: Props) => {
             ))}
           </Swiper>
         </div>
-        <div className={stls.finger}>
-          <IconFinger />
-        </div>
+        <div className={stls.finger}>{loadIcon('IconFinger')}</div>
       </Wrapper>
     </section>
   )

@@ -1,4 +1,4 @@
-import { BtnAlpha, BtnBeta } from '@/components/btns'
+import BtnAlpha from '@/components/btns/BtnAlpha'
 import stls from '@/styles/components/forms/LivePaymentForm.module.sass'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
@@ -34,7 +34,7 @@ const LivePaymentForm = ({
     register,
     handleSubmit,
     control,
-    formState: { errors, dirtyFields }
+    formState: { errors }
   } = useForm<FormValues>({
     defaultValues: {
       name: '',

@@ -2,14 +2,13 @@ import stls from '@/styles/components/program/ProgramInfo.module.sass'
 import { ContextStaticProps } from '@/context/index'
 import { useContext, useState } from 'react'
 import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
-import {
-  IconCalendarAlt,
-  IconUsers,
-  IconMap,
-  IconClock,
-  IconFile
-} from '@/components/icons'
-import IconInfo from '../icons/IconInfo'
+import IconClock from '@/components/icons/IconClock'
+import IconCalendarAlt from '@/components/icons/IconCalendarAlt'
+import IconInfo from '@/components/icons/IconInfo'
+import IconUsers from '@/components/icons/IconUsers'
+import IconMap from '@/components/icons/IconMap'
+import IconFile from '@/components/icons/IconFile'
+
 import ProgramAdmissionUntil from './ProgramAdmissionUntil'
 
 const ProgramInfo = () => {
@@ -33,7 +32,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Ближайшее зачисление:',
-      val:  program?.admissionDate || ProgramAdmissionUntil(),
+      val: program?.admissionDate || ProgramAdmissionUntil(),
       icon: <IconMap />
     },
     {

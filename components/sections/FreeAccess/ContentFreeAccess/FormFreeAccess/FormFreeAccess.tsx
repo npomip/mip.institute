@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import React, { useEffect, useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import styles from './FormFreeAccess.module.sass'
 import axios from 'axios'
 import PopupAccess from '../PopupAccess/PopupAccess'
 import { prepareCrmData } from '../helpers/prepareCrmData'
 import routes from '@/config/routes'
-import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 
 type FormValues = {
@@ -27,7 +26,12 @@ interface FormFreeAccessProps {
   showPopup: boolean
   setShowPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
-const FormFreeAccess: React.FC<FormFreeAccessProps> = ({ setDisabled, disabled, showPopup, setShowPopup }) => {
+const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
+  setDisabled,
+  disabled,
+  showPopup,
+  setShowPopup
+}) => {
   const [dataStorage, setDataStorage] = useState<DataStorage>(null)
   const {
     control,
@@ -64,7 +68,6 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({ setDisabled, disabled, 
       reset(parsedData)
     }
   }, [setShowPopup, setDisabled, reset])
-
  const onSubmit = async (formData: FormValues) => {
   try {
     const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', formData)

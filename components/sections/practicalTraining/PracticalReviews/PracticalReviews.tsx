@@ -7,8 +7,8 @@ import { useRef } from 'react'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { IconFinger } from '@/components/icons'
 import PracticalReviewsCard from './PracticalReviewsCard/PracticalReviewsCard'
+import loadIcon from '@/helpers/general/loadIcon'
 
 SwiperCore.use([Scrollbar])
 
@@ -53,9 +53,7 @@ const PracticalReviews = ({ review }: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className={stls.finger}>
-          <IconFinger />
-        </div>
+        <div className={stls.finger}>{loadIcon('IconFinger')}</div>
       </Wrapper>
     </section>
   )

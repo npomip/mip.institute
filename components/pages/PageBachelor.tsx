@@ -1,10 +1,8 @@
-import {
-  BriefProgramContents,
-  Faq,
-  PageNavigation,
-  Teachers,
-  YourDiploma
-} from '@/components/sections'
+import BriefProgramContents from '@/components/sections/BriefProgramContents'
+import Faq from '@/components/sections/Faq'
+import PageNavigation from '@/components/sections/PageNavigation'
+import Teachers from '@/components/sections/Teachers'
+import YourDiploma from '@/components/sections/YourDiploma'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { useRef } from 'react'

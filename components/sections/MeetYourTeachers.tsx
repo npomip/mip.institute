@@ -1,5 +1,5 @@
 import PopupTrigger from '@/ui/PopupTrigger'
-import { ImgTeacher } from '@/components/imgs'
+import ImgTeacher from '@/components/imgs/teachers/ImgTeacher'
 import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/MeetYourTeachers.module.sass'
 import ReactMarkdown from 'react-markdown'

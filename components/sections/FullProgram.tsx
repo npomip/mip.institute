@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/FullProgram.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { ImgFullProgram1 } from '@/components/imgs'
+import ImgFullProgram1 from '@/components/imgs/fullprogram/ImgFullProgram1'
 import PopupTrigger from '@/ui/PopupTrigger'
 
 const FullProgram = () => {

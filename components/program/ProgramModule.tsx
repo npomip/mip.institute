@@ -1,4 +1,5 @@
-import { IconMinus, IconPlus } from '@/components/icons'
+import IconMinus from '@/components/icons/IconMinus'
+import IconPlus from '@/components/icons/IconPlus'
 import stls from '@/styles/components/program/ProgramModule.module.sass'
 import classNames from 'classnames'
 import { useState } from 'react'

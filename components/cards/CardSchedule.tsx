@@ -4,7 +4,7 @@ import cn from 'classnames'
 import { routes } from '@/config/index'
 import CtaText from '@/ui/CtaText'
 import ImgAllWebinars from '@/components/imgs/webinars/ImgAllWebinars'
-import { IconPlayer } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const CardSchedule = ({ mobileLayout = false }) => {
   return (
@@ -19,9 +19,7 @@ const CardSchedule = ({ mobileLayout = false }) => {
         </div>
         <div className={stls.content}>
           <div className={stls.circle}>
-            <div className={stls.icon}>
-              <IconPlayer />
-            </div>
+            <div className={stls.icon}>{loadIcon('IconPlayer')}</div>
           </div>
           <h3 className={stls.title}>Расписание всех&nbsp;вебинаров</h3>
           <div className={stls.btn}>

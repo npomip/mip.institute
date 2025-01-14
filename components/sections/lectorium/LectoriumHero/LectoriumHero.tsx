@@ -1,6 +1,7 @@
-import { IconCalendarAlt, IconLocation } from '@/components/icons'
-import IconInfo from '@/components/icons/IconInfo'
 import { calculateEventTimeAndDate } from '@/helpers/calculateEventTimeAndDate'
+import IconInfo from '@/components/icons/IconInfo'
+import IconLocation from '@/components/icons/IconLocation'
+import IconCalendarAlt from '@/components/icons/IconCalendarAlt'
 import stls from './LectoriumHero.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import Breadcrumbs from '@/ui/Breadcrumbs'
@@ -34,17 +35,21 @@ const LectoriumHero = ({ lectorium }: Props) => {
     {
       icon: <IconLocation isEmpty />,
       header: 'формат:',
-      content: lectorium.isInternal ?(lectorium.type === 'online' && 'Онлайн') || (
+      content: lectorium.isInternal ? (
+        (lectorium.type === 'online' && 'Онлайн') || (
+          <>
+            Очный
+            <br />
+            г. Москва, Докучаев переулок, 8
+          </>
+        )
+      ) : (
         <>
           Очный
           <br />
-          г. Москва, Докучаев переулок, 8
+          {lectorium.eventAddress}
         </>
-      ) : (<>
-        Очный
-        <br />
-        {lectorium.eventAddress}
-      </>)
+      )
     },
     {
       icon: <span className={stls.currency}>₽</span>,
@@ -61,7 +66,14 @@ const LectoriumHero = ({ lectorium }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <Breadcrumbs isJournal lastLabel={lectorium.isInternal ? 'Внутренние мероприятия' : 'Внешние мероприятия'} />
+        <Breadcrumbs
+          isJournal
+          lastLabel={
+            lectorium.isInternal
+              ? 'Внутренние мероприятия'
+              : 'Внешние мероприятия'
+          }
+        />
         <p className={stls.event}>{lectorium.label}</p>
         <h1 className={stls.subTitle}>
           <span className={stls.title}>{lectorium.title}</span>

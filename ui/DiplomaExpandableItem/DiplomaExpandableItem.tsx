@@ -2,8 +2,10 @@ import stls from './DiplomaExpandableItem.module.sass'
 import { useState } from 'react'
 import classNames from 'classnames'
 import Popup from 'reactjs-popup'
-import { IconDoc, IconMinus, IconPlus } from '@/components/icons'
-import { PopupImage } from '@/components/popups'
+import IconMinus from '@/components/icons/IconMinus'
+import IconPlus from '@/components/icons/IconPlus'
+import PopupImage from '@/components/popups/PopupImage'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   idx?: number
@@ -39,7 +41,7 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }: Props) => {
                       <span className={stls.img}>{diploma.image}</span>
                       <span className={stls.label}>
                         <span className={stls.labelIcon}>
-                          <IconDoc />
+                          {loadIcon('IconDoc')}
                         </span>
                         <span className={stls.diplomaTitle}>
                           {diploma.title}

@@ -1,5 +1,6 @@
 import hitContactRoute from '@/helpers/funcs/hitContactRoute'
-import { PopupLoading, PopupThankyou } from '@/components/popups'
+import PopupLoading from '@/components/popups/PopupLoading'
+import PopupThankyou from '@/components/popups/PopupThankyou'
 import routes from '@/config/routes'
 import stls from '@/styles/components/forms/NewForm.module.sass'
 import classNames from 'classnames'

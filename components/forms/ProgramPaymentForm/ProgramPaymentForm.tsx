@@ -9,9 +9,9 @@ import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
-import { BtnClose } from '../../btns'
+import BtnClose from '@/components/btns/BtnClose'
 import Button from '../../btns/Button'
-import { PopupLoading } from '../../popups'
+import PopupLoading from '@/components/popups/PopupLoading'
 import genezis from '@/helpers/funcs/genezis'
 
 type FormValues = {
@@ -157,7 +157,6 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
               />
               <p className={stls.err}>{errors.name && errors.name.message}</p>
             </div>
-           
 
             <div className={classNames(stls.inpt, stls.phone)}>
               <Controller

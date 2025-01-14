@@ -787,8 +787,37 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         source: '/courses/organizacionnaya-psihologiya/upravlenie-konfliktami',
         destination: '/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami',
         permanent: true
-      }
+      },
 
+      {
+        source: '/professions/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        destination: '/shortTerm/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        destination: '/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        permanent: true
+      },{
+        source: '/professions/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        destination: '/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        destination: '/shortTerm/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        destination: '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        permanent: true
+      },
+      {
+        source: '/professions/obshaya-psihologiya/psihologiya-obsheniya',
+        destination: '/shortTerm/obshaya-psihologiya/psihologiya-obsheniya',
+        permanent: true
+      },
       
     ]
   }

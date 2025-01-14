@@ -26,7 +26,6 @@ interface FormFreeAccessProps {
   showPopup: boolean
   setShowPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
-
 const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
   setDisabled,
   disabled,
@@ -69,30 +68,34 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
       reset(parsedData)
     }
   }, [setShowPopup, setDisabled, reset])
+ const onSubmit = async (formData: FormValues) => {
+  try {
+    const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', formData)
+    const { link, password, login } = response.data
 
-  const onSubmit = async (formData: FormValues) => {
-    try {
-      const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', formData)
-      const { link, password, login } = response.data
+    localStorage.setItem('formData', JSON.stringify(formData))
+    localStorage.setItem('accessLink', link)
+    localStorage.setItem('accessPassword', password)
+    localStorage.setItem('accessLogin', login)
 
-      localStorage.setItem('formData', JSON.stringify(formData))
-      localStorage.setItem('accessLink', link)
-      localStorage.setItem('accessPassword', password)
-      localStorage.setItem('accessLogin', login)
+    setDataStorage({ login, password, link })
+    setShowPopup(true)
+    setDisabled(true)
 
-      setDataStorage({ login, password, link })
-      setShowPopup(true)
-      setDisabled(true)
+    // Собираем данные для CRM
+    const crmData = prepareCrmData(
+      formData, 
+      { link, password, login }, 
+      router.asPath
+    )
 
-      // Собираем данные для CRM
-      const crmData = prepareCrmData(formData, { link, password, login }, router.asPath)
+    // Отправляем данные в CRM
+    const res = await axios.post(`${routes.front.root}/api/genezis`, crmData)
 
-      // Отправляем данные в CRM
-      const res = await axios.post(`${routes.front.root}/api/genezis`, crmData)
-    } catch (error) {
-      console.error('Error generating link:', error)
-    }
+  } catch (error) {
+    console.error('Error generating link:', error)
   }
+}
 
   return (
     <>

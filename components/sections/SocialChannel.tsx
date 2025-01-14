@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/JoinInSocialChannels.module.sass'
 import Link from 'next/link'
-import { IconArrowRight } from '../icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const SocialChannels = ({ channel }) => {
   return (
@@ -15,7 +15,7 @@ const SocialChannels = ({ channel }) => {
         <p className={stls.channelName}>{channel.name}</p>
       </div>
       <span className={stls.arrowIcon}>
-        <IconArrowRight inContacts />
+        {loadIcon('IconArrowRight', { inContacts: true })}
       </span>
     </Link>
   )

@@ -1,5 +1,5 @@
 import CardTeacher from '@/components/cards/CardTeacher'
-import { ImgTeacher } from '@/components/imgs'
+import ImgTeacher from '@/components/imgs/teachers/ImgTeacher'
 import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
@@ -14,6 +14,7 @@ import { useContext } from 'react'
 import SwiperCore from 'swiper'
 import { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay])
 
 type TeacherProps = {

@@ -1,11 +1,11 @@
 import {
   ImgHeadHunter,
-  ImgRosSeti,
-  ImgRosNeft,
-  ImgRZHD,
   ImgMinistryOfLabor,
+  ImgRosNeft,
+  ImgRosSeti,
+  ImgRZHD,
   ImgSberbankLeasing
-} from '@/components/imgs'
+} from '@/components/imgs/corporateClients'
 
 const clientsList = [
   {

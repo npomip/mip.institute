@@ -1,7 +1,8 @@
 import stls from '@/styles/components/btns/BtnClose.module.sass'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
-import { IconClose, IconCloseCircle } from '@/components/icons'
+import IconClose from '@/components/icons/IconClose'
+import IconCloseCircle from '@/components/icons/IconClose'
 
 type Props = {
   onClick?: () => void

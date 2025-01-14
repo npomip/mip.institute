@@ -1,6 +1,6 @@
 import stls from '@/styles/components/cards/CardDistanceEducation.module.sass'
-import { IconCircleCheck } from '../icons'
 import classNames from 'classnames'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   item: string
@@ -14,7 +14,7 @@ const CardDistanceEducation = ({ item, purpleBlock }: Props) => {
         [stls.item]: true,
         [stls.purpleBlock]: purpleBlock
       })}>
-      <IconCircleCheck distanceSection />
+      {loadIcon('IconCircleCheck', { distanceSection: true })}
       <div className={stls.description}>
         <span className={stls.p}>{item}</span>
       </div>

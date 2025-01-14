@@ -1,8 +1,8 @@
 import stls from '@/styles/components/popups/PopupThankyouNew.module.sass'
-import { useEffect, useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { ContextStaticProps } from '@/context/index'
 import TagManager from 'react-gtm-module'
-import { BtnClose } from '@/components/btns'
+import BtnClose from '@/components/btns/BtnClose'
 import { v4 as uuidv4 } from 'uuid'
 import GratefullNew from '../sections/GratefullNew'
 

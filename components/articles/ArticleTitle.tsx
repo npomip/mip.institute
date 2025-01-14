@@ -1,7 +1,7 @@
 import base64pixel from '@/config/base64pixel'
 import stls from '@/styles/components/articles/ArticleTitle.module.sass'
 import Image from 'next/image'
-import { IconClock } from '@/components/icons'
+import IconClock from '@/components/icons/IconClock'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
@@ -66,7 +66,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
         </p>
         <div className={stls.dateAndTime}>
           <p className={stls.date}>{formattedDate}</p>
-          <IconClock colorCode='#545454' size='22' />
+          <IconClock colorCode='545454' size='22' />
           <p className={stls.time}>{props.readTime} мин</p>
         </div>
       </div>

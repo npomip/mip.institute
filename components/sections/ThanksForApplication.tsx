@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/ThanksForApplication.module.sass'
 import IconArrowLeft from '../icons/IconArrowLeft'
-import { IconArrowRight } from '../icons'
 import IconGratefullPortal from '../icons/IconGratefullPortal'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const ThanksForApplication = () => {
   return (
@@ -17,7 +17,9 @@ const ThanksForApplication = () => {
           <IconGratefullPortal />
         </div>
 
-        <div className={stls.toHome} onClick={() => {
+        <div
+          className={stls.toHome}
+          onClick={() => {
             window.location.href = '/'
           }}>
           <div className={stls.icon}>
@@ -30,9 +32,7 @@ const ThanksForApplication = () => {
           <p>Поздравляем!</p>
         </div>
         <h1 className={stls.title}>Спасибо за заявку</h1>
-        <div className={stls.iconArrow}>
-          <IconArrowRight />
-        </div>
+        <div className={stls.iconArrow}>{loadIcon('IconArrowRight')}</div>
         <div className={stls.content}>
           <p>
             <span>Ваши данные переданы в приемную комиссию,</span> специалист по

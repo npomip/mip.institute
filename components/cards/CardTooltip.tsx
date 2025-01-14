@@ -7,6 +7,8 @@ export default function CardTooltip({ profession, clickHandler }) {
   const tagText =
     profession.type === 'Course'
       ? 'Повышение квалификации'
+      : profession.type === 'ShortTerm'
+      ? 'Курс'
       : 'Профессиональная переподготовка'
   return (
     <div className={styles.container}>

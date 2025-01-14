@@ -1,10 +1,10 @@
 import TwoColumns from '@/ui/TwoColumns'
 import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/PsyTestMain.module.sass'
-import { BtnAlpha } from '../btns'
+import BtnAlpha from '@/components/btns/BtnAlpha'
 import IconGratefullPortal from '../icons/IconGratefullPortal'
-import { IconPsyTest } from '../icons'
 import ImgPsyTest from '../imgs/general/ImgPsyTest'
+import loadIcon from '@/helpers/general/loadIcon'
 
 interface Props {
   startHandler: () => void
@@ -28,9 +28,7 @@ const PsyTestMain = ({ startHandler }: Props) => {
               </div>
             </div>
             <div className={stls.right}>
-              <div className={stls.img}>
-                <IconPsyTest />
-              </div>
+              <div className={stls.img}>{loadIcon('IconPsyTest')}</div>
               <ImgPsyTest />
               <div className={stls.portals}>
                 <div className={stls.smallOne}>

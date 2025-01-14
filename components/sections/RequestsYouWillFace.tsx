@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/RequestsYouWillFace.module.sass'
 import { useEffect, useState } from 'react'
-import { IconCircleCheck } from '../icons'
-import IconInfo from '../icons/IconInfo'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const RequestsYouWillFace = ({ title, description, index }) => {
   const [isFlipped, setFlipped] = useState(false)
@@ -21,12 +20,12 @@ const RequestsYouWillFace = ({ title, description, index }) => {
       onClick={handleCardClick}>
       <div className={stls.front}>
         <div className={stls.icon}>
-          <IconCircleCheck programSection />
+          {loadIcon('IconCircleCheck', { programSection: true })}
         </div>
         <p>{title}</p>
         {index === 0 && (
           <div className={stls.info}>
-            <IconInfo calpha />
+            {loadIcon('IconInfo', { calpha: true })}
           </div>
         )}
       </div>

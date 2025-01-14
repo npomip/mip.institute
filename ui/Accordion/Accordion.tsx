@@ -1,6 +1,6 @@
 import styles from './Accordion.module.sass'
 import React, { FC, ReactNode, useEffect, useState } from 'react'
-import { IconArrowRight } from '@/components/icons'
+import IconArrowRight from '@/components/icons/IconArrowRight'
 
 interface Props {
   children?: ReactNode

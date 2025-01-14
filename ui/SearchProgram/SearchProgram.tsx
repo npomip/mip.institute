@@ -3,9 +3,9 @@ import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import getProgramsData from '@/lib/data/getProgramsData'
 import stls from './SearchProgram.module.sass'
 import { useContext, useEffect, useRef, useState } from 'react'
-import { BtnField } from '@/components/btns'
+import BtnField from '@/components/btns/BtnField'
 import CardTooltip from '@/components/cards/CardTooltip'
-import { IconSearchAlt } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 export default function SearchProgram() {
   const { closeFieldsTooltip } = useContext(fieldsTooltipContext)
@@ -65,9 +65,7 @@ export default function SearchProgram() {
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
         />
-        <div className={stls.icon}>
-          <IconSearchAlt />
-        </div>
+        <div className={stls.icon}>{loadIcon('IconSearchAlt')}</div>
       </div>
       {isProgramsVisible && (
         <div className={stls.programs}>

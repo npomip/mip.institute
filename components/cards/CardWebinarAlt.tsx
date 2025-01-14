@@ -1,6 +1,6 @@
-import { getThreeLettersRuMonths, getRuDaysOfWeek } from '@/helpers/index'
+import { getRuDaysOfWeek, getThreeLettersRuMonths } from '@/helpers/index'
 import stls from '@/styles/components/cards/CardWebinarAlt.module.sass'
-import { IconBell } from '@/components/icons'
+import IconBell from '@/components/icons/IconBell'
 import CtaText from '@/ui/CtaText'
 
 type CardWebinarAltType = {

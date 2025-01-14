@@ -1,27 +1,25 @@
-import CHECK_TOKENS from "@/lib/graphQL/CHECK_TOKENS";
-import routes from "@/config/routes";
-import client from "@/lib/apolloClient";
-import axios from "axios";
-import dayjs from "dayjs";
-import { UPDATE_TOKEN } from "@/lib/index";
+import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
+import routes from '@/config/routes'
+import client from '@/lib/apolloClient'
+import axios from 'axios'
+import dayjs from 'dayjs'
+import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
 
 const checkOrUpdateTokens = async () => {
-  
   try {
     const { data: checkTokenData } = await client.query({
       query: CHECK_TOKENS,
       variables: { title: 'amo' },
       fetchPolicy: 'network-only'
-    });
+    })
 
     const tokenId = checkTokenData?.amos[0]?.id
-    const expireTime = checkTokenData?.amos[0]?.expired_in;
+    const expireTime = checkTokenData?.amos[0]?.expired_in
     const oldAccess_token = checkTokenData?.amos[0]?.access
     const oldRefresh_token = checkTokenData?.amos[0]?.refresh
     const nowUNIXtime = dayjs().unix()
     const differenceInTime = expireTime - nowUNIXtime
     if (differenceInTime < 1800) {
-
       const exchangeTokensResponse = await axios.post(
         `${routes.front.root}/api/amoCRMexchangeToken`,
         checkTokenData?.amos[0]
@@ -38,18 +36,18 @@ const checkOrUpdateTokens = async () => {
               expired_in: nowUNIXtime + 84400
             }
           }
-        },
+        }
       })
 
       // return data.updateAmo.amo.access
-      return {access_token: data.updateAmo.amo.access}
+      return { access_token: data.updateAmo.amo.access }
     } else {
       // return oldAccess_token
-      return {access_token: oldAccess_token}
+      return { access_token: oldAccess_token }
     }
   } catch (error) {
-    console.error('tokenss=======>',error)
-    return 
+    console.error('tokenss=======>', error)
+    return
   }
 }
 

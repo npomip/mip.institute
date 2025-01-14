@@ -4,10 +4,10 @@ import { useContext } from 'react'
 import Wrapper from '@/ui/Wrapper'
 import CloudHead from '../imgs/programs/courses/CloudHead'
 import IconBackOfOverview from '../icons/IconBackOfOverview'
-import { IconCircleCheck } from '../icons'
 import classNames from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import parseProgramContent from '@/helpers/parseProgramContent'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const ProgramOverview = ({ toggleOverview, showDescription }) => {
   const { program } = useContext(ContextStaticProps)
@@ -50,7 +50,7 @@ const ProgramOverview = ({ toggleOverview, showDescription }) => {
                   {topicGroup.map((topic, topicIdx) => (
                     <div key={topic + topicIdx} className={stls.item}>
                       <div className={stls.itemIcon}>
-                        <IconCircleCheck violetItems />
+                        {loadIcon('IconCircleCheck', { violetItems: true })}
                       </div>
                       <ReactMarkdown components={customRenderers}>
                         {topic}

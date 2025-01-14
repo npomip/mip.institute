@@ -1,6 +1,10 @@
 import styles from '@/styles/components/sections/AboutPageContactForm.module.sass'
-import NewForm from '@/components/forms/NewForm'
 import Wrapper from '@/ui/Wrapper'
+import dynamic from 'next/dynamic'
+
+const NewForm = dynamic(() => import('@/components/forms/NewForm'), {
+  ssr: false
+})
 
 export default function AboutPageContactForm() {
   return (

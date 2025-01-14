@@ -1,5 +1,4 @@
 import routes from '@/config/routes'
-import payment from '@/helpers/funcs/payment'
 import stls from '@/styles/components/forms/EventPaymentForm.module.sass'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
@@ -8,12 +7,9 @@ import { Controller, useForm } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
-import { IconTelegram, IconWhatsapp } from '../icons'
-import IconCopyLink from '../icons/IconCopyLink'
-import IconVk from '../icons/IconVk'
 import { useEffect, useState } from 'react'
-import IconCheck from '../icons/IconCheck'
 import genezis from '@/helpers/funcs/genezis'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type FormValues = {
   name: string
@@ -61,22 +57,22 @@ const EventPaymentForm = ({ timepadHref }: Props) => {
   const socialLinks = [
     {
       id: 'vk',
-      icon: <IconVk />,
+      icon: loadIcon('IconVk'),
       link: routes.share.vk(currentUrl, shareText)
     },
     {
       id: 'whatsapp',
-      icon: <IconWhatsapp />,
+      icon: loadIcon('IconWhatsapp'),
       link: routes.share.whatsapp(currentUrl, shareText)
     },
     {
       id: 'telegram',
-      icon: <IconTelegram />,
+      icon: loadIcon('IconTelegram'),
       link: routes.share.telegram(currentUrl, shareText)
     },
     {
       id: 'copyLink',
-      icon: <IconCopyLink />,
+      icon: loadIcon('IconCopyLink'),
       link: '#',
       onClick: e => {
         e.preventDefault()
@@ -241,11 +237,9 @@ const EventPaymentForm = ({ timepadHref }: Props) => {
                     ? e => handleClick(e, social.onClick)
                     : undefined
                 }>
-                {social.id === 'copyLink' && isCopied ? (
-                  <IconCheck />
-                ) : (
-                  social.icon
-                )}
+                {social.id === 'copyLink' && isCopied
+                  ? loadIcon('IconCheck')
+                  : social.icon}
               </a>
             ))}
           </div>

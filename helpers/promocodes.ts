@@ -17,6 +17,8 @@ const promocodes = {
   pubum: 'СТРЕЛЕЦ',
   christiagata: 'АГАТАКРИСТИ',
   mashnews4: 'MASH',
+  alexandraposnova: 'ПОСНОВА',
+  pogrebjiskaya2: 'Погребижская',
 };
 
 export default promocodes

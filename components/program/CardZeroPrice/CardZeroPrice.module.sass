@@ -1,0 +1,150 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: relative
+
+.content
+  @include m.dye(bg, c.$purple-800)
+  @include m.dye(c, c.$white-900)
+  @include m.flex($fd: column, $jc: space-between)  
+  position: relative
+  border-radius: f.px(25)
+  min-height: 415px
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(28))
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(36))
+
+.calendareBigDesc
+  position: absolute
+  z-index: 2
+  bottom: -1px
+  left: -12px  
+  object-fit: contain
+  @include m.media(laptop)
+    width: 150px
+    height: 250px
+    bottom: -6px
+    left: 0px 
+  @include m.media(laptop)
+    left: -2px 
+  @include m.media(phone, tablet)
+    display: none
+
+.calendareSmallDesc
+  position: absolute
+  z-index: 1
+  bottom: -33px
+  left: 115px  
+  object-fit: contain
+  @include m.media(laptop)
+    width: 124px
+    height: 250px
+    bottom: -50px
+     left: 115px  
+  @include m.media(phone, tablet)
+    display: none
+
+.calendareBigMob
+  position: absolute
+  z-index: 2  
+  object-fit: contain
+  @include m.media(desktop, laptop)
+    display: none
+  @include m.media(tablet)
+    top: 30%
+    left: 38%
+  @include m.media(phone)
+    top: 30%
+    left: 25%
+
+.calendareSmallMob
+  position: absolute
+  z-index: 1  
+  object-fit: contain
+  @include m.media(desktop, laptop)
+    display: none
+  @include m.media(tablet)
+    top: 35%
+    left: 50%
+  @include m.media(phone)
+    top: 35%
+    left: 50%
+
+.spanLine
+  margin: 0 auto
+  width: 88%
+  @include m.gap($ptb: f.px(20))
+  &:nth-last-child(2)
+    @include m.media(phone, tablet)
+      @include m.gap($pb: f.px(0))
+
+.startSales
+  color: #FFF
+  text-align: center
+  font-family: Stem
+  font-size: 34px
+  font-style: normal
+  font-weight: 500
+  line-height: normal
+  @include m.media(phone,tablet)
+    font-size: 30px
+    margin: 0 auto
+    @include m.gap($mb: f.px(150))
+    text-align: center
+
+.btns
+  @include m.flex($jc:center, $fd: column, $ai: center)
+  width: 100%
+  z-index: 2
+  p
+    text-align: center
+    @include m.media(laptop, desktop)
+      display: none
+    @include m.media(phone, tablet)
+      font-size: f.px(15)
+      font-weight: 350
+      text-align: center
+
+    @include m.media(phone)
+      max-width: f.px(300)
+
+  button
+    width: 305px
+    @include m.gap($mb: f.px(16))
+
+
+  .btnquestion
+    display: flex
+    justify-content: center
+    width: 100%
+    @include m.media(laptop, desktop)
+      @include m.gap($mb: f.px(16))
+    & > *
+      width: 100%
+      @include m.gap($mlr: f.px(20))
+      @include m.media(phone, tablet)
+
+    button
+      @include m.dye(bg, c.$purple-800)
+      width: 100%
+      border: 1px solid c.$white-900
+      color: c.$white-900
+      font-size: 18px
+      font-weight: 500
+      @include m.media(desktop)
+        height: 65px
+        width: 100%
+        border-radius: 10px
+      @include m.media(laptop)
+        height: 54px
+      @include m.media(tablet)
+        height: 73px
+
+.askQuestion
+  width: 100%
+  @include m.gap($plr: f.px(20), $mb: f.px(20))
+  @include m.media(laptop, desktop)
+    display: none

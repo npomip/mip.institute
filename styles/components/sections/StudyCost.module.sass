@@ -98,19 +98,6 @@
   @include m.media(phone, tablet)
     display: none
 
-.cost
-  @include m.gap($mb: f.px(10))
-  @media screen and ( max-width: 405px)
-    & > *
-      & > *:nth-child(1)
-        display: block
-  @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
-    & > *
-      & > *:nth-child(1)
-        display: block
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(45))
-
 .btnmore
   @include m.media(phone, tablet)
     @include m.flex($jc: center, $fb: 40%)
@@ -182,3 +169,8 @@
     @include m.gap($mb: f.px(0))
   .subtitle
     flex-basis: 66%
+
+.topMargin
+   @include m.gap($mt: f.px(25))
+   @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(0))

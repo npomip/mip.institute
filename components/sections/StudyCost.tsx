@@ -10,16 +10,16 @@ import MoneySaving from '../program/MoneySaving'
 import ProgramStudyDuration from '../program/ProgramStudyDuration'
 import points from 'constants/studyCost'
 import ProgramAdmissionUntil from '../program/ProgramAdmissionUntil'
+import classNames from 'classnames'
 
 const StudyCost = ({ costRef, ofType }) => {
   const { program } = useContext(ContextStaticProps)
-
+  const price = (program && program.price) || 0
   const title = program?.title || ''
   const studyForm = program?.studyForm || ''
   const studyFormLabel = program?.studyFormlabel || ''
   const studyMounthsDuration = program?.studyMounthsDuration || 0
-  const isPsyKonsultirovanie =
-    program?.slug === 'psihologicheskoe-konsultirovanie'
+  const isPsyKonsultirovanie = program?.slug === 'psihologicheskoe-konsultirovanie'
 
   const info = [
     { key: 'Зачисление:', val: ProgramAdmissionUntil() },
@@ -38,33 +38,46 @@ const StudyCost = ({ costRef, ofType }) => {
   ]
 
   return (
-    <section ref={costRef} className={stls.container} style={{marginTop: ofType !== 'Profession' ? '-33px': null}}>
+    <section
+      ref={costRef}
+      className={stls.container}
+      style={{ marginTop: ofType !== 'Profession' ? '-33px' : null }}>
       <Wrapper>
-        <div className={stls.title}>
-          <span className={stls.laptopdesktop}>Запишитесь на программу</span>
-        </div>
-        <div className={stls.upperContainer}>
-
-          <p className={stls.subtitle}>
-            {title}
-            </p>
-
-          {/* </div> */}
-          {!isPsyKonsultirovanie && (
-            <div className={stls.discount}>
-              <ProgramDiscount small violet />
+        {price ? (
+          <>
+            <div className={stls.title}>
+              <span className={stls.laptopdesktop}>Запишитесь на программу</span>
             </div>
-          )}
-        </div>
+            <div className={stls.upperContainer}>
+              <p className={stls.subtitle}>{title}</p>
+              {!isPsyKonsultirovanie && (
+                <div className={stls.discount}>
+                  <ProgramDiscount small violet />
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className={stls.title}>
+              <span className={stls.laptopdesktop}>
+                Запишитесь на программу по условиям, доступным только в предзаписи
+              </span>
+            </div>
+            <div className={stls.upperContainer}>
+              <p className={classNames(stls.subtitle, stls.topMargin)}>{title}</p>
+            </div>
+          </>
+        )}
 
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.heading}>
               <div className={stls.discountMobile}></div>
             </div>
-            <div className={stls.cost}>
+
               <ProgramCost withPerMonth />
-            </div>
+
           </div>
           <div className={stls.center}>
             <div className={stls.form}>

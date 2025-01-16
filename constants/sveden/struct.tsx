@@ -29,10 +29,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -56,10 +53,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -85,10 +79,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -106,6 +97,32 @@ const structOrgUpravRows = [
     isFullRow: true,
     cells: [{ content: 'Административные подразделения' }]
   },
+  // Административный отдел
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Административный отдел', itemProp: 'name' },
+      { content: 'Чеченов Тенгиз Ильясович', itemProp: 'fio' },
+      { content: 'Руководитель отдела', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
   // Учебный отдел
   {
     itemProp: 'structAdmin',
@@ -119,10 +136,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -148,10 +162,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -177,10 +188,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -206,10 +214,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -235,10 +240,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),
@@ -264,10 +266,7 @@ const structOrgUpravRows = [
       },
       {
         content: (
-          <Link
-            href='https://mip.institute/'
-            target='_blank'
-            rel='noopener noreferrer'>
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
             https://mip.institute/
           </Link>
         ),

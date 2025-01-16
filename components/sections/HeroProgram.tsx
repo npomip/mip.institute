@@ -40,14 +40,6 @@ const HeroProgram = () => {
 
   const analysis = validTitles.includes(program?.title)
 
-  const [isAskQuestion, setIsAskQuestion] = useState(false)
-
-  useEffect(() => {
-    const storedValue = localStorage.getItem('AB')
-    setIsAskQuestion(storedValue === 'getProgram')
-  }, [])
-
-
   return (
     <>
       {isMobileAndTabletLayout && (
@@ -81,10 +73,7 @@ const HeroProgram = () => {
                   <PopupTrigger btn='alpha' cta={cta} />
                   <PopupTrigger
                     btn='beta'
-                    cta={
-                      isAskQuestion && program?.slug === 'psiholog-konsultant'
-                        ? 'getFullProgram'
-                        : 'askQuestion'
+                    cta={ 'askQuestion'
                     }
                   />
                 </div>
@@ -135,11 +124,7 @@ const HeroProgram = () => {
                     <PopupTrigger btn='alpha' cta={cta} />
                     <PopupTrigger
                       btn='beta'
-                      cta={
-                        isAskQuestion && program?.slug === 'psiholog-konsultant'
-                          ? 'getFullProgram'
-                          : 'askQuestion'
-                      }
+                      cta={'askQuestion' }
                     />
                   </div>
                 </div>

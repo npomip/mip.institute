@@ -2,7 +2,7 @@ import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/StickyTop.module.sass'
 import classNames from 'classnames'
 import PopupTrigger from '@/ui/PopupTrigger'
-import { IconCloseCircle } from '../icons'
+import IconCloseCircle from '../icons/IconCloseCircle'
 import IconPortalViolet from '../icons/IconPortalViolet'
 
 type Props = {
@@ -12,7 +12,12 @@ type Props = {
   isWithGift?: boolean
 }
 
-const StickyTop = ({ onClick, isPromo = false, promoText = '', isWithGift }: Props) => {
+const StickyTop = ({
+  onClick,
+  isPromo = false,
+  promoText = '',
+  isWithGift
+}: Props) => {
   return (
     <div
       className={classNames({
@@ -29,7 +34,10 @@ const StickyTop = ({ onClick, isPromo = false, promoText = '', isWithGift }: Pro
             <div className={stls.text}>
               Активируйте промокод
               <span className={stls.bold}> “{promoText}”</span> и получите
-              дополнительную <span className={stls.bold}>скидку 10%{isWithGift &&' и мини-курс в подарок!'}</span>
+              дополнительную{' '}
+              <span className={stls.bold}>
+                скидку 10%{isWithGift && ' и мини-курс в подарок!'}
+              </span>
             </div>
           </div>
           <div className={stls.btn}>

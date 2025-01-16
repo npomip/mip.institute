@@ -1,7 +1,7 @@
 import stls from '@/styles/components/btns/BtnVk.module.sass'
 import { routes } from '@/config/index'
 import classNames from 'classnames'
-import { IconVk } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const BtnVk = ({ mlzero = false, dark = false }) => {
   return (
@@ -15,7 +15,7 @@ const BtnVk = ({ mlzero = false, dark = false }) => {
       target='_blank'
       rel='noopener noreferrer'
       aria-label='VK'>
-      <IconVk />
+      {loadIcon('IconVk')}
     </a>
   )
 }

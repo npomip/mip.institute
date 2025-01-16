@@ -1,9 +1,8 @@
 import PopupTrigger from '@/ui/PopupTrigger'
 import stls from './NoteBlock.module.sass'
-import Image, { StaticImageData } from 'next/image'
+import { CldImage } from 'next-cloudinary'
 
 type Props = {
-  imageSrc: string | StaticImageData
   title: any
   description: string
   marginTop?: number
@@ -11,7 +10,6 @@ type Props = {
 }
 
 const NoteBlock = ({
-  imageSrc,
   title,
   description,
   marginTop = 0,
@@ -20,7 +18,12 @@ const NoteBlock = ({
   return (
     <div style={{ marginTop, marginBottom }} className={stls.container}>
       <div className={stls.image}>
-        <Image src={imageSrc} alt='Изображение' />
+        <CldImage
+          src={'has_Doubts_Image_6f4a29efb2'}
+          alt='Изображение'
+          width={320}
+          height={320}
+        />
       </div>
       <div className={stls.text}>
         <div className={stls.title}>{title}</div>

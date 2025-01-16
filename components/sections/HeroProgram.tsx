@@ -8,7 +8,7 @@ import stls from '@/styles/components/sections/HeroProgram.module.sass'
 import { useContext, useEffect, useState } from 'react'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import classNames from 'classnames'
-import validTitles from 'constants/bachelorHeroProgram'
+import validTitles from '../../constants/higherEducation/bachelorHeroProgram'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const HeroProgram = () => {

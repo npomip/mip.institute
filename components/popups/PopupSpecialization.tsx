@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import stls from 'styles/components/popups/PopupSpecialization.module.sass'
-import { BtnClose } from '../btns'
+import BtnClose from '@/components/btns/BtnClose'
 
 type Props = {
   image: string | JSX.Element

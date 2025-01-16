@@ -3,7 +3,7 @@ import { Fragment, useContext } from 'react'
 import cn from 'classnames'
 import { routes } from '@/config/index'
 import { ContextStaticProps } from '@/context/index'
-import { BtnField } from '@/components/btns'
+import BtnField from '@/components/btns/BtnField'
 
 type StudyFieldsType = {
   aside?: boolean
@@ -36,8 +36,8 @@ const StudyFields = ({
     ofType === 'course'
       ? studyFieldsCourses
       : ofType === 'profession'
-      ? studyFieldsProfessions
-      : studyFields
+        ? studyFieldsProfessions
+        : studyFields
 
   return (
     <ul
@@ -58,8 +58,8 @@ const StudyFields = ({
                 curProgramsType === 'course'
                   ? routes.front.courses
                   : curProgramsType === 'profession'
-                  ? routes.front.professions
-                  : routes.front.programs
+                    ? routes.front.professions
+                    : routes.front.programs
               }/${slug}`}
               aside={aside}
               slug={slug}>

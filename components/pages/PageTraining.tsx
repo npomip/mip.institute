@@ -1,19 +1,19 @@
 import stls from '@/styles/pages/PageTraining.module.sass'
 import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
-import PracticalBriefProgram from '@/components/sections/practicalTraining/PracticalBriefProgram'
-import PracticalCertificate from '@/components/sections/practicalTraining/PracticalCertificate'
-import PracticalConditions from '@/components/sections/practicalTraining/PracticalConditions'
-import PracticalHeroProgram from '@/components/sections/practicalTraining/PracticalHeroProgram'
-import PracticalList from '@/components/sections/practicalTraining/PracticalListCarousel'
-import PracticalPaymentForm from '@/components/sections/practicalTraining/PracticalPaymentForm'
-import PracticalProgramDescription from '@/components/sections/practicalTraining/PracticalProgramDescription'
-import PracticalReviews from '@/components/sections/practicalTraining/PracticalReviews'
-import PracticalSteps from '@/components/sections/practicalTraining/PracticalSteps'
-import PracticalWhatInProgram from '@/components/sections/practicalTraining/PracticalWhatInProgram'
-import PracticalWhatYouWillLearn from '@/components/sections/practicalTraining/PracticalWhatYouWillLearn'
-import PracticalWhoIsProgramFor from '@/components/sections/practicalTraining/PracticalWhoIsProgramFor'
-import RequirementsInProfession from '@/components/sections/practicalTraining/RequirementsInProfession'
-import { Teachers } from '../sections'
+import PracticalBriefProgram from '@/components/sections/practicalTraining/PracticalBriefProgram/PracticalBriefProgram'
+import PracticalCertificate from '@/components/sections/practicalTraining/PracticalCertificate/PracticalCertificate'
+import PracticalConditions from '@/components/sections/practicalTraining/PracticalConditions/PracticalConditions'
+import PracticalHeroProgram from '@/components/sections/practicalTraining/PracticalHeroProgram/PracticalHeroProgram'
+import PracticalList from '@/components/sections/practicalTraining/PracticalListCarousel/PracticalListCarousel'
+import PracticalPaymentForm from '@/components/sections/practicalTraining/PracticalPaymentForm/PracticalPaymentForm'
+import PracticalProgramDescription from '@/components/sections/practicalTraining/PracticalProgramDescription/PracticalProgramDescription'
+import PracticalReviews from '@/components/sections/practicalTraining/PracticalReviews/PracticalReviews'
+import PracticalSteps from '@/components/sections/practicalTraining/PracticalSteps/PracticalSteps'
+import PracticalWhatInProgram from '@/components/sections/practicalTraining/PracticalWhatInProgram/PracticalWhatInProgram'
+import PracticalWhatYouWillLearn from '@/components/sections/practicalTraining/PracticalWhatYouWillLearn/PracticalWhatYouWillLearn'
+import PracticalWhoIsProgramFor from '@/components/sections/practicalTraining/PracticalWhoIsProgramFor/PracticalWhoIsProgramFor'
+import RequirementsInProfession from '@/components/sections/practicalTraining/RequirementsInProfession/RequirementsInProfession'
+import Teachers from '../sections/Teachers'
 import { SeoPageBachelor } from '../seo'
 
 type Props = {
@@ -37,7 +37,7 @@ const PageTraining = ({ practicalTraining }: Props) => {
         listLearn={practicalTraining.whatYouWillLearn}
         photo={practicalTraining.whatYouWillLearnPhoto}
       />
-      <PracticalCertificate image={practicalTraining?.diploma1} />
+      <PracticalCertificate />
       <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
       {practicalTraining?.teachers.length > 0 && (
         <Teachers

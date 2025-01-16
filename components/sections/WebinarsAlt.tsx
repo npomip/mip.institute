@@ -2,10 +2,15 @@ import stls from '@/styles/components/sections/WebinarsAlt.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import Popup from 'reactjs-popup'
 import PopupTrigger from '@/ui/PopupTrigger'
-import { PopupCta } from '@/components/popups'
 import CardWebinarAlt from '@/components/cards/CardWebinarAlt'
-import { ImgWebinar } from '@/components/imgs'
+import ImgWebinar from '@/components/imgs/webinars/ImgWebinar'
 import getImageHeight from '@/helpers/getImageHeight'
+
+import dynamic from 'next/dynamic'
+
+const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
+  ssr: false
+})
 
 type WebinarsAltType = {
   webinars: any

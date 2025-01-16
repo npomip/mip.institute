@@ -1,18 +1,16 @@
-import {
-  BriefProgramContents,
-  Cta,
-  Faq,
-  ForWhom,
-  FullProgram,
-  HeroProgram,
-  PageNavigation,
-  Reviews,
-  StudyCost,
-  Teachers,
-  WhatYouWillLearn,
-  WhyBother,
-  YourDiploma
-} from '@/components/sections'
+import BriefProgramContents from '@/components/sections/BriefProgramContents'
+import Cta from '@/components/sections/Cta'
+import Faq from '@/components/sections/Faq'
+import ForWhom from '@/components/sections/ForWhom'
+import FullProgram from '@/components/sections/FullProgram'
+import HeroProgram from '@/components/sections/HeroProgram'
+import PageNavigation from '@/components/sections/PageNavigation'
+import Reviews from '@/components/sections/Reviews'
+import StudyCost from '@/components/sections/StudyCost'
+import Teachers from '@/components/sections/Teachers'
+import WhatYouWillLearn from '@/components/sections/WhatYouWillLearn'
+import WhyBother from '@/components/sections/WhyBother'
+import YourDiploma from '@/components/sections/YourDiploma'
 import { discount } from '@/data/price'
 import {
   sortBasedOnNumericOrder,
@@ -29,7 +27,6 @@ import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
 import YourResumeNew from '../sections/YourResumeNew'
-import FortuneWheel from '@/ui/FortuneWheel'
 
 type PagesProgramType = {
   ofType: string
@@ -92,25 +89,10 @@ const PagesProgram = ({
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
 
-  const [mustSpin, setMustSpin] = useState(false)
-
-  const handleSpin = () => {
-    setMustSpin(true)
-  }
-
-  const handleStopSpinning = () => {
-    setMustSpin(false)
-  }
-
   return (
     <>
       <ButtonToTop />
       <HeroProgram />
-      <FortuneWheel
-        mustStartSpinning={mustSpin}
-        onClick={handleSpin}
-        onStopSpinning={handleStopSpinning}
-      />
       <PageNavigation sections={sections} />
       <WhyBother />
       {programOverview && (
@@ -145,21 +127,23 @@ const PagesProgram = ({
       )}
       {ofType === 'Profession' && <SalaryCounter title='Психология' />}
 
-      {ofType === 'Profession' && <Cta
-        title={
-          isPsyKonsultirovanie
-            ? 'Забронируйте лучшие условия до старта обучения'
-            : 'Начните обучаться со скидкой'
-        }
-        desc={
-          isPsyKonsultirovanie
-            ? 'Оставьте заявку сейчас и забронируйте лучшее условия при зачислении'
-            : `Забронируйте программу по спеццене — со скидкой ${discount.substring(
-                1
-              )}`
-        }
-        cta='reserve'
-      />}
+      {ofType === 'Profession' && (
+        <Cta
+          title={
+            isPsyKonsultirovanie
+              ? 'Забронируйте лучшие условия до старта обучения'
+              : 'Начните обучаться со скидкой'
+          }
+          desc={
+            isPsyKonsultirovanie
+              ? 'Оставьте заявку сейчас и забронируйте лучшее условия при зачислении'
+              : `Забронируйте программу по спеццене — со скидкой ${discount.substring(
+                  1
+                )}`
+          }
+          cta='reserve'
+        />
+      )}
 
       <StudyCost costRef={costRef} ofType={ofType} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />

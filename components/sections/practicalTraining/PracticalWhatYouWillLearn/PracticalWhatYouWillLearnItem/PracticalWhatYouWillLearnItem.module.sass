@@ -1,0 +1,112 @@
+@use 'mixin/index' as m
+@use 'funcs/index' as f
+@use '../../../../../styles/themes/default/colors' as c
+
+.container
+  border: f.px(0.5) solid #848484
+  @include m.dye(bg, #F4F4F4)
+  width: 100%
+  overflow: hidden
+  border-radius: f.px(20)
+  transition: height 0.8s ease, margin-top 0.8s ease, min-height 0.8s ease, margin-bottom 0.8s ease
+  &:nth-child(3n+1)
+    .number
+      @include m.dye(bg, white)
+      @include m.dye(c, black)
+  &:nth-child(3n+2)
+    .number
+      @include m.dye(bg, c.$orange-700)
+  &:nth-child(3n+3)
+    .number
+      @include m.dye(bg, c.$purple-800)
+  &:nth-child(-n+2)
+    z-index: 1
+    height: f.px(186)
+    @include m.gap($mt: f.px(0), $mb: f.px(10))
+  &:nth-last-child(1)
+    z-index: 1
+    height: f.px(186)
+    @include m.gap($mt: f.px(-18), $mb: f.px(0))
+  &:nth-last-child(n+2)
+    z-index: 0
+  @include m.media(desktop)
+    min-height: f.px(70)
+    @include m.gap($ptb: f.px(20), $pl: f.px(101), $pr: f.px(150), $mb: f.px(10), $mt: f.px(-18))
+  @include m.media(laptop)
+    @include m.gap($ptb: f.px(8), $pl: f.px(101), $pr: f.px(100),  $mb: f.px(10), $mt: f.px(-20))
+    min-height: f.px(60)
+    &:nth-child(-n+2)
+      z-index: 0
+      height: f.px(176)
+    @include m.gap($mt: f.px(0), $mb: f.px(8))
+    &:nth-last-child(1)
+      z-index: 1
+      height: f.px(176)
+      @include m.gap($mt: f.px(-18), $mb: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(8), $pl: f.px(61), $pr: f.px(91), $mb: f.px(5), $mt: f.px(-18))
+    min-height: f.px(57.76)
+    border-radius: f.px(12)
+    &:nth-child(-n+2)
+      z-index: 0
+      height: f.px(81.76)
+      @include m.gap($mt: f.px(0), $mb: f.px(-20))
+    &:nth-last-child(1)
+      z-index: 1
+      height: f.px(113.76)
+      @include m.gap($mt: f.px(0))
+.visible
+  @include m.media(desktop)
+    min-height: f.px(186)
+    @include m.gap($mt: f.px(0), $mb: f.px(10))
+    &:nth-last-child(n+2)
+      z-index: 0
+  @include m.media(laptop)
+    min-height: f.px(166)
+    @include m.gap($mt: f.px(0), $mb: f.px(10))
+    &:nth-last-child(n+2)
+      z-index: 0
+  @include m.media(phone, tablet)
+    min-height: f.px(113.76)
+    @include m.gap($mt: f.px(0), $mb: f.px(10))
+    &:nth-last-child(n+2)
+      z-index: 0
+      @include m.gap($mt: f.px(0), $mb: f.px(10))
+
+.hidden
+  @include m.media(desktop)
+    height: f.px(70)
+  @include m.media(laptop)
+    height: f.px(60)
+
+.blockNumber
+  @include m.media(desktop)
+    transform: translate(f.px(-92), f.px(-5.2))
+  @include m.media(laptop)
+    transform: translate(f.px(-92), f.px(4.4))
+  @include m.media(phone, tablet)
+    transform: translate(f.px(-55.2), f.px(-5.2))
+
+.number
+  @include m.dye(c, white)
+  @include m.media(desktop, laptop)
+    font-size: f.px(16)
+    border-radius: f.px(30)
+    @include m.gap($ptb: f.px(3), $plr: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(9.7)
+    border-radius: f.px(18)
+    @include m.gap($ptb: f.px(2), $plr: f.px(12))
+    font-weight: 350
+
+.text
+  @include m.media(desktop, laptop)
+    font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+  @include m.dye(c, #000)
+  font-weight: 350
+  line-height: 130%
+
+.strongText
+  font-weight: 500

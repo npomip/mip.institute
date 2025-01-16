@@ -1,6 +1,6 @@
 import stls from './CtaText.module.sass'
 import classNames from 'classnames'
-import { IconMoreThan } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   text: string
@@ -31,7 +31,12 @@ const CtaText = ({
       })}>
       <span className={stls.text}>{text}</span>{' '}
       <span className={stls.icon}>
-        <IconMoreThan cbeta={cbeta} cnu={cnu} ctheta={ctheta} dimmer={dimmer} />
+        {loadIcon('IconMoreThan', {
+          cnu: cnu,
+          ctheta: ctheta,
+          dimmer: dimmer,
+          cbeta: cbeta
+        })}
       </span>
     </span>
   )

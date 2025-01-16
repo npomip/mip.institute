@@ -3,10 +3,9 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/ui/Wrapper'
-import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
-import rocket from '@/public/assets/imgs/practicalCarousel/rocket.png'
-import certificate from '@/public/assets/imgs/practicalCarousel/certificate.png'
+import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical/TwoColumnsPractical'
 import Looper from '@/components/icons/Looper'
+import { CldImage } from 'next-cloudinary'
 
 const LectoriumCertificate = ({ diploma }) => {
   const classNameImages = [stls.imgClass1, stls.imgClass2, stls.imgClass3]
@@ -14,11 +13,7 @@ const LectoriumCertificate = ({ diploma }) => {
     <section className={stls.container}>
       <Wrapper>
         <TwoColumnsPractical bigLeft fixHeight>
-          <div
-            className={classNames({
-              [stls.layout]: true,
-              [stls.left]: true
-            })}>
+          <div className={classNames(stls.layout, stls.left)}>
             <div className={stls.text}>
               <h2 className={stls.title}>
                 КАКОЙ
@@ -35,8 +30,8 @@ const LectoriumCertificate = ({ diploma }) => {
                 <div className={classNameImages[index]} key={index}>
                   <Image
                     src={diploma?.url}
-                    width={certificate?.width}
-                    height={certificate?.height}
+                    width={diploma?.width}
+                    height={diploma?.height}
                     alt='Сертификат'
                     className={stls.diploma}
                     style={{
@@ -51,20 +46,16 @@ const LectoriumCertificate = ({ diploma }) => {
               <Looper />
             </div>
           </div>
-          <div
-            className={classNames({
-              [stls.layout]: true,
-              [stls.right]: true
-            })}>
+          <div className={classNames(stls.layout, stls.right)}>
             <p className={stls.titleRight}>Забронировать место</p>
             <p className={stls.descriptionRight}>
               Нажмите на кнопку ниже <br />и забронируйте место на мероприятии
             </p>
             <div className={stls.imgRight}>
-              <Image
-                src={rocket}
-                width={rocket.width}
-                height={rocket.height}
+              <CldImage
+                src='practical_rocket_a6c0f64e4b'
+                width={280}
+                height={280}
                 alt='Ракета'
                 style={{ width: '100%', height: 'auto' }}
               />

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/YourResume.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import cn from 'classnames'
-import { ImgResume1 } from '@/components/imgs'
+import ImgResume1 from '@/components/imgs/resume/ImgResume1'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import { toNumberWithSpaces } from '@/helpers/index'

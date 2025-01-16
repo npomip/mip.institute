@@ -1,16 +1,9 @@
-import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
-import StickyBottom from '@/components/sections/StickyBottom'
 import StickyTop from '@/components/sections/StickyTop'
-import { dev, gtmId, prod, routes } from '@/config/index'
+import { gtmId, prod, routes } from '@/config/index'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 import { ContextStaticProps } from '@/context/index'
 import MenuState from '@/context/menu/MenuState'
-import {
-  filterProgramsByType,
-  getStudyFields,
-  sortBasedOnNumericOrder
-} from '@/helpers/index'
 import promocodes from '@/helpers/promocodes'
 import client from '@/lib/apolloClient'
 import '@/styles/app.sass'
@@ -23,71 +16,23 @@ import Router from 'next/router'
 import Script from 'next/script'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
-import Image from 'next/image'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
-import BlackFridayBanner from '@/components/sections/BlackFridayBanner'
-import StickyBottomNewYers from '@/components/sections/App/StickyButtonNewYers/StickyButtonNewYers'
+import StickyBottom from '@/components/sections/StickyBottom'
+import dynamic from 'next/dynamic'
+import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
 
+const Footer = dynamic(() => import('@/components/sections/Footer'), {
+  ssr: false
+})
 
 const MyApp = ({ Component, pageProps, router }) => {
-  const getDefaultStateProps = pageProps => {
-    const program = pageProps.program || null
-    const bachelor = pageProps.bachelor || null
-    const practicalTrainings = pageProps.practicalTrainings || null
-    const programs =
-      sortBasedOnNumericOrder({ programs: pageProps.programs }) || []
-    const courses =
-      programs?.length > 0
-        ? filterProgramsByType({ programs, type: 'course' })
-        : []
-    const professions =
-      programs?.length > 0
-        ? filterProgramsByType({ programs, type: 'profession' })
-        : []
-    const blogs = pageProps.seminars
-    const seminar = pageProps.seminar || null
-    const studyFields = programs?.length > 0 ? getStudyFields(programs) : []
-
-    const studyFieldsProfessions =
-      programs?.length > 0 ? getStudyFields(professions) : []
-
-    const studyFieldsCourses =
-      programs?.length > 0 ? getStudyFields(courses) : []
-
-    const curProgramsType = pageProps.curProgramsType || null
-    const curProgramsStudyFieldSlug = pageProps.studyFieldSlug || null
-    const reviews = pageProps.reviews
-    const searchTerm = pageProps.searchTerm || null
-
-    const filteredPrograms = pageProps.filteredPrograms || []
-
-    return {
-      program,
-      programs,
-      reviews,
-      courses,
-      professions,
-      studyFields,
-      studyFieldsProfessions,
-      studyFieldsCourses,
-      curProgramsType,
-      curProgramsStudyFieldSlug,
-      searchTerm,
-      filteredPrograms,
-      blogs,
-      seminar,
-      bachelor,
-      practicalTrainings
-    }
-  }
-
   const defaultStateProps = getDefaultStateProps(pageProps)
 
   const [program, setProgram] = useState(defaultStateProps.program)
@@ -127,7 +72,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     }))
   }
 
-  const [loading, setLoading] = useState(false)
   //cookie for edPartners
   useEffect(() => {
     const utmCookie = getCookie('utm')
@@ -190,11 +134,9 @@ const MyApp = ({ Component, pageProps, router }) => {
 
     const start = () => {
       NProgress.start()
-      setLoading(true)
     }
     const end = () => {
       NProgress.done()
-      setLoading(false)
     }
     Router.events.on('routeChangeStart', start)
     Router.events.on('routeChangeComplete', end)
@@ -255,7 +197,6 @@ const MyApp = ({ Component, pageProps, router }) => {
   useEffect(() => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
-
 
   return (
     <>
@@ -373,8 +314,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            {/* <div><StickyBottom /></div> */}
-            <div><StickyBottomNewYers/></div>
+            <div><StickyBottom /></div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>

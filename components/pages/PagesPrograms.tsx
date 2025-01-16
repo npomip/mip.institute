@@ -1,7 +1,7 @@
 import FiltersForLifeCourses from '@/components/filters/FiltersForLifeCourses'
 import ProgramsFilters from '@/components/program/ProgramsFilters'
 import Wrapper from '@/ui/Wrapper'
-import { ContactForm, HeroPrograms } from '@/components/sections'
+import HeroPrograms from '@/components/sections/HeroPrograms'
 import {
   useFilter,
   useFilterDispatch,
@@ -17,6 +17,9 @@ import ResetFilter from '../filters/ResetFilter'
 import { findMinMaxForSlider } from '@/helpers/funcs/findMinMaxForSlider'
 import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
 import Breadcrumbs from '@/ui/Breadcrumbs'
+import dynamic from 'next/dynamic'
+
+const ContactForm = dynamic(() => import('@/components/sections/ContactForm'))
 
 type PagesProgramsType = {
   programs?: TypeLibPrograms

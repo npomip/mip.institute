@@ -1,7 +1,7 @@
-import getNextWednesday from '@/helpers/getNextThursday'
 import stls from '@/styles/components/popups/PopupProgram.module.sass'
 import Link from 'next/link'
 import ForPopup from '../imgs/general/ForPopup'
+import ProgramAdmissionUntil from '../program/ProgramAdmissionUntil'
 
 type Program = {
   [key: string]: any
@@ -23,7 +23,7 @@ const PopupProgram = ({ program, href }: Props) => {
         <div className={stls.content}>
           <p className={stls.title}>{program.title}</p>
           <p className={stls.subtitle}>
-            Ближайшее зачисление: <br /> {getNextWednesday(new Date())}
+            Ближайшее зачисление: <br /> {ProgramAdmissionUntil()}
           </p>
           <p className={stls.hours}>Кол-во часов: {program.studyHours}</p>
         </div>

@@ -1,10 +1,8 @@
 import PageTitle from '@/ui/PageTitle'
-import {
-  ActiveLicenses,
-  Diplomas,
-  LegalDocs,
-  LegalInfo
-} from '@/components/sections'
+import ActiveLicenses from '@/components/sections/ActiveLicenses'
+import Diplomas from '@/components/sections/Diplomas'
+import LegalDocs from '@/components/sections/LegalDocs'
+import LegalInfo from '@/components/sections/LegalInfo'
 import { company, routes } from '@/config/index'
 import {
   dataDocsRegulationsLeft,

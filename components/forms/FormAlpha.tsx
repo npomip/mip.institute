@@ -1,5 +1,7 @@
-import { BtnAlpha, BtnBeta } from '@/components/btns'
-import { PopupLoading, PopupThankyou } from '@/components/popups'
+import BtnAlpha from '@/components/btns/BtnAlpha'
+import BtnBeta from '@/components/btns/BtnBeta'
+import PopupLoading from '@/components/popups/PopupLoading'
+import PopupThankyou from '@/components/popups/PopupThankyou'
 import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
@@ -15,6 +17,8 @@ import Popup from 'reactjs-popup'
 import genezis from '@/helpers/funcs/genezis'
 import getTicket from '@/helpers/funcs/getTicket'
 import { segmentsObject } from '@/ui/FortuneWheel/constants'
+import dev from '@/config/dev'
+import PopupThankyouNew from '../popups/PopupThankYouNew'
 
 type FormValues = {
   name: string
@@ -154,20 +158,25 @@ const FormAlpha = ({
       data.advcake_track_id = advcake_track_id
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
-      const req = await genezis(data)
-
-      if (req === 200) {
-        setLoading(false)
-        window.open(
-          `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
-          '_blank'
-        )
-        setIsIpCheckFailed(false)
-        setIsDisabled(true)
+      if(dev) {
         setThanksIsOpen(true)
       } else {
-        setLoading(false)
-        setIsIpCheckFailed(true)
+        const req = await genezis(data)
+
+        if (req === 200) {
+          setLoading(false)
+          // window.open(
+          //   `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
+          //   '_blank'
+          // )
+          setIsIpCheckFailed(false)
+          setIsDisabled(true)
+          setThanksIsOpen(true)
+        } else {
+          setLoading(false)
+          setThanksIsOpen(true)
+          setIsIpCheckFailed(true)
+        }
       }
     }
   }
@@ -178,7 +187,7 @@ const FormAlpha = ({
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyou close={() => setThanksIsOpen(false)} />
+        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
       </Popup>
 
       <Popup open={loading} onClose={() => setLoading(false)}>

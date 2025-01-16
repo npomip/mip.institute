@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/PaymentDebitCard.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { ImgOnlinePayment } from '@/components/imgs'
-import { IconCircleCheck } from '../icons'
+import ImgOnlinePayment from '@/components/imgs/payment/ImgOnlinePayment'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const PaymentDebitCard = () => {
   const list = ['VISA International', 'Mastercard Worldwide', 'JCB', 'МИР']
@@ -21,7 +21,7 @@ const PaymentDebitCard = () => {
             {list.map(item => (
               <li key={item} className={stls.item}>
                 <div className={stls.icon}>
-                  <IconCircleCheck inverse />
+                  {loadIcon('IconCircleCheck', { inverse: true })}
                 </div>
                 <span className={stls.text}>{item}</span>
               </li>

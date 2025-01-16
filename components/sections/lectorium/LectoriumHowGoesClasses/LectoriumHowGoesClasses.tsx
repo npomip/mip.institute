@@ -1,5 +1,5 @@
 import IconVioletCircle from '@/components/icons/IconVioletCircle'
-import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical'
+import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical/TwoColumnsPractical'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from './LectoriumHowGoesClasses.module.sass'
 import Wrapper from '@/ui/Wrapper'

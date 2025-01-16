@@ -1,15 +1,19 @@
-import { IconCircleCheck } from '@/components/icons'
 import Wrapper from '@/ui/Wrapper'
 import ProgramCost from '@/components/program/ProgramCost'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ContextStaticProps } from '@/context/index'
-import getNextWednesday from '@/helpers/getNextThursday'
 import stls from '@/styles/components/sections/StudyCost.module.sass'
 import { useContext } from 'react'
-import { FormAlpha } from '../forms'
 import MoneySaving from '../program/MoneySaving'
 import ProgramStudyDuration from '../program/ProgramStudyDuration'
 import points from 'constants/studyCost'
+import ProgramAdmissionUntil from '../program/ProgramAdmissionUntil'
+import loadIcon from '@/helpers/general/loadIcon'
+import dynamic from 'next/dynamic'
+
+const FormAlpha = dynamic(() => import('@/components/forms/FormAlpha'), {
+  ssr: false
+})
 
 const StudyCost = ({ costRef, ofType }) => {
   const { program } = useContext(ContextStaticProps)
@@ -22,7 +26,7 @@ const StudyCost = ({ costRef, ofType }) => {
     program?.slug === 'psihologicheskoe-konsultirovanie'
 
   const info = [
-    { key: 'Зачисление:', val: getNextWednesday(new Date()) },
+    { key: 'Зачисление:', val: ProgramAdmissionUntil() },
     {
       key: 'Форма обучения:',
       val: studyForm === 'Online' ? 'Дистанционно' : studyFormLabel
@@ -44,7 +48,11 @@ const StudyCost = ({ costRef, ofType }) => {
           <span className={stls.laptopdesktop}>Запишитесь на программу</span>
         </div>
         <div className={stls.upperContainer}>
-          <p className={stls.subtitle}>{title}</p>
+
+          <p className={stls.subtitle}>
+            {title}
+            </p>
+
           {!isPsyKonsultirovanie && (
             <div className={stls.discount}>
               <ProgramDiscount small violet />
@@ -75,7 +83,7 @@ const StudyCost = ({ costRef, ofType }) => {
               {points.map((point, idx) => (
                 <li key={point + idx} className={stls.point}>
                   <span className={stls.pointicon}>
-                    <IconCircleCheck violetRound />
+                    {loadIcon('IconCircleCheck', { violetRound: true })}
                   </span>
                   <span>{point}</span>
                 </li>

@@ -1,8 +1,11 @@
 const withPWA = require('next-pwa')
 const { createSecureHeaders } = require('next-secure-headers')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
 const dev = process.env.NODE_ENV === 'development'
 
-module.exports = /* withPWA( */ {
+module.exports = /* withPWA( */ withBundleAnalyzer({
   // pwa: {
   //   dest: 'public',
   //   disable: dev,
@@ -13,7 +16,7 @@ module.exports = /* withPWA( */ {
   i18n: {
     locales: ['ru'],
     defaultLocale: 'ru',
-    localeDetection: false,
+    localeDetection: false
   },
   images: {
     remotePatterns: [
@@ -21,9 +24,9 @@ module.exports = /* withPWA( */ {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/**',
-      },
-    ],
+        pathname: '/**'
+      }
+    ]
   },
   async headers() {
     return [
@@ -633,45 +636,189 @@ module.exports = /* withPWA( */ {
         permanent: true
       },
       {
-        source: '/journal/kak-obshhatsya-s-podrostkom-rasprostranennye-oshibki-i-sovety-roditelyam',
+        source:
+          '/journal/kak-obshhatsya-s-podrostkom-rasprostranennye-oshibki-i-sovety-roditelyam',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/krizisy-po-vozrastam-u-detej-kogda-nachinayutsya-i-kak-proyavlyayutsya',
+        source:
+          '/journal/krizisy-po-vozrastam-u-detej-kogda-nachinayutsya-i-kak-proyavlyayutsya',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/muzykoterapiya-kak-mozhet-pomoch-v-lechenii-psihologicheskih-problem',
+        source:
+          '/journal/muzykoterapiya-kak-mozhet-pomoch-v-lechenii-psihologicheskih-problem',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/socziofobiya-eto-stesnitelnost-ili-rasstrojstvo-simptomy-i-prichiny',
+        source:
+          '/journal/socziofobiya-eto-stesnitelnost-ili-rasstrojstvo-simptomy-i-prichiny',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/art-terapiya-v-psihologii-chto-nuzhno-znat-chtoby-pomogat-lyudyam-1',
+        source:
+          '/journal/art-terapiya-v-psihologii-chto-nuzhno-znat-chtoby-pomogat-lyudyam-1',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/vygoranie-na-rabote-kak-raspoznat-i-spravitsya-s-problemoj',
+        source:
+          '/journal/vygoranie-na-rabote-kak-raspoznat-i-spravitsya-s-problemoj',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/chto-takoe-tajm-menedzhment-vremya-kak-resurs-dlya-uspeha',
+        source:
+          '/journal/chto-takoe-tajm-menedzhment-vremya-kak-resurs-dlya-uspeha',
         destination: '/journal',
         permanent: true
       },
       {
-        source: '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
+        source:
+          '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
         destination: '/journal',
         permanent: true
-      }
+      },
+      {
+        source: '/courses/psihoterapiya/sovremennaya-kognitivno-povedencheskaya-terapiya',
+        destination: '/courses/psihoterapiya/kognitivno-povedencheskaya-terapiya',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/psihologiya-seksualnosti-i-terapiya-seksualnyh-rasstrojstv',
+        destination: '/courses/psihoterapiya/kognitivno-povedencheskaya-terapiya',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/psihologiya-seksualnosti-i-terapiya-seksualnyh-rasstrojstv',
+        destination: '/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/psihoanaliz-snovidenij',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        destination: '/professions/obshaya-psihologiya/semejnyj-psiholog',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/sovremennaya-masterskaya-psihologicheskogo-konsultirovaniya',
+        destination: '/professions/konsultirovanie/psiholog-konsultant',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/psihologicheskaya-pomosh-v-usloviyah-voennyh-sobytij',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/etika-professionalnoj-deyatelnosti-psihologa',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/detskaya-psihologiya/psihologiya-vospitaniya',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/detskaya-psihologiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie',
+        destination: '/courses',
+        permanent: true
+      },
+      {
+        source: '/courses/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        destination: '/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        destination: '/shortTerm/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        destination: '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        permanent: true
+      },
+      {
+        source: '/courses/obshaya-psihologiya/psihologiya-obsheniya',
+        destination: '/shortTerm/obshaya-psihologiya/psihologiya-obsheniya',
+        permanent: true
+      },
+      {
+        source: '/courses/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        destination: '/shortTerm/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        permanent: true
+      },
+      {
+        source: '/courses/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        destination: '/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        permanent: true
+      },
+
+      {
+        source: '/professions/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        destination: '/shortTerm/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        destination: '/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        permanent: true
+      },{
+        source: '/professions/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        destination: '/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        destination: '/shortTerm/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        permanent: true
+      },
+      {
+        source: '/professions/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        destination: '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        permanent: true
+      },
+      {
+        source: '/professions/obshaya-psihologiya/psihologiya-obsheniya',
+        destination: '/shortTerm/obshaya-psihologiya/psihologiya-obsheniya',
+        permanent: true
+      },
+      
     ]
   }
-}
+})

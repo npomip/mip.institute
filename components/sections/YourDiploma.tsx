@@ -5,9 +5,9 @@ import {
   ImgDiplomaAlt,
   ImgDiplomaDynamic,
   ImgSupplement
-} from '@/components/imgs'
+} from '@/components/imgs/diplomas'
 import Wrapper from '@/ui/Wrapper'
-import { PopupImage } from '@/components/popups'
+import PopupImage from '@/components/popups/PopupImage'
 import { ContextStaticProps } from '@/context/index'
 import { getImageHeight } from '@/helpers/index'
 import stls from '@/styles/components/sections/YourDiploma.module.sass'

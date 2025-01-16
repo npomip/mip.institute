@@ -2,23 +2,21 @@ import {
   TypeGeneralGetStaticPropsContext,
   TypePageDefaultProps,
   TypePageHomeProps,
-  TypePageReviewsProps,
-  TypePageTeachersProps,
-  TypePageWebinarsProps,
-  TypePageProgramsProps,
   TypePageProgramProps,
-  TypePageSeminarsProps
+  TypePageProgramsProps,
+  TypePageReviewsProps,
+  TypePageSeminarsProps,
+  TypePageTeachersProps,
+  TypePageWebinarsProps
 } from '@/types/index'
-import { routes, revalidate } from '@/config/index'
-import {
-  getStaticPropsPageHome,
-  getStaticPropsPageReviews,
-  getStaticPropsDefault,
-  getStaticPropsPageTeachers,
-  getStaticPropsPageWebinars,
-  getStaticPropsPagePrograms,
-  getStaticPropsPageProgram
-} from '@/lib/index'
+import { revalidate, routes } from '@/config/index'
+import getStaticPropsPageHome from '@/lib/getStaticProps/getStaticPropsPageHome'
+import getStaticPropsPageReviews from '@/lib/getStaticProps/getStaticPropsPageReviews'
+import getStaticPropsDefault from '@/lib/getStaticProps/getStaticPropsDefault'
+import getStaticPropsPageTeachers from '@/lib/getStaticProps/getStaticPropsPageTeachers'
+import getStaticPropsPageWebinars from '@/lib/getStaticProps/getStaticPropsPageWebinars'
+import getStaticPropsPageProgram from '@/lib/getStaticProps/getStaticPropsPageProgram'
+import getStaticPropsPagePrograms from '@/lib/getStaticProps/getStaticPropsPagePrograms'
 import TypePageJournalProps from '@/types/page/journal/props/TypePageJournalProps'
 import getStaticPropsPageJournal from '../getStaticProps/getStaticPropsPageJournal'
 import getStaticPropsPageSeminars from '../getStaticProps/getStaticPropsPageSeminars'
@@ -39,6 +37,7 @@ import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelo
 import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps'
 import getStaticPropsPageLectorium from '../getStaticProps/getStaticPropsPageLectorium'
 import getStaticPropsPageLectoriums from '../getStaticProps/getStaticPropsPageLectoriums'
+
 type TypeHandleGetStaticPropsProps = {
   page: string
   type?: string | null

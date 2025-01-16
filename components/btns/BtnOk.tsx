@@ -1,6 +1,6 @@
 import stls from '@/styles/components/btns/BtnOk.module.sass'
 import { routes } from '@/config/index'
-import { IconOk } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 import classNames from 'classnames'
 
 const BtnOk = ({ dark = false }) => {
@@ -11,7 +11,7 @@ const BtnOk = ({ dark = false }) => {
       target='_blank'
       rel='noopener noreferrer'
       aria-label='Одноклассники'>
-      <IconOk />
+      {loadIcon('IconOk')}
     </a>
   )
 }

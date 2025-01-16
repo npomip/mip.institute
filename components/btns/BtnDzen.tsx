@@ -1,6 +1,4 @@
 import stls from '@/styles/components/btns/BtnDzen.module.sass'
-import { IconFb } from '@/components/icons'
-import classNames from 'classnames'
 import routes from '@/config/routes'
 import Dzen from '../imgs/general/Dzen'
 

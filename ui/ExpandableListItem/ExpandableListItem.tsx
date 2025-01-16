@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import { IconDoc, IconMinus, IconPlus } from '@/components/icons'
+import IconMinus from '@/components/icons/IconMinus'
+import IconPlus from '@/components/icons/IconPlus'
 import classNames from 'classnames'
 import stls from './ExpandableListItem.module.sass'
 import { TypeDataDocs } from '@/types/index'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   title: string
@@ -34,9 +36,7 @@ const ExpandableListItem = ({ title, contentLeft, contentRight }: Props) => {
                 target='_blank'
                 rel='noopener noreferrer'
                 className={stls.link}>
-                <div className={stls.icon}>
-                  <IconDoc />
-                </div>
+                <div className={stls.icon}>{loadIcon('IconDoc')}</div>
                 <span className={stls.text}>{item.val}</span>
               </a>
             </li>
@@ -50,9 +50,7 @@ const ExpandableListItem = ({ title, contentLeft, contentRight }: Props) => {
                 target='_blank'
                 rel='noopener noreferrer'
                 className={stls.link}>
-                <div className={stls.icon}>
-                  <IconDoc />
-                </div>
+                <div className={stls.icon}>{loadIcon('IconDoc')}</div>
                 <span className={stls.text}>{item.val}</span>
               </a>
             </li>

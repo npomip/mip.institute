@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Cta.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { ImgCta1 } from '@/components/imgs'
+import ImgCta1 from '@/components/imgs/cta/ImgCta1'
 import PopupTrigger from '@/ui/PopupTrigger'
 import classNames from 'classnames'
 

@@ -1,8 +1,8 @@
-import { BtnAlpha, BtnBeta } from '@/components/btns'
-import { PopupThankyou } from '@/components/popups'
+import BtnAlpha from '@/components/btns/BtnAlpha'
+import BtnBeta from '@/components/btns/BtnBeta'
 import routes from '@/config/routes'
 import stls from '@/styles/components/forms/NewForm.module.sass'
-import { gql, useMutation, useQuery } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import axios from 'axios'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
@@ -13,6 +13,14 @@ import { useForm } from 'react-hook-form'
 import Popup from 'reactjs-popup'
 import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
 import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
+import dynamic from 'next/dynamic'
+
+const PopupThankyou = dynamic(
+  () => import('@/components/popups/PopupThankyou'),
+  {
+    ssr: false
+  }
+)
 
 type FormValues = {
   name: string

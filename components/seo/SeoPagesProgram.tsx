@@ -66,6 +66,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
           ? routes.front.courses
           : ofType === 'Profession'
           ? routes.front.professions
+          : ofType === 'ShortTerm'
+          ? routes.front.shortTerm
           : routes.front.professions
       }/${program?.studyFieldSlug}/${program?.slug}`
   }

@@ -1,5 +1,5 @@
 import CardReview from '@/components/cards/CardReview'
-import { ImgReview } from '@/components/imgs'
+import ImgReview from '@/components/imgs/reviews/ImgReview'
 import Wrapper from '@/ui/Wrapper'
 import { ContextStaticProps } from '@/context/index'
 import { getImageHeight } from '@/helpers/index'

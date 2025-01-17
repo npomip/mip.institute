@@ -156,3 +156,17 @@
 
 .star
   color: #F87E1B
+
+// TODO временные стили! удалить после отката основной страницы
+.ctaPadding
+  @include m.gap($mb: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($mtb: f.px(35))
+
+.youLearnPadding > section
+  @include m.gap($pt: 0)
+
+.aboutPadding
+  @include m.gap($pt: f.px(90))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(35))

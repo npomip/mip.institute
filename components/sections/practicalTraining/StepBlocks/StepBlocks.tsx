@@ -1,9 +1,14 @@
 import stls from './StepBlocks.module.sass'
 import classNames from 'classnames'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const StepBlocks = ({ currentIndex }) => {
-  const [filledBlocks, setFilledBlocks] = useState([true, false, false])
+interface StepBlocksProps {
+  currentIndex: number
+  onStepClick: (index: number) => void
+}
+
+const StepBlocks: React.FC<StepBlocksProps> = ({ currentIndex, onStepClick }) => {
+  const [filledBlocks, setFilledBlocks] = useState<boolean[]>([true, false, false])
 
   useEffect(() => {
     setFilledBlocks(prev => {
@@ -23,7 +28,8 @@ const StepBlocks = ({ currentIndex }) => {
           key={el.id}
           className={classNames(stls.stepBlock, {
             [stls.active]: filledBlocks[el.id]
-          })}>
+          })}
+          onClick={() => onStepClick(el.id)}>
           <span
             className={classNames(stls.number, {
               [stls.completed]: filledBlocks[el.id]
@@ -43,4 +49,4 @@ const StepBlocks = ({ currentIndex }) => {
   )
 }
 
-export default StepBlocks
+export default React.memo(StepBlocks)

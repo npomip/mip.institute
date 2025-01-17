@@ -19,18 +19,22 @@ type Props = {
 
 const GratefullNew = ({ backButton = true }: Props) => {
   const [isPromo, setIsPromo] = useState(false)
+  const [isPromoLinkGift, setIsPromoLinkGift] = useState('')
 
   const utmCookie = getCookie('utm')
   const stringedUtm = utmCookie?.toString()
   useEffect(() => {
     setTimeout(() => {
       let foundPromo = false
-      Object.keys(promocodesWithGift).forEach(code => {
-        if (stringedUtm?.includes(code)) {
-          setIsPromo(true)
-          foundPromo = true
-        }
-      })
+    for (const key in promocodesWithGift) {
+        if (stringedUtm?.includes(key)) {
+          const { gift } = promocodesWithGift[key];
+          setIsPromoLinkGift(gift);
+          setIsPromo(true);
+          foundPromo = true;
+          break;
+      }
+    }
       if (!foundPromo) {
         setIsPromo(false)
       }
@@ -51,10 +55,7 @@ const GratefullNew = ({ backButton = true }: Props) => {
         {isPromo && (
           <div className={stls.bottom}>
             <p>{gratefull.columns[0].subtitle}</p>
-            <Link
-              href={gratefull.columns[0].link}
-              target='_blank'
-              className={stls.link}>
+            <Link href={isPromoLinkGift} target='_blank' className={stls.link}>
               <button
                 className={classNames({
                   [stls.button]: true,
@@ -80,10 +81,7 @@ const GratefullNew = ({ backButton = true }: Props) => {
         </div>
         <div className={stls.bottom}>
           <p></p>
-          <Link
-            href={gratefull.columns[1].link}
-            target='_blank'
-            className={stls.link}>
+          <Link href={gratefull.columns[1].link} target='_blank' className={stls.link}>
             <button
               className={classNames({
                 [stls.button]: true,

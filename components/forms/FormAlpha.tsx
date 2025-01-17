@@ -160,6 +160,7 @@ const FormAlpha = ({
       data.roistat_visit = roistat_visit
       if(dev) {
         setThanksIsOpen(true)
+        setLoading(false)
       } else {
         const req = await genezis(data)
 

@@ -19,6 +19,7 @@ const promocodes = {
   mashnews4: 'MASH',
   alexandraposnova: 'ПОСНОВА',
   pogrebjiskaya2: 'Погребижская',
+  irenaponaroshku: 'Ирена'
 };
 
 export default promocodes

@@ -1,3 +1,5 @@
+import { routes } from '@/config/index'
+
 const paidEduRows = [
   {
     cells: [
@@ -24,11 +26,18 @@ const paidEduRows = [
   {
     cells: [
       {
-        content:
-          'Документ об утверждении стоимости обучения по каждой образовательной программе'
+        content: 'Документ об утверждении стоимости обучения по каждой образовательной программе'
       },
       {
-        content: 'Приказ',
+        content: (
+          <a
+            href={`${routes.front.docsGeneral}/prikaz-ob-ustanovlenii-stoimosti-program.pdf`}
+            target='_blank'
+            rel='noopener noreferrer'
+            itemProp={'paidSt'}>
+            Приказ
+          </a>
+        ),
         itemProp: 'paidSt'
       }
     ]

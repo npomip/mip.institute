@@ -39,9 +39,7 @@ const Table: React.FC<TableProps> = ({
       <thead>
         {title && (
           <tr>
-            <th
-              colSpan={headers?.length || rows[0]?.cells?.length}
-              className={styles.title}>
+            <th colSpan={headers?.length || rows[0]?.cells?.length} className={styles.title}>
               {title}
             </th>
           </tr>
@@ -66,9 +64,7 @@ const Table: React.FC<TableProps> = ({
           if (row.isFullRow) {
             // Полная строка
             return (
-              <tr
-                key={rowIndex}
-                {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
+              <tr key={rowIndex} {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
                 <td className={styles.fullRow} colSpan={headers.length}>
                   {row.cells[0]?.content}
                 </td>
@@ -78,9 +74,7 @@ const Table: React.FC<TableProps> = ({
 
           // Обычная строка
           return (
-            <tr
-              key={rowIndex}
-              {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
+            <tr key={rowIndex} {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
               {row.cells.map((cell, cellIndex) => {
                 const { content, itemProp, colspan, rowspan } = cell
                 return (

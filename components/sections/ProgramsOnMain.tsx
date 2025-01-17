@@ -33,8 +33,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const filterPrograms = () => {
     return allPrograms.filter(program => {
       const typeMatch = currentType
-        ? currentType.value === 'Bachelor' ||
-          currentType.value === 'PracticalTraining'
+        ? currentType.value === 'Bachelor' || currentType.value === 'PracticalTraining'
           ? program.__typename === currentType.value
           : program.type === currentType.value
         : true
@@ -46,9 +45,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
         : true
 
       const filterMatch =
-        activeFilters.length > 0
-          ? activeFilters.includes(program.studyField)
-          : true
+        activeFilters.length > 0 ? activeFilters.includes(program.studyField) : true
 
       return typeMatch && labelMatch && filterMatch
     })
@@ -109,30 +106,24 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           onChange={() => {}}
           options={formOptions}
           placeholder='Форма обучения'
-          isDisabled={!selectedLabel}
+          isDisabled={!selectedLabel || currentType?.value === 'Bachelor'}
         />
       </div>
       <div className={stls.tags}>
-        {['', 'Консультирование', 'Психотерапия', 'Клиническая психология'].map(
-          label => (
-            <FilterTag
-              key={label}
-              onClick={() => handleFilterToggle(label)}
-              isActive={activeFilters.includes(label)}
-              isProgram={label === ''}
-              isCategories={label !== ''}>
-              {label || 'Все курсы'}
-            </FilterTag>
-          )
-        )}
+        {['', 'Консультирование', 'Психотерапия', 'Клиническая психология'].map(label => (
+          <FilterTag
+            key={label}
+            onClick={() => handleFilterToggle(label)}
+            isActive={activeFilters.includes(label)}
+            isProgram={label === ''}
+            isCategories={label !== ''}>
+            {label || 'Все курсы'}
+          </FilterTag>
+        ))}
       </div>
       <div className={stls.cards}>
         {programs.slice(0, number).map(el => (
-          <CardProfession
-            key={`${el.id} - ${el.title}`}
-            profession={el}
-            onMain
-          />
+          <CardProfession key={`${el.id} - ${el.title}`} profession={el} onMain />
         ))}
       </div>
       {programs.length > number && programs.length > 3 && (

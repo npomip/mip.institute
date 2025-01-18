@@ -7,7 +7,7 @@ const ProgramAdmissionUntil = () => {
       {
       new Date() < new Date(2024,11, 28)
         ? '27 декабря'
-          : new Date() < new Date(2025, 1, 16)
+          : new Date() < new Date(2025, 0, 16)
           ? '15 января'
           : getNextWednesday(new Date())}
     </>

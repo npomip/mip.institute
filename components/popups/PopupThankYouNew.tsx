@@ -5,6 +5,7 @@ import TagManager from 'react-gtm-module'
 import BtnClose from '@/components/btns/BtnClose'
 import { v4 as uuidv4 } from 'uuid'
 import GratefullNew from '../sections/GratefullNew'
+import Script from 'next/script'
 
 const PopupThankyouNew = ({ close }) => {
   const { program } = useContext(ContextStaticProps)
@@ -39,6 +40,19 @@ const PopupThankyouNew = ({ close }) => {
         <BtnClose onClick={close} iconCloseCircle />
       </div>
       <GratefullNew backButton={false} />
+      <Script
+        id='registration'
+        dangerouslySetInnerHTML={{
+          __html: `
+            gtag('event', 'conversion', {'send_to': 'AW-822792302/ktI6CJG-0toZEO6gq4gD'});
+          `
+        }}
+      />
+      {/* <div
+        className='i-flocktory'
+        data-fl-action='exchange'
+        data-fl-user-name={name}
+        data-fl-user-email={email}></div> */}
     </div>
   )
 }

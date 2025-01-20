@@ -1,8 +1,6 @@
 import BtnAlpha from '@/components/btns/BtnAlpha'
 import BtnBeta from '@/components/btns/BtnBeta'
 import PopupLoading from '@/components/popups/PopupLoading'
-import PopupThankyou from '@/components/popups/PopupThankyou'
-import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import classNames from 'classnames'
@@ -79,6 +77,7 @@ const FormAlpha = ({
     setFocus,
     control,
     setValue,
+    watch,
     unregister,
     formState: { errors }
   } = useForm<FormValues>({
@@ -89,6 +88,7 @@ const FormAlpha = ({
       promocode: isActivePromocode ?? isActivePromocode
     }
   })
+  const { name, email } = watch()
 
   useEffect(() => {
     if (typeof window !== 'undefined' && withGift) {
@@ -157,7 +157,7 @@ const FormAlpha = ({
       data.advcake_track_id = advcake_track_id
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
-      if(dev) {
+      if (dev) {
         setThanksIsOpen(true)
         setLoading(false)
       } else {
@@ -183,11 +183,8 @@ const FormAlpha = ({
 
   return (
     <>
-      <Popup
-        open={thanksIsOpen}
-        closeOnDocumentClick
-        onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyouNew  close={() => setThanksIsOpen(false)} />
+      <Popup open={thanksIsOpen} closeOnDocumentClick onClose={() => setThanksIsOpen(false)}>
+        <PopupThankyouNew name={name} email={email} close={() => setThanksIsOpen(false)} />
       </Popup>
 
       <Popup open={loading} onClose={() => setLoading(false)}>
@@ -253,9 +250,7 @@ const FormAlpha = ({
                 />
               )}
             />
-            {errors.phone && (
-              <p className={stls.err}>{errors.phone && errors.phone.message}</p>
-            )}
+            {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
           </div>
           <div className={classNames(stls.inpt, stls.email)}>
             <input
@@ -318,8 +313,7 @@ const FormAlpha = ({
               <p>{tickets}</p>
               <p
                 style={{
-                  visibility:
-                    seminar?.tickets_quantity > tickets ? 'visible' : 'hidden'
+                  visibility: seminar?.tickets_quantity > tickets ? 'visible' : 'hidden'
                 }}
                 onClick={() => setTickets(prev => prev + 1)}>
                 +
@@ -338,9 +332,7 @@ const FormAlpha = ({
                     message: `*Максимальная длинна вопроса 320 символов`
                   }
                 })}></textarea>
-              <p className={stls.err}>
-                {errors.question && errors.question.message}
-              </p>
+              <p className={stls.err}>{errors.question && errors.question.message}</p>
             </div>
           )}
 
@@ -359,8 +351,7 @@ const FormAlpha = ({
 
           {agreement && (
             <p className={stls.agreement}>
-              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
-              персональных данных
+              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших персональных данных
             </p>
           )}
           {isIpCheckFailed && (

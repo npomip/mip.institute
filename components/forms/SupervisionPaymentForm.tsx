@@ -1,8 +1,5 @@
-import routes from '@/config/routes'
 import genezis from '@/helpers/funcs/genezis'
-import payment from '@/helpers/funcs/payment'
 import stls from '@/styles/components/forms/SupervisionPaymentForm.module.sass'
-import PopupTrigger from '@/ui/PopupTrigger'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
@@ -28,6 +25,7 @@ const SupervisionPaymentForm = () => {
     register,
     handleSubmit,
     control,
+    watch,
     formState: { errors, dirtyFields }
   } = useForm<FormValues>({
     defaultValues: {
@@ -37,6 +35,7 @@ const SupervisionPaymentForm = () => {
     }
   })
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
+  const { name, email } = watch()
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
@@ -57,22 +56,15 @@ const SupervisionPaymentForm = () => {
     }
   }
 
-  const isDisabled =
-    !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone
+  const isDisabled = !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone
 
   return (
     <>
-      <Popup
-        open={thanksIsOpen}
-        closeOnDocumentClick
-        onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
+      <Popup open={thanksIsOpen} closeOnDocumentClick onClose={() => setThanksIsOpen(false)}>
+        <PopupThankyouNew name={name} email={email} close={() => setThanksIsOpen(false)} />
       </Popup>
       <div className={stls.container}>
-        <form
-          method='post'
-          className={stls.form}
-          onSubmit={handleSubmit(data => onSubmit(data))}>
+        <form method='post' className={stls.form} onSubmit={handleSubmit(data => onSubmit(data))}>
           <div className={stls.group}>
             <div className={classNames(stls.inpt, stls.name)}>
               <p className={stls.placeholder}>Ваше имя</p>
@@ -123,11 +115,7 @@ const SupervisionPaymentForm = () => {
                   />
                 )}
               />
-              {errors.phone && (
-                <p className={stls.err}>
-                  {errors.phone && errors.phone.message}
-                </p>
-              )}
+              {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
             </div>
 
             <div className={classNames(stls.inpt, stls.email)}>

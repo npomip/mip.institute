@@ -7,7 +7,13 @@ import { v4 as uuidv4 } from 'uuid'
 import GratefullNew from '../sections/GratefullNew'
 import Script from 'next/script'
 
-const PopupThankyouNew = ({ close }) => {
+interface Props {
+  close: () => void
+  name: string
+  email: string
+}
+
+const PopupThankyouNew = ({ close, name, email }: Props) => {
   const { program } = useContext(ContextStaticProps)
 
   useEffect(() => {
@@ -48,11 +54,11 @@ const PopupThankyouNew = ({ close }) => {
           `
         }}
       />
-      {/* <div
+      <div
         className='i-flocktory'
         data-fl-action='exchange'
         data-fl-user-name={name}
-        data-fl-user-email={email}></div> */}
+        data-fl-user-email={email}></div>
     </div>
   )
 }

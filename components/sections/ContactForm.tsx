@@ -1,7 +1,11 @@
 import stls from '@/styles/components/sections/ContactForm.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { FormAlpha } from '@/components/forms'
-import { IconAtom } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
+import dynamic from 'next/dynamic'
+
+const FormAlpha = dynamic(() => import('@/components/forms/FormAlpha'), {
+  ssr: false
+})
 
 const ContactForm = () => {
   return (
@@ -9,7 +13,7 @@ const ContactForm = () => {
       <Wrapper>
         <div className={stls.wrapper}>
           <div className={stls.atom}>
-            <IconAtom regular crho />
+            {loadIcon('IconAtom', { regular: true, crho: true })}
           </div>
           <h2 className={stls.title}>Подберите программу</h2>
           <p className={stls.p}>

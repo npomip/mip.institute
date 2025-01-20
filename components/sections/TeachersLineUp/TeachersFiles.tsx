@@ -1,4 +1,4 @@
-import { ImgTeacher } from '@/components/imgs'
+import ImgTeacher from '@/components/imgs/teachers/ImgTeacher'
 import Wrapper from '@/ui/Wrapper'
 import { getImageHeight } from '@/helpers/index'
 import stls from '@/styles/components/sections/TeachersLineUp/TeachersLineUp.module.sass'

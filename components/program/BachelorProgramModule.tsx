@@ -1,7 +1,8 @@
 import stls from '@/styles/components/program/BachelorProgramModule.module.sass'
 import { useEffect, useState } from 'react'
 import classNames from 'classnames'
-import { IconMinus, IconPlus } from '@/components/icons'
+import IconMinus from '@/components/icons/IconMinus'
+import IconPlus from '@/components/icons/IconPlus'
 import ReactMarkdown from 'react-markdown'
 
 type Props = {

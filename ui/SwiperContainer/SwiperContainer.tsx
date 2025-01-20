@@ -7,7 +7,8 @@ import Popup from 'reactjs-popup'
 import SwiperCore from 'swiper'
 import { Grid, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { PopupImage } from '@/components/popups'
+import PopupImage from '@/components/popups/PopupImage'
+
 SwiperCore.use([Navigation, Pagination])
 
 interface IOption {

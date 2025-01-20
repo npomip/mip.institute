@@ -1,8 +1,8 @@
 import stls from '@/styles/components/sections/CheckLicense.module.sass'
 import { routes } from '@/config/index'
 import Wrapper from '@/ui/Wrapper'
-import { BtnAlpha } from '@/components/btns'
-import { ImgFullProgram1 } from '@/components/imgs'
+import BtnAlpha from '@/components/btns/BtnAlpha'
+import ImgFullProgram1 from '@/components/imgs/fullprogram/ImgFullProgram1'
 import IconSpiral from '../icons/IconSpiral'
 import IconSmallSpiral from '../icons/IconSmallSpiral'
 

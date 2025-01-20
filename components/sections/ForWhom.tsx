@@ -1,14 +1,10 @@
 import stls from '@/styles/components/sections/ForWhom.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import {
-  IconGettingup,
-  IconRemoteWork,
-  IconToTheMoon
-} from '@/components/icons'
 import { ContextStaticProps } from '@/context/index'
 import { useContext } from 'react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const ForWhom = () => {
   const { program } = useContext(ContextStaticProps)
@@ -20,11 +16,11 @@ const ForWhom = () => {
   const renderIcon = idx => {
     switch (idx) {
       case 0:
-        return <IconToTheMoon />
+        return loadIcon('IconToTheMoon')
       case 1:
-        return <IconRemoteWork />
+        return loadIcon('IconRemoteWork')
       default:
-        return <IconGettingup />
+        return loadIcon('IconGettingup')
     }
   }
 

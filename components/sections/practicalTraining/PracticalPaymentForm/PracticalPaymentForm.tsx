@@ -14,7 +14,7 @@ import Button from '@/components/btns/Button'
 import genezis from '@/helpers/funcs/genezis'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical/TwoColumnsPractical'
 import Wrapper from '@/ui/Wrapper'
-import { PopupLoading } from '@/components/popups'
+import PopupLoading from '@/components/popups/PopupLoading'
 import getNextFriday from '@/helpers/getNextFriday'
 import { CldImage } from 'next-cloudinary'
 

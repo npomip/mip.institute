@@ -1,5 +1,5 @@
 import stls from '@/styles/components/popups/PopupFields.module.sass'
-import { BtnClose } from '@/components/btns'
+import BtnClose from '@/components/btns/BtnClose'
 import ProgramsFilters from '@/components/program/ProgramsFilters'
 
 type Props = {

@@ -3,10 +3,10 @@ import srcMobile from '@/public/assets/imgs/liveCourses/liveCourseHugMobile.png'
 import stls from '@/styles/components/sections/liveCourses/LiveCoursesHero.module.sass'
 import Image from 'next/image'
 import PopupTrigger from '@/ui/PopupTrigger'
-import { IconBirds } from '@/components/icons'
+import IconBirds from '@/components/icons/IconBirds'
 import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-import { BtnAlpha } from '@/components/btns'
+import BtnAlpha from '@/components/btns/BtnAlpha'
 
 const LiveCoursesHero = ({ title, openModal }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')

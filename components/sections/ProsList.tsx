@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/ProsList.module.sass'
 import { pros } from '@/data/index'
-import { IconCircleCheck } from '@/components/icons'
+import IconCircleCheck from '@/components/icons/IconCircleCheck'
 
 const ProsList = () => {
   return (

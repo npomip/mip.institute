@@ -1,6 +1,6 @@
 import stls from '@/styles/components/cards/CardContact.module.sass'
 import classNames from 'classnames'
-import { IconLocation } from '../icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type CardContactType = {
   city: string
@@ -21,7 +21,7 @@ const CardContact = ({
     <div className={stls.container}>
       <div className={stls.row}>
         <div className={stls.icon}>
-          <IconLocation cbeta responsive />
+          {loadIcon('IconLocation', { cbeta: true, responsive: true })}
         </div>
         <p className={stls.city}>{city}</p>
       </div>

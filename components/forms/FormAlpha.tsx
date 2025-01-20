@@ -1,5 +1,7 @@
-import { BtnAlpha, BtnBeta } from '@/components/btns'
-import { PopupLoading, PopupThankyou } from '@/components/popups'
+import BtnAlpha from '@/components/btns/BtnAlpha'
+import BtnBeta from '@/components/btns/BtnBeta'
+import PopupLoading from '@/components/popups/PopupLoading'
+import PopupThankyou from '@/components/popups/PopupThankyou'
 import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
@@ -106,7 +108,6 @@ const FormAlpha = ({
   }, [setFocus, popup])
 
   const router = useRouter()
-
   const onSubmit = async data => {
     setIsDisabled(true)
     setLoading(true)
@@ -158,6 +159,7 @@ const FormAlpha = ({
       data.roistat_visit = roistat_visit
       if(dev) {
         setThanksIsOpen(true)
+        setLoading(false)
       } else {
         const req = await genezis(data)
 
@@ -185,7 +187,7 @@ const FormAlpha = ({
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
+        <PopupThankyouNew  close={() => setThanksIsOpen(false)} />
       </Popup>
 
       <Popup open={loading} onClose={() => setLoading(false)}>

@@ -7,8 +7,8 @@ import classNames from 'classnames'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import { FC } from 'react'
-import { IconBell } from '@/components/icons'
-import { BtnAlpha } from '@/components/btns'
+import IconBell from '@/components/icons/IconBell'
+import BtnAlpha from '@/components/btns/BtnAlpha'
 import { useRouter } from 'next/navigation'
 
 interface Step {

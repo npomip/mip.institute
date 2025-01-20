@@ -1,9 +1,7 @@
 import PageTitle from '@/ui/PageTitle'
-import {
-  PaymentBtns,
-  PaymentDebitCard,
-  PaymentInfo
-} from '@/components/sections'
+import PaymentBtns from '@/components/sections/PaymentBtns'
+import PaymentDebitCard from '@/components/sections/PaymentDebitCard'
+import PaymentInfo from '@/components/sections/PaymentInfo'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
 import truncate from '@/helpers/general/truncate'

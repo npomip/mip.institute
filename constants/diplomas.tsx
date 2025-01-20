@@ -1,10 +1,10 @@
 import {
+  ImgCertificate,
+  ImgCertificateAlt,
   ImgDiploma,
   ImgDiplomaAlt,
-  ImgSupplement,
-  ImgCertificate,
-  ImgCertificateAlt
-} from '@/components/imgs'
+  ImgSupplement
+} from '@/components/imgs/diplomas'
 
 const diplomas = [
   {

@@ -1,16 +1,13 @@
 import stls from '@/styles/components/sections/ActiveLicenses.module.sass'
 import Popup from 'reactjs-popup'
 import Wrapper from '@/ui/Wrapper'
-import { CheckLicense } from '@/components/sections'
-import { IconDoc } from '@/components/icons'
-import { PopupImage } from '@/components/popups'
+import CheckLicense from '@/components/sections/CheckLicense'
+import PopupImage from '@/components/popups/PopupImage'
 import ImgLicence from '@/components/imgs/legal/ImgLicence'
-import { BtnAlpha } from '@/components/btns'
+import BtnAlpha from '@/components/btns/BtnAlpha'
 import routes from '@/config/routes'
-import {
-  dataDocsConstituentRight,
-  dataOchuVoMipDocsConstituentRight
-} from '@/data/index'
+import { dataDocsConstituentRight, dataOchuVoMipDocsConstituentRight } from '@/data/index'
+import loadIcon from '@/helpers/general/loadIcon'
 
 type Props = {
   isOchuVoMip?: boolean
@@ -28,15 +25,15 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
         ) : (
           <div className={stls.header}>
             <h2 className={stls.title}>Действующие лицензии</h2>
-            <BtnAlpha
-              text='Реквизиты ОЧУ ВО «МИП»'
-              href={routes.front.legal_edu}
-            />
+            {/*<BtnAlpha*/}
+            {/*  text='Реквизиты ОЧУ ВО «МИП»'*/}
+            {/*  href={routes.front.legal_edu}*/}
+            {/*/>*/}
           </div>
         )}
         <p className={stls.p}>
-          Лицензия департамента образования города Москвы на осуществление
-          образовательной деятельности:
+          Лицензия департамента образования города Москвы на осуществление образовательной
+          деятельности:
         </p>
         <div className={stls.content}>
           <div className={stls.left}>
@@ -53,17 +50,12 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
               {
                 // @ts-ignore
                 close => (
-                  <PopupImage
-                    image={<ImgLicence isOchuVoMip={isOchuVoMip} />}
-                    close={close}
-                  />
+                  <PopupImage image={<ImgLicence isOchuVoMip={isOchuVoMip} />} close={close} />
                 )
               }
             </Popup>
             <span className={stls.label}>
-              <span className={stls.labelIcon}>
-                <IconDoc />
-              </span>
+              <span className={stls.labelIcon}>{loadIcon('IconDoc')}</span>
               {isOchuVoMip ? (
                 <a
                   href={dataOchuVoMipDocsConstituentRight[1].href}

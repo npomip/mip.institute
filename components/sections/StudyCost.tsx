@@ -1,15 +1,19 @@
-import { IconCircleCheck } from '@/components/icons'
 import Wrapper from '@/ui/Wrapper'
 import ProgramCost from '@/components/program/ProgramCost'
 import ProgramDiscount from '@/components/program/ProgramDiscount'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/StudyCost.module.sass'
 import { useContext } from 'react'
-import { FormAlpha } from '../forms'
 import MoneySaving from '../program/MoneySaving'
 import ProgramStudyDuration from '../program/ProgramStudyDuration'
 import points from 'constants/studyCost'
 import ProgramAdmissionUntil from '../program/ProgramAdmissionUntil'
+import loadIcon from '@/helpers/general/loadIcon'
+import dynamic from 'next/dynamic'
+
+const FormAlpha = dynamic(() => import('@/components/forms/FormAlpha'), {
+  ssr: false
+})
 import classNames from 'classnames'
 
 const StudyCost = ({ costRef, ofType }) => {
@@ -93,7 +97,7 @@ const StudyCost = ({ costRef, ofType }) => {
               {points.map((point, idx) => (
                 <li key={point + idx} className={stls.point}>
                   <span className={stls.pointicon}>
-                    <IconCircleCheck violetRound />
+                    {loadIcon('IconCircleCheck', { violetRound: true })}
                   </span>
                   <span>{point}</span>
                 </li>

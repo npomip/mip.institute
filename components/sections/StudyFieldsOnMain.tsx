@@ -1,4 +1,4 @@
-import { BtnField } from '@/components/btns'
+import BtnField from '@/components/btns/BtnField'
 import { routes } from '@/config/index'
 import stls from '@/styles/components/sections/StudyFields.module.sass'
 import cn from 'classnames'
@@ -12,7 +12,13 @@ import { Fragment } from 'react'
 
 type StudyFieldsType = {
   aside?: boolean
-  ofType?: 'course' | 'profession' | null | 'bachelor' | 'practicalTraining' | 'shortTerm'
+  ofType?:
+    | 'course'
+    | 'profession'
+    | null
+    | 'bachelor'
+    | 'practicalTraining'
+    | 'shortTerm'
   close?: any
   flexend?: boolean
   smallText?: boolean
@@ -35,12 +41,12 @@ const StudyFieldsOnMain = ({
     ofType === 'course'
       ? studyFieldsCourses
       : ofType === 'profession'
-      ? studyFieldsProfessions
-      : ofType === 'shortTerm'
-      ? studyFieldsShortTerm
-      : ofType === 'bachelor' || ofType === 'practicalTraining'
-      ? null
-      : studyFields
+        ? studyFieldsProfessions
+        : ofType === 'shortTerm'
+          ? studyFieldsShortTerm
+          : ofType === 'bachelor' || ofType === 'practicalTraining'
+            ? null
+            : studyFields
 
   return (
     <ul
@@ -60,10 +66,10 @@ const StudyFieldsOnMain = ({
                 currentType === 'course'
                   ? routes.front.courses
                   : currentType === 'profession'
-                  ? routes.front.professions
-                  : currentType === 'shortTerm'
-                  ? routes.front.shortTerm
-                  : routes.front.programs
+                    ? routes.front.professions
+                    : currentType === 'shortTerm'
+                      ? routes.front.shortTerm
+                      : routes.front.programs
               }/${value}`}
               aside={aside}
               slug={value}>

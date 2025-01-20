@@ -1,7 +1,7 @@
 import stls from '@/styles/components/btns/BtnWhatsapp.module.sass'
 import { routes } from '@/config/index'
 import classNames from 'classnames'
-import { IconWhatsapp } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
 
 const BtnWhatsapp = ({ dark = false }) => {
   return (
@@ -14,7 +14,7 @@ const BtnWhatsapp = ({ dark = false }) => {
       target='_blank'
       rel='noopener noreferrer'
       aria-label='Whatsapp'>
-      <IconWhatsapp />
+      {loadIcon('IconWhatsapp')}
     </a>
   )
 }

@@ -1,12 +1,10 @@
 import { routes } from '@/config/index'
-import {
-  getStaticPathsPageJournal,
-  getStaticPathsPageJournals,
-  getStaticPathsPageProgram,
-  getStaticPathsPagePrograms,
-  getStaticPathsPageSeminar,
-  getStaticPathsPageSeminars
-} from '@/lib/index'
+import getStaticPathsPageJournal from '@/lib/getStaticPaths/getStaticPathsPageJournal'
+import getStaticPathsPageJournals from '@/lib/getStaticPaths/getStaticPathsPageJournals'
+import getStaticPathsPageProgram from '@/lib/getStaticPaths/getStaticPathsPageProgram'
+import getStaticPathsPagePrograms from '@/lib/getStaticPaths/getStaticPathsPagePrograms'
+import getStaticPathsPageSeminar from '@/lib/getStaticPaths/getStaticPathsPageSeminar'
+import getStaticPathsPageSeminars from '@/lib/getStaticPaths/getStaticPathsPageSeminars'
 import { TypePageProgramPaths, TypePageProgramsPaths } from '@/types/index'
 import TypePageJournalPaths from '@/types/page/journal/paths/TypePageJournalPaths'
 import getStaticPathsPageBachelor from '../getStaticPaths/getStaticPathsPageBachelor'

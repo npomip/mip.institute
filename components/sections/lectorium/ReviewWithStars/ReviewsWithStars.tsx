@@ -1,5 +1,4 @@
 import CardReviewWithStars from '@/components/cards/CardReviewWithStars'
-import { IconFinger } from '@/components/icons'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from './ReviewsWithStars.module.sass'
 import Tag from '@/ui/Tag'
@@ -8,6 +7,7 @@ import reviewsDefault from 'constants/lectoriumReviews'
 import SwiperCore from 'swiper'
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import loadIcon from '@/helpers/general/loadIcon'
 
 SwiperCore.use([Scrollbar])
 
@@ -50,9 +50,7 @@ const ReviewsWithStars = ({ reviews, isSupervision = false }) => {
             )}
           </Swiper>
         </div>
-        <div className={stls.finger}>
-          <IconFinger />
-        </div>
+        <div className={stls.finger}>{loadIcon('IconFinger')}</div>
       </Wrapper>
     </section>
   )

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/imgs/diplomas/ImgDiplomaDynamic.module.sass'
 import { TGeneralImg } from '@/types/index'
 import cn from 'classnames'
-import { ImgTemplate } from '@/components/imgs'
+import ImgTemplate from '@/components/imgs/ImgTemplate'
 import { useCheckIfResourseExists } from '@/hooks/index'
 import defaultSrc from '@/public/assets/imgs/diplomas/diploma.jpg'
 import defaultSrcAlt from '@/public/assets/imgs/diplomas/diploma-alt.jpg'
@@ -33,12 +33,12 @@ const ImgDiplomaDynamic = ({
         src && isImage
           ? src
           : diplomaAlt
-          ? defaultSrcAlt
-          : diplomaCertificate
-          ? defaultSrcCertificate
-          : diplomaCertificateAlt
-          ? defaultSrcCertificateAlt
-          : defaultSrc
+            ? defaultSrcAlt
+            : diplomaCertificate
+              ? defaultSrcCertificate
+              : diplomaCertificateAlt
+                ? defaultSrcCertificateAlt
+                : defaultSrc
       }
       alt={alt || 'Диплом'}
       width={width}

@@ -15,7 +15,11 @@ const promocodes = {
   sulim: 'СУЛИМ',
   strelezc: 'СТРЕЛЕЦ',
   pubum: 'СТРЕЛЕЦ',
-  christiagata: 'АГАТАКРИСТИ'
+  christiagata: 'АГАТАКРИСТИ',
+  mashnews4: 'MASH',
+  alexandraposnova: 'ПОСНОВА',
+  pogrebjiskaya2: 'Погребижская',
+  irenaponaroshku: 'Ирена'
 };
 
 export default promocodes

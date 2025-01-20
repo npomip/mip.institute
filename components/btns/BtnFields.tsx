@@ -1,5 +1,5 @@
 import stls from '@/styles/components/btns/BtnFields.module.sass'
-import { IconMenu } from '@/components/icons'
+import IconMenu from '@/components/icons/IconMenu'
 import { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'

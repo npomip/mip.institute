@@ -26,7 +26,6 @@ export const gratefull = {
       backgroundImage: gifts,
       purple: true,
       orange: false,
-      link: 'https://mipinstitute.getcourse.ru/podp_mini_two',
       isPromo: true
     },
     {

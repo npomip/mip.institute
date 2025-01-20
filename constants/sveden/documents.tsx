@@ -1,18 +1,20 @@
+import { routes } from '@/config/index'
+
 const staticLinks = [
   {
     itemProp: 'ustavDocLink',
-    href: '',
-    label: 'Устав образовательной организации'
+    href: `${routes.front.docsConstituent}/ustav-obrazovatelnoj-organizacii-nano-mip.pdf`,
+    label: 'Устав образовательной организации НАНО МИП'
   },
   {
     itemProp: 'localActStud',
-    href: '',
-    label: 'Правила внутреннего распорядка обучающихся'
+    href: `${routes.front.docsGeneral}/pravila-vnutrienniegho-uchiebnogho-rasporiadka-nano-mip.pdf`,
+    label: 'Правила внутреннего учебного распорядка НАНО МИП'
   },
   {
     itemProp: 'localActOrder',
-    href: '',
-    label: 'Правила внутреннего трудового распорядка'
+    href: `${routes.front.docsGeneral}/pravila-vnutrienniegho-trudovogho-rasporiadka-nano-mip.pdf`,
+    label: 'Правила внутреннего трудового распорядка НАНО МИП'
   },
   {
     itemProp: 'localActCollec',
@@ -34,9 +36,9 @@ const staticLinks = [
 
 const links = [
   {
-    href: '',
+    href: `${routes.front.docsGeneral}/pravila-priiema-na-obuchieniie-nano-mip.pdf`,
     itemProp: 'priemDocLink',
-    val: 'Правила приема обучающихся'
+    val: 'Правила приема на обучение НАНО МИП'
   },
   {
     href: '',
@@ -44,14 +46,19 @@ const links = [
     val: 'Режим занятий обучающихся'
   },
   {
-    href: '',
-    itemProp: 'tekKontrolDocLin k',
-    val: 'Формы, периодичность и порядок текущего контроля успеваемости и промежуточной аттестации обучающихся'
+    href: `${routes.front.docsGeneral}/polozhenie-o-tekuschei-promezhutochnoi-i-itogovoi-attestacii-v-nano-mip.pdf`,
+    itemProp: 'tekKontrolDocLink',
+    val: 'Положение о текущей, промежуточной и итоговой аттестации слушателей по ДПП в НАНО МИП'
   },
   {
-    href: '',
+    href: `${routes.front.docsGeneral}/polozhenie-o-poriadke-otchisleniia-v-nano-mip.pdf`,
     itemProp: 'perevodDocLink',
-    val: 'Порядок и основания перевода, отчисления и восстановления обучающихся'
+    val: 'Положение о порядке отчисления обучающихся в НАНО МИП'
+  },
+  {
+    href: `${routes.front.docsGeneral}/polozhenie-o-poriadke-vosstanovleniia-v-nano-mip.pdf`,
+    itemProp: 'perevodDocLink',
+    val: 'Положение о порядке восстановления в число слушателей, ранее обучавшихся в НАНО МИП'
   },
   {
     href: '',

@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/PaymentBtns.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { BtnAlpha } from '@/components/btns'
+import BtnAlpha from '@/components/btns/BtnAlpha'
 import PopupTrigger from '@/ui/PopupTrigger'
 
 const PaymentBtns = () => {

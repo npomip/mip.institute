@@ -1,6 +1,7 @@
 import stls from '@/styles/components/btns/BtnYt.module.sass'
 import { routes } from '@/config/index'
-import { IconYt } from '@/components/icons'
+import loadIcon from '@/helpers/general/loadIcon'
+
 import classNames from 'classnames'
 
 const BtnYt = ({ dark = false }) => {
@@ -11,7 +12,7 @@ const BtnYt = ({ dark = false }) => {
       target='_blank'
       rel='noopener noreferrer'
       aria-label='YouTube'>
-      <IconYt />
+      {loadIcon('IconYt')}
     </a>
   )
 }

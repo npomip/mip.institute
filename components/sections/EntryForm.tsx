@@ -1,4 +1,3 @@
-import { FormAlpha } from '@/components/forms'
 import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/EntryForm.module.sass'
 import IconGratefullPortal from '@/components/icons/IconGratefullPortal'
@@ -9,6 +8,11 @@ import classNames from 'classnames'
 import picHorn from '@/public/assets/imgs/general/horn.png'
 import picHorn_liveCourses from '@/public/assets/imgs/general/horn_liveCourse.png'
 import IconGeopoint from '../icons/IconGeopoint'
+import dynamic from 'next/dynamic'
+
+const FormAlpha = dynamic(() => import('@/components/forms/FormAlpha'), {
+  ssr: false
+})
 
 interface Props {
   isLiveCourse?: boolean

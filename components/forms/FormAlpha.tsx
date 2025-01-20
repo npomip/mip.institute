@@ -108,7 +108,6 @@ const FormAlpha = ({
   }, [setFocus, popup])
 
   const router = useRouter()
-
   const onSubmit = async data => {
     setIsDisabled(true)
     setLoading(true)
@@ -188,7 +187,7 @@ const FormAlpha = ({
         open={thanksIsOpen}
         closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
+        <PopupThankyouNew  close={() => setThanksIsOpen(false)} />
       </Popup>
 
       <Popup open={loading} onClose={() => setLoading(false)}>

@@ -5,7 +5,7 @@ module.exports = {
   sitemapSize: 5000,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/payment','/gratefull', '/promo*', '*?', '/seminars'],
+  exclude: ['/payment','/gratefull', '/promo*', '*?', '/seminars', '/seminars/*', '/amoCheck', '/live-courses', '/live-courses/*'],
   transform: async (config, path) => {
     return {
       loc: path, // => this will be exported as http(s)://<config.siteUrl>/<path>

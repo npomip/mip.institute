@@ -1,9 +1,4 @@
-const managersHeader = [
-  'ФИО',
-  'Должность',
-  'Контактные телефоны',
-  'Адрес электронной почты'
-]
+const managersHeader = ['ФИО', 'Должность', 'Контактные телефоны', 'Адрес электронной почты']
 
 const managersRows = [
   {
@@ -13,7 +8,11 @@ const managersRows = [
       { content: '+7 (499) 110-88-19', itemProp: 'telephone' },
       { content: 'info@mip.institute', itemProp: 'email' }
     ]
-  },
+  }
+]
+
+const zamsHeader = ['ФИО', 'Должность', 'Контактные телефоны', 'Адрес электронной почты']
+const zamsRows = [
   {
     cells: [
       { content: 'Стибунов Алексей Васильевич', itemProp: 'fio' },
@@ -24,29 +23,7 @@ const managersRows = [
   }
 ]
 
-const zamsHeader = [
-  'ФИО',
-  'Должность',
-  'Контактные телефоны',
-  'Адрес электронной почты'
-]
-const zamsRows = [
-  {
-    cells: [
-      { content: 'Отсутствует', itemProp: 'fio' },
-      { content: 'Отсутствует', itemProp: 'post' },
-      { content: 'Отсутствует', itemProp: 'telephone' },
-      { content: 'Отсутствует', itemProp: 'email' }
-    ]
-  }
-]
-
-const filialsHeader = [
-  'ФИО',
-  'Должность',
-  'Контактные телефоны',
-  'Адрес электронной почты'
-]
+const filialsHeader = ['ФИО', 'Должность', 'Контактные телефоны', 'Адрес электронной почты']
 const filialsRows = [
   {
     cells: [
@@ -58,11 +35,4 @@ const filialsRows = [
   }
 ]
 
-export {
-  managersHeader,
-  managersRows,
-  zamsHeader,
-  zamsRows,
-  filialsHeader,
-  filialsRows
-}
+export { managersHeader, managersRows, zamsHeader, zamsRows, filialsHeader, filialsRows }

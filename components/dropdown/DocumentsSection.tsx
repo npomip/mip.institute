@@ -9,22 +9,14 @@ interface Icon1Props {
   selected?: boolean
 }
 
-const DocumentsSection: React.FC<Icon1Props> = ({
-  className,
-  selected = false
-}) => {
-  const infoClasses = classNames(
-    stls.container,
-    { [stls.selected]: selected },
-    className
-  )
+const DocumentsSection: React.FC<Icon1Props> = ({ className, selected = false }) => {
+  const infoClasses = classNames(stls.container, { [stls.selected]: selected }, className)
   return (
     <div className={infoClasses}>
       <div className={stls.wrapper}>
         <p>Сведения об образовательной</p>
         <p>организации</p>
-
-        <Link href={routes.front.legal} className={stls.btn}>
+        <Link href={routes.front.svedenCommon} className={stls.btn}>
           Ознакомиться
         </Link>
       </div>

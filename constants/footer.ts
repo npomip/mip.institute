@@ -39,7 +39,7 @@ const staticLinks = [
   },
   {
     val: 'Сведения об образовательной организации',
-    href: routes.front.legal
+    href: routes.front.svedenCommon
   },
   {
     val: 'Информация о правилах использования материала',

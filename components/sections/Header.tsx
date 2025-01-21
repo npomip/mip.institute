@@ -37,7 +37,7 @@ const Header = ({ isPromo }: Props) => {
         {router.route === '/' && (
           <div className={stls.top}>
             <div className={stls.topleft}>
-              <Link href={routes.front.legal} className={stls.linkInfo}>
+              <Link href={routes.front.svedenCommon} className={stls.linkInfo}>
                 Сведения об образовательной организации
               </Link>
             </div>

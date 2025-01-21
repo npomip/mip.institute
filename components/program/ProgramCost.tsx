@@ -9,7 +9,9 @@ import IconScrewedArrow from '../icons/IconScrewedArrow'
 
 const ProgramCost = ({ withPerMonth = false }) => {
   const { program } = useContext(ContextStaticProps)
-  const isProfession = program?.type === 'Profession'
+   const isExtendedProfessionCourse =
+    program?.type === 'Profession' && program?.studyMounthsDuration >6 // Расширенный профессиональный курс
+    console.log(isExtendedProfessionCourse,'isExtendedProfessionCourse');
   const price = (program &&  program.price) || 0
   const discount = (program && program.discount) || discountNum 
 
@@ -22,11 +24,11 @@ const ProgramCost = ({ withPerMonth = false }) => {
     <div className={stls.container}>
       {withPerMonth && (
         <div className={stls.content}>
-          {!isProfession ? (
+          {!isExtendedProfessionCourse ? (
             <div
               className={classNames({
                 [stls.spanLine]: true,
-                [stls.courseLine]: !isProfession
+                [stls.courseLine]: !isExtendedProfessionCourse
               })}>
               <p className={stls.price}>
                 Стоимость программы
@@ -39,7 +41,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
                 <span
                   className={classNames({
                     [stls.regular]: true,
-                    [stls.course]: !isProfession
+                    [stls.course]: !isExtendedProfessionCourse
                   })}>
                   <span className={stls.boldCourse}>
                     {toNumberWithSpaces(rprice)} &#8381;

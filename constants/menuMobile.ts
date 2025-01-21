@@ -15,7 +15,7 @@ const links = [
   { text: 'Об институте', href: routes.front.about, withIcon: false },
   {
     text: 'Сведения об образовательной организации',
-    href: routes.front.legal,
+    href: routes.front.svedenCommon,
     withIcon: false
   }
 ]

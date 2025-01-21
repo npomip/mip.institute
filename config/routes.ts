@@ -48,6 +48,7 @@ const routes: TRoutes = {
     about: '/about',
     reviews: '/reviews',
     legal: '/legal',
+    svedenCommon: '/sveden/common',
     legal_edu: '/legal_edu',
     payment: '/payment_edu_mip',
     gratefull: '/gratefull',
@@ -69,7 +70,11 @@ const routes: TRoutes = {
   },
   back: {
     root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
-    rootv2: prod ?  'https://api-v2.mip.institute':  preview ? 'https://dev.api-v2.mip.institute' : 'http://localhost:1338',
+    rootv2: prod
+      ? 'https://api-v2.mip.institute'
+      : preview
+        ? 'https://dev.api-v2.mip.institute'
+        : 'http://localhost:1338',
     home: '/',
     graphql: '/graphql',
     programs: '/programs',
@@ -84,8 +89,7 @@ const routes: TRoutes = {
   external: {
     ochuVoMipLicense:
       'https://islod.obrnadzor.gov.ru/rlic/details/0B110B0A-0D0D-100D-0E0E-0F0D131211111110120D/',
-    license:
-      'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
+    license: 'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
     vk: 'https://m.vk.com/mip_institute',
     whatsapp: 'http://wa.me/+74991108819',
     telegram: 'https://t.me/mip_institute',
@@ -93,8 +97,7 @@ const routes: TRoutes = {
     ok: 'https://ok.ru/group/70000001109496',
     turtop:
       'https://tutortop.ru/school-reviews/moskovskij-institut-psihologii/?cid=1685112262621940498',
-    otzovic:
-      'https://otzovik.com/reviews/nano_moskovskiy_institut_psihologii_russia_moscow',
+    otzovic: 'https://otzovik.com/reviews/nano_moskovskiy_institut_psihologii_russia_moscow',
     yandex: 'https://yandex.ru/profile/-/CDfB5OYg',
     twoGis: 'https://go.2gis.com/y85xl6',
     ucheba: 'https://www.ucheba.ru/uz/107383/opinions#new-comments-panel',
@@ -108,17 +111,11 @@ const routes: TRoutes = {
   },
   share: {
     vk: (url: string, text: string) =>
-      `https://vk.com/share.php?url=${encodeURIComponent(
-        url
-      )}&title=${encodeURIComponent(text)}`,
+      `https://vk.com/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`,
     whatsapp: (url: string, text: string) =>
-      `https://wa.me/?text=${encodeURIComponent(text)}%20${encodeURIComponent(
-        url
-      )}`,
+      `https://wa.me/?text=${encodeURIComponent(text)}%20${encodeURIComponent(url)}`,
     telegram: (url: string, text: string) =>
-      `https://t.me/share/url?url=${encodeURIComponent(
-        url
-      )}&text=${encodeURIComponent(text)}`
+      `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`
   }
 }
 

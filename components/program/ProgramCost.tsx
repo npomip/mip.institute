@@ -11,7 +11,7 @@ const ProgramCost = ({ withPerMonth = false }) => {
   const { program } = useContext(ContextStaticProps)
   const isProfession = program?.type === 'Profession'
 
-  const showCost = program?.studyMounthsDuration <= 6
+  const showCost = program?.studyMounthsDuration <= 5
   const price = (program && program.price) || 0
   const discount = (program && program.discount) || discountNum
   const rprice = Math.round(Math.ceil((price / (100 - discount)) * 100) / 1000) * 1000

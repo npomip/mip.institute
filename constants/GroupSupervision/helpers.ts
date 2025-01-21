@@ -14,19 +14,19 @@ export function generateDates(startDate: Date, endDate: Date): string[] {
 export const groupsData = [
   {
     groupName: 'Группа №1',
-    dates: generateDates(new Date(2025, 0, 14), new Date(2025, 1, 4)),
+    dates: generateDates(new Date(2025, 1, 18), new Date(2025, 2, 11)),
     time: ['16:00 - 18:30'],
     classEventDate: 'eventDatePurple'
   },
   {
     groupName: 'Группа №2',
-    dates: generateDates(new Date(2025, 0, 15), new Date(2025, 1, 5)),
+    dates: generateDates(new Date(2025, 1, 19), new Date(2025, 2, 12)),
     time: ['09:00 - 11:30'],
     classEventDate: 'eventDateOrange'
   },
   {
     groupName: 'Группа №3',
-    dates: generateDates(new Date(2025, 0, 18), new Date(2025, 1, 8)),
+    dates: generateDates(new Date(2025, 1, 22), new Date(2025, 2, 15)),
     time: ['13:00 - 15:30'],
     classEventDate: 'eventDateWhite'
   }

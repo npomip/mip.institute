@@ -44,19 +44,22 @@ const Footer = () => {
               {staticLinks.map(link => (
                 <li
                   key={link.val + link.href}
-                  className={classNames({
-                    [stls.linkItem]: true,
-                    [stls.staticLinkItem]: true
-                  })}>
-                  <Link
-                    href={link.href}
-                    target='_self'
-                    className={classNames({
-                      [stls.link]: true,
-                      [stls.staticLink]: true
-                    })}>
-                    {link.val}
-                  </Link>
+                  className={classNames(stls.linkItem, stls.staticLinkItem)}>
+                  {link.val === 'Информация о правилах использования материала' ? (
+                    <a
+                      href={link.href}
+                      target='_blank'
+                      className={classNames(stls.link, stls.staticLinks)}>
+                      {link.val}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      target='_self'
+                      className={classNames(stls.link, stls.staticLinks)}>
+                      {link.val}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -105,20 +108,14 @@ const Footer = () => {
               <div className={stls.contact}>
                 <p>Приемная комиссия:</p>
                 <div className={stls.numbers}>
-                  <a
-                    href={company.phoneNumbers.default.href}
-                    className={stls.number}>
+                  <a href={company.phoneNumbers.default.href} className={stls.number}>
                     {company.phoneNumbers.default.val}
                   </a>
-                  <a
-                    href={company.phoneNumbers.defaultAlt.href}
-                    className={stls.number}>
+                  <a href={company.phoneNumbers.defaultAlt.href} className={stls.number}>
                     {company.phoneNumbers.defaultAlt.val}
                   </a>
                   <p>{company.phoneNumbers.studyDivision.contactType}:</p>
-                  <a
-                    href={company.phoneNumbers.studyDivision.href}
-                    className={stls.number}>
+                  <a href={company.phoneNumbers.studyDivision.href} className={stls.number}>
                     {company.phoneNumbers.studyDivision.val}
                   </a>
                 </div>
@@ -150,25 +147,22 @@ const Footer = () => {
               <div className={stls.leaveApp}>
                 <PopupTrigger btn='alpha' cta='submitApplication' />
               </div>
-              <a
-                href='https://lms.mip.institute/'
-                className={stls.enterToPortal}>
+              <a href='https://lms.mip.institute/' className={stls.enterToPortal}>
                 Вход
               </a>
               <SearchProgram />
               <p className={stls.primary}>
                 Государственный контроль (надзор) в сфере образования:
                 <span>
-                  Департамент образования и науки города Москвы Федеральная
-                  служба по надзору в сфере образования и науки
+                  Департамент образования и науки города Москвы Федеральная служба по надзору в
+                  сфере образования и науки
                 </span>
               </p>
 
               <p className={stls.primary}>
-                Научная автономная некоммерческая организация «Московский
-                институт психологии» (НАНО «МИП») ИНН 9725041321 ОГРН
-                1207700479260 Лицензия департамента образования города Москвы на
-                осуществление образовательной деятельности №041363 от 14.04.21.
+                Научная автономная некоммерческая организация «Московский институт психологии» (НАНО
+                «МИП») ИНН 9725041321 ОГРН 1207700479260 Лицензия департамента образования города
+                Москвы на осуществление образовательной деятельности №041363 от 14.04.21.
               </p>
             </div>
           </div>

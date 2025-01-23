@@ -818,7 +818,11 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         destination: '/shortTerm/obshaya-psihologiya/psihologiya-obsheniya',
         permanent: true
       },
-      
+      {
+        source: '/legal',
+        destination: '/sveden/common',
+        permanent: true
+      },
     ]
   }
 })

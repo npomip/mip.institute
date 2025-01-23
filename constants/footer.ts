@@ -2,50 +2,62 @@ import { routes } from '../config'
 
 const staticLinks = [
   {
+    id: 0,
     val: 'Курсы',
     href: routes.front.courses
   },
   {
+    id: 1,
     val: 'Профессии',
     href: routes.front.professions
   },
   {
+    id: 2,
     val: 'Высшее образование (Бакалавриат)',
     href: routes.front.bachelors
   },
   {
+    id: 3,
     val: 'Практическая подготовка',
     href: routes.front.practicalTrainings
   },
   {
+    id: 4,
     val: 'Вебинары',
     href: routes.front.webinars
   },
   {
+    id: 5,
     val: 'Преподаватели',
     href: routes.front.teachers
   },
   {
+    id: 6,
     val: 'Отзывы',
     href: routes.front.reviews
   },
   {
+    id: 7,
     val: 'Главная',
     href: routes.front.home
   },
   {
+    id: 8,
     val: 'Об институте',
     href: routes.front.about
   },
   {
+    id: 9,
     val: 'Сведения об образовательной организации',
     href: routes.front.svedenCommon
   },
   {
+    id: 10,
     val: 'Информация о правилах использования материала',
     href: routes.front.regulation
   },
   {
+    id: 11,
     val: 'Контакты',
     href: routes.front.contact
   }

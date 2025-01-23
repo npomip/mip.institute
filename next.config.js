@@ -748,16 +748,16 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         destination: '/courses',
         permanent: true
       },
-      {
-        source: '/courses/psihoterapiya',
-        destination: '/courses',
-        permanent: true
-      },
-      {
-        source: '/courses/konsultirovanie',
-        destination: '/courses',
-        permanent: true
-      },
+      // {
+      //   source: '/courses/psihoterapiya',
+      //   destination: '/courses',
+      //   permanent: true
+      // },
+      // {
+      //   source: '/courses/konsultirovanie',
+      //   destination: '/courses',
+      //   permanent: true
+      // },
       {
         source: '/courses/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
         destination: '/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
@@ -818,7 +818,11 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         destination: '/shortTerm/obshaya-psihologiya/psihologiya-obsheniya',
         permanent: true
       },
-      
+      {
+        source: '/legal',
+        destination: '/sveden/common',
+        permanent: true
+      },
     ]
   }
 })

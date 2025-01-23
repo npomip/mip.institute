@@ -42,10 +42,8 @@ const Footer = () => {
                 [stls.staticLinks]: true
               })}>
               {staticLinks.map(link => (
-                <li
-                  key={link.val + link.href}
-                  className={classNames(stls.linkItem, stls.staticLinkItem)}>
-                  {link.val === 'Информация о правилах использования материала' ? (
+                <li key={link.id} className={classNames(stls.linkItem, stls.staticLinkItem)}>
+                  {link.id === 10 ? (
                     <a
                       href={link.href}
                       target='_blank'

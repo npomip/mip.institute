@@ -14,7 +14,7 @@ const MeetYourTeachers = ({ teachers }) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h1 className={stls.title}>Познакомьтесь с вашими наставниками</h1>
+        <h1 className={stls.title}>Познакомьтесь с вашими преподавателями</h1>
         <ul className={stls.teachers}>
           {teachers &&
             teachers.map(teacher => (

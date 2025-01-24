@@ -10,7 +10,7 @@ import classNames from 'classnames'
 
 const GroupSupervisionSchedule = () => {
   const [data, setData] = useState<GroupData[]>(groupsData)
-  const defaultValue = new Date(2025, 0, 1)
+  const defaultValue = new Date(2025, 1, 1)
 
   return (
     <section className={stls.container}>

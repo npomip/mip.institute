@@ -20,8 +20,7 @@ module.exports = {
       {
         userAgent: '*',
         allow: ['/*.css', '/*.js', '/*.jpg', '/*.png', '/*.gif'],
-        disallow: ['/promo*', '*?', '*test', '/kz', '/ru', '/uz', '*?calltouch_', '*%', '/docs/', '/policies/',
-        '*undefined']
+        disallow: ['/promo*', '*?', '*test', '/kz', '/ru', '/uz', '*?calltouch_', '*%', '/docs/', '/policies/','/sveden/', '*undefined']
       }
     ]
   }

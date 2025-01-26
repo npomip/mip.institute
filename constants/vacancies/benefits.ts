@@ -1,7 +1,4 @@
-import stls from './Benefits.module.sass'
-import Wrapper from '@/ui/Wrapper'
-
-const text = [
+const benefits = [
   {
     title: '15 лет',
     description: 'на рынке образования'
@@ -31,22 +28,4 @@ const text = [
   }
 ]
 
-const Benefits = () => {
-  return (
-    <section className={stls.container}>
-      <Wrapper>
-        <h2 className={stls.title}>Преимущества</h2>
-        <div className={stls.cards}>
-          {text.map(({ title, description }, index) => (
-            <div key={title + index} className={stls.card}>
-              <span className={stls.cardTitle}>{title}</span>
-              <span className={stls.cardDescription}>{description}</span>
-            </div>
-          ))}
-        </div>
-      </Wrapper>
-    </section>
-  )
-}
-
-export default Benefits
+export default benefits

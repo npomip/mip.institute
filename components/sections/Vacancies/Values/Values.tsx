@@ -5,7 +5,7 @@ import values from 'constants/vacancies/values'
 import ValuesIcons from '@/components/sections/Vacancies/Values/ValuesIcons/ValuesIcons'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const Values = () => {
+const Values = ({props}) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (

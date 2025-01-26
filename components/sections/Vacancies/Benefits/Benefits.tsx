@@ -2,7 +2,7 @@ import stls from './Benefits.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import benefits from 'constants/vacancies/benefits'
 
-const Benefits = () => {
+const Benefits = ({props}) => {
   return (
     <section className={stls.container}>
       <Wrapper>

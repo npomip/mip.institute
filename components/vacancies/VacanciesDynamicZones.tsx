@@ -1,9 +1,8 @@
-import QuoteWithTitle from './QuoteWithTitle/QuoteWithTitle'
 import QuoteWithTitleSelector from './QuoteWithTitleSelector'
 import SliderWithImg from './SliderWithImg/SliderWithImg'
 
 export default function VacanciesDynamicZones({ props }) {
-  // console.log(props)
+  console.log(props)
 
   switch (props.__component) {
     case 'vacancies.repeatable-quote-with-title':
@@ -12,7 +11,6 @@ export default function VacanciesDynamicZones({ props }) {
       return <SliderWithImg props={props} />
     case 'shared.rich-text':
       console.log(props)
-
       return <p>{props.body}</p>
     case 'vacancies.slider-with-image':
       return <p>{props.title}</p>

@@ -6,13 +6,13 @@
   @include m.dye(bg, c.$gray-100)
   border-radius: f.px(10)
   min-height: f.px(250)
-  @include m.gap($ptb: f.px(30), $pl: f.px(20), $pr: f.px(10))
+  @include m.gap($ptb: f.px(30), $pl: f.px(20), $pr: f.px(15))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(20), $pr: f.px(20))
     min-height: f.px(170)
 
 .cardHeader
-  @include m.flex
+  @include m.flex($ai: center)
   min-height: f.px(40)
   gap: f.px(15)
   @include m.gap($mb: f.px(20))

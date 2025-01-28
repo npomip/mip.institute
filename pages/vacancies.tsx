@@ -3,6 +3,8 @@ import { getStaticPropsVacancies } from '@/lib/handlers/getStaticPropsVacancies'
 import { GetStaticProps } from 'next'
 
 const VacanciesIndexPage = ({ vacancies }) => {
+  console.log(vacancies);
+  
 
   return <PageVacancies vacancies={vacancies}/>
 }

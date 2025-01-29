@@ -1,20 +1,24 @@
 import stls from './HowBecomeaPart.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import ValueCard from '@/components/sections/Vacancies/Values/ValueCard/ValueCard'
-import howBecomeaPart from 'constants/vacancies/howBecomeaPart'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { CldImage } from 'next-cloudinary'
+import { VacanciesCommonCardProps } from '@/types/page/vacancies/TypePageVacanciesPropsQuery'
 
-const HowBecomeaPart = () => {
+type Props = {
+  props: VacanciesCommonCardProps
+}
+
+const HowBecomeaPart = ({ props: { title, quote } }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.cards}>
-          <h2 className={stls.title}>Как стать частью команды МИП?</h2>
-          {howBecomeaPart.map(({ id, description, title }, index) => (
-            <ValueCard key={id} id={id} description={description} title={title} />
+          <h2 className={stls.title}>{title}</h2>
+          {quote?.map(({ body, title }, index) => (
+            <ValueCard key={index} description={body} title={title} />
           ))}
           {isMobileAndTabletLayout && (
             <CldImage

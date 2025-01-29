@@ -19,18 +19,10 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
 
-.number
-  @include m.flex($jc: center, $ai: center)
-  @include m.dye(c, c.$white-900)
-  @include m.dye(bg, c.$orange-700)
-  height: f.px(40)
-  padding: f.px(10) f.px(5)
-  border-radius: f.px(100)
-  width: f.px(22)
-
 .cardTitle
   white-space: pre-line
   @include m.dye(c, c.$orange-700)
+  @include m.gap($ml: f.px(30))
   font-size: f.px(18)
   font-weight: 500
 

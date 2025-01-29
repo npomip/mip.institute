@@ -1,17 +1,21 @@
 import stls from './Benefits.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import benefits from 'constants/vacancies/benefits'
+import { VacanciesCommonCardProps } from '@/types/page/vacancies/TypePageVacanciesPropsQuery'
 
-const Benefits = ({props}) => {
+type Props = {
+  props: VacanciesCommonCardProps
+}
+
+const Benefits = ({ props: { title, quote } }: Props) => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>Преимущества</h2>
+        <h2 className={stls.title}>{title}</h2>
         <div className={stls.cards}>
-          {benefits.map(({ title, description }, index) => (
+          {quote.map(({ title, body }, index) => (
             <div key={title + index} className={stls.card}>
               <span className={stls.cardTitle}>{title}</span>
-              <span className={stls.cardDescription}>{description}</span>
+              <span className={stls.cardDescription}>{body}</span>
             </div>
           ))}
         </div>

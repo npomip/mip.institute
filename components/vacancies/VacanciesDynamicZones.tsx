@@ -1,9 +1,10 @@
 import QuoteWithTitleSelector from './QuoteWithTitleSelector'
 import SliderWithImg from './SliderWithImg/SliderWithImg'
+import Recruitment from '@/components/sections/Vacancies/Recruitment/Recruitment'
+import VacanciesVideo from '@/components/sections/Vacancies/VacanciesVideo/VacanciesVideo'
 
 export default function VacanciesDynamicZones({ props }) {
-  console.log(props)
-
+  console.log('----', { props })
   switch (props.__component) {
     case 'vacancies.repeatable-quote-with-title':
       return <QuoteWithTitleSelector props={props} />
@@ -15,9 +16,9 @@ export default function VacanciesDynamicZones({ props }) {
     case 'vacancies.slider-with-image':
       return <p>{props.title}</p>
     case 'vacancies.recruitment':
-      return <p>{props.title}</p>
+      return <Recruitment props={props} />
     case 'shared.text-with-icon':
-      return <p>{props.text}</p>
+      return <VacanciesVideo props={props} />
     case 'shared.rich-text-with-img':
       return <p>Будем рады видеть вас в нашей команде МИП блок</p>
     default:

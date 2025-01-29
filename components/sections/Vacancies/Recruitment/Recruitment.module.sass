@@ -8,7 +8,7 @@
   @include m.gap($mb: 0, $ptb: f.px(40))
   border-radius: f.px(30)
   @include m.media(phone, tablet)
-    @include m.gap($mb: 0, $pt: f.px(25), $pb: 0)
+    @include m.gap($mb: 0, $ptb: f.px(25))
     border-radius: f.px(20)
 
 .title
@@ -22,26 +22,20 @@
   grid-template-columns: repeat(3, 1fr)
   gap: f.px(30)
   grid-auto-rows: auto
-  counter-reset: cardNumber
-
-  & > div
-    position: relative
-    max-height: f.px(300)
-    counter-increment: cardNumber
-
-    &::before
-      content: counter(cardNumber)
-      position: absolute
-      @include m.flex($jc: center, $ai: center)
-      @include m.dye(c, c.$white-900)
-      @include m.dye(bg, c.$orange-700)
-      padding: f.px(10) f.px(5)
-      border-radius: f.px(100)
-      width: f.px(22)
-
   @include m.media(phone, tablet)
     grid-template-columns: repeat(1, 1fr)
-    gap: f.px(15)
+    gap: f.px(20)
+
+.cardWithName
+  @include m.flex($fd: column)
+  gap: f.px(10)
+
+.name
+  font-size: f.px(24)
+  margin-bottom: 0
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
 
 .imageWrapper
   position: absolute

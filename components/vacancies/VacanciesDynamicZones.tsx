@@ -1,3 +1,4 @@
+import OurGraduates from './OurGraduates/OurGraduates'
 import QuoteWithTitleSelector from './QuoteWithTitleSelector'
 import SliderWithImg from './SliderWithImg/SliderWithImg'
 import Recruitment from '@/components/sections/Vacancies/Recruitment/Recruitment'
@@ -11,8 +12,7 @@ export default function VacanciesDynamicZones({ props }) {
     case 'vacancies.slider-with-img':
       return <SliderWithImg props={props} />
     case 'shared.rich-text':
-      console.log(props)
-      return <p>{props.body}</p>
+      return <OurGraduates props={props} />
     case 'vacancies.slider-with-image':
       return <p>{props.title}</p>
     case 'vacancies.recruitment':

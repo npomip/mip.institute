@@ -9,7 +9,7 @@ export default function QuoteWithTitleSelector({ props }) {
     case 'Наши ценности':
       return <Values props={props} />
     case 'Как стать частью команды МИП?':
-      return <HowBecomeaPart />
+      return <HowBecomeaPart props={props} />
     default:
       break
   }

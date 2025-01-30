@@ -1,0 +1,94 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border-radius: f.px(30)
+  background: c.$white-900 
+  @include m.gap($ptb: f.px(40))
+  overflow: visible
+
+.title
+  color: c.$black-800
+  font-family: Stem
+  font-size: f.px(42)
+  font-style: normal
+  font-weight: 500
+  line-height: 100%
+  @include m.media(phone, tablet)
+    font-size: f.px(28) 
+
+.slide
+  @include m.gap($plr: f.px(30),$pb: f.px(30),$mr:f.px(30),$mb:f.px(30))
+  border-radius: f.px(12)
+  text-align: center
+  background-image: url('https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738056726/Frame_2087325607_117b572f28.png')
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  min-height: 320px
+  position: sticky
+  z-index: 5
+  top: 0px
+  &:last-child
+    @include m.gap($mb:f.px(0))
+  @include m.media(phone, tablet)
+    min-height: 0
+    @include m.gap($mr:f.px(0))
+
+.index
+  color: c.$purple-800
+  font-family: Stem
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 450
+  line-height: 110%
+  @include m.gap($mb:f.px(59),$pt: f.px(40))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb:f.px(72),$mt: f.px(20))
+
+.subtitle
+  color: c.$black-800
+  text-align: center
+  font-family: Stem
+  font-size: f.px(28)
+  font-style: normal
+  font-weight: 500
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    @include m.gap($mb:f.px(10))
+
+.description
+  color: c.$gray-800
+  text-align: center
+  font-family: Stem
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 350
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    
+.chatImage
+  display: flex
+  border-radius: f.px(12)
+  position: sticky
+  top: 0px
+  max-width: 100%
+  flex-shrink: 0
+  @include m.media(laptop, desktop)
+    width: 50%
+    max-width: 570px
+  @include m.media(phone, tablet)
+    width: 100%
+    height: auto
+
+.containerTwoColumns
+  width: 100%
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)
+    

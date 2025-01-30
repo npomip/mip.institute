@@ -1,4 +1,5 @@
 import BlokGladSeeTeam from './BlokGladSeeTeam/BlokGladSeeTeam'
+import OurOffice from './OurOffice/OurOffice'
 import OurGraduates from './OurGraduates/OurGraduates'
 import QuoteWithTitleSelector from './QuoteWithTitleSelector'
 import SliderWithImg from './SliderWithImg/SliderWithImg'
@@ -15,7 +16,7 @@ export default function VacanciesDynamicZones({ props }) {
     case 'shared.rich-text':
       return <OurGraduates props={props} />
     case 'vacancies.slider-with-image':
-      return <p>{props.title}</p>
+      return <OurOffice props={props} />
     case 'vacancies.recruitment':
       return <Recruitment props={props} />
     case 'shared.text-with-icon':

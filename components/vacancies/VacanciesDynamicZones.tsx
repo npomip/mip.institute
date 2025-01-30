@@ -1,3 +1,4 @@
+import OurOffice from './OurOffice/OurOffice'
 import QuoteWithTitleSelector from './QuoteWithTitleSelector'
 import SliderWithImg from './SliderWithImg/SliderWithImg'
 
@@ -13,7 +14,7 @@ export default function VacanciesDynamicZones({ props }) {
       console.log(props)
       return <p>{props.body}</p>
     case 'vacancies.slider-with-image':
-      return <p>{props.title}</p>
+      return <OurOffice props={props} />
     case 'vacancies.recruitment':
       return <p>{props.title}</p>
     case 'shared.text-with-icon':

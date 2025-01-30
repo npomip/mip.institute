@@ -22,7 +22,16 @@ const queryString = qs.stringify(
             populate: '*'
           },
           'vacancies.slider-with-image': {
-            populate: '*'
+            populate: {
+              
+              slider: {
+                populate: '*'
+              },
+              img: {
+                populate: '*'
+              }
+
+            }
           },
           'shared.rich-text': {
             populate: '*'

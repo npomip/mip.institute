@@ -1,3 +1,4 @@
+import BlokGladSeeTeam from './BlokGladSeeTeam/BlokGladSeeTeam'
 import OurOffice from './OurOffice/OurOffice'
 import OurGraduates from './OurGraduates/OurGraduates'
 import QuoteWithTitleSelector from './QuoteWithTitleSelector'
@@ -21,7 +22,7 @@ export default function VacanciesDynamicZones({ props }) {
     case 'shared.text-with-icon':
       return <VacanciesVideo props={props} />
     case 'shared.rich-text-with-img':
-      return <p>Будем рады видеть вас в нашей команде МИП блок</p>
+      return <BlokGladSeeTeam props={props} />
     default:
       break
   }

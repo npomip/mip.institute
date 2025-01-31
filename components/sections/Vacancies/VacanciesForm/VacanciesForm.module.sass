@@ -101,7 +101,8 @@
       @include m.gap($pl: f.px(10))
       border-radius: f.px(5)
     &::placeholder
-      @include m.dye(c, c.$gray-700)
+      font-size: f.px(14)
+      @include m.dye(c, c.$gray-500)
 
 .messageToHR
   width: 100%
@@ -150,15 +151,15 @@
 .dropdown
   @include m.dye(c, c.$gray-700)
   border-radius: f.px(10) !important
-  width: 240px !important
+  width: 235px !important
   @include m.media(laptop)
-    width: 340px !important
+    width: 240px !important
   @include m.media(tablet)
     border-radius: f.px(5) !important
-    width: 330px !important
+    width: 300px !important
   @include m.media(phone)
     border-radius: f.px(5) !important
-    width: 270px !important
+    width: 305px !important
 
 .err
   @include m.gap($mt: f.px(5))

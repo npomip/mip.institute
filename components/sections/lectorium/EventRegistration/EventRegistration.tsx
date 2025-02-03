@@ -15,10 +15,6 @@ const EventRegistration = ({ targetDate, timepadHref }: Props) => {
       <Wrapper>
         <TwoBlocks>
           <div className={stls.form}>
-            <h2 className={stls.title}>
-              <span className={stls.colouredTitle}>Оставьте</span> заявку на
-              мероприятие
-            </h2>
             <EventPaymentForm timepadHref={timepadHref} />
           </div>
           <Countdown targetDate={targetDate} />

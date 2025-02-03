@@ -26,6 +26,10 @@ const PageLectorium = ({ lectorium }: Props) => {
       {lectorium &&
       <>
       <LectoriumHero lectorium={lectorium} />
+      <EventRegistration
+        timepadHref={lectorium?.timepadHref}
+        targetDate={lectorium?.targetDate}
+      />
       {lectorium?.speaker && <Speaker speaker={lectorium?.speaker} />}
       <Advantages />
       <LectoriumWhoIsEventFor />
@@ -39,10 +43,6 @@ const PageLectorium = ({ lectorium }: Props) => {
       <VideoReviews />
       <ReviewsWithStars reviews={lectorium?.reviewWithDate} />
       {lectorium.isInternal && <Maps />}
-      <EventRegistration
-        timepadHref={lectorium?.timepadHref}
-        targetDate={lectorium?.targetDate}
-      />
       <LectoriumFAQ faq={lectorium?.faq} />
       {lectorium?.lectoriums?.length > 0 && <NextEvents lectorium={lectorium} />}
       </>

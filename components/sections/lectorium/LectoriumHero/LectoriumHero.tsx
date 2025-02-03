@@ -101,9 +101,6 @@ const LectoriumHero = ({ lectorium }: Props) => {
             />
           ))}
         </div>
-        <div className={stls.btn}>
-          <PopupTrigger btn='alpha' cta='participate' />
-        </div>
       </Wrapper>
     </section>
   )

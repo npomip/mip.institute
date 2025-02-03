@@ -14,7 +14,7 @@ const getStaticPropsPageLectoriums = async ({
   const res = await apolloClient.query<TypePagePracticalTrainingsPropsQuery>({
     query: gql`
       query getStaticPropsPagePracticalTrainings {
-        lectoriums(sort: "targetDate:desc") {
+        lectoriums {
           id
           title
           subtitle

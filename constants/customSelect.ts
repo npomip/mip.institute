@@ -22,11 +22,12 @@ const programsOptions = [
 ]
 
 const lectoriumOptions = [
-  { value: null, label: 'Все мероприятия', isDisabled: false },
+  { value: null, label: 'Все', isDisabled: false },
   { value: 'offline', label: 'Очное', isDisabled: false },
   { value: 'online', label: 'Онлайн', isDisabled: false },
-  { value: 'paid', label: 'Платное', isDisabled: true },
-  { value: 'free', label: 'Бесплатное', isDisabled: true },
+  { value: 'studentsOnly', label: 'Для студентов', isDisabled: false },
+  // { value: 'paid', label: 'Платное', isDisabled: true },
+  // { value: 'free', label: 'Бесплатное', isDisabled: true },
   { value: 'presentation', label: 'Презентация программы', isDisabled: true }
 ]
 

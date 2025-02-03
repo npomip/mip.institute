@@ -76,5 +76,6 @@ export enum LectoriumTypes {
   online = 'online',
   offline = 'offline',
   paid = 'paid',
-  free = 'free'
+  free = 'free',
+  studentsOnly ='studentsOnly'
 }

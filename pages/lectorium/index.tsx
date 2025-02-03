@@ -65,10 +65,13 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     }
 
     baseFilter = baseFilter.filter(lect => {
-      const targetDate = dayjs(lect.targetDate)
+      const targetDate = dayjs(lect.targetDate).tz('Europe/Moscow')
+      // const formattedDateToCompare = dayjs(card.targetDate).tz('Europe/Moscow')
+        const isDateInFuture = targetDate.isAfter(today)
+        
       return showPast
-        ? targetDate.isBefore(today, 'day')
-        : targetDate.isSameOrAfter(today, 'day')
+        ? targetDate.isBefore(today, 'hour')
+        : targetDate.isAfter(today, 'hour')
     })
 
     if (filteredDates[0] && filteredDates[1]) {
@@ -83,10 +86,17 @@ const LectoriumPage = ({ lectoriums }: Props) => {
         )
       })
     }
-
-    const sortedByDate = baseFilter.sort((a, b) =>
-      dayjs(b.targetDate).diff(dayjs(a.targetDate))
-    )
+    let sortedByDate
+    if(showPast) {
+      sortedByDate = baseFilter.sort((a, b) =>
+        dayjs(b.targetDate).diff(dayjs(a.targetDate))
+      )
+    } else {
+      sortedByDate = baseFilter.sort((a, b) =>
+        dayjs(a.targetDate).diff(dayjs(b.targetDate))
+      )
+    }
+    
 
     setFilteredLectoriums(sortedByDate)
     setDates(sortedByDate.map(lectorium => lectorium.targetDate))
@@ -100,9 +110,12 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     setIsInternal(true)
   }
 
+  const handleFilterAllEvents = () => {
+    setIsInternal(null)
+  }
+
   const handleFilterOutsideEvents = () => {
     setIsInternal(false)
-    setSelectedType(null)
   }
 
   const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
@@ -124,7 +137,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
           <button
             className={stls.calendarButton}
             onClick={handleToggleCalendar}>
-            Даты мероприятий&nbsp;
+            Даты &nbsp;
             <span
               className={stls.caret}
               style={{
@@ -135,38 +148,39 @@ const LectoriumPage = ({ lectoriums }: Props) => {
               &gt;
             </span>
           </button>
+          
+          <FilterTag
+            onClick={handleFilterAllEvents}
+            isActive={isInternal === null}
+            isCategories>
+            Все мероприятия
+          </FilterTag>
+          <FilterTag
+            onClick={handleFilterInternalEvents}
+            isActive={isInternal === true}
+            isCategories>
+            Внутренние 
+          </FilterTag>
+          <FilterTag
+            onClick={handleFilterOutsideEvents}
+            isActive={isInternal === false}
+            isCategories>
+            Внешние 
+          </FilterTag>
           <FilterTag
             onClick={() => router.push('/webinars')}
             isActive={false}
             isCategories>
             Вебинары
           </FilterTag>
-          <FilterTag
-            onClick={handleFilterInternalEvents}
-            isActive={isInternal === true}
-            isCategories>
-            Внутренние мероприятия
-          </FilterTag>
-          <FilterTag
-            onClick={handleFilterOutsideEvents}
-            isActive={isInternal === false}
-            isCategories>
-            Внешние мероприятия
-          </FilterTag>
-          <FilterTag
-            onClick={handleFilterOutsideEvents}
-            isActive={isInternal === null}
-            isCategories>
-            Все
-          </FilterTag>
           <CustomSelect
             onChange={handleSelectChange}
             options={lectoriumOptions}
-            isDisabled={!isInternal}
+            // isDisabled={!isInternal}
             radius='50'
             height='30'
             mainColor='#6F6F6F'
-            placeholder='Все мероприятия'
+            placeholder='Тип'
             value={lectoriumOptions.find(
               option => option.value === selectedType
             )}

@@ -16,9 +16,7 @@ interface Step {
 }
 
 const LectoriumIndexCard: FC<Step> = ({ card }) => {
-  const { formattedDateForCard, startTime } = calculateEventTimeAndDate(
-    card.targetDate
-  )
+  const { formattedDateForCard, startTime } = calculateEventTimeAndDate(card.targetDate)
   const router = useRouter()
   const now = dayjs()
 
@@ -35,10 +33,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
 
   return (
     <div className={stls.card} onClick={handleCardClick}>
-      <Link
-        href={`${routes.front.lectoriums}/${card.slug}`}
-        className={stls.cardText}
-        passHref>
+      <Link href={`${routes.front.lectoriums}/${card.slug}`} className={stls.cardText} passHref>
         <div className={stls.header}>
           <div>
             <p className={stls.title}>Дата:</p>
@@ -63,6 +58,8 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
               {card.isInternal
                 ? card.type === 'online'
                   ? 'Онлайн'
+                  : card.type === 'studentsOnly'
+                  ? 'Очный: Только для студентов'
                   : 'Очный: Москва'
                 : `Очный: ${card.eventAddress}`}
             </p>
@@ -79,9 +76,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
         <div className={stls.participate}>
           <BtnAlpha
             text={'Читать описание'}
-            onClick={() =>
-              router.push(`${routes.front.lectoriums}/${card.slug}`)
-            }
+            onClick={() => router.push(`${routes.front.lectoriums}/${card.slug}`)}
           />
         </div>
         {isDateInFuture ? (

@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .card
-  @include m.flex($fd: column, $jc: space-evenly)
+  @include m.flex($fd: column, $jc: space-between)
   border: 1px solid c.$purple-350
   @include m.dye(bg, c.$white-900)
   @include m.gap($ptb: f.px(20), $plr: f.px(24))

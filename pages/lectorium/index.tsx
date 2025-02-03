@@ -31,11 +31,13 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectoriums }: Props) => {
+  console.log(lectoriums);
+  
   const router = useRouter()
   const today = dayjs()
 
   const [showPast, setShowPast] = useState(false)
-  const [isInternal, setIsInternal] = useState(true)
+  const [isInternal, setIsInternal] = useState(null)
   const [selectedType, setSelectedType] = useState(null)
   const [filteredDates, setFilteredDates] = useState([null, null])
   const [filteredLectoriums, setFilteredLectoriums] = useState([])
@@ -150,6 +152,12 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             isActive={isInternal === false}
             isCategories>
             Внешние мероприятия
+          </FilterTag>
+          <FilterTag
+            onClick={handleFilterOutsideEvents}
+            isActive={isInternal === null}
+            isCategories>
+            Все
           </FilterTag>
           <CustomSelect
             onChange={handleSelectChange}

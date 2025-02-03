@@ -4,9 +4,11 @@
 
 .container
   width: 100%
-  @include m.gap($ptb: f.px(25))
+  @include m.gap($ptb: f.px(40))
   background: c.$white-900 
   border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25))
 
 .content
   @include m.flex($ai:center,$jc:center)

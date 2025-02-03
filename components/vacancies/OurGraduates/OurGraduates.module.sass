@@ -4,11 +4,11 @@
 
 
 .container
-  @include m.flex($fd: column ,$ai:center,$jc:center)
+  @include m.flex($fd: column ,$ai:center, $jc:center)
   position: relative
-  @include m.gap($mt: f.px(120))
+  @include m.gap($mt: f.px(50), $mb: f.px(20))
   @include m.media(phone,tablet)
-    @include m.gap($mt: f.px(40))
+    @include m.gap($mt: f.px(20), $mb: 0)
 
 .normalText
   color: c.$black-900

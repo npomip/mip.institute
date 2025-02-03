@@ -7,7 +7,6 @@ import Recruitment from '@/components/sections/Vacancies/Recruitment/Recruitment
 import VacanciesVideo from '@/components/sections/Vacancies/VacanciesVideo/VacanciesVideo'
 
 export default function VacanciesDynamicZones({ props }) {
-  console.log('----', { props })
   switch (props.__component) {
     case 'vacancies.repeatable-quote-with-title':
       return <QuoteWithTitleSelector props={props} />

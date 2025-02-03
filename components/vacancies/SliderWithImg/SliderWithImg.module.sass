@@ -75,7 +75,7 @@
   display: flex
   border-radius: f.px(12)
   position: sticky
-  top: 0px
+  top: 0
   max-width: 100%
   flex-shrink: 0
   @include m.media(laptop, desktop)
@@ -83,7 +83,7 @@
     max-width: 570px
   @include m.media(phone, tablet)
     width: 100%
-    height: auto
+    min-height: f.px(200)
 
 .containerTwoColumns
   width: 100%

@@ -46,7 +46,7 @@ const Values = ({ props: { title, quote } }: Props) => {
                   ]
                 }
 
-                if (index === 4) {
+                if (index === 3) {
                   return [
                     <div
                       className={classNames(stls.cardImage, stls.skipNumber)}

@@ -11,8 +11,16 @@ type SlideType = {
   title: string
   body: string
 }
+
+type Image = {
+  url: string
+  width: number
+  height: number
+}
+
 type SliderProps = {
   title: string
+  img: Image
   slide: SlideType[]
 }
 
@@ -36,10 +44,10 @@ const SliderWithImg = ({ props }: ArticleAuthorsType) => {
           <Image
             className={styles.chatImage}
             alt='фотография чата'
-            src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738053062/dialog_1_7703856a2d.jpg'
-            width={570}
-            height={320}
-            quality={100}
+            src={props.img.url}
+            width={props.img.width}
+            height={props.img.height}
+            style={{ width: '100%', height: '100%' }}
           />
         </div>
       </Wrapper>

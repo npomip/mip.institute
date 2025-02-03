@@ -43,9 +43,9 @@ export const images = [
     yFactor: -45,
     top: '5%',
     left: '30%',
-    width: 140,
-    height: 140,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738241377/telegram_cloud_document_2_5226908665893643651_1_41a53db7be.jpg'
+    width: 240,
+    height: 240,
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738580986/telegram_cloud_document_2_5226908665893643651_1_41a53db7be.jpg'
   },
   {
     id: 2,
@@ -55,7 +55,7 @@ export const images = [
     right: '10%',
     width: 130,
     height: 130,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738242190/3d_naklejka_4f357a311d.jpg'
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581102/vacancies_hero2_0555571024.png'
   },
   {
     id: 3,
@@ -65,7 +65,7 @@ export const images = [
     right: '50%',
     width: 100,
     height: 100,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738242235/Frame_3_87cdf7726f.jpg'
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581101/vacancies_hero3_f356aef4fc.png'
   },
   {
     id: 4,
@@ -73,9 +73,9 @@ export const images = [
     yFactor: 66,
     bottom: '10%',
     right: '15%',
-    width: 150,
-    height: 150,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738241377/telegram_cloud_document_2_5226517798099905277_1_40b9da480b.jpg'
+    width: 250,
+    height: 250,
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581103/vacancies_hero4_87f49102eb.jpg'
   },
   {
     id: 5,
@@ -83,8 +83,8 @@ export const images = [
     yFactor: -45,
     top: '27%',
     left: '10%',
-    width: 150,
-    height: 150,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738247499/Group_2087330315_d610e633aa.png'
+    width: 250,
+    height: 250,
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581071/Group_2087330315_d610e633aa.png'
   }
 ]

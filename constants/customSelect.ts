@@ -22,13 +22,19 @@ const programsOptions = [
 ]
 
 const lectoriumOptions = [
-  { value: null, label: 'Все', isDisabled: false },
+  { value: null, label: 'Тип', isDisabled: false },
   { value: 'offline', label: 'Очное', isDisabled: false },
   { value: 'online', label: 'Онлайн', isDisabled: false },
   { value: 'studentsOnly', label: 'Для студентов', isDisabled: false },
   // { value: 'paid', label: 'Платное', isDisabled: true },
   // { value: 'free', label: 'Бесплатное', isDisabled: true },
-  { value: 'presentation', label: 'Презентация программы', isDisabled: true }
+  // { value: 'presentation', label: 'Презентация программы', isDisabled: true }
 ]
 
-export { levelOptions, formOptions, programsOptions, lectoriumOptions }
+const lectoriumPriceOptions = [
+  { value: null, label: 'Цена', isDisabled: false },
+  { value: 'more', label: 'Платно', isDisabled: false },
+  { value: 'equal', label: 'Бесплатно', isDisabled: false },
+]
+
+export { levelOptions, formOptions, programsOptions, lectoriumOptions,lectoriumPriceOptions }

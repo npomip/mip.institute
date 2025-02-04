@@ -8,7 +8,7 @@ import stls from '@/styles/pages/LectoriumSlug.module.sass'
 import FilterTag from '@/components/filters/FilterTag'
 import { useRouter } from 'next/router'
 import CustomSelect from '@/ui/CustomSelect'
-import { lectoriumOptions } from 'constants/customSelect'
+import { lectoriumOptions, lectoriumPriceOptions } from 'constants/customSelect'
 import Calendar from '@/ui/Calendar'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -31,7 +31,6 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectoriums }: Props) => {
-  console.log(lectoriums);
   
   const router = useRouter()
   const today = dayjs()
@@ -39,6 +38,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   const [showPast, setShowPast] = useState(false)
   const [isInternal, setIsInternal] = useState(null)
   const [selectedType, setSelectedType] = useState(null)
+  const [priceFilter, setPriceFilter] = useState(null)
   const [filteredDates, setFilteredDates] = useState([null, null])
   const [filteredLectoriums, setFilteredLectoriums] = useState([])
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
@@ -59,6 +59,21 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     if (selectedType) {
       baseFilter = baseFilter.filter(lect => lect.type === selectedType)
     }
+
+    if (priceFilter) {
+      switch (priceFilter) {
+        case 'more':
+          baseFilter = baseFilter.filter(lect => Number(lect.price) > 0)
+          break
+        case 'equal':
+          baseFilter = baseFilter.filter(lect => lect.price === 'Бесплатно')
+          break
+        default:
+          baseFilter
+      }
+    }
+
+    
 
     if (isInternal !== null) {
       baseFilter = baseFilter.filter(lect => lect.isInternal === isInternal)
@@ -104,7 +119,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
 
   useEffect(() => {
     filterLectoriums()
-  }, [showPast, selectedType, isInternal, filteredDates, lectoriums])
+  }, [showPast, selectedType, isInternal, filteredDates, lectoriums, priceFilter, setFilteredDates])
 
   const handleFilterInternalEvents = () => {
     setIsInternal(true)
@@ -122,6 +137,9 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     setSelectedType(selectedOption?.value || null)
   }
 
+  const handleSelectPriceFilter = (selectedOption: (typeof lectoriumPriceOptions)[0]) => {
+    setPriceFilter(selectedOption?.value || null)
+  }
 
   return (
     <section className={stls.container}>
@@ -183,6 +201,18 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             placeholder='Тип'
             value={lectoriumOptions.find(
               option => option.value === selectedType
+            )}
+          />
+          <CustomSelect
+            onChange={handleSelectPriceFilter}
+            options={lectoriumPriceOptions}
+            // isDisabled={!isInternal}
+            radius='50'
+            height='30'
+            mainColor='#6F01C6'
+            placeholder='Тип'
+            value={lectoriumPriceOptions.find(
+              option => option.value === priceFilter
             )}
           />
           <FilterTag

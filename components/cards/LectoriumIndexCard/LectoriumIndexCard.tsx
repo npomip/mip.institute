@@ -31,6 +31,10 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
     }
   }
 
+  const onBuyClick = (timepadHref) => {
+    window.open(timepadHref, '_blank')
+  }
+
   return (
     <div className={stls.card} onClick={handleCardClick}>
       <Link href={`${routes.front.lectoriums}/${card.slug}`} className={stls.cardText} passHref>
@@ -59,8 +63,8 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
                 ? card.type === 'online'
                   ? 'Онлайн'
                   : card.type === 'studentsOnly'
-                  ? 'Очный: Только для студентов'
-                  : 'Очный: Москва'
+                    ? 'Очный: Только для студентов'
+                    : 'Очный: Москва'
                 : `Очный: ${card.eventAddress}`}
             </p>
           </div>
@@ -79,10 +83,12 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
             onClick={() => router.push(`${routes.front.lectoriums}/${card.slug}`)}
           />
         </div>
-        {isDateInFuture ? (
-          <div className={classNames('popup-trigger', stls.btn)}>
-            <PopupTrigger btn='alpha' cta='takePart' />
-          </div>
+        {isDateInFuture && card.type !== 'studentsOnly' ? (
+          <button onClick={() => onBuyClick(card.timepadHref)} className={stls.btn}>
+            Принять участие
+          </button>
+        ) : card.type === 'studentsOnly' ? (
+          <></>
         ) : (
           <span className={stls.completed}>Мероприятие состоялось!</span>
         )}

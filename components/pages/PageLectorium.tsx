@@ -26,10 +26,13 @@ const PageLectorium = ({ lectorium }: Props) => {
       {lectorium &&
       <>
       <LectoriumHero lectorium={lectorium} />
-      <EventRegistration
+      {lectorium.type !== 'studentsOnly' && (
+        <EventRegistration
         timepadHref={lectorium?.timepadHref}
         targetDate={lectorium?.targetDate}
       />
+      ) }
+      
       {lectorium?.speaker && <Speaker speaker={lectorium?.speaker} />}
       <Advantages />
       <LectoriumWhoIsEventFor />

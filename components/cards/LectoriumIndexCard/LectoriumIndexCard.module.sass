@@ -90,11 +90,12 @@
   @extend .button-base
   color: c.$orange-700
 
-.btn > div > button
-  @extend .button-base
+.btn 
   border-color: c.$purple-800
   @include m.dye(bg, c.$purple-800)
   color: c.$white-900
+  @include m.gap($ptb: f.px(16))
+  border-radius: f.px(47)
 
 .completed
   font-size: f.px(20)

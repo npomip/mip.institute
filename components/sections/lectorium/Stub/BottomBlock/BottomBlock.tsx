@@ -80,7 +80,6 @@ const BottomBlock = () => {
                 style={{ width: '100%', height: 'auto' }}
                 width='580'
                 height='360'
-                objectFit='cover'
               />
             </div>
           </TwoColumns>

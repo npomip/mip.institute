@@ -7,19 +7,22 @@
   background: c.$white-900 
   @include m.gap($ptb: f.px(40))
   overflow: visible
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25))
 
 .title
   color: c.$black-800
   font-family: Stem
   font-size: f.px(42)
-  font-style: normal
+  position: sticky
+  top: 0
   font-weight: 500
   line-height: 100%
   @include m.media(phone, tablet)
     font-size: f.px(28) 
 
 .slide
-  @include m.gap($plr: f.px(30),$pb: f.px(30),$mr:f.px(30),$mb:f.px(30))
+  @include m.gap($plr: f.px(30),$pb: f.px(30),$mr:f.px(30))
   border-radius: f.px(12)
   text-align: center
   background-image: url('https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738056726/Frame_2087325607_117b572f28.png')
@@ -29,11 +32,10 @@
   min-height: 320px
   position: sticky
   z-index: 5
-  top: 0px
-  &:last-child
-    @include m.gap($mb:f.px(0))
+  top: f.px(70)
   @include m.media(phone, tablet)
     min-height: 0
+    top: f.px(50)
     @include m.gap($mr:f.px(0))
 
 .index
@@ -47,6 +49,10 @@
   @include m.media(phone, tablet)
     font-size: f.px(15)
     @include m.gap($mb:f.px(72),$mt: f.px(20))
+
+.container_slides
+  gap: f.px(30)
+  @include m.flex($fd: column)
 
 .subtitle
   color: c.$black-800
@@ -75,15 +81,17 @@
   display: flex
   border-radius: f.px(12)
   position: sticky
-  top: 0
+  top: f.px(70)
   max-width: 100%
   flex-shrink: 0
   @include m.media(laptop, desktop)
     width: 50%
     max-width: 570px
   @include m.media(phone, tablet)
+    top: f.px(50)
     width: 100%
     min-height: f.px(200)
+    @include m.gap($mb:f.px(30))
 
 .containerTwoColumns
   width: 100%

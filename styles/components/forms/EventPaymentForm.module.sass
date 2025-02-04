@@ -56,6 +56,13 @@
 .socials
   @include m.flex($ai: center, $jc: center)
   gap: f.px(10)
+  a
+    span
+      @include m.flex($jc: center, $ai: center)
+      & > svg
+        fill: c.$white-900
+      path
+        fill: c.$white-900
 
 .link
   @include m.flex($ai: center, $jc: center)

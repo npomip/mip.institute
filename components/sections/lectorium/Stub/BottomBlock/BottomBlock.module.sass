@@ -1,0 +1,71 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  background: c.$purple-800
+  border-radius: f.px(10)
+
+.container_text
+  @include m.gap($ptb: f.px(30),$plr: f.px(18))
+  color: c.$white-900
+  height: 100%
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $plr: f.px(15))
+
+.title
+  font-size: f.px(28)
+  font-style: normal
+  font-weight: 500
+  @include m.gap($mb: f.px(12))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(10))
+
+.description
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 120%
+  max-width: 430px
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb: f.px(22))
+
+.socials
+  display: flex
+  gap: f.px(10)
+  margin-top: 20px
+  @include m.media(phone, tablet)
+    gap: f.px(5)
+  a
+    background-color: #EBE4FF
+    border-radius: 50%
+    span
+      @include m.flex($jc: center, $ai: center)
+      width: 60px
+      height: 60px
+      @include m.media(tablet)
+        width: 47px
+        height: 47px
+      @include m.media(phone, tablet)
+        width: 42px
+        height: 42px
+      & > svg
+        fill: c.$purple-800
+        width: 29px
+        height: 29px
+        @include m.media(tablet)
+          width: 22px
+          height: 22px
+        @include m.media(phone, tablet)
+          width: 19px
+          height: 19px
+      path
+        fill: c.$purple-800 
+
+.container_img
+  display: flex
+
+.img
+  object-fit: cover

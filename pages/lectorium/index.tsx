@@ -19,6 +19,7 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import SeoPagesLectoriums from '@/components/seo/SeoPageLectoriums'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
+import Stub from '@/components/sections/lectorium/Stub/Stub'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -31,8 +32,6 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectoriums }: Props) => {
-  console.log(lectoriums);
-  
   const router = useRouter()
   const today = dayjs()
 
@@ -67,11 +66,9 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     baseFilter = baseFilter.filter(lect => {
       const targetDate = dayjs(lect.targetDate).tz('Europe/Moscow')
       // const formattedDateToCompare = dayjs(card.targetDate).tz('Europe/Moscow')
-        const isDateInFuture = targetDate.isAfter(today)
-        
-      return showPast
-        ? targetDate.isBefore(today, 'hour')
-        : targetDate.isAfter(today, 'hour')
+      const isDateInFuture = targetDate.isAfter(today)
+
+      return showPast ? targetDate.isBefore(today, 'hour') : targetDate.isAfter(today, 'hour')
     })
 
     if (filteredDates[0] && filteredDates[1]) {
@@ -81,22 +78,16 @@ const LectoriumPage = ({ lectoriums }: Props) => {
       baseFilter = baseFilter.filter(lect => {
         const targetDate = dayjs(lect.targetDate)
         return (
-          targetDate.isSameOrAfter(startDate, 'day') &&
-          targetDate.isSameOrBefore(endDate, 'day')
+          targetDate.isSameOrAfter(startDate, 'day') && targetDate.isSameOrBefore(endDate, 'day')
         )
       })
     }
     let sortedByDate
-    if(showPast) {
-      sortedByDate = baseFilter.sort((a, b) =>
-        dayjs(b.targetDate).diff(dayjs(a.targetDate))
-      )
+    if (showPast) {
+      sortedByDate = baseFilter.sort((a, b) => dayjs(b.targetDate).diff(dayjs(a.targetDate)))
     } else {
-      sortedByDate = baseFilter.sort((a, b) =>
-        dayjs(a.targetDate).diff(dayjs(b.targetDate))
-      )
+      sortedByDate = baseFilter.sort((a, b) => dayjs(a.targetDate).diff(dayjs(b.targetDate)))
     }
-    
 
     setFilteredLectoriums(sortedByDate)
     setDates(sortedByDate.map(lectorium => lectorium.targetDate))
@@ -122,92 +113,82 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     setSelectedType(selectedOption?.value || null)
   }
 
-
   return (
-    <section className={stls.container}>
-      <Wrapper>
-        <SeoPagesLectoriums />
-        <Breadcrumbs isJournal />
-        <h1 className={stls.title}>Семинары по психологии</h1>
-        <p className={stls.subtitle}>
-          Это раздел с образовательными мероприятия, такие как очные мастер
-          классы, супервизии, воркшопы и т.п
-        </p>
-        <div className={stls.tags}>
-          <button
-            className={stls.calendarButton}
-            onClick={handleToggleCalendar}>
-            Даты &nbsp;
-            <span
-              className={stls.caret}
-              style={{
-                transform: isCalendarVisible
-                  ? 'rotate(-90deg) scaleX(.7)'
-                  : 'rotate(-270deg) scaleX(.7)'
-              }}>
-              &gt;
-            </span>
-          </button>
-          
-          <FilterTag
-            onClick={handleFilterAllEvents}
-            isActive={isInternal === null}
-            isCategories>
-            Все мероприятия
-          </FilterTag>
-          <FilterTag
-            onClick={handleFilterInternalEvents}
-            isActive={isInternal === true}
-            isCategories>
-            Внутренние 
-          </FilterTag>
-          <FilterTag
-            onClick={handleFilterOutsideEvents}
-            isActive={isInternal === false}
-            isCategories>
-            Внешние 
-          </FilterTag>
-          <FilterTag
-            onClick={() => router.push('/webinars')}
-            isActive={false}
-            isCategories>
-            Вебинары
-          </FilterTag>
-          <CustomSelect
-            onChange={handleSelectChange}
-            options={lectoriumOptions}
-            // isDisabled={!isInternal}
-            radius='50'
-            height='30'
-            mainColor='#6F6F6F'
-            placeholder='Тип'
-            value={lectoriumOptions.find(
-              option => option.value === selectedType
+    <>
+      <section className={stls.container}>
+        <Wrapper>
+          <SeoPagesLectoriums />
+          <Breadcrumbs isJournal />
+          <h1 className={stls.title}>Семинары по психологии</h1>
+          <p className={stls.subtitle}>
+            Это раздел с образовательными мероприятия, такие как очные мастер классы, супервизии,
+            воркшопы и т.п
+          </p>
+          <div className={stls.tags}>
+            <button className={stls.calendarButton} onClick={handleToggleCalendar}>
+              Даты &nbsp;
+              <span
+                className={stls.caret}
+                style={{
+                  transform: isCalendarVisible
+                    ? 'rotate(-90deg) scaleX(.7)'
+                    : 'rotate(-270deg) scaleX(.7)'
+                }}>
+                &gt;
+              </span>
+            </button>
+
+            <FilterTag onClick={handleFilterAllEvents} isActive={isInternal === null} isCategories>
+              Все мероприятия
+            </FilterTag>
+            <FilterTag
+              onClick={handleFilterInternalEvents}
+              isActive={isInternal === true}
+              isCategories>
+              Внутренние
+            </FilterTag>
+            <FilterTag
+              onClick={handleFilterOutsideEvents}
+              isActive={isInternal === false}
+              isCategories>
+              Внешние
+            </FilterTag>
+            <FilterTag onClick={() => router.push('/webinars')} isActive={false} isCategories>
+              Вебинары
+            </FilterTag>
+            <CustomSelect
+              onChange={handleSelectChange}
+              options={lectoriumOptions}
+              // isDisabled={!isInternal}
+              radius='50'
+              height='30'
+              mainColor='#6F6F6F'
+              placeholder='Тип'
+              value={lectoriumOptions.find(option => option.value === selectedType)}
+            />
+            <FilterTag isActive={!!showPast} onClick={() => setShowPast(prev => !prev)}>
+              Прошедшие
+            </FilterTag>
+          </div>
+          <div className={stls.lectoriumGrid}>
+            {isCalendarVisible && (
+              <div>
+                <Calendar
+                  onDatesFiltered={handleFilteredDates}
+                  dates={dates}
+                  selectRange={true}
+                  onSupervisionPagesStyle={false}
+                />
+              </div>
             )}
-          />
-          <FilterTag
-            isActive={!!showPast}
-            onClick={() => setShowPast(prev => !prev)}>
-            Прошедшие
-          </FilterTag>
-        </div>
-        <div className={stls.lectoriumGrid}>
-          {isCalendarVisible && (
-            <div>
-              <Calendar
-                onDatesFiltered={handleFilteredDates}
-                dates={dates}
-                selectRange={true}
-                onSupervisionPagesStyle={false}
-              />
-            </div>
-          )}
-          {filteredLectoriums.map(lectorium => (
-            <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
-          ))}
-        </div>
-      </Wrapper>
-    </section>
+            {filteredLectoriums.map(lectorium => (
+              <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
+            ))}
+          </div>
+          {filteredLectoriums.length === 0 && <Stub onShowPast={() => setShowPast(true)} />}
+        </Wrapper>
+      </section>
+    </>
   )
 }
 

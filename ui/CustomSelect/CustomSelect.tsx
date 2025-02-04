@@ -43,7 +43,7 @@ const CustomSelect = ({
         flexWrap: 'nowrap',
         borderColor: `${isDisabled ? '#E9E9E9' : mainColor}`,
         borderRadius: `${radius ? radius : 10}px`,
-        minWidth: '180px',
+        // minWidth: '180px',
         width: '100%',
         maxWidth: `380px`,
         height: `${height ? height : 50}px`,

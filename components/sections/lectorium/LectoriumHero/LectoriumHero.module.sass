@@ -2,6 +2,11 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.gap( $pb: f.px(70))
+  @include m.media(phone, tablet)
+    @include m.gap( $pb: f.px(20))
+
 .event
   @include m.dye(c, c.$purple-350)
   font-size: f.px(44)
@@ -67,7 +72,6 @@
     font-size: f.px(15)
 
 .information
-  @include m.gap($mb: f.px(30))
   display: grid
   grid-template-columns: repeat(12, 1fr)
   gap: f.px(30)
@@ -94,18 +98,6 @@
     grid-template-columns: repeat(2, 1fr)
     gap: f.px(8)
     @include m.gap($mb: f.px(15))
-
-.btn > div > button
-  @include m.gap($ptb: f.px(20))
-  width: 100%
-  font-size: f.px(22)
-  border-radius: f.px(14)
-  @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(15))
-    border-radius: f.px(4)
-    font-size: f.px(16)
-  &::after
-    display: none
 
 .currency
   @include m.dye(c, c.$white-900)

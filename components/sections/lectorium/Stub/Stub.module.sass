@@ -1,0 +1,107 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.img
+  border-radius: f.px(10)
+  display: block
+  max-height: f.px(321)
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
+    min-height: f.px(220)
+
+.text
+  @include m.gap($ptb: f.px(30),$plr: f.px(18))
+  @include m.dye(bg, c.$purple-100)
+  color: c.$purple-800
+  height: 100%
+  // background: url('/assets/imgs/lectorium/waves.png')
+  border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
+    @include m.gap($ptb: f.px(35), $plr: f.px(15))
+
+.title
+  font-size: f.px(28)
+  font-style: normal
+  font-weight: 500
+  @include m.gap($mb: f.px(12))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(10))
+
+.description
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 120%
+  max-width: 430px
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb: f.px(22))
+
+.buttomDescription
+  font-size: f.px(16)
+  font-weight: 350
+  line-height: 120%
+  @include m.gap($mb: f.px(12))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.btn
+  padding: f.px(5)
+  border-radius: f.px(5)
+  @include m.dye(bg, c.$purple-800)
+  width: 100%
+  font-size: f.px(18)
+  font-weight: 500
+  @include m.dye(c, white)
+  @include m.gap($ptb: f.px(17))
+  &:disabled
+    cursor: not-allowed
+    opacity: .5
+    &:hover
+      transform: scale(1)
+      &::after
+        opacity: 0
+    &:focus
+      transform: scale(1)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(14))
+    font-size: f.px(15)
+    border-radius: f.px(5)
+
+.container
+  background: c.$purple-800
+  border-radius: 10px
+
+.container_text
+  @include m.gap($ptb: f.px(30),$plr: f.px(18))
+  color: c.$white-900
+  height: 100%
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $plr: f.px(15))
+
+.footer
+  @include m.flex($fd:column, $ai: center, $jc: center)
+
+.share
+  font-size: f.px(15)
+  font-weight: 350
+  @include m.media(phone, tablet)
+    @include m.dye(c, c.$gray-500)
+    font-size: f.px(13)
+    font-weight: 500
+
+.socials
+  @include m.flex($ai: center, $jc: center)
+  gap: f.px(10)
+
+.link
+  @include m.flex($ai: center, $jc: center)
+  @include m.dye(bg, c.$orange-700)
+  width: f.px(30)
+  height: f.px(30)
+  border-radius: 50%
+  cursor: pointer
+  

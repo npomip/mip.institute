@@ -4,6 +4,8 @@ const promocodesWithGift = {
   pogrebjiskaya2: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
   irenaponaroshku: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   morskaya: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  veronikastepanova20011: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  sobchak0702: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
 }
 
 export default promocodesWithGift

@@ -26,6 +26,7 @@ const getStaticPropsPageLectoriums = async ({
           endTime
           isInternal
           eventAddress
+          timepadHref
           speaker {
             picture {
               url

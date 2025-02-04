@@ -35,7 +35,7 @@
   gap: f.px(15)
 
   @include m.media(phone, tablet)
-    @include m.flex($fd: column, $ai: flex-start)
+    @include m.flex( $ai: flex-start)
     & > button.calendarButton
       order: 2
     & > *:not(.calendarButton)

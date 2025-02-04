@@ -2,12 +2,12 @@ import TopBlock from './TopBlock/TopBlock'
 import BottomBlock from './BottomBlock/BottomBlock'
 
 type StubProps = {
-  onShowPast: () => void
+  onClick: () => void
 }
-const Stub = ({ onShowPast }: StubProps) => {
+const Stub = ({ onClick }: StubProps) => {
   return (
     <>
-      <TopBlock onShowPast={onShowPast} />
+      <TopBlock onClick={onClick} />
       <BottomBlock />
     </>
   )

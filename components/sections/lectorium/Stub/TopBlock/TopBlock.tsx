@@ -3,9 +3,9 @@ import Wrapper from '@/ui/Wrapper'
 import { CldImage } from 'next-cloudinary'
 
 type TopBlockProps = {
-  onShowPast: () => void
+  onClick: () => void
 }
-const TopBlock = ({ onShowPast }: TopBlockProps) => {
+const TopBlock = ({ onClick }: TopBlockProps) => {
   return (
       <div className={stls.section}>
         <Wrapper>
@@ -23,17 +23,19 @@ const TopBlock = ({ onShowPast }: TopBlockProps) => {
               <p className={stls.buttomDescription}>
                 По кнопке ниже, вы можете ознакомиться прошедшими мероприятиями
               </p>
-              <button className={stls.btn} onClick={onShowPast}>Прошедшие мероприятия</button>
+              <button className={stls.btn} onClick={onClick}>Прошедшие мероприятия</button>
             </div>
+            <div>
             <CldImage
               src='lectorium_have_Questions_658f74e67a'
               alt='Вопросы?'
               className={stls.img}
-              style={{ width: '100%', height: '100%' }}
+              // style={{ width: '100%', height: '100%' }}
               width='580'
-              height='700'
+              height='500'
               crop='fit'
             />
+            </div>
           </div>
         </Wrapper>
       </div>

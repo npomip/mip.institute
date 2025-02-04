@@ -69,7 +69,7 @@ const routes: TRoutes = {
     lectoriumRoutes: '/docs/general/lectoriumRoutes'
   },
   back: {
-    root: dev ? 'http://localhost:1337' : 'https://api.mip.institute',
+    root: dev ? 'http://localhost:1337' :preview ? 'https://dev.api.mip.institute' : 'https://api.mip.institute',
     rootv2: prod
       ? 'https://api-v2.mip.institute'
       : preview

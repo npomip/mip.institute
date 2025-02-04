@@ -3,13 +3,13 @@
 @use '@/styles/themes/default/colors' as c
 
 .countdown
-  min-height: f.px(500)
+  min-height: f.px(454)
   background: no-repeat center center url('/assets/imgs/lectorium/topology.png'), linear-gradient(180deg, #6F01C6 0%, #8F60FF 100%)
   @include m.dye(c, c.$white-900)
   text-align: center
   height: 100%
   font-weight: 500
-  @include m.gap($ptb: f.px(40), $plr: f.px(30))
+  @include m.gap($ptb: f.px(40), $plr: f.px(30), $pb: f.px(27))
   border-radius: f.px(10)
   @include m.media(phone, tablet)
     min-height: f.px(350)
@@ -18,6 +18,7 @@
 
 .countdownTitle
   font-size: f.px(40)
+  @include m.gap($mb: f.px(35))
   @include m.media(phone, tablet)
     font-size: f.px(24)
 
@@ -31,7 +32,7 @@
     font-size: f.px(90)
 
 .daysBlock
-  @include m.gap($mb: f.px(50))
+  @include m.gap($mb: f.px(40))
   @include m.flex($fd: column)
 
 .daysText

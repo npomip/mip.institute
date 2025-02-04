@@ -12,6 +12,9 @@ type Props = {
 
 const Values = ({ props: { title, quote } }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const uniqueQuotes = quote.filter(
+    (item, index, self) => index === self.findIndex(q => q.title === item.title)
+  )
 
   return (
     <section className={stls.container}>
@@ -19,7 +22,7 @@ const Values = ({ props: { title, quote } }: Props) => {
         <h2 className={stls.title}>{title}</h2>
         <div className={stls.cards}>
           {isMobileAndTabletLayout
-            ? quote.flatMap(({ body, title }, index) => {
+            ? uniqueQuotes.flatMap(({ body, title }, index) => {
                 if (index === 2) {
                   return [
                     <div className={classNames(stls.mobImages, stls.skipNumber)} key={index}>
@@ -34,7 +37,7 @@ const Values = ({ props: { title, quote } }: Props) => {
                 }
                 return <ValueCard key={index} description={body} title={title} />
               })
-            : quote.flatMap(({ body, title }, index) => {
+            : uniqueQuotes.flatMap(({ body, title }, index) => {
                 if (index === 2) {
                   return [
                     <div

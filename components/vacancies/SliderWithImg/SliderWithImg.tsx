@@ -45,9 +45,9 @@ const SliderWithImg = ({ props }: ArticleAuthorsType) => {
             className={styles.chatImage}
             alt='фотография чата'
             src={props.img.url}
-            width={props.img.width}
+            width={570}
             height={props.img.height}
-            style={{ width: '100%', height: '100%' }}
+            style={{ height: '100%' }}
           />
         </div>
       </Wrapper>

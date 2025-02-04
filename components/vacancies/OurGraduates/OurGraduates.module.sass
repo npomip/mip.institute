@@ -6,9 +6,14 @@
 .container
   @include m.flex($fd: column ,$ai:center, $jc:center)
   position: relative
+  width: 100%
+  @include m.gap($plr: f.px(15, em))
   @include m.gap($mt: f.px(50), $mb: f.px(20))
-  @include m.media(phone,tablet)
-    @include m.gap($mt: f.px(20), $mb: 0)
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(20), $mb: 0, $plr: 0)
+  @include m.media(desktop, laptop)
+    max-width: f.px(1200, em)
+    @include m.gap($mlr: auto)
 
 .normalText
   color: c.$black-900
@@ -23,15 +28,13 @@
   font-family: Stem
   text-align: center
   font-size: f.px(52)
-  font-style: normal
   font-weight: 500
-  line-height: 120%
-  max-width: f.px(800)
+  max-width: f.px(900)
   z-index: 1
-  @include m.gap($mt:  f.px(14),$plr: (f.px(50)))
+  @include m.gap($mt: f.px(14),$plr: f.px(50))
   @include m.media(phone,tablet)
-    @include m.gap($mt:  f.px(10),$plr: (f.px(0)))
-    font-size: f.px(29)
+    @include m.gap($mt: f.px(10), $plr: 0)
+    font-size: f.px(27)
 
 .imageGallery
   display: flex
@@ -82,6 +85,7 @@
   left: 25%
   width: auto
   height: 50px
+  transform: scale(2)
   @include m.media(phone,tablet)
     height: 30px
     
@@ -109,6 +113,7 @@
   @include m.media(phone, tablet)
     top: -5px
     left: -15px
+    transform: scale(.8)
 
 .bottomRightSvg
   bottom: -50px
@@ -118,4 +123,5 @@
     right: 0px
   @include m.media(phone, tablet)
     bottom: -30px
-    right: -25px
+    right: -10px
+    transform: scale(.8)

@@ -70,10 +70,11 @@
 
 .imageContainer
   position: relative
-  @include m.media(phone, tablet)
-    max-width: 100%
-    transform: scale(1.2)
+  @include m.media(tablet)
     height: auto
+    max-width: 100%
+  @include m.media(phone)
+    transform: scale(1.1)
 
 .backgroundImage
   width: 100%

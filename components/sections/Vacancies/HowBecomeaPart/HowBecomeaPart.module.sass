@@ -4,10 +4,10 @@
 
 .container
   @include m.dye(bg, c.$white-900)
-  @include m.gap($mb: 0, $pt: f.px(40), $pb: 0)
+  @include m.gap($mb: 0, $ptb: f.px(40))
   border-radius: f.px(30)
   @include m.media(phone, tablet)
-    @include m.gap($mb: 0, $pt: f.px(25), $pb: 0)
+    @include m.gap($mb: 0, $ptb: f.px(25))
     border-radius: f.px(20)
 
 .title
@@ -25,7 +25,6 @@
 
   & > div
     position: relative
-    max-height: f.px(250)
     counter-increment: cardNumber
 
     &::before
@@ -43,6 +42,9 @@
     gap: f.px(15)
 
 .image
-  margin-top: f.px(-50)
+  margin-top: f.px(-80)
   z-index: 1
   @include m.flex($jc: center, $ai: center)
+  height: auto
+  @include m.media(phone, tablet)
+    margin-top: f.px(-60)

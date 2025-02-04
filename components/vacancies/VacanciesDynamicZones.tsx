@@ -1,10 +1,17 @@
-import BlokGladSeeTeam from './BlokGladSeeTeam/BlokGladSeeTeam'
 import OurOffice from './OurOffice/OurOffice'
 import OurGraduates from './OurGraduates/OurGraduates'
 import QuoteWithTitleSelector from './QuoteWithTitleSelector'
 import SliderWithImg from './SliderWithImg/SliderWithImg'
 import Recruitment from '@/components/sections/Vacancies/Recruitment/Recruitment'
 import VacanciesVideo from '@/components/sections/Vacancies/VacanciesVideo/VacanciesVideo'
+import dynamic from 'next/dynamic'
+
+const BlockGladSeeTeam = dynamic(
+  () => import('@/components/vacancies/BlockGladSeeTeam/BlockGladSeeTeam'),
+  {
+    ssr: false
+  }
+)
 
 export default function VacanciesDynamicZones({ props }) {
   switch (props.__component) {
@@ -21,7 +28,7 @@ export default function VacanciesDynamicZones({ props }) {
     case 'shared.text-with-icon':
       return <VacanciesVideo props={props} />
     case 'shared.rich-text-with-img':
-      return <BlokGladSeeTeam props={props} />
+      return <BlockGladSeeTeam props={props} />
     default:
       break
   }

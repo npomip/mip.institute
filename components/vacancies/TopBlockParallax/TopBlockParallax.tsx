@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import styles from './TopBlockParallax.module.sass'
 import Image from 'next/image'
 import { images, parseTopBlockData, TopBlockDataType } from './const'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type PropsType = {
   props: TopBlockDataType
 }
 
 const TopBlockParallax = ({ props }: PropsType) => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
   const [mouseX, setMouseX] = useState(0)
   const [mouseY, setMouseY] = useState(0)
 
@@ -64,7 +67,7 @@ const TopBlockParallax = ({ props }: PropsType) => {
                 height={img.height}
                 quality={100}
                 style={{
-                  transform: `translate(${mouseX * img.xFactor}px, ${mouseY * img.yFactor}px) scale(1.1)`,
+                  transform: `translate(${mouseX * img.xFactor}px, ${mouseY * img.yFactor}px) ${isMobileAndTabletLayout ? `scale(${img.scaleMobile})` : `scale(${img.scale})`}`,
                   position: 'absolute',
                   top: img.top,
                   bottom: img.bottom,

@@ -45,7 +45,9 @@ export const images = [
     left: '30%',
     width: 240,
     height: 240,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738580986/telegram_cloud_document_2_5226908665893643651_1_41a53db7be.jpg'
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738580986/telegram_cloud_document_2_5226908665893643651_1_41a53db7be.jpg',
+    scaleMobile: 1.1,
+    scale: 1.3
   },
   {
     id: 2,
@@ -55,7 +57,9 @@ export const images = [
     right: '10%',
     width: 130,
     height: 130,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581102/vacancies_hero2_0555571024.png'
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581102/vacancies_hero2_0555571024.png',
+    scaleMobile: 1.1,
+    scale: 1.3
   },
   {
     id: 3,
@@ -65,7 +69,9 @@ export const images = [
     right: '50%',
     width: 100,
     height: 100,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581101/vacancies_hero3_f356aef4fc.png'
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581101/vacancies_hero3_f356aef4fc.png',
+    scaleMobile: 1.1,
+    scale: 1.3
   },
   {
     id: 4,
@@ -75,7 +81,9 @@ export const images = [
     right: '15%',
     width: 250,
     height: 250,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581103/vacancies_hero4_87f49102eb.jpg'
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581103/vacancies_hero4_87f49102eb.jpg',
+    scaleMobile: 1.1,
+    scale: 1.3
   },
   {
     id: 5,
@@ -85,6 +93,8 @@ export const images = [
     left: '10%',
     width: 250,
     height: 250,
-    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581071/Group_2087330315_d610e633aa.png'
+    src: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738581071/Group_2087330315_d610e633aa.png',
+    scaleMobile: 1.5,
+    scale: 2
   }
 ]

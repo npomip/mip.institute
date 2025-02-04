@@ -3,26 +3,12 @@
 @use '@/styles/themes/default/colors' as c
 
 .section
+  @include m.gap($pb: f.px(67))
+  @include m.media(phone, tablet) 
+    @include m.gap($pb: f.px(35))
 
 .form
-  @include m.gap($pt: f.px(30), $plr: f.px(20), $pb: f.px(20))
+  height: 100%
+  @include m.gap($pt: f.px(40), $plr: f.px(20), $pb: f.px(30))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(30), $plr: f.px(20))
-
-.title
-  display: inline-block
-  font-size: f.px(36)
-  text-transform: uppercase
-  font-weight: 500
-  @include m.media(laptop)
-  max-width: f.px(350)
-  @include m.gap($mb: f.px(10))
-  @include m.media(tablet)
-    max-width: f.px(400)
-  @include m.media(phone)
-    font-size: f.px(26)
-    max-width: f.px(250)
-    @include m.gap($mb: f.px(10))
-
-.colouredTitle
-  @include m.dye(c, c.$orange-700)

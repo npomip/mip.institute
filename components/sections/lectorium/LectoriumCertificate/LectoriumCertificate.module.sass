@@ -109,15 +109,24 @@
   height: f.px(253)
   @include m.gap($mb: f.px(40))
 
-.btn > div > button
-  width: 100%
-  @include m.gap($plr: f.px(20))
-  @include m.dye(border, c.$purple-350)
-  @include m.dye(c, c.$purple-350)
-  border: f.px(1) solid
-  border-radius: f.px(4)
+// .btn > div > button
+//   width: 100%
+//   @include m.gap($plr: f.px(20))
+//   @include m.dye(border, c.$purple-350)
+//   @include m.dye(c, c.$purple-350)
+//   border: f.px(1) solid
+//   border-radius: f.px(4)
 .btn
+  display: flex
+  justify-content: center
   width: 100%
+  border: f.px(1) solid
+  @include m.gap($plr: f.px(20),$ptb: f.px(15))
+  @include m.dye(border, c.$purple-350)
+  font-weight: 500
+  font-size: f.px(18)
+  @include m.dye(c, c.$purple-350)
+  border-radius: f.px(4)
 .colouredTitle
   @include m.dye(c, c.$orange-700)
 

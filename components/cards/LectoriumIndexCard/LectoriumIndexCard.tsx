@@ -63,7 +63,7 @@ const LectoriumIndexCard: FC<Step> = ({ card }) => {
                 ? card.type === 'online'
                   ? 'Онлайн'
                   : card.type === 'studentsOnly'
-                    ? 'Очный: Только для студентов'
+                    ? 'Только для студентов'
                     : 'Очный: Москва'
                 : `Очный: ${card.eventAddress}`}
             </p>

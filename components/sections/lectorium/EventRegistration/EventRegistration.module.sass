@@ -3,6 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .section
+  @include m.gap($pb: f.px(67))
+  @include m.media(phone, tablet) 
+    @include m.gap($pb: f.px(35))
 
 .form
   height: 100%

@@ -2,6 +2,11 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.gap( $pb: f.px(70))
+  @include m.media(phone, tablet)
+    @include m.gap( $pb: f.px(20))
+
 .event
   @include m.dye(c, c.$purple-350)
   font-size: f.px(44)

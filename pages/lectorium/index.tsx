@@ -150,18 +150,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             воркшопы и т.п
           </p>
           <div className={stls.tags}>
-            <button className={stls.calendarButton} onClick={handleToggleCalendar}>
-              Даты &nbsp;
-              <span
-                className={stls.caret}
-                style={{
-                  transform: isCalendarVisible
-                    ? 'rotate(-90deg) scaleX(.7)'
-                    : 'rotate(-270deg) scaleX(.7)'
-                }}>
-                &gt;
-              </span>
-            </button>
+            
 
             <FilterTag onClick={handleFilterAllEvents} isActive={isInternal === null} isCategories>
               Все мероприятия
@@ -191,13 +180,25 @@ const LectoriumPage = ({ lectoriums }: Props) => {
               placeholder='Тип'
               value={lectoriumOptions.find(option => option.value === selectedType)}
             />
+            <button className={stls.calendarButton} onClick={handleToggleCalendar}>
+              Даты &nbsp;
+              <span
+                className={stls.caret}
+                style={{
+                  transform: isCalendarVisible
+                    ? 'rotate(-90deg) scaleX(.7)'
+                    : 'rotate(-270deg) scaleX(.7)'
+                }}>
+                &gt;
+              </span>
+            </button>
             <CustomSelect
             onChange={handleSelectPriceFilter}
             options={lectoriumPriceOptions}
             // isDisabled={!isInternal}
             radius='50'
             height='30'
-            mainColor='#6F01C6'
+            mainColor='#6F6F6F'
             placeholder='Тип'
             value={lectoriumPriceOptions.find(
               option => option.value === priceFilter

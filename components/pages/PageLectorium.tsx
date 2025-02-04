@@ -40,7 +40,7 @@ const PageLectorium = ({ lectorium }: Props) => {
         whatYouWillLearn={lectorium.whatYouWillLearn}
       />}
       {lectorium?.pdf && <DownloadProgram lectorium={lectorium} />}
-      {lectorium?.diploma && <LectoriumCertificate diploma={lectorium?.diploma} />}
+      {lectorium?.diploma && <LectoriumCertificate href={lectorium.timepadHref} diploma={lectorium?.diploma} />}
       <LectoriumHowGoesClasses />
       <HaveQuestions />
       <VideoReviews />

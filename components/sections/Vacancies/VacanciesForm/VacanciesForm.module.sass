@@ -8,7 +8,7 @@
   @include m.dye(bg, c.$purple-800)
   @include m.gap($p: f.px(50), $mtb: f.px(40))
   @include m.dye(c, c.$white-900)
-  max-height: f.px(560)
+  max-height: f.px(570)
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(25), $plr: f.px(15), $mtb: f.px(20))
     max-height: f.px(1100)
@@ -16,7 +16,7 @@
   & .email,
   & .phone
     @include m.media(laptop, desktop)
-      @include m.flex($fb: 47%)
+      @include m.flex($fb: 47%, $fd: column)
   & .name,
   & .email
     & input
@@ -72,8 +72,8 @@
   position: relative
 
 .form
-  display: grid
-  gap: f.px(20)
+  @include m.flex($fd: column, $jc: space-between)
+  gap: f.px(15)
 
 .icon
   position: relative
@@ -162,8 +162,9 @@
     width: 305px !important
 
 .err
-  @include m.gap($mt: f.px(5))
+  @include m.gap($mtb: f.px(5))
   @include m.dye(c, red)
+  font-size: f.px(12)
 
 .form > button
   @include m.dye(border, c.$pink-50)

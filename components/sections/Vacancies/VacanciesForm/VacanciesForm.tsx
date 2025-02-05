@@ -8,6 +8,8 @@ import 'react-phone-input-2/lib/style.css'
 import Button from '@/components/btns/Button'
 import { useState } from 'react'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import axios from 'axios'
+import routes from '@/config/routes'
 
 type FormValues = {
   name: string
@@ -27,7 +29,8 @@ const VacanciesForm = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors, dirtyFields }
+    formState: { errors, dirtyFields },
+    reset
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
@@ -42,28 +45,29 @@ const VacanciesForm = () => {
     setError(null)
     setSuccess(null)
     try {
-      const response = await fetch('/api/sendMail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-
-      if (response.ok) {
-        setSuccess('Сообщение успешно отправлено!')
+      const response = await axios.post(`${routes.front.root}/api/sendEmailToHR`, data)
+      if (response.status === 200) {
+        reset()
+        setSuccess('Форма успешно отправлено!')
+        alert(success)
       } else {
-        throw new Error('Ошибка при отправке')
+        setError('Ошибка! Попробуйте позже.')
+        alert(error)
       }
     } catch (err) {
       setError('Ошибка! Попробуйте позже.')
+      alert(error)
     } finally {
       setIsSubmitting(false)
     }
   }
 
   const disabled =
-    !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone || !dirtyFields.messageToHR
+    !dirtyFields.email ||
+    !dirtyFields.name ||
+    !dirtyFields.phone ||
+    !dirtyFields.messageToHR ||
+    isSubmitting
 
   return (
     <section className={stls.container}>
@@ -147,8 +151,7 @@ const VacanciesForm = () => {
                     pattern: {
                       value:
                         /[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-                      message:
-                        'Пожалуйста, введите корректный адрес электронной почты в формате example@mail.ru'
+                      message: 'Введите адрес электронной почты в корректном формате'
                     }
                   })}
                 />
@@ -160,7 +163,7 @@ const VacanciesForm = () => {
                   aria-label='Сообщение рекрутеру'
                   placeholder='Сообщение'
                   {...register('messageToHR', {
-                    required: `*Введите ваше сообщение`,
+                    required: `*Введите ваше сообщение рекрутеру`,
                     maxLength: {
                       value: 300,
                       message: `*Не больше 300 символов`

@@ -33,9 +33,11 @@ const SliderWithImg = ({ props }: ArticleAuthorsType) => {
           <div className={styles.container_slides}>
             {props.slide.map((slide, index) => (
               <div key={slide.id} className={styles.slide}>
-                <p className={styles.index}>
-                  {index + 1} / {props.slide.length}
-                </p>
+                <div className={styles.containerIndex}>
+                  <p className={styles.index}>
+                    {index + 1} / {props.slide.length}
+                  </p>
+                </div>
                 <h3 className={styles.subtitle}>{slide.title}</h3>
                 <p className={styles.description}>{slide.body}</p>
               </div>

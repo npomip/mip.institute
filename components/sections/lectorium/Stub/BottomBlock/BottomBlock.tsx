@@ -74,7 +74,7 @@ const BottomBlock = () => {
             </div>
             <div className={stls.container_img}>
               <Image
-                src='https://res.cloudinary.com/mipinstitute/image/upload/v1738594993/Front_Phone_a75337de11.png'
+                src='https://res.cloudinary.com/mipinstitute/image/upload/v1738753678/Front_phone_3c64dd3237.png'
                 alt='FrontPhone'
                 className={stls.img}
                 style={{ width: '100%', height: 'auto' }}

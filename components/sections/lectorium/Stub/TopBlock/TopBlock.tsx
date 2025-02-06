@@ -29,7 +29,7 @@ const TopBlock = ({ onClick }: TopBlockProps) => {
           </div>
           <div>
             <CldImage
-              src='https://res.cloudinary.com/mipinstitute/image/upload/v1738752208/Foto_dlya_zaglushki_3514d384ab.jpg'
+              src='https://res.cloudinary.com/mipinstitute/image/upload/v1738833628/Foto_zaglushka_c6286bb454.jpg'
               alt='Мероприятие'
               className={stls.img}
               width='620'

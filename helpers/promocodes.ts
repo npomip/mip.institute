@@ -23,7 +23,8 @@ const promocodes = {
   morskaya: 'МОРСКАЯ',
   veronikastepanova20011: 'СТЕПАНОВА',
   sobchak0702: 'Собчак',
-  vasilisavolodinaofficial: 'ВАСИЛИСА'
+  vasilisavolodinaofficial: 'ВАСИЛИСА',
+  dorogedeneg: 'ДОРОЖЕ'
 };
 
 export default promocodes

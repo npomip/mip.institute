@@ -31,6 +31,9 @@ const TopBlock = ({ onClick }: TopBlockProps) => {
             <CldImage
               src='https://res.cloudinary.com/mipinstitute/image/upload/v1738833628/Foto_zaglushka_c6286bb454.jpg'
               alt='Мероприятие'
+              // enhance
+              // quality={100}
+              dpr="1.5"
               className={stls.img}
               width='620'
               height='450'

@@ -32,6 +32,9 @@ const TopBlockParallax = ({ props }: PropsType) => {
     <section className={styles.container} onMouseMove={handleMouseMove}>
       <div className={styles.content}>
         <div className={styles.textBlock}>
+          <div className={styles.vacancyTag}>
+            <h1 className={styles.vacancyTitle}>Вакансии МИП</h1>
+          </div>
           <h2 className={styles.title}>{parsedData.title}</h2>
           <p className={styles.description}>{parsedData.description}</p>
           {parsedData.link && (

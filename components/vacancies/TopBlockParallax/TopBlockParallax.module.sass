@@ -21,7 +21,24 @@
     @include m.gap($mr: f.px(0))
     flex: none
     max-width: 100%
-  
+
+.vacancyTag
+  display: inline-block
+  @include m.gap($mb: f.px(20))
+  border-radius: f.px(80)
+  border: 1px solid c.$purple-370
+
+.vacancyTitle
+  color: c.$purple-370
+  font-family: Stem
+  font-size: f.px(16)
+  font-weight: 500
+  line-height: normal
+  @include m.gap($mb: f.px(0),$ptb: f.px(11),$plr: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
+    @include m.gap($ptb: f.px(7),$plr: f.px(18))
+
 .title
   font-size: f.px(60)
   font-weight: 500

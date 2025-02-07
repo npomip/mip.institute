@@ -24,7 +24,8 @@ const promocodes = {
   veronikastepanova20011: 'СТЕПАНОВА',
   sobchak0702: 'Собчак',
   vasilisavolodinaofficial: 'ВАСИЛИСА',
-  dorogedeneg: 'ДОРОЖЕ'
+  dorogedeneg: 'ДОРОЖЕ',
+  '1000idey2': '1000',
 };
 
 export default promocodes

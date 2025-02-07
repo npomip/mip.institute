@@ -102,7 +102,121 @@
   object-fit: cover
   position: absolute
   transition: transform 0.1s ease-out
+  
+.parallaxImage[data-id="1"]
+  @include m.media(desktop)
+    top: 11%
+    left: 37%
+  @include m.media(laptop)
+    top: 9%
+    left: 30%
+  @include m.media(tablet)
+    top: 11%
+    left: 37%
+  @include m.media(phone)
+    top: 11%
+    left: 34%
 
+.parallaxImage[data-id="2"]
+  @include m.media(desktop)
+    top: 22%
+    right: 20%
+  @include m.media(laptop)
+    top: 20%
+    right: 20%
+  @include m.media(tablet)
+    top: 22%
+    right: 13%
+  @include m.media(phone)
+    top: 22%
+    right: 16%
+
+.parallaxImage[data-id="3"]
+  @include m.media(desktop)
+    bottom: 30%
+    right: 57%
+  @include m.media(laptop)
+    bottom: 23%
+    right: 57%
+  @include m.media(tablet)
+    bottom: 20%
+    right: 42%
+  @include m.media(phone)
+    bottom: 20%
+    right: 45%
+
+.parallaxImage[data-id="4"]
+  @include m.media(desktop)
+    bottom: 19%
+    right: 25%
+  @include m.media(laptop)
+    bottom: 17%
+    right: 25%
+  @include m.media(tablet)
+    bottom: 15%
+    right: 10%
+  @include m.media(phone)
+    bottom: 15%
+    right: 13%
+
+.parallaxImage[data-id="5"]
+  @include m.media(desktop)
+    top: 35%
+    left: 10%
+  @include m.media(laptop)
+    top: 35%
+    left: 8%
+  @include m.media(tablet)
+    top: 40%
+    left: 10%
+  @include m.media(phone)
+    top: 40%
+    left: 10%
+
+.specialImageFoto
+  @include m.media(desktop,laptop)
+    width: 110px
+    height: 110px
+  @include m.media(tablet)
+    width: 160px
+    height: 160px
+  @include m.media(phone)
+    width: 85px
+    height: 85px
+    
+.specialImageChat
+  @include m.media(desktop,laptop)
+    width: 80px
+    height: 80px
+  @include m.media(tablet)
+    width: 120px
+    height: 120px
+  @include m.media(phone)
+    width: 63px
+    height: 63px
+
+.specialImageMip
+  @include m.media(desktop,laptop)
+    width: 90px
+    height: 90px
+  @include m.media(tablet)
+    width: 140px
+    height: 140px
+  @include m.media(phone)
+    width: 65px
+    height: 65px
+
+.specialImagePointer
+  @include m.media(desktop,laptop)
+    width: 90px
+    height: 90px
+  @include m.media(tablet)
+    width: 140px
+    height: 140px
+  @include m.media(phone)
+    width: 65px
+    height: 65px
+    
 .svgBackgroundDes
   & svg
     @include m.media(phone, tablet)

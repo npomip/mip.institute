@@ -19,8 +19,8 @@ const HowBecomeaPart = ({ props: { title, quote } }: Props) => {
           ))}
 
           <CldImage
-            src='how_Becomea_Part_869976239c'
-            alt='Нанять'
+            src='skrepka_fa00963609'
+            alt='Принять'
             width={300}
             height={350}
             style={{ width: '100%' }}

@@ -17,7 +17,7 @@ const BlockGladSeeTeam = ({ props }: PropsType) => {
   const parsedData = parseRichTextData(props)
   const playerRef = useRef<any>(null)
 
-  const VIDEO_ID = 'jfpp3hCFWwD48XV8BW9nGB'
+  const VIDEO_ID = 'osX9Xixs4ok8jRx9Vs6QN3'
 
   const handleRestart = () => {
     if (playerRef.current) {

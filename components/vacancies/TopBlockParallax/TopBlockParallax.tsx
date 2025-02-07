@@ -3,6 +3,7 @@ import styles from './TopBlockParallax.module.sass'
 import Image from 'next/image'
 import { images, parseTopBlockData, TopBlockDataType } from './const'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import classNames from 'classnames'
 
 type PropsType = {
   props: TopBlockDataType
@@ -27,7 +28,13 @@ const TopBlockParallax = ({ props }: PropsType) => {
     setMouseX(x)
     setMouseY(y)
   }
-
+  const getImageClass = (id: number) =>
+    classNames(styles.parallaxImage, {
+      [styles.specialImageFoto]: id === 1 || id === 4,
+      [styles.specialImageChat]: id === 3,
+      [styles.specialImageMip]: id === 2,
+      [styles.specialImagePointer]: id === 5
+    })
   return (
     <section className={styles.container} onMouseMove={handleMouseMove}>
       <div className={styles.content}>
@@ -81,19 +88,15 @@ const TopBlockParallax = ({ props }: PropsType) => {
             {images.map(img => (
               <Image
                 key={img.id}
-                className={styles.parallaxImage}
+                className={getImageClass(img.id)}
                 alt='Параллакс изображение'
                 src={img.src}
                 width={img.width}
                 height={img.height}
                 quality={100}
+                data-id={img.id}
                 style={{
-                  transform: `translate(${mouseX * img.xFactor}px, ${mouseY * img.yFactor}px) ${isMobileAndTabletLayout ? `scale(${img.scaleMobile})` : `scale(${img.scale})`}`,
-                  position: 'absolute',
-                  top: img.top,
-                  bottom: img.bottom,
-                  left: img.left,
-                  right: img.right
+                  transform: `translate(${mouseX * img.xFactor}px, ${mouseY * img.yFactor}px) ${isMobileAndTabletLayout ? `scale(${img.scaleMobile})` : `scale(${img.scale})`}`
                 }}
               />
             ))}

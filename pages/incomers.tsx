@@ -3,7 +3,7 @@ import { getStaticPropsIncomers } from '@/lib/handlers/getStaticPropsIncomers'
 import { GetStaticProps } from 'next'
 
 const IncomersIndexPage = ({ incomers }) => {
-  console.log(incomers);
+  console.log('AAAAAA',incomers);
   
   return <PageIncomers incomers={incomers} />
 }

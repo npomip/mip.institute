@@ -14,12 +14,12 @@ const queryString = qs.stringify(
 )
 export const getStaticPropsIncomers = async () => {
   try {
-    const response = await axios.get(`${routes.back.rootv2}/api/incomers`, {
+    
+    const response = await axios.get(`${routes.back.rootv2}/api/incomer`, {
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Замените на ваш токен
       }
     })
-    console.log(response.data.data.error);
     
     return {
       props: {
@@ -28,6 +28,11 @@ export const getStaticPropsIncomers = async () => {
       revalidate: revalidate.default
     }
   } catch (e) {
-    console.log(e)
+    console.log(e.response.data)
+    return {
+      props: {
+        incomers: e.response.data || []
+      },
+    }
   }
 }

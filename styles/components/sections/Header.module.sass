@@ -8,6 +8,8 @@
 
 .container
   @include m.dye(bg, c.$purple-800)
+  position: relative
+  z-index:  9
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(4, em), $pb: f.px(1, em))
 

@@ -13,6 +13,7 @@
 
 .textBlock
   flex: 1
+  z-index: 3
   max-width: 50%
   color: c.$black-900
   font-family: Stem
@@ -93,11 +94,6 @@
   @include m.media(phone)
     transform: scale(1.1)
 
-.backgroundImage
-  width: 100%
-  height: 100%
-  border-radius: 20px
-
 .parallaxImage
   width: clamp(4.5rem, -8.084rem + 25.2vw, 7rem)
   height: auto
@@ -106,3 +102,27 @@
   object-fit: cover
   position: absolute
   transition: transform 0.1s ease-out
+
+.svgBackgroundDes
+  & svg
+    @include m.media(phone, tablet)
+      opacity: 0
+
+
+.svgBackgroundMob
+  @include m.media(desktop,laptop)
+    display: none
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+  & svg
+    width: 100%
+    height: auto
+    max-width: 100vw
+    object-fit: cover

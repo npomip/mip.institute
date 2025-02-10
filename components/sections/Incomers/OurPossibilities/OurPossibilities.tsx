@@ -3,6 +3,7 @@ import routes from '@/config/routes'
 import stls from './OurPossibilities.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import Image from 'next/image'
+import ArrowButton from '../ArrowButton/ArrowButton'
 
 type TextItemType = {
   type: string
@@ -55,8 +56,6 @@ const socialButoomLinks = [
 ]
 
 const OurPossibilities = ({ data }: Props) => {
-  console.log(data, 'data')
-
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -64,6 +63,9 @@ const OurPossibilities = ({ data }: Props) => {
         <div className={stls.containerBlock}>
           {data[0] && (
             <div className={stls.containerBlock_One}>
+              <div className={stls.containerBlock_One_btn}>
+                <ArrowButton />
+              </div>
               <div className={stls.containerBlock_One_title}>
                 {data[0].text[0]?.children[0]?.text}
               </div>

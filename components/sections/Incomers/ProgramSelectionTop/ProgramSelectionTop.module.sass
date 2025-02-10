@@ -22,8 +22,9 @@
 
 .purples
   display: grid
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: repeat(2, 1fr)
   gap: f.px(30)
+  @include m.gap($mb: f.px(30))
 
 .purpleCard
   border-radius: f.px(20)
@@ -45,6 +46,30 @@
   font-size: f.px(18)
   font-weight: 350
 
+.cards
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: f.px(30)
+
 .greyCard
   border-radius: f.px(14)
+  @include m.gap($pt: f.px(30), $pb: 0, $plr: f.px(15))
   @include m.dye(bg, c.$pink-50)
+
+.greyCardTitle
+  text-align: center
+  display: block
+  font-size: f.px(18)
+  font-weight: 500
+
+.list
+  @include m.gap($pl: 0)
+  @include m.flex($fd: column)
+  gap: f.px(20)
+
+.point
+  @include m.flex($ai: center)
+  gap: f.px(10)
+  font-size: f.px(14)
+  font-weight: 350
+

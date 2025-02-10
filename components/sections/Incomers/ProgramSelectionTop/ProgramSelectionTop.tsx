@@ -1,5 +1,6 @@
 import Wrapper from '@/ui/Wrapper'
 import stls from './ProgramSelectionTop.module.sass'
+import IconCheck from '@/components/icons/IconCheck'
 
 const ProgramSelectionTop = () => {
   const purples = [
@@ -15,7 +16,7 @@ const ProgramSelectionTop = () => {
 
   const cards = [
     {
-      title: 'Профессиональная переподготовка',
+      title: '{Профессиональная переподготовка}',
       points: [
         '8 основных направлений в изучении психологии',
         'Для тех, кто решил освоить новую профессию с нуля',
@@ -51,7 +52,7 @@ const ProgramSelectionTop = () => {
       ]
     }
   ]
-  
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -64,6 +65,23 @@ const ProgramSelectionTop = () => {
             <div key={index} className={stls.purpleCard}>
               <span className={stls.purpleCardTitle}>{item.title}</span>
               <span className={stls.purpleCardText}>{item.text}</span>
+            </div>
+          ))}
+        </div>
+        <div className={stls.cards}>
+          {cards.map((item, index) => (
+            <div key={index} className={stls.greyCard}>
+              <span className={stls.greyCardTitle}>{item.title}</span>
+              <ul className={stls.list}>
+                {item.points.map((item, index) => (
+                  <li key={index} className={stls.point}>
+                    <span>
+                      <IconCheck noBackground />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

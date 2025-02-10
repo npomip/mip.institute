@@ -1,6 +1,13 @@
 import Wrapper from '@/ui/Wrapper'
 import stls from './ProgramSelectionTop.module.sass'
 import IconCheck from '@/components/icons/IconCheck'
+import Image from 'next/image'
+import pic from './pic.png'
+import ArrowButton from '@/components/sections/Incomers/ArrowButton/ArrowButton'
+import { incomersStudyOptions } from 'constants/customSelect'
+import CustomSelect from '@/ui/CustomSelect'
+import { useState } from 'react'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const ProgramSelectionTop = () => {
   const purples = [
@@ -16,7 +23,8 @@ const ProgramSelectionTop = () => {
 
   const cards = [
     {
-      title: '{Профессиональная переподготовка}',
+      title: 'Профессиональная переподготовка',
+      value: 'profession',
       points: [
         '8 основных направлений в изучении психологии',
         'Для тех, кто решил освоить новую профессию с нуля',
@@ -26,6 +34,7 @@ const ProgramSelectionTop = () => {
     },
     {
       title: 'Практическая подготовка',
+      value: 'practicalTraining',
       points: [
         '8 основных направлений в изучении психологии',
         'Для тех, кто решил освоить новую профессию с нуля',
@@ -35,6 +44,7 @@ const ProgramSelectionTop = () => {
     },
     {
       title: 'Повышение квалификации',
+      value: 'course',
       points: [
         '8 основных направлений в изучении психологии',
         'Для тех, кто решил освоить новую профессию с нуля',
@@ -43,7 +53,8 @@ const ProgramSelectionTop = () => {
       ]
     },
     {
-      title: 'Бакалавриат в МИП',
+      title: 'Бакалавриат',
+      value: 'bachelor',
       points: [
         '8 основных направлений в изучении психологии',
         'Для тех, кто решил освоить новую профессию с нуля',
@@ -52,7 +63,12 @@ const ProgramSelectionTop = () => {
       ]
     }
   ]
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
+  const [type, setType] = useState(incomersStudyOptions[0]?.value)
+
+  const filteredCards = isMobileAndTabletLayout ? cards.filter(card => card.value === type) : cards
+  console.log({ type })
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -68,20 +84,49 @@ const ProgramSelectionTop = () => {
             </div>
           ))}
         </div>
+        {isMobileAndTabletLayout && (
+          <CustomSelect
+            onChange={selected => setType(selected.value)}
+            options={incomersStudyOptions}
+            radius='50'
+            height='55'
+            mainColor='#FF8F52'
+            bgColor='#FF8F52'
+            textColor='white'
+            placeholder='Выбрать уровень образования'
+            menuBorderColor='#FF8F52'
+            value={incomersStudyOptions.find(option => option.value === type)}
+          />
+        )}
         <div className={stls.cards}>
-          {cards.map((item, index) => (
+          {filteredCards.map((item, index) => (
             <div key={index} className={stls.greyCard}>
-              <span className={stls.greyCardTitle}>{item.title}</span>
-              <ul className={stls.list}>
-                {item.points.map((item, index) => (
-                  <li key={index} className={stls.point}>
-                    <span>
-                      <IconCheck noBackground />
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className={stls.btnContainer}>
+                <ArrowButton />
+              </div>
+              <div>
+                <span className={stls.greyCardTitle}>{item.title}</span>
+                <ul className={stls.list}>
+                  {item.points.map((item, index) => (
+                    <li key={index} className={stls.point}>
+                      <span>
+                        <IconCheck noBackground />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className={stls.imageDiv}>
+                <Image
+                  src={pic}
+                  alt=''
+                  width={230}
+                  height={150}
+                  style={{ height: '100%', width: '100%' }}
+                  className={stls.image}
+                />
+              </div>
             </div>
           ))}
         </div>

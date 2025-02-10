@@ -9,7 +9,7 @@ const promocodes = {
   globa: 'ГЛОБА',
   uzefovich: 'ЮЗЕФОВИЧ',
   shahimat: 'Шах и Мат',
-  eninaanna:'ЕНИНА',
+  eninaanna: 'ЕНИНА',
   dashtolc: 'dashatolc',
   sobchak: 'СОБЧАК',
   sulim: 'СУЛИМ',
@@ -26,6 +26,7 @@ const promocodes = {
   vasilisavolodinaofficial: 'ВАСИЛИСА',
   dorogedeneg: 'ДОРОЖЕ',
   '1000idey2': '1000',
-};
+  tanyamint: 'MINT'
+}
 
 export default promocodes

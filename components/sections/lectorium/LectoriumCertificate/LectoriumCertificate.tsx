@@ -6,8 +6,10 @@ import Wrapper from '@/ui/Wrapper'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical/TwoColumnsPractical'
 import Looper from '@/components/icons/Looper'
 import { CldImage } from 'next-cloudinary'
+import Link from 'next/link'
 
-const LectoriumCertificate = ({ diploma }) => {
+const LectoriumCertificate = ({ diploma, href }) => {
+  
   const classNameImages = [stls.imgClass1, stls.imgClass2, stls.imgClass3]
   return (
     <section className={stls.container}>
@@ -60,9 +62,12 @@ const LectoriumCertificate = ({ diploma }) => {
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>
-            <div className={stls.btn}>
-              <PopupTrigger btn='zeta' cta='reserve' />
-            </div>
+            <Link href={href}  passHref legacyBehavior>
+            <a target="_blank" className={stls.btn}>
+            Забронировать
+
+            </a>
+            </Link >
           </div>
         </TwoColumnsPractical>
       </Wrapper>

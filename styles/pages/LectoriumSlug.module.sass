@@ -35,14 +35,14 @@
   gap: f.px(15)
 
   @include m.media(phone, tablet)
-    @include m.flex($fd: column, $ai: flex-start)
+    @include m.flex( $ai: flex-start)
     & > button.calendarButton
       order: 2
     & > *:not(.calendarButton)
       order: 1
 
 .calendarButton
-  border: 1px solid c.$purple-300
+  border: 1px solid #6F6F6F
   border-radius: f.px(50)
   @include m.gap($pl: f.px(20), $ptb: f.px(11), $pr: f.px(10))
   background: white
@@ -52,9 +52,10 @@
   white-space: nowrap
   font-size: f.px(14)
   display: flex
+  color: black
 
   &:hover
-    background-color: c.$purple-300
+    background-color: #6F6F6F
     color: white
 
   .caret
